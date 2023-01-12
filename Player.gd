@@ -6,8 +6,11 @@ export (float) var Gravity = 35
 export (float) var ForceKnockback = 5
 export (float) var Friction = 300
 
+var AttackPoints = 1
+var Dodge = 1
 onready var Animate = $AnimatedSprite
 onready var CheckFloor = $"Is On Floor Cast"
+onready var AttackTimer = $"Attack Timer"
 
 var DirectionFacing = 1
 
@@ -41,6 +44,7 @@ func _physics_process(delta):
 	
 	match SelectState:
 		StateList.Idle:
+			print("Idle")
 			_apply_gravity_()
 			if !is_on_floor():
 				SelectState = StateList.Fall
@@ -53,24 +57,32 @@ func _physics_process(delta):
 				Animate.flip_h = true
 				DirectionFacing = -1
 				
-				if Input.is_action_just_pressed("Attack"):
+				if Input.is_action_just_pressed("Attack") && AttackPoints == 1:
 					SelectState = StateList.Slight
+					AttackTimer.start()
+					
 					
 			elif Input.is_action_pressed("Right"):
 				Motion.x = MovementSpeed
 				Animate.play("Run")
 				Animate.flip_h = false
 				DirectionFacing = 1
-				if Input.is_action_just_pressed("Attack"):
+				
+				if Input.is_action_just_pressed("Attack") && AttackPoints == 1 :
 					SelectState = StateList.Slight
+					AttackTimer.start()
 					
 			elif Input.is_action_pressed("Up"):
+				
 				if Input.is_action_just_pressed("Attack"):
 					SelectState = StateList.Ulight
 					
 			elif Input.is_action_pressed("Down"):
+				$AnimationPlayer.play("Disable ")
 				if Input.is_action_just_pressed("Attack"):
 					SelectState = StateList.Dlight
+					
+			
 			else:
 				Motion.x = 0
 				Animate.play("Idle")
@@ -86,11 +98,12 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("Dash"):
 				SelectState = StateList.Dash
 				Motion.x = 0
+				
 		StateList.Jump:
 			_apply_gravity_()
 			if is_on_floor():
 				Motion.y = -JumpHeight
-				$Floor.disabled = true
+				
 			if Motion.y < 0:
 				Animate.play("Jump")
 				
@@ -99,16 +112,18 @@ func _physics_process(delta):
 			
 			if Input.is_action_just_pressed("Attack"):
 				SelectState = StateList.Nair
+				
 		StateList.Fall:
 			_apply_gravity_()
 			Animate.play("Fall")
-			$Floor.disabled = false
+			
 			if is_on_floor():
 				SelectState = StateList.Idle
-				print("On floor")
+				Animate.play("Idle")
 
 		StateList.Ulight:
 			Animate.play("Up Light")
+			
 		StateList.Nlight:
 			Animate.play("Nuetral Light")
 			
@@ -160,6 +175,13 @@ func _on_AnimatedSprite_animation_finished():
 		SelectState = StateList.Idle
 		Animate.play("Idle")
 	
-	if Animate.animation == "Dodge Phase":
-		SelectState = StateList.Fall
-		Animate.play("Dodge Phase")
+
+
+
+	
+
+
+
+
+func _on_Attack_Timer_timeout():
+	AttackPoints = 1

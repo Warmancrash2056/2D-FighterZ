@@ -106,7 +106,7 @@ animations = [ {
 "frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 34 ), ExtResource( 30 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 23 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 24 ), ExtResource( 37 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "Down Light",
-"speed": 12.0
+"speed": 16.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
@@ -131,7 +131,7 @@ animations = [ {
 "frames": [ ExtResource( 40 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 47 ), ExtResource( 44 ) ],
 "loop": true,
 "name": "Nuetral Light",
-"speed": 6.0
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ) ],
 "loop": true,
@@ -141,12 +141,12 @@ animations = [ {
 "frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "Side Light",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 83 ), ExtResource( 74 ), ExtResource( 81 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 66 ), ExtResource( 78 ), ExtResource( 69 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 79 ), ExtResource( 73 ), ExtResource( 80 ), ExtResource( 82 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 84 ), ExtResource( 85 ) ],
 "loop": true,
 "name": "Up Light",
-"speed": 12.0
+"speed": 16.0
 } ]
 
 [sub_resource type="Animation" id=4]
@@ -194,7 +194,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, -38 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 1
+frame = 5
 playing = true
 offset = Vector2( 0, -10 )
 

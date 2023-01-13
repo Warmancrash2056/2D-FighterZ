@@ -41,7 +41,7 @@ func _apply_gravity_():
 	Motion.y += Gravity
 func _physics_process(delta):
 	Motion = move_and_slide(Motion, Up)
-	
+		
 	match SelectState:
 		StateList.Idle:
 			print("Idle")
@@ -79,9 +79,9 @@ func _physics_process(delta):
 					
 			elif Input.is_action_pressed("Down"):
 				$AnimationPlayer.play("Disable ")
+				
 				if Input.is_action_just_pressed("Attack"):
 					SelectState = StateList.Dlight
-					
 			
 			else:
 				Motion.x = 0
@@ -161,13 +161,17 @@ func _on_AnimatedSprite_animation_finished():
 		Animate.play("Fall")
 		SelectState = StateList.Fall
 		
+		
+		
 	if Animate.animation == "Nuetral Light":
 		SelectState = StateList.Idle
 		Animate.play("Idle")
+		$AnimationPlayer.play("RESET")
 
 	if Animate.animation == "Down Light":
 		SelectState = StateList.Idle
 		Animate.play("Idle")
+		$AnimationPlayer.play("RESET")
 		
 	if Animate.animation == "Up Light":
 		SelectState = StateList.Idle

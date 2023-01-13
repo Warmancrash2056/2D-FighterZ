@@ -126,6 +126,7 @@ func _physics_process(delta):
 			
 		StateList.Nlight:
 			Animate.play("Nuetral Light")
+			$AnimationPlayer.play("Nuetral Light")
 			
 		StateList.Slight:
 			Motion.x = 0
@@ -137,6 +138,7 @@ func _physics_process(delta):
 		StateList.Nair:
 			Motion.y = 0
 			Animate.play("Nuetral Air")
+			$AnimationPlayer.play("Nuetral Air")
 			
 		StateList.Dash:
 			_apply_gravity_()

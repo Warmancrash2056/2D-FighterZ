@@ -147,6 +147,11 @@ animations = [ {
 "loop": true,
 "name": "Up Light",
 "speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "j",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=4]
@@ -277,8 +282,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -38 )
 frames = SubResource( 2 )
-animation = "Nuetral Light"
-frame = 4
+animation = "j"
 offset = Vector2( 0, -10 )
 
 [node name="Is On Floor Cast" type="RayCast2D" parent="."]

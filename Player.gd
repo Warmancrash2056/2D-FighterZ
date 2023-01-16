@@ -6,11 +6,11 @@ export (float) var Gravity = 35
 export (float) var ForceKnockback = 5
 export (float) var Friction = 300
 
-var AttackPoints = 1
-var Dodge = 1
+
+onready var PlatformDisable = $AnimationPlayer
 onready var Animate = $AnimatedSprite
 onready var CheckFloor = $"Is On Floor Cast"
-onready var AttackTimer = $"Attack Timer"
+
 
 var DirectionFacing = 1
 
@@ -57,9 +57,9 @@ func _physics_process(delta):
 				Animate.flip_h = true
 				DirectionFacing = -1
 				
-				if Input.is_action_just_pressed("Attack") && AttackPoints == 1:
+				if Input.is_action_just_pressed("Attack"):
 					SelectState = StateList.Slight
-					AttackTimer.start()
+					
 					
 					
 			elif Input.is_action_pressed("Right"):
@@ -68,9 +68,8 @@ func _physics_process(delta):
 				Animate.flip_h = false
 				DirectionFacing = 1
 				
-				if Input.is_action_just_pressed("Attack") && AttackPoints == 1 :
+				if Input.is_action_just_pressed("Attack"):
 					SelectState = StateList.Slight
-					AttackTimer.start()
 					
 			elif Input.is_action_pressed("Up"):
 				
@@ -126,19 +125,16 @@ func _physics_process(delta):
 			
 		StateList.Nlight:
 			Animate.play("Nuetral Light")
-			$AnimationPlayer.play("Nuetral Light")
 			
 		StateList.Slight:
 			Motion.x = 0
 			Animate.play("Side Light")
-			
 		StateList.Dlight:
 			Animate.play("Down Light")
 			
 		StateList.Nair:
 			Motion.y = 0
-			Animate.play("Nuetral Air")
-			$AnimationPlayer.play("Nuetral Air")
+			PlatformDisable.play("Nuetral Air")
 			
 		StateList.Dash:
 			_apply_gravity_()
@@ -152,35 +148,6 @@ func _physics_process(delta):
 			
 
 
-func _on_AnimatedSprite_animation_finished():
-	if Animate.animation == "Side Light":
-		Animate.play("Idle")
-		SelectState = StateList.Idle
-		
-	if Animate.animation == "Nuetral Air":
-		Animate.play("Fall")
-		SelectState = StateList.Fall
-		
-		
-		
-	if Animate.animation == "Nuetral Light":
-		SelectState = StateList.Idle
-		Animate.play("Idle")
-		$AnimationPlayer.play("RESET")
-
-	if Animate.animation == "Down Light":
-		SelectState = StateList.Idle
-		Animate.play("Idle")
-		$AnimationPlayer.play("RESET")
-		
-	if Animate.animation == "Up Light":
-		SelectState = StateList.Idle
-		Animate.play("Idle")
-		
-	if Animate.animation == "Dodge Phase":
-		SelectState = StateList.Idle
-		Animate.play("Idle")
-	
 
 
 
@@ -188,6 +155,5 @@ func _on_AnimatedSprite_animation_finished():
 
 
 
-
-func _on_Attack_Timer_timeout():
-	AttackPoints = 1
+func _on_AnimationPlayer_animation_finished(anim_name):
+	pass

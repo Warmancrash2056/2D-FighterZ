@@ -48,9 +48,8 @@ func _physics_process(delta):
 			if Input.is_action_pressed("Right"):
 				Animate.play("Run")
 				Motion.x = MovementSpeed
-				col_position.scale.x *= 1
+				HitBox.position.x = 26
 				SpriteSheet.flip_h = false
-				
 				if Input.is_action_just_released("Attack"):
 					SelectState = StateList.Slight
 					
@@ -60,9 +59,8 @@ func _physics_process(delta):
 			elif Input.is_action_pressed("Left"):
 				Animate.play("Run")
 				Motion.x = -MovementSpeed
+				HitBox.position.x = -26
 				SpriteSheet.flip_h = true
-				col_position.scale.x *= -1
-				
 				if Input.is_action_just_released("Attack"):
 					SelectState = StateList.Slight
 					
@@ -77,6 +75,7 @@ func _physics_process(delta):
 			pass
 			
 		StateList.Slight:
+			
 			Animate.play("Side Light")
 			
 		StateList.Dlight:

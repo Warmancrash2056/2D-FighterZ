@@ -7,10 +7,11 @@ export (float) var ForceKnockback = 5
 export (float) var Friction = 300
 
 
-onready var PlatformDisable = $AnimationPlayer
-onready var Animate = $AnimatedSprite
+onready var Animate = $AnimationPlayer
+onready var SpriteSheet = $Sprite
 onready var CheckFloor = $"Is On Floor Cast"
-
+onready var HitBox = $HitBox/CollisionShape2D
+onready var col_position = $Position2D
 
 var DirectionFacing = 1
 
@@ -24,7 +25,6 @@ enum StateList {
 	Ulight,
 	Nair,
 	Idle,
-	Move,
 	Jump,
 	Fall,
 	Block,
@@ -41,119 +41,53 @@ func _apply_gravity_():
 	Motion.y += Gravity
 func _physics_process(delta):
 	Motion = move_and_slide(Motion, Up)
-		
+	
 	match SelectState:
 		StateList.Idle:
-			print("Idle")
 			_apply_gravity_()
-			if !is_on_floor():
-				SelectState = StateList.Fall
-				Animate.play("Fall")
-				
-			Motion.x = 0
-			if Input.is_action_pressed("Left"):
-				Motion.x = -MovementSpeed
+			if Input.is_action_pressed("Right"):
 				Animate.play("Run")
-				Animate.flip_h = true
-				DirectionFacing = -1
-				
-				if Input.is_action_just_pressed("Attack"):
-					SelectState = StateList.Slight
-					
-					
-					
-			elif Input.is_action_pressed("Right"):
 				Motion.x = MovementSpeed
-				Animate.play("Run")
-				Animate.flip_h = false
-				DirectionFacing = 1
+				col_position.scale.x *= 1
+				SpriteSheet.flip_h = false
 				
-				if Input.is_action_just_pressed("Attack"):
+				if Input.is_action_just_released("Attack"):
 					SelectState = StateList.Slight
 					
-			elif Input.is_action_pressed("Up"):
-				
-				if Input.is_action_just_pressed("Attack"):
-					SelectState = StateList.Ulight
+					yield(Animate, "animation_finished")
+					SelectState = StateList.Idle
 					
-			elif Input.is_action_pressed("Down"):
-				$AnimationPlayer.play("Disable ")
+			elif Input.is_action_pressed("Left"):
+				Animate.play("Run")
+				Motion.x = -MovementSpeed
+				SpriteSheet.flip_h = true
+				col_position.scale.x *= -1
 				
-				if Input.is_action_just_pressed("Attack"):
-					SelectState = StateList.Dlight
-			
-			else:
-				Motion.x = 0
-				Animate.play("Idle")
-				
-				if Input.is_action_just_pressed("Attack"):
-					SelectState = StateList.Nlight
+				if Input.is_action_just_released("Attack"):
+					SelectState = StateList.Slight
 					
-					
-				
-			if Input.is_action_just_pressed("Jump"):
-				SelectState = StateList.Jump
-				
-			if Input.is_action_just_pressed("Dash"):
-				SelectState = StateList.Dash
-				Motion.x = 0
-				
-		StateList.Jump:
-			_apply_gravity_()
-			if is_on_floor():
-				Motion.y = -JumpHeight
-				
-			if Motion.y < 0:
-				Animate.play("Jump")
+					yield(Animate, "animation_finished")
+					SelectState = StateList.Idle
 				
 			else:
-				SelectState = StateList.Fall
-			
-			if Input.is_action_just_pressed("Attack"):
-				SelectState = StateList.Nair
-				
-		StateList.Fall:
-			_apply_gravity_()
-			Animate.play("Fall")
-			
-			if is_on_floor():
-				SelectState = StateList.Idle
 				Animate.play("Idle")
-
-		StateList.Ulight:
-			Animate.play("Up Light")
-			
+				Motion.x = 0
+				
 		StateList.Nlight:
-			Animate.play("Nuetral Light")
+			pass
 			
 		StateList.Slight:
-			Motion.x = 0
 			Animate.play("Side Light")
+			
 		StateList.Dlight:
-			Animate.play("Down Light")
+			pass
 			
-		StateList.Nair:
-			Motion.y = 0
-			PlatformDisable.play("Nuetral Air")
-			
-		StateList.Dash:
-			_apply_gravity_()
-			Animate.play("Dodge Phase")
-			
-			if Input.is_action_pressed("Up"):
-				Motion.y = -MovementSpeed
+		StateList.Ulight:
+			pass
 				
-			elif Input.is_action_pressed("Down"):
-				Motion.y = MovementSpeed
-			
-
-
-
-
-
-	
 
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	pass
+	if Animate.current_animation == "Run":
+		print("Hello World")

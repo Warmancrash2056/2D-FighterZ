@@ -129,12 +129,30 @@ func _physics_process(delta):
 			
 			if Input.is_action_just_pressed("Attack"):
 				SelectState = StateList.Nair
+				
+			if Input.is_action_pressed("Left"):
+				Motion.x = -MovementSpeed
+				
+			elif Input.is_action_pressed("Right"):
+				Motion.x = MovementSpeed
+			else:
+				Motion.x = 0
+				
 		StateList.Fall:
 			_apply_gravity_()
 			Animate.play("Fall")
 			
 			if CheckFloor.is_colliding():
 				SelectState = StateList.Idle
+				
+			if Input.is_action_pressed("Left"):
+				Motion.x = -MovementSpeed
+				
+			elif Input.is_action_pressed("Right"):
+				Motion.x = MovementSpeed
+			else:
+				Motion.x = 0
+				
 		StateList.Nlight:
 			Animate.play("Nuetral Light")
 			Motion.x = 0
@@ -173,5 +191,3 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Nuetral Air":
 		SelectState = StateList.Fall
 
-	if anim_name == "Disable":
-		print("Fall")

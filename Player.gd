@@ -10,8 +10,17 @@ export (float) var Friction = 300
 onready var Animate = $AnimationPlayer
 onready var SpriteSheet = $Sprite
 onready var CheckFloor = $"Is On Floor Cast"
-onready var HitBox = $HitBox/CollisionShape2D
-onready var col_position = $Position2D
+
+onready var Nlight_Col = $"Nuetral Light/CollisionShape2D"
+onready var Slight_Col = $"Side Light/CollisionShape2D"
+onready var Dlight_Col_Large = $"Down Light/Large Collision"
+onready var Dlight_Col_Small = $"Down Light/Small Collision"
+onready var Ulight_Col_Left = $"Up Light/Left Hand"
+onready var Ulight_Col_Right = $"Up Light/Right Hand"
+onready var Ulight_Col_Bottom = $"Up Light/Bottom"
+onready var Ulight_Col_Middle = $"Up Light/Middle"
+onready var Nair_Col = $"Nuetral Air"
+
 
 var DirectionFacing = 1
 
@@ -37,6 +46,10 @@ enum StateList {
 }
 
 var SelectState = StateList.Idle
+
+func _ready():
+	pass
+	
 func _apply_gravity_():
 	Motion.y += Gravity
 func _physics_process(delta):
@@ -45,48 +58,120 @@ func _physics_process(delta):
 	match SelectState:
 		StateList.Idle:
 			_apply_gravity_()
+			
+			if !is_on_floor():
+				SelectState = StateList.Fall
 			if Input.is_action_pressed("Right"):
 				Animate.play("Run")
 				Motion.x = MovementSpeed
-				HitBox.position.x = 26
+				
+				Nlight_Col.position = Vector2(27,-8)
+				Slight_Col.position = Vector2(16.5,-7.25)
+				Dlight_Col_Large.position = Vector2(67,-1)
+				Dlight_Col_Small.position = Vector2(43,10)
+				Ulight_Col_Left.position = Vector2(12,-3)
+				Ulight_Col_Right.position = Vector2(58, -3)
+				Ulight_Col_Middle.position = Vector2(36, -14)
+				Ulight_Col_Bottom.position = Vector2(36, 10)
 				SpriteSheet.flip_h = false
+				
 				if Input.is_action_just_released("Attack"):
 					SelectState = StateList.Slight
 					
-					yield(Animate, "animation_finished")
-					SelectState = StateList.Idle
 					
 			elif Input.is_action_pressed("Left"):
 				Animate.play("Run")
 				Motion.x = -MovementSpeed
-				HitBox.position.x = -26
+				
+				Nlight_Col.position = Vector2(-27,-8)
+				Slight_Col.position = Vector2(-16.5,-7.25)
+				Dlight_Col_Large.position = Vector2(-67,-1)
+				Dlight_Col_Small.position = Vector2(-43,10)
+				Ulight_Col_Left.position = Vector2(-12,-3)
+				Ulight_Col_Right.position = Vector2(-58, -3)
+				Ulight_Col_Middle.position = Vector2(-36, -14)
+				Ulight_Col_Bottom.position = Vector2(-36, 10)
 				SpriteSheet.flip_h = true
+				
 				if Input.is_action_just_released("Attack"):
 					SelectState = StateList.Slight
 					
-					yield(Animate, "animation_finished")
-					SelectState = StateList.Idle
+			
 				
 			else:
 				Animate.play("Idle")
 				Motion.x = 0
+				if Input.is_action_just_pressed("Attack"):
+					SelectState = StateList.Nlight
+					
+			
+			if Input.is_action_pressed("Up"):
+				if Input.is_action_just_pressed("Attack"):
+					SelectState = StateList.Ulight
+					
+			if Input.is_action_pressed("Down"):
+				$Platform.play("Disable")
+				if Input.is_action_just_pressed("Attack"):
+					SelectState = StateList.Dlight
+					
+			if Input.is_action_just_pressed("Jump"):
+				SelectState = StateList.Jump
+			
+		StateList.Jump:
+			Animate.play("Jump")
+			_apply_gravity_()
+			
+			if is_on_floor():
+				Motion.y = -JumpHeight
 				
+			if Motion.y > 0:
+				SelectState = StateList.Fall
+			
+			if Input.is_action_just_pressed("Attack"):
+				SelectState = StateList.Nair
+		StateList.Fall:
+			_apply_gravity_()
+			Animate.play("Fall")
+			
+			if CheckFloor.is_colliding():
+				SelectState = StateList.Idle
 		StateList.Nlight:
-			pass
+			Animate.play("Nuetral Light")
+			Motion.x = 0
 			
 		StateList.Slight:
-			
 			Animate.play("Side Light")
+			Motion.x = 0
 			
 		StateList.Dlight:
-			pass
+			Animate.play("Down Light")
+			Motion.x = 0
 			
 		StateList.Ulight:
-			pass
-				
-
-
+			Animate.play("Up Light")
+			Motion.x = 0
+		
+		StateList.Nair:
+			Motion.y = 0
+			Animate.play("Nuetral Air")
+			
+			
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if Animate.current_animation == "Run":
-		print("Hello World")
+	if anim_name == "Nuetral Light":
+		SelectState = StateList.Idle
+
+	if anim_name == "Down Light":
+		SelectState = StateList.Idle
+
+	if anim_name == "Side Light":
+		SelectState = StateList.Idle
+		
+	if anim_name == "Up Light":
+		SelectState = StateList.Idle
+	
+	if anim_name == "Nuetral Air":
+		SelectState = StateList.Fall
+
+	if anim_name == "Disable":
+		print("Fall")

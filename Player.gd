@@ -152,6 +152,7 @@ func _physics_process(delta):
 				Motion.x = MovementSpeed
 			else:
 				Motion.x = 0
+			
 				
 		StateList.Nlight:
 			Animate.play("Nuetral Light")
@@ -173,6 +174,13 @@ func _physics_process(delta):
 			Motion.y = 0
 			Animate.play("Nuetral Air")
 			
+			if Input.is_action_pressed("Left"):
+				Motion.x = -MovementSpeed
+				
+			elif Input.is_action_pressed("Right"):
+				Motion.x = MovementSpeed
+			else:
+				Motion.x = 0
 			
 
 func _on_AnimationPlayer_animation_finished(anim_name):

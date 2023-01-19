@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://background 1.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -119,6 +119,15 @@ points = PoolVector2Array( 0, 8, 160, 8, 160, 32, 0, 32 )
 } ]
 4/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10, 274 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 274 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 301, 10 )
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Background1" type="Sprite" parent="."]
@@ -162,7 +171,21 @@ tile_data = PoolIntArray( 1900552, 536870916, 0, 1900585, 536870916, 0, 2949120,
 position = Vector2( 315, 305 )
 offset = Vector2( -22, 0 )
 current = true
-zoom = Vector2( 0.6, 0.6 )
+zoom = Vector2( 0.7, 0.7 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 238, 327 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Left Wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -16, 272 )
+shape = SubResource( 6 )
+
+[node name="Right Wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 600, 274.5 )
+shape = SubResource( 7 )
+
+[node name="Cieling" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 296, 64 )
+shape = SubResource( 8 )

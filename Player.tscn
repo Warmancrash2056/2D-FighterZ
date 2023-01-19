@@ -1,7 +1,23 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://ground_monk_FULL_v1.3-SpriteSheet_288x128 (3).png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=18]
+resource_name = "Block"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.00401, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113 ]
+}
 
 [sub_resource type="CapsuleShape2D" id=25]
 radius = 6.0
@@ -124,9 +140,6 @@ tracks/0/keys = {
 "values": [ 14, 15, 16 ]
 }
 
-[sub_resource type="Animation" id=18]
-resource_name = "New Anim"
-
 [sub_resource type="CircleShape2D" id=33]
 radius = 6.69992
 
@@ -216,10 +229,6 @@ tracks/2/keys = {
 [sub_resource type="CircleShape2D" id=27]
 radius = 6.69992
 
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 1.0
-height = 6.0
-
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 6.5, 2.25 )
 
@@ -250,7 +259,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../CollisionShape2D:shape")
+tracks/2/path = NodePath("../Side Light/CollisionShape2D:shape")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -259,10 +268,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ SubResource( 6 ) ]
+"values": [ SubResource( 23 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../Side Light/CollisionShape2D:shape")
+tracks/3/path = NodePath("../Side Light/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -271,10 +280,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ SubResource( 23 ) ]
+"values": [ true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../Side Light/CollisionShape2D:disabled")
+tracks/4/path = NodePath("../Nuetral Light/CollisionShape2D:shape")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -283,10 +292,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ SubResource( 24 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("../Nuetral Light/CollisionShape2D:shape")
+tracks/5/path = NodePath("../Nuetral Light/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -295,10 +304,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ SubResource( 24 ) ]
+"values": [ true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("../Nuetral Light/CollisionShape2D:disabled")
+tracks/6/path = NodePath("../Down Light/Small Collision:shape")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -307,10 +316,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ SubResource( 25 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("../Down Light/Small Collision:shape")
+tracks/7/path = NodePath("../Down Light/Small Collision:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -319,10 +328,10 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ SubResource( 25 ) ]
+"values": [ true ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("../Down Light/Small Collision:disabled")
+tracks/8/path = NodePath("../Down Light/Large Collision:shape")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -331,10 +340,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ SubResource( 26 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("../Down Light/Large Collision:shape")
+tracks/9/path = NodePath("../Down Light/Large Collision:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -343,10 +352,10 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ SubResource( 26 ) ]
+"values": [ true ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("../Down Light/Large Collision:disabled")
+tracks/10/path = NodePath("../Up Light/Left Hand:shape")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -355,10 +364,10 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ SubResource( 27 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("../Up Light/Left Hand:shape")
+tracks/11/path = NodePath("../Up Light/Left Hand:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -367,10 +376,10 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ SubResource( 27 ) ]
+"values": [ true ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("../Up Light/Left Hand:disabled")
+tracks/12/path = NodePath("../Up Light/Right Hand:shape")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -379,10 +388,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ SubResource( 27 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("../Up Light/Right Hand:shape")
+tracks/13/path = NodePath("../Up Light/Right Hand:disabled")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -391,10 +400,10 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ SubResource( 27 ) ]
+"values": [ true ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("../Up Light/Right Hand:disabled")
+tracks/14/path = NodePath("../Up Light/Middle:shape")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -403,10 +412,10 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ SubResource( 27 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("../Up Light/Middle:shape")
+tracks/15/path = NodePath("../Up Light/Middle:disabled")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -415,10 +424,10 @@ tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ SubResource( 27 ) ]
+"values": [ true ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("../Up Light/Middle:disabled")
+tracks/16/path = NodePath("../Up Light/Bottom:shape")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -427,10 +436,10 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ SubResource( 27 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("../Up Light/Bottom:shape")
+tracks/17/path = NodePath("../Up Light/Bottom:disabled")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -439,10 +448,10 @@ tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ SubResource( 27 ) ]
+"values": [ true ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("../Up Light/Bottom:disabled")
+tracks/18/path = NodePath("../Nuetral Air/CollisionShape2D:shape")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -451,10 +460,10 @@ tracks/18/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ SubResource( 33 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("../Nuetral Air/CollisionShape2D:shape")
+tracks/19/path = NodePath("../Nuetral Air/CollisionShape2D:disabled")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -463,10 +472,10 @@ tracks/19/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ SubResource( 33 ) ]
+"values": [ true ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("../Nuetral Air/CollisionShape2D:disabled")
+tracks/20/path = NodePath("..:collision_mask")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -475,19 +484,23 @@ tracks/20/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
-}
-tracks/21/type = "value"
-tracks/21/path = NodePath("..:collision_mask")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
 "values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "Roll"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 95, 96, 97, 98 ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -544,6 +557,22 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, false, true, false, false, true, true, true ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "Signature Nlight"
+length = 4.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 172, 173, 174, 175, 176, 177, 178, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228 ]
 }
 
 [sub_resource type="CapsuleShape2D" id=28]
@@ -699,31 +728,39 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[node name="Player" type="KinematicBody2D"]
+[sub_resource type="CapsuleShape2D" id=37]
+radius = 1.0
+height = 1.0
+
+[node name="Earth Monk" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 1 )
+JumpHeight = 800.0
 
 [node name="Is On Floor Cast" type="RayCast2D" parent="."]
-position = Vector2( 0, 16 )
+position = Vector2( 0, 15 )
+scale = Vector2( 6, 1 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
-playback_speed = 1.45
+playback_speed = 0.8
+anims/Block = SubResource( 18 )
 "anims/Down Light" = SubResource( 13 )
 anims/Fall = SubResource( 16 )
 anims/Idle = SubResource( 7 )
 anims/Jump = SubResource( 17 )
-"anims/New Anim" = SubResource( 18 )
 "anims/Nuetral Air" = SubResource( 19 )
 "anims/Nuetral Light" = SubResource( 9 )
 anims/RESET = SubResource( 5 )
+anims/Roll = SubResource( 36 )
 anims/Run = SubResource( 20 )
 "anims/Side Light" = SubResource( 21 )
+"anims/Signature Nlight" = SubResource( 38 )
 "anims/Up Light" = SubResource( 22 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -731,11 +768,6 @@ position = Vector2( 0, -40 )
 texture = ExtResource( 2 )
 hframes = 10
 vframes = 23
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 16 )
-rotation = 1.5708
-shape = SubResource( 6 )
 
 [node name="Side Light" type="Area2D" parent="."]
 
@@ -797,5 +829,10 @@ disabled = true
 [node name="Platform" type="AnimationPlayer" parent="."]
 anims/Disable = SubResource( 34 )
 anims/RESET = SubResource( 35 )
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 14 )
+rotation = 1.5708
+shape = SubResource( 37 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

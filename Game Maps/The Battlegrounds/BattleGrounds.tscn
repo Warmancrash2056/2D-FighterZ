@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Character Resouces/The Monk/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game Maps/The Battlegrounds/background 1.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Game Maps/The Battlegrounds/background 3.png" type="Texture" id=4]
 [ext_resource path="res://Game Maps/The Battlegrounds/mainlevbuildA.png" type="Texture" id=5]
 [ext_resource path="res://Game Maps/The Battlegrounds/background 4.png" type="Texture" id=6]
+[ext_resource path="res://Water Princess.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 16, 48, 16, 48, 48, 0, 48 )
@@ -179,7 +180,7 @@ current = true
 zoom = Vector2( 0.66, 0.7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 238, 327 )
+position = Vector2( 421, 283 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -194,3 +195,7 @@ shape = SubResource( 7 )
 [node name="Cieling" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 316, 64 )
 shape = SubResource( 8 )
+
+[node name="Water Princess" parent="." instance=ExtResource( 7 )]
+position = Vector2( 209, 385 )
+scale = Vector2( 1.5, 1.5 )

@@ -132,6 +132,16 @@ extents = Vector2( 412, 10 )
 [node name="Node2D" type="Node2D"]
 position = Vector2( -1, 0 )
 
+[node name="Earth Monk" parent="." instance=ExtResource( 1 )]
+position = Vector2( 419, 276 )
+z_index = 1
+
+[node name="Water Princess" parent="." instance=ExtResource( 7 )]
+position = Vector2( 317, 388 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+AirMovement = 500.0
+
 [node name="Background1" type="Sprite" parent="."]
 position = Vector2( 300, 299 )
 scale = Vector2( 1.2, 1 )
@@ -192,9 +202,3 @@ shape = SubResource( 7 )
 [node name="Cieling" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 316, 64 )
 shape = SubResource( 8 )
-
-[node name="Water Princess" parent="." instance=ExtResource( 7 )]
-position = Vector2( 317, 388 )
-
-[node name="Earth Monk" parent="." instance=ExtResource( 1 )]
-position = Vector2( 419, 276 )

@@ -3,11 +3,12 @@ extends KinematicBody2D
 onready var Animate = $AnimatedSprite
 onready var Platform = $Platform
 onready var CheckFloor = $"Check Floor"
-onready var Nuetral_Side_Hitbox = $"Nuetral Light - Side Light HitBox/Collision"
+
+# Collision HitBoxes #
+onready var Nuetral_Light_Hitbox = $"Nuetral Light/CollisionShape2D"
 onready var Down_Light_Hitbox = $"Down Light Hitbox/CollisionShape2D"
-onready var Up_light_Hitbox = $"Up Light/CollisionShape2D"
-onready var Nuetral_Air_Hibox = $"Nuetral Air/CollisionShape2D"
-onready var Hurtbox = $Hurtbox/CollisionShape2D
+onready var Up_Light_Hitbox = $"Up Light/CollisionShape2D"
+onready var Nuetral_Air_Hitbox = $"Nuetral Air/CollisionShape2D"
 
 export var controls: Resource = null
 
@@ -38,19 +39,7 @@ enum States {
 }
 var Select = States.Idle
 
-func _process(delta):
-	# Collision Positioning
-	if DirectionFacing > 1:
-		Nuetral_Air_Hibox.position = Vector2()
-		Nuetral_Side_Hitbox
-		Up_light_Hitbox
-		Down_Light_Hitbox
-		
-	else:
-		Nuetral_Air_Hibox.position = Vector2()
-		Nuetral_Side_Hitbox
-		Up_light_Hitbox
-		Down_Light_Hitbox
+
 	
 func _physics_process(delta):
 	Motion = move_and_slide(Motion, Up)
@@ -72,8 +61,8 @@ func _physics_process(delta):
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Roll
 					Motion.x = -300
-					
-					
+				
+				Nuetral_Light_Hitbox.position.x = -24
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				Animate.flip_h = false
@@ -86,7 +75,8 @@ func _physics_process(delta):
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Roll
 					Motion.x = 300
-			
+					
+				Nuetral_Light_Hitbox.position.x = 24
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
 				Platform.play("Disable")
@@ -101,7 +91,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Ulight
 			else:
-				Motion.x = lerp(Motion.x , 0.01, 0.5)
+				Motion.x = lerp(Motion.x , 0.01, 0.8)
 				Animate.play("Idle")
 				
 				if Input.is_action_just_pressed(controls.input_attack):
@@ -160,42 +150,43 @@ func _physics_process(delta):
 			Animate.play("Nuetral Light")
 			
 			if Animate.frame == 2:
-				Nuetral_Side_Hitbox.disabled = false
+				pass
 			if Animate.frame == 5:
-				Nuetral_Side_Hitbox.disabled = true
+				pass
 		States.Slight:
 			Motion.x = 0
 			Animate.play("Side Light")
 			if Animate.frame == 0:
-				Nuetral_Side_Hitbox.disabled = false
+				pass
 				
 			if Animate.frame == 2:
-				Nuetral_Side_Hitbox.disabled = true
+				pass
 				
 			if Animate.frame == 3:
-				Nuetral_Side_Hitbox.disabled = false
+				pass
 				
 			if Animate.frame == 5:
-				Nuetral_Side_Hitbox.disabled = true
+				pass
+
 		States.Dlight:
 			Motion.x = 0
 			Animate.play("Down Light")
 			
 			if Animate.frame == 7:
-				Down_Light_Hitbox.disabled = false
+				pass
 				
 			if Animate.frame == 10:
-				Down_Light_Hitbox.disabled = true
+				pass
 				
 		States.Ulight:
 			Motion.x = 0
 			Animate.play("Up Light")
 			
-			if Animate.frame == 3:
-				Up_light_Hitbox.disabled = false
+			if Animate.frame == 7:
+				pass
 				
-			if Animate.frame == 22:
-				Up_light_Hitbox.disabled = true
+			if Animate.frame == 10:
+				pass
 			
 		States.Nair:
 			Motion.y = 0
@@ -203,10 +194,10 @@ func _physics_process(delta):
 			Animate.play("Nuetral Air")
 			
 			if Animate.frame == 2:
-				Nuetral_Air_Hibox.disabled = false
+				pass
 				
 			if Animate.frame == 3:
-				Nuetral_Air_Hibox.disabled = true
+				pass
 			
 		States.Defend:
 			Animate.play("Defend")

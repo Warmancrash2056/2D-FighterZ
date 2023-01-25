@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=2]
+[gd_scene load_steps=150 format=2]
 
 [ext_resource path="res://Character Resouces/Princess/02_walk/walk_8.png" type="Texture" id=1]
 [ext_resource path="res://Character Resouces/Princess/02_walk/walk_5.png" type="Texture" id=2]
@@ -101,15 +101,51 @@
 [ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_11.png" type="Texture" id=99]
 [ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_15.png" type="Texture" id=100]
 [ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_19.png" type="Texture" id=101]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_7.png" type="Texture" id=102]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_10.png" type="Texture" id=103]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_8.png" type="Texture" id=104]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_9.png" type="Texture" id=105]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_6.png" type="Texture" id=106]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_3.png" type="Texture" id=107]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_1.png" type="Texture" id=108]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_4.png" type="Texture" id=109]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_16.png" type="Texture" id=110]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_8.png" type="Texture" id=111]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_4.png" type="Texture" id=112]
+[ext_resource path="res://take_hit_1.png" type="Texture" id=113]
+[ext_resource path="res://take_hit_3.png" type="Texture" id=114]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_12.png" type="Texture" id=115]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_9.png" type="Texture" id=116]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_15.png" type="Texture" id=117]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_6.png" type="Texture" id=118]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_2.png" type="Texture" id=119]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_1.png" type="Texture" id=120]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_14.png" type="Texture" id=121]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_10.png" type="Texture" id=122]
+[ext_resource path="res://take_hit_2.png" type="Texture" id=123]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_11.png" type="Texture" id=124]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_5.png" type="Texture" id=125]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_5.png" type="Texture" id=126]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_2.png" type="Texture" id=127]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_11.png" type="Texture" id=128]
+[ext_resource path="res://take_hit_5.png" type="Texture" id=129]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_13.png" type="Texture" id=130]
+[ext_resource path="res://take_hit_7.png" type="Texture" id=131]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_12.png" type="Texture" id=132]
+[ext_resource path="res://take_hit_4.png" type="Texture" id=133]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_3.png" type="Texture" id=134]
+[ext_resource path="res://take_hit_6.png" type="Texture" id=135]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_7.png" type="Texture" id=136]
+[ext_resource path="res://Nuetral Light.gd" type="Script" id=137]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 108 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 109 ), ExtResource( 125 ), ExtResource( 106 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 103 ), ExtResource( 128 ), ExtResource( 132 ) ],
 "loop": true,
 "name": "Block",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 120 ), ExtResource( 127 ), ExtResource( 134 ), ExtResource( 112 ), ExtResource( 126 ), ExtResource( 118 ), ExtResource( 136 ), ExtResource( 111 ), ExtResource( 116 ), ExtResource( 122 ), ExtResource( 124 ), ExtResource( 115 ), ExtResource( 130 ), ExtResource( 121 ), ExtResource( 117 ), ExtResource( 110 ) ],
 "loop": true,
 "name": "Death ",
 "speed": 5.0
@@ -137,7 +173,7 @@ animations = [ {
 "frames": [ ExtResource( 62 ), ExtResource( 54 ), ExtResource( 34 ), ExtResource( 63 ), ExtResource( 56 ), ExtResource( 36 ), ExtResource( 59 ), ExtResource( 49 ) ],
 "loop": true,
 "name": "Nuetral Air",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 22 ) ],
 "loop": true,
@@ -147,9 +183,9 @@ animations = [ {
 "frames": [ ExtResource( 29 ), ExtResource( 79 ), ExtResource( 95 ), ExtResource( 89 ), ExtResource( 83 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 88 ), ExtResource( 85 ), ExtResource( 90 ), ExtResource( 100 ), ExtResource( 96 ), ExtResource( 84 ), ExtResource( 86 ), ExtResource( 101 ), ExtResource( 77 ), ExtResource( 87 ) ],
 "loop": true,
 "name": "Side Light",
-"speed": 10.0
+"speed": 16.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 113 ), ExtResource( 123 ), ExtResource( 114 ), ExtResource( 133 ), ExtResource( 129 ), ExtResource( 135 ), ExtResource( 131 ) ],
 "loop": true,
 "name": "Take Hit",
 "speed": 5.0
@@ -164,6 +200,12 @@ animations = [ {
 "name": "Walk",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 12.5, 1 )
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 10.198
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 7.0
@@ -200,7 +242,27 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 3.33333
+height = 58.3333
+
+[sub_resource type="CapsuleShape2D" id=8]
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=9]
+height = 51.6667
+
+[sub_resource type="CapsuleShape2D" id=10]
+height = 30.0
+
+[sub_resource type="CapsuleShape2D" id=11]
+
+[sub_resource type="CapsuleShape2D" id=12]
+radius = 5.0
+height = 26.6667
+
 [node name="Water Princess" type="KinematicBody2D"]
+scale = Vector2( 1.2, 1.2 )
 collision_layer = 8
 collision_mask = 5
 script = ExtResource( 15 )
@@ -208,10 +270,27 @@ controls = ExtResource( 20 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -43 )
+z_index = -1
 frames = SubResource( 1 )
-animation = "Idle"
-frame = 4
-playing = true
+animation = "Nuetral Air"
+frame = 7
+
+[node name="Nuetral Light" type="Area2D" parent="."]
+script = ExtResource( 137 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Light"]
+modulate = Color( 0.945098, 0.643137, 0, 1 )
+position = Vector2( 45, -4 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="Side Light" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Side Light"]
+modulate = Color( 0.705882, 0.466667, 0.00392157, 1 )
+position = Vector2( 70, -4 )
+shape = SubResource( 6 )
+disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
@@ -226,5 +305,50 @@ position = Vector2( 0, 20 )
 enabled = true
 cast_to = Vector2( 0, 5 )
 collision_mask = 5
+
+[node name="Nuetral Air" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Air"]
+position = Vector2( 52, -15 )
+rotation = 1.5708
+shape = SubResource( 7 )
+disabled = true
+
+[node name="Up Light Above" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Up Light Above"]
+position = Vector2( 56, -47 )
+shape = SubResource( 8 )
+disabled = true
+
+[node name="Up Light Below" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Up Light Below"]
+position = Vector2( 60, 10 )
+rotation = 1.5708
+shape = SubResource( 9 )
+disabled = true
+
+[node name="Down Light Front" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light Front"]
+position = Vector2( 90, -3 )
+shape = SubResource( 10 )
+disabled = true
+
+[node name="Down Light Middle" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light Middle"]
+position = Vector2( 73, 0 )
+shape = SubResource( 11 )
+disabled = true
+
+[node name="Down Light Back" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Down Light Back"]
+position = Vector2( 55, 15 )
+rotation = 1.5708
+shape = SubResource( 12 )
+disabled = true
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

@@ -179,9 +179,6 @@ offset = Vector2( -20, 0 )
 current = true
 zoom = Vector2( 0.66, 0.7 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 421, 283 )
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Left Wall" type="CollisionShape2D" parent="StaticBody2D"]
@@ -197,5 +194,7 @@ position = Vector2( 316, 64 )
 shape = SubResource( 8 )
 
 [node name="Water Princess" parent="." instance=ExtResource( 7 )]
-position = Vector2( 209, 385 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 317, 388 )
+
+[node name="Earth Monk" parent="." instance=ExtResource( 1 )]
+position = Vector2( 419, 276 )

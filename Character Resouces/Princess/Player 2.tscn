@@ -1,0 +1,310 @@
+[gd_scene load_steps=150 format=2]
+
+[ext_resource path="res://Character Resouces/Princess/01_idle/idle_5.png" type="Texture" id=1]
+[ext_resource path="res://Character Resouces/Princess/01_idle/idle_7.png" type="Texture" id=2]
+[ext_resource path="res://Character Resouces/Princess/01_idle/idle_2.png" type="Texture" id=3]
+[ext_resource path="res://Character Resouces/Princess/01_idle/idle_3.png" type="Texture" id=4]
+[ext_resource path="res://Character Resouces/Princess/01_idle/idle_1.png" type="Texture" id=5]
+[ext_resource path="res://Character Resouces/Princess/01_idle/idle_8.png" type="Texture" id=6]
+[ext_resource path="res://Character Resouces/Princess/01_idle/idle_4.png" type="Texture" id=7]
+[ext_resource path="res://Character Resouces/Princess/01_idle/idle_6.png" type="Texture" id=8]
+[ext_resource path="res://Character Resouces/The Monk/Player.gd" type="Script" id=9]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_6.png" type="Texture" id=10]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_7.png" type="Texture" id=11]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_10.png" type="Texture" id=12]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_8.png" type="Texture" id=13]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_9.png" type="Texture" id=14]
+[ext_resource path="res://Character Resouces/Princess/02_walk/walk_5.png" type="Texture" id=15]
+[ext_resource path="res://Character Resouces/Princess/02_walk/walk_7.png" type="Texture" id=16]
+[ext_resource path="res://Character Resouces/Princess/02_walk/walk_8.png" type="Texture" id=17]
+[ext_resource path="res://Character Resouces/Princess/02_walk/walk_6.png" type="Texture" id=18]
+[ext_resource path="res://Character Resouces/Princess/02_walk/walk_4.png" type="Texture" id=19]
+[ext_resource path="res://Character Resouces/Princess/02_walk/walk_3.png" type="Texture" id=20]
+[ext_resource path="res://Character Resouces/Princess/02_walk/walk_1.png" type="Texture" id=21]
+[ext_resource path="res://Character Resouces/Princess/02_walk/walk_10.png" type="Texture" id=22]
+[ext_resource path="res://Character Resouces/Princess/02_walk/walk_2.png" type="Texture" id=23]
+[ext_resource path="res://Character Resouces/Princess/07_1_atk/1_atk_3.png" type="Texture" id=24]
+[ext_resource path="res://Character Resouces/Princess/07_1_atk/1_atk_7.png" type="Texture" id=25]
+[ext_resource path="res://Character Resouces/Princess/07_1_atk/1_atk_5.png" type="Texture" id=26]
+[ext_resource path="res://Character Resouces/Princess/02_walk/walk_9.png" type="Texture" id=27]
+[ext_resource path="res://Character Resouces/Princess/07_1_atk/1_atk_2.png" type="Texture" id=28]
+[ext_resource path="res://Character Resouces/Princess/07_1_atk/1_atk_1.png" type="Texture" id=29]
+[ext_resource path="res://Character Resouces/Princess/07_1_atk/1_atk_4.png" type="Texture" id=30]
+[ext_resource path="res://Character Resouces/Princess/07_1_atk/1_atk_6.png" type="Texture" id=31]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_1.png" type="Texture" id=32]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_26.png" type="Texture" id=33]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_31.png" type="Texture" id=34]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_15.png" type="Texture" id=35]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_29.png" type="Texture" id=36]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_3.png" type="Texture" id=37]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_30.png" type="Texture" id=38]
+[ext_resource path="res://Character Resouces/Princess/air_atk/air_atk_6.png" type="Texture" id=39]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_5.png" type="Texture" id=40]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_5.png" type="Texture" id=41]
+[ext_resource path="res://Character Resouces/Princess/air_atk/air_atk_3.png" type="Texture" id=42]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_7.png" type="Texture" id=43]
+[ext_resource path="res://Character Resouces/Princess/04_j_up/j_up_2.png" type="Texture" id=44]
+[ext_resource path="res://Character Resouces/Princess/05_j_down/j_down_1.png" type="Texture" id=45]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_4.png" type="Texture" id=46]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_2.png" type="Texture" id=47]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_10.png" type="Texture" id=48]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_11.png" type="Texture" id=49]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_11.png" type="Texture" id=50]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_12.png" type="Texture" id=51]
+[ext_resource path="res://Character Resouces/Princess/air_atk/air_atk_4.png" type="Texture" id=52]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_32.png" type="Texture" id=53]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_20.png" type="Texture" id=54]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_18.png" type="Texture" id=55]
+[ext_resource path="res://Character Resouces/Princess/04_j_up/j_up_3.png" type="Texture" id=56]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_22.png" type="Texture" id=57]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_24.png" type="Texture" id=58]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_8.png" type="Texture" id=59]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_19.png" type="Texture" id=60]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_24.png" type="Texture" id=61]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_9.png" type="Texture" id=62]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_17.png" type="Texture" id=63]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_14.png" type="Texture" id=64]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_10.png" type="Texture" id=65]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_8.png" type="Texture" id=66]
+[ext_resource path="res://Character Resouces/Princess/air_atk/air_atk_5.png" type="Texture" id=67]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_16.png" type="Texture" id=68]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_17.png" type="Texture" id=69]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_6.png" type="Texture" id=70]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_22.png" type="Texture" id=71]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_16.png" type="Texture" id=72]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_15.png" type="Texture" id=73]
+[ext_resource path="res://Character Resouces/Princess/air_atk/air_atk_1.png" type="Texture" id=74]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_7.png" type="Texture" id=75]
+[ext_resource path="res://Character Resouces/Princess/air_atk/air_atk_7.png" type="Texture" id=76]
+[ext_resource path="res://Character Resouces/Princess/05_j_down/j_down_2.png" type="Texture" id=77]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_26.png" type="Texture" id=78]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_14.png" type="Texture" id=79]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_23.png" type="Texture" id=80]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_12.png" type="Texture" id=81]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_19.png" type="Texture" id=82]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_13.png" type="Texture" id=83]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_25.png" type="Texture" id=84]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_20.png" type="Texture" id=85]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_21.png" type="Texture" id=86]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_20.png" type="Texture" id=87]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_9.png" type="Texture" id=88]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_18.png" type="Texture" id=89]
+[ext_resource path="res://Character Resouces/Princess/air_atk/air_atk_8.png" type="Texture" id=90]
+[ext_resource path="res://Character Resouces/Princess/air_atk/air_atk_2.png" type="Texture" id=91]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_6.png" type="Texture" id=92]
+[ext_resource path="res://Character Resouces/Princess/04_j_up/j_up_1.png" type="Texture" id=93]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_17.png" type="Texture" id=94]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_13.png" type="Texture" id=95]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_27.png" type="Texture" id=96]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_18.png" type="Texture" id=97]
+[ext_resource path="res://Character Resouces/Princess/08_2_atk/2_atk_21.png" type="Texture" id=98]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_19.png" type="Texture" id=99]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_27.png" type="Texture" id=100]
+[ext_resource path="res://Character Resouces/Princess/10_sp_atk/sp_atk_28.png" type="Texture" id=101]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_25.png" type="Texture" id=102]
+[ext_resource path="res://Character Resouces/Princess/05_j_down/j_down_3.png" type="Texture" id=103]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_23.png" type="Texture" id=104]
+[ext_resource path="res://Character Resouces/Princess/09_3_atk/3_atk_21.png" type="Texture" id=105]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_5.png" type="Texture" id=106]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_3.png" type="Texture" id=107]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_1.png" type="Texture" id=108]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_4.png" type="Texture" id=109]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_2.png" type="Texture" id=110]
+[ext_resource path="res://Character Resouces/Global/Player_2.tres" type="Resource" id=111]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_15.png" type="Texture" id=112]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_6.png" type="Texture" id=113]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_16.png" type="Texture" id=114]
+[ext_resource path="res://Character Resouces/Princess/03_surf/surf_5.png" type="Texture" id=115]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_8.png" type="Texture" id=116]
+[ext_resource path="res://Character Resouces/Princess/03_surf/surf_1.png" type="Texture" id=117]
+[ext_resource path="res://Character Resouces/Princess/03_surf/surf_7.png" type="Texture" id=118]
+[ext_resource path="res://Character Resouces/Princess/03_surf/surf_6.png" type="Texture" id=119]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_4.png" type="Texture" id=120]
+[ext_resource path="res://Character Resouces/Princess/03_surf/surf_3.png" type="Texture" id=121]
+[ext_resource path="res://take_hit_1.png" type="Texture" id=122]
+[ext_resource path="res://take_hit_3.png" type="Texture" id=123]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_12.png" type="Texture" id=124]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_9.png" type="Texture" id=125]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_1.png" type="Texture" id=126]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_14.png" type="Texture" id=127]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_10.png" type="Texture" id=128]
+[ext_resource path="res://Character Resouces/Princess/03_surf/surf_8.png" type="Texture" id=129]
+[ext_resource path="res://take_hit_2.png" type="Texture" id=130]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_11.png" type="Texture" id=131]
+[ext_resource path="res://Character Resouces/Princess/03_surf/surf_2.png" type="Texture" id=132]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_5.png" type="Texture" id=133]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_11.png" type="Texture" id=134]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_2.png" type="Texture" id=135]
+[ext_resource path="res://take_hit_5.png" type="Texture" id=136]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_13.png" type="Texture" id=137]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_3.png" type="Texture" id=138]
+[ext_resource path="res://Character Resouces/Princess/03_surf/surf_4.png" type="Texture" id=139]
+[ext_resource path="res://take_hit_4.png" type="Texture" id=140]
+[ext_resource path="res://take_hit_7.png" type="Texture" id=141]
+[ext_resource path="res://take_hit_6.png" type="Texture" id=142]
+[ext_resource path="res://Character Resouces/Princess/12_defend/defend_12.png" type="Texture" id=143]
+[ext_resource path="res://Character Resouces/Princess/14_death/death_7.png" type="Texture" id=144]
+
+[sub_resource type="Animation" id=34]
+resource_name = "Disable"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:collision_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 1, 5 ]
+}
+
+[sub_resource type="Animation" id=35]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:collision_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5 ]
+}
+
+[sub_resource type="SpriteFrames" id=38]
+animations = [ {
+"frames": [ ExtResource( 126 ), ExtResource( 135 ), ExtResource( 138 ), ExtResource( 120 ), ExtResource( 133 ), ExtResource( 113 ), ExtResource( 144 ), ExtResource( 116 ), ExtResource( 125 ), ExtResource( 128 ), ExtResource( 131 ), ExtResource( 124 ), ExtResource( 137 ), ExtResource( 127 ), ExtResource( 112 ), ExtResource( 114 ) ],
+"loop": true,
+"name": "Death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 108 ), ExtResource( 110 ), ExtResource( 107 ), ExtResource( 109 ), ExtResource( 106 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 134 ), ExtResource( 143 ) ],
+"loop": true,
+"name": "Defend",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 69 ), ExtResource( 89 ), ExtResource( 60 ), ExtResource( 85 ), ExtResource( 105 ), ExtResource( 57 ), ExtResource( 104 ), ExtResource( 61 ), ExtResource( 102 ), ExtResource( 78 ), ExtResource( 100 ) ],
+"loop": true,
+"name": "Down Light",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 77 ), ExtResource( 103 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 93 ), ExtResource( 44 ), ExtResource( 56 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 74 ), ExtResource( 91 ), ExtResource( 42 ), ExtResource( 52 ), ExtResource( 67 ), ExtResource( 39 ), ExtResource( 76 ), ExtResource( 90 ) ],
+"loop": true,
+"name": "Nuetral Air",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 31 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "Nuetral Light",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 117 ), ExtResource( 132 ), ExtResource( 121 ), ExtResource( 139 ), ExtResource( 115 ), ExtResource( 119 ), ExtResource( 118 ), ExtResource( 129 ) ],
+"loop": true,
+"name": "Roll",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 27 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 40 ), ExtResource( 70 ), ExtResource( 75 ), ExtResource( 66 ), ExtResource( 62 ), ExtResource( 65 ), ExtResource( 50 ), ExtResource( 81 ), ExtResource( 95 ), ExtResource( 64 ), ExtResource( 73 ), ExtResource( 72 ), ExtResource( 94 ), ExtResource( 97 ), ExtResource( 82 ), ExtResource( 54 ), ExtResource( 98 ) ],
+"loop": true,
+"name": "Side Light",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 122 ), ExtResource( 130 ), ExtResource( 123 ), ExtResource( 140 ), ExtResource( 136 ), ExtResource( 142 ), ExtResource( 141 ) ],
+"loop": true,
+"name": "Take Hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 47 ), ExtResource( 37 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 92 ), ExtResource( 43 ), ExtResource( 59 ), ExtResource( 88 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 83 ), ExtResource( 79 ), ExtResource( 35 ), ExtResource( 68 ), ExtResource( 63 ), ExtResource( 55 ), ExtResource( 99 ), ExtResource( 87 ), ExtResource( 86 ), ExtResource( 71 ), ExtResource( 80 ), ExtResource( 58 ), ExtResource( 84 ), ExtResource( 33 ), ExtResource( 96 ), ExtResource( 101 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 53 ) ],
+"loop": true,
+"name": "Up Light",
+"speed": 12.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=37]
+radius = 6.66667
+height = 18.6667
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 13.6667, 1.33333 )
+
+[node name="Earth Monk" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 9 )
+controls = ExtResource( 111 )
+
+[node name="Platform" type="AnimationPlayer" parent="."]
+anims/Disable = SubResource( 34 )
+anims/RESET = SubResource( 35 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.666667, -40.6667 )
+frames = SubResource( 38 )
+animation = "Nuetral Light"
+frame = 2
+
+[node name="Check Floor" type="RayCast2D" parent="."]
+position = Vector2( 0, 22 )
+scale = Vector2( 2, 1 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 0, 5 )
+collision_mask = 5
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8 )
+shape = SubResource( 37 )
+
+[node name="Nuetral Light Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Light Hitbox"]
+position = Vector2( 43, -2 )
+shape = SubResource( 39 )
+disabled = true
+
+[node name="Side Light hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Side Light hitbox"]
+
+[node name="Down Light Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light Hitbox"]
+
+[node name="Up Light Above" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up Light Above"]
+
+[node name="Up Light Below" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up Light Below"]
+
+[node name="Nuetral Air" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Air"]
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

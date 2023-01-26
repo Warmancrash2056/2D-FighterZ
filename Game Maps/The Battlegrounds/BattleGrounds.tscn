@@ -213,20 +213,20 @@ tile_data = PoolIntArray( 1900552, 536870916, 0, 1900585, 536870916, 0, 2949120,
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 315, 305 )
-offset = Vector2( -20, 0 )
+offset = Vector2( -30, 0 )
 current = true
-zoom = Vector2( 0.66, 0.7 )
+zoom = Vector2( 0.7, 0.7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Left Wall" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -152, 320 )
+position = Vector2( -54, 334 )
 shape = SubResource( 6 )
 
 [node name="Right Wall" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 744, 296 )
+position = Vector2( 647, 311 )
 shape = SubResource( 7 )
 
 [node name="Cieling" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 316, 64 )
+position = Vector2( 320, 119 )
 shape = SubResource( 8 )

@@ -4,9 +4,8 @@ onready var Animate = $AnimatedSprite
 onready var Platform = $Platform
 onready var CheckFloor = $"Check Floor"
 
-# Collision HitBoxes #
-onready var Nuetral_Light_Hitbox = $"Nuetral Light/CollisionShape2D"
-onready var Down_Light_Hitbox = $"Down Light Hitbox/CollisionShape2D"
+onready var Nuetral_Side_light_Hitbox = $"Nuetral Light/CollisionShape2D"
+onready var Down_Light_Hitbox = $"Down Light/CollisionShape2D"
 onready var Up_Light_Hitbox = $"Up Light/CollisionShape2D"
 onready var Nuetral_Air_Hitbox = $"Nuetral Air/CollisionShape2D"
 
@@ -18,7 +17,7 @@ export (float) var Acceleration = 35
 export (float) var JumpHeight = 800
 export (float) var Gravity = 35
 
-var DirectionFacing = 0
+export (float) var Health = 200
 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
@@ -61,8 +60,10 @@ func _physics_process(delta):
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Roll
 					Motion.x = -300
-				
-				Nuetral_Light_Hitbox.position.x = -24
+				Nuetral_Side_light_Hitbox.position.x = -27
+				Down_Light_Hitbox.position.x = -67
+				Up_Light_Hitbox.position.x = -35
+				Nuetral_Air_Hitbox.position.x = -7
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				Animate.flip_h = false
@@ -75,8 +76,10 @@ func _physics_process(delta):
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Roll
 					Motion.x = 300
-					
-				Nuetral_Light_Hitbox.position.x = 24
+				Nuetral_Side_light_Hitbox.position.x = 27
+				Down_Light_Hitbox.position.x = 67
+				Up_Light_Hitbox.position.x = 35
+				Nuetral_Air_Hitbox.position.x = 7
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
 				Platform.play("Disable")
@@ -150,54 +153,54 @@ func _physics_process(delta):
 			Animate.play("Nuetral Light")
 			
 			if Animate.frame == 2:
-				pass
+				Nuetral_Side_light_Hitbox.disabled = false
 			if Animate.frame == 5:
-				pass
+				Nuetral_Side_light_Hitbox.disabled = true
 		States.Slight:
 			Motion.x = 0
 			Animate.play("Side Light")
 			if Animate.frame == 0:
-				pass
+				Nuetral_Side_light_Hitbox.disabled = false
 				
 			if Animate.frame == 2:
-				pass
+				Nuetral_Side_light_Hitbox.disabled = true
 				
 			if Animate.frame == 3:
-				pass
+				Nuetral_Side_light_Hitbox.disabled = false
 				
 			if Animate.frame == 5:
-				pass
+				Nuetral_Side_light_Hitbox.disabled = true
 
 		States.Dlight:
 			Motion.x = 0
 			Animate.play("Down Light")
 			
 			if Animate.frame == 7:
-				pass
+				Down_Light_Hitbox.disabled = false
 				
 			if Animate.frame == 10:
-				pass
+				Down_Light_Hitbox.disabled = true
 				
 		States.Ulight:
 			Motion.x = 0
 			Animate.play("Up Light")
 			
 			if Animate.frame == 7:
-				pass
+				Up_Light_Hitbox.disabled = false
 				
 			if Animate.frame == 10:
-				pass
-			
+				Up_Light_Hitbox.disabled = true
+				
 		States.Nair:
 			Motion.y = 0
 			Motion.x = 0
 			Animate.play("Nuetral Air")
 			
 			if Animate.frame == 2:
-				pass
+				Nuetral_Air_Hitbox.disabled = false
 				
 			if Animate.frame == 3:
-				pass
+				Nuetral_Air_Hitbox.disabled = true
 			
 		States.Defend:
 			Animate.play("Defend")
@@ -242,8 +245,18 @@ func _on_AnimatedSprite_animation_finished():
 		Select = States.Idle
 		
 	if Animate.animation == "Take Hit":
-		Animate.play("idle")
+		Animate.play("Idle")
 		Select = States.Idle
 		
 	if Animate.animation == "Death":
 		queue_free()
+
+
+func _on_Hurtbox_area_entered(area):
+	Select = States.Hurt
+	
+	Health -= 20
+	print(Health)
+	
+	if Health <= 0:
+		Select = States.Death

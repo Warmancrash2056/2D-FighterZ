@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=2]
+[gd_scene load_steps=151 format=2]
 
 [ext_resource path="res://Character Resouces/Princess/02_walk/walk_8.png" type="Texture" id=1]
 [ext_resource path="res://Character Resouces/Princess/02_walk/walk_5.png" type="Texture" id=2]
@@ -147,7 +147,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 120 ), ExtResource( 127 ), ExtResource( 134 ), ExtResource( 112 ), ExtResource( 126 ), ExtResource( 118 ), ExtResource( 136 ), ExtResource( 111 ), ExtResource( 116 ), ExtResource( 122 ), ExtResource( 124 ), ExtResource( 115 ), ExtResource( 130 ), ExtResource( 121 ), ExtResource( 117 ), ExtResource( 110 ) ],
 "loop": true,
-"name": "Death ",
+"name": "Death",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 75 ), ExtResource( 80 ), ExtResource( 91 ), ExtResource( 76 ), ExtResource( 97 ), ExtResource( 82 ), ExtResource( 92 ), ExtResource( 78 ), ExtResource( 94 ), ExtResource( 81 ), ExtResource( 93 ) ],
@@ -201,6 +201,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 4.0
+height = 56.0
+
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 12.5, 1 )
 
@@ -208,8 +212,7 @@ extents = Vector2( 12.5, 1 )
 radius = 10.198
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 7.0
-height = 16.0
+radius = 5.0
 
 [sub_resource type="Animation" id=3]
 resource_name = "Disable"
@@ -243,23 +246,26 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=7]
-radius = 3.33333
-height = 58.3333
-
-[sub_resource type="CapsuleShape2D" id=8]
-height = 0.0
+radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id=9]
-height = 51.6667
+radius = 5.0
+height = 8.33333
 
 [sub_resource type="CapsuleShape2D" id=10]
-height = 30.0
+radius = 4.99999
+height = 16.6667
 
 [sub_resource type="CapsuleShape2D" id=11]
+radius = 11.6667
+height = 23.3333
 
 [sub_resource type="CapsuleShape2D" id=12]
-radius = 5.0
-height = 26.6667
+radius = 20.8333
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=13]
+height = 63.3333
 
 [node name="Water Princess" type="KinematicBody2D"]
 scale = Vector2( 1.2, 1.2 )
@@ -267,15 +273,30 @@ collision_layer = 8
 collision_mask = 5
 script = ExtResource( 15 )
 controls = ExtResource( 20 )
+Movement = 80.0
+AirMovement = 50.0
+Acceleration = 25.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -43 )
 z_index = -1
 frames = SubResource( 1 )
-animation = "Nuetral Air"
-frame = 7
+animation = "Up Light"
+frame = 22
+
+[node name="Nuetral Air" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Air"]
+position = Vector2( 54, -15 )
+rotation = 1.5708
+shape = SubResource( 8 )
+disabled = true
 
 [node name="Nuetral Light" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
 script = ExtResource( 137 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Light"]
@@ -285,6 +306,8 @@ shape = SubResource( 5 )
 disabled = true
 
 [node name="Side Light" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Side Light"]
 modulate = Color( 0.705882, 0.466667, 0.00392157, 1 )
@@ -292,8 +315,7 @@ position = Vector2( 70, -4 )
 shape = SubResource( 6 )
 disabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 8 )
+[node name="Body" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
 [node name="Platform" type="AnimationPlayer" parent="."]
@@ -301,54 +323,68 @@ anims/Disable = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
 [node name="Check Floor" type="RayCast2D" parent="."]
-position = Vector2( 0, 20 )
+position = Vector2( 0, 12 )
 enabled = true
 cast_to = Vector2( 0, 5 )
 collision_mask = 5
 
-[node name="Nuetral Air" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Air"]
-position = Vector2( 52, -15 )
-rotation = 1.5708
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 7 )
-disabled = true
 
-[node name="Up Light Above" type="Area2D" parent="."]
+[node name="Down Light Back" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Up Light Above"]
-position = Vector2( 56, -47 )
-shape = SubResource( 8 )
-disabled = true
-
-[node name="Up Light Below" type="Area2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Up Light Below"]
-position = Vector2( 60, 10 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light Back"]
+modulate = Color( 0.960784, 0, 0, 1 )
+position = Vector2( 53, 14 )
 rotation = 1.5708
 shape = SubResource( 9 )
 disabled = true
 
-[node name="Down Light Front" type="Area2D" parent="."]
+[node name="Down Light Middle" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light Front"]
-position = Vector2( 90, -3 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light Middle"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 68, 7 )
 shape = SubResource( 10 )
 disabled = true
 
-[node name="Down Light Middle" type="Area2D" parent="."]
+[node name="Down Light Front" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light Middle"]
-position = Vector2( 73, 0 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light Front"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 85, -3 )
 shape = SubResource( 11 )
 disabled = true
 
-[node name="Down Light Back" type="Area2D" parent="."]
+[node name="Up Light Above" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Down Light Back"]
-position = Vector2( 55, 15 )
-rotation = 1.5708
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up Light Above"]
+position = Vector2( 57, -49 )
 shape = SubResource( 12 )
 disabled = true
 
+[node name="Up Light Below" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up Light Below"]
+position = Vector2( 56, 9 )
+rotation = 1.5708
+shape = SubResource( 13 )
+disabled = true
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]

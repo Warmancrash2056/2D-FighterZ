@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=2]
+[gd_scene load_steps=133 format=2]
 
 [ext_resource path="res://Character Resouces/The Monk/Player.gd" type="Script" id=1]
 [ext_resource path="res://Character Resouces/The Monk/j_down/j_down_3.png" type="Texture" id=2]
@@ -123,10 +123,6 @@
 [ext_resource path="res://Character Resouces/The Monk/defend/defend_13.png" type="Texture" id=121]
 [ext_resource path="res://Character Resouces/The Monk/defend/defend_11.png" type="Texture" id=122]
 [ext_resource path="res://Character Resouces/The Monk/defend/defend_12.png" type="Texture" id=123]
-[ext_resource path="res://Character Resouces/The Monk/Up Light.gd" type="Script" id=124]
-[ext_resource path="res://Character Resouces/The Monk/Down Light Hitbox.gd" type="Script" id=125]
-[ext_resource path="res://Character Resouces/The Monk/Nuetral Air.gd" type="Script" id=126]
-[ext_resource path="res://Character Resouces/The Monk/Nuetral Light.gd" type="Script" id=128]
 
 [sub_resource type="Animation" id=34]
 resource_name = "Disable"
@@ -228,22 +224,23 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=37]
-radius = 6.66667
-height = 18.6667
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id=39]
+radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id=40]
-radius = 12.0
+radius = 5.33334
 height = 0.0
 
 [sub_resource type="CapsuleShape2D" id=41]
+radius = 14.0
+height = 0.0
 
-[sub_resource type="CircleShape2D" id=42]
-radius = 4.71405
+[sub_resource type="CapsuleShape2D" id=42]
 
-[sub_resource type="CircleShape2D" id=44]
-radius = 4.0
-
-[sub_resource type="CapsuleShape2D" id=45]
+[sub_resource type="CircleShape2D" id=43]
+radius = 4.05517
 
 [node name="Earth Monk" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
@@ -251,7 +248,7 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource( 1 )
 controls = ExtResource( 110 )
-Health = 120.0
+Movement = 100.0
 
 [node name="Platform" type="AnimationPlayer" parent="."]
 anims/Disable = SubResource( 34 )
@@ -260,7 +257,8 @@ anims/RESET = SubResource( 35 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.666667, -40.6667 )
 frames = SubResource( 38 )
-animation = "Idle"
+animation = "Nuetral Air"
+frame = 2
 
 [node name="Check Floor" type="RayCast2D" parent="."]
 position = Vector2( 0, 13 )
@@ -271,58 +269,50 @@ cast_to = Vector2( 0, 5 )
 collision_mask = 5
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -1.33333 )
 shape = SubResource( 37 )
 
-[node name="Down Light Hitbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource( 39 )
+
+[node name="Nuetral Light" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 16
-script = ExtResource( 125 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light Hitbox"]
-modulate = Color( 0, 0.0862745, 1, 1 )
-position = Vector2( 68, 0 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Light"]
+position = Vector2( 27, -9 )
 shape = SubResource( 40 )
 disabled = true
 
-[node name="Up Light" type="Area2D" parent="."]
-position = Vector2( 8.66667, -3.33333 )
+[node name="Down Light" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 16
-script = ExtResource( 124 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Up Light"]
-modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 36, 0 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light"]
+position = Vector2( 67, 0 )
 shape = SubResource( 41 )
 disabled = true
 
-[node name="Nuetral Air" type="Area2D" parent="."]
-position = Vector2( 0, -25 )
+[node name="Up Light" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 16
-script = ExtResource( 126 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Air"]
-modulate = Color( 0, 1, 0.0156863, 1 )
-position = Vector2( -8, 0 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up Light"]
+position = Vector2( 35, -2 )
 shape = SubResource( 42 )
 disabled = true
 
-[node name="Nuetral Light" type="Area2D" parent="." groups=["hitbox"]]
+[node name="Nuetral Air" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 16
-script = ExtResource( 128 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Light"]
-position = Vector2( 24, -8 )
-shape = SubResource( 44 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Air"]
+position = Vector2( -7, -22 )
+shape = SubResource( 43 )
 disabled = true
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 45 )
-
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

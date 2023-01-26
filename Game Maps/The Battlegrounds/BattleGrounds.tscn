@@ -9,7 +9,7 @@
 [ext_resource path="res://Water Princess.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 16, 48, 16, 48, 48, 0, 48 )
+points = PoolVector2Array( 0, 11, 48, 11, 48, 47, 0, 47 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 8, 16, 8, 16, 32, 16, 32 )
@@ -18,7 +18,7 @@ points = PoolVector2Array( 0, 8, 16, 8, 16, 32, 16, 32 )
 points = PoolVector2Array( 0, 0, 16, 0, 16, 144, 0, 144 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 0, 8, 160, 8, 160, 32, 0, 32 )
+points = PoolVector2Array( 0, 6, 160, 6, 160, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=4]
 0/name = "mainlevbuildA.png 0"
@@ -119,6 +119,34 @@ points = PoolVector2Array( 0, 8, 160, 8, 160, 32, 0, 32 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
+5/name = "mainlevbuildA.png 5"
+5/texture = ExtResource( 5 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 168, 27, 8, 9 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "mainlevbuildA.png 6"
+6/texture = ExtResource( 5 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 152, 27, 8, 9 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10, 274 )
@@ -130,7 +158,7 @@ extents = Vector2( 10, 274 )
 extents = Vector2( 412, 10 )
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( -1, 0 )
+position = Vector2( 0, -2 )
 
 [node name="Earth Monk" parent="." instance=ExtResource( 1 )]
 position = Vector2( 419, 276 )
@@ -139,7 +167,7 @@ z_index = 1
 [node name="Water Princess" parent="." instance=ExtResource( 7 )]
 position = Vector2( 317, 388 )
 scale = Vector2( 1.5, 1.5 )
-z_index = 1
+z_index = 2
 AirMovement = 500.0
 
 [node name="Background1" type="Sprite" parent="."]

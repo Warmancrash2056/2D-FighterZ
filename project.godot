@@ -24,6 +24,10 @@ config/name="2D FighterZ"
 run/main_scene="res://Game Maps/The Battlegrounds/BattleGrounds.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalControl="*res://Control.gd"
+
 [display]
 
 window/size/width=1000

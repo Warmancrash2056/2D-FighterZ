@@ -1,12 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Control.gd" type="Script" id=1]
 [ext_resource path="res://Character Resouces/The Monk/ground_monk.png" type="Texture" id=2]
+[ext_resource path="res://Player 1.gd" type="Script" id=3]
+[ext_resource path="res://The Monk.gd" type="Script" id=4]
+[ext_resource path="res://Character Resouces/The Monk/Player.tscn" type="PackedScene" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "func change_state(state):
+  state = state;
+  match state:
+    character_select:
+      load(\"character_select\");
+    stage_select:
+      load(\"stage_select\");
+    game:
+      load(\"stage\", \"characters\");
+
+func _process(delta):
+  match state:
+    character_select:
+      do character select logic
+      if characters selected: change_state(stage_select);
+    stage_select:
+      do stage select logic
+      if stage selected: change_state(game);
+    game:
+      do game logic"
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1400.0
@@ -20,14 +45,47 @@ margin_right = 792.0
 margin_bottom = 440.0
 text = "Start Game"
 
-[node name="The Monk" type="Button" parent="."]
-anchor_top = 0.165
-anchor_right = 1.0
-anchor_bottom = 0.987
-margin_left = 192.0
-margin_top = 93.0
-margin_right = -1024.0
-margin_bottom = -330.2
+[node name="ToolButton" type="ToolButton" parent="."]
+margin_right = 12.0
+margin_bottom = 22.0
+button_mask = 0
+keep_pressed_outside = true
+
+[node name="Player 1" type="VBoxContainer" parent="."]
+margin_left = 66.0
+margin_top = 140.0
+margin_right = 132.0
+margin_bottom = 184.0
+script = ExtResource( 3 )
+TheMonk = ExtResource( 5 )
+
+[node name="The Monk" type="Button" parent="Player 1"]
+margin_right = 66.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "The Monk"
+icon = ExtResource( 2 )
+flat = true
+clip_text = true
+expand_icon = true
+script = ExtResource( 4 )
+
+[node name="Princess" type="Button" parent="Player 1"]
+margin_top = 24.0
+margin_right = 66.0
+margin_bottom = 44.0
+text = "Princess"
+
+[node name="Player 2" type="VBoxContainer" parent="."]
+margin_left = 463.0
+margin_top = 133.0
+margin_right = 529.0
+margin_bottom = 177.0
+
+[node name="The Monk" type="Button" parent="Player 2"]
+margin_right = 66.0
+margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "The Monk"
@@ -36,15 +94,8 @@ flat = true
 clip_text = true
 expand_icon = true
 
-[node name="Princess" type="Button" parent="."]
-margin_left = 840.0
-margin_top = 192.0
-margin_right = 906.0
-margin_bottom = 212.0
+[node name="Princess" type="Button" parent="Player 2"]
+margin_top = 24.0
+margin_right = 66.0
+margin_bottom = 44.0
 text = "Princess"
-
-[node name="ToolButton" type="ToolButton" parent="."]
-margin_right = 12.0
-margin_bottom = 22.0
-button_mask = 0
-keep_pressed_outside = true

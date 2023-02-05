@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Character Resouces/The Monk/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game Maps/The Battlegrounds/background 1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Game Maps/The Battlegrounds/mainlevbuildA.png" type="Texture" id=5]
 [ext_resource path="res://Game Maps/The Battlegrounds/background 4.png" type="Texture" id=6]
 [ext_resource path="res://Water Princess.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Game Maps/The Battlegrounds/BattleGrounds.gd" type="Script" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 11, 48, 11, 48, 47, 0, 47 )
@@ -159,6 +160,7 @@ extents = Vector2( 412, 10 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0, -2 )
+script = ExtResource( 8 )
 
 [node name="Earth Monk" parent="." instance=ExtResource( 1 )]
 position = Vector2( 419, 276 )

@@ -227,26 +227,31 @@ func _on_AnimatedSprite_animation_finished():
 	if Animate.animation == "Down Light":
 		Animate.play("Idle")
 		Select = States.Idle
+		Platform.play("RESET")
 		
 	if Animate.animation == "Up Light":
 		Animate.play("Idle")
 		Select = States.Idle
-	
+		Platform.play("RESET")
 	if Animate.animation == "Nuetral Air":
 		Animate.play("Fall")
 		Select = States.Fall
+		Platform.play("RESET")
 		
 	if Animate.animation == "Defend":
 		Animate.play("Idle")
 		Select = States.Idle
+		Platform.play("RESET")
 		
 	if Animate.animation == "Roll":
 		Animate.play("Idle")
 		Select = States.Idle
+		Platform.play("RESET")
 		
 	if Animate.animation == "Take Hit":
 		Animate.play("Idle")
 		Select = States.Idle
+		Platform.play("RESET")
 		
 	if Animate.animation == "Death":
 		queue_free()

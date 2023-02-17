@@ -223,9 +223,6 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=37]
-radius = 5.0
-
 [sub_resource type="CapsuleShape2D" id=39]
 radius = 5.0
 
@@ -258,7 +255,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Down Light/CollisionShape2D:position")
+tracks/1/path = NodePath("../Node2D/Down Light/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -270,7 +267,7 @@ tracks/1/keys = {
 "values": [ Vector2( 42.6667, 10 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Down Light/CollisionShape2D:disabled")
+tracks/2/path = NodePath("../Node2D/Down Light/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -282,7 +279,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../Up Light/Left Hand:position")
+tracks/3/path = NodePath("../Node2D/Up Light/Left Hand:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -310,7 +307,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Down Light/CollisionShape2D:position")
+tracks/1/path = NodePath("../Node2D/Down Light/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -322,7 +319,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 42.6667, 10 ), Vector2( 42.6667, 10 ), Vector2( 42.6667, 10 ), Vector2( 42.6667, 10 ), Vector2( 42.6667, 10 ), Vector2( 42.6667, 10 ), Vector2( 67.3333, 8 ), Vector2( 67.3333, -2 ), Vector2( 67.3333, -2 ), Vector2( 66, 5.33333 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Down Light/CollisionShape2D:disabled")
+tracks/2/path = NodePath("../Node2D/Down Light/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -350,7 +347,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Up Light/Left Hand:position")
+tracks/1/path = NodePath("../Node2D/Up Light/Left Hand:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -362,13 +359,15 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="CapsuleShape2D" id=37]
+radius = 5.0
+
 [node name="Earth Monk" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 1 )
 controls = ExtResource( 110 )
-Movement = 100.0
 
 [node name="Platform" type="AnimationPlayer" parent="."]
 anims/Disable = SubResource( 34 )
@@ -379,6 +378,66 @@ position = Vector2( -0.666667, -40.6667 )
 frames = SubResource( 38 )
 animation = "Up Light"
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="Node2D"]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Hurtbox"]
+shape = SubResource( 39 )
+
+[node name="Nuetral Light" type="Area2D" parent="Node2D"]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Nuetral Light"]
+position = Vector2( 27, -9 )
+shape = SubResource( 40 )
+disabled = true
+
+[node name="Down Light" type="Area2D" parent="Node2D"]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Down Light"]
+position = Vector2( 42.6667, 10 )
+shape = SubResource( 41 )
+
+[node name="Up Light" type="Area2D" parent="Node2D"]
+collision_layer = 32
+collision_mask = 16
+
+[node name="Left Hand" type="CollisionShape2D" parent="Node2D/Up Light"]
+rotation = 1.5708
+shape = SubResource( 42 )
+disabled = true
+
+[node name="Right Hand" type="CollisionShape2D" parent="Node2D/Up Light"]
+position = Vector2( 12, -6 )
+rotation = 1.5708
+shape = SubResource( 42 )
+disabled = true
+
+[node name="Nuetral Air" type="Area2D" parent="Node2D"]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Nuetral Air"]
+position = Vector2( -7, -22 )
+shape = SubResource( 43 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+root_node = NodePath("../../Platform")
+playback_speed = 0.1
+anims/RESET = SubResource( 44 )
+"anims/down light" = SubResource( 45 )
+"anims/up light" = SubResource( 46 )
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource( 37 )
+
 [node name="Check Floor" type="RayCast2D" parent="."]
 position = Vector2( 0, 13 )
 scale = Vector2( 2, 1 )
@@ -387,63 +446,5 @@ exclude_parent = false
 cast_to = Vector2( 0, 5 )
 collision_mask = 5
 
-[node name="Body" type="CollisionShape2D" parent="."]
-shape = SubResource( 37 )
-
-[node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource( 39 )
-
-[node name="Nuetral Light" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Light"]
-position = Vector2( 27, -9 )
-shape = SubResource( 40 )
-disabled = true
-
-[node name="Down Light" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light"]
-position = Vector2( 42.6667, 10 )
-shape = SubResource( 41 )
-
-[node name="Up Light" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 16
-
-[node name="Left Hand" type="CollisionShape2D" parent="Up Light"]
-rotation = 1.5708
-shape = SubResource( 42 )
-disabled = true
-
-[node name="Right Hand" type="CollisionShape2D" parent="Up Light"]
-position = Vector2( 12, -6 )
-rotation = 1.5708
-shape = SubResource( 42 )
-disabled = true
-
-[node name="Nuetral Air" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Air"]
-position = Vector2( -7, -22 )
-shape = SubResource( 43 )
-disabled = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Platform")
-playback_speed = 0.1
-anims/RESET = SubResource( 44 )
-"anims/down light" = SubResource( 45 )
-"anims/up light" = SubResource( 46 )
-
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_entered" from="Node2D/Hurtbox" to="." method="_on_Hurtbox_area_entered"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Character Resouces/The Monk/roll/roll_1.png" type="Texture" id=1]
+[ext_resource path="res://Character Resouces/The Monk/Monk.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 0.0
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Roll1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 39 )
+shape = SubResource( 1 )

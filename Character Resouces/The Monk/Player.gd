@@ -22,6 +22,7 @@ export (float) var Health = 200
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
 
+var Direction = 1
 enum States {
 	Idle,
 	Jump,
@@ -41,6 +42,12 @@ var Select = States.Idle
 
 	
 func _physics_process(delta):
+	if Motion.x >= 1:
+		$Node2D.set_scale(Vector2(abs($Node2D.get_scale().x), $Node2D.get_scale().y))
+	elif Motion.x <= -1:
+		$Node2D.set_scale(Vector2(-abs($Node2D.get_scale().x), $Node2D.get_scale().y))
+
+	
 	Motion = move_and_slide(Motion, Up)
 	Motion.y += Gravity
 	match Select:
@@ -60,10 +67,7 @@ func _physics_process(delta):
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Roll
 					Motion.x = -300
-				Nuetral_Side_light_Hitbox.position.x = -27
-				Down_Light_Hitbox.position.x = -67
-				Up_Light_Hitbox.position.x = -35
-				Nuetral_Air_Hitbox.position.x = -7
+	
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				Animate.flip_h = false
@@ -76,10 +80,7 @@ func _physics_process(delta):
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Roll
 					Motion.x = 300
-				Nuetral_Side_light_Hitbox.position.x = 27
-				Down_Light_Hitbox.position.x = 67
-				Up_Light_Hitbox.position.x = 35
-				Nuetral_Air_Hitbox.position.x = 7
+		
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
 				Platform.play("Disable")
@@ -152,10 +153,6 @@ func _physics_process(delta):
 			Motion.x = 0
 			Animate.play("Nuetral Light")
 			
-			if Animate.frame == 2:
-				Nuetral_Side_light_Hitbox.disabled = false
-			if Animate.frame == 5:
-				Nuetral_Side_light_Hitbox.disabled = true
 		States.Slight:
 			Motion.x = 0
 			Animate.play("Side Light")

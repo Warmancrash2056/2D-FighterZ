@@ -97,7 +97,7 @@ func _physics_process(delta):
 					Select = States.Ulight
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.8)
-				Animate.play("Idle")
+				Animate.p
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nlight

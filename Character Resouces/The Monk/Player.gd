@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var Animate = $Node2D/AnimationPlayer
+onready var Sprites = $AnimatedSprite
 onready var Platform = $Platform
 onready var CheckFloor = $"Check Floor"
 
@@ -57,8 +58,8 @@ func _physics_process(delta):
 				Select = States.Fall
 				
 			if Input.is_action_pressed(controls.input_left):
-				Animate.play("Run")
-				Animate.flip_h = true
+				Animate.play("run")
+				Sprites.flip_h = true
 				Motion.x = max(Motion.x - Acceleration, -Movement)
 				
 				if Input.is_action_just_pressed(controls.input_attack):
@@ -69,8 +70,8 @@ func _physics_process(delta):
 					Motion.x = -300
 	
 			elif Input.is_action_pressed(controls.input_right):
-				Animate.play("Run")
-				Animate.flip_h = false
+				Animate.play("run")
+				Sprites.flip_h = false
 				Motion.x = min(Motion.x + Acceleration, Movement)
 				
 				
@@ -139,11 +140,11 @@ func _physics_process(delta):
 				Select = States.Idle
 				
 			if Input.is_action_pressed(controls.input_left):
-				Animate.flip_h = true
+				Sprites.flip_h = true
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
 			elif Input.is_action_pressed(controls.input_right):
-				Animate.flip_h = false
+				Sprites.flip_h = false
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
 				
 			else:

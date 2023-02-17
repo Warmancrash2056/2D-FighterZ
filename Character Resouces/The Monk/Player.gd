@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var Animate = $AnimatedSprite
+onready var Animate = $Node2D/AnimationPlayer
 onready var Platform = $Platform
 onready var CheckFloor = $"Check Floor"
 

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-onready var Animate = $Node2D/AnimationPlayer
-onready var Sprites = $AnimatedSprite
+onready var Animate = $"Scale Player/AnimationPlayer"
+onready var Sprites = $"Scale Player/AnimatedSprite"
 onready var Platform = $Platform
 onready var CheckFloor = $"Check Floor"
 
@@ -44,9 +44,9 @@ var Select = States.Idle
 	
 func _physics_process(delta):
 	if Motion.x >= 1:
-		$Node2D.set_scale(Vector2(abs($Node2D.get_scale().x), $Node2D.get_scale().y))
+		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif Motion.x <= -1:
-		$Node2D.set_scale(Vector2(-abs($Node2D.get_scale().x), $Node2D.get_scale().y))
+		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 
 	
 	Motion = move_and_slide(Motion, Up)
@@ -58,8 +58,7 @@ func _physics_process(delta):
 				Select = States.Fall
 				
 			if Input.is_action_pressed(controls.input_left):
-				Animate.play("run")
-				Sprites.flip_h = true
+				Sprites.play("Run")
 				Motion.x = max(Motion.x - Acceleration, -Movement)
 				
 				if Input.is_action_just_pressed(controls.input_attack):
@@ -70,8 +69,7 @@ func _physics_process(delta):
 					Motion.x = -300
 	
 			elif Input.is_action_pressed(controls.input_right):
-				Animate.play("run")
-				Sprites.flip_h = false
+				Sprites.play("Run")
 				Motion.x = min(Motion.x + Acceleration, Movement)
 				
 				
@@ -97,7 +95,7 @@ func _physics_process(delta):
 					Select = States.Ulight
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.8)
-				Animate.p
+				Sprites.play("Idle")
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nlight
@@ -140,11 +138,9 @@ func _physics_process(delta):
 				Select = States.Idle
 				
 			if Input.is_action_pressed(controls.input_left):
-				Sprites.flip_h = true
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
 			elif Input.is_action_pressed(controls.input_right):
-				Sprites.flip_h = false
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
 				
 			else:
@@ -215,12 +211,10 @@ func _on_AnimatedSprite_animation_finished():
 	if Animate.animation == "Nuetral Light":
 		Animate.play("Idle")
 		Select = States.Idle
-		Platform.play("RESET")
 	
 	if Animate.animation == "Side Light":
 		Animate.play("Idle")
 		Select = States.Idle
-		Platform.play("RESET")
 		
 	if Animate.animation == "Down Light":
 		Animate.play("Idle")

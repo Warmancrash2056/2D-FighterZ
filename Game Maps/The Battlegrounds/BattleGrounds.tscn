@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Character Resouces/The Monk/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Game Maps/The Battlegrounds/background 1.png" type="Texture" id=2]
-[ext_resource path="res://Game Maps/The Battlegrounds/background 2.png" type="Texture" id=3]
-[ext_resource path="res://Game Maps/The Battlegrounds/background 3.png" type="Texture" id=4]
-[ext_resource path="res://Game Maps/The Battlegrounds/mainlevbuildA.png" type="Texture" id=5]
-[ext_resource path="res://Game Maps/The Battlegrounds/background 4.png" type="Texture" id=6]
-[ext_resource path="res://Water Princess.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Game Maps/The Battlegrounds/background 2.png" type="Texture" id=2]
+[ext_resource path="res://Game Maps/The Battlegrounds/mainlevbuildA.png" type="Texture" id=3]
+[ext_resource path="res://Game Maps/The Battlegrounds/background 4.png" type="Texture" id=4]
+[ext_resource path="res://Game Maps/The Battlegrounds/background 3.png" type="Texture" id=5]
+[ext_resource path="res://Game Maps/The Battlegrounds/background 1.png" type="Texture" id=6]
+[ext_resource path="res://Character Resouces/Princess/Water Princess.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 11, 48, 11, 48, 47, 0, 47 )
@@ -22,7 +22,7 @@ points = PoolVector2Array( 0, 6, 160, 6, 160, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=4]
 0/name = "mainlevbuildA.png 0"
-0/texture = ExtResource( 5 )
+0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 128, 16, 48, 48 )
@@ -43,7 +43,7 @@ points = PoolVector2Array( 0, 6, 160, 6, 160, 32, 0, 32 )
 } ]
 0/z_index = 0
 1/name = "mainlevbuildA.png 1"
-1/texture = ExtResource( 5 )
+1/texture = ExtResource( 3 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 96, 24, 16, 32 )
@@ -64,7 +64,7 @@ points = PoolVector2Array( 0, 6, 160, 6, 160, 32, 0, 32 )
 } ]
 1/z_index = 0
 2/name = "mainlevbuildA.png 2"
-2/texture = ExtResource( 5 )
+2/texture = ExtResource( 3 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 64, 80, 48, 48 )
@@ -78,7 +78,7 @@ points = PoolVector2Array( 0, 6, 160, 6, 160, 32, 0, 32 )
 2/shapes = [  ]
 2/z_index = -1
 3/name = "mainlevbuildA.png 3"
-3/texture = ExtResource( 5 )
+3/texture = ExtResource( 3 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 16, 192, 32, 144 )
@@ -99,7 +99,7 @@ points = PoolVector2Array( 0, 6, 160, 6, 160, 32, 0, 32 )
 } ]
 3/z_index = -2
 4/name = "mainlevbuildA.png 4"
-4/texture = ExtResource( 5 )
+4/texture = ExtResource( 3 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 704, 624, 160, 32 )
@@ -120,7 +120,7 @@ points = PoolVector2Array( 0, 6, 160, 6, 160, 32, 0, 32 )
 } ]
 4/z_index = 0
 5/name = "mainlevbuildA.png 5"
-5/texture = ExtResource( 5 )
+5/texture = ExtResource( 3 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 168, 27, 8, 9 )
@@ -134,7 +134,7 @@ points = PoolVector2Array( 0, 6, 160, 6, 160, 32, 0, 32 )
 5/shapes = [  ]
 5/z_index = 0
 6/name = "mainlevbuildA.png 6"
-6/texture = ExtResource( 5 )
+6/texture = ExtResource( 3 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 152, 27, 8, 9 )
@@ -161,7 +161,7 @@ extents = Vector2( 412, 10 )
 position = Vector2( 0, -2 )
 
 [node name="Earth Monk" parent="." instance=ExtResource( 1 )]
-position = Vector2( 419, 276 )
+position = Vector2( 182, 403 )
 z_index = 1
 
 [node name="Water Princess" parent="." instance=ExtResource( 7 )]
@@ -174,25 +174,25 @@ AirMovement = 500.0
 position = Vector2( 300, 299 )
 scale = Vector2( 1.2, 1 )
 z_index = -2
-texture = ExtResource( 2 )
+texture = ExtResource( 6 )
 
 [node name="Background2" type="Sprite" parent="."]
 position = Vector2( 300, 299 )
 scale = Vector2( 1.2, 1 )
 z_index = -2
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="Background3" type="Sprite" parent="."]
 position = Vector2( 300, 299 )
 scale = Vector2( 1.2, 1 )
 z_index = -2
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="Background4" type="Sprite" parent="."]
 position = Vector2( 300, 299 )
 scale = Vector2( 1.2, 1 )
 z_index = -2
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Floor" type="TileMap" parent="."]
 position = Vector2( 1, 75 )

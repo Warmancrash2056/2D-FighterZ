@@ -178,7 +178,7 @@ length = 1.1
 resource_name = "run"
 length = 0.7
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Node2D/AnimatedSprite:frame")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -298,7 +298,7 @@ collision_mask = 32
 shape = SubResource( 39 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../AnimatedSprite")
+root_node = NodePath("../..")
 playback_speed = 0.6
 anims/Idle = SubResource( 50 )
 anims/RESET = SubResource( 44 )

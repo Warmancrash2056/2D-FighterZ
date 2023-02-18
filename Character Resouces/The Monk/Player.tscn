@@ -1,135 +1,62 @@
-[gd_scene load_steps=132 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Character Resouces/The Monk/Player.gd" type="Script" id=1]
-[ext_resource path="res://Character Resouces/The Monk/j_down/j_down_3.png" type="Texture" id=2]
-[ext_resource path="res://Character Resouces/The Monk/j_down/j_down_1.png" type="Texture" id=3]
-[ext_resource path="res://Character Resouces/The Monk/1_atk/1_atk_2.png" type="Texture" id=4]
-[ext_resource path="res://Character Resouces/The Monk/j_up/j_up_1.png" type="Texture" id=5]
-[ext_resource path="res://Character Resouces/The Monk/1_atk/1_atk_1.png" type="Texture" id=6]
-[ext_resource path="res://Character Resouces/The Monk/roll/roll_6.png" type="Texture" id=7]
-[ext_resource path="res://Character Resouces/The Monk/1_atk/1_atk_3.png" type="Texture" id=8]
-[ext_resource path="res://Character Resouces/The Monk/roll/roll_5.png" type="Texture" id=9]
-[ext_resource path="res://Character Resouces/The Monk/roll/roll_2.png" type="Texture" id=10]
-[ext_resource path="res://Character Resouces/The Monk/roll/roll_4.png" type="Texture" id=11]
-[ext_resource path="res://Character Resouces/The Monk/j_up/j_up_2.png" type="Texture" id=12]
-[ext_resource path="res://Character Resouces/The Monk/run/run_7.png" type="Texture" id=13]
-[ext_resource path="res://Character Resouces/The Monk/run/run_8.png" type="Texture" id=14]
-[ext_resource path="res://Character Resouces/The Monk/roll/roll_3.png" type="Texture" id=15]
-[ext_resource path="res://Character Resouces/The Monk/j_down/j_down_2.png" type="Texture" id=16]
-[ext_resource path="res://Character Resouces/The Monk/roll/roll_1.png" type="Texture" id=17]
-[ext_resource path="res://Character Resouces/The Monk/j_up/j_up_3.png" type="Texture" id=18]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_13.png" type="Texture" id=19]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_14.png" type="Texture" id=20]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_16.png" type="Texture" id=21]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_17.png" type="Texture" id=22]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_11.png" type="Texture" id=23]
-[ext_resource path="res://Character Resouces/The Monk/1_atk/1_atk_4.png" type="Texture" id=24]
-[ext_resource path="res://Character Resouces/The Monk/2_atk/2_atk_7.png" type="Texture" id=25]
-[ext_resource path="res://Character Resouces/The Monk/2_atk/2_atk_8.png" type="Texture" id=26]
-[ext_resource path="res://Character Resouces/The Monk/1_atk/1_atk_5.png" type="Texture" id=27]
-[ext_resource path="res://Character Resouces/The Monk/2_atk/2_atk_10.png" type="Texture" id=28]
-[ext_resource path="res://Character Resouces/The Monk/1_atk/1_atk_6.png" type="Texture" id=29]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_12.png" type="Texture" id=30]
-[ext_resource path="res://Character Resouces/The Monk/2_atk/2_atk_12.png" type="Texture" id=31]
-[ext_resource path="res://Character Resouces/The Monk/2_atk/2_atk_11.png" type="Texture" id=32]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_15.png" type="Texture" id=33]
-[ext_resource path="res://Character Resouces/The Monk/2_atk/2_atk_6.png" type="Texture" id=34]
-[ext_resource path="res://Character Resouces/The Monk/2_atk/2_atk_9.png" type="Texture" id=35]
-[ext_resource path="res://Character Resouces/The Monk/air_atk/air_atk_2.png" type="Texture" id=36]
-[ext_resource path="res://Character Resouces/The Monk/air_atk/air_atk_3.png" type="Texture" id=37]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_18.png" type="Texture" id=38]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_22.png" type="Texture" id=39]
-[ext_resource path="res://Character Resouces/The Monk/air_atk/air_atk_4.png" type="Texture" id=40]
-[ext_resource path="res://Character Resouces/The Monk/air_atk/air_atk_5.png" type="Texture" id=41]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_19.png" type="Texture" id=42]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_20.png" type="Texture" id=43]
-[ext_resource path="res://Character Resouces/The Monk/air_atk/air_atk_1.png" type="Texture" id=44]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_21.png" type="Texture" id=45]
-[ext_resource path="res://Character Resouces/The Monk/air_atk/air_atk_6.png" type="Texture" id=46]
-[ext_resource path="res://Character Resouces/The Monk/air_atk/air_atk_7.png" type="Texture" id=47]
-[ext_resource path="res://Character Resouces/The Monk/3_atk/3_atk_23.png" type="Texture" id=48]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_1.png" type="Texture" id=49]
-[ext_resource path="res://Character Resouces/The Monk/death/death_14.png" type="Texture" id=50]
-[ext_resource path="res://Character Resouces/The Monk/death/death_15.png" type="Texture" id=51]
-[ext_resource path="res://Character Resouces/The Monk/death/death_12.png" type="Texture" id=52]
-[ext_resource path="res://Character Resouces/The Monk/death/death_11.png" type="Texture" id=53]
-[ext_resource path="res://Character Resouces/The Monk/death/death_18.png" type="Texture" id=54]
-[ext_resource path="res://Character Resouces/The Monk/death/death_17.png" type="Texture" id=55]
-[ext_resource path="res://Character Resouces/The Monk/death/death_13.png" type="Texture" id=56]
-[ext_resource path="res://Character Resouces/The Monk/death/death_16.png" type="Texture" id=57]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_6.png" type="Texture" id=58]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_5.png" type="Texture" id=59]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_2.png" type="Texture" id=60]
-[ext_resource path="res://Character Resouces/The Monk/idle/idle_4.png" type="Texture" id=61]
-[ext_resource path="res://Character Resouces/The Monk/run/run_2.png" type="Texture" id=62]
-[ext_resource path="res://Character Resouces/The Monk/run/run_3.png" type="Texture" id=63]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_4.png" type="Texture" id=64]
-[ext_resource path="res://Character Resouces/The Monk/idle/idle_2.png" type="Texture" id=65]
-[ext_resource path="res://Character Resouces/The Monk/idle/idle_6.png" type="Texture" id=66]
-[ext_resource path="res://Character Resouces/The Monk/idle/idle_3.png" type="Texture" id=67]
-[ext_resource path="res://Character Resouces/The Monk/run/run_1.png" type="Texture" id=68]
-[ext_resource path="res://Character Resouces/The Monk/idle/idle_5.png" type="Texture" id=69]
-[ext_resource path="res://Character Resouces/The Monk/run/run_4.png" type="Texture" id=70]
-[ext_resource path="res://Character Resouces/The Monk/run/run_6.png" type="Texture" id=71]
-[ext_resource path="res://Character Resouces/The Monk/run/run_5.png" type="Texture" id=72]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_3.png" type="Texture" id=73]
-[ext_resource path="res://Character Resouces/The Monk/idle/idle_1.png" type="Texture" id=74]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_11.png" type="Texture" id=75]
-[ext_resource path="res://Character Resouces/The Monk/death/death_1.png" type="Texture" id=76]
-[ext_resource path="res://Character Resouces/The Monk/death/death_2.png" type="Texture" id=77]
-[ext_resource path="res://Character Resouces/The Monk/death/death_8.png" type="Texture" id=78]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_9.png" type="Texture" id=79]
-[ext_resource path="res://Character Resouces/The Monk/death/death_9.png" type="Texture" id=80]
-[ext_resource path="res://Character Resouces/The Monk/take_hit/take_hit_2.png" type="Texture" id=81]
-[ext_resource path="res://Character Resouces/The Monk/death/death_5.png" type="Texture" id=82]
-[ext_resource path="res://Character Resouces/The Monk/death/death_3.png" type="Texture" id=83]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_17.png" type="Texture" id=84]
-[ext_resource path="res://Character Resouces/The Monk/death/death_10.png" type="Texture" id=85]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_19.png" type="Texture" id=86]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_18.png" type="Texture" id=87]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_20.png" type="Texture" id=88]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_24.png" type="Texture" id=89]
-[ext_resource path="res://Character Resouces/The Monk/take_hit/take_hit_5.png" type="Texture" id=90]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_23.png" type="Texture" id=91]
-[ext_resource path="res://Character Resouces/The Monk/take_hit/take_hit_6.png" type="Texture" id=92]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_7.png" type="Texture" id=93]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_13.png" type="Texture" id=94]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_14.png" type="Texture" id=95]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_15.png" type="Texture" id=96]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_16.png" type="Texture" id=97]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_25.png" type="Texture" id=98]
-[ext_resource path="res://Character Resouces/The Monk/take_hit/take_hit_4.png" type="Texture" id=99]
-[ext_resource path="res://Character Resouces/The Monk/death/death_4.png" type="Texture" id=100]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_10.png" type="Texture" id=101]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_21.png" type="Texture" id=102]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_22.png" type="Texture" id=103]
-[ext_resource path="res://Character Resouces/The Monk/take_hit/take_hit_1.png" type="Texture" id=104]
-[ext_resource path="res://Character Resouces/The Monk/take_hit/take_hit_3.png" type="Texture" id=105]
-[ext_resource path="res://Character Resouces/The Monk/death/death_6.png" type="Texture" id=106]
-[ext_resource path="res://Character Resouces/The Monk/death/death_7.png" type="Texture" id=107]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_8.png" type="Texture" id=108]
-[ext_resource path="res://Character Resouces/The Monk/sp_atk/sp_atk_12.png" type="Texture" id=109]
+[ext_resource path="res://Character Resouces/The Monk/Ground Monk SpriteSheet.png" type="Texture" id=2]
 [ext_resource path="res://Character Resouces/Global/Player_1.tres" type="Resource" id=110]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_6.png" type="Texture" id=111]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_7.png" type="Texture" id=112]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_8.png" type="Texture" id=113]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_3.png" type="Texture" id=114]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_5.png" type="Texture" id=115]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_9.png" type="Texture" id=116]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_1.png" type="Texture" id=117]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_2.png" type="Texture" id=118]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_4.png" type="Texture" id=119]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_10.png" type="Texture" id=120]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_13.png" type="Texture" id=121]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_11.png" type="Texture" id=122]
-[ext_resource path="res://Character Resouces/The Monk/defend/defend_12.png" type="Texture" id=123]
 
 [sub_resource type="CapsuleShape2D" id=39]
 radius = 5.0
 
-[sub_resource type="Animation" id=50]
+[sub_resource type="Animation" id=40]
+resource_name = "Chain Run "
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107 ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "Dlight"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68 ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 17, 18, 20 ]
+}
+
+[sub_resource type="Animation" id=43]
 resource_name = "Idle"
-length = 0.5
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -144,39 +71,23 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=44]
-length = 0.001
+resource_name = "Jump"
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Node2D/AnimatedSprite:frame")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 16 ]
 }
 
 [sub_resource type="Animation" id=45]
-resource_name = "down light"
-length = 1.1
-
-[sub_resource type="Animation" id=49]
-resource_name = "run"
-length = 0.7
+resource_name = "Nair"
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -187,92 +98,87 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+"values": [ 20, 21, 22, 23, 24, 25, 26, 27 ]
 }
 
 [sub_resource type="Animation" id=46]
-resource_name = "up light"
-length = 2.4
+resource_name = "Nlight"
+length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Node2D/AnimatedSprite:frame")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
+"values": [ 27, 28, 29, 30, 31, 32 ]
 }
 
-[sub_resource type="SpriteFrames" id=38]
-animations = [ {
-"frames": [ ExtResource( 76 ), ExtResource( 77 ), ExtResource( 83 ), ExtResource( 100 ), ExtResource( 82 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 78 ), ExtResource( 80 ), ExtResource( 85 ), ExtResource( 53 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 57 ), ExtResource( 55 ), ExtResource( 54 ) ],
-"loop": true,
-"name": "Death",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 117 ), ExtResource( 118 ), ExtResource( 114 ), ExtResource( 119 ), ExtResource( 115 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 116 ), ExtResource( 120 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 121 ) ],
-"loop": true,
-"name": "Defend",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 30 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 33 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 38 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 45 ), ExtResource( 39 ), ExtResource( 48 ) ],
-"loop": true,
-"name": "Down Light",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 16 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 74 ), ExtResource( 65 ), ExtResource( 67 ), ExtResource( 61 ), ExtResource( 69 ), ExtResource( 66 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 12 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 44 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 46 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "Nuetral Air",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "Nuetral Light",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Roll",
-"speed": 18.0
-}, {
-"frames": [ ExtResource( 68 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 70 ), ExtResource( 72 ), ExtResource( 71 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "Run",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 35 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "Side Light",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 104 ), ExtResource( 81 ), ExtResource( 105 ), ExtResource( 99 ), ExtResource( 90 ), ExtResource( 92 ) ],
-"loop": true,
-"name": "Take Hit",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 49 ), ExtResource( 60 ), ExtResource( 73 ), ExtResource( 64 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 93 ), ExtResource( 108 ), ExtResource( 79 ), ExtResource( 101 ), ExtResource( 75 ), ExtResource( 109 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 84 ), ExtResource( 87 ), ExtResource( 86 ), ExtResource( 88 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 91 ), ExtResource( 89 ), ExtResource( 98 ) ],
-"loop": true,
-"name": "Up Light",
-"speed": 12.0
-} ]
+[sub_resource type="Animation" id=47]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "Run"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 9, 10, 11, 12, 13 ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "Slight"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 37, 38, 39, 40, 41, 42, 43, 44 ]
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "Ulight"
+length = 2.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93 ]
+}
 
 [sub_resource type="CapsuleShape2D" id=37]
 radius = 5.0
@@ -298,18 +204,23 @@ collision_mask = 32
 shape = SubResource( 39 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../..")
-playback_speed = 0.6
-anims/Idle = SubResource( 50 )
-anims/RESET = SubResource( 44 )
-"anims/down light" = SubResource( 45 )
-anims/run = SubResource( 49 )
-"anims/up light" = SubResource( 46 )
+root_node = NodePath("../Sprite")
+"anims/Chain Run " = SubResource( 40 )
+anims/Dlight = SubResource( 41 )
+anims/Fall = SubResource( 42 )
+anims/Idle = SubResource( 43 )
+anims/Jump = SubResource( 44 )
+anims/Nair = SubResource( 45 )
+anims/Nlight = SubResource( 46 )
+anims/RESET = SubResource( 47 )
+anims/Run = SubResource( 48 )
+anims/Slight = SubResource( 49 )
+anims/Ulight = SubResource( 50 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Scale Player"]
-position = Vector2( 0, -40 )
-frames = SubResource( 38 )
-animation = "Idle"
+[node name="Sprite" type="Sprite" parent="Scale Player"]
+texture = ExtResource( 2 )
+hframes = 20
+vframes = 8
 
 [node name="Body" type="CollisionShape2D" parent="."]
 shape = SubResource( 37 )
@@ -323,4 +234,3 @@ cast_to = Vector2( 0, 5 )
 collision_mask = 5
 
 [connection signal="area_entered" from="Scale Player/Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

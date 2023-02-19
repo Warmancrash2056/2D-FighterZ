@@ -34,13 +34,14 @@ enum States {
 	Nair,
 	Defend,
 	Roll,
+	ChainRun,
 	Death,
 	Hurt
 }
 var Select = States.Idle
 
 func _ready():
-	Animate.play("RESET")
+	pass
 	
 func _physics_process(delta):
 	if Motion.x >= 1:
@@ -174,6 +175,7 @@ func _physics_process(delta):
 			Animate.play("Death")
 			
 		States.Hurt:
+			Motion.x = 0
 			Animate.play("Take Hit")
 
 
@@ -207,3 +209,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Nair":
 		Select = States.Fall
 		print("goofd")
+
+
+
+
+
+func _on_Side_Light_Hitbox_area_entered(area):
+	print("chain run")

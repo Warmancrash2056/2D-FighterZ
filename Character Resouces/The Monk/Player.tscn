@@ -1,11 +1,42 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Character Resouces/The Monk/Player.gd" type="Script" id=1]
 [ext_resource path="res://Character Resouces/The Monk/Ground Monk SpriteSheet.png" type="Texture" id=2]
 [ext_resource path="res://Character Resouces/Global/Player_1.tres" type="Resource" id=110]
 
+[sub_resource type="RectangleShape2D" id=52]
+extents = Vector2( 2.35702, 15.057 )
+
 [sub_resource type="CapsuleShape2D" id=39]
 radius = 5.0
+
+[sub_resource type="Animation" id=51]
+resource_name = "Block"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.866667, 0.788235, 0.737255, 1 ), Color( 0.776471, 0.866667, 0.784314, 1 ), Color( 0.866667, 0.788235, 0.737255, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=40]
 resource_name = "Chain Run "
@@ -56,7 +87,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=43]
 resource_name = "Idle"
-length = 0.6
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -68,6 +99,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Hitbox/CollisionShape2D:shape:extents")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5, 5 ), Vector2( 5, 5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
 }
 
 [sub_resource type="Animation" id=44]
@@ -87,7 +142,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=45]
 resource_name = "Nair"
-length = 0.8
+length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -99,6 +154,54 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 20, 21, 22, 23, 24, 25, 26, 27 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Hitbox/CollisionShape2D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 99.0, -45.0, 45.0, 30.0, 15.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -10.452, -3.19375 ), Vector2( -2.22332, -16.89 ), Vector2( 11.3531, -6.68646 ), Vector2( 7.56875, -4.45764 ), Vector2( 3.78438, -2.22882 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Hitbox/CollisionShape2D:shape:extents")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4, 5 ), Vector2( 2.35702, 11.6362 ), Vector2( 1.88562, 7.69806 ), Vector2( 2.35702, 15.057 ), Vector2( 3.23802, 11.7046 ), Vector2( 4.11901, 8.35232 ), Vector2( 5, 5 ), Vector2( 5, 5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false, false, false, false, true, true ]
 }
 
 [sub_resource type="Animation" id=46]
@@ -130,6 +233,66 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Hitbox/CollisionShape2D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 45.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 11.3531, -6.68646 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Hitbox/CollisionShape2D:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.35702, 15.057 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Hitbox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=48]
@@ -195,8 +358,13 @@ controls = ExtResource( 110 )
 [node name="Hitbox" type="Area2D" parent="Scale Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Hitbox"]
+position = Vector2( 11.3531, -6.68646 )
+rotation = 0.785398
+scale = Vector2( 1, 1 )
+shape = SubResource( 52 )
 
 [node name="Hurtbox" type="Area2D" parent="Scale Player"]
+visible = false
 collision_layer = 16
 collision_mask = 32
 
@@ -205,6 +373,7 @@ shape = SubResource( 39 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
 root_node = NodePath("../Sprite")
+anims/Block = SubResource( 51 )
 "anims/Chain Run " = SubResource( 40 )
 anims/Dlight = SubResource( 41 )
 anims/Fall = SubResource( 42 )
@@ -218,11 +387,13 @@ anims/Slight = SubResource( 49 )
 anims/Ulight = SubResource( 50 )
 
 [node name="Sprite" type="Sprite" parent="Scale Player"]
+position = Vector2( 0, -40 )
 texture = ExtResource( 2 )
 hframes = 20
 vframes = 8
 
 [node name="Body" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 37 )
 
 [node name="Check Floor" type="RayCast2D" parent="."]
@@ -234,3 +405,4 @@ cast_to = Vector2( 0, 5 )
 collision_mask = 5
 
 [connection signal="area_entered" from="Scale Player/Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

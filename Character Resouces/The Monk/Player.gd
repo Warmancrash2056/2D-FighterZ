@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 onready var Animate = $"Scale Player/AnimationPlayer"
-onready var Sprites = $"Scale Player/AnimatedSprite"
 onready var Platform = $Platform
 onready var CheckFloor = $"Check Floor"
 
@@ -40,7 +39,8 @@ enum States {
 }
 var Select = States.Idle
 
-
+func _ready():
+	Animate.play("RESET")
 	
 func _physics_process(delta):
 	if Motion.x >= 1:
@@ -58,18 +58,17 @@ func _physics_process(delta):
 				Select = States.Fall
 				
 			if Input.is_action_pressed(controls.input_left):
-				Sprites.play("Run")
+				Animate.play("Run")
 				Motion.x = max(Motion.x - Acceleration, -Movement)
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
-					
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Roll
 					Motion.x = -300
 	
 			elif Input.is_action_pressed(controls.input_right):
-				Sprites.play("Run")
+				Animate.play("Run")
 				Motion.x = min(Motion.x + Acceleration, Movement)
 				
 				
@@ -82,11 +81,10 @@ func _physics_process(delta):
 		
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
-				Platform.play("Disable")
+				pass
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Dlight
-					Platform.stop()
 					
 					
 			elif Input.is_action_pressed(controls.input_up):
@@ -95,7 +93,7 @@ func _physics_process(delta):
 					Select = States.Ulight
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.8)
-				Sprites.play("Idle")
+				Animate.play("Idle")
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nlight
@@ -112,11 +110,9 @@ func _physics_process(delta):
 			Animate.play("Jump")
 			
 			if Input.is_action_pressed(controls.input_left):
-				Animate.flip_h = true
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
 			elif Input.is_action_pressed(controls.input_right):
-				Animate.flip_h = false
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
 				
 			else:
@@ -132,7 +128,7 @@ func _physics_process(delta):
 		States.Fall:
 			Animate.play("Fall")
 			if Input.is_action_pressed(controls.input_down):
-				Platform.play("Disable")
+				pass
 			 
 			if CheckFloor.is_colliding():
 				Select = States.Idle
@@ -148,53 +144,27 @@ func _physics_process(delta):
 			
 		States.Nlight:
 			Motion.x = 0
-			Animate.play("Nuetral Light")
+			Animate.play("Nlight")
 			
 		States.Slight:
 			Motion.x = 0
-			Animate.play("Side Light")
-			if Animate.frame == 0:
-				Nuetral_Side_light_Hitbox.disabled = false
-				
-			if Animate.frame == 2:
-				Nuetral_Side_light_Hitbox.disabled = true
-				
-			if Animate.frame == 3:
-				Nuetral_Side_light_Hitbox.disabled = false
-				
-			if Animate.frame == 5:
-				Nuetral_Side_light_Hitbox.disabled = true
+			Animate.play("Slight")
 
 		States.Dlight:
 			Motion.x = 0
-			Animate.play("Down Light")
+			Animate.play("Dlight")
 			
-			if Animate.frame == 7:
-				Down_Light_Hitbox.disabled = false
-				
-			if Animate.frame == 10:
-				Down_Light_Hitbox.disabled = true
 				
 		States.Ulight:
 			Motion.x = 0
-			Animate.play("Up Light")
+			Animate.play("Ulight")
 			
-			if Animate.frame == 7:
-				Up_Light_Hitbox.disabled = false
-				
-			if Animate.frame == 10:
-				Up_Light_Hitbox.disabled = true
 				
 		States.Nair:
 			Motion.y = 0
 			Motion.x = 0
-			Animate.play("Nuetral Air")
-			
-			if Animate.frame == 2:
-				Nuetral_Air_Hitbox.disabled = false
-				
-			if Animate.frame == 3:
-				Nuetral_Air_Hitbox.disabled = true
+			Animate.play("Nair")
+
 			
 		States.Defend:
 			Animate.play("Defend")
@@ -207,43 +177,6 @@ func _physics_process(delta):
 			Animate.play("Take Hit")
 
 
-func _on_AnimatedSprite_animation_finished():
-	if Animate.animation == "Nuetral Light":
-		Animate.play("Idle")
-		Select = States.Idle
-	
-	if Animate.animation == "Side Light":
-		Animate.play("Idle")
-		Select = States.Idle
-		
-	if Animate.animation == "Down Light":
-		Animate.play("Idle")
-		Select = States.Idle
-		
-	if Animate.animation == "Up Light":
-		Animate.play("Idle")
-		Select = States.Idle
-	
-	if Animate.animation == "Nuetral Air":
-		Animate.play("Fall")
-		Select = States.Fall
-		
-	if Animate.animation == "Defend":
-		Animate.play("Idle")
-		Select = States.Idle
-		
-	if Animate.animation == "Roll":
-		Animate.play("Idle")
-		Select = States.Idle
-		
-	if Animate.animation == "Take Hit":
-		Animate.play("Idle")
-		Select = States.Idle
-		
-	if Animate.animation == "Death":
-		queue_free()
-
-
 func _on_Hurtbox_area_entered(area):
 	Select = States.Hurt
 	
@@ -252,3 +185,25 @@ func _on_Hurtbox_area_entered(area):
 	
 	if Health <= 0:
 		Select = States.Death
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Nlight":
+		Select = States.Idle
+		print("goofd")
+		
+	if anim_name == "Slight":
+		Select = States.Idle
+		print("goofd")
+
+	if anim_name == "Ulight":
+		Select = States.Idle
+		print("goofd")
+		
+	if anim_name == "Dlight":
+		Select = States.Idle
+		print("goofd")
+		
+	if anim_name == "Nair":
+		Select = States.Fall
+		print("goofd")

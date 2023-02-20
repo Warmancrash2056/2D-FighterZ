@@ -32,6 +32,7 @@ enum States {
 	Defend,
 	Roll,
 	ChainRun,
+	ChainEnd,
 	Death,
 	Hurt
 }
@@ -42,7 +43,7 @@ func _ready():
 	
 func _physics_process(delta):
 	print(ChaseTimer.time_left)
-
+	print(ChaseActive)
 	if Motion.x >= 1:
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif Motion.x <= -1:
@@ -50,10 +51,10 @@ func _physics_process(delta):
 
 	
 	Motion = move_and_slide(Motion, Up)
-	Motion.y += Gravity
+
 	match Select:
 		States.Idle:
-
+			Motion.y += Gravity
 			if !CheckFloor.is_colliding():
 				Select = States.Fall
 				
@@ -62,12 +63,18 @@ func _physics_process(delta):
 				Motion.x = max(Motion.x - Acceleration, -Movement)
 				
 				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Roll
+					Select = States.Slight
 					
-				elif Input.is_action_just_pressed(controls.input_dash):
+				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == false:
 					Select = States.Roll
+
+				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
+					Select = States.ChainRun
+					Motion.x = 0
+					Motion.y = 0
+				
 	
-			elif Input.is_action_pressed(controls.input_right):
+			if Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				Motion.x = min(Motion.x + Acceleration, Movement)
 				
@@ -75,9 +82,11 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
-				elif Input.is_action_just_pressed(controls.input_dash):
+				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == false:
 					Select = States.Roll
 
+				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
+					Select = States.ChainRun
 		
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
@@ -105,6 +114,7 @@ func _physics_process(delta):
 				Select = States.Jump
 				
 		States.Jump:
+			Motion.y += Gravity
 			if is_on_floor():
 				Motion.y = -JumpHeight
 				
@@ -124,9 +134,11 @@ func _physics_process(delta):
 				
 			if Input.is_action_just_pressed(controls.input_attack):
 				Select = States.Nair
+				
 			
 			
 		States.Fall:
+			Motion.y += Gravity
 			Animate.play("Fall")
 			if Input.is_action_pressed(controls.input_down):
 				pass
@@ -142,6 +154,10 @@ func _physics_process(delta):
 				
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
+			
+			if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
+				Select = States.ChainRun
+			
 			
 		States.Nlight:
 			Motion.x = 0
@@ -176,29 +192,45 @@ func _physics_process(delta):
 			
 			
 		States.Roll:
+			Motion.y += Gravity
 			Animate.play("Roll")
 			if !is_on_floor():
 				Select = States.Fall
 			yield(get_tree().create_timer(0.05), "timeout")
 			if Input.is_action_just_pressed(controls.input_block):
 				Select = States.Defend
+				
+		States.ChainRun:
 			
+			Animate.play("Chain Run")
+			
+			if Input.is_action_pressed(controls.input_left):
+				Motion.x = -80
+				
+			if Input.is_action_pressed(controls.input_right):
+				Motion.x = 80
+				
+			if Input.is_action_just_pressed(controls.input_up):
+				Motion.y = -80
+				
+			if Input.is_action_pressed(controls.input_down):
+				Motion.y = 80
+				
+			if Input.is_action_pressed(controls.input_attack) and !is_on_floor():
+				Select = States.Nair
+				
+			
+		States.ChainEnd:
+			Animate.play("Chain End")
 		States.Death:
-			Animate.play("Death")
+			Animate.play("Jump")
 			
 		States.Hurt:
 			Motion.x = 0
 			Animate.play("Take Hit")
 
 
-func _on_Hurtbox_area_entered(area):
-	Select = States.Hurt
-	
-	Health -= 20
-	print(Health)
-	
-	if Health <= 0:
-		Select = States.Death
+
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -222,14 +254,49 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		
 	if anim_name == "Block":
 		Select = States.Idle
+		
+	if anim_name == "Chain Run":
+		if is_on_floor():
+			Select = States.Idle
+			
+		else:
+			Select = States.Fall
+		
+	
 
 
 
 
-func _on_Side_Light_Hitbox_area_entered(area):
+
+
+
+
+
+
+func _on_Nuetral_Light_Hitbox_area_entered(area):
 	ChaseTimer.start()
+	ChaseActive = true
 
+
+
+
+
+func _on_Nuetral_Air_area_entered(area):
+	ChaseTimer.start()
+	ChaseActive = true
 
 
 func _on_Timer_timeout():
-	print("stopped chase")
+	ChaseActive = false
+
+
+func _on_Down_Light_Hitbox_area_entered(area):
+	ChaseActive = true
+
+
+func _on_Side_Light_Second_Punch_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_Side_Light_First_Punch_area_entered(area):
+	pass

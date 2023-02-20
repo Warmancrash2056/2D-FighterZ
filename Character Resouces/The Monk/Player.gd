@@ -215,4 +215,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_Side_Light_Hitbox_area_entered(area):
-	print("chain run")
+	Animate.play("Block")

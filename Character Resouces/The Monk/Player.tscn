@@ -781,7 +781,11 @@ cast_to = Vector2( 0, 5 )
 collision_mask = 5
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
 
 [connection signal="area_entered" from="Scale Player/Side Light Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

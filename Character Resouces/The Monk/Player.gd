@@ -3,10 +3,7 @@ extends KinematicBody2D
 onready var Animate = $"Scale Player/AnimationPlayer"
 onready var CheckFloor = $"Check Floor"
 
-onready var Nuetral_Side_light_Hitbox = $"Nuetral Light/CollisionShape2D"
-onready var Down_Light_Hitbox = $"Down Light/CollisionShape2D"
-onready var Up_Light_Hitbox = $"Up Light/CollisionShape2D"
-onready var Nuetral_Air_Hitbox = $"Nuetral Air/CollisionShape2D"
+onready var ChaseTimer = $Timer
 
 export var controls: Resource = null
 
@@ -41,9 +38,11 @@ enum States {
 var Select = States.Idle
 
 func _ready():
-	print(Animate.current_animation_length)
+	pass
 	
 func _physics_process(delta):
+	print(ChaseTimer.time_left)
+
 	if Motion.x >= 1:
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif Motion.x <= -1:
@@ -54,7 +53,7 @@ func _physics_process(delta):
 	Motion.y += Gravity
 	match Select:
 		States.Idle:
-			print(Animate.current_animation_length)
+
 			if !CheckFloor.is_colliding():
 				Select = States.Fall
 				
@@ -106,7 +105,6 @@ func _physics_process(delta):
 				Select = States.Jump
 				
 		States.Jump:
-			print(Animate.current_animation_length)
 			if is_on_floor():
 				Motion.y = -JumpHeight
 				
@@ -229,4 +227,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_Side_Light_Hitbox_area_entered(area):
-	pass
+	ChaseTimer.start()
+
+
+
+func _on_Timer_timeout():
+	print("stopped chase")

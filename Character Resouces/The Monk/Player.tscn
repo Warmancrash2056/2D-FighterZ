@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Character Resouces/The Monk/Player.gd" type="Script" id=1]
 [ext_resource path="res://Character Resouces/The Monk/Ground Monk SpriteSheet.png" type="Texture" id=2]
@@ -18,7 +18,7 @@ radius = 5.0
 
 [sub_resource type="Animation" id=51]
 resource_name = "Block"
-length = 1.2
+length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -26,10 +26,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127 ]
+"values": [ 117, 118, 119, 120, 121, 122, 123, 124, 125 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:modulate")
@@ -553,6 +553,22 @@ tracks/19/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=57]
+resource_name = "Roll"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 109, 110, 111, 112 ]
+}
+
 [sub_resource type="Animation" id=48]
 resource_name = "Run"
 length = 0.8
@@ -730,6 +746,7 @@ anims/Jump = SubResource( 44 )
 anims/Nair = SubResource( 45 )
 anims/Nlight = SubResource( 46 )
 anims/RESET = SubResource( 47 )
+anims/Roll = SubResource( 57 )
 anims/Run = SubResource( 48 )
 anims/Slight = SubResource( 49 )
 anims/Ulight = SubResource( 50 )

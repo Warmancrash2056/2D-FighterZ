@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 onready var Animate = $"Scale Player/AnimationPlayer"
-onready var Platform = $Platform
 onready var CheckFloor = $"Check Floor"
 
 onready var Nuetral_Side_light_Hitbox = $"Nuetral Light/CollisionShape2D"
@@ -19,6 +18,7 @@ export (float) var Gravity = 35
 
 export (float) var Health = 200
 
+var ChaseActive = false 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
 
@@ -41,7 +41,7 @@ enum States {
 var Select = States.Idle
 
 func _ready():
-	pass
+	print(Animate.current_animation_length)
 	
 func _physics_process(delta):
 	if Motion.x >= 1:
@@ -54,7 +54,7 @@ func _physics_process(delta):
 	Motion.y += Gravity
 	match Select:
 		States.Idle:
-			
+			print(Animate.current_animation_length)
 			if !CheckFloor.is_colliding():
 				Select = States.Fall
 				
@@ -63,10 +63,10 @@ func _physics_process(delta):
 				Motion.x = max(Motion.x - Acceleration, -Movement)
 				
 				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Slight
-				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Roll
-					Motion.x = -300
+					
+				elif Input.is_action_just_pressed(controls.input_dash):
+					Select = States.Roll
 	
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
@@ -76,9 +76,9 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
-				elif Input.is_action_just_pressed(controls.input_block):
+				elif Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-					Motion.x = 300
+
 		
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
@@ -87,6 +87,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Dlight
 					
+				
 					
 			elif Input.is_action_pressed(controls.input_up):
 				
@@ -105,6 +106,7 @@ func _physics_process(delta):
 				Select = States.Jump
 				
 		States.Jump:
+			print(Animate.current_animation_length)
 			if is_on_floor():
 				Motion.y = -JumpHeight
 				
@@ -168,9 +170,21 @@ func _physics_process(delta):
 
 			
 		States.Defend:
-			Animate.play("Defend")
+			Animate.play("Block")
+			Motion.y = 0
+			
+			if Motion.x != 0:
+				Motion.x = lerp(Motion.x , 0 , 0.04)
+			
+			
 		States.Roll:
 			Animate.play("Roll")
+			if !is_on_floor():
+				Select = States.Fall
+			yield(get_tree().create_timer(0.05), "timeout")
+			if Input.is_action_just_pressed(controls.input_block):
+				Select = States.Defend
+			
 		States.Death:
 			Animate.play("Death")
 			
@@ -192,27 +206,27 @@ func _on_Hurtbox_area_entered(area):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Nlight":
 		Select = States.Idle
-		print("goofd")
-		
+
 	if anim_name == "Slight":
 		Select = States.Idle
-		print("goofd")
 
 	if anim_name == "Ulight":
 		Select = States.Idle
-		print("goofd")
 		
 	if anim_name == "Dlight":
 		Select = States.Idle
-		print("goofd")
 		
 	if anim_name == "Nair":
 		Select = States.Fall
-		print("goofd")
-
+	
+	if anim_name == "Roll":
+		Select = States.Idle
+		
+	if anim_name == "Block":
+		Select = States.Idle
 
 
 
 
 func _on_Side_Light_Hitbox_area_entered(area):
-	Animate.play("Block")
+	pass

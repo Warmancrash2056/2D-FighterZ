@@ -44,6 +44,7 @@ func _ready():
 func _physics_process(delta):
 	print(ChaseTimer.time_left)
 	print(ChaseActive)
+	print(Select)
 	if Motion.x >= 1:
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif Motion.x <= -1:
@@ -57,6 +58,9 @@ func _physics_process(delta):
 			Motion.y += Gravity
 			if !CheckFloor.is_colliding():
 				Select = States.Fall
+				
+			else:
+				Select = States.Idle
 				
 			if Input.is_action_pressed(controls.input_left):
 				Animate.play("Run")
@@ -74,7 +78,7 @@ func _physics_process(delta):
 					Motion.y = 0
 				
 	
-			if Input.is_action_pressed(controls.input_right):
+			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				Motion.x = min(Motion.x + Acceleration, Movement)
 				
@@ -94,6 +98,10 @@ func _physics_process(delta):
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Dlight
+					
+				else:
+					Motion.x = 0
+					Animate.play("Idle")
 					
 				
 					
@@ -140,10 +148,9 @@ func _physics_process(delta):
 		States.Fall:
 			Motion.y += Gravity
 			Animate.play("Fall")
-			if Input.is_action_pressed(controls.input_down):
-				pass
+			
 			 
-			if CheckFloor.is_colliding():
+			if is_on_floor():
 				Select = States.Idle
 				
 			if Input.is_action_pressed(controls.input_left):
@@ -165,15 +172,18 @@ func _physics_process(delta):
 			
 		States.Slight:
 			Motion.x = 0
+			Motion.y = 0
 			Animate.play("Slight")
 
 		States.Dlight:
 			Motion.x = 0
+			Motion.y = 0
 			Animate.play("Dlight")
 			
 				
 		States.Ulight:
 			Motion.x = 0
+			Motion.y = 0
 			Animate.play("Ulight")
 			
 				
@@ -186,6 +196,7 @@ func _physics_process(delta):
 		States.Defend:
 			Animate.play("Block")
 			Motion.y = 0
+			
 			
 			if Motion.x != 0:
 				Motion.x = lerp(Motion.x , 0 , 0.04)
@@ -201,24 +212,40 @@ func _physics_process(delta):
 				Select = States.Defend
 				
 		States.ChainRun:
-			
+			Motion.y = 0
 			Animate.play("Chain Run")
 			
 			if Input.is_action_pressed(controls.input_left):
-				Motion.x = -80
+				Motion.x = -150
 				
-			if Input.is_action_pressed(controls.input_right):
-				Motion.x = 80
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Slight
+					
+			elif Input.is_action_pressed(controls.input_right):
+				Motion.x = 150
 				
-			if Input.is_action_just_pressed(controls.input_up):
-				Motion.y = -80
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Slight
+			elif Input.is_action_pressed(controls.input_up):
+				Motion.y = -150
 				
-			if Input.is_action_pressed(controls.input_down):
-				Motion.y = 80
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Ulight
+			elif Input.is_action_pressed(controls.input_down):
+				Motion.y = 150
 				
-			if Input.is_action_pressed(controls.input_attack) and !is_on_floor():
-				Select = States.Nair
-				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Dlight
+			
+			elif Input.is_action_just_pressed(controls.input_attack):
+				if CheckFloor.is_colliding():
+					Select = States.Nlight
+					
+				else:
+					Select = States.Nair
+					
+			elif Input.is_action_just_pressed(controls.input_block):
+				Select = States.Defend
 			
 		States.ChainEnd:
 			Animate.play("Chain End")
@@ -253,8 +280,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		Select = States.Idle
 		
 	if anim_name == "Block":
-		Select = States.Idle
-		
+		if CheckFloor.is_colliding():
+			Select = States.Idle
+		else: 
+			Select = States.Fall
 	if anim_name == "Chain Run":
 		if is_on_floor():
 			Select = States.Idle

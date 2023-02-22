@@ -194,7 +194,7 @@ tracks/0/keys = {
 "values": [ 58, 59, 60, 61, 62, 63, 64, 65 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Scale Player/Nuetral Light Hitbox/CollisionShape2D2:disabled")
+tracks/1/path = NodePath("../Scale Player/Nuetral Light Hitbox/Linear Swing:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -206,7 +206,7 @@ tracks/1/keys = {
 "values": [ true, false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Scale Player/Nuetral Light Hitbox/CollisionShape2D:disabled")
+tracks/2/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -233,7 +233,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Scale Player/Nuetral Light Hitbox/CollisionShape2D:disabled")
+tracks/1/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -245,7 +245,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Scale Player/Nuetral Light Hitbox/CollisionShape2D:position")
+tracks/2/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -257,7 +257,7 @@ tracks/2/keys = {
 "values": [ Vector2( -30, 51 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../Scale Player/Nuetral Light Hitbox/CollisionShape2D:rotation_degrees")
+tracks/3/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -269,7 +269,7 @@ tracks/3/keys = {
 "values": [ 40.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../Scale Player/Nuetral Light Hitbox/CollisionShape2D:shape:radius")
+tracks/4/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:shape:radius")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -281,7 +281,7 @@ tracks/4/keys = {
 "values": [ 3.5 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("../Scale Player/Nuetral Light Hitbox/CollisionShape2D:shape:height")
+tracks/5/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:shape:height")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -473,7 +473,7 @@ tracks/20/keys = {
 "values": [ 68.0 ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("../Scale Player/Nuetral Light Hitbox/CollisionShape2D2:disabled")
+tracks/21/path = NodePath("../Scale Player/Nuetral Light Hitbox/Linear Swing:disabled")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -858,13 +858,13 @@ z_index = 1
 
 [node name="Nuetral Light Hitbox" type="Area2D" parent="Scale Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
+[node name="Top Swing" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
 position = Vector2( -30, 51 )
 rotation = 0.698132
 shape = SubResource( 15 )
 disabled = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
+[node name="Linear Swing" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
 position = Vector2( -8, 13 )
 rotation = 1.25664
 shape = SubResource( 19 )

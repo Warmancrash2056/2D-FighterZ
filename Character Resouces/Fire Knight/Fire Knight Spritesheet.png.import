@@ -2,24 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-<<<<<<<< HEAD:Character Resouces/Wind Master/Wind Warrior Spritesheet.png.import
-path="res://.import/Wind Warrior Spritesheet.png-2c52bc421599f45c3c4d918288c3fb40.stex"
-========
 path="res://.import/Fire Knight Spritesheet.png-d6e4fc37f29d5651915815d3d0fec974.stex"
->>>>>>>> 85ea2260786ca64d0953519e029d9d51c8d9483c:Character Resouces/Fire Knight/Fire Knight Spritesheet.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Character Resouces/Wind Master/Wind Warrior Spritesheet.png.import
-source_file="res://Character Resouces/Wind Warrior/Wind Warrior Spritesheet.png"
-dest_files=[ "res://.import/Wind Warrior Spritesheet.png-2c52bc421599f45c3c4d918288c3fb40.stex" ]
-========
 source_file="res://Character Resouces/Fire Knight/Fire Knight Spritesheet.png"
 dest_files=[ "res://.import/Fire Knight Spritesheet.png-d6e4fc37f29d5651915815d3d0fec974.stex" ]
->>>>>>>> 85ea2260786ca64d0953519e029d9d51c8d9483c:Character Resouces/Fire Knight/Fire Knight Spritesheet.png.import
 
 [params]
 
@@ -29,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -40,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

@@ -1,9 +1,8 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Character Resouces/The Monk/Player.gd" type="Script" id=1]
-[ext_resource path="res://Character Resouces/The Monk/Ground Monk SpriteSheet.png" type="Texture" id=2]
-[ext_resource path="res://Global/Player_1.tres" type="Resource" id=110]
-
+[ext_resource path="res://Character Resouces/The Monk/Ground Monk SpriteSheet.png" type="Texture" id=1]
+[ext_resource path="res://Character Resouces/The Monk/The Monk.gd" type="Script" id=2]
+[ext_resource path="res://Global/Player_1.tres" type="Resource" id=3]
 
 [sub_resource type="RectangleShape2D" id=53]
 extents = Vector2( 5, 5 )
@@ -740,15 +739,15 @@ height = 5.0
 [sub_resource type="CapsuleShape2D" id=37]
 radius = 5.0
 
-[sub_resource type="CapsuleShape2D" id=58]
-radius = 5.33333
+[sub_resource type="CapsuleShape2D" id=61]
+radius = 4.6
 
 [node name="Earth Monk" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 2
 collision_mask = 5
-script = ExtResource( 1 )
-controls = ExtResource( 110 )
+script = ExtResource( 2 )
+controls = ExtResource( 3 )
 Movement = 80.0
 Acceleration = 15.0
 JumpHeight = 500.0
@@ -784,7 +783,7 @@ anims/Ulight = SubResource( 50 )
 
 [node name="Sprite" type="Sprite" parent="Scale Player"]
 position = Vector2( 0, -40 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 hframes = 20
 vframes = 8
 
@@ -814,7 +813,6 @@ shape = SubResource( 52 )
 disabled = true
 
 [node name="Down Light Hitbox" type="Area2D" parent="Scale Player"]
-visible = false
 collision_layer = 32
 collision_mask = 16
 
@@ -823,7 +821,6 @@ shape = SubResource( 55 )
 disabled = true
 
 [node name="Body" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 37 )
 
 [node name="Check Floor" type="RayCast2D" parent="."]
@@ -843,7 +840,7 @@ collision_layer = 16
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource( 58 )
+shape = SubResource( 61 )
 disabled = true
 
 [connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Second_Punch_area_entered"]

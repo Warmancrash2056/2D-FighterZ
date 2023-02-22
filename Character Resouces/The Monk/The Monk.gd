@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name TheMonk, "res://Character Resouces/The Monk/ground_monk.png"
 
 onready var Animate = $"Scale Player/AnimationPlayer"
 onready var CheckFloor = $"Check Floor"

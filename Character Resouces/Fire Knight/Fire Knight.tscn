@@ -1,7 +1,9 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Character Resouces/Fire Knight/Fire Knight Spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Character Resouces/Fire Knight/Fire Knight.gd" type="Script" id=2]
+[ext_resource path="res://Global/Player_1.tres" type="Resource" id=3]
+[ext_resource path="res://smoke..png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=15]
 radius = 3.5
@@ -10,6 +12,12 @@ height = 14.0092
 [sub_resource type="CapsuleShape2D" id=19]
 radius = 4.0
 height = 34.909
+
+[sub_resource type="CapsuleShape2D" id=29]
+radius = 7.0
+
+[sub_resource type="CapsuleShape2D" id=30]
+radius = 5.40626
 
 [sub_resource type="CapsuleShape2D" id=16]
 radius = 6.0
@@ -60,10 +68,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 135, 136, 137, 138, 139, 140, 141, 142 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Smoke:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Chain Run"
-length = 2.0
+length = 1.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -71,10 +91,34 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 1.8, 1.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 49, 50, 51, 49, 50 ]
+"values": [ 50, 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Smoke:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 1.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Smoke:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.20391, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 3, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -140,6 +184,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [ true, false, true ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Smoke:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Fall"
@@ -161,7 +217,7 @@ tracks/0/keys = {
 resource_name = "Hurt"
 
 [sub_resource type="Animation" id=6]
-resource_name = "Idle "
+resource_name = "Idle"
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -208,7 +264,7 @@ tracks/0/keys = {
 "values": [ 42, 43, 44, 45, 46, 47, 48, 49 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Scale Player/Nuetral Air Hitbox/CollisionShape2D:disabled")
+tracks/1/path = NodePath("../Scale Player/Nuetral Air Hitbox/Slash:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -222,7 +278,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "Nlight"
-length = 0.8
+length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -236,7 +292,7 @@ tracks/0/keys = {
 "values": [ 58, 59, 60, 61, 62, 63, 64, 65 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Scale Player/Nuetral Light Hitbox/Linear Swing:disabled")
+tracks/1/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -248,12 +304,48 @@ tracks/1/keys = {
 "values": [ true, false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:disabled")
+tracks/2/path = NodePath("../Scale Player/Nuetral Light Hitbox/Lower:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, true, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Smoke:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Scale Player/Nuetral Light Hitbox/Ground:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Scale Player/Nuetral Light Hitbox/Final:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
@@ -275,7 +367,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:disabled")
+tracks/1/path = NodePath("../Scale Player/Nuetral Light Hitbox/Lower:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -287,7 +379,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:position")
+tracks/2/path = NodePath("../Scale Player/Nuetral Light Hitbox/Lower:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -299,7 +391,7 @@ tracks/2/keys = {
 "values": [ Vector2( -30, 51 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:rotation_degrees")
+tracks/3/path = NodePath("../Scale Player/Nuetral Light Hitbox/Lower:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -311,7 +403,7 @@ tracks/3/keys = {
 "values": [ 40.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:shape:radius")
+tracks/4/path = NodePath("../Scale Player/Nuetral Light Hitbox/Lower:shape:radius")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -323,7 +415,7 @@ tracks/4/keys = {
 "values": [ 3.5 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:shape:height")
+tracks/5/path = NodePath("../Scale Player/Nuetral Light Hitbox/Lower:shape:height")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -335,7 +427,7 @@ tracks/5/keys = {
 "values": [ 14.0092 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("../Scale Player/Nuetral Air Hitbox/CollisionShape2D:disabled")
+tracks/6/path = NodePath("../Scale Player/Nuetral Air Hitbox/Slash:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -347,7 +439,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("../Scale Player/Nuetral Air Hitbox/CollisionShape2D:shape:radius")
+tracks/7/path = NodePath("../Scale Player/Nuetral Air Hitbox/Slash:shape:radius")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -359,7 +451,7 @@ tracks/7/keys = {
 "values": [ 6.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("../Scale Player/Nuetral Air Hitbox/CollisionShape2D:shape:height")
+tracks/8/path = NodePath("../Scale Player/Nuetral Air Hitbox/Slash:shape:height")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -371,7 +463,7 @@ tracks/8/keys = {
 "values": [ 20.0 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("../Scale Player/Nuetral Air Hitbox/CollisionShape2D:position")
+tracks/9/path = NodePath("../Scale Player/Nuetral Air Hitbox/Slash:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -383,7 +475,7 @@ tracks/9/keys = {
 "values": [ Vector2( 42, 30 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("../Scale Player/Nuetral Air Hitbox/CollisionShape2D:rotation_degrees")
+tracks/10/path = NodePath("../Scale Player/Nuetral Air Hitbox/Slash:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -515,7 +607,7 @@ tracks/20/keys = {
 "values": [ 68.0 ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("../Scale Player/Nuetral Light Hitbox/Linear Swing:disabled")
+tracks/21/path = NodePath("../Scale Player/Nuetral Light Hitbox/Top Swing:disabled")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -611,7 +703,7 @@ tracks/28/keys = {
 "values": [ true ]
 }
 tracks/29/type = "value"
-tracks/29/path = NodePath("../Scale Player/Side Light Hitbox/CollisionShape2D:disabled")
+tracks/29/path = NodePath("../Scale Player/Side Light Hitbox/Final:disabled")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/imported = false
@@ -646,6 +738,54 @@ tracks/31/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/32/type = "value"
+tracks/32/path = NodePath("../Smoke:modulate")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("../Smoke:frame")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("../Scale Player/Nuetral Light Hitbox/Ground:disabled")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("../Scale Player/Nuetral Light Hitbox/Final:disabled")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "Roll"
@@ -662,6 +802,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 51, 52, 53, 54, 55, 56 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Smoke:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "Run"
@@ -677,6 +829,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Smoke:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -731,7 +895,7 @@ tracks/3/keys = {
 "values": [ true, false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../Scale Player/Side Light Hitbox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("../Scale Player/Side Light Hitbox/Final:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -741,6 +905,18 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Smoke:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -830,37 +1006,69 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true, false, true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("../Smoke:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=28]
 
 [node name="Fire Knight" type="KinematicBody2D"]
+position = Vector2( 0, -40 )
 script = ExtResource( 2 )
-Speed = 120.0
+controls = ExtResource( 3 )
 Acceleration = 15.0
 
 [node name="Scale Player" type="Node2D" parent="."]
 z_index = 1
 
 [node name="Nuetral Light Hitbox" type="Area2D" parent="Scale Player"]
+collision_layer = 32
+collision_mask = 16
 
-[node name="Top Swing" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
+[node name="Lower" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
 position = Vector2( -30, 51 )
 rotation = 0.698132
 shape = SubResource( 15 )
 disabled = true
 
-[node name="Linear Swing" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
+[node name="Top Swing" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
 position = Vector2( -8, 13 )
 rotation = 1.25664
 shape = SubResource( 19 )
 disabled = true
 
-[node name="Nuetral Air Hitbox" type="Area2D" parent="Scale Player"]
+[node name="Final" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
+position = Vector2( 64, 36 )
+shape = SubResource( 29 )
+disabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Air Hitbox"]
+[node name="Ground" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
+position = Vector2( 40, 58 )
+rotation = 1.85703
+shape = SubResource( 30 )
+disabled = true
+
+[node name="Nuetral Air Hitbox" type="Area2D" parent="Scale Player"]
+collision_layer = 32
+collision_mask = 16
+
+[node name="Slash" type="CollisionShape2D" parent="Scale Player/Nuetral Air Hitbox"]
 position = Vector2( 42, 30 )
 rotation = 1.5708
 shape = SubResource( 16 )
 
 [node name="Down Light Hitbox" type="Area2D" parent="Scale Player"]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Startup" type="CollisionShape2D" parent="Scale Player/Down Light Hitbox"]
 position = Vector2( -43, 60 )
@@ -880,6 +1088,8 @@ shape = SubResource( 21 )
 disabled = true
 
 [node name="Side Light Hitbox" type="Area2D" parent="Scale Player"]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Buttom Swing" type="CollisionShape2D" parent="Scale Player/Side Light Hitbox"]
 position = Vector2( 38, 52 )
@@ -899,12 +1109,15 @@ rotation = 2.02633
 shape = SubResource( 24 )
 disabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Side Light Hitbox"]
+[node name="Final" type="CollisionShape2D" parent="Scale Player/Side Light Hitbox"]
 position = Vector2( 31, 17 )
 rotation = 0.877901
 shape = SubResource( 25 )
 
 [node name="Up light Hitbox" type="Area2D" parent="Scale Player"]
+position = Vector2( -8, 8 )
+collision_layer = 16
+collision_mask = 32
 
 [node name="Ignite Blade" type="CollisionShape2D" parent="Scale Player/Up light Hitbox"]
 position = Vector2( 15, 9 )
@@ -923,13 +1136,14 @@ shape = SubResource( 27 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../../Sprite")
+root_node = NodePath("../../Player Sprite")
+playback_speed = 0.5
 anims/Block = SubResource( 1 )
 "anims/Chain Run" = SubResource( 2 )
 anims/Dlight = SubResource( 3 )
 anims/Fall = SubResource( 4 )
 anims/Hurt = SubResource( 5 )
-"anims/Idle " = SubResource( 6 )
+anims/Idle = SubResource( 6 )
 anims/Jump = SubResource( 7 )
 anims/Nair = SubResource( 8 )
 anims/Nlight = SubResource( 9 )
@@ -939,9 +1153,36 @@ anims/Run = SubResource( 12 )
 anims/Slight = SubResource( 13 )
 anims/Ulight = SubResource( 14 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 40 )
+shape = SubResource( 28 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Check Floor" type="RayCast2D" parent="."]
+position = Vector2( 0, 40 )
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Player Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 20
 vframes = 9
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Smoke" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -17, 63 )
+scale = Vector2( 0.0297852, 0.0268555 )
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 3
+
+[connection signal="area_entered" from="Scale Player/Nuetral Light Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
+[connection signal="area_entered" from="Scale Player/Nuetral Air Hitbox" to="." method="_on_Nuetral_Air_Hitbox_area_entered"]
+[connection signal="area_entered" from="Scale Player/Down Light Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
+[connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
+[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

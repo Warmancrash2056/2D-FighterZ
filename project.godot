@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "InputSys",
 "language": "GDScript",
 "path": "res://Global/Controller.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "TheMonk",
+"language": "GDScript",
+"path": "res://Character Resouces/The Monk/The Monk.gd"
 } ]
 _global_script_class_icons={
 "FireKnight": "res://Character Resouces/Fire Knight/fire_knight.png",
-"InputSys": ""
+"InputSys": "",
+"TheMonk": "res://Character Resouces/The Monk/ground_monk.png"
 }
 
 [application]

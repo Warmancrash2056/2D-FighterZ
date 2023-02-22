@@ -1,11 +1,14 @@
-extends KinematicBody2D
+extends KinematicBody2D 
+class_name FireKnight, "res://Character Resouces/Fire Knight/fire_knight.png"
+
+onready var Animate = $AnimationPlayer
 
 
+export (float) var Speed
+export (float) var Gravity
+export (float) var Acceleration
+export (float) var Jump
 
-export (float) var speed;
-
-export (float) var accel;
-# Acceleration is higher as we need to multiply by delta.
  
 enum state{
 	idle,
@@ -17,6 +20,8 @@ var velocity = Vector2.ZERO
 func _physics_process(delta) -> void:
 	
 	match states:
+		
+		
 		state.idle:
 			var input_vector = Vector2.ZERO
 			
@@ -29,10 +34,10 @@ func _physics_process(delta) -> void:
 			if input_vector != Vector2.ZERO:
 			# If the player presses an action add movement spoeed.
 			
-				velocity += input_vector * accel * delta
-				velocity = velocity.clamped(speed)
+				velocity += input_vector * Acceleration * delta
+				velocity = velocity.clamped(Speed)
 				
-				print(velocity.clamped(speed))
+				print(velocity.clamped(Speed))
 				# Gets the value of the player speed based on coordinates. 
 			
 			else:

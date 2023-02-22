@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "FireKnight",
+"language": "GDScript",
+"path": "res://Character Resouces/Fire Knight/Fire Knight.gd"
+}, {
 "base": "Resource",
 "class": "InputSys",
 "language": "GDScript",
 "path": "res://Global/Controller.gd"
 } ]
 _global_script_class_icons={
+"FireKnight": "res://Character Resouces/Fire Knight/fire_knight.png",
 "InputSys": ""
 }
 

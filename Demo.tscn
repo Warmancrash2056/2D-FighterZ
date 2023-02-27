@@ -15,7 +15,7 @@ height = 32.0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 358, 207 )
+position = Vector2( 204, 213 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -32,4 +32,4 @@ current = true
 zoom = Vector2( 0.6, 0.6 )
 
 [node name="Fire Knight" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 109 )
+position = Vector2( 39, 103 )

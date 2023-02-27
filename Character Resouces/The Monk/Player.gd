@@ -1,31 +1,7 @@
 extends KinematicBody2D
-class_name FireKnight, "res://Character Resouces/Fire Knight/fire_knight.png"
 
 onready var Animate = $"Scale Player/AnimationPlayer"
 onready var CheckFloor = $"Check Floor"
-onready var SpriteH = $"Player Sprite"
-onready var Smoke = $Smoke
-
-onready var Nlight_Hitbox_Top =$"Scale Player/Nuetral Light Hitbox/Top Swing"
-onready var Nlight_Hitbox_Lower = $"Scale Player/Nuetral Light Hitbox/Lower"
-onready var Nlight_Hitbox_Final = $"Scale Player/Nuetral Light Hitbox/Final"
-onready var Nlight_Hitbox_Ground = $"Scale Player/Nuetral Light Hitbox/Ground"
-onready var Nair_Slash = $"Scale Player/Nuetral Air Hitbox/Slash"
-
-
-onready var Slight_Hitbox_Buttom = $"Scale Player/Side Light Hitbox/Buttom Swing"
-onready var Slight_Hitbox_Top = $"Scale Player/Side Light Hitbox/Top Swing"
-onready var Slight_Hitbox_Middle = $"Scale Player/Side Light Hitbox/Middle Swing"
-onready var Slight_Hitbox_Fianl = $"Scale Player/Side Light Hitbox/Final"
-
-onready var Down_Light_Start = $"Scale Player/Down Light Hitbox/Startup"
-onready var Down_Light_Angle_Exposion = $"Scale Player/Down Light Hitbox/Angled Fire Pillar"
-onready var Down_Light_Final_Explosion = $"Scale Player/Down Light Hitbox/Final Explosion"
-
-onready var Up_Light_Ignite_Blade = $"Scale Player/Up light Hitbox/Ignite Blade"
-onready var Up_Light_Flame_Pillar = $"Scale Player/Up light Hitbox/Flame Pillar"
-onready var Up_light_Ground_Flame = $"Scale Player/Up light Hitbox/Ground Flame"
-
 
 onready var ChaseTimer = $Timer
 
@@ -62,43 +38,23 @@ enum States {
 }
 var Select = States.Idle
 
-
 func _ready():
-	Nair_Slash.disabled = true
-	Nlight_Hitbox_Top.disabled = true
-	Nlight_Hitbox_Lower.disabled = true
-	Nlight_Hitbox_Ground.disabled = true
-	Nlight_Hitbox_Final.disabled = true
-	Slight_Hitbox_Buttom.disabled = true
-	Slight_Hitbox_Fianl.disabled = true
-	Slight_Hitbox_Top.disabled = true
-	Up_Light_Flame_Pillar.disabled = true
-	Up_Light_Ignite_Blade.disabled = true
-	Up_light_Ground_Flame.disabled = true
-	Down_Light_Angle_Exposion.disabled = true
-	Down_Light_Final_Explosion.disabled = true
-	Down_Light_Start.disabled = true
-
-func _go_into_chase():
-	if Input.is_action_pressed(controls.input_dash) and ChaseActive == true:
-		Select = States.ChainRun
+	pass
+	
 func _physics_process(delta):
+	print(ChaseTimer.time_left)
+	print(ChaseActive)
+	print(Select)
 	if Motion.x >= 1:
-		SpriteH.flip_h = false
-		Smoke.position.x = -17
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif Motion.x <= -1:
-		SpriteH.flip_h = true
-		Smoke.position.x = 17
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 
 	
 	Motion = move_and_slide(Motion, Up)
 
 	match Select:
-
 		States.Idle:
-			Animate.playback_speed = 0.8
 			Motion.y += Gravity
 			if !CheckFloor.is_colliding():
 				Select = States.Fall
@@ -217,7 +173,6 @@ func _physics_process(delta):
 		States.Slight:
 			Motion.x = 0
 			Motion.y = 0
-			
 			Animate.play("Slight")
 
 		States.Dlight:
@@ -257,26 +212,27 @@ func _physics_process(delta):
 				Select = States.Defend
 				
 		States.ChainRun:
-			print(Motion)
-			Motion.y += Gravity
+			Motion.y = 0
 			Animate.play("Chain Run")
 			
 			if Input.is_action_pressed(controls.input_left):
-				Motion.x = -300 
+				Motion.x = -150
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
 			elif Input.is_action_pressed(controls.input_right):
-				Motion.x = 300
+				Motion.x = 150
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 			elif Input.is_action_pressed(controls.input_up):
+				Motion.y = -150
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Ulight
 			elif Input.is_action_pressed(controls.input_down):
+				Motion.y = 150
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Dlight
@@ -305,11 +261,8 @@ func _physics_process(delta):
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	print( Animate.playback_speed)
-
 	if anim_name == "Nlight":
 		Select = States.Idle
-
 
 	if anim_name == "Slight":
 		Select = States.Idle
@@ -332,7 +285,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		else: 
 			Select = States.Fall
 	if anim_name == "Chain Run":
-		Motion.x = 0
 		if is_on_floor():
 			Select = States.Idle
 			
@@ -349,33 +301,31 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 
-func _on_Up_light_Hitbox_area_entered(area):
-	ChaseTimer.start()
-	ChaseActive = true
-	
-
-
-func _on_Side_Light_Hitbox_area_entered(area):
-	ChaseTimer.start()
-	ChaseActive = true
-
-
-func _on_Down_Light_Hitbox_area_entered(area):
-	ChaseActive = true
-	ChaseTimer.start()
-
-
-func _on_Nuetral_Air_Hitbox_area_entered(area):
-	ChaseTimer.start()
-	ChaseActive = true
-	
-
 
 func _on_Nuetral_Light_Hitbox_area_entered(area):
 	ChaseTimer.start()
 	ChaseActive = true
 
 
+
+
+
+func _on_Nuetral_Air_area_entered(area):
+	ChaseTimer.start()
+	ChaseActive = true
+
+
 func _on_Timer_timeout():
 	ChaseActive = false
-	
+
+
+func _on_Down_Light_Hitbox_area_entered(area):
+	ChaseActive = true
+
+
+func _on_Side_Light_Second_Punch_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_Side_Light_First_Punch_area_entered(area):
+	pass

@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "FireKnight",
 "language": "GDScript",
-"path": "res://Character Resouces/Fire Knight/Fire Knight.gd"
+"path": "res://Character Resouces/General Pyrus/General Pyrus.gd"
 }, {
 "base": "Resource",
 "class": "InputSys",
@@ -22,10 +22,10 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "TheMonk",
 "language": "GDScript",
-"path": "res://Character Resouces/Goku/The Monk.gd"
+"path": "res://Character Resouces/Goku/Goku.gd"
 } ]
 _global_script_class_icons={
-"FireKnight": "res://Character Resouces/Fire Knight/fire_knight.png",
+"FireKnight": "",
 "InputSys": "",
 "TheMonk": ""
 }
@@ -160,6 +160,7 @@ Player2_Right={
 "deadzone": 0.5,
 "events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":68,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777231,"unicode":0,"echo":false,"script":null)
  ]
 }
 Player2_Up={

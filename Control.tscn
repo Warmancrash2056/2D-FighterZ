@@ -1,17 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://Global/SelectionCursorPlayer1.png" type="Texture" id=1]
 [ext_resource path="res://Character Resouces/Goku/ground_monk.png" type="Texture" id=2]
 [ext_resource path="res://Character Resouces/Princess Atlantis/water_priestess.png" type="Texture" id=3]
 [ext_resource path="res://Character Resouces/Huntress/Huntress Character Icon.png" type="Texture" id=4]
-[ext_resource path="res://Character Resouces/Nomad/wind_hashashin.png" type="Texture" id=5]
-[ext_resource path="res://Character Resouces/Blade Master/metal_bladekeeper.png" type="Texture" id=6]
-[ext_resource path="res://Character Resouces/Fire Knight/General Pyrus Character Icon.png" type="Texture" id=7]
+[ext_resource path="res://Character Resouces/Nomad/Nomad Character Icon.png" type="Texture" id=5]
+[ext_resource path="res://Character Resouces/Assasin/Assasin Character Icon.png" type="Texture" id=6]
+[ext_resource path="res://Character Resouces/General Pyrus/General Pyrus Character Icon.png" type="Texture" id=7]
+[ext_resource path="res://Character Select.gd" type="Script" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = ExtResource( 8 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -24,93 +25,92 @@ margin_right = 576.0
 margin_bottom = 64.0
 text = "Start Game"
 
-[node name="Player 1 Selection" type="Node" parent="."]
+[node name="Player 1 Selection" type="GridContainer" parent="."]
+margin_left = 112.0
+margin_top = 128.0
+margin_right = 516.0
+margin_bottom = 192.0
+columns = 6
 
 [node name="General Pyrus2" type="TextureRect" parent="Player 1 Selection"]
-margin_left = 768.0
-margin_top = 136.0
-margin_right = 832.0
-margin_bottom = 200.0
+margin_right = 64.0
+margin_bottom = 64.0
 texture = ExtResource( 7 )
 
 [node name="Shoalin Monk2" type="TextureRect" parent="Player 1 Selection"]
-margin_left = 832.0
-margin_top = 264.0
-margin_right = 896.0
-margin_bottom = 328.0
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
 texture = ExtResource( 2 )
 
 [node name="The Assasin2" type="TextureRect" parent="Player 1 Selection"]
-margin_left = 768.0
-margin_top = 200.0
-margin_right = 832.0
-margin_bottom = 264.0
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
 texture = ExtResource( 6 )
 
 [node name="Pincess Aqua2" type="TextureRect" parent="Player 1 Selection"]
-margin_left = 832.0
-margin_top = 136.0
-margin_right = 896.0
-margin_bottom = 200.0
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
 texture = ExtResource( 3 )
 
 [node name="Nomad2" type="TextureRect" parent="Player 1 Selection"]
-margin_left = 832.0
-margin_top = 200.0
-margin_right = 896.0
-margin_bottom = 264.0
+margin_left = 272.0
+margin_right = 336.0
+margin_bottom = 64.0
 texture = ExtResource( 5 )
 
 [node name="Huntress2" type="TextureRect" parent="Player 1 Selection"]
-margin_left = 768.0
-margin_top = 264.0
-margin_right = 832.0
-margin_bottom = 328.0
+margin_left = 340.0
+margin_right = 404.0
+margin_bottom = 64.0
 texture = ExtResource( 4 )
 
-[node name="Player 2 Selection" type="Node" parent="."]
+[node name="Player 2 Selection" type="GridContainer" parent="."]
+margin_left = 920.0
+margin_top = 128.0
+margin_right = 1324.0
+margin_bottom = 192.0
+rect_scale = Vector2( -1, 1 )
+columns = 6
 
 [node name="General Pyrus" type="TextureRect" parent="Player 2 Selection"]
-anchor_left = 0.064
-anchor_top = 0.272
-anchor_right = 0.128
-anchor_bottom = 0.384
-margin_top = -8.0
+margin_right = 64.0
+margin_bottom = 64.0
 texture = ExtResource( 7 )
 
 [node name="Shoalin Monk" type="TextureRect" parent="Player 2 Selection"]
-anchor_left = 0.128
-anchor_top = 0.512
-anchor_right = 0.192
-anchor_bottom = 0.64
-margin_bottom = -3.05176e-05
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
 texture = ExtResource( 2 )
 
 [node name="The Assasin" type="TextureRect" parent="Player 2 Selection"]
-anchor_left = 0.064
-anchor_top = 0.384
-anchor_right = 0.128
-anchor_bottom = 0.512
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
 texture = ExtResource( 6 )
 
 [node name="Pincess Aqua" type="TextureRect" parent="Player 2 Selection"]
-anchor_left = 0.128
-anchor_top = 0.256
-anchor_right = 0.192
-anchor_bottom = 0.384
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
 texture = ExtResource( 3 )
 
 [node name="Nomad" type="TextureRect" parent="Player 2 Selection"]
-anchor_left = 0.128
-anchor_top = 0.384
-anchor_right = 0.192
-anchor_bottom = 0.512
+margin_left = 272.0
+margin_right = 336.0
+margin_bottom = 64.0
 texture = ExtResource( 5 )
 
 [node name="Huntress" type="TextureRect" parent="Player 2 Selection"]
-anchor_left = 0.064
-anchor_top = 0.512
-anchor_right = 0.128
-anchor_bottom = 0.64
-margin_bottom = -3.05176e-05
+margin_left = 340.0
+margin_right = 404.0
+margin_bottom = 64.0
 texture = ExtResource( 4 )
+
+[node name="Player 1 Cursor" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="Player 2 Cursor" type="Sprite" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Character Resouces/Global/SelectionCursorPlayer1.png" type="Texture" id=1]
 [ext_resource path="res://Character Resouces/Goku/ground_monk.png" type="Texture" id=2]
@@ -7,8 +7,10 @@
 [ext_resource path="res://Character Resouces/Nomad/Nomad Character Icon.png" type="Texture" id=5]
 [ext_resource path="res://Character Resouces/Assasin/Assasin Character Icon.png" type="Texture" id=6]
 [ext_resource path="res://Character Resouces/General Pyrus/General Pyrus Character Icon.png" type="Texture" id=7]
-[ext_resource path="res://Character Select.gd" type="Script" id=8]
+[ext_resource path="res://Control.gd" type="Script" id=8]
 [ext_resource path="res://Character Resouces/Global/SelectionCursorPlayer2.png" type="Texture" id=9]
+[ext_resource path="res://Player 2 Cursor.gd" type="Script" id=10]
+[ext_resource path="res://Player 1 Cursor.gd" type="Script" id=11]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -27,96 +29,102 @@ margin_bottom = 64.0
 text = "Start Game"
 
 [node name="Player 1 Selection" type="GridContainer" parent="."]
-margin_left = 112.0
-margin_top = 128.0
-margin_right = 516.0
-margin_bottom = 192.0
+margin_left = 88.0
+margin_top = 144.0
+margin_right = 492.0
+margin_bottom = 208.0
 columns = 6
 
-[node name="General Pyrus2" type="TextureRect" parent="Player 1 Selection"]
+[node name="Nai" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 margin_right = 64.0
-margin_bottom = 64.0
-texture = ExtResource( 7 )
-
-[node name="Shoalin Monk2" type="TextureRect" parent="Player 1 Selection"]
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 64.0
-texture = ExtResource( 2 )
-
-[node name="The Assasin2" type="TextureRect" parent="Player 1 Selection"]
-margin_left = 136.0
-margin_right = 200.0
 margin_bottom = 64.0
 texture = ExtResource( 6 )
 
-[node name="Pincess Aqua2" type="TextureRect" parent="Player 1 Selection"]
+[node name="General Pyrus" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture = ExtResource( 7 )
+
+[node name="Goku" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="Hunter" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
-[node name="Nomad2" type="TextureRect" parent="Player 1 Selection"]
+[node name="Nomad" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 margin_left = 272.0
 margin_right = 336.0
 margin_bottom = 64.0
 texture = ExtResource( 5 )
 
-[node name="Huntress2" type="TextureRect" parent="Player 1 Selection"]
+[node name="Atlantis" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 margin_left = 340.0
 margin_right = 404.0
 margin_bottom = 64.0
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Player 2 Selection" type="GridContainer" parent="."]
-margin_left = 920.0
-margin_top = 128.0
-margin_right = 1324.0
-margin_bottom = 192.0
+margin_left = 888.0
+margin_top = 144.0
+margin_right = 1292.0
+margin_bottom = 208.0
 rect_scale = Vector2( -1, 1 )
 columns = 6
 
-[node name="General Pyrus" type="TextureRect" parent="Player 2 Selection" groups=["Characters"]]
+[node name="Nai" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 margin_right = 64.0
-margin_bottom = 64.0
-texture = ExtResource( 7 )
-
-[node name="Goku" type="TextureRect" parent="Player 2 Selection" groups=["Characters"]]
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 64.0
-texture = ExtResource( 2 )
-
-[node name="Assasin" type="TextureRect" parent="Player 2 Selection" groups=["Characters"]]
-margin_left = 136.0
-margin_right = 200.0
 margin_bottom = 64.0
 texture = ExtResource( 6 )
 
-[node name="Princess Atlantis" type="TextureRect" parent="Player 2 Selection" groups=["Characters"]]
+[node name="General Pyrus" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture = ExtResource( 7 )
+
+[node name="Goku" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="Hunter" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
-[node name="Nomad" type="TextureRect" parent="Player 2 Selection" groups=["Characters"]]
+[node name="Nomad" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 margin_left = 272.0
 margin_right = 336.0
 margin_bottom = 64.0
 texture = ExtResource( 5 )
 
-[node name="Huntress" type="TextureRect" parent="Player 2 Selection" groups=["Characters"]]
+[node name="Atlantis" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 margin_left = 340.0
 margin_right = 404.0
 margin_bottom = 64.0
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Player 1 Cursor" type="Sprite" parent="."]
-position = Vector2( 144, 161 )
-scale = Vector2( 2, 1.9375 )
+position = Vector2( 123.2, 171.2 )
+scale = Vector2( 2.2, 2.2 )
 texture = ExtResource( 1 )
+script = ExtResource( 11 )
+player1Text = ExtResource( 1 )
+portraitOffset = Vector2( 65, 0 )
 
 [node name="Player 2 Cursor" type="Sprite" parent="."]
-position = Vector2( 888, 160 )
-scale = Vector2( 2, 2 )
+position = Vector2( 856, 176 )
+scale = Vector2( 2.2, 2.2 )
 texture = ExtResource( 9 )
+script = ExtResource( 10 )
+CursorIcon = ExtResource( 9 )
+PortraitOffset = Vector2( 65, 0 )

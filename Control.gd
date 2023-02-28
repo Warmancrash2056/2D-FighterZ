@@ -1,6 +1,4 @@
 extends Control
 
-signal choo
-signal choo
-signal choo
-signal choo
+func _physics_process(delta):
+	pass

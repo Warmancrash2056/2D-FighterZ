@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Character Resouces/General Pyrus/General Pyrus.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Character Resouces/Assasin/Assasin.tscn" type="PackedScene" id=2]
+
+[node name="Global Characters" type="Node2D"]
+
+[node name="Fire Knight" parent="." instance=ExtResource( 1 )]
+position = Vector2( 240, -32 )
+
+[node name="Assasin" parent="." instance=ExtResource( 2 )]

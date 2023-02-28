@@ -189,7 +189,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Up Light Collision/CollisionShape2D2:disabled")
@@ -201,7 +201,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Up Light Collision/CollisionShape2D3:disabled")
@@ -213,7 +213,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Down Light Collsion/CollisionShape2D:disabled")
@@ -339,7 +339,9 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Assasin" type="KinematicBody2D"]
+position = Vector2( 0, -40 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -356,16 +358,19 @@ vframes = 8
 position = Vector2( 8, 56 )
 rotation = 1.5708
 shape = SubResource( 1 )
+disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Scale Player/Up Light Collision"]
 position = Vector2( 8, 36 )
 rotation = 1.5708
 shape = SubResource( 2 )
+disabled = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Scale Player/Up Light Collision"]
 position = Vector2( 2, 16 )
 rotation = 1.5708
 shape = SubResource( 3 )
+disabled = true
 
 [node name="Down Light Collsion" type="Area2D" parent="Scale Player"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=2]
 
-[ext_resource path="res://Character Resouces/General Pyrus/General Pyrus.gd" type="Script" id=1]
+[ext_resource path="res://Character Resouces/Global/Player1 Script.gd" type="Script" id=1]
 [ext_resource path="res://Character Resouces/General Pyrus/General Pyrus SpriteSheet.png" type="Texture" id=2]
 [ext_resource path="res://smoke..png" type="Texture" id=4]
 
@@ -449,7 +449,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("../Scale Player/Nuetral Air Hitbox/Slash:shape:radius")
@@ -593,7 +593,7 @@ tracks/18/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("../Scale Player/Up light Hitbox/Ignite Blade:shape:height")
@@ -725,7 +725,7 @@ tracks/29/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/30/type = "value"
 tracks/30/path = NodePath("../Scale Player/Up light Hitbox/Flame Pillar:disabled")
@@ -1077,6 +1077,7 @@ collision_mask = 16
 position = Vector2( 42, 30 )
 rotation = 1.5708
 shape = SubResource( 16 )
+disabled = true
 
 [node name="Down Light Hitbox" type="Area2D" parent="Scale Player"]
 collision_layer = 32
@@ -1125,6 +1126,7 @@ disabled = true
 position = Vector2( 31, 17 )
 rotation = 0.877901
 shape = SubResource( 25 )
+disabled = true
 
 [node name="Up light Hitbox" type="Area2D" parent="Scale Player"]
 position = Vector2( -8, 8 )
@@ -1135,6 +1137,7 @@ collision_mask = 32
 position = Vector2( 15, 9 )
 rotation = 1.18682
 shape = SubResource( 18 )
+disabled = true
 
 [node name="Flame Pillar" type="CollisionShape2D" parent="Scale Player/Up light Hitbox"]
 position = Vector2( 74, 14 )

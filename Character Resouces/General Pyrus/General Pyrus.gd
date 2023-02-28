@@ -29,7 +29,7 @@ onready var Up_light_Ground_Flame = $"Scale Player/Up light Hitbox/Ground Flame"
 
 onready var ChaseTimer = $Timer
 
-export var controls: Resource = preload("res://Global/Player_1.tres")
+export var controls: Resource = preload("res://Character Resouces/Global/Player_1.tres")
 
 
 

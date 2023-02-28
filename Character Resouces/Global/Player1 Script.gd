@@ -1,22 +1,19 @@
 extends KinematicBody2D
-class_name TheMonk, "res://Character Resouces/The Monk/ground_monk.png"
+
 
 onready var Animate = $"Scale Player/AnimationPlayer"
 onready var CheckFloor = $"Check Floor"
 
-onready var ChaseTimer = $Timer
-
 export var controls: Resource = null
 
-export (float) var Movement = 250
-export (float) var AirMovement = 100
-export (float) var Acceleration = 35
-export (float) var JumpHeight = 800
+export (float) var Movement
+export (float) var AirMovement
+export (float) var Acceleration
+export (float) var JumpHeight
 export (float) var Gravity = 35
 
-export (float) var Health = 200
+export (float) var Health
 
-var ChaseActive = false 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
 
@@ -43,9 +40,6 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	print(ChaseTimer.time_left)
-	print(ChaseActive)
-	print(Select)
 	if Motion.x >= 1:
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif Motion.x <= -1:
@@ -57,7 +51,7 @@ func _physics_process(delta):
 	match Select:
 		States.Idle:
 			Motion.y += Gravity
-			if !CheckFloor.is_colliding():
+			if !$"Check Floor".is_colliding():
 				Select = States.Fall
 				
 			else:
@@ -70,13 +64,8 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == false:
+				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
-					Select = States.ChainRun
-					Motion.x = 0
-					Motion.y = 0
 				
 	
 			elif Input.is_action_pressed(controls.input_right):
@@ -87,10 +76,10 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == false:
+				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
 
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
+				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.ChainRun
 		
 			elif Input.is_action_pressed(controls.input_down):
@@ -163,8 +152,6 @@ func _physics_process(delta):
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
 			
-			if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
-				Select = States.ChainRun
 			
 			
 		States.Nlight:
@@ -304,24 +291,19 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_Nuetral_Light_Hitbox_area_entered(area):
-	ChaseTimer.start()
-	ChaseActive = true
+	pass
 
 
 
 
 
 func _on_Nuetral_Air_area_entered(area):
-	ChaseTimer.start()
-	ChaseActive = true
+	pass
 
-
-func _on_Timer_timeout():
-	ChaseActive = false
 
 
 func _on_Down_Light_Hitbox_area_entered(area):
-	ChaseActive = true
+	pass
 
 
 func _on_Side_Light_Second_Punch_area_entered(area):

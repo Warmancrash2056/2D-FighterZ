@@ -1,8 +1,8 @@
 [gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Character Resouces/Goku/Ground Monk SpriteSheet.png" type="Texture" id=1]
-[ext_resource path="res://Character Resouces/Goku/Goku.gd" type="Script" id=2]
-[ext_resource path="res://Global/Player_1.tres" type="Resource" id=3]
+[ext_resource path="res://Character Resouces/Global/Player1 Script.gd" type="Script" id=2]
+[ext_resource path="res://Character Resouces/Global/Player_1.tres" type="Resource" id=3]
 
 [sub_resource type="RectangleShape2D" id=53]
 extents = Vector2( 5, 5 )

@@ -1,28 +1,28 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-onready var Animate = $AnimatedSprite
-onready var Platform = $Platform
-onready var CheckFloor = $"Check Floor"
+@onready var Animate = $AnimatedSprite2D
+@onready var Platform = $Platform
+@onready var CheckFloor = $"Check Floor"
 
-onready var Nuetral_Light_Hitbox = $"Nuetral Light/CollisionShape2D"
-onready var Side_Light_Hitbox = $"Side Light/CollisionShape2D"
-onready var Nuetral_Air_Hitbox = $"Nuetral Air/CollisionShape2D"
-onready var Down_Light_Front_Hitbox = $"Down Light Front/CollisionShape2D"
-onready var Down_Light_Middle_Hitbox = $"Down Light Middle/CollisionShape2D"
-onready var Down_Light_Back_Hitbox = $"Down Light Back/CollisionShape2D"
-onready var Up_Light_Above_Hitbox = $"Up Light Above/CollisionShape2D"
-onready var Up_Light_Below_Hitbox = $"Up Light Below/CollisionShape2D"
+@onready var Nuetral_Light_Hitbox = $"Nuetral Light3D/CollisionShape2D"
+@onready var Side_Light_Hitbox = $"Side Light3D/CollisionShape2D"
+@onready var Nuetral_Air_Hitbox = $"Nuetral Air/CollisionShape2D"
+@onready var Down_Light_Front_Hitbox = $"Down Light3D Front/CollisionShape2D"
+@onready var Down_Light_Middle_Hitbox = $"Down Light3D Middle/CollisionShape2D"
+@onready var Down_Light_Back_Hitbox = $"Down Light3D Back/CollisionShape2D"
+@onready var Up_Light_Above_Hitbox = $"Up Light3D Above/CollisionShape2D"
+@onready var Up_Light_Below_Hitbox = $"Up Light3D Below/CollisionShape2D"
 
-export (float) var Health = 200
+@export (float) var Health = 200
 
-export var controls: Resource = null
+@export var controls: Resource = null
 
-export (float) var Movement = 250
-export (float) var AirMovement = 100
-export (float) var AirAcceleration = 5
-export (float) var Acceleration = 35
-export (float) var JumpHeight = 800
-export (float) var Gravity = 35
+@export (float) var Movement = 250
+@export (float) var AirMovement = 100
+@export (float) var AirAcceleration = 5
+@export (float) var Acceleration = 35
+@export (float) var JumpHeight = 800
+@export (float) var Gravity = 35
 
 
 var Motion = Vector2.ZERO
@@ -48,7 +48,10 @@ func _process(delta):
 
 	
 func _physics_process(delta):
-	Motion = move_and_slide(Motion, Up)
+	set_velocity(Motion)
+	set_up_direction(Up)
+	move_and_slide()
+	Motion = velocity
 	Motion.y += Gravity
 	match Select:
 		States.Idle:
@@ -198,7 +201,7 @@ func _physics_process(delta):
 			
 		States.Nlight:
 			Motion.x = 0
-			Animate.play("Nuetral Light")
+			Animate.play("Nuetral Light3D")
 			
 			if Animate.frame == 2:
 				Nuetral_Light_Hitbox.disabled = false
@@ -208,7 +211,7 @@ func _physics_process(delta):
 			
 		States.Slight:
 			Motion.x = 0
-			Animate.play("Side Light")
+			Animate.play("Side Light3D")
 			
 			if Animate.frame == 10:
 				Nuetral_Light_Hitbox.disabled = false
@@ -223,7 +226,7 @@ func _physics_process(delta):
 				Nuetral_Light_Hitbox.disabled = true
 		States.Dlight:
 			Motion.x = 0
-			Animate.play("Down Light")
+			Animate.play("Down Light3D")
 			
 			if Animate.frame == 3:
 				Down_Light_Back_Hitbox.disabled = false
@@ -241,7 +244,7 @@ func _physics_process(delta):
 			
 		States.Ulight:
 			Motion.x = 0
-			Animate.play("Up Light")
+			Animate.play("Up Light3D")
 			
 			if Animate.frame == 4:
 				Up_Light_Above_Hitbox.disabled = false
@@ -279,22 +282,22 @@ func _physics_process(delta):
 
 
 func _on_AnimatedSprite_animation_finished():
-	if Animate.animation == "Nuetral Light":
+	if Animate.animation == "Nuetral Light3D":
 		Animate.play("Idle")
 		Select = States.Idle
 		Platform.play("RESET")
 	
-	if Animate.animation == "Side Light":
+	if Animate.animation == "Side Light3D":
 		Animate.play("Idle")
 		Select = States.Idle
 		Platform.play("RESET")
 		
-	if Animate.animation == "Down Light":
+	if Animate.animation == "Down Light3D":
 		Animate.play("Idle")
 		Select = States.Idle
 		Platform.play("RESET")
 		
-	if Animate.animation == "Up Light":
+	if Animate.animation == "Up Light3D":
 		Animate.play("Idle")
 		Select = States.Idle
 		Platform.play("RESET")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Character Resouces/Assasin/Assasin SpriteSheet.png" type="Texture" id=1]
+[ext_resource path="res://Character Resouces/Assasin/Assasin SpriteSheet.png" type="Texture2D" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 172.0
@@ -17,14 +17,14 @@ height = 0.0
 [sub_resource type="Animation" id=5]
 resource_name = "Chain Move"
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 64, 65, 66, 67, 68, 69, 70, 71, 72, 73 ]
 }
@@ -33,38 +33,38 @@ tracks/0/keys = {
 resource_name = "Dlight"
 length = 1.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Down Light Collsion/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Down Light3D Collsion/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.209628, 0.302796, 0.500165, 1.02521 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.209628, 0.302796, 0.500165, 1.02521 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true, false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Down Light Collsion/CollisionShape2D:position")
+tracks/2/path = NodePath("Down Light3D Collsion/CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.209628, 0.223113, 0.242727, 0.279504, 0.30157, 0.500165, 0.529587, 0.551653, 0.604366, 0.637465, 0.675468, 0.739215, 0.755151, 0.769862, 0.787025, 0.827479, 0.843416, 0.854449, 0.872837, 0.909614, 0.920647, 0.932906, 0.948843, 1.00769 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.209628, 0.223113, 0.242727, 0.279504, 0.30157, 0.500165, 0.529587, 0.551653, 0.604366, 0.637465, 0.675468, 0.739215, 0.755151, 0.769862, 0.787025, 0.827479, 0.843416, 0.854449, 0.872837, 0.909614, 0.920647, 0.932906, 0.948843, 1.00769 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 19, 23 ), Vector2( 19, 23 ), Vector2( 46, 44 ), Vector2( 29, 49 ), Vector2( 0, 52 ), Vector2( 0, 52 ), Vector2( 9, 30 ), Vector2( 42, 27 ), Vector2( 13, 52 ), Vector2( 48, 57 ), Vector2( 38, 21 ), Vector2( -11, 22 ), Vector2( 16, 14 ), Vector2( 43, 20 ), Vector2( 39, 38 ), Vector2( 18, 54 ), Vector2( 18, 54 ), Vector2( 42, 53 ), Vector2( 49, 46 ), Vector2( 33, 38 ), Vector2( 20, 45 ), Vector2( 40, 39 ), Vector2( 51, 27 ), Vector2( 30, 21 ), Vector2( 48, 38 ) ]
 }
@@ -73,14 +73,14 @@ tracks/2/keys = {
 resource_name = "Fall"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 1,
 "values": [ 19, 20, 21 ]
 }
@@ -89,14 +89,14 @@ tracks/0/keys = {
 resource_name = "Idle "
 length = 0.8
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
@@ -105,14 +105,14 @@ tracks/0/keys = {
 resource_name = "Jump"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 1,
 "values": [ 16, 17, 18 ]
 }
@@ -121,14 +121,14 @@ tracks/0/keys = {
 resource_name = "Landing"
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ 22 ]
 }
@@ -137,14 +137,14 @@ tracks/0/keys = {
 resource_name = "Nair"
 length = 0.8
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 42, 43, 44, 45, 46, 47, 48, 49 ]
 }
@@ -153,14 +153,14 @@ tracks/0/keys = {
 resource_name = "Nlight"
 length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 57, 58, 59, 60, 61, 62 ]
 }
@@ -168,74 +168,74 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=13]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Up Light Collision/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Up Light3D Collision/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Up Light Collision/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("Up Light3D Collision/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Up Light Collision/CollisionShape2D3:disabled")
+tracks/3/path = NodePath("Up Light3D Collision/CollisionShape2D3:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Down Light Collsion/CollisionShape2D:disabled")
+tracks/4/path = NodePath("Down Light3D Collsion/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Down Light Collsion/CollisionShape2D:position")
+tracks/5/path = NodePath("Down Light3D Collsion/CollisionShape2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 19, 23 ) ]
 }
@@ -244,14 +244,14 @@ tracks/5/keys = {
 resource_name = "Roll"
 length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 50, 51, 52, 53, 54, 55 ]
 }
@@ -260,14 +260,14 @@ tracks/0/keys = {
 resource_name = "Run"
 length = 0.8
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
@@ -276,14 +276,14 @@ tracks/0/keys = {
 resource_name = "Slight"
 length = 0.8
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 91, 92, 93, 94, 95, 96, 86, 87 ]
 }
@@ -291,59 +291,59 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=17]
 resource_name = "Ulight"
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 106, 107, 108, 109, 110, 111, 112, 113, 114, 115 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Up Light Collision/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Up Light3D Collision/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3, 0.887548 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.3, 0.887548 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Up Light Collision/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("Up Light3D Collision/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.4, 0.854449 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.4, 0.854449 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Up Light Collision/CollisionShape2D3:disabled")
+tracks/3/path = NodePath("Up Light3D Collision/CollisionShape2D3:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.5, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.5, 0.8 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 
-[node name="Assasin" type="KinematicBody2D"]
+[node name="Assasin" type="CharacterBody2D"]
 position = Vector2( 0, -40 )
 scale = Vector2( 1.5, 1.5 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource( 1 )
 hframes = 20
 vframes = 8
@@ -352,29 +352,29 @@ vframes = 8
 
 [node name="Scale Player" type="Node2D" parent="."]
 
-[node name="Up Light Collision" type="Area2D" parent="Scale Player"]
+[node name="Up Light3D Collision" type="Area2D" parent="Scale Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Up Light Collision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Up Light3D Collision"]
 position = Vector2( 8, 56 )
 rotation = 1.5708
 shape = SubResource( 1 )
 disabled = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scale Player/Up Light Collision"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scale Player/Up Light3D Collision"]
 position = Vector2( 8, 36 )
 rotation = 1.5708
 shape = SubResource( 2 )
 disabled = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Scale Player/Up Light Collision"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Scale Player/Up Light3D Collision"]
 position = Vector2( 2, 16 )
 rotation = 1.5708
 shape = SubResource( 3 )
 disabled = true
 
-[node name="Down Light Collsion" type="Area2D" parent="Scale Player"]
+[node name="Down Light3D Collsion" type="Area2D" parent="Scale Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Down Light Collsion"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Down Light3D Collsion"]
 position = Vector2( 19, 23 )
 shape = SubResource( 4 )
 disabled = true

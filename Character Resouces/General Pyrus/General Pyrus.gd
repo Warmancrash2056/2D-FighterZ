@@ -1,45 +1,45 @@
-extends KinematicBody2D
+extends CharacterBody2D
 class_name FireKnight
 
-onready var Animate = $"Scale Player/AnimationPlayer"
-onready var CheckFloor = $"Check Floor"
-onready var SpriteH = $"Player Sprite"
-onready var Smoke = $Smoke
+@onready var Animate = $"Scale Player/AnimationPlayer"
+@onready var CheckFloor = $"Check Floor"
+@onready var SpriteH = $"Player Sprite2D"
+@onready var Smoke = $Smoke
 
-onready var Nlight_Hitbox_Top =$"Scale Player/Nuetral Light Hitbox/Top Swing"
-onready var Nlight_Hitbox_Lower = $"Scale Player/Nuetral Light Hitbox/Lower"
-onready var Nlight_Hitbox_Final = $"Scale Player/Nuetral Light Hitbox/Final"
-onready var Nlight_Hitbox_Ground = $"Scale Player/Nuetral Light Hitbox/Ground"
-onready var Nair_Slash = $"Scale Player/Nuetral Air Hitbox/Slash"
-
-
-onready var Slight_Hitbox_Buttom = $"Scale Player/Side Light Hitbox/Buttom Swing"
-onready var Slight_Hitbox_Top = $"Scale Player/Side Light Hitbox/Top Swing"
-onready var Slight_Hitbox_Middle = $"Scale Player/Side Light Hitbox/Middle Swing"
-onready var Slight_Hitbox_Fianl = $"Scale Player/Side Light Hitbox/Final"
-
-onready var Down_Light_Start = $"Scale Player/Down Light Hitbox/Startup"
-onready var Down_Light_Angle_Exposion = $"Scale Player/Down Light Hitbox/Angled Fire Pillar"
-onready var Down_Light_Final_Explosion = $"Scale Player/Down Light Hitbox/Final Explosion"
-
-onready var Up_Light_Ignite_Blade = $"Scale Player/Up light Hitbox/Ignite Blade"
-onready var Up_Light_Flame_Pillar = $"Scale Player/Up light Hitbox/Flame Pillar"
-onready var Up_light_Ground_Flame = $"Scale Player/Up light Hitbox/Ground Flame"
+@onready var Nlight_Hitbox_Top =$"Scale Player/Nuetral Light3D Hitbox/Top Swing"
+@onready var Nlight_Hitbox_Lower = $"Scale Player/Nuetral Light3D Hitbox/Lower"
+@onready var Nlight_Hitbox_Final = $"Scale Player/Nuetral Light3D Hitbox/Final"
+@onready var Nlight_Hitbox_Ground = $"Scale Player/Nuetral Light3D Hitbox/Ground"
+@onready var Nair_Slash = $"Scale Player/Nuetral Air Hitbox/Slash"
 
 
-onready var ChaseTimer = $Timer
+@onready var Slight_Hitbox_Buttom = $"Scale Player/Side Light3D Hitbox/Buttom Swing"
+@onready var Slight_Hitbox_Top = $"Scale Player/Side Light3D Hitbox/Top Swing"
+@onready var Slight_Hitbox_Middle = $"Scale Player/Side Light3D Hitbox/Middle Swing"
+@onready var Slight_Hitbox_Fianl = $"Scale Player/Side Light3D Hitbox/Final"
 
-export var controls: Resource = preload("res://Character Resouces/Global/Player_1.tres")
+@onready var Down_Light_Start = $"Scale Player/Down Light3D Hitbox/Startup"
+@onready var Down_Light_Angle_Exposion = $"Scale Player/Down Light3D Hitbox/Angled Fire Pillar"
+@onready var Down_Light_Final_Explosion = $"Scale Player/Down Light3D Hitbox/Final Explosion"
+
+@onready var Up_Light_Ignite_Blade = $"Scale Player/Up light Hitbox/Ignite Blade"
+@onready var Up_Light_Flame_Pillar = $"Scale Player/Up light Hitbox/Flame Pillar"
+@onready var Up_light_Ground_Flame = $"Scale Player/Up light Hitbox/Ground Flame"
+
+
+@onready var ChaseTimer = $Timer
+
+@export var controls: Resource = preload("res://Character Resouces/Global/Player_1.tres")
 
 
 
-export (float) var Movement = 250
-export (float) var AirMovement = 100
-export (float) var Acceleration = 35
-export (float) var JumpHeight = 800
-export (float) var Gravity = 35
+@export (float) var Movement = 250
+@export (float) var AirMovement = 100
+@export (float) var Acceleration = 35
+@export (float) var JumpHeight = 800
+@export (float) var Gravity = 35
 
-export (float) var Health = 200
+@export (float) var Health = 200
 
 var ChaseActive = false 
 var Motion = Vector2.ZERO
@@ -93,7 +93,10 @@ func _physics_process(delta):
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 
 	
-	Motion = move_and_slide(Motion, Up)
+	set_velocity(Motion)
+	set_up_direction(Up)
+	move_and_slide()
+	Motion = velocity
 
 	match Select:
 
@@ -252,7 +255,7 @@ func _physics_process(delta):
 			Animate.play("Roll")
 			if !is_on_floor():
 				Select = States.Fall
-			yield(get_tree().create_timer(0.05), "timeout")
+			await get_tree().create_timer(0.05).timeout
 			if Input.is_action_just_pressed(controls.input_block):
 				Select = States.Defend
 				

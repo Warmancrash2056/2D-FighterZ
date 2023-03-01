@@ -1,18 +1,18 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
-onready var Animate = $"Scale Player/AnimationPlayer"
-onready var CheckFloor = $"Check Floor"
+@onready var Animate = $"Scale Player/AnimationPlayer"
+@onready var CheckFloor = $"Check Floor"
 
-export var controls: Resource = null
+@export var controls: Resource = null
 
-export (float) var Movement
-export (float) var AirMovement
-export (float) var Acceleration
-export (float) var JumpHeight
-export (float) var Gravity = 35
+@export (float) var Movement
+@export (float) var AirMovement
+@export (float) var Acceleration
+@export (float) var JumpHeight
+@export (float) var Gravity = 35
 
-export (float) var Health
+@export (float) var Health
 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
@@ -46,7 +46,10 @@ func _physics_process(delta):
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 
 	
-	Motion = move_and_slide(Motion, Up)
+	set_velocity(Motion)
+	set_up_direction(Up)
+	move_and_slide()
+	Motion = velocity
 
 	match Select:
 		States.Idle:
@@ -195,7 +198,7 @@ func _physics_process(delta):
 			Animate.play("Roll")
 			if !is_on_floor():
 				Select = States.Fall
-			yield(get_tree().create_timer(0.05), "timeout")
+			await get_tree().create_timer(0.05).timeout
 			if Input.is_action_just_pressed(controls.input_block):
 				Select = States.Defend
 				

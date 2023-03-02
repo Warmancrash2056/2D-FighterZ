@@ -1,11 +1,6 @@
 extends Sprite2D
 
-@onready var NaiAnimation = get_parent().get_node("Player 1 Nai")
-@onready var GeneralPyrusAniamtion = get_parent().get_node("Player 1 General Pyrus")
-@onready var GokuAnimation = get_parent().get_node("Player 1 Goku")
-@onready var HunterAnimaton = get_parent().get_node("Player 1 Hunter")
-@onready var AtlantisAnimation = get_parent().get_node("Player 1 Atlantis")
-@onready var NomadAnimation = get_parent().get_node("Player 1 Nomad")
+
 
 @export var Controls: Resource
 # Object Array
@@ -85,100 +80,5 @@ func _process(delta):
 			CharacterSelection.Player1 = CharacterSelection.SelectCharacters[characters[currentSelected].name]
 			Player1Ready = true
 			print("Player 1 Ready")
-			
 		elif Input.is_action_just_pressed(Controls.input_jump):
-			characters
 			
-# Control the animation selected
-func _on_Player_1_General_Pyrus_area_entered(area):
-	if area:
-		GeneralPyrusAniamtion.play("General Pyrus Ready ")
-		GeneralPyrusAniamtion.visible = true
-
-func _on_Player_1_General_Pyrus_area_exited(area):
-	if area:
-		GeneralPyrusAniamtion.frame = 0
-		GeneralPyrusAniamtion.visible = false
-
-
-func _on_Player_1_Goku_area_entered(area):
-	if area:
-		GokuAnimation.play("Goku Ready")
-		GokuAnimation.visible = true
-
-
-func _on_Player_1_Goku_area_exited(area):
-	if area:
-		GokuAnimation.frame = 0
-		GokuAnimation.visible = false
-
-
-func _on_Player_1_Nai_area_entered(area):
-	if area:
-		NaiAnimation.play("Ready")
-		NaiAnimation.visible = true
-
-
-func _on_Player_1_Nai_area_exited(area):
-	NaiAnimation.frame = 0
-	NaiAnimation.visible = false
-
-
-func _on_Player_1_Hunter_area_entered(area):
-	if area: 
-		HunterAnimaton.play("Hunter Ready")
-		HunterAnimaton.visible = true
-
-func _on_Player_1_Hunter_area_exited(area):
-	if area:
-		HunterAnimaton.frame = 0
-		HunterAnimaton.visible = false
-
-
-func _on_Player_1_Nomad_area_entered(area):
-	if area:
-		NomadAnimation.play("Nomad Ready")
-		NomadAnimation.visible = true
-
-
-func _on_Player_1_Nomad_area_exited(area):
-	if area:
-		NomadAnimation.frame = 0
-		NomadAnimation.visible = false
-
-
-func _on_Player_1_Atlantis_area_entered(area):
-	if area:
-		AtlantisAnimation.play("Atlantis Ready")
-		AtlantisAnimation.visible = true
-		
-
-
-func _on_Player_1_Atlantis_area_exited(area):
-	if area:
-		AtlantisAnimation.frame = 0
-		AtlantisAnimation.visible = false
-
-
-func _on_Nai_animation_finished():
-	NaiAnimation.play("Hold")
-
-
-func _on_Player_1_General_Pyrus_animation_finished():
-	GeneralPyrusAniamtion.play("Hold ")
-
-
-func _on_Player_1_Goku_animation_finished():
-	GokuAnimation.play("Hold")
-
-
-func _on_Player_1_Hunter_animation_finished():
-	HunterAnimaton.play("Hold")
-
-
-func _on_Player_1_Atlantis_animation_finished():
-	pass # Replace with function body.
-
-
-func _on_Player_1_Nomad_animation_finished():
-	NomadAnimation.play("Hold")

@@ -1,0 +1,376 @@
+[gd_scene load_steps=46 format=3 uid="uid://d6loip5m31h6"]
+
+[ext_resource type="Texture2D" uid="uid://c5tbxkeptjepb" path="res://Character Resouces/Global/SelectionCursorPlayer1.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/ground_monk.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/water_priestess.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dpa5754pfc4ay" path="res://Character Resouces/Huntress/Huntress Character Icon.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Nomad Character Icon.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Assasin/Assasin Character Icon.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Pyrus/General Pyrus Character Icon.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://5iew7t8ifb3r" path="res://Character Resouces/Global/SelectionCursorPlayer2.png" id="9"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="9_l33ty"]
+[ext_resource type="Script" path="res://Player 1 Cursor.gd" id="11"]
+[ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_9.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://bvbflaxgwymu3" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_3.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_8.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_10.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://vsl6g5papc5t" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_1.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://donydr6tidcp" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_7.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://vi8lsqg6x63u" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_6.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://bc1ydqm5y4j5j" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_2.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://bp4825hqfhqh6" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_4.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://c3snwkhh8krmd" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_5.png" id="22"]
+[ext_resource type="Texture2D" uid="uid://ckgnbifb7ehgv" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_1.png" id="34"]
+[ext_resource type="Texture2D" uid="uid://dx6wfspjbk38r" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_7.png" id="41"]
+[ext_resource type="Texture2D" uid="uid://dlr08j2rasqkr" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_3.png" id="42"]
+[ext_resource type="Texture2D" uid="uid://dtvgukghiqd5s" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_4.png" id="43"]
+[ext_resource type="Texture2D" uid="uid://b78fsdjuf38km" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_8.png" id="44"]
+[ext_resource type="Texture2D" uid="uid://cytkk46m4nl62" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_5.png" id="45"]
+[ext_resource type="Texture2D" uid="uid://cq637jgsuect3" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_6.png" id="46"]
+[ext_resource type="Texture2D" uid="uid://bl2qb2hncljlv" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_2.png" id="47"]
+
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 0.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id="8"]
+radius = 0.005
+height = 0.01
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5di84"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3hnht"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lskm7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3nlsw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbx5k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wiftn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8eas"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdhoh"]
+
+[sub_resource type="CapsuleShape2D" id="2"]
+radius = 0.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id="3"]
+radius = 0.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id="4"]
+radius = 0.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id="5"]
+radius = 0.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id="6"]
+radius = 0.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id="7"]
+radius = 0.0
+height = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4owt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44")
+}],
+"loop": true,
+"name": &"Hold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16")
+}],
+"loop": true,
+"name": &"Nai Ready",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.008
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_right = 576.0
+offset_bottom = 64.0
+text = "Start Game"
+
+[node name="Player 1 Selection" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 144.0
+offset_right = 492.0
+offset_bottom = 208.0
+columns = 6
+
+[node name="Nai" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+layout_mode = 2
+texture = ExtResource("6")
+
+[node name="General Pyrus" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+layout_mode = 2
+texture = ExtResource("7")
+
+[node name="Goku" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+layout_mode = 2
+texture = ExtResource("2")
+
+[node name="Hunter" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+layout_mode = 2
+texture = ExtResource("4")
+
+[node name="Nomad" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+layout_mode = 2
+texture = ExtResource("5")
+
+[node name="Atlantis" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+layout_mode = 2
+texture = ExtResource("3")
+
+[node name="Player 2 Selection" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 144.0
+offset_right = 1300.0
+offset_bottom = 208.0
+scale = Vector2(-1, 1)
+columns = 6
+
+[node name="Nai" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
+layout_mode = 2
+texture = ExtResource("6")
+
+[node name="General Pyrus" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
+layout_mode = 2
+texture = ExtResource("7")
+
+[node name="Goku" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
+layout_mode = 2
+texture = ExtResource("2")
+
+[node name="Hunter" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
+layout_mode = 2
+texture = ExtResource("4")
+
+[node name="Nomad" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
+layout_mode = 2
+texture = ExtResource("5")
+
+[node name="Atlantis" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
+layout_mode = 2
+texture = ExtResource("3")
+
+[node name="Player 1 Cursor" type="Sprite2D" parent="."]
+position = Vector2(120, 176)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("1")
+script = ExtResource("11")
+Controls = ExtResource("9_l33ty")
+PlayerIcon = ExtResource("1")
+portraitOffset = Vector2(68, 0)
+
+[node name="Area2D" type="Area2D" parent="Player 1 Cursor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Cursor/Area2D"]
+shape = SubResource("1")
+
+[node name="Player 2 Cursor" type="Sprite2D" parent="."]
+position = Vector2(864, 176)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("9")
+
+[node name="Area2D" type="Area2D" parent="Player 2 Cursor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Cursor/Area2D"]
+shape = SubResource("8")
+
+[node name="Player 1 General Pyrus" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(240, 300)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_5di84")
+
+[node name="Player 1 Goku" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(240, 280)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_3hnht")
+
+[node name="Player 1 Hunter" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(240, 300)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_lskm7")
+
+[node name="Player 1 Nomad" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(232, 256)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_3nlsw")
+
+[node name="Player 1 Atlantis" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(240, 256)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_dbx5k")
+
+[node name="Player 2 Nai" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(744, 330)
+scale = Vector2(-2, 2)
+sprite_frames = SubResource("SpriteFrames_wiftn")
+
+[node name="Player 2 General Pyrus" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(742, 330)
+rotation = 3.14159
+scale = Vector2(2, -2)
+sprite_frames = SubResource("SpriteFrames_r8eas")
+
+[node name="Player 2 Goku" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(752, 280)
+scale = Vector2(-3, 3)
+sprite_frames = SubResource("SpriteFrames_fdhoh")
+
+[node name="Player 1 General Pyrus Select" type="Area2D" parent="."]
+position = Vector2(152, 144)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 General Pyrus Select"]
+position = Vector2(32, 32)
+shape = SubResource("2")
+
+[node name="Player 1 Goku Select" type="Area2D" parent="."]
+position = Vector2(88, 144)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Goku Select"]
+position = Vector2(168, 32)
+shape = SubResource("3")
+
+[node name="Player 1 Nai Select" type="Area2D" parent="."]
+position = Vector2(168, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Nai Select"]
+position = Vector2(-48, 16)
+shape = SubResource("4")
+
+[node name="Player 1 Hunter Select" type="Area2D" parent="."]
+position = Vector2(88, 144)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Hunter Select"]
+position = Vector2(240, 32)
+shape = SubResource("5")
+
+[node name="Player 1 Nomad Select" type="Area2D" parent="."]
+position = Vector2(328, 176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Nomad Select"]
+position = Vector2(72, 0)
+shape = SubResource("6")
+
+[node name="Player 1 Atlantis Select" type="Area2D" parent="."]
+position = Vector2(88, 144)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Atlantis Select"]
+position = Vector2(376, 32)
+shape = SubResource("7")
+
+[node name="Player 1 Nai" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(240, 300)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_c4owt")
+animation = &"Hold"
+
+[connection signal="animation_finished" from="Player 1 General Pyrus" to="Player 1 Cursor" method="_on_player_1_general_pyrus_animation_finished"]
+[connection signal="animation_finished" from="Player 1 Goku" to="Player 1 Cursor" method="_on_player_1_goku_animation_finished"]
+[connection signal="animation_finished" from="Player 1 Hunter" to="Player 1 Cursor" method="_on_player_1_hunter_animation_finished"]
+[connection signal="animation_finished" from="Player 1 Nomad" to="Player 1 Cursor" method="_on_player_1_nomad_animation_finished"]
+[connection signal="animation_finished" from="Player 1 Atlantis" to="Player 1 Cursor" method="_on_player_1_atlantis_animation_finished"]
+[connection signal="animation_finished" from="Player 2 Nai" to="Player 1 Cursor" method="_on_Nai_animation_finished"]
+[connection signal="animation_finished" from="Player 2 General Pyrus" to="Player 1 Cursor" method="_on_Player_1_General_Pyrus_animation_finished"]
+[connection signal="animation_finished" from="Player 2 Goku" to="Player 2 Cursor" method="_on_Player_2_Goku_animation_finished"]
+[connection signal="area_entered" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]
+[connection signal="area_exited" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_exited"]
+[connection signal="area_entered" from="Player 1 Goku Select" to="Player 1 Cursor" method="_on_player_1_goku_select_area_entered"]
+[connection signal="area_exited" from="Player 1 Goku Select" to="Player 1 Cursor" method="_on_player_1_goku_select_area_exited"]
+[connection signal="area_entered" from="Player 1 Nai Select" to="Player 1 Cursor" method="_on_player_1_nai_select_area_entered"]
+[connection signal="area_exited" from="Player 1 Nai Select" to="Player 1 Cursor" method="_on_player_1_nai_select_area_exited"]
+[connection signal="area_entered" from="Player 1 Hunter Select" to="Player 1 Cursor" method="_on_Player_1_Hunter_area_entered"]
+[connection signal="area_exited" from="Player 1 Hunter Select" to="Player 1 Cursor" method="_on_Player_1_Hunter_area_exited"]
+[connection signal="area_entered" from="Player 1 Nomad Select" to="Player 1 Cursor" method="_on_Player_1_Nomad_area_entered"]
+[connection signal="area_exited" from="Player 1 Nomad Select" to="Player 1 Cursor" method="_on_Player_1_Nomad_area_exited"]
+[connection signal="area_entered" from="Player 1 Atlantis Select" to="Player 1 Cursor" method="_on_Player_1_Atlantis_area_entered"]
+[connection signal="area_exited" from="Player 1 Atlantis Select" to="Player 1 Cursor" method="_on_Player_1_Atlantis_area_exited"]
+[connection signal="animation_finished" from="Player 1 Nai" to="Player 1 Cursor" method="_on_player_1_nai_animation_finished"]

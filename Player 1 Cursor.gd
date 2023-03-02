@@ -1,8 +1,10 @@
 extends Sprite2D
 
+@onready var NaiAnimation = $"../Player 1 Nai"
+@onready var GeneralPyrusAnimation = $"../Player 1 Goku"
+@onready var HunterAnimation = $"../Player 1 Hunter"
 
-
-@export var Controls: Resource
+@export var Controls: Resource 
 # Object Array
 var characters = []          # Array to store all the characters the player can select
 
@@ -81,4 +83,4 @@ func _process(delta):
 			Player1Ready = true
 			print("Player 1 Ready")
 		elif Input.is_action_just_pressed(Controls.input_jump):
-			
+			pass

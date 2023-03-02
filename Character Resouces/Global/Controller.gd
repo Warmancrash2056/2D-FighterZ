@@ -1,6 +1,6 @@
 extends Resource
 class_name InputSys
-@export (int) var Player_Index = 0
+@export var Player_Index: int = 0
 # Get controller index for each player active.
 
 @export var input_right = "Player1_Right"

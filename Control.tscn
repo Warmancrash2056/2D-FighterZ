@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://bqcfbytdtj3xn"]
+[gd_scene load_steps=39 format=3 uid="uid://bqcfbytdtj3xn"]
 
 [ext_resource type="Texture2D" uid="uid://c5tbxkeptjepb" path="res://Character Resouces/Global/SelectionCursorPlayer1.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/ground_monk.png" id="2"]
@@ -9,11 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Pyrus/General Pyrus Character Icon.png" id="7"]
 [ext_resource type="Script" path="res://Control.gd" id="8"]
 [ext_resource type="Texture2D" uid="uid://5iew7t8ifb3r" path="res://Character Resouces/Global/SelectionCursorPlayer2.png" id="9"]
-[ext_resource type="Script" path="res://Player 2 Cursor.gd" id="10"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="10_3uk1b"]
 [ext_resource type="Script" path="res://Player 1 Cursor.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_9.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://bvbflaxgwymu3" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_3.png" id="13"]
-[ext_resource type="Texture2D" uid="uid://dfqxe6skl27fb" path="res://Character Resouces/General Pyrus/Single Animations/08_sp_atk/sp_atk_3.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_8.png" id="15"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_10.png" id="16"]
 [ext_resource type="Texture2D" uid="uid://vsl6g5papc5t" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_1.png" id="17"]
@@ -22,24 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bc1ydqm5y4j5j" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_2.png" id="20"]
 [ext_resource type="Texture2D" uid="uid://bp4825hqfhqh6" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_4.png" id="21"]
 [ext_resource type="Texture2D" uid="uid://c3snwkhh8krmd" path="res://Character Resouces/Assasin/Single Aniamtions/06_trap_cast/06_trap_cast_5.png" id="22"]
-[ext_resource type="Texture2D" uid="uid://bo13dhkepdo0w" path="res://Character Resouces/General Pyrus/Single Animations/08_sp_atk/sp_atk_4.png" id="23"]
-[ext_resource type="Texture2D" uid="uid://dpbw4ogqsdqkr" path="res://Character Resouces/Goku/png/meditate/meditate_16.png" id="24"]
-[ext_resource type="Texture2D" uid="uid://ds7idqc056pdp" path="res://Character Resouces/Goku/png/meditate/meditate_14.png" id="25"]
-[ext_resource type="Texture2D" uid="uid://ln2yd0q6rkt" path="res://Character Resouces/Goku/png/meditate/meditate_15.png" id="26"]
-[ext_resource type="Texture2D" uid="uid://byvqapgixrit4" path="res://Character Resouces/Goku/png/meditate/meditate_8.png" id="27"]
-[ext_resource type="Texture2D" uid="uid://dsrtpam2eauch" path="res://Character Resouces/Goku/png/meditate/meditate_9.png" id="28"]
-[ext_resource type="Texture2D" uid="uid://dbf7hci2lj5ia" path="res://Character Resouces/Goku/png/meditate/meditate_10.png" id="29"]
-[ext_resource type="Texture2D" uid="uid://dl8yq6m1xldo4" path="res://Character Resouces/Goku/png/meditate/meditate_11.png" id="30"]
-[ext_resource type="Texture2D" uid="uid://bg011hc3lc0s1" path="res://Character Resouces/Goku/png/meditate/meditate_12.png" id="31"]
-[ext_resource type="Texture2D" uid="uid://bg1su2vicorxo" path="res://Character Resouces/Goku/png/meditate/meditate_13.png" id="32"]
-[ext_resource type="Texture2D" uid="uid://bls58jwqreq8t" path="res://Character Resouces/Goku/png/meditate/meditate_7.png" id="33"]
 [ext_resource type="Texture2D" uid="uid://ckgnbifb7ehgv" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_1.png" id="34"]
-[ext_resource type="Texture2D" uid="uid://bycb2o62yufs4" path="res://Character Resouces/Goku/png/meditate/meditate_1.png" id="35"]
-[ext_resource type="Texture2D" uid="uid://dfnfe6pslkkeq" path="res://Character Resouces/Goku/png/meditate/meditate_2.png" id="36"]
-[ext_resource type="Texture2D" uid="uid://pman0cmfa3g0" path="res://Character Resouces/Goku/png/meditate/meditate_3.png" id="37"]
-[ext_resource type="Texture2D" uid="uid://djr3sbcvulnqx" path="res://Character Resouces/Goku/png/meditate/meditate_4.png" id="38"]
-[ext_resource type="Texture2D" uid="uid://dp4fy46jnghd3" path="res://Character Resouces/Goku/png/meditate/meditate_5.png" id="39"]
-[ext_resource type="Texture2D" uid="uid://u0p3cxp3v4bi" path="res://Character Resouces/Goku/png/meditate/meditate_6.png" id="40"]
 [ext_resource type="Texture2D" uid="uid://dx6wfspjbk38r" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_7.png" id="41"]
 [ext_resource type="Texture2D" uid="uid://dlr08j2rasqkr" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_3.png" id="42"]
 [ext_resource type="Texture2D" uid="uid://dtvgukghiqd5s" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_4.png" id="43"]
@@ -47,85 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://cytkk46m4nl62" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_5.png" id="45"]
 [ext_resource type="Texture2D" uid="uid://cq637jgsuect3" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_6.png" id="46"]
 [ext_resource type="Texture2D" uid="uid://bl2qb2hncljlv" path="res://Character Resouces/Assasin/Single Aniamtions/01_idle/01_idle_2.png" id="47"]
-[ext_resource type="Texture2D" uid="uid://clr82v0t204ix" path="res://Character Resouces/General Pyrus/Single Animations/08_sp_atk/sp_atk_1.png" id="48"]
-[ext_resource type="Texture2D" uid="uid://cpweabdg5eeo" path="res://Character Resouces/General Pyrus/Single Animations/08_sp_atk/sp_atk_6.png" id="49"]
-[ext_resource type="Texture2D" uid="uid://c3ydvjpbvxth6" path="res://Character Resouces/General Pyrus/Single Animations/08_sp_atk/sp_atk_5.png" id="50"]
-[ext_resource type="Texture2D" uid="uid://icdr46d3fadv" path="res://Character Resouces/General Pyrus/Single Animations/08_sp_atk/sp_atk_7.png" id="51"]
-[ext_resource type="Texture2D" uid="uid://bex32cjyrxf5f" path="res://Character Resouces/General Pyrus/Single Animations/08_sp_atk/sp_atk_2.png" id="52"]
-[ext_resource type="Texture2D" uid="uid://bmjx3ussaxyjc" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_7.png" id="53"]
-[ext_resource type="Texture2D" uid="uid://uutohwjws2n5" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_8.png" id="54"]
-[ext_resource type="Texture2D" uid="uid://c1oul3ap3c16t" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_9.png" id="55"]
-[ext_resource type="Texture2D" uid="uid://ctb2qle47bhp" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_5.png" id="56"]
-[ext_resource type="Texture2D" uid="uid://cryfoc1klsdaq" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_4.png" id="57"]
-[ext_resource type="Texture2D" uid="uid://ba28rou6aud8" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_6.png" id="58"]
-[ext_resource type="Texture2D" uid="uid://bl4hs3xnky4a1" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_18.png" id="59"]
-[ext_resource type="Texture2D" uid="uid://b3ltwa7yg72yi" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_19.png" id="60"]
-[ext_resource type="Texture2D" uid="uid://cue751bbacnil" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_1.png" id="61"]
-[ext_resource type="Texture2D" uid="uid://cb6belxk5hy0q" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_2.png" id="62"]
-[ext_resource type="Texture2D" uid="uid://c6kf215fhosjs" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_3.png" id="63"]
-[ext_resource type="Texture2D" uid="uid://bstb6ivwq2hv6" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_14.png" id="64"]
-[ext_resource type="Texture2D" uid="uid://dgiwm40g6e882" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_15.png" id="65"]
-[ext_resource type="Texture2D" uid="uid://tda18hcyihye" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_13.png" id="66"]
-[ext_resource type="Texture2D" uid="uid://dkcgu28fhxk3d" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_16.png" id="67"]
-[ext_resource type="Texture2D" uid="uid://6lk558yo6bmh" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_17.png" id="68"]
-[ext_resource type="Texture2D" uid="uid://duyo4q3ikp0nc" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_1.png" id="69"]
-[ext_resource type="Texture2D" uid="uid://dnsx00jmu2mh0" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_3.png" id="70"]
-[ext_resource type="Texture2D" uid="uid://dby185iayb8iy" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_4.png" id="71"]
-[ext_resource type="Texture2D" uid="uid://cab7p0uitgbtg" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_12.png" id="72"]
-[ext_resource type="Texture2D" uid="uid://y6wd6ey87y1a" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_2.png" id="73"]
-[ext_resource type="Texture2D" uid="uid://c4qe48g4cwgfj" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_5.png" id="74"]
-[ext_resource type="Texture2D" uid="uid://d0qadhi22a2vn" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_6.png" id="75"]
-[ext_resource type="Texture2D" uid="uid://xjv05b0mr7bm" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_7.png" id="76"]
-[ext_resource type="Texture2D" uid="uid://dv7d6hkn72k13" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_8.png" id="77"]
-[ext_resource type="Texture2D" uid="uid://ctfovau5gtnmd" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_9.png" id="78"]
-[ext_resource type="Texture2D" uid="uid://64wpl5qd3iom" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_10.png" id="79"]
-[ext_resource type="Texture2D" uid="uid://cfn1rj511tcsw" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/defend_11.png" id="80"]
-[ext_resource type="Texture2D" uid="uid://ctwpbo576m2g6" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_12.png" id="81"]
-[ext_resource type="Texture2D" uid="uid://colamw54orhr" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_10.png" id="82"]
-[ext_resource type="Texture2D" uid="uid://b0qal6i3f3nx4" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_11.png" id="83"]
-[ext_resource type="Texture2D" uid="uid://dtu3xqfjftc72" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/03_surf/surf_6.png" id="84"]
-[ext_resource type="Texture2D" uid="uid://c8fg60nlqsw7" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_5.png" id="85"]
-[ext_resource type="Texture2D" uid="uid://ccyjdrf3s11up" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_9.png" id="86"]
-[ext_resource type="Texture2D" uid="uid://dnk3wpqtsp7bw" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/03_surf/surf_2.png" id="87"]
-[ext_resource type="Texture2D" uid="uid://30oad6rlc5n6" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/03_surf/surf_3.png" id="88"]
-[ext_resource type="Texture2D" uid="uid://bqisva6hfsx44" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_6.png" id="89"]
-[ext_resource type="Texture2D" uid="uid://bqiw44354o6n2" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/03_surf/surf_7.png" id="90"]
-[ext_resource type="Texture2D" uid="uid://dqk2tp2u50tcp" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_12.png" id="91"]
-[ext_resource type="Texture2D" uid="uid://ckqxs6xxm5onv" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/03_surf/surf_5.png" id="92"]
-[ext_resource type="Texture2D" uid="uid://demj6dfrkh4gm" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_2.png" id="93"]
-[ext_resource type="Texture2D" uid="uid://gu5xrgci5usw" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_3.png" id="94"]
-[ext_resource type="Texture2D" uid="uid://b2f4nmf6tg273" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/03_surf/surf_8.png" id="95"]
-[ext_resource type="Texture2D" uid="uid://bypq7gvler5q4" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_7.png" id="96"]
-[ext_resource type="Texture2D" uid="uid://dlmjtlysxhmt2" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_1.png" id="97"]
-[ext_resource type="Texture2D" uid="uid://cqikkouffivnv" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/03_surf/surf_4.png" id="98"]
-[ext_resource type="Texture2D" uid="uid://dm0q2xgotg1p8" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_4.png" id="99"]
-[ext_resource type="Texture2D" uid="uid://ddxwierimi4i4" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_10.png" id="100"]
-[ext_resource type="Texture2D" uid="uid://bgmv34lwf3q4g" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_8.png" id="101"]
-[ext_resource type="Texture2D" uid="uid://lsrkwwnhqanr" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/heal_11.png" id="102"]
-[ext_resource type="Texture2D" uid="uid://cgs12cvmji3ka" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/03_surf/surf_1.png" id="103"]
-[ext_resource type="Texture2D" uid="uid://bq6aknfa5p0pg" path="res://Character Resouces/Nomad/idle/idle_3.png" id="104"]
-[ext_resource type="Texture2D" uid="uid://cht15kixl26af" path="res://Character Resouces/Nomad/3_atk/3_atk_26.png" id="105"]
-[ext_resource type="Texture2D" uid="uid://cnjhx46xp55y0" path="res://Character Resouces/Nomad/3_atk/3_atk_25.png" id="106"]
-[ext_resource type="Texture2D" uid="uid://biv77a34kdw0u" path="res://Character Resouces/Nomad/3_atk/3_atk_14.png" id="107"]
-[ext_resource type="Texture2D" uid="uid://b751n6l80t2dx" path="res://Character Resouces/Nomad/3_atk/3_atk_23.png" id="108"]
-[ext_resource type="Texture2D" uid="uid://bq3vaj740dyqi" path="res://Character Resouces/Nomad/3_atk/3_atk_12.png" id="109"]
-[ext_resource type="Texture2D" uid="uid://cv64u2i8s3mix" path="res://Character Resouces/Nomad/idle/idle_8.png" id="110"]
-[ext_resource type="Texture2D" uid="uid://be1listtb4eoq" path="res://Character Resouces/Nomad/3_atk/3_atk_24.png" id="111"]
-[ext_resource type="Texture2D" uid="uid://cad4dijqi283" path="res://Character Resouces/Nomad/3_atk/3_atk_13.png" id="112"]
-[ext_resource type="Texture2D" uid="uid://bdoiwl1kssffm" path="res://Character Resouces/Nomad/idle/idle_4.png" id="113"]
-[ext_resource type="Texture2D" uid="uid://oo4f4tllucl5" path="res://Character Resouces/Nomad/3_atk/3_atk_15.png" id="114"]
-[ext_resource type="Texture2D" uid="uid://bta2hqbooqxf8" path="res://Character Resouces/Nomad/idle/idle_2.png" id="115"]
-[ext_resource type="Texture2D" uid="uid://c34w08clfp1hr" path="res://Character Resouces/Nomad/idle/idle_7.png" id="116"]
-[ext_resource type="Texture2D" uid="uid://dpioa0relwcxi" path="res://Character Resouces/Nomad/idle/idle_5.png" id="117"]
-[ext_resource type="Texture2D" uid="uid://d1pmojx4o8rxq" path="res://Character Resouces/Nomad/idle/idle_1.png" id="118"]
-[ext_resource type="Texture2D" uid="uid://3j6ikcqp6pu6" path="res://Character Resouces/Nomad/idle/idle_6.png" id="119"]
-[ext_resource type="Texture2D" uid="uid://hcdpofkjsb5s" path="res://Character Resouces/Nomad/3_atk/3_atk_20.png" id="120"]
-[ext_resource type="Texture2D" uid="uid://dog18sd8y8pj5" path="res://Character Resouces/Nomad/3_atk/3_atk_16.png" id="121"]
-[ext_resource type="Texture2D" uid="uid://cpdxawdvm1yuw" path="res://Character Resouces/Nomad/3_atk/3_atk_22.png" id="122"]
-[ext_resource type="Texture2D" uid="uid://55knceg45wtj" path="res://Character Resouces/Nomad/3_atk/3_atk_18.png" id="123"]
-[ext_resource type="Texture2D" uid="uid://okm1m7n2d3lj" path="res://Character Resouces/Nomad/3_atk/3_atk_21.png" id="124"]
-[ext_resource type="Texture2D" uid="uid://36m7wma87hrg" path="res://Character Resouces/Nomad/3_atk/3_atk_19.png" id="125"]
-[ext_resource type="Texture2D" uid="uid://m74uhrqtxm46" path="res://Character Resouces/Nomad/3_atk/3_atk_17.png" id="126"]
 
 [sub_resource type="CapsuleShape2D" id="2"]
 radius = 0.0
@@ -159,527 +62,16 @@ height = 0.0
 radius = 0.005
 height = 0.01
 
-[sub_resource type="SpriteFrames" id="9"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4owt"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("34")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45")
-}, {
-"duration": 1.0,
-"texture": ExtResource("46")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44")
-}],
+"frames": [ExtResource("34"), ExtResource("47"), ExtResource("42"), ExtResource("43"), ExtResource("45"), ExtResource("46"), ExtResource("41"), ExtResource("44")],
 "loop": true,
 "name": &"Hold",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16")
-}],
-"loop": false,
-"name": &"Ready",
-"speed": 10.0
-}]
-
-[sub_resource type="SpriteFrames" id="10"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("48")
-}, {
-"duration": 1.0,
-"texture": ExtResource("52")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23")
-}, {
-"duration": 1.0,
-"texture": ExtResource("50")
-}, {
-"duration": 1.0,
-"texture": ExtResource("49")
-}, {
-"duration": 1.0,
-"texture": ExtResource("51")
-}],
+"frames": [ExtResource("17"), ExtResource("20"), ExtResource("13"), ExtResource("21"), ExtResource("22"), ExtResource("19"), ExtResource("18"), ExtResource("15"), ExtResource("12"), ExtResource("16")],
 "loop": true,
-"name": &"General Pyrus Ready ",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("52")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23")
-}, {
-"duration": 1.0,
-"texture": ExtResource("50")
-}, {
-"duration": 1.0,
-"texture": ExtResource("49")
-}, {
-"duration": 1.0,
-"texture": ExtResource("51")
-}],
-"loop": true,
-"name": &"Hold ",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="11"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("35")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26")
-}],
-"loop": true,
-"name": &"Goku Ready",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("40")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26")
-}],
-"loop": true,
-"name": &"Hold",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="13"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("61")
-}, {
-"duration": 1.0,
-"texture": ExtResource("62")
-}, {
-"duration": 1.0,
-"texture": ExtResource("63")
-}, {
-"duration": 1.0,
-"texture": ExtResource("57")
-}, {
-"duration": 1.0,
-"texture": ExtResource("56")
-}, {
-"duration": 1.0,
-"texture": ExtResource("58")
-}, {
-"duration": 1.0,
-"texture": ExtResource("53")
-}, {
-"duration": 1.0,
-"texture": ExtResource("54")
-}, {
-"duration": 1.0,
-"texture": ExtResource("55")
-}, {
-"duration": 1.0,
-"texture": ExtResource("82")
-}, {
-"duration": 1.0,
-"texture": ExtResource("83")
-}, {
-"duration": 1.0,
-"texture": ExtResource("81")
-}],
-"loop": true,
-"name": &"Hold",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("69")
-}, {
-"duration": 1.0,
-"texture": ExtResource("73")
-}, {
-"duration": 1.0,
-"texture": ExtResource("70")
-}, {
-"duration": 1.0,
-"texture": ExtResource("71")
-}, {
-"duration": 1.0,
-"texture": ExtResource("74")
-}, {
-"duration": 1.0,
-"texture": ExtResource("75")
-}, {
-"duration": 1.0,
-"texture": ExtResource("76")
-}, {
-"duration": 1.0,
-"texture": ExtResource("77")
-}, {
-"duration": 1.0,
-"texture": ExtResource("78")
-}, {
-"duration": 1.0,
-"texture": ExtResource("79")
-}, {
-"duration": 1.0,
-"texture": ExtResource("80")
-}, {
-"duration": 1.0,
-"texture": ExtResource("72")
-}, {
-"duration": 1.0,
-"texture": ExtResource("66")
-}, {
-"duration": 1.0,
-"texture": ExtResource("64")
-}, {
-"duration": 1.0,
-"texture": ExtResource("65")
-}, {
-"duration": 1.0,
-"texture": ExtResource("67")
-}, {
-"duration": 1.0,
-"texture": ExtResource("68")
-}, {
-"duration": 1.0,
-"texture": ExtResource("59")
-}, {
-"duration": 1.0,
-"texture": ExtResource("60")
-}],
-"loop": true,
-"name": &"Hunter Ready",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="15"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("118")
-}, {
-"duration": 1.0,
-"texture": ExtResource("115")
-}, {
-"duration": 1.0,
-"texture": ExtResource("104")
-}, {
-"duration": 1.0,
-"texture": ExtResource("113")
-}, {
-"duration": 1.0,
-"texture": ExtResource("117")
-}, {
-"duration": 1.0,
-"texture": ExtResource("119")
-}, {
-"duration": 1.0,
-"texture": ExtResource("116")
-}, {
-"duration": 1.0,
-"texture": ExtResource("110")
-}],
-"loop": true,
-"name": &"Hold",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("109")
-}, {
-"duration": 1.0,
-"texture": ExtResource("112")
-}, {
-"duration": 1.0,
-"texture": ExtResource("107")
-}, {
-"duration": 1.0,
-"texture": ExtResource("114")
-}, {
-"duration": 1.0,
-"texture": ExtResource("121")
-}, {
-"duration": 1.0,
-"texture": ExtResource("126")
-}, {
-"duration": 1.0,
-"texture": ExtResource("123")
-}, {
-"duration": 1.0,
-"texture": ExtResource("125")
-}, {
-"duration": 1.0,
-"texture": ExtResource("120")
-}, {
-"duration": 1.0,
-"texture": ExtResource("124")
-}, {
-"duration": 1.0,
-"texture": ExtResource("122")
-}, {
-"duration": 1.0,
-"texture": ExtResource("108")
-}, {
-"duration": 1.0,
-"texture": ExtResource("111")
-}, {
-"duration": 1.0,
-"texture": ExtResource("106")
-}, {
-"duration": 1.0,
-"texture": ExtResource("105")
-}],
-"loop": false,
-"name": &"Nomad Ready",
-"speed": 10.0
-}]
-
-[sub_resource type="SpriteFrames" id="14"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("103")
-}, {
-"duration": 1.0,
-"texture": ExtResource("87")
-}, {
-"duration": 1.0,
-"texture": ExtResource("88")
-}, {
-"duration": 1.0,
-"texture": ExtResource("98")
-}, {
-"duration": 1.0,
-"texture": ExtResource("92")
-}, {
-"duration": 1.0,
-"texture": ExtResource("84")
-}, {
-"duration": 1.0,
-"texture": ExtResource("90")
-}, {
-"duration": 1.0,
-"texture": ExtResource("95")
-}],
-"loop": true,
-"name": &"Atlantis Ready",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("97")
-}, {
-"duration": 1.0,
-"texture": ExtResource("93")
-}, {
-"duration": 1.0,
-"texture": ExtResource("94")
-}, {
-"duration": 1.0,
-"texture": ExtResource("99")
-}, {
-"duration": 1.0,
-"texture": ExtResource("85")
-}, {
-"duration": 1.0,
-"texture": ExtResource("89")
-}, {
-"duration": 1.0,
-"texture": ExtResource("96")
-}, {
-"duration": 1.0,
-"texture": ExtResource("101")
-}, {
-"duration": 1.0,
-"texture": ExtResource("86")
-}, {
-"duration": 1.0,
-"texture": ExtResource("100")
-}, {
-"duration": 1.0,
-"texture": ExtResource("102")
-}, {
-"duration": 1.0,
-"texture": ExtResource("91")
-}],
-"loop": true,
-"name": &"Hold",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="12"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("35")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24")
-}],
-"loop": true,
-"name": &"Goku Ready",
+"name": &"Nai Ready",
 "speed": 5.0
 }]
 
@@ -688,10 +80,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.008
 color = Color(0, 0, 0, 1)
@@ -812,6 +207,7 @@ position = Vector2(120, 176)
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("1")
 script = ExtResource("11")
+Controls = ExtResource("10_3uk1b")
 PlayerIcon = ExtResource("1")
 portraitOffset = Vector2(68, 0)
 
@@ -824,9 +220,6 @@ shape = SubResource("1")
 position = Vector2(864, 176)
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("9")
-script = ExtResource("10")
-PlayerIcon = ExtResource("9")
-portraitOffset = Vector2(-68, 0)
 
 [node name="Area2D" type="Area2D" parent="Player 2 Cursor"]
 
@@ -837,70 +230,49 @@ shape = SubResource("8")
 visible = false
 position = Vector2(240, 300)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("9")
-animation = &"Ready"
-frame = 9
+frames = SubResource("SpriteFrames_c4owt")
+animation = &"Hold"
 
 [node name="Player 1 General Pyrus" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(240, 300)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("10")
-animation = &"General Pyrus Ready "
 
 [node name="Player 1 Goku" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(240, 280)
 scale = Vector2(3, 3)
-sprite_frames = SubResource("11")
-animation = &"Hold"
-frame = 9
 
 [node name="Player 1 Hunter" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(240, 300)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("13")
-animation = &"Hold"
 
 [node name="Player 1 Nomad" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(232, 256)
 scale = Vector2(3, 3)
-sprite_frames = SubResource("15")
-animation = &"Hold"
 
 [node name="Player 1 Atlantis" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(240, 256)
 scale = Vector2(3, 3)
-sprite_frames = SubResource("14")
-animation = &"Atlantis Ready"
-frame = 4
 
 [node name="Player 2 Nai" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(744, 330)
 scale = Vector2(-2, 2)
-sprite_frames = SubResource("9")
-animation = &"Ready"
-frame = 9
 
 [node name="Player 2 General Pyrus" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(742, 330)
 rotation = 3.14159
 scale = Vector2(2, -2)
-sprite_frames = SubResource("10")
-animation = &"Hold "
-frame = 3
 
 [node name="Player 2 Goku" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(752, 280)
 scale = Vector2(-3, 3)
-sprite_frames = SubResource("12")
-animation = &"Goku Ready"
 
 [connection signal="area_entered" from="Player 1 Selection/Player 1 General Pyrus" to="Player 1 Cursor" method="_on_Player_1_General_Pyrus_area_entered"]
 [connection signal="area_exited" from="Player 1 Selection/Player 1 General Pyrus" to="Player 1 Cursor" method="_on_Player_1_General_Pyrus_area_exited"]

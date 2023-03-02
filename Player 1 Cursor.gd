@@ -7,7 +7,7 @@ extends Sprite2D
 @onready var AtlantisAnimation = get_parent().get_node("Player 1 Atlantis")
 @onready var NomadAnimation = get_parent().get_node("Player 1 Nomad")
 
-@export var Controls: Resource = preload("res://Character Resouces/Global/Player_1.tres")
+@export var Controls: Resource
 # Object Array
 var characters = []          # Array to store all the characters the player can select
 
@@ -17,9 +17,9 @@ var currentColumnSpot = 0    # Spot of the cursor based on the column
 var currentRowSpot = 0       # Spot of the cursor based on the row
 
 # Exports 
-@export (Texture2D) var PlayerIcon    # Cursor Texture2D for when Player 1 is making a decision    
-@export (int) var amountOfRows = 2      # The total amount of rows the character select is able to show 
-@export (Vector2) var portraitOffset    # The distance between the portraits
+@export var PlayerIcon: Texture2D    # Cursor Texture2D for when Player 1 is making a decision    
+@export var amountOfRows: int = 2      # The total amount of rows the character select is able to show 
+@export var portraitOffset: Vector2    # The distance between the portraits
 
 # Objects
 @onready var gridContainer = get_parent().get_node("Player 1 Selection")   # Get the Gridcontainer
@@ -32,7 +32,6 @@ func _ready():
 	print(characters)
 	
 	texture = PlayerIcon
-	NaiAnimation.play("Ready")
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
 	

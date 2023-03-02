@@ -1,6 +1,5 @@
-extends Sprite2D
 
-@export var Controls: Resource = preload("res://Character Resouces/Global/Player_2.tres")
+@export var Controls: Resource
 # Object Array
 var characters = []          # Array to store all the characters the player can select
 
@@ -10,25 +9,25 @@ var currentColumnSpot = 0    # Spot of the cursor based on the column
 var currentRowSpot = 0       # Spot of the cursor based on the row
 
 # Exports 
-@export (Texture2D) var PlayerIcon    # Cursor Texture2D for when Player 1 is making a decision    
-@export (int) var amountOfRows = 2      # The total amount of rows the character select is able to show 
-@export (Vector2) var portraitOffset    # The distance between the portraits
+@export var PlayerIcon: Texture2D    # Cursor Texture2D for when Player 1 is making a decision    
+@export var amountOfRows: int = 2      # The total amount of rows the character select is able to show 
+@export var portraitOffset: Vector2    # The distance between the portraits
 
 # Objects
 @onready var gridContainer = get_parent().get_node("Player 2 Selection")   # Get the Gridcontainer
 
+var Player1Ready = false
 func _ready():
 # Get all of the characters stored within the group "Characters" and place them in the Array characters
-	for nameOfCharacter in get_tree().get_nodes_in_group("Player2"):
+	for nameOfCharacter in get_tree().get_nodes_in_group("Player1"):
 		characters.append(nameOfCharacter)
 	print(characters)
 	
 	texture = PlayerIcon
-
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
 	
-	if(Input.is_action_just_pressed(Controls.input_left)):
+	if(Input.is_action_just_pressed(Controls.input_right)):
 		currentSelected += 1
 		currentColumnSpot += 1
 		# If the cursor goes past the total amount of columns reset to the first item in the column and go 1 row down
@@ -48,7 +47,7 @@ func _process(delta):
 			currentSelected = 0
 		else:
 			position.x += portraitOffset.x
-	elif(Input.is_action_just_pressed(Controls.input_right)):
+	elif(Input.is_action_just_pressed(Controls.input_left)):
 		currentSelected -= 1
 		currentColumnSpot -= 1
 		# If the cursor goes past the 0 amount on a column position reset to the first item in the column and go 1 row up
@@ -68,11 +67,16 @@ func _process(delta):
 			currentSelected = characters.size() - 1
 		else:
 			position.x -= portraitOffset.x
-
-
-func _on_Player_2_General_Pyrus_animation_finished():
-	pass # Replace with function body.
-
-
-func _on_Player_2_Goku_animation_finished():
-	pass # Replace with function body.
+	
+	if Input.is_action_just_pressed(Controls.input_jump):
+		if CharacterSelection.Player1 == null:
+			print('Current Character Selected ', '[',characters[currentSelected].name,']', currentSelected)
+			print(CharacterSelection.Player1)
+			print("remove this item from array " , CharacterSelection.SelectCharacters[characters[currentSelected].name])
+			CharacterSelection.Player1
+			CharacterSelection.Player1 = CharacterSelection.SelectCharacters[characters[currentSelected].name]
+			Player1Ready = true
+			print("Player 1 Ready")
+			
+		elif Input.is_action_just_pressed(Controls.input_jump):
+			characters

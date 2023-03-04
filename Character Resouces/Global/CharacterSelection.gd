@@ -13,7 +13,7 @@ var SelectCharacters = {
 	"Atlantis" : preload("res://Character Resouces/Princess Atlantis/Princess Atlantis.tscn"),
 	"Nomad" : preload("res://Character Resouces/Nomad/Nomad.tscn"),
 	"Goku" : preload("res://Character Resouces/Goku/Goku.tscn"),
-	"Nai" : preload("res://Character Resouces/Assasin/Assasin.tscn")
+	"Nai" : preload("res://Character Resouces/Nai/Nai.tscn")
 }
 
 var Maps = {

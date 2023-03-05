@@ -33,13 +33,13 @@ class_name FireKnight
 
 
 
-@export (float) var Movement = 250
-@export (float) var AirMovement = 100
-@export (float) var Acceleration = 35
-@export (float) var JumpHeight = 800
-@export (float) var Gravity = 35
+@export var Movement: int  = 250
+@export var AirMovement: int  = 100
+@export var Acceleration: int  = 35
+@export var JumpHeight: int = 800
+@export var Gravity : int  = 35
 
-@export (float) var Health = 200
+@export var Health = 200
 
 var ChaseActive = false 
 var Motion = Vector2.ZERO
@@ -101,7 +101,6 @@ func _physics_process(delta):
 	match Select:
 
 		States.Idle:
-			Animate.playback_speed = 0.8
 			Motion.y += Gravity
 			if !CheckFloor.is_colliding():
 				Select = States.Fall
@@ -196,7 +195,6 @@ func _physics_process(delta):
 			Motion.y += Gravity
 			Animate.play("Fall")
 			
-			 
 			if is_on_floor():
 				Select = States.Idle
 				

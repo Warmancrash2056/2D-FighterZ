@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://c63o38151idkk"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_3ds10"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3ds10")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1056.0
+offset_right = 1208.0
+offset_bottom = 64.0

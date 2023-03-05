@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://c808wmvm1k32l"]
 
-[ext_resource path="res://Character Resouces/General Pyrus/General Pyrus.tscn" type="PackedScene" id=1]
+[ext_resource type="PackedScene" uid="uid://b8s700pdixqo0" path="res://Character Resouces/General Pyrus/Player 1 General Pyrus.tscn" id="1_048ps"]
+[ext_resource type="PackedScene" uid="uid://xpkjrvrla5jd" path="res://Character Resouces/General Pyrus/Player 2 General Pyrus.tscn" id="2_ye8v4"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="3_doqon"]
 
-[sub_resource type="RectangleShape2D" id=1]
-size = Vector2( 353.25, 10 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(1640, 496)
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 38.0
+[sub_resource type="CapsuleShape2D" id="2"]
+radius = 16.0
 height = 32.0
 
 [node name="Node2D" type="Node2D"]
@@ -15,21 +17,25 @@ height = 32.0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 204, 213 )
-shape = SubResource( 1 )
+position = Vector2(-20, 456)
+shape = SubResource("1")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 32
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 284, 144 )
-shape = SubResource( 2 )
+position = Vector2(284, 144)
+shape = SubResource("2")
+
+[node name="Fire Knight" parent="." instance=ExtResource("1_048ps")]
+position = Vector2(296, 96)
+
+[node name="Fire Knight2" parent="." instance=ExtResource("2_ye8v4")]
+position = Vector2(120, 88)
+controls = ExtResource("3_doqon")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 208, 97 )
-current = true
-zoom = Vector2( 0.6, 0.6 )
-
-[node name="Fire Knight" parent="." instance=ExtResource( 1 )]
-position = Vector2( 39, 103 )
+position = Vector2(248, 120)
+enabled = false
+zoom = Vector2(2, 2)

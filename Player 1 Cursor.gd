@@ -84,6 +84,7 @@ func _process(delta):
 			CharacterSelection.Player1 = CharacterSelection.SelectCharacters[characters[currentSelected].name]
 			Player1Ready = true
 			print("Player 1 Ready")
+			portraitOffset.x = 0
 		elif Input.is_action_just_pressed(Controls.input_jump):
 			pass
 

@@ -203,3 +203,6 @@ libraries = {
 [node name="Nuetral Air Arrow" type="Sprite2D" parent="."]
 position = Vector2(32, 16)
 texture = ExtResource("2_pwps7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 16)

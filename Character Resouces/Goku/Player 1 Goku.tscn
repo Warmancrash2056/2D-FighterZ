@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://drbld0tyac6nr"]
 
-[ext_resource type="Script" path="res://Character Resouces/Global/Player1 Script.gd" id="1_obq73"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Goku Script.gd" id="1_cvr6w"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_i3gn7"]
 [ext_resource type="Texture2D" uid="uid://b341moopt7xsq" path="res://Character Resouces/Goku/Ground Monk SpriteSheet.png" id="3_q25ue"]
 
@@ -764,7 +764,7 @@ radius = 4.6
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_obq73")
+script = ExtResource("1_cvr6w")
 controls = ExtResource("2_i3gn7")
 
 [node name="Scale Player" type="Node2D" parent="."]
@@ -778,16 +778,10 @@ shape = SubResource("RectangleShape2D_0bru2")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../Sprite2D")
+root_node = NodePath("../../Goku Sprites")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
-
-[node name="Sprite2D" type="Sprite2D" parent="Scale Player"]
-position = Vector2(0, -40)
-texture = ExtResource("3_q25ue")
-hframes = 20
-vframes = 8
 
 [node name="Nuetral Light3D Hitbox" type="Area2D" parent="Scale Player"]
 collision_layer = 32
@@ -844,8 +838,14 @@ collision_mask = 32
 shape = SubResource("CapsuleShape2D_f3s8f")
 disabled = true
 
+[node name="Goku Sprites" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+texture = ExtResource("3_q25ue")
+hframes = 20
+vframes = 8
+
 [connection signal="area_entered" from="Scale Player/Side Light3D Second Punch" to="." method="_on_Side_Light_Second_Punch_area_entered"]
-[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Scale Player/Nuetral Light3D Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]

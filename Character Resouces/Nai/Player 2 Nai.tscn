@@ -1,25 +1,27 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjcmk1lyw4fh8"]
+[gd_scene load_steps=23 format=3 uid="uid://ccf64kfdjp12j"]
 
-[ext_resource type="Texture2D" uid="uid://cp7t6inhv4t3i" path="res://Character Resouces/Nai/Assasin SpriteSheet.png" id="1"]
-[ext_resource type="Script" path="res://Character Resouces/Nai/Global Player 1 Script.gd" id="1_5xos7"]
+[ext_resource type="Texture2D" uid="uid://cp7t6inhv4t3i" path="res://Character Resouces/Nai/Assasin SpriteSheet.png" id="1_w41g0"]
+[ext_resource type="Script" path="res://Character Resouces/Nai/Nai Script.gd" id="1_yroqb"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="2_xhn7v"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qspjt"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nr57j"]
 
-[sub_resource type="CapsuleShape2D" id="1"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txdwi"]
 height = 172.0
 
-[sub_resource type="CapsuleShape2D" id="2"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xxk5"]
 height = 140.0
 
-[sub_resource type="CapsuleShape2D" id="3"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mh0py"]
 height = 76.0
 
-[sub_resource type="CapsuleShape2D" id="4"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rrsyw"]
 radius = 0.0
 height = 0.0
 
-[sub_resource type="Animation" id="5"]
+[sub_resource type="Animation" id="Animation_3xtln"]
 resource_name = "Chain Move"
+length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,7 +35,7 @@ tracks/0/keys = {
 "values": [64, 65, 66, 67, 68, 69, 70, 71, 72, 73]
 }
 
-[sub_resource type="Animation" id="6"]
+[sub_resource type="Animation" id="Animation_nvoba"]
 resource_name = "Dlight"
 length = 1.1
 tracks/0/type = "value"
@@ -48,32 +50,8 @@ tracks/0/keys = {
 "update": 1,
 "values": [94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Down Light3D Collsion/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.209628, 0.302796, 0.500165, 1.02521),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Down Light3D Collsion/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.209628, 0.223113, 0.242727, 0.279504, 0.30157, 0.500165, 0.529587, 0.551653, 0.604366, 0.637465, 0.675468, 0.739215, 0.755151, 0.769862, 0.787025, 0.827479, 0.843416, 0.854449, 0.872837, 0.909614, 0.920647, 0.932906, 0.948843, 1.00769),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(19, 23), Vector2(19, 23), Vector2(46, 44), Vector2(29, 49), Vector2(0, 52), Vector2(0, 52), Vector2(9, 30), Vector2(42, 27), Vector2(13, 52), Vector2(48, 57), Vector2(38, 21), Vector2(-11, 22), Vector2(16, 14), Vector2(43, 20), Vector2(39, 38), Vector2(18, 54), Vector2(18, 54), Vector2(42, 53), Vector2(49, 46), Vector2(33, 38), Vector2(20, 45), Vector2(40, 39), Vector2(51, 27), Vector2(30, 21), Vector2(48, 38)]
-}
 
-[sub_resource type="Animation" id="7"]
+[sub_resource type="Animation" id="Animation_d2nv0"]
 resource_name = "Fall"
 length = 0.3
 tracks/0/type = "value"
@@ -89,7 +67,7 @@ tracks/0/keys = {
 "values": [19, 20, 21]
 }
 
-[sub_resource type="Animation" id="8"]
+[sub_resource type="Animation" id="Animation_ndglf"]
 resource_name = "Idle "
 length = 0.8
 tracks/0/type = "value"
@@ -105,7 +83,7 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="9"]
+[sub_resource type="Animation" id="Animation_lympk"]
 resource_name = "Jump"
 length = 0.3
 tracks/0/type = "value"
@@ -121,7 +99,7 @@ tracks/0/keys = {
 "values": [16, 17, 18]
 }
 
-[sub_resource type="Animation" id="10"]
+[sub_resource type="Animation" id="Animation_1t4lw"]
 resource_name = "Landing"
 length = 0.1
 tracks/0/type = "value"
@@ -137,7 +115,7 @@ tracks/0/keys = {
 "values": [22]
 }
 
-[sub_resource type="Animation" id="11"]
+[sub_resource type="Animation" id="Animation_76c3t"]
 resource_name = "Nair"
 length = 0.8
 tracks/0/type = "value"
@@ -153,7 +131,7 @@ tracks/0/keys = {
 "values": [42, 43, 44, 45, 46, 47, 48, 49]
 }
 
-[sub_resource type="Animation" id="12"]
+[sub_resource type="Animation" id="Animation_rwlrm"]
 resource_name = "Nlight"
 length = 0.6
 tracks/0/type = "value"
@@ -169,7 +147,7 @@ tracks/0/keys = {
 "values": [57, 58, 59, 60, 61, 62]
 }
 
-[sub_resource type="Animation" id="13"]
+[sub_resource type="Animation" id="Animation_glwpo"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -183,68 +161,8 @@ tracks/0/keys = {
 "update": 0,
 "values": [0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Up Light3D Collision/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Up Light3D Collision/CollisionShape2D2:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Up Light3D Collision/CollisionShape2D3:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Down Light3D Collsion/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Down Light3D Collsion/CollisionShape2D:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(19, 23)]
-}
 
-[sub_resource type="Animation" id="14"]
+[sub_resource type="Animation" id="Animation_lnvs8"]
 resource_name = "Roll"
 length = 0.6
 tracks/0/type = "value"
@@ -260,7 +178,7 @@ tracks/0/keys = {
 "values": [50, 51, 52, 53, 54, 55]
 }
 
-[sub_resource type="Animation" id="15"]
+[sub_resource type="Animation" id="Animation_pqksr"]
 resource_name = "Run"
 length = 0.8
 tracks/0/type = "value"
@@ -276,7 +194,7 @@ tracks/0/keys = {
 "values": [8, 9, 10, 11, 12, 13, 14, 15]
 }
 
-[sub_resource type="Animation" id="16"]
+[sub_resource type="Animation" id="Animation_leufo"]
 resource_name = "Slight"
 length = 0.8
 tracks/0/type = "value"
@@ -292,7 +210,7 @@ tracks/0/keys = {
 "values": [91, 92, 93, 94, 95, 96, 86, 87]
 }
 
-[sub_resource type="Animation" id="17"]
+[sub_resource type="Animation" id="Animation_r0v2c"]
 resource_name = "Ulight"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -306,74 +224,39 @@ tracks/0/keys = {
 "update": 1,
 "values": [106, 107, 108, 109, 110, 111, 112, 113, 114, 115]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Up Light3D Collision/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3, 0.887548),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Up Light3D Collision/CollisionShape2D2:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.4, 0.854449),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Up Light3D Collision/CollisionShape2D3:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ke60"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mvjl7"]
 _data = {
-"Chain Move": SubResource("5"),
-"Dlight": SubResource("6"),
-"Fall": SubResource("7"),
-"Idle ": SubResource("8"),
-"Jump": SubResource("9"),
-"Landing": SubResource("10"),
-"Nair": SubResource("11"),
-"Nlight": SubResource("12"),
-"RESET": SubResource("13"),
-"Roll": SubResource("14"),
-"Run": SubResource("15"),
-"Slight": SubResource("16"),
-"Ulight": SubResource("17")
+"Chain Move": SubResource("Animation_3xtln"),
+"Dlight": SubResource("Animation_nvoba"),
+"Fall": SubResource("Animation_d2nv0"),
+"Idle ": SubResource("Animation_ndglf"),
+"Jump": SubResource("Animation_lympk"),
+"Landing": SubResource("Animation_1t4lw"),
+"Nair": SubResource("Animation_76c3t"),
+"Nlight": SubResource("Animation_rwlrm"),
+"RESET": SubResource("Animation_glwpo"),
+"Roll": SubResource("Animation_lnvs8"),
+"Run": SubResource("Animation_pqksr"),
+"Slight": SubResource("Animation_leufo"),
+"Ulight": SubResource("Animation_r0v2c")
 }
 
 [node name="Assasin" type="CharacterBody2D"]
 position = Vector2(0, -40)
 scale = Vector2(1.5, 1.5)
 platform_floor_layers = 4294901760
-script = ExtResource("1_5xos7")
+script = ExtResource("1_yroqb")
+controls = ExtResource("2_xhn7v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-texture = ExtResource("1")
+texture = ExtResource("1_w41g0")
 hframes = 20
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_qspjt")
+shape = SubResource("CapsuleShape2D_nr57j")
 
 [node name="Scale Player" type="Node2D" parent="."]
 
@@ -382,30 +265,30 @@ shape = SubResource("CapsuleShape2D_qspjt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Up Light3D Collision"]
 position = Vector2(8, 56)
 rotation = 1.5708
-shape = SubResource("1")
+shape = SubResource("CapsuleShape2D_txdwi")
 disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Scale Player/Up Light3D Collision"]
 position = Vector2(8, 36)
 rotation = 1.5708
-shape = SubResource("2")
+shape = SubResource("CapsuleShape2D_4xxk5")
 disabled = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Scale Player/Up Light3D Collision"]
 position = Vector2(2, 16)
 rotation = 1.5708
-shape = SubResource("3")
+shape = SubResource("CapsuleShape2D_mh0py")
 disabled = true
 
 [node name="Down Light3D Collsion" type="Area2D" parent="Scale Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Down Light3D Collsion"]
 position = Vector2(19, 23)
-shape = SubResource("4")
+shape = SubResource("CapsuleShape2D_rrsyw")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Scale Player")
 libraries = {
-"": SubResource("AnimationLibrary_8ke60")
+"": SubResource("AnimationLibrary_mvjl7")
 }

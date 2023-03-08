@@ -1,0 +1,186 @@
+[gd_scene load_steps=16 format=3 uid="uid://ckq7phxopivvn"]
+
+[ext_resource type="Script" path="res://Character Resouces/Princess Atlantis/Water Princess.gd" id="1_6ijnh"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="2_qhfb1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pcnl8"]
+radius = 4.0
+height = 56.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1els"]
+size = Vector2(12.5, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qe70h"]
+radius = 10.198
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qwtcs"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_gecip"]
+resource_name = "Disable"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:collision_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 1, 5]
+}
+
+[sub_resource type="Animation" id="Animation_rrjpm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:collision_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1hfdh"]
+_data = {
+"Disable": SubResource("Animation_gecip"),
+"RESET": SubResource("Animation_rrjpm")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dpw7o"]
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l8a2"]
+radius = 4.16667
+height = 8.33333
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5db2p"]
+radius = 4.99999
+height = 16.6667
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xd6m1"]
+radius = 11.6666
+height = 23.3333
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oyqmm"]
+radius = 0.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2v8o"]
+height = 63.3333
+
+[node name="Water Princess" type="CharacterBody2D"]
+scale = Vector2(1.2, 1.2)
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_6ijnh")
+controls = ExtResource("2_qhfb1")
+
+[node name="Nuetral Air" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Air"]
+position = Vector2(54, -15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pcnl8")
+disabled = true
+
+[node name="Nuetral Light3D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nuetral Light3D"]
+modulate = Color(0.945098, 0.643137, 0, 1)
+position = Vector2(45, -4)
+shape = SubResource("RectangleShape2D_l1els")
+disabled = true
+
+[node name="Side Light3D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Side Light3D"]
+modulate = Color(0.705882, 0.466667, 0.00392157, 1)
+position = Vector2(70, -4)
+shape = SubResource("CircleShape2D_qe70h")
+disabled = true
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qwtcs")
+
+[node name="Platform" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1hfdh")
+}
+
+[node name="Check Floor" type="RayCast2D" parent="."]
+position = Vector2(0, 12)
+target_position = Vector2(0, 5)
+collision_mask = 5
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_dpw7o")
+
+[node name="Down Light3D Back" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light3D Back"]
+modulate = Color(0.960784, 0, 0, 1)
+position = Vector2(53, 14)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2l8a2")
+disabled = true
+
+[node name="Down Light3D Middle" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light3D Middle"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(68, 7)
+shape = SubResource("CapsuleShape2D_5db2p")
+disabled = true
+
+[node name="Down Light3D Front" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down Light3D Front"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(85, -3)
+shape = SubResource("CapsuleShape2D_xd6m1")
+disabled = true
+
+[node name="Up Light3D Above" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up Light3D Above"]
+position = Vector2(57, -49)
+shape = SubResource("CapsuleShape2D_oyqmm")
+disabled = true
+
+[node name="Up Light3D Below" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up Light3D Below"]
+position = Vector2(56, 9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_u2v8o")
+disabled = true
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]

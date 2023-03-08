@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://cvmfyi7wif1g4"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_w1a8o"]
+[ext_resource type="Texture2D" uid="uid://cekogkcwuw05i" path="res://Character Resouces/Nai/Single Aniamtions/projectile_and_trap/trap_detonate/trap_detonate_1.png" id="2_n7ext"]
+[ext_resource type="Texture2D" uid="uid://ouudnn0lhp5e" path="res://Character Resouces/Nai/Single Aniamtions/projectile_and_trap/trap_throw/trap_throw.png" id="2_wdnhl"]
+[ext_resource type="Texture2D" uid="uid://bg6kedlh38gxc" path="res://Character Resouces/Nai/Single Aniamtions/projectile_and_trap/trap_detonate/trap_detonate_2.png" id="3_ro5w8"]
+[ext_resource type="Texture2D" uid="uid://b4dgplemn18ee" path="res://Character Resouces/Nai/Single Aniamtions/projectile_and_trap/trap_detonate/trap_detonate_3.png" id="4_q3qb0"]
+[ext_resource type="Texture2D" uid="uid://b6tb7lujfjngr" path="res://Character Resouces/Nai/Single Aniamtions/projectile_and_trap/trap_detonate/trap_detonate_4.png" id="5_f7wfr"]
+[ext_resource type="Texture2D" uid="uid://b8os1f6hcci5y" path="res://Character Resouces/Nai/Single Aniamtions/projectile_and_trap/trap_detonate/trap_detonate_5.png" id="6_jupxp"]
+[ext_resource type="Texture2D" uid="uid://dgcr8cd2663k3" path="res://Character Resouces/Nai/Single Aniamtions/projectile_and_trap/trap_land/trap_land_1.png" id="7_l8hxm"]
+[ext_resource type="Texture2D" uid="uid://wykdplldf3y" path="res://Character Resouces/Nai/Single Aniamtions/projectile_and_trap/trap_land/trap_land_2.png" id="8_g8lff"]
+[ext_resource type="Texture2D" uid="uid://bwqox0yjspey0" path="res://Character Resouces/Nai/Single Aniamtions/projectile_and_trap/trap_land/trap_land_3.png" id="9_a8i0o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_imwct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n7ext")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ro5w8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q3qb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f7wfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jupxp")
+}],
+"loop": true,
+"name": &"Explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_l8hxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g8lff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a8i0o")
+}],
+"loop": true,
+"name": &"Land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_a8i0o")
+}],
+"loop": true,
+"name": &"On Floor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wdnhl")
+}],
+"loop": true,
+"name": &"Trap Cast",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7u8pk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwx3s"]
+radius = 3.16228
+
+[node name="Trap Projectile" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_w1a8o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 7)
+sprite_frames = SubResource("SpriteFrames_imwct")
+animation = &"Explode"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+rotation = 0.785398
+shape = SubResource("CircleShape2D_7u8pk")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 21)
+shape = SubResource("CircleShape2D_uwx3s")
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

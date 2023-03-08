@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c808wmvm1k32l"]
+[gd_scene load_steps=4 format=3 uid="uid://c808wmvm1k32l"]
 
-[ext_resource type="PackedScene" uid="uid://b8s700pdixqo0" path="res://Character Resouces/General Pyrus/Player 1 General Pyrus.tscn" id="1_048ps"]
-[ext_resource type="PackedScene" uid="uid://xpkjrvrla5jd" path="res://Character Resouces/General Pyrus/Player 2 General Pyrus.tscn" id="2_ye8v4"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="3_doqon"]
+[ext_resource type="PackedScene" uid="uid://bjcmk1lyw4fh8" path="res://Character Resouces/Nai/Player 1 Nai.tscn" id="1_prbnx"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -17,8 +15,34 @@ height = 32.0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-20, 456)
+position = Vector2(696, 584)
 shape = SubResource("1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(592, 472)
+rotation = 1.5708
+shape = SubResource("1")
+
+[node name="Right Wall" type="RichTextLabel" parent="StaticBody2D/CollisionShape2D2"]
+offset_left = -96.0
+offset_top = 240.0
+offset_right = 44.0
+offset_bottom = 280.0
+rotation = 3.14159
+text = "         Right Wall"
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-176, 432)
+rotation = 1.5708
+shape = SubResource("1")
+
+[node name="Left Wall" type="RichTextLabel" parent="StaticBody2D/CollisionShape2D3"]
+offset_left = -88.0
+offset_top = -208.0
+offset_right = 52.0
+offset_bottom = -168.0
+rotation = 3.14159
+text = "         Left Wall"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
@@ -28,14 +52,10 @@ collision_mask = 32
 position = Vector2(284, 144)
 shape = SubResource("2")
 
-[node name="Fire Knight" parent="." instance=ExtResource("1_048ps")]
-position = Vector2(296, 96)
-
-[node name="Fire Knight2" parent="." instance=ExtResource("2_ye8v4")]
-position = Vector2(120, 88)
-controls = ExtResource("3_doqon")
+[node name="Nai" parent="." instance=ExtResource("1_prbnx")]
+position = Vector2(160, 296)
+AirMovement = 150
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(248, 120)
-enabled = false
-zoom = Vector2(2, 2)
+position = Vector2(256, 288)
+zoom = Vector2(3, 3)

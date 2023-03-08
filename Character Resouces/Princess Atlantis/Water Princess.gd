@@ -13,16 +13,16 @@ extends CharacterBody2D
 @onready var Up_Light_Above_Hitbox = $"Up Light3D Above/CollisionShape2D"
 @onready var Up_Light_Below_Hitbox = $"Up Light3D Below/CollisionShape2D"
 
-@export (float) var Health = 200
+@export var Health: int = 200
 
 @export var controls: Resource = null
 
-@export (float) var Movement = 250
-@export (float) var AirMovement = 100
-@export (float) var AirAcceleration = 5
-@export (float) var Acceleration = 35
-@export (float) var JumpHeight = 800
-@export (float) var Gravity = 35
+@export  var Movement = 250
+@export  var AirMovement = 100
+@export  var AirAcceleration = 5
+@export  var Acceleration = 35
+@export  var JumpHeight = 800
+@export  var Gravity = 35
 
 
 var Motion = Vector2.ZERO
@@ -164,7 +164,6 @@ func _physics_process(delta):
 			Animate.play("Fall")
 			if Input.is_action_pressed(controls.input_down):
 				Platform.play("Disable")
-			 
 			if CheckFloor.is_colliding():
 				Select = States.Idle
 				

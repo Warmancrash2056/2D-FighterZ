@@ -64,22 +64,6 @@ enum States {
 }
 var Select = States.Idle
 
-
-func _ready():
-	Nair_Slash.disabled = true
-	Nlight_Hitbox_Top.disabled = true
-	Nlight_Hitbox_Lower.disabled = true
-	Nlight_Hitbox_Ground.disabled = true
-	Nlight_Hitbox_Final.disabled = true
-	Slight_Hitbox_Buttom.disabled = true
-	Slight_Hitbox_Fianl.disabled = true
-	Slight_Hitbox_Top.disabled = true
-	Up_Light_Flame_Pillar.disabled = true
-	Up_Light_Ignite_Blade.disabled = true
-	Up_light_Ground_Flame.disabled = true
-	Down_Light_Angle_Exposion.disabled = true
-	Down_Light_Final_Explosion.disabled = true
-	Down_Light_Start.disabled = true
 	
 func _physics_process(delta):
 	#print(Input.get_connected_joypads().size())

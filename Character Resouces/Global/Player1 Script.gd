@@ -6,13 +6,13 @@ extends CharacterBody2D
 
 @export var controls: Resource = null
 
-@export (float) var Movement
-@export (float) var AirMovement
-@export (float) var Acceleration
-@export (float) var JumpHeight
-@export (float) var Gravity = 35
+@export var Movement: int = 100
+@export var AirMovement: int = 60
+@export var Acceleration: int = 35
+@export var JumpHeight: int = 500
+@export var Gravity: int = 35
 
-@export (float) var Health
+@export var Health: int = 100
 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
@@ -142,7 +142,6 @@ func _physics_process(delta):
 			Motion.y += Gravity
 			Animate.play("Fall")
 			
-			 
 			if is_on_floor():
 				Select = States.Idle
 				

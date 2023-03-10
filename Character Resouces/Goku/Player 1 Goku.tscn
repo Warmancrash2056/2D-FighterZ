@@ -1,11 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://drbld0tyac6nr"]
+[gd_scene load_steps=21 format=3 uid="uid://drbld0tyac6nr"]
 
 [ext_resource type="Script" path="res://Character Resouces/Goku/Goku Script.gd" id="1_cvr6w"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_i3gn7"]
 [ext_resource type="Texture2D" uid="uid://b341moopt7xsq" path="res://Character Resouces/Goku/Ground Monk SpriteSheet.png" id="3_q25ue"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bru2"]
-size = Vector2(5, 5)
 
 [sub_resource type="Animation" id="Animation_id6wq"]
 resource_name = "Block"
@@ -21,18 +18,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [117, 118, 119, 120, 121, 122, 123, 124, 125]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.866667, 0.788235, 0.737255, 1), Color(0.776471, 0.866667, 0.784314, 1), Color(0.866667, 0.788235, 0.737255, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_xjlrt"]
@@ -349,163 +334,163 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("../Side Light3D First Punch/First Jab:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Side Light3D First Punch/First Jab:position")
+tracks/2/path = NodePath("../Side Light3D First Punch/First Jab:shape:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(5, 5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Side Light3D First Punch/First Jab:shape:size")
+tracks/3/path = NodePath("../Side Light3D First Punch/First Jab:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5, 5)]
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Side Light3D First Punch/First Jab:disabled")
+tracks/4/path = NodePath("../Side Light3D Second Punch/Second:shape:size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [Vector2(5, 5)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Side Light3D Second Punch/Second:shape:size")
+tracks/5/path = NodePath("../Side Light3D Second Punch/Second:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5, 5)]
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Side Light3D Second Punch/Second:disabled")
+tracks/6/path = NodePath("../Side Light3D Second Punch/Second:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [Vector2(0, 0)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Side Light3D Second Punch/Second:position")
+tracks/7/path = NodePath("../Nuetral Light3D Hitbox/Jab:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Nuetral Light3D Hitbox/Jab:disabled")
+tracks/8/path = NodePath("../Nuetral Light3D Hitbox/Jab:shape:size")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [Vector2(5, 5)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Nuetral Light3D Hitbox/Jab:shape:size")
+tracks/9/path = NodePath("../Nuetral Light3D Hitbox/Jab:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5, 5)]
+"values": [Vector2(0, 0)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Nuetral Light3D Hitbox/Jab:position")
+tracks/10/path = NodePath("../Nuetral Light3D Hitbox/Jab:shape:radius")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [4.71404]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Nuetral Light3D Hitbox/Jab:shape:radius")
+tracks/11/path = NodePath("../Down Light3D Hitbox/CollisionShape2D:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [4.71404]
+"values": [true]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Down Light3D Hitbox/CollisionShape2D:disabled")
+tracks/12/path = NodePath("../Down Light3D Hitbox/CollisionShape2D:rotation_degrees")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [0.0]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Down Light3D Hitbox/CollisionShape2D:rotation_degrees")
+tracks/13/path = NodePath("../Down Light3D Hitbox/CollisionShape2D:shape:radius")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [5.0]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Down Light3D Hitbox/CollisionShape2D:shape:radius")
+tracks/14/path = NodePath("../Down Light3D Hitbox/CollisionShape2D:shape:height")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -517,70 +502,58 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../Down Light3D Hitbox/CollisionShape2D:shape:height")
+tracks/15/path = NodePath("../Down Light3D Hitbox/CollisionShape2D:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [5.0]
+"values": [Vector2(0, 0)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../Down Light3D Hitbox/CollisionShape2D:position")
+tracks/16/path = NodePath("../Nuetral Air/CollisionShape2D:shape:radius")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [3.0]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../Nuetral Air/CollisionShape2D:shape:radius")
+tracks/17/path = NodePath("../Nuetral Air/CollisionShape2D:disabled")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [3.0]
+"values": [true]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../Nuetral Air/CollisionShape2D:disabled")
+tracks/18/path = NodePath("../Nuetral Air/CollisionShape2D:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [Vector2(-19, -5)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../Nuetral Air/CollisionShape2D:position")
+tracks/19/path = NodePath("../AnimationPlayer:playback_speed")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-19, -5)]
-}
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("../AnimationPlayer:playback_speed")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -741,19 +714,6 @@ _data = {
 "Ulight": SubResource("Animation_nfd27")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7v6kp"]
-radius = 4.71404
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_anuv4"]
-radius = 3.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p38pj"]
-size = Vector2(5, 5)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ojvu6"]
-radius = 2.5
-height = 5.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wet7w"]
 radius = 5.0
 
@@ -766,16 +726,10 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_cvr6w")
 controls = ExtResource("2_i3gn7")
+JumpHeight = 500
+Health = 100
 
 [node name="Scale Player" type="Node2D" parent="."]
-
-[node name="Side Light3D Second Punch" type="Area2D" parent="Scale Player"]
-collision_layer = 32
-collision_mask = 16
-
-[node name="Second" type="CollisionShape2D" parent="Scale Player/Side Light3D Second Punch"]
-shape = SubResource("RectangleShape2D_0bru2")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
 root_node = NodePath("../../Goku Sprites")
@@ -783,52 +737,8 @@ libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
 
-[node name="Nuetral Light3D Hitbox" type="Area2D" parent="Scale Player"]
-collision_layer = 32
-collision_mask = 16
-
-[node name="Jab" type="CollisionShape2D" parent="Scale Player/Nuetral Light3D Hitbox"]
-shape = SubResource("CircleShape2D_7v6kp")
-disabled = true
-
-[node name="Nuetral Air" type="Area2D" parent="Scale Player"]
-collision_layer = 32
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Air"]
-position = Vector2(-19, -5)
-shape = SubResource("CircleShape2D_anuv4")
-disabled = true
-
-[node name="Side Light3D First Punch" type="Area2D" parent="Scale Player"]
-collision_layer = 32
-collision_mask = 16
-
-[node name="First Jab" type="CollisionShape2D" parent="Scale Player/Side Light3D First Punch"]
-shape = SubResource("RectangleShape2D_p38pj")
-disabled = true
-
-[node name="Down Light3D Hitbox" type="Area2D" parent="Scale Player"]
-collision_layer = 32
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Down Light3D Hitbox"]
-shape = SubResource("CapsuleShape2D_ojvu6")
-disabled = true
-
 [node name="Body" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_wet7w")
-
-[node name="Check Floor" type="RayCast2D" parent="."]
-position = Vector2(0, 13)
-scale = Vector2(2, 1)
-exclude_parent = false
-target_position = Vector2(0, 5)
-collision_mask = 5
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 16
@@ -844,12 +754,5 @@ texture = ExtResource("3_q25ue")
 hframes = 20
 vframes = 8
 
-[connection signal="area_entered" from="Scale Player/Side Light3D Second Punch" to="." method="_on_Side_Light_Second_Punch_area_entered"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="area_entered" from="Scale Player/Nuetral Light3D Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Nuetral Air" to="." method="_on_Nuetral_Air_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light3D First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light3D First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
-[connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

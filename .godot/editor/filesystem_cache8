@@ -1,32 +1,22 @@
 2a60927148abd1d33b818b535e306557
-::res://::1678299089
+::res://::1678395899
 Character Select.gd::GDScript::-1::1678260603::0::1::::<>RefCounted<>::
-CharacterBody2D.gd::GDScript::-1::1678260603::0::1::::<>CharacterBody2D<>::
-Chase Projectile.gd::GDScript::-1::1678260603::0::1::::<>CharacterBody2D<>::
-Chase Projectile.tscn::PackedScene::4483588775286445989::1678260603::0::1::::<><>::res://Chase Projectile.gd
 Control.gd::GDScript::-1::1678260603::0::1::::<>Control<>::
-Control.tscn::PackedScene::5985283087029982284::1678260603::0::1::::<><>::uid://c5tbxkeptjepb<>uid://d0qtth810xxwu<>uid://cmmfha48flbf<>uid://bnmiete3u3yf8<>uid://dpa5754pfc4ay<>uid://dw6tyvkv0vbmr<>uid://b75cj5x3yjfxl<>res://Character Resouces/Global/Player 1 Cursor.gd<>uid://5iew7t8ifb3r<>res://Character Resouces/Global/Player_1.tres<>res://Character Resouces/Global/Player 2 Cursor.gd<>res://Character Resouces/Global/Player_2.tres
-default_env.tres::Environment::1603285397087577607::1678285963::0::1::::<><>::
-Demo World.tscn::PackedScene::-1::1678260603::0::1::::<><>::res://Character Resouces/Goku/Player 1 Goku.tscn
-Demo.tscn::PackedScene::7142726262821456833::1678285962::0::1::::<><>::uid://drbld0tyac6nr
-Fps.tscn::PackedScene::1705494753391202785::1678285962::0::1::::<><>::res://Control.gd
-Global Characters.tscn::PackedScene::-1::1678260603::0::1::::<><>::res://Character Resouces/General Pyrus/General Pyrus.tscn<>uid://bjcmk1lyw4fh8
+default_env.tres::Environment::1603285397087577607::1678395957::0::1::::<><>::
+Demo.tscn::PackedScene::7142726262821456833::1678395091::0::1::::<><>::uid://dg1hk85k1p64y
+Fps.tscn::PackedScene::1705494753391202785::1678395091::0::1::::<><>::res://Control.gd
 Node2D.gd::GDScript::-1::1678260603::0::1::::<>Node2D<>::
 Node2D.tscn::PackedScene::-1::1678260603::0::1::::<><>::
-node_2d.tscn::PackedScene::2054797381673800152::1678260603::0::1::::<><>::
 Player 2 Cursor.gd::GDScript::-1::1678260603::0::1::::<>RefCounted<>::
-smoke..png::CompressedTexture2D::2060268303625312718::1678260603::1678260603::1::::<><>::
 StaticBody2D.tscn::PackedScene::-1::1678260603::0::1::::<><>::res://Test player.tscn
-Test player.tscn::PackedScene::-1::1678260603::0::1::::<><>::res://Character Resouces/Goku/roll/roll_1.png<>res://Character Resouces/The Monk/Monk.gd
-Timer.gd::GDScript::-1::1678260603::0::1::::<>RefCounted<>::
 ::res://Character Resouces/::1678260603
 Global Playerr.gd::GDScript::-1::1678260602::0::1::::<>CharacterBody2D<>::
-::res://Character Resouces/General Pyrus/::1678260602
+::res://Character Resouces/General Pyrus/::1678395091
 General Pyrus Character Icon.png::CompressedTexture2D::4694534131398237749::1678260602::1678260602::1::::<><>::
 General Pyrus SpriteSheet.png::CompressedTexture2D::1546606653777323286::1678260602::1678260602::1::::<><>::
-General Pyrus.gd::GDScript::-1::1678260602::0::1::::FireKnight<>CharacterBody2D<>::
+General Pyrus.gd::GDScript::-1::1678388841::0::1::::<>CharacterBody2D<>::
 Player 1 General Pyrus.tscn::PackedScene::4741800248341134733::1678260602::0::1::::<><>::res://Character Resouces/General Pyrus/General Pyrus.gd<>uid://wbgnd1vpa415<>uid://4mak2s1micd7
-Player 2 General Pyrus.tscn::PackedScene::1645933238183432253::1678260602::0::1::::<><>::res://Character Resouces/General Pyrus/General Pyrus.gd<>uid://wbgnd1vpa415<>uid://4mak2s1micd7
+Player 2 General Pyrus.tscn::PackedScene::1645933238183432253::1678395091::0::1::::<><>::res://Character Resouces/General Pyrus/General Pyrus.gd<>uid://wbgnd1vpa415<>uid://4mak2s1micd7
 ::res://Character Resouces/General Pyrus/Single Animations/::1678260602
 ::res://Character Resouces/General Pyrus/Single Animations/01_idle/::1678260602
 idle_1.png::CompressedTexture2D::3949979404366975881::1678260602::1678260602::1::::<><>::
@@ -205,24 +195,22 @@ air_atk_5.png::CompressedTexture2D::3833079356001537564::1678260602::1678260602:
 air_atk_6.png::CompressedTexture2D::6870745699945618144::1678260602::1678260602::1::::<><>::
 air_atk_7.png::CompressedTexture2D::4318157698953526435::1678260602::1678260602::1::::<><>::
 air_atk_8.png::CompressedTexture2D::8058562131801833685::1678260602::1678260602::1::::<><>::
-::res://Character Resouces/Global/::1678260602
+::res://Character Resouces/Global/::1678395899
 Controller.gd::GDScript::-1::1678260602::0::1::::InputSys<>Resource<>::
 Player1 Script.gd::GDScript::-1::1678260602::0::1::::<>CharacterBody2D<>::
 Player 1 Character Selection.gd::GDScript::-1::1678260602::0::1::::<>Node<>::
 Player 1 Cursor.gd::GDScript::-1::1678260602::0::1::::<>Sprite2D<>::
-Player 2 Character Selection.gd::GDScript::-1::1678260602::0::1::::<>Node<>::
-Player 2 Cursor.gd::GDScript::-1::1678260602::0::1::::<>Sprite2D<>::
-Player 2 Script.gd::GDScript::-1::1678260602::0::1::::<>Node<>::
+Player 2 Character Selection.gd::GDScript::-1::1678303093::0::1::::<>Node<>::
 Player_1.tres::Resource::-1::1677706214::0::1::::<><>::res://Character Resouces/Global/Controller.gd
 Player_2.tres::Resource::-1::1677706214::0::1::::<><>::res://Character Resouces/Global/Controller.gd
 SelectionCursorPlayer1.png::CompressedTexture2D::6917832176226888167::1678260602::1678260602::1::::<><>::
 SelectionCursorPlayer2.png::CompressedTexture2D::2122464198219170133::1678260602::1678260602::1::::<><>::
-::res://Character Resouces/Goku/::1678298673
-Goku Script.gd::GDScript::-1::1678285962::0::1::::<>CharacterBody2D<>::
+::res://Character Resouces/Goku/::1678395091
+Goku Script.gd::GDScript::-1::1678388841::0::1::::<>CharacterBody2D<>::
 Ground Monk SpriteSheet.png::CompressedTexture2D::4413176089426898656::1678260602::1678260602::1::::<><>::
 ground_monk.png::CompressedTexture2D::165888122232890795::1678260602::1678260602::1::::<><>::
-Player 1 Goku.tscn::PackedScene::8355211358507661847::1678285962::0::1::::<><>::res://Character Resouces/Goku/Goku Script.gd<>res://Character Resouces/Global/Player_1.tres<>uid://b341moopt7xsq
-Player 2  Goku.tscn::PackedScene::7647470166428615584::1678298673::0::1::::<><>::res://Character Resouces/Goku/Goku Script.gd<>res://Character Resouces/Global/Player_1.tres<>uid://b341moopt7xsq
+Player 1 Goku.tscn::PackedScene::8355211358507661847::1678395091::0::1::::<><>::res://Character Resouces/Goku/Goku Script.gd<>res://Character Resouces/Global/Player_1.tres<>uid://b341moopt7xsq
+Player 2  Goku.tscn::PackedScene::7647470166428615584::1678395091::0::1::::<><>::res://Character Resouces/Goku/Goku Script.gd<>res://Character Resouces/Global/Player_1.tres<>uid://b341moopt7xsq
 ::res://Character Resouces/Goku/Elementals_ground_monk_FREE_v1.3/::1678260602
 ground_monk.png::CompressedTexture2D::7830744686590696135::1678260602::1678260602::1::::<><>::
 ::res://Character Resouces/Goku/Elementals_ground_monk_FREE_v1.3/gifs/::1678260602
@@ -393,10 +381,11 @@ take_hit_3.png::CompressedTexture2D::6623022288732931178::1678260602::1678260602
 take_hit_4.png::CompressedTexture2D::8165294988545944555::1678260602::1678260602::1::::<><>::
 take_hit_5.png::CompressedTexture2D::4361667555964267224::1678260602::1678260602::1::::<><>::
 take_hit_6.png::CompressedTexture2D::8489111733054214141::1678260602::1678260602::1::::<><>::
-::res://Character Resouces/Huntress/::1678299081
+::res://Character Resouces/Huntress/::1678395091
+Hunter Script.gd::GDScript::-1::1678393109::0::1::::<>CharacterBody2D<>::
 Huntress Character Icon.png::CompressedTexture2D::8213974982025897100::1678260603::1678260603::1::::<><>::
 Huntress SpriteSheet.png::CompressedTexture2D::6065083221059511950::1678260603::1678260603::1::::<><>::
-Player 1 Hunter.tscn::PackedScene::7634513591505878470::1678299081::0::1::::<><>::uid://csn8bf6hfirik<>uid://cek5bcrw4ug5q
+Player 1 Hunter.tscn::PackedScene::7634513591505878470::1678395091::0::1::::<><>::res://Character Resouces/Huntress/Hunter Script.gd<>uid://csn8bf6hfirik<>uid://cek5bcrw4ug5q<>res://Character Resouces/Global/Player_1.tres<>uid://cxnj3bax3fsjs<>uid://bbjdg023asjqw<>uid://cigep8o8ffvae<>uid://nsunqesuehyb<>uid://ct2ig0ip76ufh<>uid://d02yf02i26fkq<>uid://mfdwj0kuxcbf<>uid://c5i8obsiafpdf<>uid://mvsqu1e3706j<>uid://c6044olp1ne36<>uid://dee25s22sull6<>uid://cbsfrxc3cy744<>uid://2pcmy7ucghw<>uid://d0en3uwhleknq<>uid://baynpktvoolew<>uid://cd3cla3ets7ll<>uid://d0o4t0d5s2fld<>uid://c0rjc04nxwugu<>uid://bi5o1gwi6tjol
 Player 2 Hunter.tscn::PackedScene::-1::1678260603::0::1::::<><>::
 projectiles_and_effects_256x128_SpriteSheet.png::CompressedTexture2D::4056639375519766547::1678260603::1678260603::1::::<><>::
 ::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/::1678260603
@@ -680,14 +669,13 @@ Elementals_leaf_ranger_288x128_SpriteSheet.png::CompressedTexture2D::38299256767
 projectiles_and_effects_256x128_SpriteSheet.png::CompressedTexture2D::1124247040992737333::1678260603::1678260603::1::::<><>::
 ::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/aseprite/::1678260603
 ::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/gif_samples/::1678260603
-::res://Character Resouces/Nai/::1678301703
+::res://Character Resouces/Nai/::1678395091
 Assasin Character Icon.png::CompressedTexture2D::8948201158899482532::1678260603::1678260603::1::::<><>::
 Assasin SpriteSheet.png::CompressedTexture2D::5892943533176747620::1678260603::1678260603::1::::<><>::
-Hunter Script.gd::GDScript::-1::1678301703::0::1::::<>CharacterBody2D<>::
 Marker2D.gd::GDScript::-1::1678260603::0::1::::<>Marker2D<>::
 Nai Script.gd::GDScript::-1::1678285949::0::1::::<>CharacterBody2D<>::
-Player 1 Nai.tscn::PackedScene::3022996877516706347::1678285962::0::1::::<><>::res://Character Resouces/Nai/Nai Script.gd<>uid://cp7t6inhv4t3i<>res://Character Resouces/Global/Player_1.tres<>uid://djs8lc52wplls
-Player 2 Nai.tscn::PackedScene::4417755980804510509::1678285962::0::1::::<><>::uid://cp7t6inhv4t3i<>res://Character Resouces/Nai/Nai Script.gd<>res://Character Resouces/Global/Player_2.tres<>uid://djs8lc52wplls
+Player 1 Nai.tscn::PackedScene::3022996877516706347::1678395091::0::1::::<><>::res://Character Resouces/Nai/Nai Script.gd<>uid://cp7t6inhv4t3i<>res://Character Resouces/Global/Player_1.tres<>uid://djs8lc52wplls
+Player 2 Nai.tscn::PackedScene::4417755980804510509::1678395091::0::1::::<><>::uid://cp7t6inhv4t3i<>res://Character Resouces/Nai/Nai Script.gd<>res://Character Resouces/Global/Player_2.tres<>uid://djs8lc52wplls
 Trap Cast.tscn::PackedScene::6271926531482188601::1678260603::0::1::::<><>::res://CharacterBody2D.gd<>uid://cekogkcwuw05i<>uid://ouudnn0lhp5e<>uid://bg6kedlh38gxc<>uid://b4dgplemn18ee<>uid://b6tb7lujfjngr<>uid://b8os1f6hcci5y<>uid://dgcr8cd2663k3<>uid://wykdplldf3y<>uid://bwqox0yjspey0
 ::res://Character Resouces/Nai/Single Aniamtions/::1678260603
 ::res://Character Resouces/Nai/Single Aniamtions/01_idle/::1678260603
@@ -1254,6 +1242,9 @@ air_atk_5.png::CompressedTexture2D::4688746938808273890::1678260603::1678260603:
 air_atk_6.png::CompressedTexture2D::343576326035275413::1678260603::1678260603::1::::<><>::
 air_atk_7.png::CompressedTexture2D::7994367370144245554::1678260603::1678260603::1::::<><>::
 air_atk_8.png::CompressedTexture2D::8666143559572616931::1678260603::1678260603::1::::<><>::
+::res://Character Selection Resources/::1678395931
+Character Selection Menu.tscn::PackedScene::7609079105026291493::1678395957::0::1::::<><>::uid://d0qtth810xxwu<>uid://b75cj5x3yjfxl<>uid://cmmfha48flbf<>uid://dpa5754pfc4ay<>uid://dw6tyvkv0vbmr<>uid://bnmiete3u3yf8<>uid://c5tbxkeptjepb<>res://Character Resouces/Global/Player 1 Cursor.gd<>res://Character Resouces/Global/Player_1.tres<>uid://5iew7t8ifb3r<>res://Character Selection Resources/Player 2 Cursor.gd<>res://Character Resouces/Global/Player_2.tres
+Player 2 Cursor.gd::GDScript::-1::1678260602::0::1::::<>Sprite2D<>::
 ::res://Game Maps/::1674258897
 ::res://Game Maps/The Battlegrounds/::1678260603
 background 1.png::CompressedTexture2D::4207597329043845570::1673623152::1678260603::1::::<><>::

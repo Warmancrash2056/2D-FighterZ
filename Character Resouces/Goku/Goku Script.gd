@@ -6,17 +6,16 @@ extends CharacterBody2D
 
 
 @onready var Animate = $"Scale Player/AnimationPlayer"
-@onready var CheckFloor = $"Check Floor"
 @onready var SpriteH = $"Goku Sprites"
 
 
-@export var Movement: int  = 250
-@export var AirMovement: int  = 100
-@export var Acceleration: int  = 35
-@export var JumpHeight: int = 800
-@export var Gravity : int  = 35
+@export var Movement: int
+@export var AirMovement: int
+@export var Acceleration: int
+@export var JumpHeight: int
+@export var Gravity : int 
 
-@export var Health = 200
+@export var Health: int
 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
@@ -60,7 +59,7 @@ func _physics_process(delta):
 
 		States.Idle:
 			Motion.y += Gravity 
-			if !CheckFloor.is_colliding():
+			if !is_on_floor():
 				Select = States.Fall
 				
 			else:
@@ -89,16 +88,10 @@ func _physics_process(delta):
 					Select = States.Roll
 
 			elif Input.is_action_pressed(controls.input_down):
-				# Code for falling down platform #
-				pass
-				
+				Animate.play("Idle")
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Dlight
-					
-				else:
-					Motion.x = 0
-					Animate.play("Idle")
-					
+				
 				
 					
 			elif Input.is_action_pressed(controls.input_up):
@@ -106,7 +99,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Ulight
 			else:
-				Motion.x = lerp(Motion.x , 0.01, 0.8)
+				Motion.x = lerp(Motion.x , 0.1, 0.2)
 				Animate.play("Idle")
 				
 				if Input.is_action_just_pressed(controls.input_attack):
@@ -134,7 +127,7 @@ func _physics_process(delta):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
 				
 			else:
-				Motion.x = lerp(Motion.x , 0.01, 0.01)
+				Motion.x = lerp(Motion.x , 0.01, 0.08)
 			
 			if Motion.y > 0:
 				Select = States.Fall
@@ -241,8 +234,4 @@ func _on_animation_player_animation_finished(anim_name):
 		Select = States.Idle
 		
 	if anim_name == "Block":
-		if CheckFloor.is_colliding():
-			Select = States.Idle
-		else: 
-			Select = States.Fall
-	
+		Select = States.Idle

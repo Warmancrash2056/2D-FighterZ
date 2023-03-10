@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dg1hk85k1p64y"]
+[gd_scene load_steps=44 format=3 uid="uid://dg1hk85k1p64y"]
 
 [ext_resource type="Script" path="res://Character Resouces/Huntress/Hunter Script.gd" id="1_e817o"]
 [ext_resource type="Texture2D" uid="uid://csn8bf6hfirik" path="res://Character Resouces/Huntress/Huntress SpriteSheet.png" id="1_kc1lu"]
@@ -25,6 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow/arrow_.png" id="21_j12gj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6n3xk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6wdl"]
+radius = 6.08276
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w6q8r"]
 animations = [{
@@ -88,13 +91,32 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_q1ydp"]
+radius = 6.08276
+
+[sub_resource type="Animation" id="Animation_pcn48"]
+resource_name = "Block"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0880656, 0.170706, 0.256602, 0.343583, 0.426224, 0.513204, 0.598015, 0.682826, 0.765467, 0.851362, 0.939428, 1.02098, 1.10796, 1.19278, 1.28084, 1.36457, 1.44938),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196]
+}
+
 [sub_resource type="Animation" id="Animation_gen08"]
 resource_name = "Dlight"
 length = 1.85
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
+tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -127,6 +149,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scale Player/Down Light Hitbox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.711354, 0.909325, 1.54244),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scale Player/AnimationPlayer:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.793562, 0.819339, 1.85),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.6, 1.0]
+}
 
 [sub_resource type="Animation" id="Animation_xhxcp"]
 resource_name = "Fall"
@@ -134,7 +180,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
+tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -150,7 +196,7 @@ length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
+tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -166,7 +212,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
+tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -182,7 +228,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
+tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -215,6 +261,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scale Player/Nuetral Air Arrow/Area2D/Area2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.192938, 0.238236, 0.582169),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_q56n8"]
 resource_name = "Nlight"
@@ -222,7 +280,7 @@ length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
+tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -231,13 +289,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [125, 126, 127, 128, 129, 130, 131, 132, 133]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scale Player/Nuetral Light Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.54526, 0.575459, 0.813695),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_eqtuk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
+tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -318,13 +388,101 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scale Player/Nuetral Air Arrow/Area2D/Area2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Scale Player/Side Light Arrow/Area2D/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Scale Player/Area2D/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Scale Player/Down Light Hitbox/CollisionShape2D2:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Scale Player/AnimationPlayer:speed_scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.2]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Scale Player/Nuetral Light Hitbox/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_df8h2"]
+resource_name = "Roll"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0869806, 0.173961, 0.258772, 0.344668, 0.430563, 0.515374, 0.60561),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [104, 105, 106, 107, 108, 109, 110, 111]
+}
 
 [sub_resource type="Animation" id="Animation_q546x"]
 resource_name = "Run"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
+tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -340,7 +498,7 @@ length = 1.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
+tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -356,7 +514,7 @@ tracks/1/path = NodePath("Scale Player/Side Light Arrow:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.7, 1.18476, 1.25),
+"times": PackedFloat32Array(0.7, 1.22167, 1.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(45, -12), Vector2(120, -12), Vector2(45, -12)]
@@ -373,6 +531,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scale Player/Side Light Arrow/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.672766, 0.726453, 1.19454),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_v533a"]
 resource_name = "Ulight"
@@ -380,7 +550,7 @@ length = 1.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
+tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -389,37 +559,17 @@ tracks/0/keys = {
 "update": 1,
 "values": [162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]
 }
-
-[sub_resource type="Animation" id="Animation_pcn48"]
-resource_name = "Block"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0880656, 0.170706, 0.256602, 0.343583, 0.426224, 0.513204, 0.598015, 0.682826, 0.765467, 0.851362, 0.939428, 1.02098, 1.10796, 1.19278, 1.28084, 1.36457, 1.44938),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scale Player/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.778463, 0.81705, 0.969723),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196]
-}
-
-[sub_resource type="Animation" id="Animation_df8h2"]
-resource_name = "Roll"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hunter Animation:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0869806, 0.173961, 0.258772, 0.344668, 0.430563, 0.515374, 0.60561),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [104, 105, 106, 107, 108, 109, 110, 111]
+"values": [true, false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1dgu"]
@@ -438,15 +588,29 @@ _data = {
 "Ulight": SubResource("Animation_v533a")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmvo0"]
+height = 150.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t7yv"]
+radius = 39.0
+height = 108.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hql1b"]
+radius = 4.12311
+
+[node name="Hunter" type="CharacterBody2D"]
 script = ExtResource("1_e817o")
 controls = ExtResource("2_rdbjo")
+Movement = 100
+AirMovement = 100
+Acceleration = 35
 JumpHeight = 500
+Gravity = 35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6n3xk")
 
-[node name="Hunter Animation" type="Sprite2D" parent="."]
+[node name="Animation" type="Sprite2D" parent="."]
 texture = ExtResource("1_kc1lu")
 offset = Vector2(0, -40)
 hframes = 20
@@ -459,6 +623,14 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(32, 16)
 texture = ExtResource("2_pwps7")
 
+[node name="Area2D" type="Area2D" parent="Scale Player/Nuetral Air Arrow"]
+position = Vector2(-27.4846, -12.0654)
+
+[node name="Area2D" type="CollisionShape2D" parent="Scale Player/Nuetral Air Arrow/Area2D"]
+position = Vector2(39, 24)
+shape = SubResource("CircleShape2D_a6wdl")
+disabled = true
+
 [node name="Down Light Arrow" type="AnimatedSprite2D" parent="Scale Player"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(136, -40)
@@ -470,12 +642,44 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(45, -12)
 texture = ExtResource("21_j12gj")
 
+[node name="Area2D" type="Area2D" parent="Scale Player/Side Light Arrow"]
+position = Vector2(-45, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Side Light Arrow/Area2D"]
+position = Vector2(59.5627, -13)
+shape = SubResource("CircleShape2D_q1ydp")
+disabled = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
 root_node = NodePath("../..")
+speed_scale = 1.2
 libraries = {
 "": SubResource("AnimationLibrary_m1dgu")
 }
 
-[node name="Check Floor" type="RayCast2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D"]
+position = Vector2(73, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pmvo0")
+disabled = true
+
+[node name="Down Light Hitbox" type="Area2D" parent="Scale Player"]
+position = Vector2(73, -5)
+rotation = 1.5708
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scale Player/Down Light Hitbox"]
+position = Vector2(-33, -66)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_8t7yv")
+disabled = true
+
+[node name="Nuetral Light Hitbox" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
+position = Vector2(79, -9)
+shape = SubResource("CircleShape2D_hql1b")
+disabled = true
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

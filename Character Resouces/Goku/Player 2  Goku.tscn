@@ -819,17 +819,6 @@ disabled = true
 [node name="Body" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_wet7w")
 
-[node name="Check Floor" type="RayCast2D" parent="."]
-position = Vector2(0, 13)
-scale = Vector2(2, 1)
-exclude_parent = false
-target_position = Vector2(0, 5)
-collision_mask = 5
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 32
@@ -851,5 +840,4 @@ vframes = 8
 [connection signal="area_entered" from="Scale Player/Side Light3D First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

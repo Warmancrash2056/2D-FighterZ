@@ -1,17 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://crjk0ddwxp6om"]
+[gd_scene load_steps=21 format=3 uid="uid://dbyalmgoq20dv"]
 
-[ext_resource type="Texture2D" uid="uid://c5tbxkeptjepb" path="res://Character Resouces/Global/SelectionCursorPlayer1.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nai/Assasin Character Icon.png" id="1_hs3tt"]
-[ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/ground_monk.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/water_priestess.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://dpa5754pfc4ay" path="res://Character Resouces/Huntress/Huntress Character Icon.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Nomad Character Icon.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Pyrus/General Pyrus Character Icon.png" id="7"]
-[ext_resource type="Script" path="res://Character Resouces/Global/Player 1 Cursor.gd" id="8_0vau4"]
-[ext_resource type="Texture2D" uid="uid://5iew7t8ifb3r" path="res://Character Resouces/Global/SelectionCursorPlayer2.png" id="9"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="9_l33ty"]
-[ext_resource type="Script" path="res://Character Resouces/Global/Player 2 Cursor.gd" id="11_lkxxg"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="12_6xow3"]
+[ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nai/Assasin Character Icon.png" id="1_iub3d"]
+[ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Pyrus/General Pyrus Character Icon.png" id="2_0xh5y"]
+[ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/ground_monk.png" id="3_jmpsx"]
+[ext_resource type="Texture2D" uid="uid://dpa5754pfc4ay" path="res://Character Resouces/Huntress/Huntress Character Icon.png" id="4_1mi6v"]
+[ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Nomad Character Icon.png" id="5_l3610"]
+[ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/water_priestess.png" id="6_lfl7d"]
+[ext_resource type="Texture2D" uid="uid://c5tbxkeptjepb" path="res://Character Resouces/Global/SelectionCursorPlayer1.png" id="7_mbj6r"]
+[ext_resource type="Script" path="res://Character Selection Resources/Player 1 Cursor.gd" id="8_pl4yk"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="9_vldyq"]
+[ext_resource type="Texture2D" uid="uid://5iew7t8ifb3r" path="res://Character Resouces/Global/SelectionCursorPlayer2.png" id="10_puard"]
+[ext_resource type="Script" path="res://Character Selection Resources/Player 2 Cursor.gd" id="11_rmnxy"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="12_o4omg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0sqqb"]
 
@@ -67,27 +67,27 @@ columns = 6
 
 [node name="Nai" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 layout_mode = 2
-texture = ExtResource("1_hs3tt")
+texture = ExtResource("1_iub3d")
 
 [node name="General Pyrus" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 layout_mode = 2
-texture = ExtResource("7")
+texture = ExtResource("2_0xh5y")
 
 [node name="Goku" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 layout_mode = 2
-texture = ExtResource("2")
+texture = ExtResource("3_jmpsx")
 
 [node name="Hunter" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 layout_mode = 2
-texture = ExtResource("4")
+texture = ExtResource("4_1mi6v")
 
 [node name="Nomad" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 layout_mode = 2
-texture = ExtResource("5")
+texture = ExtResource("5_l3610")
 
 [node name="Atlantis" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 layout_mode = 2
-texture = ExtResource("3")
+texture = ExtResource("6_lfl7d")
 
 [node name="Player 2 Selection" type="GridContainer" parent="."]
 layout_mode = 0
@@ -100,35 +100,35 @@ columns = 6
 
 [node name="Nai" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 layout_mode = 2
-texture = ExtResource("1_hs3tt")
+texture = ExtResource("1_iub3d")
 
 [node name="General Pyrus" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 layout_mode = 2
-texture = ExtResource("7")
+texture = ExtResource("2_0xh5y")
 
 [node name="Goku" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 layout_mode = 2
-texture = ExtResource("2")
+texture = ExtResource("3_jmpsx")
 
 [node name="Hunter" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 layout_mode = 2
-texture = ExtResource("4")
+texture = ExtResource("4_1mi6v")
 
 [node name="Nomad" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 layout_mode = 2
-texture = ExtResource("5")
+texture = ExtResource("5_l3610")
 
 [node name="Atlantis" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 layout_mode = 2
-texture = ExtResource("3")
+texture = ExtResource("6_lfl7d")
 
 [node name="Player 1 Cursor" type="Sprite2D" parent="."]
 position = Vector2(235.2, 156.2)
 scale = Vector2(2.2, 2.2)
-texture = ExtResource("1")
-script = ExtResource("8_0vau4")
-Controls = ExtResource("9_l33ty")
-PlayerIcon = ExtResource("1")
+texture = ExtResource("7_mbj6r")
+script = ExtResource("8_pl4yk")
+Controls = ExtResource("9_vldyq")
+PlayerIcon = ExtResource("7_mbj6r")
 portraitOffset = Vector2(68, 0)
 
 [node name="Area2D" type="Area2D" parent="Player 1 Cursor"]
@@ -140,10 +140,10 @@ debug_color = Color(1, 0, 0.027451, 1)
 [node name="Player 2 Cursor" type="Sprite2D" parent="."]
 position = Vector2(979.2, 156.2)
 scale = Vector2(2.2, 2.2)
-texture = ExtResource("9")
-script = ExtResource("11_lkxxg")
-Controls = ExtResource("12_6xow3")
-PlayerIcon = ExtResource("9")
+texture = ExtResource("10_puard")
+script = ExtResource("11_rmnxy")
+Controls = ExtResource("12_o4omg")
+PlayerIcon = ExtResource("10_puard")
 portraitOffset = Vector2(-68, 0)
 
 [node name="Area2D" type="Area2D" parent="Player 2 Cursor"]

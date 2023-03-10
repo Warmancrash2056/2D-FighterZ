@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dbyalmgoq20dv"]
+[gd_scene load_steps=22 format=3 uid="uid://dbyalmgoq20dv"]
 
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nai/Assasin Character Icon.png" id="1_iub3d"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Pyrus/General Pyrus Character Icon.png" id="2_0xh5y"]
@@ -29,6 +29,8 @@ radius = 11.3137
 [sub_resource type="CircleShape2D" id="CircleShape2D_3nve2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lmp0e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1ibh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -270,6 +272,7 @@ debug_color = Color(1, 0, 0, 1)
 visible = false
 position = Vector2(520, 205)
 scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_n1ibh")
 
 [node name="Player 1 Goku" type="AnimatedSprite2D" parent="."]
 visible = false

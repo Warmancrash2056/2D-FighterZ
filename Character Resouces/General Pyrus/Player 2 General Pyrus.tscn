@@ -1,8 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://xpkjrvrla5jd"]
+[gd_scene load_steps=34 format=3 uid="uid://xpkjrvrla5jd"]
 
 [ext_resource type="Script" path="res://Character Resouces/General Pyrus/General Pyrus.gd" id="1_pmsqs"]
 [ext_resource type="Texture2D" uid="uid://wbgnd1vpa415" path="res://Character Resouces/General Pyrus/General Pyrus SpriteSheet.png" id="2_23yd5"]
-[ext_resource type="Texture2D" uid="uid://4mak2s1micd7" path="res://smoke..png" id="3_gtvkx"]
 
 [sub_resource type="CapsuleShape2D" id="15"]
 radius = 3.5
@@ -1189,7 +1188,6 @@ vframes = 9
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-17, 63)
 scale = Vector2(0.0297852, 0.0268555)
-texture = ExtResource("3_gtvkx")
 hframes = 3
 vframes = 3
 

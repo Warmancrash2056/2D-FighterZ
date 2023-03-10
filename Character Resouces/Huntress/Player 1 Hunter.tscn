@@ -619,7 +619,6 @@ vframes = 12
 [node name="Scale Player" type="Node2D" parent="."]
 
 [node name="Nuetral Air Arrow" type="Sprite2D" parent="Scale Player"]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(32, 16)
 texture = ExtResource("2_pwps7")
 
@@ -638,7 +637,6 @@ sprite_frames = SubResource("SpriteFrames_w6q8r")
 animation = &"Shower"
 
 [node name="Side Light Arrow" type="Sprite2D" parent="Scale Player"]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(45, -12)
 texture = ExtResource("21_j12gj")
 

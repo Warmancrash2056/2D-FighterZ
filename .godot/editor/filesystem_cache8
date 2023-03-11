@@ -1,22 +1,19 @@
 2a60927148abd1d33b818b535e306557
-::res://::1678440959
-Character Select.gd::GDScript::-1::1678286629::0::1::::<>RefCounted<>::
+::res://::1678513995
 Control.gd::GDScript::-1::1678286629::0::1::::<>Control<>::
-default_env.tres::Environment::1603285397087577607::1678410923::0::1::::<><>::
-Demo.tscn::PackedScene::7142726262821456833::1678410922::0::1::::<><>::uid://dg1hk85k1p64y
-Fps.tscn::PackedScene::1705494753391202785::1678410922::0::1::::<><>::res://Control.gd
-Node2D.gd::GDScript::-1::1678286629::0::1::::<>Node2D<>::
+default_env.tres::Environment::1603285397087577607::1678513344::0::1::::<><>::
+Demo.tscn::PackedScene::7142726262821456833::1678513343::0::1::::<><>::uid://dg1hk85k1p64y
+Fps.tscn::PackedScene::1705494753391202785::1678444465::0::1::::<><>::res://Control.gd
 Node2D.tscn::PackedScene::-1::1678286629::0::1::::<><>::
 Player 2 Cursor.gd::GDScript::-1::1678286629::0::1::::<>RefCounted<>::
-StaticBody2D.tscn::PackedScene::-1::1678286629::0::1::::<><>::res://Test player.tscn
 ::res://Character Resouces/::1678413101
 Global Playerr.gd::GDScript::-1::1678286629::0::1::::<>CharacterBody2D<>::
-::res://Character Resouces/General Pyrus/::1678413106
+::res://Character Resouces/General Pyrus/::1678444465
 General Pyrus Character Icon.png::CompressedTexture2D::4694534131398237749::1678286629::1678286629::1::::<><>::
 General Pyrus SpriteSheet.png::CompressedTexture2D::1546606653777323286::1678286629::1678286629::1::::<><>::
 General Pyrus.gd::GDScript::-1::1678410818::0::1::::<>CharacterBody2D<>::
 Player 1 General Pyrus.tscn::PackedScene::4741800248341134733::1678286629::0::1::::<><>::res://Character Resouces/General Pyrus/General Pyrus.gd<>uid://wbgnd1vpa415<>uid://4mak2s1micd7
-Player 2 General Pyrus.tscn::PackedScene::1645933238183432253::1678410922::0::1::::<><>::res://Character Resouces/General Pyrus/General Pyrus.gd<>uid://wbgnd1vpa415
+Player 2 General Pyrus.tscn::PackedScene::1645933238183432253::1678444465::0::1::::<><>::res://Character Resouces/General Pyrus/General Pyrus.gd<>uid://wbgnd1vpa415
 ::res://Character Resouces/General Pyrus/Single Animations/::1678307611
 ::res://Character Resouces/General Pyrus/Single Animations/01_idle/::1678307568
 idle_1.png::CompressedTexture2D::3949979404366975881::1678286629::1678286629::1::::<><>::
@@ -202,12 +199,12 @@ Player_1.tres::Resource::-1::1678286629::0::1::::<><>::res://Character Resouces/
 Player_2.tres::Resource::-1::1678286629::0::1::::<><>::res://Character Resouces/Global/Controller.gd
 SelectionCursorPlayer1.png::CompressedTexture2D::6917832176226888167::1678286629::1678286629::1::::<><>::
 SelectionCursorPlayer2.png::CompressedTexture2D::2122464198219170133::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Goku/::1678413106
+::res://Character Resouces/Goku/::1678444465
 Goku Script.gd::GDScript::-1::1678410818::0::1::::<>CharacterBody2D<>::
 Ground Monk SpriteSheet.png::CompressedTexture2D::4413176089426898656::1678286629::1678286629::1::::<><>::
 ground_monk.png::CompressedTexture2D::165888122232890795::1678286629::1678286629::1::::<><>::
-Player 1 Goku.tscn::PackedScene::8355211358507661847::1678410922::0::1::::<><>::res://Character Resouces/Goku/Goku Script.gd<>res://Character Resouces/Global/Player_1.tres<>uid://b341moopt7xsq
-Player 2  Goku.tscn::PackedScene::7647470166428615584::1678410922::0::1::::<><>::res://Character Resouces/Goku/Goku Script.gd<>res://Character Resouces/Global/Player_1.tres<>uid://b341moopt7xsq
+Player 1 Goku.tscn::PackedScene::8355211358507661847::1678444465::0::1::::<><>::res://Character Resouces/Goku/Goku Script.gd<>res://Character Resouces/Global/Player_1.tres<>uid://b341moopt7xsq
+Player 2  Goku.tscn::PackedScene::7647470166428615584::1678444465::0::1::::<><>::res://Character Resouces/Goku/Goku Script.gd<>res://Character Resouces/Global/Player_1.tres<>uid://b341moopt7xsq
 ::res://Character Resouces/Goku/Elementals_ground_monk_FREE_v1.3/::1678307627
 ground_monk.png::CompressedTexture2D::7830744686590696135::1678286629::1678286629::1::::<><>::
 ::res://Character Resouces/Goku/Elementals_ground_monk_FREE_v1.3/gifs/::1678307627
@@ -378,301 +375,301 @@ take_hit_3.png::CompressedTexture2D::6623022288732931178::1678286629::1678286629
 take_hit_4.png::CompressedTexture2D::8165294988545944555::1678286629::1678286629::1::::<><>::
 take_hit_5.png::CompressedTexture2D::4361667555964267224::1678286629::1678286629::1::::<><>::
 take_hit_6.png::CompressedTexture2D::8489111733054214141::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/::1678413105
+::res://Character Resouces/Hunter/::1678513349
 Hunter Script.gd::GDScript::-1::1678410818::0::1::::<>CharacterBody2D<>::
-Huntress Character Icon.png::CompressedTexture2D::8213974982025897100::1678286629::1678286629::1::::<><>::
-Huntress SpriteSheet.png::CompressedTexture2D::6065083221059511950::1678286629::1678286629::1::::<><>::
-Player 1 Hunter.tscn::PackedScene::7634513591505878470::1678410922::0::1::::<><>::res://Character Resouces/Huntress/Hunter Script.gd<>uid://csn8bf6hfirik<>uid://cek5bcrw4ug5q<>res://Character Resouces/Global/Player_1.tres<>uid://cxnj3bax3fsjs<>uid://bbjdg023asjqw<>uid://cigep8o8ffvae<>uid://nsunqesuehyb<>uid://ct2ig0ip76ufh<>uid://d02yf02i26fkq<>uid://mfdwj0kuxcbf<>uid://c5i8obsiafpdf<>uid://mvsqu1e3706j<>uid://c6044olp1ne36<>uid://dee25s22sull6<>uid://cbsfrxc3cy744<>uid://2pcmy7ucghw<>uid://d0en3uwhleknq<>uid://baynpktvoolew<>uid://cd3cla3ets7ll<>uid://d0o4t0d5s2fld<>uid://c0rjc04nxwugu<>uid://bi5o1gwi6tjol
+Huntress Character Icon.png::CompressedTexture2D::8213974982025897100::1678286629::1678513346::1::::<><>::
+Huntress SpriteSheet.png::CompressedTexture2D::6065083221059511950::1678286629::1678513349::1::::<><>::
+Player 1 Hunter.tscn::PackedScene::303661660242899988::1678513344::0::1::::<><>::res://Character Resouces/Hunter/Hunter Script.gd<>res://Character Resouces/Global/Player_1.tres<>uid://csn8bf6hfirik<>uid://cek5bcrw4ug5q<>uid://cxnj3bax3fsjs<>uid://bbjdg023asjqw<>uid://cigep8o8ffvae<>uid://nsunqesuehyb<>uid://ct2ig0ip76ufh<>uid://d02yf02i26fkq<>uid://mfdwj0kuxcbf<>uid://c5i8obsiafpdf<>uid://mvsqu1e3706j<>uid://c6044olp1ne36<>uid://dee25s22sull6<>uid://cbsfrxc3cy744<>uid://2pcmy7ucghw<>uid://d0en3uwhleknq<>uid://baynpktvoolew<>uid://cd3cla3ets7ll<>uid://d0o4t0d5s2fld<>uid://c0rjc04nxwugu<>uid://bi5o1gwi6tjol
 Player 2 Hunter.tscn::PackedScene::-1::1678286629::0::1::::<><>::
-projectiles_and_effects_256x128_SpriteSheet.png::CompressedTexture2D::4056639375519766547::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/::1678307637
-leaf_ranger.png::CompressedTexture2D::6544347318553746961::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/::1678307627
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/::1678307604
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/1_atk/::1678307569
-1_atk_1.png::CompressedTexture2D::5730094233376217001::1678286629::1678286629::1::::<><>::
-1_atk_2.png::CompressedTexture2D::8353035889473342866::1678286629::1678286629::1::::<><>::
-1_atk_3.png::CompressedTexture2D::2210226968646283950::1678286629::1678286629::1::::<><>::
-1_atk_4.png::CompressedTexture2D::91780280875740962::1678286629::1678286629::1::::<><>::
-1_atk_5.png::CompressedTexture2D::9081472327763074076::1678286629::1678286629::1::::<><>::
-1_atk_6.png::CompressedTexture2D::3982101023743840483::1678286629::1678286629::1::::<><>::
-1_atk_7.png::CompressedTexture2D::3261979604397854559::1678286629::1678286629::1::::<><>::
-1_atk_8.png::CompressedTexture2D::6714446048431159604::1678286629::1678286629::1::::<><>::
-1_atk_9.png::CompressedTexture2D::4189839057928611989::1678286629::1678286629::1::::<><>::
-1_atk_10.png::CompressedTexture2D::5875750548602663541::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/2_atk/::1678307562
-2_atk_1.png::CompressedTexture2D::2046147026589892409::1678286629::1678286629::1::::<><>::
-2_atk_2.png::CompressedTexture2D::2483755581662956989::1678286629::1678286629::1::::<><>::
-2_atk_3.png::CompressedTexture2D::8417701554934588010::1678286629::1678286629::1::::<><>::
-2_atk_4.png::CompressedTexture2D::8157201641147387333::1678286629::1678286629::1::::<><>::
-2_atk_5.png::CompressedTexture2D::5417609999721532690::1678286629::1678286629::1::::<><>::
-2_atk_6.png::CompressedTexture2D::4648173198367840037::1678286629::1678286629::1::::<><>::
-2_atk_7.png::CompressedTexture2D::6334142799938992889::1678286629::1678286629::1::::<><>::
-2_atk_8.png::CompressedTexture2D::889351614896588268::1678286629::1678286629::1::::<><>::
-2_atk_9.png::CompressedTexture2D::9165695668733247627::1678286629::1678286629::1::::<><>::
-2_atk_10.png::CompressedTexture2D::4814953409215232824::1678286629::1678286629::1::::<><>::
-2_atk_11.png::CompressedTexture2D::8035974865411258460::1678286629::1678286629::1::::<><>::
-2_atk_12.png::CompressedTexture2D::8479283494626585236::1678286629::1678286629::1::::<><>::
-2_atk_13.png::CompressedTexture2D::2394359308521505180::1678286629::1678286629::1::::<><>::
-2_atk_14.png::CompressedTexture2D::883721776822128961::1678286629::1678286629::1::::<><>::
-2_atk_15.png::CompressedTexture2D::1822022807483163558::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/3_atk/::1678307569
-3_atk_1.png::CompressedTexture2D::5567175077384023819::1678286629::1678286629::1::::<><>::
-3_atk_2.png::CompressedTexture2D::7499344772240560228::1678286629::1678286629::1::::<><>::
-3_atk_3.png::CompressedTexture2D::8213795338970641754::1678286629::1678286629::1::::<><>::
-3_atk_4.png::CompressedTexture2D::7935541228248201524::1678286629::1678286629::1::::<><>::
-3_atk_5.png::CompressedTexture2D::8228036313079964842::1678286629::1678286629::1::::<><>::
-3_atk_6.png::CompressedTexture2D::6052363246022555385::1678286629::1678286629::1::::<><>::
-3_atk_7.png::CompressedTexture2D::6543941685837067055::1678286629::1678286629::1::::<><>::
-3_atk_8.png::CompressedTexture2D::1609421394192203797::1678286629::1678286629::1::::<><>::
-3_atk_9.png::CompressedTexture2D::867234043373251449::1678286629::1678286629::1::::<><>::
-3_atk_10.png::CompressedTexture2D::7396559516332406489::1678286629::1678286629::1::::<><>::
-3_atk_11.png::CompressedTexture2D::4580265015883649667::1678286629::1678286629::1::::<><>::
-3_atk_12.png::CompressedTexture2D::7402601509176742908::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/air_atk/::1678307543
-air_atk_1.png::CompressedTexture2D::4681113440767702782::1678286629::1678286629::1::::<><>::
-air_atk_2.png::CompressedTexture2D::425971273957800342::1678286629::1678286629::1::::<><>::
-air_atk_3.png::CompressedTexture2D::8452972146003510410::1678286629::1678286629::1::::<><>::
-air_atk_4.png::CompressedTexture2D::2958892286903214262::1678286629::1678286629::1::::<><>::
-air_atk_5.png::CompressedTexture2D::44075225869068774::1678286629::1678286629::1::::<><>::
-air_atk_6.png::CompressedTexture2D::5466827277686789385::1678286629::1678286629::1::::<><>::
-air_atk_7.png::CompressedTexture2D::5448477800903319570::1678286629::1678286629::1::::<><>::
-air_atk_8.png::CompressedTexture2D::6574235028969418564::1678286629::1678286629::1::::<><>::
-air_atk_9.png::CompressedTexture2D::5402230037312858487::1678286629::1678286629::1::::<><>::
-air_atk_10.png::CompressedTexture2D::2345367090854995284::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/::1678307569
-death_1.png::CompressedTexture2D::6988671233775783970::1678286629::1678286629::1::::<><>::
-death_2.png::CompressedTexture2D::7096669370824635242::1678286629::1678286629::1::::<><>::
-death_3.png::CompressedTexture2D::815711974849795559::1678286629::1678286629::1::::<><>::
-death_4.png::CompressedTexture2D::8956086657546264769::1678286629::1678286629::1::::<><>::
-death_5.png::CompressedTexture2D::8313993281182784785::1678286629::1678286629::1::::<><>::
-death_6.png::CompressedTexture2D::1201580529043284643::1678286629::1678286629::1::::<><>::
-death_7.png::CompressedTexture2D::1966274854581730622::1678286629::1678286629::1::::<><>::
-death_8.png::CompressedTexture2D::2527288017044011701::1678286629::1678286629::1::::<><>::
-death_9.png::CompressedTexture2D::7568553286761293828::1678286629::1678286629::1::::<><>::
-death_10.png::CompressedTexture2D::8322600981225774299::1678286629::1678286629::1::::<><>::
-death_11.png::CompressedTexture2D::8189722898350686494::1678286629::1678286629::1::::<><>::
-death_12.png::CompressedTexture2D::831226851888014207::1678286629::1678286629::1::::<><>::
-death_13.png::CompressedTexture2D::3985692347821391253::1678286629::1678286629::1::::<><>::
-death_14.png::CompressedTexture2D::7128525490976908478::1678286629::1678286629::1::::<><>::
-death_15.png::CompressedTexture2D::178899828234682059::1678286629::1678286629::1::::<><>::
-death_16.png::CompressedTexture2D::1697747644563376231::1678286629::1678286629::1::::<><>::
-death_17.png::CompressedTexture2D::3475979366031690731::1678286629::1678286629::1::::<><>::
-death_18.png::CompressedTexture2D::5105060167850004057::1678286629::1678286629::1::::<><>::
-death_19.png::CompressedTexture2D::8367572454470470781::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/::1678307604
-defend_1.png::CompressedTexture2D::8613486699864949560::1678286629::1678286629::1::::<><>::
-defend_2.png::CompressedTexture2D::1749870724450114916::1678286629::1678286629::1::::<><>::
-defend_3.png::CompressedTexture2D::8110318281188071695::1678286629::1678286629::1::::<><>::
-defend_4.png::CompressedTexture2D::7280635121916649268::1678286629::1678286629::1::::<><>::
-defend_5.png::CompressedTexture2D::6841644276808958523::1678286629::1678286629::1::::<><>::
-defend_6.png::CompressedTexture2D::8947018924761539667::1678286629::1678286629::1::::<><>::
-defend_7.png::CompressedTexture2D::1634244083554936534::1678286629::1678286629::1::::<><>::
-defend_8.png::CompressedTexture2D::8699525749943239344::1678286629::1678286629::1::::<><>::
-defend_9.png::CompressedTexture2D::6117638857117780871::1678286629::1678286629::1::::<><>::
-defend_10.png::CompressedTexture2D::2237084293229243160::1678286629::1678286629::1::::<><>::
-defend_11.png::CompressedTexture2D::5152232016958551674::1678286629::1678286629::1::::<><>::
-defend_12.png::CompressedTexture2D::4776876820186315504::1678286629::1678286629::1::::<><>::
-defend_13.png::CompressedTexture2D::1339829337233773840::1678286629::1678286629::1::::<><>::
-defend_14.png::CompressedTexture2D::3689159576758362589::1678286629::1678286629::1::::<><>::
-defend_15.png::CompressedTexture2D::7598268900419196689::1678286629::1678286629::1::::<><>::
-defend_16.png::CompressedTexture2D::7865680730148890859::1678286629::1678286629::1::::<><>::
-defend_17.png::CompressedTexture2D::2199224679607901883::1678286629::1678286629::1::::<><>::
-defend_18.png::CompressedTexture2D::3218823588608150478::1678286629::1678286629::1::::<><>::
-defend_19.png::CompressedTexture2D::4375609421714635140::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend_pose/::1678307569
-defend_pose_.png::CompressedTexture2D::677685831781975356::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/::1678307569
-idle_1.png::CompressedTexture2D::6186873635946200127::1678286629::1678286629::1::::<><>::
-idle_2.png::CompressedTexture2D::4907094395350574810::1678286629::1678286629::1::::<><>::
-idle_3.png::CompressedTexture2D::6969692511293407372::1678286629::1678286629::1::::<><>::
-idle_4.png::CompressedTexture2D::6015925507090068124::1678286629::1678286629::1::::<><>::
-idle_5.png::CompressedTexture2D::179710655619604625::1678286629::1678286629::1::::<><>::
-idle_6.png::CompressedTexture2D::71888049115960903::1678286629::1678286629::1::::<><>::
-idle_7.png::CompressedTexture2D::3248713779291245452::1678286629::1678286629::1::::<><>::
-idle_8.png::CompressedTexture2D::1446243453907280084::1678286629::1678286629::1::::<><>::
-idle_9.png::CompressedTexture2D::6627888045493026633::1678286629::1678286629::1::::<><>::
-idle_10.png::CompressedTexture2D::169947528421618243::1678286629::1678286629::1::::<><>::
-idle_11.png::CompressedTexture2D::4174193104304100623::1678286629::1678286629::1::::<><>::
-idle_12.png::CompressedTexture2D::6152759030950431911::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/jump_down/::1678307543
-jump_down_1.png::CompressedTexture2D::2847516422469439747::1678286629::1678286629::1::::<><>::
-jump_down_2.png::CompressedTexture2D::7938531180690684732::1678286629::1678286629::1::::<><>::
-jump_down_3.png::CompressedTexture2D::8345886009684248175::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/jump_full/::1678307543
-jump_1.png::CompressedTexture2D::7345980718697940395::1678286629::1678286629::1::::<><>::
-jump_2.png::CompressedTexture2D::5078624322577874255::1678286629::1678286629::1::::<><>::
-jump_3.png::CompressedTexture2D::2267115838670084877::1678286629::1678286629::1::::<><>::
-jump_4.png::CompressedTexture2D::7097286234913639452::1678286629::1678286629::1::::<><>::
-jump_5.png::CompressedTexture2D::2182168024886138063::1678286629::1678286629::1::::<><>::
-jump_6.png::CompressedTexture2D::8420000956249526628::1678286629::1678286629::1::::<><>::
-jump_7.png::CompressedTexture2D::725064707319762852::1678286629::1678286629::1::::<><>::
-jump_8.png::CompressedTexture2D::823299423569788647::1678286629::1678286629::1::::<><>::
-jump_9.png::CompressedTexture2D::5453621042099876903::1678286629::1678286629::1::::<><>::
-jump_10.png::CompressedTexture2D::6106362212315984971::1678286629::1678286629::1::::<><>::
-jump_11.png::CompressedTexture2D::8368206129697696329::1678286629::1678286629::1::::<><>::
-jump_12.png::CompressedTexture2D::7351757973855146837::1678286629::1678286629::1::::<><>::
-jump_13.png::CompressedTexture2D::3054834699844189133::1678286629::1678286629::1::::<><>::
-jump_14.png::CompressedTexture2D::1559393888316646222::1678286629::1678286629::1::::<><>::
-jump_15.png::CompressedTexture2D::5247264356312393160::1678286629::1678286629::1::::<><>::
-jump_16.png::CompressedTexture2D::6807293308707410239::1678286629::1678286629::1::::<><>::
-jump_17.png::CompressedTexture2D::7227446692723147324::1678286629::1678286629::1::::<><>::
-jump_18.png::CompressedTexture2D::1731759413921266396::1678286629::1678286629::1::::<><>::
-jump_19.png::CompressedTexture2D::374395734684870562::1678286629::1678286629::1::::<><>::
-jump_20.png::CompressedTexture2D::4504007417716590263::1678286629::1678286629::1::::<><>::
-jump_21.png::CompressedTexture2D::7953930675207748289::1678286629::1678286629::1::::<><>::
-jump_22.png::CompressedTexture2D::2260514793518671932::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/jump_up/::1678307522
-jump_up_1.png::CompressedTexture2D::2972546225569575051::1678286629::1678286629::1::::<><>::
-jump_up_2.png::CompressedTexture2D::105920396819027038::1678286629::1678286629::1::::<><>::
-jump_up_3.png::CompressedTexture2D::637646932402149559::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/::1678307529
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow/::1678307473
-arrow_.png::CompressedTexture2D::3010759583490876691::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_hit/::1678307473
-arrow_hit_1.png::CompressedTexture2D::4751829516104478159::1678286629::1678286629::1::::<><>::
-arrow_hit_2.png::CompressedTexture2D::219554320701237423::1678286629::1678286629::1::::<><>::
-arrow_hit_3.png::CompressedTexture2D::7075548714446336833::1678286629::1678286629::1::::<><>::
-arrow_hit_4.png::CompressedTexture2D::4495180505302926955::1678286629::1678286629::1::::<><>::
-arrow_hit_5.png::CompressedTexture2D::8401426753855590853::1678286629::1678286629::1::::<><>::
-arrow_hit_6.png::CompressedTexture2D::1665623735220420480::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_hit_entangle/::1678307515
-arrow_hit_entangle_1.png::CompressedTexture2D::4089397745319373007::1678286629::1678286629::1::::<><>::
-arrow_hit_entangle_2.png::CompressedTexture2D::1573310878323693612::1678286629::1678286629::1::::<><>::
-arrow_hit_entangle_3.png::CompressedTexture2D::1534355003116098756::1678286629::1678286629::1::::<><>::
-arrow_hit_entangle_4.png::CompressedTexture2D::3367385561272396916::1678286629::1678286629::1::::<><>::
-arrow_hit_entangle_5.png::CompressedTexture2D::1894303273125435264::1678286629::1678286629::1::::<><>::
-arrow_hit_entangle_6.png::CompressedTexture2D::5940875085673662834::1678286629::1678286629::1::::<><>::
-arrow_hit_entangle_7.png::CompressedTexture2D::9221401979714164284::1678286629::1678286629::1::::<><>::
-arrow_hit_entangle_8.png::CompressedTexture2D::4231038319190108343::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_hit_poison/::1678307508
-arrow_hit_poison_1.png::CompressedTexture2D::4412947929119075788::1678286629::1678286629::1::::<><>::
-arrow_hit_poison_2.png::CompressedTexture2D::3654943494413472766::1678286629::1678286629::1::::<><>::
-arrow_hit_poison_3.png::CompressedTexture2D::6195393744782688773::1678286629::1678286629::1::::<><>::
-arrow_hit_poison_4.png::CompressedTexture2D::2685165600365236356::1678286629::1678286629::1::::<><>::
-arrow_hit_poison_5.png::CompressedTexture2D::2280009050606487092::1678286629::1678286629::1::::<><>::
-arrow_hit_poison_6.png::CompressedTexture2D::7362015210387685471::1678286629::1678286629::1::::<><>::
-arrow_hit_poison_7.png::CompressedTexture2D::336713693689744973::1678286629::1678286629::1::::<><>::
-arrow_hit_poison_8.png::CompressedTexture2D::4527403033969672779::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/::1678307488
-arrow_shower_effect_1.png::CompressedTexture2D::6414618190633959252::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_2.png::CompressedTexture2D::2475383148925783338::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_3.png::CompressedTexture2D::5347009794298547184::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_4.png::CompressedTexture2D::950852169441140333::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_5.png::CompressedTexture2D::6162665372741717209::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_6.png::CompressedTexture2D::8971188833379908192::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_7.png::CompressedTexture2D::852809962683143591::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_8.png::CompressedTexture2D::6897050441129140687::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_9.png::CompressedTexture2D::886740625916283083::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_10.png::CompressedTexture2D::7002118297866713103::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_11.png::CompressedTexture2D::7449968857651144737::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_12.png::CompressedTexture2D::4880524166460034007::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_13.png::CompressedTexture2D::56653194675174508::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_14.png::CompressedTexture2D::8923081060967269922::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_15.png::CompressedTexture2D::2436782413163274234::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_16.png::CompressedTexture2D::5041351596594860353::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_17.png::CompressedTexture2D::8944680472567721093::1678286629::1678286629::1::::<><>::
-arrow_shower_effect_18.png::CompressedTexture2D::6563208263184101808::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/beam_extension_effect/::1678307487
-beam_extension_effect_1.png::CompressedTexture2D::1638129146838910665::1678286629::1678286629::1::::<><>::
-beam_extension_effect_2.png::CompressedTexture2D::4770239935053692950::1678286629::1678286629::1::::<><>::
-beam_extension_effect_3.png::CompressedTexture2D::4372187898229956513::1678286629::1678286629::1::::<><>::
-beam_extension_effect_4.png::CompressedTexture2D::552830006616204304::1678286629::1678286629::1::::<><>::
-beam_extension_effect_5.png::CompressedTexture2D::7041852523387690552::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/diagonal_arrow/::1678307473
-diagonal_arrow_.png::CompressedTexture2D::5076063947403330708::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/diagonal_arrow_hit/::1678307473
-diagonal_arrow_hit_1.png::CompressedTexture2D::5727131958663120028::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_2.png::CompressedTexture2D::5731565032243917271::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_3.png::CompressedTexture2D::2124002909123583896::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_4.png::CompressedTexture2D::8501013071518261154::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_5.png::CompressedTexture2D::728151501102666238::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_6.png::CompressedTexture2D::1662872386774798207::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/diagonal_arrow_hit_thorns/::1678307529
-diagonal_arrow_hit_thorns_1.png::CompressedTexture2D::2718457684981768868::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_thorns_2.png::CompressedTexture2D::1606263174885693964::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_thorns_3.png::CompressedTexture2D::4995084846760232614::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_thorns_4.png::CompressedTexture2D::3928077130703875193::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_thorns_5.png::CompressedTexture2D::1746658238944050887::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_thorns_6.png::CompressedTexture2D::1252663346510034198::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_thorns_7.png::CompressedTexture2D::4545382247148671830::1678286629::1678286629::1::::<><>::
-diagonal_arrow_hit_thorns_8.png::CompressedTexture2D::7090642367473541705::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/::1678307536
-roll_1.png::CompressedTexture2D::892950210545079948::1678286629::1678286629::1::::<><>::
-roll_2.png::CompressedTexture2D::2665510369998079472::1678286629::1678286629::1::::<><>::
-roll_3.png::CompressedTexture2D::7351879251792799235::1678286629::1678286629::1::::<><>::
-roll_4.png::CompressedTexture2D::5888107168346490787::1678286629::1678286629::1::::<><>::
-roll_5.png::CompressedTexture2D::5536776273702403953::1678286629::1678286629::1::::<><>::
-roll_6.png::CompressedTexture2D::5009424292182729843::1678286629::1678286629::1::::<><>::
-roll_7.png::CompressedTexture2D::1222167277130294407::1678286629::1678286629::1::::<><>::
-roll_8.png::CompressedTexture2D::725803495531647340::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/::1678307562
-run_1.png::CompressedTexture2D::239894202366721957::1678286629::1678286629::1::::<><>::
-run_2.png::CompressedTexture2D::7399800181491951494::1678286629::1678286629::1::::<><>::
-run_3.png::CompressedTexture2D::8563743870080290007::1678286629::1678286629::1::::<><>::
-run_4.png::CompressedTexture2D::7156256813771072717::1678286629::1678286629::1::::<><>::
-run_5.png::CompressedTexture2D::1975250121516067764::1678286629::1678286629::1::::<><>::
-run_6.png::CompressedTexture2D::8607419533823062745::1678286629::1678286629::1::::<><>::
-run_7.png::CompressedTexture2D::5500815479617917737::1678286629::1678286629::1::::<><>::
-run_8.png::CompressedTexture2D::6354468909766363899::1678286629::1678286629::1::::<><>::
-run_9.png::CompressedTexture2D::7508744280308773022::1678286629::1678286629::1::::<><>::
-run_10.png::CompressedTexture2D::7446871388315982945::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/slide/::1678307569
-slide_1.png::CompressedTexture2D::6477745664930873980::1678286629::1678286629::1::::<><>::
-slide_2.png::CompressedTexture2D::5757478244078149709::1678286629::1678286629::1::::<><>::
-slide_3.png::CompressedTexture2D::5586079495120706141::1678286629::1678286629::1::::<><>::
-slide_4.png::CompressedTexture2D::3457756941979780960::1678286629::1678286629::1::::<><>::
-slide_5.png::CompressedTexture2D::1602876442208180481::1678286629::1678286629::1::::<><>::
-slide_6.png::CompressedTexture2D::8404218955097824541::1678286629::1678286629::1::::<><>::
-slide_7.png::CompressedTexture2D::6008847846865247508::1678286629::1678286629::1::::<><>::
-slide_8.png::CompressedTexture2D::5124979041428564277::1678286629::1678286629::1::::<><>::
-slide_9.png::CompressedTexture2D::7758016930411666937::1678286629::1678286629::1::::<><>::
-slide_10.png::CompressedTexture2D::3759262667342744172::1678286629::1678286629::1::::<><>::
-slide_11.png::CompressedTexture2D::4821217885838335126::1678286629::1678286629::1::::<><>::
-slide_12.png::CompressedTexture2D::6780307744311207581::1678286629::1678286629::1::::<><>::
-slide_13.png::CompressedTexture2D::3287568176750979527::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/slide_loop/::1678307562
-slide_loop_1.png::CompressedTexture2D::6857976428063416530::1678286629::1678286629::1::::<><>::
-slide_loop_2.png::CompressedTexture2D::9136929136882651742::1678286629::1678286629::1::::<><>::
-slide_loop_3.png::CompressedTexture2D::2075215071548530735::1678286629::1678286629::1::::<><>::
-slide_loop_4.png::CompressedTexture2D::6362505256181816164::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/sp_atk/::1678307555
-sp_atk_1.png::CompressedTexture2D::1304615351484551312::1678286629::1678286629::1::::<><>::
-sp_atk_2.png::CompressedTexture2D::2619620839612821662::1678286629::1678286629::1::::<><>::
-sp_atk_3.png::CompressedTexture2D::418639132676428204::1678286629::1678286629::1::::<><>::
-sp_atk_4.png::CompressedTexture2D::105744683440103326::1678286629::1678286629::1::::<><>::
-sp_atk_5.png::CompressedTexture2D::3683444075381268949::1678286629::1678286629::1::::<><>::
-sp_atk_6.png::CompressedTexture2D::8255786189213345196::1678286629::1678286629::1::::<><>::
-sp_atk_7.png::CompressedTexture2D::3466388118456371590::1678286629::1678286629::1::::<><>::
-sp_atk_8.png::CompressedTexture2D::6280610699203806831::1678286629::1678286629::1::::<><>::
-sp_atk_9.png::CompressedTexture2D::5025609057453625797::1678286629::1678286629::1::::<><>::
-sp_atk_10.png::CompressedTexture2D::1236060585282776248::1678286629::1678286629::1::::<><>::
-sp_atk_11.png::CompressedTexture2D::1144902178305470027::1678286629::1678286629::1::::<><>::
-sp_atk_12.png::CompressedTexture2D::6590271769535499532::1678286629::1678286629::1::::<><>::
-sp_atk_13.png::CompressedTexture2D::1991019930475979010::1678286629::1678286629::1::::<><>::
-sp_atk_14.png::CompressedTexture2D::3122979125507318736::1678286629::1678286629::1::::<><>::
-sp_atk_15.png::CompressedTexture2D::2280893321020772554::1678286629::1678286629::1::::<><>::
-sp_atk_16.png::CompressedTexture2D::238752755909233933::1678286629::1678286629::1::::<><>::
-sp_atk_17.png::CompressedTexture2D::8149658847195342548::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/take_hit/::1678307555
-take_hit_1.png::CompressedTexture2D::2702283393185336977::1678286629::1678286629::1::::<><>::
-take_hit_2.png::CompressedTexture2D::6747774842258627159::1678286629::1678286629::1::::<><>::
-take_hit_3.png::CompressedTexture2D::3099525978146119796::1678286629::1678286629::1::::<><>::
-take_hit_4.png::CompressedTexture2D::4679517658823190723::1678286629::1678286629::1::::<><>::
-take_hit_5.png::CompressedTexture2D::3385150836401475899::1678286629::1678286629::1::::<><>::
-take_hit_6.png::CompressedTexture2D::27051249162558736::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/animations/spritesheets/::1678307627
-Elementals_leaf_ranger_288x128_SpriteSheet.png::CompressedTexture2D::3829925676741658127::1678286629::1678286629::1::::<><>::
-projectiles_and_effects_256x128_SpriteSheet.png::CompressedTexture2D::1124247040992737333::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/aseprite/::1678307638
-::res://Character Resouces/Huntress/Elementals_Leaf_ranger_Free_v1.0/gif_samples/::1678307638
-::res://Character Resouces/Nai/::1678410922
+projectiles_and_effects_256x128_SpriteSheet.png::CompressedTexture2D::4056639375519766547::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/::1678513347
+leaf_ranger.png::CompressedTexture2D::6544347318553746961::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/::1678307627
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/::1678307604
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/1_atk/::1678513347
+1_atk_1.png::CompressedTexture2D::5730094233376217001::1678286629::1678513347::1::::<><>::
+1_atk_2.png::CompressedTexture2D::8353035889473342866::1678286629::1678513347::1::::<><>::
+1_atk_3.png::CompressedTexture2D::2210226968646283950::1678286629::1678513347::1::::<><>::
+1_atk_4.png::CompressedTexture2D::91780280875740962::1678286629::1678513347::1::::<><>::
+1_atk_5.png::CompressedTexture2D::9081472327763074076::1678286629::1678513347::1::::<><>::
+1_atk_6.png::CompressedTexture2D::3982101023743840483::1678286629::1678513347::1::::<><>::
+1_atk_7.png::CompressedTexture2D::3261979604397854559::1678286629::1678513347::1::::<><>::
+1_atk_8.png::CompressedTexture2D::6714446048431159604::1678286629::1678513347::1::::<><>::
+1_atk_9.png::CompressedTexture2D::4189839057928611989::1678286629::1678513347::1::::<><>::
+1_atk_10.png::CompressedTexture2D::5875750548602663541::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/2_atk/::1678513347
+2_atk_1.png::CompressedTexture2D::2046147026589892409::1678286629::1678513347::1::::<><>::
+2_atk_2.png::CompressedTexture2D::2483755581662956989::1678286629::1678513347::1::::<><>::
+2_atk_3.png::CompressedTexture2D::8417701554934588010::1678286629::1678513347::1::::<><>::
+2_atk_4.png::CompressedTexture2D::8157201641147387333::1678286629::1678513347::1::::<><>::
+2_atk_5.png::CompressedTexture2D::5417609999721532690::1678286629::1678513347::1::::<><>::
+2_atk_6.png::CompressedTexture2D::4648173198367840037::1678286629::1678513347::1::::<><>::
+2_atk_7.png::CompressedTexture2D::6334142799938992889::1678286629::1678513347::1::::<><>::
+2_atk_8.png::CompressedTexture2D::889351614896588268::1678286629::1678513347::1::::<><>::
+2_atk_9.png::CompressedTexture2D::9165695668733247627::1678286629::1678513347::1::::<><>::
+2_atk_10.png::CompressedTexture2D::4814953409215232824::1678286629::1678513347::1::::<><>::
+2_atk_11.png::CompressedTexture2D::8035974865411258460::1678286629::1678513347::1::::<><>::
+2_atk_12.png::CompressedTexture2D::8479283494626585236::1678286629::1678513347::1::::<><>::
+2_atk_13.png::CompressedTexture2D::2394359308521505180::1678286629::1678513347::1::::<><>::
+2_atk_14.png::CompressedTexture2D::883721776822128961::1678286629::1678513347::1::::<><>::
+2_atk_15.png::CompressedTexture2D::1822022807483163558::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/3_atk/::1678513347
+3_atk_1.png::CompressedTexture2D::5567175077384023819::1678286629::1678513347::1::::<><>::
+3_atk_2.png::CompressedTexture2D::7499344772240560228::1678286629::1678513347::1::::<><>::
+3_atk_3.png::CompressedTexture2D::8213795338970641754::1678286629::1678513347::1::::<><>::
+3_atk_4.png::CompressedTexture2D::7935541228248201524::1678286629::1678513347::1::::<><>::
+3_atk_5.png::CompressedTexture2D::8228036313079964842::1678286629::1678513347::1::::<><>::
+3_atk_6.png::CompressedTexture2D::6052363246022555385::1678286629::1678513347::1::::<><>::
+3_atk_7.png::CompressedTexture2D::6543941685837067055::1678286629::1678513347::1::::<><>::
+3_atk_8.png::CompressedTexture2D::1609421394192203797::1678286629::1678513347::1::::<><>::
+3_atk_9.png::CompressedTexture2D::867234043373251449::1678286629::1678513347::1::::<><>::
+3_atk_10.png::CompressedTexture2D::7396559516332406489::1678286629::1678513347::1::::<><>::
+3_atk_11.png::CompressedTexture2D::4580265015883649667::1678286629::1678513347::1::::<><>::
+3_atk_12.png::CompressedTexture2D::7402601509176742908::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/air_atk/::1678513347
+air_atk_1.png::CompressedTexture2D::4681113440767702782::1678286629::1678513347::1::::<><>::
+air_atk_2.png::CompressedTexture2D::425971273957800342::1678286629::1678513347::1::::<><>::
+air_atk_3.png::CompressedTexture2D::8452972146003510410::1678286629::1678513347::1::::<><>::
+air_atk_4.png::CompressedTexture2D::2958892286903214262::1678286629::1678513347::1::::<><>::
+air_atk_5.png::CompressedTexture2D::44075225869068774::1678286629::1678513347::1::::<><>::
+air_atk_6.png::CompressedTexture2D::5466827277686789385::1678286629::1678513347::1::::<><>::
+air_atk_7.png::CompressedTexture2D::5448477800903319570::1678286629::1678513347::1::::<><>::
+air_atk_8.png::CompressedTexture2D::6574235028969418564::1678286629::1678513347::1::::<><>::
+air_atk_9.png::CompressedTexture2D::5402230037312858487::1678286629::1678513347::1::::<><>::
+air_atk_10.png::CompressedTexture2D::2345367090854995284::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/::1678513347
+death_1.png::CompressedTexture2D::6988671233775783970::1678286629::1678513347::1::::<><>::
+death_2.png::CompressedTexture2D::7096669370824635242::1678286629::1678513347::1::::<><>::
+death_3.png::CompressedTexture2D::815711974849795559::1678286629::1678513347::1::::<><>::
+death_4.png::CompressedTexture2D::8956086657546264769::1678286629::1678513347::1::::<><>::
+death_5.png::CompressedTexture2D::8313993281182784785::1678286629::1678513347::1::::<><>::
+death_6.png::CompressedTexture2D::1201580529043284643::1678286629::1678513347::1::::<><>::
+death_7.png::CompressedTexture2D::1966274854581730622::1678286629::1678513347::1::::<><>::
+death_8.png::CompressedTexture2D::2527288017044011701::1678286629::1678513347::1::::<><>::
+death_9.png::CompressedTexture2D::7568553286761293828::1678286629::1678513347::1::::<><>::
+death_10.png::CompressedTexture2D::8322600981225774299::1678286629::1678513347::1::::<><>::
+death_11.png::CompressedTexture2D::8189722898350686494::1678286629::1678513347::1::::<><>::
+death_12.png::CompressedTexture2D::831226851888014207::1678286629::1678513347::1::::<><>::
+death_13.png::CompressedTexture2D::3985692347821391253::1678286629::1678513347::1::::<><>::
+death_14.png::CompressedTexture2D::7128525490976908478::1678286629::1678513347::1::::<><>::
+death_15.png::CompressedTexture2D::178899828234682059::1678286629::1678513347::1::::<><>::
+death_16.png::CompressedTexture2D::1697747644563376231::1678286629::1678513347::1::::<><>::
+death_17.png::CompressedTexture2D::3475979366031690731::1678286629::1678513347::1::::<><>::
+death_18.png::CompressedTexture2D::5105060167850004057::1678286629::1678513347::1::::<><>::
+death_19.png::CompressedTexture2D::8367572454470470781::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend/::1678513347
+defend_1.png::CompressedTexture2D::8613486699864949560::1678286629::1678513347::1::::<><>::
+defend_2.png::CompressedTexture2D::1749870724450114916::1678286629::1678513347::1::::<><>::
+defend_3.png::CompressedTexture2D::8110318281188071695::1678286629::1678513347::1::::<><>::
+defend_4.png::CompressedTexture2D::7280635121916649268::1678286629::1678513347::1::::<><>::
+defend_5.png::CompressedTexture2D::6841644276808958523::1678286629::1678513347::1::::<><>::
+defend_6.png::CompressedTexture2D::8947018924761539667::1678286629::1678513347::1::::<><>::
+defend_7.png::CompressedTexture2D::1634244083554936534::1678286629::1678513347::1::::<><>::
+defend_8.png::CompressedTexture2D::8699525749943239344::1678286629::1678513347::1::::<><>::
+defend_9.png::CompressedTexture2D::6117638857117780871::1678286629::1678513347::1::::<><>::
+defend_10.png::CompressedTexture2D::2237084293229243160::1678286629::1678513347::1::::<><>::
+defend_11.png::CompressedTexture2D::5152232016958551674::1678286629::1678513347::1::::<><>::
+defend_12.png::CompressedTexture2D::4776876820186315504::1678286629::1678513347::1::::<><>::
+defend_13.png::CompressedTexture2D::1339829337233773840::1678286629::1678513347::1::::<><>::
+defend_14.png::CompressedTexture2D::3689159576758362589::1678286629::1678513347::1::::<><>::
+defend_15.png::CompressedTexture2D::7598268900419196689::1678286629::1678513347::1::::<><>::
+defend_16.png::CompressedTexture2D::7865680730148890859::1678286629::1678513347::1::::<><>::
+defend_17.png::CompressedTexture2D::2199224679607901883::1678286629::1678513347::1::::<><>::
+defend_18.png::CompressedTexture2D::3218823588608150478::1678286629::1678513347::1::::<><>::
+defend_19.png::CompressedTexture2D::4375609421714635140::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend_pose/::1678513347
+defend_pose_.png::CompressedTexture2D::677685831781975356::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/::1678513347
+idle_1.png::CompressedTexture2D::6186873635946200127::1678286629::1678513347::1::::<><>::
+idle_2.png::CompressedTexture2D::4907094395350574810::1678286629::1678513347::1::::<><>::
+idle_3.png::CompressedTexture2D::6969692511293407372::1678286629::1678513347::1::::<><>::
+idle_4.png::CompressedTexture2D::6015925507090068124::1678286629::1678513347::1::::<><>::
+idle_5.png::CompressedTexture2D::179710655619604625::1678286629::1678513347::1::::<><>::
+idle_6.png::CompressedTexture2D::71888049115960903::1678286629::1678513347::1::::<><>::
+idle_7.png::CompressedTexture2D::3248713779291245452::1678286629::1678513347::1::::<><>::
+idle_8.png::CompressedTexture2D::1446243453907280084::1678286629::1678513347::1::::<><>::
+idle_9.png::CompressedTexture2D::6627888045493026633::1678286629::1678513347::1::::<><>::
+idle_10.png::CompressedTexture2D::169947528421618243::1678286629::1678513347::1::::<><>::
+idle_11.png::CompressedTexture2D::4174193104304100623::1678286629::1678513347::1::::<><>::
+idle_12.png::CompressedTexture2D::6152759030950431911::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/jump_down/::1678513347
+jump_down_1.png::CompressedTexture2D::2847516422469439747::1678286629::1678513347::1::::<><>::
+jump_down_2.png::CompressedTexture2D::7938531180690684732::1678286629::1678513347::1::::<><>::
+jump_down_3.png::CompressedTexture2D::8345886009684248175::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/jump_full/::1678513347
+jump_1.png::CompressedTexture2D::7345980718697940395::1678286629::1678513347::1::::<><>::
+jump_2.png::CompressedTexture2D::5078624322577874255::1678286629::1678513347::1::::<><>::
+jump_3.png::CompressedTexture2D::2267115838670084877::1678286629::1678513347::1::::<><>::
+jump_4.png::CompressedTexture2D::7097286234913639452::1678286629::1678513347::1::::<><>::
+jump_5.png::CompressedTexture2D::2182168024886138063::1678286629::1678513347::1::::<><>::
+jump_6.png::CompressedTexture2D::8420000956249526628::1678286629::1678513347::1::::<><>::
+jump_7.png::CompressedTexture2D::725064707319762852::1678286629::1678513347::1::::<><>::
+jump_8.png::CompressedTexture2D::823299423569788647::1678286629::1678513347::1::::<><>::
+jump_9.png::CompressedTexture2D::5453621042099876903::1678286629::1678513347::1::::<><>::
+jump_10.png::CompressedTexture2D::6106362212315984971::1678286629::1678513347::1::::<><>::
+jump_11.png::CompressedTexture2D::8368206129697696329::1678286629::1678513347::1::::<><>::
+jump_12.png::CompressedTexture2D::7351757973855146837::1678286629::1678513347::1::::<><>::
+jump_13.png::CompressedTexture2D::3054834699844189133::1678286629::1678513347::1::::<><>::
+jump_14.png::CompressedTexture2D::1559393888316646222::1678286629::1678513347::1::::<><>::
+jump_15.png::CompressedTexture2D::5247264356312393160::1678286629::1678513347::1::::<><>::
+jump_16.png::CompressedTexture2D::6807293308707410239::1678286629::1678513347::1::::<><>::
+jump_17.png::CompressedTexture2D::7227446692723147324::1678286629::1678513347::1::::<><>::
+jump_18.png::CompressedTexture2D::1731759413921266396::1678286629::1678513347::1::::<><>::
+jump_19.png::CompressedTexture2D::374395734684870562::1678286629::1678513347::1::::<><>::
+jump_20.png::CompressedTexture2D::4504007417716590263::1678286629::1678513347::1::::<><>::
+jump_21.png::CompressedTexture2D::7953930675207748289::1678286629::1678513347::1::::<><>::
+jump_22.png::CompressedTexture2D::2260514793518671932::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/jump_up/::1678513347
+jump_up_1.png::CompressedTexture2D::2972546225569575051::1678286629::1678513347::1::::<><>::
+jump_up_2.png::CompressedTexture2D::105920396819027038::1678286629::1678513347::1::::<><>::
+jump_up_3.png::CompressedTexture2D::637646932402149559::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/::1678307529
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow/::1678513346
+arrow_.png::CompressedTexture2D::3010759583490876691::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_hit/::1678513346
+arrow_hit_1.png::CompressedTexture2D::4751829516104478159::1678286629::1678513346::1::::<><>::
+arrow_hit_2.png::CompressedTexture2D::219554320701237423::1678286629::1678513346::1::::<><>::
+arrow_hit_3.png::CompressedTexture2D::7075548714446336833::1678286629::1678513346::1::::<><>::
+arrow_hit_4.png::CompressedTexture2D::4495180505302926955::1678286629::1678513346::1::::<><>::
+arrow_hit_5.png::CompressedTexture2D::8401426753855590853::1678286629::1678513346::1::::<><>::
+arrow_hit_6.png::CompressedTexture2D::1665623735220420480::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_hit_entangle/::1678513346
+arrow_hit_entangle_1.png::CompressedTexture2D::4089397745319373007::1678286629::1678513346::1::::<><>::
+arrow_hit_entangle_2.png::CompressedTexture2D::1573310878323693612::1678286629::1678513346::1::::<><>::
+arrow_hit_entangle_3.png::CompressedTexture2D::1534355003116098756::1678286629::1678513346::1::::<><>::
+arrow_hit_entangle_4.png::CompressedTexture2D::3367385561272396916::1678286629::1678513346::1::::<><>::
+arrow_hit_entangle_5.png::CompressedTexture2D::1894303273125435264::1678286629::1678513346::1::::<><>::
+arrow_hit_entangle_6.png::CompressedTexture2D::5940875085673662834::1678286629::1678513346::1::::<><>::
+arrow_hit_entangle_7.png::CompressedTexture2D::9221401979714164284::1678286629::1678513346::1::::<><>::
+arrow_hit_entangle_8.png::CompressedTexture2D::4231038319190108343::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_hit_poison/::1678513346
+arrow_hit_poison_1.png::CompressedTexture2D::4412947929119075788::1678286629::1678513346::1::::<><>::
+arrow_hit_poison_2.png::CompressedTexture2D::3654943494413472766::1678286629::1678513346::1::::<><>::
+arrow_hit_poison_3.png::CompressedTexture2D::6195393744782688773::1678286629::1678513346::1::::<><>::
+arrow_hit_poison_4.png::CompressedTexture2D::2685165600365236356::1678286629::1678513346::1::::<><>::
+arrow_hit_poison_5.png::CompressedTexture2D::2280009050606487092::1678286629::1678513346::1::::<><>::
+arrow_hit_poison_6.png::CompressedTexture2D::7362015210387685471::1678286629::1678513346::1::::<><>::
+arrow_hit_poison_7.png::CompressedTexture2D::336713693689744973::1678286629::1678513346::1::::<><>::
+arrow_hit_poison_8.png::CompressedTexture2D::4527403033969672779::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/::1678513346
+arrow_shower_effect_1.png::CompressedTexture2D::6414618190633959252::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_2.png::CompressedTexture2D::2475383148925783338::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_3.png::CompressedTexture2D::5347009794298547184::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_4.png::CompressedTexture2D::950852169441140333::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_5.png::CompressedTexture2D::6162665372741717209::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_6.png::CompressedTexture2D::8971188833379908192::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_7.png::CompressedTexture2D::852809962683143591::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_8.png::CompressedTexture2D::6897050441129140687::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_9.png::CompressedTexture2D::886740625916283083::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_10.png::CompressedTexture2D::7002118297866713103::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_11.png::CompressedTexture2D::7449968857651144737::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_12.png::CompressedTexture2D::4880524166460034007::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_13.png::CompressedTexture2D::56653194675174508::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_14.png::CompressedTexture2D::8923081060967269922::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_15.png::CompressedTexture2D::2436782413163274234::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_16.png::CompressedTexture2D::5041351596594860353::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_17.png::CompressedTexture2D::8944680472567721093::1678286629::1678513346::1::::<><>::
+arrow_shower_effect_18.png::CompressedTexture2D::6563208263184101808::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/beam_extension_effect/::1678513346
+beam_extension_effect_1.png::CompressedTexture2D::1638129146838910665::1678286629::1678513346::1::::<><>::
+beam_extension_effect_2.png::CompressedTexture2D::4770239935053692950::1678286629::1678513346::1::::<><>::
+beam_extension_effect_3.png::CompressedTexture2D::4372187898229956513::1678286629::1678513346::1::::<><>::
+beam_extension_effect_4.png::CompressedTexture2D::552830006616204304::1678286629::1678513346::1::::<><>::
+beam_extension_effect_5.png::CompressedTexture2D::7041852523387690552::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/diagonal_arrow/::1678513346
+diagonal_arrow_.png::CompressedTexture2D::5076063947403330708::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/diagonal_arrow_hit/::1678513346
+diagonal_arrow_hit_1.png::CompressedTexture2D::5727131958663120028::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_2.png::CompressedTexture2D::5731565032243917271::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_3.png::CompressedTexture2D::2124002909123583896::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_4.png::CompressedTexture2D::8501013071518261154::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_5.png::CompressedTexture2D::728151501102666238::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_6.png::CompressedTexture2D::1662872386774798207::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/diagonal_arrow_hit_thorns/::1678513346
+diagonal_arrow_hit_thorns_1.png::CompressedTexture2D::2718457684981768868::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_thorns_2.png::CompressedTexture2D::1606263174885693964::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_thorns_3.png::CompressedTexture2D::4995084846760232614::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_thorns_4.png::CompressedTexture2D::3928077130703875193::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_thorns_5.png::CompressedTexture2D::1746658238944050887::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_thorns_6.png::CompressedTexture2D::1252663346510034198::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_thorns_7.png::CompressedTexture2D::4545382247148671830::1678286629::1678513346::1::::<><>::
+diagonal_arrow_hit_thorns_8.png::CompressedTexture2D::7090642367473541705::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/::1678513347
+roll_1.png::CompressedTexture2D::892950210545079948::1678286629::1678513346::1::::<><>::
+roll_2.png::CompressedTexture2D::2665510369998079472::1678286629::1678513347::1::::<><>::
+roll_3.png::CompressedTexture2D::7351879251792799235::1678286629::1678513347::1::::<><>::
+roll_4.png::CompressedTexture2D::5888107168346490787::1678286629::1678513347::1::::<><>::
+roll_5.png::CompressedTexture2D::5536776273702403953::1678286629::1678513347::1::::<><>::
+roll_6.png::CompressedTexture2D::5009424292182729843::1678286629::1678513347::1::::<><>::
+roll_7.png::CompressedTexture2D::1222167277130294407::1678286629::1678513347::1::::<><>::
+roll_8.png::CompressedTexture2D::725803495531647340::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/::1678513347
+run_1.png::CompressedTexture2D::239894202366721957::1678286629::1678513347::1::::<><>::
+run_2.png::CompressedTexture2D::7399800181491951494::1678286629::1678513347::1::::<><>::
+run_3.png::CompressedTexture2D::8563743870080290007::1678286629::1678513347::1::::<><>::
+run_4.png::CompressedTexture2D::7156256813771072717::1678286629::1678513347::1::::<><>::
+run_5.png::CompressedTexture2D::1975250121516067764::1678286629::1678513347::1::::<><>::
+run_6.png::CompressedTexture2D::8607419533823062745::1678286629::1678513347::1::::<><>::
+run_7.png::CompressedTexture2D::5500815479617917737::1678286629::1678513347::1::::<><>::
+run_8.png::CompressedTexture2D::6354468909766363899::1678286629::1678513347::1::::<><>::
+run_9.png::CompressedTexture2D::7508744280308773022::1678286629::1678513347::1::::<><>::
+run_10.png::CompressedTexture2D::7446871388315982945::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/slide/::1678513347
+slide_1.png::CompressedTexture2D::6477745664930873980::1678286629::1678513347::1::::<><>::
+slide_2.png::CompressedTexture2D::5757478244078149709::1678286629::1678513347::1::::<><>::
+slide_3.png::CompressedTexture2D::5586079495120706141::1678286629::1678513347::1::::<><>::
+slide_4.png::CompressedTexture2D::3457756941979780960::1678286629::1678513347::1::::<><>::
+slide_5.png::CompressedTexture2D::1602876442208180481::1678286629::1678513347::1::::<><>::
+slide_6.png::CompressedTexture2D::8404218955097824541::1678286629::1678513347::1::::<><>::
+slide_7.png::CompressedTexture2D::6008847846865247508::1678286629::1678513347::1::::<><>::
+slide_8.png::CompressedTexture2D::5124979041428564277::1678286629::1678513347::1::::<><>::
+slide_9.png::CompressedTexture2D::7758016930411666937::1678286629::1678513347::1::::<><>::
+slide_10.png::CompressedTexture2D::3759262667342744172::1678286629::1678513347::1::::<><>::
+slide_11.png::CompressedTexture2D::4821217885838335126::1678286629::1678513347::1::::<><>::
+slide_12.png::CompressedTexture2D::6780307744311207581::1678286629::1678513347::1::::<><>::
+slide_13.png::CompressedTexture2D::3287568176750979527::1678286629::1678513347::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/slide_loop/::1678513347
+slide_loop_1.png::CompressedTexture2D::6857976428063416530::1678286629::1678513347::1::::<><>::
+slide_loop_2.png::CompressedTexture2D::9136929136882651742::1678286629::1678513347::1::::<><>::
+slide_loop_3.png::CompressedTexture2D::2075215071548530735::1678286629::1678513346::1::::<><>::
+slide_loop_4.png::CompressedTexture2D::6362505256181816164::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/sp_atk/::1678513346
+sp_atk_1.png::CompressedTexture2D::1304615351484551312::1678286629::1678513346::1::::<><>::
+sp_atk_2.png::CompressedTexture2D::2619620839612821662::1678286629::1678513346::1::::<><>::
+sp_atk_3.png::CompressedTexture2D::418639132676428204::1678286629::1678513346::1::::<><>::
+sp_atk_4.png::CompressedTexture2D::105744683440103326::1678286629::1678513346::1::::<><>::
+sp_atk_5.png::CompressedTexture2D::3683444075381268949::1678286629::1678513346::1::::<><>::
+sp_atk_6.png::CompressedTexture2D::8255786189213345196::1678286629::1678513346::1::::<><>::
+sp_atk_7.png::CompressedTexture2D::3466388118456371590::1678286629::1678513346::1::::<><>::
+sp_atk_8.png::CompressedTexture2D::6280610699203806831::1678286629::1678513346::1::::<><>::
+sp_atk_9.png::CompressedTexture2D::5025609057453625797::1678286629::1678513346::1::::<><>::
+sp_atk_10.png::CompressedTexture2D::1236060585282776248::1678286629::1678513346::1::::<><>::
+sp_atk_11.png::CompressedTexture2D::1144902178305470027::1678286629::1678513346::1::::<><>::
+sp_atk_12.png::CompressedTexture2D::6590271769535499532::1678286629::1678513346::1::::<><>::
+sp_atk_13.png::CompressedTexture2D::1991019930475979010::1678286629::1678513346::1::::<><>::
+sp_atk_14.png::CompressedTexture2D::3122979125507318736::1678286629::1678513346::1::::<><>::
+sp_atk_15.png::CompressedTexture2D::2280893321020772554::1678286629::1678513346::1::::<><>::
+sp_atk_16.png::CompressedTexture2D::238752755909233933::1678286629::1678513346::1::::<><>::
+sp_atk_17.png::CompressedTexture2D::8149658847195342548::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/take_hit/::1678513346
+take_hit_1.png::CompressedTexture2D::2702283393185336977::1678286629::1678513346::1::::<><>::
+take_hit_2.png::CompressedTexture2D::6747774842258627159::1678286629::1678513346::1::::<><>::
+take_hit_3.png::CompressedTexture2D::3099525978146119796::1678286629::1678513346::1::::<><>::
+take_hit_4.png::CompressedTexture2D::4679517658823190723::1678286629::1678513346::1::::<><>::
+take_hit_5.png::CompressedTexture2D::3385150836401475899::1678286629::1678513346::1::::<><>::
+take_hit_6.png::CompressedTexture2D::27051249162558736::1678286629::1678513346::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/spritesheets/::1678513350
+Elementals_leaf_ranger_288x128_SpriteSheet.png::CompressedTexture2D::3829925676741658127::1678286629::1678513350::1::::<><>::
+projectiles_and_effects_256x128_SpriteSheet.png::CompressedTexture2D::1124247040992737333::1678286629::1678513348::1::::<><>::
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/aseprite/::1678307638
+::res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/gif_samples/::1678307638
+::res://Character Resouces/Nai/::1678444465
 Assasin Character Icon.png::CompressedTexture2D::8948201158899482532::1678286629::1678286629::1::::<><>::
 Assasin SpriteSheet.png::CompressedTexture2D::5892943533176747620::1678286629::1678286629::1::::<><>::
 Marker2D.gd::GDScript::-1::1678286629::0::1::::<>Marker2D<>::
 Nai Script.gd::GDScript::-1::1678286629::0::1::::<>CharacterBody2D<>::
-Player 1 Nai.tscn::PackedScene::3022996877516706347::1678410922::0::1::::<><>::res://Character Resouces/Nai/Nai Script.gd<>uid://cp7t6inhv4t3i<>res://Character Resouces/Global/Player_1.tres<>uid://djs8lc52wplls
-Player 2 Nai.tscn::PackedScene::4417755980804510509::1678410922::0::1::::<><>::uid://cp7t6inhv4t3i<>res://Character Resouces/Nai/Nai Script.gd<>res://Character Resouces/Global/Player_2.tres<>uid://djs8lc52wplls
+Player 1 Nai.tscn::PackedScene::3022996877516706347::1678444464::0::1::::<><>::res://Character Resouces/Nai/Nai Script.gd<>uid://cp7t6inhv4t3i<>res://Character Resouces/Global/Player_1.tres<>uid://djs8lc52wplls
+Player 2 Nai.tscn::PackedScene::4417755980804510509::1678444465::0::1::::<><>::uid://cp7t6inhv4t3i<>res://Character Resouces/Nai/Nai Script.gd<>res://Character Resouces/Global/Player_2.tres<>uid://djs8lc52wplls
 Trap Cast.tscn::PackedScene::6271926531482188601::1678286629::0::1::::<><>::res://CharacterBody2D.gd<>uid://cekogkcwuw05i<>uid://ouudnn0lhp5e<>uid://bg6kedlh38gxc<>uid://b4dgplemn18ee<>uid://b6tb7lujfjngr<>uid://b8os1f6hcci5y<>uid://dgcr8cd2663k3<>uid://wykdplldf3y<>uid://bwqox0yjspey0
 ::res://Character Resouces/Nai/Single Aniamtions/::1678307611
 ::res://Character Resouces/Nai/Single Aniamtions/01_idle/::1678307555
@@ -1063,7 +1060,7 @@ walk_7.png::CompressedTexture2D::2316320900238437996::1678286629::1678286629::1:
 walk_8.png::CompressedTexture2D::6331214013356875639::1678286629::1678286629::1::::<><>::
 walk_9.png::CompressedTexture2D::4937170597136117784::1678286629::1678286629::1::::<><>::
 walk_10.png::CompressedTexture2D::9003192309298245882::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/03_surf/::1678307549
+::res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/03_surf/::1678513995
 surf_1.png::CompressedTexture2D::5232760225080024916::1678286629::1678286629::1::::<><>::
 surf_2.png::CompressedTexture2D::8094100972632767152::1678286629::1678286629::1::::<><>::
 surf_3.png::CompressedTexture2D::2017747309861334641::1678286629::1678286629::1::::<><>::
@@ -1178,19 +1175,19 @@ sp_atk_29.png::CompressedTexture2D::5253451871708586641::1678286629::1678286629:
 sp_atk_30.png::CompressedTexture2D::3892403836214806041::1678286629::1678286629::1::::<><>::
 sp_atk_31.png::CompressedTexture2D::5162890935721199684::1678286629::1678286629::1::::<><>::
 sp_atk_32.png::CompressedTexture2D::7286053348063971757::1678286629::1678286629::1::::<><>::
-::res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/::1678307515
-heal_1.png::CompressedTexture2D::7956692862846488505::1678286629::1678286629::1::::<><>::
-heal_2.png::CompressedTexture2D::7465391937306246916::1678286629::1678286629::1::::<><>::
-heal_3.png::CompressedTexture2D::464284102220739706::1678286629::1678286629::1::::<><>::
-heal_4.png::CompressedTexture2D::8054158524874514343::1678286629::1678286629::1::::<><>::
-heal_5.png::CompressedTexture2D::208818120337274596::1678286629::1678286629::1::::<><>::
-heal_6.png::CompressedTexture2D::3527087659690298195::1678286629::1678286629::1::::<><>::
-heal_7.png::CompressedTexture2D::4102947562692827037::1678286629::1678286629::1::::<><>::
-heal_8.png::CompressedTexture2D::2833652878824829264::1678286629::1678286629::1::::<><>::
-heal_9.png::CompressedTexture2D::4963316832994587471::1678286629::1678286629::1::::<><>::
-heal_10.png::CompressedTexture2D::7418659567263819873::1678286629::1678286629::1::::<><>::
-heal_11.png::CompressedTexture2D::810287316507555547::1678286629::1678286629::1::::<><>::
-heal_12.png::CompressedTexture2D::8304601446227081223::1678286629::1678286629::1::::<><>::
+::res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/11_heal/::1678513995
+heal_1.png::CompressedTexture2D::7956692862846488505::1678286629::1678513996::1::::<><>::
+heal_2.png::CompressedTexture2D::7465391937306246916::1678286629::1678513996::1::::<><>::
+heal_3.png::CompressedTexture2D::464284102220739706::1678286629::1678513996::1::::<><>::
+heal_4.png::CompressedTexture2D::8054158524874514343::1678286629::1678513996::1::::<><>::
+heal_5.png::CompressedTexture2D::208818120337274596::1678286629::1678513996::1::::<><>::
+heal_6.png::CompressedTexture2D::3527087659690298195::1678286629::1678513996::1::::<><>::
+heal_7.png::CompressedTexture2D::4102947562692827037::1678286629::1678513996::1::::<><>::
+heal_8.png::CompressedTexture2D::2833652878824829264::1678286629::1678513996::1::::<><>::
+heal_9.png::CompressedTexture2D::4963316832994587471::1678286629::1678513996::1::::<><>::
+heal_10.png::CompressedTexture2D::7418659567263819873::1678286629::1678513996::1::::<><>::
+heal_11.png::CompressedTexture2D::810287316507555547::1678286629::1678513996::1::::<><>::
+heal_12.png::CompressedTexture2D::8304601446227081223::1678286629::1678513996::1::::<><>::
 ::res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/12_defend/::1678307604
 defend_1.png::CompressedTexture2D::7505549836430924516::1678286629::1678286629::1::::<><>::
 defend_2.png::CompressedTexture2D::2837763363105011444::1678286629::1678286629::1::::<><>::
@@ -1238,8 +1235,8 @@ air_atk_5.png::CompressedTexture2D::4688746938808273890::1678286629::1678286629:
 air_atk_6.png::CompressedTexture2D::343576326035275413::1678286629::1678286629::1::::<><>::
 air_atk_7.png::CompressedTexture2D::7994367370144245554::1678286629::1678286629::1::::<><>::
 air_atk_8.png::CompressedTexture2D::8666143559572616931::1678286629::1678286629::1::::<><>::
-::res://Character Selection Resources/::1678413109
-Character Selection Menu.tscn::PackedScene::7279016244755319799::1678410923::0::1::::<><>::uid://d0qtth810xxwu<>uid://b75cj5x3yjfxl<>uid://cmmfha48flbf<>uid://dpa5754pfc4ay<>uid://dw6tyvkv0vbmr<>uid://bnmiete3u3yf8<>uid://c5tbxkeptjepb<>res://Character Selection Resources/Player 1 Cursor.gd<>res://Character Resouces/Global/Player_1.tres<>uid://5iew7t8ifb3r<>res://Character Selection Resources/Player 2 Cursor.gd<>res://Character Resouces/Global/Player_2.tres
+::res://Character Selection Resources/::1678445109
+Character Selection Menu.tscn::PackedScene::7125856030570911976::1678513344::0::1::::<><>::uid://d0qtth810xxwu<>uid://b75cj5x3yjfxl<>uid://cmmfha48flbf<>uid://dpa5754pfc4ay<>uid://dw6tyvkv0vbmr<>uid://bnmiete3u3yf8<>uid://c5tbxkeptjepb<>res://Character Selection Resources/Player 1 Cursor.gd<>res://Character Resouces/Global/Player_1.tres<>uid://5iew7t8ifb3r<>res://Character Selection Resources/Player 2 Cursor.gd<>res://Character Resouces/Global/Player_2.tres<>uid://bwjnt30m56qyb<>uid://y1eglm80iyq7<>uid://byw4tlqhshaet<>uid://ey5tm37at5ak<>uid://flek8wis8jsw<>uid://dm6146tms8lk5<>uid://ifbwq7uo385c<>uid://bfmufwp75833a<>uid://clr82v0t204ix<>uid://bex32cjyrxf5f<>uid://dfqxe6skl27fb<>uid://bo13dhkepdo0w<>uid://c3ydvjpbvxth6<>uid://cpweabdg5eeo<>uid://icdr46d3fadv<>uid://872ldx04vfhe<>uid://cms8lpeiwsepq<>uid://ck6aaeixqfls3<>uid://dv364y7ii1s4m<>uid://drhij43j7408y<>uid://5nibaej0vd4o<>uid://dm577nihr0qnr<>uid://biqokvla5h5mh<>uid://c16nrfkbfmmq3<>uid://cwaxrhy1sw5se<>uid://c70xf42briedn<>uid://u0p3cxp3v4bi<>uid://bls58jwqreq8t<>uid://byvqapgixrit4<>uid://dsrtpam2eauch<>uid://dbf7hci2lj5ia<>uid://bycb2o62yufs4<>uid://dfnfe6pslkkeq<>uid://pman0cmfa3g0<>uid://djr3sbcvulnqx<>uid://dp4fy46jnghd3
 Player 1 Character Selection.gd::GDScript::-1::1678410818::0::1::::<>Node<>::
 Player 1 Cursor.gd::GDScript::-1::1678410818::0::1::::<>Sprite2D<>::
 Player 2 Character Selection.gd::GDScript::-1::1678410818::0::1::::<>Node<>::

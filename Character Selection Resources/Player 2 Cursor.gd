@@ -111,12 +111,12 @@ func _on_player_2_atlantis_animation_looped():
 
 
 func _on_player_2_nai_animation_looped():
-	NaiAnimation.play("Hold")
+	NaiAnimation.play("Idle")
 
 
 func _on_player_2_general_pyrus_select_area_entered(area):
 	if area:
-		GeneralPyrusAnimation.play("General Pyrus Ready ")
+		GeneralPyrusAnimation.play("Ready ")
 		GeneralPyrusAnimation.visible = true
 
 
@@ -128,7 +128,7 @@ func _on_player_2_general_pyrus_select_area_exited(area):
 
 func _on_player_2_goku_select_area_entered(area):
 	if area:
-		GokuAnimation.play("Goku Ready")
+		GokuAnimation.play("Ready")
 		GokuAnimation.visible = true
 
 func _on_player_2_goku_select_area_exited(area):
@@ -139,7 +139,7 @@ func _on_player_2_goku_select_area_exited(area):
 
 func _on_player_2_nai_select_area_entered(area):
 	if area:
-		NaiAnimation.play("Nai Ready")
+		NaiAnimation.play("Ready")
 		NaiAnimation.visible = true
 
 
@@ -151,7 +151,7 @@ func _on_player_2_nai_select_area_exited(area):
 
 func _on_player_2_hunter_select_area_entered(area):
 	if area:
-		HunterAnimation.play("Hunter Ready")
+		HunterAnimation.play("Ready")
 		HunterAnimation.visible = true
 
 func _on_player_2_hunter_select_area_exited(area):
@@ -162,7 +162,7 @@ func _on_player_2_hunter_select_area_exited(area):
 
 func _on_player_2_nomad_select_area_entered(area):
 	if area:
-		NomadAnimation.play("Nomad Ready")
+		NomadAnimation.play("Ready")
 		NomadAnimation.visible = true
 
 
@@ -174,7 +174,7 @@ func _on_player_2_nomad_select_area_exited(area):
 
 func _on_player_2_atlantis_select_area_entered(area):
 	if area:
-		AtlantisAnimation.play("Atlantis Ready ")
+		AtlantisAnimation.play("")
 		AtlantisAnimation.visible = true
 
 

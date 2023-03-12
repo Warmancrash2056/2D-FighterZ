@@ -436,6 +436,18 @@ tracks/11/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Scale Player/AnimationPlayer:speed_scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.2]
+}
 
 [sub_resource type="Animation" id="Animation_df8h2"]
 resource_name = "Roll"
@@ -478,7 +490,7 @@ tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0837258, 0.171791, 0.252262, 0.334903, 0.422969, 0.508864, 0.59693, 0.681741, 0.768721, 0.856787, 0.942683, 1.02966, 1.1199),
+"times": PackedFloat32Array(0, 0.0837258, 0.165138, 0.248168, 0.331321, 0.416828, 0.502723, 0.584136, 0.669971, 0.751833, 0.836829, 0.922213, 1.00612, 1.09124),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148]
@@ -518,6 +530,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scale Player/AnimationPlayer:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.17693),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_v533a"]
@@ -577,7 +601,7 @@ radius = 4.12311
 [node name="Hunter" type="CharacterBody2D"]
 script = ExtResource("1_mbix3")
 controls = ExtResource("2_bcqpl")
-Movement = 100
+Movement = 200
 AirMovement = 130
 Acceleration = 35
 JumpHeight = 500
@@ -628,6 +652,7 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
 root_node = NodePath("../..")
+speed_scale = 1.2
 libraries = {
 "": SubResource("AnimationLibrary_m1dgu")
 }

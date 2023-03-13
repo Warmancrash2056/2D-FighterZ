@@ -234,5 +234,5 @@ func _on_animation_player_animation_finished(anim_name):
 		Select = States.Idle
 		
 	if anim_name == "Block":
-		Select = States.Fall
+		Select = States.Idle
 	

@@ -96,7 +96,7 @@ radius = 6.08276
 
 [sub_resource type="Animation" id="Animation_pcn48"]
 resource_name = "Block"
-length = 1.5
+length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -681,5 +681,17 @@ disabled = true
 position = Vector2(79, -9)
 shape = SubResource("CircleShape2D_hql1b")
 disabled = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = -1
+offset_left = -6.0
+offset_top = -27.0
+offset_right = 56.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+text = "Player 1"
+fit_content = true
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

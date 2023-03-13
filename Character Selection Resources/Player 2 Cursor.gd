@@ -116,7 +116,7 @@ func _on_player_2_nai_animation_looped():
 
 func _on_player_2_general_pyrus_select_area_entered(area):
 	if area:
-		GeneralPyrusAnimation.play("Ready ")
+		GeneralPyrusAnimation.play("Ready")
 		GeneralPyrusAnimation.visible = true
 
 

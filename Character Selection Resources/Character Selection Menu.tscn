@@ -1,6 +1,7 @@
-[gd_scene load_steps=149 format=3 uid="uid://c8r22py0g1mv5"]
+[gd_scene load_steps=150 format=3 uid="uid://c8r22py0g1mv5"]
 
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nai/Assasin Character Icon.png" id="1_iub3d"]
+[ext_resource type="Script" path="res://Character Selection Resources/Character Selection Menu.gd" id="1_jgc7u"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Pyrus/General Pyrus Character Icon.png" id="2_0xh5y"]
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/ground_monk.png" id="3_jmpsx"]
 [ext_resource type="Texture2D" uid="uid://dpa5754pfc4ay" path="res://Character Resouces/Hunter/Huntress Character Icon.png" id="4_ofjyk"]
@@ -1018,7 +1019,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Control" type="Control"]
+[node name="Charaxcter Selection Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1027,6 +1028,7 @@ offset_top = 7.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jgc7u")
 metadata/_edit_vertical_guides_ = [-155.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -1037,13 +1039,14 @@ offset_top = -15.0
 offset_bottom = -11.8
 color = Color(0.0431373, 0.0431373, 0.0431373, 0.313726)
 
-[node name="Button" type="Button" parent="."]
+[node name="Character Bio" type="Button" parent="."]
 layout_mode = 0
 offset_left = 496.0
 offset_top = -7.0
 offset_right = 688.0
 offset_bottom = 57.0
-text = "Start Game"
+text = "Character Bio
+"
 
 [node name="Player 1 Selection" type="GridContainer" parent="."]
 layout_mode = 0
@@ -1256,23 +1259,21 @@ debug_color = Color(1, 0, 0, 1)
 
 [node name="Player 1 General Pyrus" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(520, 205)
+position = Vector2(350, 205)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_n1ibh")
 animation = &"Ready"
 
 [node name="Player 1 Goku" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(520, 180)
+position = Vector2(350, 185)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_iwkx3")
 animation = &"Ready"
-frame = 2
-frame_progress = 0.0619274
 
 [node name="Player 1 Hunter" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(520, 205)
+position = Vector2(350, 205)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_y5eif")
 animation = &"Ready"
@@ -1280,14 +1281,14 @@ frame_progress = 0.547995
 
 [node name="Player 1 Nomad" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(512, 160)
+position = Vector2(350, 160)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_wnyyd")
 animation = &"Ready"
 
 [node name="Player 1 Atlantis" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(520, 161)
+position = Vector2(350, 161)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_ru1qk")
 animation = &"Ready"
@@ -1295,51 +1296,54 @@ frame_progress = 0.0753533
 
 [node name="Player 1 Nai" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(520, 165)
+position = Vector2(350, 175)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_ex0lh")
 animation = &"Idle"
 
 [node name="Player 2 General Pyrus" type="AnimatedSprite2D" parent="."]
-position = Vector2(752, 205)
-scale = Vector2(-2, 2)
+visible = false
+position = Vector2(850, 205)
+scale = Vector2(-3, 3)
 sprite_frames = SubResource("SpriteFrames_etnd1")
 animation = &"Ready"
 
 [node name="Player 2 Goku" type="AnimatedSprite2D" parent="."]
-position = Vector2(752, 185)
-scale = Vector2(-2, 2)
+visible = false
+position = Vector2(850, 185)
+scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_ddid1")
-animation = &"Idle"
-frame_progress = 0.0641004
+animation = &"Ready"
 
 [node name="Player 2 Hunter" type="AnimatedSprite2D" parent="."]
-position = Vector2(752, 205)
-scale = Vector2(-2, 2)
+visible = false
+position = Vector2(850, 205)
+scale = Vector2(-3, 3)
 sprite_frames = SubResource("SpriteFrames_fb631")
 animation = &"Ready"
 
 [node name="Player 2 Nomad" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(744, 161)
-scale = Vector2(-2, 3)
+position = Vector2(850, 160)
+scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_f2ec0")
 animation = &"Ready"
 
 [node name="Player 2 Atlantis" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(752, 161)
-scale = Vector2(-2, 3)
+position = Vector2(850, 161)
+scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_5lvnx")
 animation = &"Ready"
 
 [node name="Player 2 Nai" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(752, 205)
-scale = Vector2(-2, 2)
+position = Vector2(850, 175)
+scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_1cmhf")
-animation = &"Ready"
+animation = &"Idle"
 
+[connection signal="pressed" from="Character Bio" to="." method="_on_character_bio_pressed"]
 [connection signal="area_entered" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]
 [connection signal="area_exited" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_exited"]
 [connection signal="area_entered" from="Player 1 Goku Select" to="Player 1 Cursor" method="_on_player_1_goku_select_area_entered"]

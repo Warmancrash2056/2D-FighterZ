@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c808wmvm1k32l"]
+[gd_scene load_steps=4 format=3 uid="uid://c808wmvm1k32l"]
 
 [ext_resource type="PackedScene" uid="uid://eldi7h8e1cim" path="res://Character Resouces/Hunter/Player 1 Hunter.tscn" id="1_nhptu"]
-[ext_resource type="PackedScene" uid="uid://blj612hp1omni" path="res://Character Resouces/Hunter/Player 2 Hunter.tscn" id="2_yo5rt"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="3_0bxyq"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -60,7 +58,3 @@ zoom = Vector2(3, 3)
 
 [node name="Hunter" parent="." instance=ExtResource("1_nhptu")]
 position = Vector2(168, 312)
-
-[node name="Hunter2" parent="." instance=ExtResource("2_yo5rt")]
-position = Vector2(240, 296)
-controls = ExtResource("3_0bxyq")

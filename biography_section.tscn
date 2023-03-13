@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0686rlo0soo6"]
+
+[ext_resource type="Script" path="res://biography_section.gd" id="1_fa46v"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fa46v")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Return to Character Selection"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

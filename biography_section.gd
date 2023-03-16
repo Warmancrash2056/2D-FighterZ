@@ -1,5 +1,12 @@
 extends Control
 
+#Biography Section 
+@onready var AboutMe = $"About Me"
+@onready var Biography = $Biography
+
+# Chaeracter Animation
+@onready var GeneralArchfieldAnimation = $gen
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	AboutMe.set_text(str("Text Set"))
 
 
 func _on_button_pressed():

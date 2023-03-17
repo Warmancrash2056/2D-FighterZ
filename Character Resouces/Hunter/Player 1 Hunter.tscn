@@ -1,28 +1,28 @@
-[gd_scene load_steps=44 format=3 uid="uid://eldi7h8e1cim"]
+[gd_scene load_steps=44 format=3 uid="uid://cnw73oub0c2jp"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Hunter Script.gd" id="1_mbix3"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_bcqpl"]
 [ext_resource type="Texture2D" uid="uid://csn8bf6hfirik" path="res://Character Resouces/Hunter/Huntress SpriteSheet.png" id="3_m6epm"]
-[ext_resource type="Texture2D" uid="uid://cek5bcrw4ug5q" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/diagonal_arrow/diagonal_arrow_.png" id="4_k05pt"]
-[ext_resource type="Texture2D" uid="uid://cxnj3bax3fsjs" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_1.png" id="5_iatdx"]
-[ext_resource type="Texture2D" uid="uid://bbjdg023asjqw" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_2.png" id="6_5562s"]
-[ext_resource type="Texture2D" uid="uid://cigep8o8ffvae" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_3.png" id="7_4oyn8"]
-[ext_resource type="Texture2D" uid="uid://nsunqesuehyb" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_4.png" id="8_0v2hx"]
-[ext_resource type="Texture2D" uid="uid://ct2ig0ip76ufh" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_5.png" id="9_niy6r"]
-[ext_resource type="Texture2D" uid="uid://d02yf02i26fkq" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_6.png" id="10_qj5tk"]
-[ext_resource type="Texture2D" uid="uid://mfdwj0kuxcbf" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_7.png" id="11_sajt7"]
-[ext_resource type="Texture2D" uid="uid://c5i8obsiafpdf" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_8.png" id="12_bbc50"]
-[ext_resource type="Texture2D" uid="uid://mvsqu1e3706j" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_9.png" id="13_lvpws"]
-[ext_resource type="Texture2D" uid="uid://c6044olp1ne36" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_10.png" id="14_t37mn"]
-[ext_resource type="Texture2D" uid="uid://dee25s22sull6" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_11.png" id="15_42h6d"]
-[ext_resource type="Texture2D" uid="uid://cbsfrxc3cy744" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_12.png" id="16_mi2kf"]
-[ext_resource type="Texture2D" uid="uid://2pcmy7ucghw" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_13.png" id="17_4j3hi"]
-[ext_resource type="Texture2D" uid="uid://d0en3uwhleknq" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_14.png" id="18_26w4d"]
-[ext_resource type="Texture2D" uid="uid://baynpktvoolew" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_15.png" id="19_p8whl"]
-[ext_resource type="Texture2D" uid="uid://cd3cla3ets7ll" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_16.png" id="20_0c4qc"]
-[ext_resource type="Texture2D" uid="uid://d0o4t0d5s2fld" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_17.png" id="21_4yx5p"]
-[ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_18.png" id="22_nla4x"]
-[ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Hunter/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/projectiles_and_effects/arrow/arrow_.png" id="23_pr4ns"]
+[ext_resource type="Texture2D" uid="uid://cek5bcrw4ug5q" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/diagonal_arrow/diagonal_arrow_.png" id="4_nk8eg"]
+[ext_resource type="Texture2D" uid="uid://cxnj3bax3fsjs" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_1.png" id="5_au082"]
+[ext_resource type="Texture2D" uid="uid://bbjdg023asjqw" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_2.png" id="6_ghccl"]
+[ext_resource type="Texture2D" uid="uid://cigep8o8ffvae" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_3.png" id="7_q2lbw"]
+[ext_resource type="Texture2D" uid="uid://nsunqesuehyb" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_4.png" id="8_b6f6t"]
+[ext_resource type="Texture2D" uid="uid://ct2ig0ip76ufh" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_5.png" id="9_k0yaa"]
+[ext_resource type="Texture2D" uid="uid://d02yf02i26fkq" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_6.png" id="10_8bnie"]
+[ext_resource type="Texture2D" uid="uid://mfdwj0kuxcbf" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_7.png" id="11_v1saw"]
+[ext_resource type="Texture2D" uid="uid://c5i8obsiafpdf" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_8.png" id="12_citai"]
+[ext_resource type="Texture2D" uid="uid://mvsqu1e3706j" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_9.png" id="13_803qh"]
+[ext_resource type="Texture2D" uid="uid://c6044olp1ne36" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_10.png" id="14_ktohq"]
+[ext_resource type="Texture2D" uid="uid://dee25s22sull6" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_11.png" id="15_3dhmi"]
+[ext_resource type="Texture2D" uid="uid://cbsfrxc3cy744" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_12.png" id="16_ldl6o"]
+[ext_resource type="Texture2D" uid="uid://2pcmy7ucghw" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_13.png" id="17_1ne8d"]
+[ext_resource type="Texture2D" uid="uid://d0en3uwhleknq" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_14.png" id="18_xp1vb"]
+[ext_resource type="Texture2D" uid="uid://baynpktvoolew" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_15.png" id="19_ck4me"]
+[ext_resource type="Texture2D" uid="uid://cd3cla3ets7ll" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_16.png" id="20_symho"]
+[ext_resource type="Texture2D" uid="uid://d0o4t0d5s2fld" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_17.png" id="21_wkhb0"]
+[ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_18.png" id="22_ot3a6"]
+[ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Hunter/PNG/projectiles_and_effects/arrow/arrow_.png" id="23_e6gpe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6n3xk"]
 
@@ -33,58 +33,58 @@ radius = 6.08276
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_iatdx")
+"texture": ExtResource("5_au082")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_5562s")
+"texture": ExtResource("6_ghccl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_4oyn8")
+"texture": ExtResource("7_q2lbw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_0v2hx")
+"texture": ExtResource("8_b6f6t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_niy6r")
+"texture": ExtResource("9_k0yaa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_qj5tk")
+"texture": ExtResource("10_8bnie")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_sajt7")
+"texture": ExtResource("11_v1saw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_bbc50")
+"texture": ExtResource("12_citai")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_lvpws")
+"texture": ExtResource("13_803qh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_t37mn")
+"texture": ExtResource("14_ktohq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_42h6d")
+"texture": ExtResource("15_3dhmi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_mi2kf")
+"texture": ExtResource("16_ldl6o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_4j3hi")
+"texture": ExtResource("17_1ne8d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_26w4d")
+"texture": ExtResource("18_xp1vb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_p8whl")
+"texture": ExtResource("19_ck4me")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_0c4qc")
+"texture": ExtResource("20_symho")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_4yx5p")
+"texture": ExtResource("21_wkhb0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_nla4x")
+"texture": ExtResource("22_ot3a6")
 }],
 "loop": true,
 "name": &"Shower",
@@ -621,7 +621,7 @@ vframes = 12
 [node name="Nuetral Air Arrow" type="Sprite2D" parent="Scale Player"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(32, 16)
-texture = ExtResource("4_k05pt")
+texture = ExtResource("4_nk8eg")
 
 [node name="Area2D" type="Area2D" parent="Scale Player/Nuetral Air Arrow"]
 position = Vector2(-27.4846, -12.0654)
@@ -640,7 +640,7 @@ animation = &"Shower"
 [node name="Side Light Arrow" type="Sprite2D" parent="Scale Player"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(45, -12)
-texture = ExtResource("23_pr4ns")
+texture = ExtResource("23_e6gpe")
 
 [node name="Area2D" type="Area2D" parent="Scale Player/Side Light Arrow"]
 position = Vector2(-45, 12)

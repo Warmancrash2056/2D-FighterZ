@@ -5,7 +5,14 @@ extends Control
 @onready var Biography = $Biography
 
 # Chaeracter Animation
-@onready var GeneralArchfieldAnimation = $gen
+@onready var GeneralArchfieldAnimation = $"General Archfield"
+@onready var NiaAnimation = $"Nia Animation"
+@onready var GokuAnimation = $"Goku Animation"
+@onready var HunterAnimation = $"Hunter Animation"
+@onready var NomadAnimation = $"Nomad Animation"
+@onready var AtlantisAnimation = $"Princess Atlantis Animation"
+
+
 
 
 # Called when the node enters the scene tree for the first time.

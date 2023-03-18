@@ -1,4 +1,4 @@
-[gd_scene load_steps=249 format=3 uid="uid://dcorrinswlrpq"]
+[gd_scene load_steps=409 format=3 uid="uid://dcorrinswlrpq"]
 
 [ext_resource type="Script" path="res://biography_section.gd" id="1_fa46v"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Archfield/General Pyrus Character Icon.png" id="2_tpxdi"]
@@ -242,6 +242,166 @@
 [ext_resource type="Texture2D" uid="uid://cp8wqvobueo0v" path="res://Character Resouces/Nai/Single Aniamtions/air_atk/air_atk6.png" id="240_fylfr"]
 [ext_resource type="Texture2D" uid="uid://dkaal0kkfx5s3" path="res://Character Resouces/Nai/Single Aniamtions/air_atk/air_atk7.png" id="241_k8dg1"]
 [ext_resource type="Texture2D" uid="uid://dtr2vq1uyfqu4" path="res://Character Resouces/Nai/Single Aniamtions/air_atk/air_atk8.png" id="242_5tmg2"]
+[ext_resource type="Texture2D" uid="uid://bq3vaj740dyqi" path="res://Character Resouces/Nomad/3_atk/3_atk_12.png" id="243_kqyrv"]
+[ext_resource type="Texture2D" uid="uid://cad4dijqi283" path="res://Character Resouces/Nomad/3_atk/3_atk_13.png" id="244_q7wvi"]
+[ext_resource type="Texture2D" uid="uid://biv77a34kdw0u" path="res://Character Resouces/Nomad/3_atk/3_atk_14.png" id="245_rvrbh"]
+[ext_resource type="Texture2D" uid="uid://oo4f4tllucl5" path="res://Character Resouces/Nomad/3_atk/3_atk_15.png" id="246_lutuc"]
+[ext_resource type="Texture2D" uid="uid://dog18sd8y8pj5" path="res://Character Resouces/Nomad/3_atk/3_atk_16.png" id="247_ajmth"]
+[ext_resource type="Texture2D" uid="uid://m74uhrqtxm46" path="res://Character Resouces/Nomad/3_atk/3_atk_17.png" id="248_t22ul"]
+[ext_resource type="Texture2D" uid="uid://55knceg45wtj" path="res://Character Resouces/Nomad/3_atk/3_atk_18.png" id="249_ihecy"]
+[ext_resource type="Texture2D" uid="uid://36m7wma87hrg" path="res://Character Resouces/Nomad/3_atk/3_atk_19.png" id="250_uf35w"]
+[ext_resource type="Texture2D" uid="uid://hcdpofkjsb5s" path="res://Character Resouces/Nomad/3_atk/3_atk_20.png" id="251_4ndi2"]
+[ext_resource type="Texture2D" uid="uid://okm1m7n2d3lj" path="res://Character Resouces/Nomad/3_atk/3_atk_21.png" id="252_3kovy"]
+[ext_resource type="Texture2D" uid="uid://cpdxawdvm1yuw" path="res://Character Resouces/Nomad/3_atk/3_atk_22.png" id="253_sdgh0"]
+[ext_resource type="Texture2D" uid="uid://b751n6l80t2dx" path="res://Character Resouces/Nomad/3_atk/3_atk_23.png" id="254_xyivs"]
+[ext_resource type="Texture2D" uid="uid://be1listtb4eoq" path="res://Character Resouces/Nomad/3_atk/3_atk_24.png" id="255_apv3g"]
+[ext_resource type="Texture2D" uid="uid://cnjhx46xp55y0" path="res://Character Resouces/Nomad/3_atk/3_atk_25.png" id="256_dr375"]
+[ext_resource type="Texture2D" uid="uid://cht15kixl26af" path="res://Character Resouces/Nomad/3_atk/3_atk_26.png" id="257_nt2ru"]
+[ext_resource type="Texture2D" uid="uid://d1pmojx4o8rxq" path="res://Character Resouces/Nomad/idle/idle_1.png" id="258_x5qw4"]
+[ext_resource type="Texture2D" uid="uid://bta2hqbooqxf8" path="res://Character Resouces/Nomad/idle/idle_2.png" id="259_3g5g3"]
+[ext_resource type="Texture2D" uid="uid://bq6aknfa5p0pg" path="res://Character Resouces/Nomad/idle/idle_3.png" id="260_62qxd"]
+[ext_resource type="Texture2D" uid="uid://bdoiwl1kssffm" path="res://Character Resouces/Nomad/idle/idle_4.png" id="261_6wbp3"]
+[ext_resource type="Texture2D" uid="uid://dpioa0relwcxi" path="res://Character Resouces/Nomad/idle/idle_5.png" id="262_h35xi"]
+[ext_resource type="Texture2D" uid="uid://3j6ikcqp6pu6" path="res://Character Resouces/Nomad/idle/idle_6.png" id="263_ruim0"]
+[ext_resource type="Texture2D" uid="uid://c34w08clfp1hr" path="res://Character Resouces/Nomad/idle/idle_7.png" id="264_irurv"]
+[ext_resource type="Texture2D" uid="uid://cv64u2i8s3mix" path="res://Character Resouces/Nomad/idle/idle_8.png" id="265_xovpa"]
+[ext_resource type="Texture2D" uid="uid://bsubgxkl74tu1" path="res://Character Resouces/Nomad/j_up/j_up_1.png" id="266_hvfqu"]
+[ext_resource type="Texture2D" uid="uid://hx7nhtp6nfv2" path="res://Character Resouces/Nomad/air_atk/air_atk_1.png" id="267_gnyuf"]
+[ext_resource type="Texture2D" uid="uid://glb87608mx6w" path="res://Character Resouces/Nomad/air_atk/air_atk_2.png" id="268_kr28f"]
+[ext_resource type="Texture2D" uid="uid://babcvwtbg2djd" path="res://Character Resouces/Nomad/air_atk/air_atk_3.png" id="269_w530u"]
+[ext_resource type="Texture2D" uid="uid://dxw6mqfliouar" path="res://Character Resouces/Nomad/air_atk/air_atk_4.png" id="270_n75k8"]
+[ext_resource type="Texture2D" uid="uid://b5big87yg7wbh" path="res://Character Resouces/Nomad/air_atk/air_atk_5.png" id="271_2104l"]
+[ext_resource type="Texture2D" uid="uid://cnit2a51fr5n7" path="res://Character Resouces/Nomad/air_atk/air_atk_6.png" id="272_j88sf"]
+[ext_resource type="Texture2D" uid="uid://dxyrygpy4sq0t" path="res://Character Resouces/Nomad/air_atk/air_atk_7.png" id="273_7bwut"]
+[ext_resource type="Texture2D" uid="uid://dtmm42l3pc4bg" path="res://Character Resouces/Nomad/1_atk/1_atk_1.png" id="274_43r14"]
+[ext_resource type="Texture2D" uid="uid://din1fpg37hyyg" path="res://Character Resouces/Nomad/1_atk/1_atk_2.png" id="275_aw2ns"]
+[ext_resource type="Texture2D" uid="uid://dls5odchofm0g" path="res://Character Resouces/Nomad/1_atk/1_atk_3.png" id="276_021jf"]
+[ext_resource type="Texture2D" uid="uid://cv4la0tgwj785" path="res://Character Resouces/Nomad/1_atk/1_atk_4.png" id="277_2whwu"]
+[ext_resource type="Texture2D" uid="uid://myin5xtwhrfp" path="res://Character Resouces/Nomad/1_atk/1_atk_5.png" id="278_1xw8h"]
+[ext_resource type="Texture2D" uid="uid://3ytfadm02v1d" path="res://Character Resouces/Nomad/1_atk/1_atk_6.png" id="279_k5v8m"]
+[ext_resource type="Texture2D" uid="uid://c4uqyb8u2jj12" path="res://Character Resouces/Nomad/1_atk/1_atk_7.png" id="280_xm8ut"]
+[ext_resource type="Texture2D" uid="uid://du56cddsmb0dt" path="res://Character Resouces/Nomad/1_atk/1_atk_8.png" id="281_33s2w"]
+[ext_resource type="Texture2D" uid="uid://dts4espj5vdun" path="res://Character Resouces/Nomad/2_atk/2_atk_11.png" id="282_neqvd"]
+[ext_resource type="Texture2D" uid="uid://bxfmg6h0ywep6" path="res://Character Resouces/Nomad/2_atk/2_atk_12.png" id="283_4a1hs"]
+[ext_resource type="Texture2D" uid="uid://d06eie41wguij" path="res://Character Resouces/Nomad/2_atk/2_atk_13.png" id="284_ollch"]
+[ext_resource type="Texture2D" uid="uid://d4bce2qwu74vw" path="res://Character Resouces/Nomad/2_atk/2_atk_14.png" id="285_vm2fk"]
+[ext_resource type="Texture2D" uid="uid://drpbx6vgqy0vg" path="res://Character Resouces/Nomad/2_atk/2_atk_15.png" id="286_qm7wp"]
+[ext_resource type="Texture2D" uid="uid://bd82oye178yh5" path="res://Character Resouces/Nomad/2_atk/2_atk_16.png" id="287_jp72w"]
+[ext_resource type="Texture2D" uid="uid://c0avwu4hk7u1l" path="res://Character Resouces/Nomad/2_atk/2_atk_17.png" id="288_laa0u"]
+[ext_resource type="Texture2D" uid="uid://evfmq8seyeku" path="res://Character Resouces/Nomad/2_atk/2_atk_18.png" id="289_8qbs5"]
+[ext_resource type="Texture2D" uid="uid://b502e4espbtmw" path="res://Character Resouces/Nomad/sp_atk/sp_atk_1.png" id="290_g355l"]
+[ext_resource type="Texture2D" uid="uid://dlnok2r7u4yon" path="res://Character Resouces/Nomad/sp_atk/sp_atk_2.png" id="291_0rkcl"]
+[ext_resource type="Texture2D" uid="uid://u7u6qk8t68cb" path="res://Character Resouces/Nomad/sp_atk/sp_atk_3.png" id="292_83rlf"]
+[ext_resource type="Texture2D" uid="uid://sndsy2buk0xx" path="res://Character Resouces/Nomad/sp_atk/sp_atk_4.png" id="293_wrvx7"]
+[ext_resource type="Texture2D" uid="uid://gepohvjdpw5h" path="res://Character Resouces/Nomad/sp_atk/sp_atk_5.png" id="294_8mfjb"]
+[ext_resource type="Texture2D" uid="uid://blsn3nf3e71hg" path="res://Character Resouces/Nomad/sp_atk/sp_atk_6.png" id="295_ga5gc"]
+[ext_resource type="Texture2D" uid="uid://c1j7exi8lhbsj" path="res://Character Resouces/Nomad/sp_atk/sp_atk_7.png" id="296_08nu8"]
+[ext_resource type="Texture2D" uid="uid://cpvvuix4rmcmh" path="res://Character Resouces/Nomad/sp_atk/sp_atk_8.png" id="297_ewhcg"]
+[ext_resource type="Texture2D" uid="uid://cu78ohu8u2cx7" path="res://Character Resouces/Nomad/sp_atk/sp_atk_9.png" id="298_ep0dk"]
+[ext_resource type="Texture2D" uid="uid://dnxpgckjlah8k" path="res://Character Resouces/Nomad/sp_atk/sp_atk_10.png" id="299_77ico"]
+[ext_resource type="Texture2D" uid="uid://doiw6tekx6ev4" path="res://Character Resouces/Nomad/sp_atk/sp_atk_11.png" id="300_cmv2m"]
+[ext_resource type="Texture2D" uid="uid://bncl128lage0o" path="res://Character Resouces/Nomad/sp_atk/sp_atk_12.png" id="301_5yo78"]
+[ext_resource type="Texture2D" uid="uid://ddsv04eh24eyt" path="res://Character Resouces/Nomad/sp_atk/sp_atk_13.png" id="302_81ukj"]
+[ext_resource type="Texture2D" uid="uid://cbxa2k35ybc10" path="res://Character Resouces/Nomad/sp_atk/sp_atk_14.png" id="303_iga7w"]
+[ext_resource type="Texture2D" uid="uid://drs7wj3ovu0tk" path="res://Character Resouces/Nomad/sp_atk/sp_atk_15.png" id="304_34ub8"]
+[ext_resource type="Texture2D" uid="uid://dve6eevwnui6a" path="res://Character Resouces/Nomad/sp_atk/sp_atk_16.png" id="305_18qsi"]
+[ext_resource type="Texture2D" uid="uid://b1m66v7ql1fmo" path="res://Character Resouces/Nomad/sp_atk/sp_atk_17.png" id="306_rk6fx"]
+[ext_resource type="Texture2D" uid="uid://b2y8ucr0tndco" path="res://Character Resouces/Nomad/sp_atk/sp_atk_18.png" id="307_3aopx"]
+[ext_resource type="Texture2D" uid="uid://bmh02iqgt45m6" path="res://Character Resouces/Nomad/sp_atk/sp_atk_19.png" id="308_uhjte"]
+[ext_resource type="Texture2D" uid="uid://dw5e0i3cgsx17" path="res://Character Resouces/Nomad/sp_atk/sp_atk_20.png" id="309_tgv87"]
+[ext_resource type="Texture2D" uid="uid://0u015xgiyh34" path="res://Character Resouces/Nomad/sp_atk/sp_atk_21.png" id="310_w7yj1"]
+[ext_resource type="Texture2D" uid="uid://crj3rdgy4ihrs" path="res://Character Resouces/Nomad/sp_atk/sp_atk_22.png" id="311_3bdwb"]
+[ext_resource type="Texture2D" uid="uid://0i61oc7bf68o" path="res://Character Resouces/Nomad/sp_atk/sp_atk_23.png" id="312_7vaqo"]
+[ext_resource type="Texture2D" uid="uid://lfy1tfgksg1w" path="res://Character Resouces/Nomad/sp_atk/sp_atk_24.png" id="313_76g42"]
+[ext_resource type="Texture2D" uid="uid://c4egb27bhuid3" path="res://Character Resouces/Nomad/sp_atk/sp_atk_25.png" id="314_parom"]
+[ext_resource type="Texture2D" uid="uid://bxg7pljj5bl5p" path="res://Character Resouces/Nomad/sp_atk/sp_atk_26.png" id="315_v52k5"]
+[ext_resource type="Texture2D" uid="uid://bd126mugo5rq3" path="res://Character Resouces/Nomad/sp_atk/sp_atk_27.png" id="316_y4etu"]
+[ext_resource type="Texture2D" uid="uid://b1uw17kxgqyei" path="res://Character Resouces/Nomad/sp_atk/sp_atk_28.png" id="317_asl0m"]
+[ext_resource type="Texture2D" uid="uid://du40jh0lvflj8" path="res://Character Resouces/Nomad/sp_atk/sp_atk_29.png" id="318_apfos"]
+[ext_resource type="Texture2D" uid="uid://bwfpo24y3lgor" path="res://Character Resouces/Nomad/sp_atk/sp_atk_30.png" id="319_lu4lm"]
+[ext_resource type="Texture2D" uid="uid://dj6yx0go2udl0" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_17.png" id="320_k2mci"]
+[ext_resource type="Texture2D" uid="uid://cca1ip8w8jquy" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_18.png" id="321_6g5i2"]
+[ext_resource type="Texture2D" uid="uid://dphgbnayvkrfh" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_19.png" id="322_y7gt1"]
+[ext_resource type="Texture2D" uid="uid://bguw1h5e4kgw6" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_20.png" id="323_2lve6"]
+[ext_resource type="Texture2D" uid="uid://b4cvh3ghqs2k1" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_21.png" id="324_6brbi"]
+[ext_resource type="Texture2D" uid="uid://cu2nvdpeg05qc" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_22.png" id="325_nq2ou"]
+[ext_resource type="Texture2D" uid="uid://chyxmw1e7hh44" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_23.png" id="326_pal8y"]
+[ext_resource type="Texture2D" uid="uid://bhw3cgh6crrsn" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_24.png" id="327_ga047"]
+[ext_resource type="Texture2D" uid="uid://dujeijvxu8aar" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_25.png" id="328_ob3au"]
+[ext_resource type="Texture2D" uid="uid://c622nh2scwrd0" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_26.png" id="329_hn1mt"]
+[ext_resource type="Texture2D" uid="uid://ku3h8rrn7ekn" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/09_3_atk/3_atk_27.png" id="330_mqbvw"]
+[ext_resource type="Texture2D" uid="uid://bxc5ays304wd4" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/01_idle/idle_1.png" id="331_bon44"]
+[ext_resource type="Texture2D" uid="uid://c78h4utc1sb8y" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/01_idle/idle_2.png" id="332_oc3qm"]
+[ext_resource type="Texture2D" uid="uid://bc6noh8ar44dv" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/01_idle/idle_3.png" id="333_mb5o6"]
+[ext_resource type="Texture2D" uid="uid://bfe8re6o3jp85" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/01_idle/idle_4.png" id="334_nxt0c"]
+[ext_resource type="Texture2D" uid="uid://dml1tofqjjijw" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/01_idle/idle_5.png" id="335_jwklt"]
+[ext_resource type="Texture2D" uid="uid://dr112vevganxo" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/01_idle/idle_6.png" id="336_jx661"]
+[ext_resource type="Texture2D" uid="uid://ch0sei0rvxfkg" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/01_idle/idle_7.png" id="337_4thly"]
+[ext_resource type="Texture2D" uid="uid://dauumo6tddbva" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/01_idle/idle_8.png" id="338_c73y6"]
+[ext_resource type="Texture2D" uid="uid://d4fwo02kqp64w" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/air_atk/air_atk_1.png" id="339_vt4x3"]
+[ext_resource type="Texture2D" uid="uid://bijco1a20tcdb" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/air_atk/air_atk_2.png" id="340_74jy6"]
+[ext_resource type="Texture2D" uid="uid://60vf8228lhef" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/air_atk/air_atk_3.png" id="341_c6f6n"]
+[ext_resource type="Texture2D" uid="uid://bm615tqdem7om" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/air_atk/air_atk_4.png" id="342_ewk51"]
+[ext_resource type="Texture2D" uid="uid://b72i8hp48hjeo" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/air_atk/air_atk_5.png" id="343_jpdh4"]
+[ext_resource type="Texture2D" uid="uid://e5owft8v60lt" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/air_atk/air_atk_6.png" id="344_x45ep"]
+[ext_resource type="Texture2D" uid="uid://dl5scemhnsevy" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/air_atk/air_atk_7.png" id="345_h82k6"]
+[ext_resource type="Texture2D" uid="uid://dvp7ea0e3if12" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/air_atk/air_atk_8.png" id="346_614tg"]
+[ext_resource type="Texture2D" uid="uid://bjfb0vrifrmrk" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/07_1_atk/1_atk_1.png" id="347_1kx85"]
+[ext_resource type="Texture2D" uid="uid://dj4u87wvj23gs" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/07_1_atk/1_atk_2.png" id="348_13uk8"]
+[ext_resource type="Texture2D" uid="uid://boeup2rv0c5h6" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/07_1_atk/1_atk_3.png" id="349_j1kcc"]
+[ext_resource type="Texture2D" uid="uid://bm2r2edcvd65f" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/07_1_atk/1_atk_4.png" id="350_o25pl"]
+[ext_resource type="Texture2D" uid="uid://c7sxqw6pxqako" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/07_1_atk/1_atk_5.png" id="351_gber5"]
+[ext_resource type="Texture2D" uid="uid://b2m0j1xlmhx1m" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/07_1_atk/1_atk_6.png" id="352_ig0g1"]
+[ext_resource type="Texture2D" uid="uid://btwbv4agdw6sb" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/07_1_atk/1_atk_7.png" id="353_0jq8o"]
+[ext_resource type="Texture2D" uid="uid://ph0rsiqjec8k" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_5.png" id="354_ltqx1"]
+[ext_resource type="Texture2D" uid="uid://bnluia1ypcpyj" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_6.png" id="355_ihxbv"]
+[ext_resource type="Texture2D" uid="uid://dodcat4hfow5g" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_7.png" id="356_unwi8"]
+[ext_resource type="Texture2D" uid="uid://b0j7vrl6ui6in" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_8.png" id="357_mxhq7"]
+[ext_resource type="Texture2D" uid="uid://bytsosqckwlso" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_9.png" id="358_fh30p"]
+[ext_resource type="Texture2D" uid="uid://cnmiwaspy0i0j" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_10.png" id="359_ynb04"]
+[ext_resource type="Texture2D" uid="uid://dqt8lldfnphvv" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_11.png" id="360_u5ive"]
+[ext_resource type="Texture2D" uid="uid://orqygkexpmmf" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_12.png" id="361_vwsmu"]
+[ext_resource type="Texture2D" uid="uid://5qfuejg7x6wf" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_13.png" id="362_31a21"]
+[ext_resource type="Texture2D" uid="uid://d3ynguo6426y1" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_14.png" id="363_a42mi"]
+[ext_resource type="Texture2D" uid="uid://2chea3ymwvry" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_15.png" id="364_v3umd"]
+[ext_resource type="Texture2D" uid="uid://ckrwt4hbgyuj5" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_16.png" id="365_ii3us"]
+[ext_resource type="Texture2D" uid="uid://oq7e35kbh386" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_17.png" id="366_ag8pg"]
+[ext_resource type="Texture2D" uid="uid://fl7r0s08s787" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_18.png" id="367_0ex2r"]
+[ext_resource type="Texture2D" uid="uid://cx3chrupl5gg2" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_19.png" id="368_pxkbo"]
+[ext_resource type="Texture2D" uid="uid://c4mb34c1gh7le" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_20.png" id="369_rwrm1"]
+[ext_resource type="Texture2D" uid="uid://dqbl8vp38fwbc" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/08_2_atk/2_atk_21.png" id="370_ljjff"]
+[ext_resource type="Texture2D" uid="uid://bx0e8a3xrsmpv" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_1.png" id="371_rfjl3"]
+[ext_resource type="Texture2D" uid="uid://dywly21iiahgd" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_2.png" id="372_es7rt"]
+[ext_resource type="Texture2D" uid="uid://focf1m55r42x" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_3.png" id="373_lnrkk"]
+[ext_resource type="Texture2D" uid="uid://bq4nrt3bnlwqr" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_4.png" id="374_ogh2e"]
+[ext_resource type="Texture2D" uid="uid://cewd4blarey15" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_5.png" id="375_jofpb"]
+[ext_resource type="Texture2D" uid="uid://c0u574hlyuxbb" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_6.png" id="376_5d52u"]
+[ext_resource type="Texture2D" uid="uid://dtxvavbkbugoq" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_7.png" id="377_5ihf3"]
+[ext_resource type="Texture2D" uid="uid://br6j6pvg76lqv" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_8.png" id="378_tuuhp"]
+[ext_resource type="Texture2D" uid="uid://c1ha12p0w3dt7" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_9.png" id="379_iphdd"]
+[ext_resource type="Texture2D" uid="uid://b8sexu1mq3yhu" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_10.png" id="380_cy1bm"]
+[ext_resource type="Texture2D" uid="uid://cvnkac6t62kgp" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_11.png" id="381_4iyun"]
+[ext_resource type="Texture2D" uid="uid://4pooqpxca8ji" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_12.png" id="382_gtsns"]
+[ext_resource type="Texture2D" uid="uid://bwci1jjscrbni" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_13.png" id="383_2dgww"]
+[ext_resource type="Texture2D" uid="uid://bctj3il0vmerw" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_14.png" id="384_rnqul"]
+[ext_resource type="Texture2D" uid="uid://drad1gm6asw1w" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_15.png" id="385_p11sq"]
+[ext_resource type="Texture2D" uid="uid://d2i3vxg2di62e" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_16.png" id="386_bnmug"]
+[ext_resource type="Texture2D" uid="uid://buqjobbxss7p2" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_17.png" id="387_8chkf"]
+[ext_resource type="Texture2D" uid="uid://dkyraxp3e02lb" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_18.png" id="388_loqpx"]
+[ext_resource type="Texture2D" uid="uid://cccxe62bwcme8" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_19.png" id="389_k5s2q"]
+[ext_resource type="Texture2D" uid="uid://5u4xi31qw6r8" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_20.png" id="390_jd047"]
+[ext_resource type="Texture2D" uid="uid://bm3yvmj66ekj0" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_21.png" id="391_emx8p"]
+[ext_resource type="Texture2D" uid="uid://derwjecw6ephi" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_22.png" id="392_7iew1"]
+[ext_resource type="Texture2D" uid="uid://c1ca4gqisy8a0" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_23.png" id="393_n7y3j"]
+[ext_resource type="Texture2D" uid="uid://jems6vpwd0j1" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_24.png" id="394_wjfa7"]
+[ext_resource type="Texture2D" uid="uid://3pjvs6a502sb" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_25.png" id="395_f6tf7"]
+[ext_resource type="Texture2D" uid="uid://l3tvjgqfpetm" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_26.png" id="396_7uxc6"]
+[ext_resource type="Texture2D" uid="uid://cjrrs3xdmmmbx" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_27.png" id="397_a1aop"]
+[ext_resource type="Texture2D" uid="uid://bc6sd6rthp6wa" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_28.png" id="398_nv0r0"]
+[ext_resource type="Texture2D" uid="uid://cg32t5aroal4l" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_29.png" id="399_6qcog"]
+[ext_resource type="Texture2D" uid="uid://bvprk72l4o2vd" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_30.png" id="400_e8dhv"]
+[ext_resource type="Texture2D" uid="uid://cfs7caw2chsyu" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_31.png" id="401_viwky"]
+[ext_resource type="Texture2D" uid="uid://db2oh7wrtgxvh" path="res://Character Resouces/Princess Atlantis/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk/sp_atk_32.png" id="402_acetb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5amkk"]
 animations = [{
@@ -1078,8 +1238,553 @@ animations = [{
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_56rl7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("243_kqyrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("244_q7wvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("245_rvrbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("246_lutuc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("247_ajmth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("248_t22ul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("249_ihecy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("250_uf35w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("251_4ndi2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("252_3kovy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("253_sdgh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("254_xyivs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("255_apv3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("256_dr375")
+}, {
+"duration": 1.0,
+"texture": ExtResource("257_nt2ru")
+}],
+"loop": true,
+"name": &"Dlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("258_x5qw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("259_3g5g3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("260_62qxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("261_6wbp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("262_h35xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("263_ruim0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("264_irurv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("265_xovpa")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("266_hvfqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("267_gnyuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("268_kr28f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("269_w530u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("270_n75k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("271_2104l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("272_j88sf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("273_7bwut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("267_gnyuf")
+}],
+"loop": true,
+"name": &"Nair",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("274_43r14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("275_aw2ns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("276_021jf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("277_2whwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("278_1xw8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("279_k5v8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("280_xm8ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("281_33s2w")
+}],
+"loop": true,
+"name": &"Nlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("282_neqvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("283_4a1hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("284_ollch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("285_vm2fk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("286_qm7wp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("287_jp72w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("288_laa0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("289_8qbs5")
+}],
+"loop": true,
+"name": &"Slight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("290_g355l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("291_0rkcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("292_83rlf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("293_wrvx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("294_8mfjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("295_ga5gc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("296_08nu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("297_ewhcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("298_ep0dk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("299_77ico")
+}, {
+"duration": 1.0,
+"texture": ExtResource("300_cmv2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("301_5yo78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("302_81ukj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("303_iga7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("304_34ub8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("305_18qsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("306_rk6fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("307_3aopx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("308_uhjte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("309_tgv87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("310_w7yj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("311_3bdwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("312_7vaqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("313_76g42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("314_parom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("315_v52k5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("316_y4etu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("317_asl0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("318_apfos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("319_lu4lm")
+}],
+"loop": true,
+"name": &"Ulight",
+"speed": 10.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iykdi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("320_k2mci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("321_6g5i2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("322_y7gt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("323_2lve6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("324_6brbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("325_nq2ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("326_pal8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("327_ga047")
+}, {
+"duration": 1.0,
+"texture": ExtResource("328_ob3au")
+}, {
+"duration": 1.0,
+"texture": ExtResource("329_hn1mt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("330_mqbvw")
+}],
+"loop": true,
+"name": &"Dlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("331_bon44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("332_oc3qm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("333_mb5o6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("334_nxt0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("335_jwklt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("336_jx661")
+}, {
+"duration": 1.0,
+"texture": ExtResource("337_4thly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("338_c73y6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("339_vt4x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("340_74jy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("341_c6f6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("342_ewk51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("343_jpdh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("344_x45ep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("345_h82k6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("346_614tg")
+}],
+"loop": true,
+"name": &"Nair",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("347_1kx85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("348_13uk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("349_j1kcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("350_o25pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("351_gber5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("352_ig0g1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("353_0jq8o")
+}],
+"loop": true,
+"name": &"Nlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("354_ltqx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("355_ihxbv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("356_unwi8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("357_mxhq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("358_fh30p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("359_ynb04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("360_u5ive")
+}, {
+"duration": 1.0,
+"texture": ExtResource("361_vwsmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("362_31a21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("363_a42mi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("364_v3umd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("365_ii3us")
+}, {
+"duration": 1.0,
+"texture": ExtResource("366_ag8pg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("367_0ex2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("368_pxkbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("369_rwrm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("370_ljjff")
+}],
+"loop": true,
+"name": &"Slight",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("371_rfjl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("372_es7rt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("373_lnrkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("374_ogh2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("375_jofpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("376_5d52u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("377_5ihf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("378_tuuhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("379_iphdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("380_cy1bm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("381_4iyun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("382_gtsns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("383_2dgww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("384_rnqul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("385_p11sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("386_bnmug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("387_8chkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("388_loqpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("389_k5s2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("390_jd047")
+}, {
+"duration": 1.0,
+"texture": ExtResource("391_emx8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("392_7iew1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("393_n7y3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("394_wjfa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("395_f6tf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("396_7uxc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("397_a1aop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("398_nv0r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("399_6qcog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("400_e8dhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("401_viwky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("402_acetb")
+}],
+"loop": true,
+"name": &"Ulight",
+"speed": 12.0
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -1140,24 +1845,27 @@ texture = ExtResource("6_g2t4o")
 layout_mode = 2
 texture = ExtResource("7_wo4g2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Cursor" type="Sprite2D" parent="."]
 position = Vector2(32, 32)
 scale = Vector2(2.02222, 2.07176)
 texture = ExtResource("8_w0fl1")
 
 [node name="General Archfield" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(576, 320)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_5amkk")
 animation = &"Ulight"
 
 [node name="Goku Animation" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(576, 320)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_3g3k8")
-animation = &"Nair"
+animation = &"Dlight"
 
 [node name="Hunter Animation" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(576, 320)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6s8ut")
@@ -1165,19 +1873,26 @@ animation = &"Ulight"
 frame_progress = 0.967568
 
 [node name="Nia Animation" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(576, 320)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_wtetf")
 animation = &"Nlight"
 
 [node name="Nomad Animation" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(576, 320)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_56rl7")
+animation = &"Nair"
+frame_progress = 0.98057
 
 [node name="Princess Atlantis Animation" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(576, 320)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_iykdi")
+animation = &"Idle"
+frame_progress = 0.455199
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkdeprm0e5fos"]
+[gd_scene load_steps=23 format=3 uid="uid://dkdeprm0e5fos"]
 
 [ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/wind_SpriteSheet_288x128.png" id="1"]
 
@@ -256,6 +256,42 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(20, 7)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scale Player/Side Light Hitbox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scale Player/Area2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scale Player/Area2D/CollisionShape2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-39, -18)]
+}
 
 [sub_resource type="Animation" id="Animation_g84f5"]
 resource_name = "Roll"
@@ -304,6 +340,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [50, 51, 52, 53, 54, 55, 56, 57]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scale Player/Side Light Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_v7m2d"]
 resource_name = "Ulight"
@@ -319,6 +367,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scale Player/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.3, 1.8, 1.9, 2, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scale Player/Area2D/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.2, 1.7, 1.8, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-39, -18), Vector2(-39, -18), Vector2(-37, -2), Vector2(-39, -18)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_118q5"]
@@ -347,6 +419,13 @@ radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_juggh"]
 height = 34.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ny2v3"]
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t6xbm"]
+radius = 22.0
+height = 44.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nk1re"]
 
@@ -385,6 +464,21 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Down Light Hitbox"]
 position = Vector2(20, 7)
 shape = SubResource("CapsuleShape2D_juggh")
+disabled = true
+
+[node name="Side Light Hitbox" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Side Light Hitbox"]
+position = Vector2(41, 1)
+shape = SubResource("CapsuleShape2D_ny2v3")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="Scale Player"]
+position = Vector2(41, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D"]
+position = Vector2(-39, -18)
+shape = SubResource("CapsuleShape2D_t6xbm")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

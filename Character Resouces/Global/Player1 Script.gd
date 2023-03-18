@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 
 @onready var Animate = $"Scale Player/AnimationPlayer"
-@onready var CheckFloor = $"Check Floor"
 
 @export var controls: Resource = null
 

@@ -243,57 +243,57 @@ func _on_animation_player_animation_finished(anim_name):
 		Select = States.Idle
 "
 
-[sub_resource type="CapsuleShape2D" id="15"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
 radius = 3.5
 height = 14.0092
 
-[sub_resource type="CapsuleShape2D" id="19"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2f1ex"]
 radius = 4.0
 height = 34.909
 
-[sub_resource type="CapsuleShape2D" id="29"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3tk3"]
 radius = 7.0
 
-[sub_resource type="CapsuleShape2D" id="30"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l738h"]
 radius = 5.40626
 
-[sub_resource type="CapsuleShape2D" id="16"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kqtbo"]
 radius = 6.0
 height = 20.0
 
-[sub_resource type="CapsuleShape2D" id="17"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ubnx"]
 radius = 0.0
 height = 0.0
 
-[sub_resource type="CapsuleShape2D" id="20"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30458"]
 radius = 6.36395
 height = 65.0538
 
-[sub_resource type="CircleShape2D" id="21"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_rcrkn"]
 radius = 29.1548
 
-[sub_resource type="CapsuleShape2D" id="22"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3tbtq"]
 radius = 8.28525
 
-[sub_resource type="CapsuleShape2D" id="23"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3myke"]
 
-[sub_resource type="CapsuleShape2D" id="24"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_spmem"]
 
-[sub_resource type="CapsuleShape2D" id="25"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nkebd"]
 radius = 5.87954
 height = 14.1105
 
-[sub_resource type="CapsuleShape2D" id="18"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fay1u"]
 height = 20.0
 
-[sub_resource type="CapsuleShape2D" id="26"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_im378"]
 radius = 15.0
 height = 48.0
 
-[sub_resource type="CapsuleShape2D" id="27"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cauyt"]
 radius = 6.0
 
-[sub_resource type="Animation" id="1"]
+[sub_resource type="Animation" id="Animation_2ujqb"]
 resource_name = "Block"
 length = 0.8
 tracks/0/type = "value"
@@ -321,7 +321,7 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="2"]
+[sub_resource type="Animation" id="Animation_g5r5i"]
 resource_name = "Chain Run"
 length = 1.8
 tracks/0/type = "value"
@@ -361,7 +361,7 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 3, 2, 1]
 }
 
-[sub_resource type="Animation" id="3"]
+[sub_resource type="Animation" id="Animation_ng37l"]
 resource_name = "Dlight"
 length = 0.9
 tracks/0/type = "value"
@@ -437,7 +437,7 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="4"]
+[sub_resource type="Animation" id="Animation_0ii5v"]
 resource_name = "Fall"
 length = 0.3
 tracks/0/type = "value"
@@ -453,10 +453,10 @@ tracks/0/keys = {
 "values": [19, 20, 21]
 }
 
-[sub_resource type="Animation" id="5"]
+[sub_resource type="Animation" id="Animation_6dgbi"]
 resource_name = "Hurt"
 
-[sub_resource type="Animation" id="6"]
+[sub_resource type="Animation" id="Animation_57jhy"]
 resource_name = "Idle"
 length = 0.8
 tracks/0/type = "value"
@@ -472,7 +472,7 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="7"]
+[sub_resource type="Animation" id="Animation_x2anf"]
 resource_name = "Jump"
 length = 3.0
 tracks/0/type = "value"
@@ -488,7 +488,7 @@ tracks/0/keys = {
 "values": [16, 17, 18]
 }
 
-[sub_resource type="Animation" id="8"]
+[sub_resource type="Animation" id="Animation_d26hf"]
 resource_name = "Nair"
 length = 0.8
 tracks/0/type = "value"
@@ -516,7 +516,7 @@ tracks/1/keys = {
 "values": [true, false, true]
 }
 
-[sub_resource type="Animation" id="9"]
+[sub_resource type="Animation" id="Animation_aei0y"]
 resource_name = "Nlight"
 length = 0.9
 tracks/0/type = "value"
@@ -606,7 +606,7 @@ tracks/6/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="10"]
+[sub_resource type="Animation" id="Animation_widbv"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1041,7 +1041,7 @@ tracks/35/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="11"]
+[sub_resource type="Animation" id="Animation_7gk38"]
 resource_name = "Roll"
 length = 0.6
 tracks/0/type = "value"
@@ -1069,7 +1069,7 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="12"]
+[sub_resource type="Animation" id="Animation_f6cl7"]
 resource_name = "Run"
 length = 0.8
 tracks/0/type = "value"
@@ -1097,7 +1097,7 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="13"]
+[sub_resource type="Animation" id="Animation_uxoo6"]
 resource_name = "Slight"
 length = 1.1
 tracks/0/type = "value"
@@ -1173,7 +1173,7 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="14"]
+[sub_resource type="Animation" id="Animation_vbuu8"]
 resource_name = "Ulight"
 length = 1.8
 tracks/0/type = "value"
@@ -1273,25 +1273,25 @@ tracks/7/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_syxi5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4iyry"]
 _data = {
-"Block": SubResource("1"),
-"Chain Run": SubResource("2"),
-"Dlight": SubResource("3"),
-"Fall": SubResource("4"),
-"Hurt": SubResource("5"),
-"Idle": SubResource("6"),
-"Jump": SubResource("7"),
-"Nair": SubResource("8"),
-"Nlight": SubResource("9"),
-"RESET": SubResource("10"),
-"Roll": SubResource("11"),
-"Run": SubResource("12"),
-"Slight": SubResource("13"),
-"Ulight": SubResource("14")
+"Block": SubResource("Animation_2ujqb"),
+"Chain Run": SubResource("Animation_g5r5i"),
+"Dlight": SubResource("Animation_ng37l"),
+"Fall": SubResource("Animation_0ii5v"),
+"Hurt": SubResource("Animation_6dgbi"),
+"Idle": SubResource("Animation_57jhy"),
+"Jump": SubResource("Animation_x2anf"),
+"Nair": SubResource("Animation_d26hf"),
+"Nlight": SubResource("Animation_aei0y"),
+"RESET": SubResource("Animation_widbv"),
+"Roll": SubResource("Animation_7gk38"),
+"Run": SubResource("Animation_f6cl7"),
+"Slight": SubResource("Animation_uxoo6"),
+"Ulight": SubResource("Animation_vbuu8")
 }
 
-[sub_resource type="CapsuleShape2D" id="28"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qjgpq"]
 
 [node name="Fire Knight" type="CharacterBody2D"]
 position = Vector2(0, -40)
@@ -1308,24 +1308,24 @@ collision_mask = 16
 [node name="Lower" type="CollisionShape2D" parent="Scale Player/Nuetral Light3D Hitbox"]
 position = Vector2(-30, 51)
 rotation = 0.698132
-shape = SubResource("15")
+shape = SubResource("CapsuleShape2D_6up7n")
 disabled = true
 
 [node name="Top Swing" type="CollisionShape2D" parent="Scale Player/Nuetral Light3D Hitbox"]
 position = Vector2(-8, 13)
 rotation = 1.25664
-shape = SubResource("19")
+shape = SubResource("CapsuleShape2D_2f1ex")
 disabled = true
 
 [node name="Final" type="CollisionShape2D" parent="Scale Player/Nuetral Light3D Hitbox"]
 position = Vector2(64, 36)
-shape = SubResource("29")
+shape = SubResource("CapsuleShape2D_w3tk3")
 disabled = true
 
 [node name="Ground" type="CollisionShape2D" parent="Scale Player/Nuetral Light3D Hitbox"]
 position = Vector2(40, 58)
 rotation = 1.85703
-shape = SubResource("30")
+shape = SubResource("CapsuleShape2D_l738h")
 disabled = true
 
 [node name="Nuetral Air Hitbox" type="Area2D" parent="Scale Player"]
@@ -1335,7 +1335,7 @@ collision_mask = 16
 [node name="Slash" type="CollisionShape2D" parent="Scale Player/Nuetral Air Hitbox"]
 position = Vector2(42, 30)
 rotation = 1.5708
-shape = SubResource("16")
+shape = SubResource("CapsuleShape2D_kqtbo")
 disabled = true
 
 [node name="Down Light3D Hitbox" type="Area2D" parent="Scale Player"]
@@ -1345,18 +1345,18 @@ collision_mask = 16
 [node name="Startup" type="CollisionShape2D" parent="Scale Player/Down Light3D Hitbox"]
 position = Vector2(-43, 60)
 rotation = 1.0472
-shape = SubResource("17")
+shape = SubResource("CapsuleShape2D_0ubnx")
 disabled = true
 
 [node name="Angled Fire Pillar" type="CollisionShape2D" parent="Scale Player/Down Light3D Hitbox"]
 position = Vector2(48, 38)
 rotation = 0.785398
-shape = SubResource("20")
+shape = SubResource("CapsuleShape2D_30458")
 disabled = true
 
 [node name="Final Explosion" type="CollisionShape2D" parent="Scale Player/Down Light3D Hitbox"]
 position = Vector2(61, 27)
-shape = SubResource("21")
+shape = SubResource("CircleShape2D_rcrkn")
 disabled = true
 
 [node name="Side Light3D Hitbox" type="Area2D" parent="Scale Player"]
@@ -1366,25 +1366,25 @@ collision_mask = 16
 [node name="Buttom Swing" type="CollisionShape2D" parent="Scale Player/Side Light3D Hitbox"]
 position = Vector2(38, 52)
 rotation = 1.0472
-shape = SubResource("22")
+shape = SubResource("CapsuleShape2D_3tbtq")
 disabled = true
 
 [node name="Top Swing" type="CollisionShape2D" parent="Scale Player/Side Light3D Hitbox"]
 position = Vector2(-16, 18)
 rotation = 2.16246
-shape = SubResource("23")
+shape = SubResource("CapsuleShape2D_3myke")
 disabled = true
 
 [node name="Middle Swing" type="CollisionShape2D" parent="Scale Player/Side Light3D Hitbox"]
 position = Vector2(32, 49)
 rotation = 2.02633
-shape = SubResource("24")
+shape = SubResource("CapsuleShape2D_spmem")
 disabled = true
 
 [node name="Final" type="CollisionShape2D" parent="Scale Player/Side Light3D Hitbox"]
 position = Vector2(31, 17)
 rotation = 0.877901
-shape = SubResource("25")
+shape = SubResource("CapsuleShape2D_nkebd")
 disabled = true
 
 [node name="Up light Hitbox" type="Area2D" parent="Scale Player"]
@@ -1395,31 +1395,39 @@ collision_mask = 32
 [node name="Ignite Blade" type="CollisionShape2D" parent="Scale Player/Up light Hitbox"]
 position = Vector2(15, 9)
 rotation = 1.18682
-shape = SubResource("18")
+shape = SubResource("CapsuleShape2D_fay1u")
 disabled = true
 
 [node name="Flame Pillar" type="CollisionShape2D" parent="Scale Player/Up light Hitbox"]
 position = Vector2(74, 14)
-shape = SubResource("26")
+shape = SubResource("CapsuleShape2D_im378")
 disabled = true
 
 [node name="Ground Flame" type="CollisionShape2D" parent="Scale Player/Up light Hitbox"]
 position = Vector2(74, 59)
 rotation = 1.5708
-shape = SubResource("27")
+shape = SubResource("CapsuleShape2D_cauyt")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../../Animation")
+root_node = NodePath("../../Player Sprite2D")
 libraries = {
-"": SubResource("AnimationLibrary_syxi5")
+"": SubResource("AnimationLibrary_4iyry")
 }
 
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(0, 40)
-shape = SubResource("28")
+shape = SubResource("CapsuleShape2D_qjgpq")
 
-[node name="Animation" type="Sprite2D" parent="."]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Check Floor" type="RayCast2D" parent="."]
+position = Vector2(0, 40)
+target_position = Vector2(0, 26)
+
+[node name="Player Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_j887m")
 hframes = 20
 vframes = 9
@@ -1437,3 +1445,4 @@ vframes = 3
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

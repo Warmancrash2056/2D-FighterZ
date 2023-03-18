@@ -1,9 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c808wmvm1k32l"]
+[gd_scene load_steps=4 format=3 uid="uid://c808wmvm1k32l"]
 
 [ext_resource type="PackedScene" uid="uid://brf8lggy6mc6x" path="res://Character Resouces/General Archfield/Player 1 General Archfield.tscn" id="1_2511r"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_0u1pc"]
-[ext_resource type="PackedScene" uid="uid://bcw5qs06n5ame" path="res://Character Resouces/General Archfield/Player 2 General Archfield.tscn" id="3_haees"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="4_iwfsr"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -59,10 +56,5 @@ shape = SubResource("2")
 position = Vector2(256, 288)
 zoom = Vector2(3, 3)
 
-[node name="Fire Knight" parent="." instance=ExtResource("1_2511r")]
-position = Vector2(112, 232)
-controls = ExtResource("2_0u1pc")
-
-[node name="Fire Knight2" parent="." instance=ExtResource("3_haees")]
-position = Vector2(264, 232)
-controls = ExtResource("4_iwfsr")
+[node name="Player 1 General Archfield" parent="." instance=ExtResource("1_2511r")]
+position = Vector2(184, 232)

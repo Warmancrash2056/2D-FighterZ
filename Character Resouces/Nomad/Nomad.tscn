@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkdeprm0e5fos"]
+[gd_scene load_steps=22 format=3 uid="uid://dkdeprm0e5fos"]
 
 [ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/wind_SpriteSheet_288x128.png" id="1"]
 
@@ -153,6 +153,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [22, 23, 24, 25, 26, 27, 28, 22]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scale Player/Nuetral Air Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.116484, 0.516309),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scale Player/Nuetral Air Hitbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.116484, 0.179449, 0.201486, 0.338434, 0.426584, 0.45177, 0.516309),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(26, -5), Vector2(26, -5), Vector2(26, -5), Vector2(44, -5), Vector2(46, -5), Vector2(46, -5), Vector2(52, -5), Vector2(26, -5)]
+}
 
 [sub_resource type="Animation" id="Animation_ctau3"]
 resource_name = "Nlight"
@@ -256,6 +280,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(20, 7)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scale Player/Nuetral Air Hitbox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scale Player/Nuetral Air Hitbox/CollisionShape2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26, -5)]
+}
 
 [sub_resource type="Animation" id="Animation_g84f5"]
 resource_name = "Roll"
@@ -348,6 +396,8 @@ radius = 5.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_juggh"]
 height = 34.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7682v"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nk1re"]
 
 [node name="Player 1 Nomad" type="CharacterBody2D"]
@@ -387,5 +437,21 @@ position = Vector2(20, 7)
 shape = SubResource("CapsuleShape2D_juggh")
 disabled = true
 
+[node name="Nuetral Air Hitbox" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Air Hitbox"]
+position = Vector2(26, -5)
+shape = SubResource("CircleShape2D_7682v")
+disabled = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nk1re")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -6.0
+offset_top = -22.0
+offset_right = 59.0
+offset_bottom = 0.999996
+scale = Vector2(0.2, 0.2)
+text = "Player 1"
+fit_content = true

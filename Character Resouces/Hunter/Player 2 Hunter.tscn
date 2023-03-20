@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Hunter Script.gd" id="1_bs4mj"]
 [ext_resource type="Texture2D" uid="uid://csn8bf6hfirik" path="res://Character Resouces/Hunter/Huntress SpriteSheet.png" id="2_0roox"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_difjr"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="2_3rjfw"]
 [ext_resource type="Texture2D" uid="uid://cek5bcrw4ug5q" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/diagonal_arrow/diagonal_arrow_.png" id="4_nc8ud"]
 [ext_resource type="Texture2D" uid="uid://cxnj3bax3fsjs" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_1.png" id="5_x3kx2"]
 [ext_resource type="Texture2D" uid="uid://bbjdg023asjqw" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_2.png" id="6_rscgj"]
@@ -684,9 +684,9 @@ radius = 4.12311
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukc6m"]
 
-[node name="Hunter" type="CharacterBody2D"]
+[node name="Player 2 Hunter" type="CharacterBody2D"]
 script = ExtResource("1_bs4mj")
-controls = ExtResource("2_difjr")
+controls = ExtResource("2_3rjfw")
 Movement = 200
 AirMovement = 130
 JumpHeight = 500
@@ -781,7 +781,8 @@ offset_top = -28.0
 offset_right = 60.0
 offset_bottom = -5.0
 scale = Vector2(0.2, 0.2)
-text = "Player 1"
+text = "Player 2
+"
 fit_content = true
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

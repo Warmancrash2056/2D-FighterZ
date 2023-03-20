@@ -16,7 +16,7 @@ script/source = "extends CharacterBody2D
 @export var Movement: int  = 250
 @export var AirMovement: int  = 100
 @export var Acceleration: int  = 35
-@export var JumpHeight: int = 800
+@export var JumpHeight: int = 500
 @export var Gravity : int  = 35
 
 @export var Health = 200
@@ -870,8 +870,6 @@ collision_layer = 2
 platform_floor_layers = 4294901760
 script = SubResource("GDScript_71u47")
 controls = ExtResource("1_sxq3v")
-JumpHeight = 400
-Gravity = 15
 
 [node name="Animation" type="Sprite2D" parent="."]
 position = Vector2(0, -40)

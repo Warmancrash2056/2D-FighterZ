@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c808wmvm1k32l"]
 
-[ext_resource type="PackedScene" uid="uid://bvtaxhrltrruf" path="res://Character Resouces/Nia/Player 1 Nia.tscn" id="1_ixdst"]
-[ext_resource type="PackedScene" uid="uid://v3j6sg460ms3" path="res://Character Resouces/Nia/Player 2 Nia.tscn" id="2_5n3y3"]
+[ext_resource type="PackedScene" uid="uid://bwukvsc7xqh5n" path="res://Character Resouces/Hunter/Player 1 Hunter.tscn" id="1_386to"]
+[ext_resource type="PackedScene" uid="uid://rt4w0q1umjid" path="res://Character Resouces/Hunter/Player 2 Hunter.tscn" id="2_eo0ym"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -57,8 +57,8 @@ shape = SubResource("2")
 position = Vector2(256, 288)
 zoom = Vector2(3, 3)
 
-[node name="Player 1 Nia" parent="." instance=ExtResource("1_ixdst")]
-position = Vector2(168, 200)
+[node name="Player 1 Hunter" parent="." instance=ExtResource("1_386to")]
+position = Vector2(240, 248)
 
-[node name="Player 2 Nia" parent="." instance=ExtResource("2_5n3y3")]
-position = Vector2(264, 248)
+[node name="Player 2 Hunter" parent="." instance=ExtResource("2_eo0ym")]
+position = Vector2(104, 288)

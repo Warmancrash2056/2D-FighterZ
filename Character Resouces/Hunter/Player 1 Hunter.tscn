@@ -684,7 +684,7 @@ radius = 4.12311
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukc6m"]
 
-[node name="Hunter" type="CharacterBody2D"]
+[node name="Player 1 Hunter" type="CharacterBody2D"]
 script = ExtResource("1_n5r24")
 controls = ExtResource("2_bcqpl")
 Movement = 200

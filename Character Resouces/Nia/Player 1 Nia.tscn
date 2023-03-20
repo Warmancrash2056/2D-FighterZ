@@ -16,7 +16,7 @@ script/source = "extends CharacterBody2D
 @export var Movement: int  = 250
 @export var AirMovement: int  = 100
 @export var Acceleration: int  = 35
-@export var JumpHeight: int = 800
+@export var JumpHeight: int = 500
 @export var Gravity : int  = 35
 
 @export var Health = 200
@@ -130,17 +130,22 @@ func _physics_process(delta):
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+				
 			elif Input.is_action_pressed(controls.input_right):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
 				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
-			
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
 			if Motion.y > 0:
 				Select = States.Fall
 				
-			if Input.is_action_just_pressed(controls.input_attack):
-				Select = States.Nair
 				
 			
 			
@@ -156,13 +161,19 @@ func _physics_process(delta):
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+					print(Motion)
 			elif Input.is_action_pressed(controls.input_right):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
-				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+					print(Motion)
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
-		
-			
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+					
 		States.Nlight:
 			Motion.x = 0
 			Animate.play(\"Nlight\")
@@ -186,8 +197,8 @@ func _physics_process(delta):
 			
 				
 		States.Nair:
+			print(Motion)
 			Motion.y = 0
-			Motion.x = 0
 			Animate.play(\"Nair\")
 
 			
@@ -851,13 +862,10 @@ size = Vector2(1.8852, 15.4928)
 
 [node name="Player 1 Nia" type="CharacterBody2D"]
 position = Vector2(0, -40)
-scale = Vector2(1.5, 1.5)
 collision_layer = 2
 platform_floor_layers = 4294901760
 script = SubResource("GDScript_71u47")
 controls = ExtResource("1_lm2ho")
-JumpHeight = 400
-Gravity = 15
 
 [node name="Animation" type="Sprite2D" parent="."]
 position = Vector2(0, -40)

@@ -4,17 +4,16 @@ extends CharacterBody2D
 
 
 @onready var Animate = $"Scale Player/AnimationPlayer"
-@onready var SpriteH = $"Nai Sprites"
+@onready var SpriteH = $Animations
 
 @export var Movement: int  = 250
 @export var AirMovement: int  = 100
 @export var Acceleration: int  = 35
-@export var JumpHeight: int = 800
+@export var JumpHeight: int = 500
 @export var Gravity : int  = 35
 
 @export var Health = 200
 
-var ChaseActive = false 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
 
@@ -30,8 +29,6 @@ enum States {
 	Nair,
 	Defend,
 	Roll,
-	ChainRun,
-	ChainEnd,
 	Death,
 	Hurt
 }
@@ -68,14 +65,8 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == false:
+				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
-					Select = States.ChainRun
-					Motion.x = 0
-					Motion.y = 0
-				
 	
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
@@ -85,11 +76,9 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == false:
+				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
 
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
-					Select = States.ChainRun
 		
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
@@ -106,8 +95,14 @@ func _physics_process(delta):
 					
 			elif Input.is_action_pressed(controls.input_up):
 				
+				pass
+				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Ulight
+					
+				else:
+					Motion.x = 0
+					Animate.play("Idle")
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.8)
 				Animate.play("Idle")
@@ -133,17 +128,22 @@ func _physics_process(delta):
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+				
 			elif Input.is_action_pressed(controls.input_right):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
 				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
-			
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
 			if Motion.y > 0:
 				Select = States.Fall
 				
-			if Input.is_action_just_pressed(controls.input_attack):
-				Select = States.Nair
 				
 			
 			
@@ -159,16 +159,19 @@ func _physics_process(delta):
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+					print(Motion)
 			elif Input.is_action_pressed(controls.input_right):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
-				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+					print(Motion)
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
-			
-			if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
-				Select = States.ChainRun
-			
-			
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+					
 		States.Nlight:
 			Motion.x = 0
 			Animate.play("Nlight")
@@ -192,8 +195,8 @@ func _physics_process(delta):
 			
 				
 		States.Nair:
+			print(Motion)
 			Motion.y = 0
-			Motion.x = 0
 			Animate.play("Nair")
 
 			
@@ -225,7 +228,6 @@ func _physics_process(delta):
 			Animate.play("Take Hit")
 
 
-
 	
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Nlight":
@@ -236,7 +238,7 @@ func _on_animation_player_animation_finished(anim_name):
 		Select = States.Idle
 
 	if anim_name == "Ulight":
-		Select = States.Fall
+		Select = States.Idle
 		
 	if anim_name == "Dlight":
 		Select = States.Idle

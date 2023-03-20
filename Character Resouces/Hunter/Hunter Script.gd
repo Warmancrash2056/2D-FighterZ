@@ -1,14 +1,10 @@
 extends CharacterBody2D
-@onready var ChaseTimer = $Timer
 
 @export var controls: Resource
 
-var Projectile = preload("res://Character Resouces/Nai/Trap Cast.tscn")
 
 @onready var Animate = $"Scale Player/AnimationPlayer"
-@onready var CheckFloor = $"Check Floor"
-@onready var SpriteH = $"Nai Sprites"
-@onready var ProjectilePosition = $"Scale Player/Marker2D"
+@onready var SpriteH = $Animation
 
 @export var Movement: int  = 250
 @export var AirMovement: int  = 100
@@ -18,7 +14,6 @@ var Projectile = preload("res://Character Resouces/Nai/Trap Cast.tscn")
 
 @export var Health = 200
 
-var ChaseActive = false 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
 
@@ -41,11 +36,6 @@ enum States {
 }
 var Select = States.Idle
 
-func _tHROW():
-	var Blade = Projectile.instantiate()
-	get_parent().add_child(Blade)
-	Blade.position = ProjectilePosition.global_position
-	
 func _physics_process(delta):
 	if Motion.x >= 1:
 		SpriteH.flip_h = false
@@ -64,7 +54,7 @@ func _physics_process(delta):
 
 		States.Idle:
 			Motion.y += Gravity 
-			if !CheckFloor.is_colliding():
+			if !is_on_floor():
 				Select = States.Fall
 				
 			else:
@@ -77,13 +67,8 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == false:
+				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
-					Select = States.ChainRun
-					Motion.x = 0
-					Motion.y = 0
 				
 	
 			elif Input.is_action_pressed(controls.input_right):
@@ -94,11 +79,8 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == false:
+				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-
-				if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
-					Select = States.ChainRun
 		
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
@@ -174,8 +156,6 @@ func _physics_process(delta):
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
 			
-			if Input.is_action_just_pressed(controls.input_dash) and ChaseActive == true:
-				Select = States.ChainRun
 			
 			
 		States.Nlight:
@@ -257,7 +237,7 @@ func _on_animation_player_animation_finished(anim_name):
 		Select = States.Idle
 		
 	if anim_name == "Block":
-		if CheckFloor.is_colliding():
+		if is_on_floor():
 			Select = States.Idle
 		else: 
 			Select = States.Fall

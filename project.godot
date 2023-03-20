@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="2D FighterZ"
-run/main_scene="res://Character Selection Resources/Character Selection Menu.tscn"
+run/main_scene="res://Demo.tscn"
 config/features=PackedStringArray("4.0")
 
 [autoload]
 
 Player1CharacterSelection="*res://Character Selection Resources/Player 1 Character Selection.gd"
 Player2CharacterSelection="*res://Character Selection Resources/Player 2 Character Selection.gd"
-Fps="*res://Fps.tscn"
+Fps="*res://Fps Resources/Fps.tscn"
 
 [display]
 
@@ -210,6 +210,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/defaults/default_environment="res://default_env.tres"
 textures/canvas_textures/default_texture_filter=0
 2d/snapping/use_gpu_pixel_snap=true

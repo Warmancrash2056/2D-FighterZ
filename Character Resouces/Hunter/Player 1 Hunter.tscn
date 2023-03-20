@@ -1,8 +1,28 @@
-[gd_scene load_steps=24 format=3 uid="uid://bwukvsc7xqh5n"]
+[gd_scene load_steps=45 format=3 uid="uid://bwukvsc7xqh5n"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Hunter Script.gd" id="1_n5r24"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_bcqpl"]
 [ext_resource type="Texture2D" uid="uid://csn8bf6hfirik" path="res://Character Resouces/Hunter/Huntress SpriteSheet.png" id="3_m6epm"]
+[ext_resource type="Texture2D" uid="uid://cek5bcrw4ug5q" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/diagonal_arrow/diagonal_arrow_.png" id="4_srqx3"]
+[ext_resource type="Texture2D" uid="uid://cxnj3bax3fsjs" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_1.png" id="5_g87b8"]
+[ext_resource type="Texture2D" uid="uid://bbjdg023asjqw" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_2.png" id="6_ohvqu"]
+[ext_resource type="Texture2D" uid="uid://cigep8o8ffvae" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_3.png" id="7_7pm12"]
+[ext_resource type="Texture2D" uid="uid://nsunqesuehyb" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_4.png" id="8_4qgvt"]
+[ext_resource type="Texture2D" uid="uid://ct2ig0ip76ufh" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_5.png" id="9_ab8l1"]
+[ext_resource type="Texture2D" uid="uid://d02yf02i26fkq" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_6.png" id="10_8c1ir"]
+[ext_resource type="Texture2D" uid="uid://mfdwj0kuxcbf" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_7.png" id="11_kmn4a"]
+[ext_resource type="Texture2D" uid="uid://c5i8obsiafpdf" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_8.png" id="12_307ti"]
+[ext_resource type="Texture2D" uid="uid://mvsqu1e3706j" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_9.png" id="13_4usr8"]
+[ext_resource type="Texture2D" uid="uid://c6044olp1ne36" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_10.png" id="14_mtqrm"]
+[ext_resource type="Texture2D" uid="uid://dee25s22sull6" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_11.png" id="15_p1x2q"]
+[ext_resource type="Texture2D" uid="uid://cbsfrxc3cy744" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_12.png" id="16_v5vxi"]
+[ext_resource type="Texture2D" uid="uid://2pcmy7ucghw" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_13.png" id="17_xe53k"]
+[ext_resource type="Texture2D" uid="uid://d0en3uwhleknq" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_14.png" id="18_gqpi8"]
+[ext_resource type="Texture2D" uid="uid://baynpktvoolew" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_15.png" id="19_mo0pe"]
+[ext_resource type="Texture2D" uid="uid://cd3cla3ets7ll" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_16.png" id="20_ov3m1"]
+[ext_resource type="Texture2D" uid="uid://d0o4t0d5s2fld" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_17.png" id="21_ibxuy"]
+[ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_18.png" id="22_uwaf8"]
+[ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow/arrow_.png" id="23_j2hbl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6n3xk"]
 
@@ -13,58 +33,58 @@ radius = 6.08276
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("5_g87b8")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("6_ohvqu")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("7_7pm12")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("8_4qgvt")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("9_ab8l1")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("10_8c1ir")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("11_kmn4a")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("12_307ti")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("13_4usr8")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("14_mtqrm")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("15_p1x2q")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("16_v5vxi")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("17_xe53k")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("18_gqpi8")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("19_mo0pe")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("20_ov3m1")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("21_ibxuy")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("22_uwaf8")
 }],
 "loop": true,
 "name": &"Shower",
@@ -88,6 +108,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_gen08"]
@@ -140,6 +172,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-13, 0), Vector2(-13, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_xhxcp"]
@@ -241,6 +285,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, -10), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_q56n8"]
 resource_name = "Nlight"
@@ -268,6 +324,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.383457, 0.4, 0.483789, 0.5, 0.765457, 0.785017),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-3, 0), Vector2(-3, 0), Vector2(12, 0), Vector2(12, 0), Vector2(40, 0), Vector2(40, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_eqtuk"]
@@ -428,6 +496,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [1.2]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_df8h2"]
 resource_name = "Roll"
@@ -551,6 +643,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0743288, 0.101713, 0.17213, 0.185656, 0.783713, 0.800665, 0.904986, 0.964971, 1.17726, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-5, 0), Vector2(-5, 0), Vector2(-15, 0), Vector2(-15, 0), Vector2(-22, 0), Vector2(-22, 0), Vector2(-28, 0), Vector2(-28, 0), Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1dgu"]
 _data = {
@@ -578,6 +682,8 @@ height = 108.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hql1b"]
 radius = 4.12311
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukc6m"]
+
 [node name="Hunter" type="CharacterBody2D"]
 script = ExtResource("1_n5r24")
 controls = ExtResource("2_bcqpl")
@@ -587,6 +693,7 @@ JumpHeight = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6n3xk")
+debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Animation" type="Sprite2D" parent="."]
 texture = ExtResource("3_m6epm")
@@ -595,10 +702,12 @@ hframes = 20
 vframes = 12
 
 [node name="Scale Player" type="Node2D" parent="."]
+z_index = 1
 
 [node name="Nuetral Air Arrow" type="Sprite2D" parent="Scale Player"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(32, 16)
+texture = ExtResource("4_srqx3")
 
 [node name="Area2D" type="Area2D" parent="Scale Player/Nuetral Air Arrow"]
 position = Vector2(-27.4846, -12.0654)
@@ -617,6 +726,7 @@ animation = &"Shower"
 [node name="Side Light Arrow" type="Sprite2D" parent="Scale Player"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(45, -12)
+texture = ExtResource("23_j2hbl")
 
 [node name="Area2D" type="Area2D" parent="Scale Player/Side Light Arrow"]
 position = Vector2(-45, 12)
@@ -657,6 +767,13 @@ disabled = true
 position = Vector2(79, -9)
 shape = SubResource("CircleShape2D_hql1b")
 disabled = true
+
+[node name="Hurtbox" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Hurtbox"]
+shape = SubResource("CapsuleShape2D_ukc6m")
+disabled = true
+debug_color = Color(0, 0, 0, 0.490196)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -7.0

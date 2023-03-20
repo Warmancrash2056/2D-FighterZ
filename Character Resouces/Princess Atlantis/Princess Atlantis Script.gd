@@ -187,7 +187,7 @@ func _physics_process(delta):
 				
 		States.Ulight:
 			Motion.x = 0
-			Motion.y = -100
+			Motion.y = 0
 			Animate.play("Ulight")
 			
 				

@@ -630,7 +630,7 @@ script = ExtResource("1_ao5tm")
 controls = ExtResource("2_tnerb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Goku Sprites")
+root_node = NodePath("../Animation")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
@@ -756,7 +756,7 @@ collision_mask = 32
 shape = SubResource("CapsuleShape2D_f3s8f")
 disabled = true
 
-[node name="Goku Sprites" type="Sprite2D" parent="."]
+[node name="Animation" type="Sprite2D" parent="."]
 modulate = Color(0.91255, 0.861108, 0.827671, 1)
 position = Vector2(0, -40)
 texture = ExtResource("3_q25ue")

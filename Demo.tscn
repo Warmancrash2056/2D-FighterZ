@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c808wmvm1k32l"]
+[gd_scene load_steps=5 format=3 uid="uid://c808wmvm1k32l"]
 
-[ext_resource type="PackedScene" uid="uid://brf8lggy6mc6x" path="res://Character Resouces/General Archfield/Player 1 General Archfield.tscn" id="1_2511r"]
+[ext_resource type="PackedScene" uid="uid://bvtaxhrltrruf" path="res://Character Resouces/Nia/Player 1 Nia.tscn" id="1_ixdst"]
+[ext_resource type="PackedScene" uid="uid://v3j6sg460ms3" path="res://Character Resouces/Nia/Player 2 Nia.tscn" id="2_5n3y3"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -56,5 +57,8 @@ shape = SubResource("2")
 position = Vector2(256, 288)
 zoom = Vector2(3, 3)
 
-[node name="Player 1 General Archfield" parent="." instance=ExtResource("1_2511r")]
-position = Vector2(184, 232)
+[node name="Player 1 Nia" parent="." instance=ExtResource("1_ixdst")]
+position = Vector2(168, 200)
+
+[node name="Player 2 Nia" parent="." instance=ExtResource("2_5n3y3")]
+position = Vector2(264, 248)

@@ -1023,16 +1023,20 @@ shape = SubResource("CapsuleShape2D_cauyt")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../../Animation")
+root_node = NodePath("../../Animations")
 libraries = {
 "": SubResource("AnimationLibrary_4iyry")
 }
+
+[node name="Hurtbox" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Hurtbox"]
 
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(0, 40)
 shape = SubResource("CapsuleShape2D_qjgpq")
 
-[node name="Animation" type="Sprite2D" parent="."]
+[node name="Animations" type="Sprite2D" parent="."]
 texture = ExtResource("2_70pei")
 hframes = 20
 vframes = 9

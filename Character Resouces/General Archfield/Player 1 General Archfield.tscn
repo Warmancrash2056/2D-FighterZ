@@ -1023,7 +1023,7 @@ shape = SubResource("CapsuleShape2D_cauyt")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../../Animation")
+root_node = NodePath("../../Animations")
 libraries = {
 "": SubResource("AnimationLibrary_4iyry")
 }
@@ -1032,7 +1032,7 @@ libraries = {
 position = Vector2(0, 40)
 shape = SubResource("CapsuleShape2D_qjgpq")
 
-[node name="Animation" type="Sprite2D" parent="."]
+[node name="Animations" type="Sprite2D" parent="."]
 texture = ExtResource("1_j887m")
 hframes = 20
 vframes = 9

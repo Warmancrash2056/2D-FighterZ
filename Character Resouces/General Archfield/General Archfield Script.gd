@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 
 @onready var Animate = $"Scale Player/AnimationPlayer"
-@onready var SpriteH = $Animation
+@onready var SpriteH = $Animations
 
 @export var Movement: int  = 100
 @export var AirMovement: int  = 100
@@ -29,14 +29,11 @@ enum States {
 	Nair,
 	Defend,
 	Roll,
-	ChainRun,
-	ChainEnd,
 	Death,
 	Hurt
 }
 var Select = States.Idle
 
-	
 func _physics_process(delta):
 	if Motion.x >= 1:
 		SpriteH.flip_h = false
@@ -70,7 +67,6 @@ func _physics_process(delta):
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-
 	
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
@@ -82,6 +78,7 @@ func _physics_process(delta):
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
+
 		
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
@@ -125,17 +122,22 @@ func _physics_process(delta):
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+				
 			elif Input.is_action_pressed(controls.input_right):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
 				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
-			
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
 			if Motion.y > 0:
 				Select = States.Fall
 				
-			if Input.is_action_just_pressed(controls.input_attack):
-				Select = States.Nair
 				
 			
 			
@@ -151,14 +153,19 @@ func _physics_process(delta):
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+					print(Motion)
 			elif Input.is_action_pressed(controls.input_right):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
-				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+					print(Motion)
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
-			
-			
-			
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+					
 		States.Nlight:
 			Motion.x = 0
 			Animate.play("Nlight")
@@ -182,8 +189,8 @@ func _physics_process(delta):
 			
 				
 		States.Nair:
+			print(Motion)
 			Motion.y = 0
-			Motion.x = 0
 			Animate.play("Nair")
 
 			
@@ -213,6 +220,7 @@ func _physics_process(delta):
 		States.Hurt:
 			Motion.x = 0
 			Animate.play("Take Hit")
+
 
 
 

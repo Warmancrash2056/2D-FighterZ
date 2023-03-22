@@ -1,10 +1,14 @@
-[gd_scene load_steps=247 format=3 uid="uid://chgqx5t2gcx1h"]
+[gd_scene load_steps=253 format=3 uid="uid://chgqx5t2gcx1h"]
 
 [ext_resource type="Script" path="res://Character Selection Resources/biography_section.gd" id="1_44gk6"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Archfield/General Archfield Character Icon.png" id="2_ck146"]
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/ground_monk.png" id="3_jun1r"]
 [ext_resource type="Texture2D" uid="uid://dpa5754pfc4ay" path="res://Character Resouces/Hunter/Huntress Character Icon.png" id="4_krbhq"]
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nia/Assasin Character Icon.png" id="5_d6qmv"]
+[ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Animations/Nomad Character Icon.png" id="6_lmhvh"]
+[ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/png/Princess Atlantis.png" id="6_qkqc7"]
+[ext_resource type="Script" path="res://Character Selection Resources/Cursor.gd" id="7_7a1x1"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="8_0f3qh"]
 [ext_resource type="Texture2D" uid="uid://c5tbxkeptjepb" path="res://Character Resouces/Global/SelectionCursorPlayer1.png" id="8_4bftq"]
 [ext_resource type="Texture2D" uid="uid://dpdpeoax0tmls" path="res://Character Resouces/General Archfield/Animations/07_3_atk/3_atk_18.png" id="9_tkdso"]
 [ext_resource type="Texture2D" uid="uid://tyqhaui5vxop" path="res://Character Resouces/General Archfield/Animations/07_3_atk/3_atk_19.png" id="10_xocp7"]
@@ -240,6 +244,8 @@
 [ext_resource type="Texture2D" uid="uid://cp8wqvobueo0v" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk6.png" id="238_bad2o"]
 [ext_resource type="Texture2D" uid="uid://dkaal0kkfx5s3" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk7.png" id="239_264ky"]
 [ext_resource type="Texture2D" uid="uid://dtr2vq1uyfqu4" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk8.png" id="240_aet64"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g7nsm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5amkk"]
 animations = [{
@@ -1624,6 +1630,9 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ss1tk"]
+radius = 24.0
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -1658,52 +1667,64 @@ offset_bottom = 600.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+columns = 6
 
-[node name="General Archfield" type="TextureRect" parent="GridContainer"]
+[node name="General Archfield" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
 texture = ExtResource("2_ck146")
 
-[node name="Goku" type="TextureRect" parent="GridContainer"]
+[node name="Goku" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
 texture = ExtResource("3_jun1r")
 
-[node name="Hunter" type="TextureRect" parent="GridContainer"]
+[node name="Hunter" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
 texture = ExtResource("4_krbhq")
 
-[node name="Nia" type="TextureRect" parent="GridContainer"]
+[node name="Nia" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
 texture = ExtResource("5_d6qmv")
 
-[node name="Nomad" type="TextureRect" parent="GridContainer"]
+[node name="Nomad" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
+texture = ExtResource("6_lmhvh")
 
-[node name="Princess Atlantis" type="TextureRect" parent="GridContainer"]
+[node name="Princess Atlantis" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
+texture = ExtResource("6_qkqc7")
 
 [node name="Cursor" type="Sprite2D" parent="."]
 position = Vector2(32, 32)
 scale = Vector2(2.02222, 2.07176)
 texture = ExtResource("8_4bftq")
+script = ExtResource("7_7a1x1")
+Controls = ExtResource("8_0f3qh")
+PlayerIcon = ExtResource("8_4bftq")
+portraitOffset = Vector2(68, 0)
+
+[node name="Area2D" type="Area2D" parent="Cursor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D"]
+shape = SubResource("CircleShape2D_g7nsm")
+debug_color = Color(1, 0, 0.721569, 0.478431)
 
 [node name="General Archfield" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(576, 320)
-scale = Vector2(3, 3)
+position = Vector2(584, 24)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5amkk")
 animation = &"Ulight"
 
 [node name="Goku Animation" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(576, 320)
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_3g3k8")
 animation = &"Dlight"
 
 [node name="Hunter Animation" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(576, 320)
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_6s8ut")
 animation = &"Ulight"
 frame_progress = 0.967568
@@ -1711,14 +1732,14 @@ frame_progress = 0.967568
 [node name="Nia Animation" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(576, 320)
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wtetf")
 animation = &"Nlight"
 
 [node name="Nomad Animation" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(576, 320)
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_56rl7")
 animation = &"Nair"
 frame_progress = 0.98057
@@ -1726,9 +1747,255 @@ frame_progress = 0.98057
 [node name="Princess Atlantis Animation" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(576, 320)
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_iykdi")
 animation = &"Idle"
 frame_progress = 0.455199
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_ss1tk")
+
+[node name="General Archfield Nlight" type="Button" parent="Area2D"]
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="General Archfield Slight" type="Button" parent="Area2D"]
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="General Archfield Dlight" type="Button" parent="Area2D"]
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="General Archfield Ulight" type="Button" parent="Area2D"]
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="General Archfield Nair" type="Button" parent="Area2D"]
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Goku Nlight" type="Button" parent="Area2D"]
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Goku Slight" type="Button" parent="Area2D"]
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Goku Dlight" type="Button" parent="Area2D"]
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Goku Ulight" type="Button" parent="Area2D"]
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Goku Nair" type="Button" parent="Area2D"]
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Hunter Nlight" type="Button" parent="Area2D"]
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Hunter Slight" type="Button" parent="Area2D"]
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Hunter Dlight" type="Button" parent="Area2D"]
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Hunter Ulight" type="Button" parent="Area2D"]
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Hunter Nair" type="Button" parent="Area2D"]
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nia Nlight" type="Button" parent="Area2D"]
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Nia Slight" type="Button" parent="Area2D"]
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nia Dlight" type="Button" parent="Area2D"]
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nia Ulight" type="Button" parent="Area2D"]
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nia Nair" type="Button" parent="Area2D"]
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nomad Nlight" type="Button" parent="Area2D"]
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Nomad Slight" type="Button" parent="Area2D"]
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nomad Dlight" type="Button" parent="Area2D"]
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nomad Ulight" type="Button" parent="Area2D"]
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nomad Nair" type="Button" parent="Area2D"]
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Princess Atlantis Nlight" type="Button" parent="Area2D"]
+visible = false
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 438.0
+text = "Nlight"
+
+[node name="Princess Atlantis Slight" type="Button" parent="Area2D"]
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
+
+[node name="Princess Atlantis Dlight" type="Button" parent="Area2D"]
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Princess Atlantis Ulight" type="Button" parent="Area2D"]
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Princess Atlantis Nair" type="Button" parent="Area2D"]
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nlight
+"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -4,6 +4,27 @@
 [ext_resource type="Script" path="res://Character Resouces/Goku/Goku Script.gd" id="1_l26mj"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="2_bvi7v"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_anuv4"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7v6kp"]
+radius = 4.71404
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p38pj"]
+size = Vector2(23.25, 4)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bnbk"]
+radius = 9.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4jmqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hovxa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lwywl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq3c8"]
+
 [sub_resource type="Animation" id="Animation_id6wq"]
 resource_name = "Block"
 length = 0.9
@@ -595,27 +616,6 @@ _data = {
 "Ulight": SubResource("Animation_nfd27")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_anuv4"]
-radius = 3.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_7v6kp"]
-radius = 4.71404
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p38pj"]
-size = Vector2(23.25, 4)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bnbk"]
-radius = 9.0
-height = 28.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4jmqy"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hovxa"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lwywl"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kq3c8"]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wet7w"]
 radius = 5.0
 
@@ -623,17 +623,10 @@ radius = 5.0
 radius = 4.6
 
 [node name="Earth Monk" type="CharacterBody2D"]
-scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_l26mj")
 controls = ExtResource("2_bvi7v")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Goku Sprites")
-libraries = {
-"": SubResource("AnimationLibrary_467i5")
-}
 
 [node name="Scale Player" type="Node2D" parent="."]
 z_index = 1
@@ -745,6 +738,12 @@ position = Vector2(20.5, 12)
 shape = SubResource("CircleShape2D_kq3c8")
 disabled = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
+root_node = NodePath("../../Animation")
+libraries = {
+"": SubResource("AnimationLibrary_467i5")
+}
+
 [node name="Body" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_wet7w")
 
@@ -756,7 +755,7 @@ collision_mask = 32
 shape = SubResource("CapsuleShape2D_f3s8f")
 disabled = true
 
-[node name="Goku Sprites" type="Sprite2D" parent="."]
+[node name="Animation" type="Sprite2D" parent="."]
 modulate = Color(0.91255, 0.861108, 0.827671, 1)
 position = Vector2(0, -40)
 texture = ExtResource("1_c6w6n")
@@ -772,7 +771,6 @@ scale = Vector2(0.2, 0.2)
 text = "Player 2"
 fit_content = true
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air First Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Second Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Third Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
@@ -782,4 +780,5 @@ fit_content = true
 [connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light Buttom Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
+[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

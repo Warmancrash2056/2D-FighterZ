@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c808wmvm1k32l"]
+[gd_scene load_steps=4 format=3 uid="uid://c808wmvm1k32l"]
 
-[ext_resource type="PackedScene" uid="uid://brf8lggy6mc6x" path="res://Character Resouces/General Archfield/Player 1 General Archfield.tscn" id="1_rvwwg"]
-[ext_resource type="PackedScene" uid="uid://phx2b05okpg2" path="res://Character Resouces/General Archfield/Player 2 General Archfield.tscn" id="2_yttby"]
+[ext_resource type="PackedScene" uid="uid://dg7qymcx3y8fs" path="res://Character Resouces/Goku/Player 1 Goku.tscn" id="1_advcr"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -57,8 +56,5 @@ shape = SubResource("2")
 position = Vector2(256, 288)
 zoom = Vector2(3, 3)
 
-[node name="Player 1 General Archfield" parent="." instance=ExtResource("1_rvwwg")]
-position = Vector2(176, 224)
-
-[node name="Player 2 General Archfield" parent="." instance=ExtResource("2_yttby")]
-position = Vector2(248, 224)
+[node name="Earth Monk" parent="." instance=ExtResource("1_advcr")]
+position = Vector2(104, 288)

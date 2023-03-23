@@ -13,18 +13,18 @@ extends Control
 @onready var AtlantisAnimation = $"Princess Atlantis Animation"
 
 #General Archfield Abilty Showcase
-@onready var GeneralNlight = $"General Archfield Nlight"
-@onready var GeneralSlight = $"General Archfield Slight"
+@onready var GeneralArchfieldNlightButton = $"General Archfield Nlight"
+@onready var GeneralArchfieldSlightButton = $"General Archfield Slight"
 @onready var GeneralDlight = $"General Archfield Dlight"
 @onready var GeneralUlight = $"General Archfield Detector/General Archfield Ulight"
 @onready var GeneralNair = $"General Archfield Detector/General Archfield Nair"
 
 # Goku Ability Showcase
-@onready var GokuNlight = $"Goku Nlight"
-@onready var GokuSlight = $"Goku Slight"
-@onready var GokuDlight = $"Goku Dlight"
-@onready var GokuUlight = $"Goku Ulight"
-@onready var GokuNair = $"Goku Nair"
+@onready var GokuNlightButton = $"Goku Nlight"
+@onready var GokuSlightButton = $"Goku Slight"
+@onready var GokuDlightButton = $"Goku Dlight"
+@onready var GokuUlightButton = $"Goku Ulight"
+@onready var GokuNairButton = $"Goku Nair"
 
 enum Characters {
 	Set,
@@ -40,7 +40,30 @@ enum Characters {
 	GokuDlight,
 	GokuUlight,
 	GokuNair,
-	
+	HunterIdle,
+	HunterNlight,
+	HunterSlight,
+	HunterDlight,
+	HunterUlight,
+	HunterNair,
+	NomadIdle,
+	NomadNlight,
+	NomadSlight,
+	NomadDlight,
+	NomadUlight,
+	NomadNair,
+	NiaIdle,
+	NiaNlight,
+	NiaSlight,
+	NiaDlight,
+	NiaUlight,
+	NiaNair,
+	PrincessAtlantisIdle,
+	PrincessAtlantisNlight,
+	PrincessAtlantisSlight,
+	PrincessAtlantisDlight,
+	PrincessAtlantisUlight,
+	PrincessAtlantisNair
 	
 	
 	
@@ -60,7 +83,8 @@ func _process(delta):
 			GeneralSlight.disabled = true
 			GeneralDlight.disabled = true
 			GeneralUlight.disabled = true
-			GeneralNair.disabled = true		
+			GeneralNair.disabled = true
+			GokuNlight.disabled	
 		Characters.GeneralArchfieldIdle:
 			GeneralArchfieldAnimation.visible = true
 			AboutMe.set_text(str("General Archfield a serious man who never frowns a smile. Hot to the core his ferocious flames has stories behind it most notably the defeat of Archon The Great Dragon"))

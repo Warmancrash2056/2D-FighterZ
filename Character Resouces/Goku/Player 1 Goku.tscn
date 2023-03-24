@@ -616,8 +616,8 @@ height = 28.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kq3c8"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wet7w"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpm2v"]
+size = Vector2(10, 2)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3s8f"]
 radius = 4.6
@@ -745,7 +745,8 @@ shape = SubResource("CircleShape2D_kq3c8")
 disabled = true
 
 [node name="Body" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_wet7w")
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_qpm2v")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 16
@@ -776,9 +777,9 @@ fit_content = true
 [connection signal="area_entered" from="Scale Player/Nuetral Air Second Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Third Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Light Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light Buttom Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

@@ -687,9 +687,6 @@ radius = 4.12311
 [node name="Player 1 Hunter" type="CharacterBody2D"]
 script = ExtResource("1_n5r24")
 controls = ExtResource("2_bcqpl")
-Movement = 200
-AirMovement = 130
-JumpHeight = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6n3xk")

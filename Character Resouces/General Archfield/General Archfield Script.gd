@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animations
 
-@export var Movement: int  = 100
-@export var AirMovement: int  = 100
+@export var Movement: int  = 50
+@export var AirMovement: int  = 50
 @export var Acceleration: int  = 35
 @export var JumpHeight: int = 500
 @export var Gravity : int  = 35
@@ -171,7 +171,6 @@ func _physics_process(delta):
 			Animate.play("Nlight")
 			
 		States.Slight:
-			Motion.x = 0
 			Motion.y = 0
 			
 			Animate.play("Slight")
@@ -234,7 +233,7 @@ func _on_animation_player_animation_finished(anim_name):
 		Select = States.Idle
 
 	if anim_name == "Ulight":
-		Select = States.Fall
+		Select = States.Idle
 		
 	if anim_name == "Dlight":
 		Select = States.Idle
@@ -250,4 +249,5 @@ func _on_animation_player_animation_finished(anim_name):
 			Select = States.Idle
 		else: 
 			Select = States.Fall
+
 	

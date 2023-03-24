@@ -689,7 +689,6 @@ script = ExtResource("1_bs4mj")
 controls = ExtResource("2_3rjfw")
 Movement = 200
 AirMovement = 130
-JumpHeight = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6n3xk")

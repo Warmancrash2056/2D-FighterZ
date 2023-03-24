@@ -489,7 +489,8 @@ height = 34.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_cfexx"]
 radius = 20.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nk1re"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvnn6"]
+size = Vector2(10, 2)
 
 [node name="Player 1 Nomad" type="CharacterBody2D"]
 script = ExtResource("1_hk7mu")
@@ -550,7 +551,8 @@ shape = SubResource("CircleShape2D_cfexx")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_nk1re")
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_gvnn6")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

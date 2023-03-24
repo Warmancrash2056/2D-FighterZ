@@ -15,9 +15,9 @@ extends Control
 #General Archfield Abilty Showcase
 @onready var GeneralArchfieldNlightButton = $"General Archfield Nlight"
 @onready var GeneralArchfieldSlightButton = $"General Archfield Slight"
-@onready var GeneralDlight = $"General Archfield Dlight"
-@onready var GeneralUlight = $"General Archfield Detector/General Archfield Ulight"
-@onready var GeneralNair = $"General Archfield Detector/General Archfield Nair"
+@onready var GeneralArchfieldDlightButton = $"General Archfield Dlight"
+@onready var GeneralArchFieldUlightButton = $"General Archfield Ulight"
+@onready var GeneralArchfieldNairButton = $"General Archfield Nair"
 
 # Goku Ability Showcase
 @onready var GokuNlightButton = $"Goku Nlight"
@@ -79,21 +79,25 @@ func _ready():
 func _process(delta):
 	match CharacterState:
 		Characters.Set:
-			GeneralNlight.disabled = true
-			GeneralSlight.disabled = true
-			GeneralDlight.disabled = true
-			GeneralUlight.disabled = true
-			GeneralNair.disabled = true
-			GokuNlight.disabled	
+			GeneralArchfieldNlightButton.disabled = true
+			GeneralArchfieldSlightButton.disabled = true
+			GeneralArchfieldDlightButton.disabled = true
+			GeneralArchFieldUlightButton.disabled = true
+			GeneralArchfieldNairButton.disabled = true
+			GokuNlightButton.disabled = true
+			GokuSlightButton.disabled = true
+			GokuDlightButton.disabled = true
+			GokuUlightButton.disabled = true
+			GokuNairButton.disabled = true	
 		Characters.GeneralArchfieldIdle:
 			GeneralArchfieldAnimation.visible = true
 			AboutMe.set_text(str("General Archfield a serious man who never frowns a smile. Hot to the core his ferocious flames has stories behind it most notably the defeat of Archon The Great Dragon"))
 			GeneralArchfieldAnimation.play("Idle")
-			GeneralNlight.disabled = false
-			GeneralSlight.disabled = false
-			GeneralDlight.disabled = false
-			GeneralUlight.disabled = false
-			GeneralNair.disabled = false
+			GeneralArchfieldNlightButton.disabled = false
+			GeneralArchfieldSlightButton.disabled = false
+			GeneralArchfieldDlightButton.disabled = false
+			GeneralArchFieldUlightButton.disabled = false
+			GeneralArchfieldNairButton.disabled = false
 		Characters.GeneralAarchfiedNlight:
 			GeneralArchfieldAnimation.play("Nlight")
 		Characters.GeneralArchfieldSlight:

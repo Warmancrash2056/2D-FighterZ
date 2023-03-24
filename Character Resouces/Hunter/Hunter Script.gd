@@ -6,13 +6,13 @@ extends CharacterBody2D
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animation
 
-@export var Movement: int  = 250
-@export var AirMovement: int  = 100
+@export var Movement: int  = 175
+@export var AirMovement: int  = 120
 @export var Acceleration: int  = 35
-@export var JumpHeight: int = 800
+@export var JumpHeight: int = 500
 @export var Gravity : int  = 35
 
-@export var Health = 200
+@export var Health = 900
 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP

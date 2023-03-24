@@ -6,13 +6,13 @@ extends CharacterBody2D
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animation
 
-@export var Movement: int  = 250
-@export var AirMovement: int  = 100
+@export var Movement: int  = 300
+@export var AirMovement: int  = 150
 @export var Acceleration: int  = 35
 @export var JumpHeight: int = 500
 @export var Gravity : int  = 35
 
-@export var Health = 200
+@export var Health = 400
 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
@@ -233,7 +233,7 @@ func _on_animation_player_animation_finished(anim_name):
 		Select = States.Idle
 
 	if anim_name == "Ulight":
-		Select = States.Fall
+		Select = States.Idle
 		
 	if anim_name == "Dlight":
 		Select = States.Idle

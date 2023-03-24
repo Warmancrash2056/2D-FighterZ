@@ -1758,7 +1758,7 @@ animation = &"Slight"
 position = Vector2(32, 32)
 shape = SubResource("CircleShape2D_ss1tk")
 
-[node name="General Archfield Nlight" type="Button" parent="General Archfield Detector"]
+[node name="General Archfield Nlight" type="Button" parent="."]
 offset_left = 400.0
 offset_top = 384.0
 offset_right = 455.0
@@ -1766,7 +1766,7 @@ offset_bottom = 415.0
 text = "Nlight
 "
 
-[node name="General Archfield Slight" type="Button" parent="General Archfield Detector"]
+[node name="General Archfield Slight" type="Button" parent="."]
 offset_left = 472.0
 offset_top = 384.0
 offset_right = 527.0
@@ -1774,14 +1774,14 @@ offset_bottom = 415.0
 text = "Slight
 "
 
-[node name="General Archfield Dlight" type="Button" parent="General Archfield Detector"]
+[node name="General Archfield Dlight" type="Button" parent="."]
 offset_left = 544.0
 offset_top = 384.0
 offset_right = 599.0
 offset_bottom = 415.0
 text = "Dlight"
 
-[node name="General Archfield Ulight" type="Button" parent="General Archfield Detector"]
+[node name="General Archfield Ulight" type="Button" parent="."]
 offset_left = 616.0
 offset_top = 384.0
 offset_right = 671.0
@@ -1789,7 +1789,7 @@ offset_bottom = 415.0
 text = "Ulight
 "
 
-[node name="General Archfield Nair" type="Button" parent="General Archfield Detector"]
+[node name="General Archfield Nair" type="Button" parent="."]
 offset_left = 688.0
 offset_top = 384.0
 offset_right = 743.0
@@ -1797,7 +1797,7 @@ offset_bottom = 415.0
 text = "Nair
 "
 
-[node name="Goku Nlight" type="Button" parent="General Archfield Detector"]
+[node name="Goku Nlight" type="Button" parent="."]
 visible = false
 offset_left = 400.0
 offset_top = 384.0
@@ -1806,7 +1806,7 @@ offset_bottom = 415.0
 text = "Nlight
 "
 
-[node name="Goku Slight" type="Button" parent="General Archfield Detector"]
+[node name="Goku Slight" type="Button" parent="."]
 visible = false
 offset_left = 472.0
 offset_top = 384.0
@@ -1815,7 +1815,7 @@ offset_bottom = 415.0
 text = "Slight
 "
 
-[node name="Goku Dlight" type="Button" parent="General Archfield Detector"]
+[node name="Goku Dlight" type="Button" parent="."]
 visible = false
 offset_left = 544.0
 offset_top = 384.0
@@ -1823,7 +1823,7 @@ offset_right = 599.0
 offset_bottom = 415.0
 text = "Dlight"
 
-[node name="Goku Ulight" type="Button" parent="General Archfield Detector"]
+[node name="Goku Ulight" type="Button" parent="."]
 visible = false
 offset_left = 616.0
 offset_top = 384.0
@@ -1832,7 +1832,7 @@ offset_bottom = 415.0
 text = "Ulight
 "
 
-[node name="Goku Nair" type="Button" parent="General Archfield Detector"]
+[node name="Goku Nair" type="Button" parent="."]
 visible = false
 offset_left = 688.0
 offset_top = 384.0
@@ -1846,13 +1846,13 @@ text = "Nair
 [connection signal="animation_looped" from="General Archfield" to="." method="_on_general_archfield_animation_looped"]
 [connection signal="area_entered" from="General Archfield Detector" to="." method="_on_general_archfield_detector_area_entered"]
 [connection signal="area_exited" from="General Archfield Detector" to="." method="_on_general_archfield_detector_area_exited"]
-[connection signal="pressed" from="General Archfield Detector/General Archfield Nlight" to="." method="_on_general_archfield_nlight_pressed"]
-[connection signal="pressed" from="General Archfield Detector/General Archfield Slight" to="." method="_on_general_archfield_slight_pressed"]
-[connection signal="pressed" from="General Archfield Detector/General Archfield Dlight" to="." method="_on_general_archfield_dlight_pressed"]
-[connection signal="pressed" from="General Archfield Detector/General Archfield Ulight" to="." method="_on_general_archfield_ulight_pressed"]
-[connection signal="pressed" from="General Archfield Detector/General Archfield Nair" to="." method="_on_general_archfield_nair_pressed"]
-[connection signal="pressed" from="General Archfield Detector/Goku Nlight" to="." method="_on_general_archfield_nlight_pressed"]
-[connection signal="pressed" from="General Archfield Detector/Goku Slight" to="." method="_on_general_archfield_slight_pressed"]
-[connection signal="pressed" from="General Archfield Detector/Goku Dlight" to="." method="_on_general_archfield_dlight_pressed"]
-[connection signal="pressed" from="General Archfield Detector/Goku Ulight" to="." method="_on_general_archfield_ulight_pressed"]
-[connection signal="pressed" from="General Archfield Detector/Goku Nair" to="." method="_on_general_archfield_nair_pressed"]
+[connection signal="pressed" from="General Archfield Nlight" to="." method="_on_general_archfield_nlight_pressed"]
+[connection signal="pressed" from="General Archfield Slight" to="." method="_on_general_archfield_slight_pressed"]
+[connection signal="pressed" from="General Archfield Dlight" to="." method="_on_general_archfield_dlight_pressed"]
+[connection signal="pressed" from="General Archfield Ulight" to="." method="_on_general_archfield_ulight_pressed"]
+[connection signal="pressed" from="General Archfield Nair" to="." method="_on_general_archfield_nair_pressed"]
+[connection signal="pressed" from="Goku Nlight" to="." method="_on_general_archfield_nlight_pressed"]
+[connection signal="pressed" from="Goku Slight" to="." method="_on_general_archfield_slight_pressed"]
+[connection signal="pressed" from="Goku Dlight" to="." method="_on_general_archfield_dlight_pressed"]
+[connection signal="pressed" from="Goku Ulight" to="." method="_on_general_archfield_ulight_pressed"]
+[connection signal="pressed" from="Goku Nair" to="." method="_on_general_archfield_nair_pressed"]

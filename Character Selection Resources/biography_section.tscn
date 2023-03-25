@@ -1659,9 +1659,9 @@ text = "Biography
 [node name="About Me" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 496.0
+offset_top = 472.0
 offset_right = 1200.0
-offset_bottom = 600.0
+offset_bottom = 576.0
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
@@ -1759,6 +1759,7 @@ position = Vector2(32, 32)
 shape = SubResource("CircleShape2D_ss1tk")
 
 [node name="General Archfield Nlight" type="Button" parent="."]
+layout_mode = 0
 offset_left = 400.0
 offset_top = 384.0
 offset_right = 455.0
@@ -1767,6 +1768,7 @@ text = "Nlight
 "
 
 [node name="General Archfield Slight" type="Button" parent="."]
+layout_mode = 0
 offset_left = 472.0
 offset_top = 384.0
 offset_right = 527.0
@@ -1775,6 +1777,7 @@ text = "Slight
 "
 
 [node name="General Archfield Dlight" type="Button" parent="."]
+layout_mode = 0
 offset_left = 544.0
 offset_top = 384.0
 offset_right = 599.0
@@ -1782,6 +1785,7 @@ offset_bottom = 415.0
 text = "Dlight"
 
 [node name="General Archfield Ulight" type="Button" parent="."]
+layout_mode = 0
 offset_left = 616.0
 offset_top = 384.0
 offset_right = 671.0
@@ -1790,6 +1794,7 @@ text = "Ulight
 "
 
 [node name="General Archfield Nair" type="Button" parent="."]
+layout_mode = 0
 offset_left = 688.0
 offset_top = 384.0
 offset_right = 743.0
@@ -1799,6 +1804,7 @@ text = "Nair
 
 [node name="Goku Nlight" type="Button" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 400.0
 offset_top = 384.0
 offset_right = 455.0
@@ -1808,6 +1814,7 @@ text = "Nlight
 
 [node name="Goku Slight" type="Button" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 472.0
 offset_top = 384.0
 offset_right = 527.0
@@ -1817,6 +1824,7 @@ text = "Slight
 
 [node name="Goku Dlight" type="Button" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 544.0
 offset_top = 384.0
 offset_right = 599.0
@@ -1825,6 +1833,7 @@ text = "Dlight"
 
 [node name="Goku Ulight" type="Button" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 616.0
 offset_top = 384.0
 offset_right = 671.0
@@ -1834,12 +1843,21 @@ text = "Ulight
 
 [node name="Goku Nair" type="Button" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 688.0
 offset_top = 384.0
 offset_right = 743.0
 offset_bottom = 415.0
 text = "Nair
 "
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -3
+layout_mode = 0
+offset_right = 1256.0
+offset_bottom = 624.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="animation_finished" from="General Archfield" to="." method="_on_general_archfield_animation_finished"]

@@ -91,7 +91,10 @@ func _process(delta):
 			GokuNairButton.disabled = true	
 		Characters.GeneralArchfieldIdle:
 			GeneralArchfieldAnimation.visible = true
-			AboutMe.set_text(str("General Archfield a serious man who never frowns a smile. Hot to the core his ferocious flames has stories behind it most notably the defeat of Archon The Great Dragon"))
+			AboutMe.set_text(str("General Arcfield is a heavy character with slow speed but the strongest character in the game with high hp.
+			
+","Archfield a renowned knight from the fire empire Pyrusa. Archfield is a man almost never bearing a smile. Hot to his core it was said that his blade when swung would ignite the air around him even touching the blade can leave third degree burns. Archfield's greatest accomplishment was the defeat of Archon the Dragon, a ferocious beast that terrorized Fable for centuries. Know Archfield trains and continues to hone his skills to participate in the tournament of fighters.
+"))
 			GeneralArchfieldAnimation.play("Idle")
 			GeneralArchfieldNlightButton.disabled = false
 			GeneralArchfieldSlightButton.disabled = false
@@ -133,11 +136,11 @@ func _on_general_archfield_detector_area_entered(area):
 func _on_general_archfield_detector_area_exited(area):
 	if area:
 		GeneralArchfieldAnimation.visible = false
-		GeneralNlight.disabled = true
-		GeneralSlight.disabled = true
-		GeneralDlight.disabled = true
-		GeneralUlight.disabled = true
-		GeneralNair.disabled = true
+		GeneralArchfieldNlightButton.disabled = true
+		GeneralArchfieldSlightButton.disabled = true
+		GeneralArchFieldUlightButton.disabled = true
+		GeneralArchFieldUlightButton.disabled = true
+		GeneralArchfieldNairButton.disabled = true
 		GeneralArchfieldAnimation.visible = false
 		GeneralArchfieldAnimation.frame = 0
 		GeneralArchfieldAnimation.stop()

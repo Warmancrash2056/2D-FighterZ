@@ -1640,6 +1640,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_44gk6")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -3
+layout_mode = 0
+offset_right = 1256.0
+offset_bottom = 624.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 888.0
@@ -1709,6 +1717,7 @@ shape = SubResource("CircleShape2D_g7nsm")
 debug_color = Color(1, 0, 0.721569, 0.478431)
 
 [node name="General Archfield" type="AnimatedSprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(584, 24)
 scale = Vector2(5, 5)
@@ -1758,7 +1767,38 @@ animation = &"Slight"
 position = Vector2(32, 32)
 shape = SubResource("CircleShape2D_ss1tk")
 
+[node name="Nia Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nia Detector"]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_ss1tk")
+
+[node name="Goku Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goku Detector"]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_ss1tk")
+
+[node name="Hunter Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hunter Detector"]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_ss1tk")
+
+[node name="Nomad Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nomad Detector"]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_ss1tk")
+
+[node name="Princess Atlantis Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Princess Atlantis Detector"]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_ss1tk")
+
 [node name="General Archfield Nlight" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 400.0
 offset_top = 384.0
@@ -1768,6 +1808,7 @@ text = "Nlight
 "
 
 [node name="General Archfield Slight" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 472.0
 offset_top = 384.0
@@ -1777,6 +1818,7 @@ text = "Slight
 "
 
 [node name="General Archfield Dlight" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 544.0
 offset_top = 384.0
@@ -1785,6 +1827,7 @@ offset_bottom = 415.0
 text = "Dlight"
 
 [node name="General Archfield Ulight" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 616.0
 offset_top = 384.0
@@ -1794,6 +1837,7 @@ text = "Ulight
 "
 
 [node name="General Archfield Nair" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 688.0
 offset_top = 384.0
@@ -1851,26 +1895,244 @@ offset_bottom = 415.0
 text = "Nair
 "
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -3
+[node name="Nomad Nlight" type="Button" parent="."]
+visible = false
 layout_mode = 0
-offset_right = 1256.0
-offset_bottom = 624.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nomad Slight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
+
+[node name="Nomad Dlight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Dlight"
+
+[node name="Nomad Ulight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Ulight
+"
+
+[node name="Nomad Nair" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Hunter Nlight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Hunter Slight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
+
+[node name="Hunter Dlight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Dlight"
+
+[node name="Hunter Ulight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Ulight
+"
+
+[node name="Hunter Nair" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Primcess Atlantis Nlight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Princess Atlantis Slight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
+
+[node name="Princess Atlantis Dlight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Dlight"
+
+[node name="Princess Atlantis Ulight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Ulight
+"
+
+[node name="Princess Atlantis Nair" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Nia Nlight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nia Slight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
+
+[node name="Nia Dlight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Dlight"
+
+[node name="Nia Ulight" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Ulight
+"
+
+[node name="Nia Nair" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nair
+"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="animation_finished" from="General Archfield" to="." method="_on_general_archfield_animation_finished"]
 [connection signal="animation_looped" from="General Archfield" to="." method="_on_general_archfield_animation_looped"]
 [connection signal="area_entered" from="General Archfield Detector" to="." method="_on_general_archfield_detector_area_entered"]
 [connection signal="area_exited" from="General Archfield Detector" to="." method="_on_general_archfield_detector_area_exited"]
+[connection signal="area_entered" from="Nia Detector" to="." method="_on_nia_detector_area_entered"]
+[connection signal="area_exited" from="Nia Detector" to="." method="_on_nia_detector_area_exited"]
+[connection signal="area_entered" from="Goku Detector" to="." method="_on_goku_detector_area_entered"]
+[connection signal="area_exited" from="Goku Detector" to="." method="_on_goku_detector_area_exited"]
+[connection signal="area_entered" from="Hunter Detector" to="." method="_on_hunter_detector_area_entered"]
+[connection signal="area_exited" from="Hunter Detector" to="." method="_on_hunter_detector_area_exited"]
+[connection signal="area_entered" from="Nomad Detector" to="." method="_on_nomad_detector_area_entered"]
+[connection signal="area_exited" from="Nomad Detector" to="." method="_on_nomad_detector_area_exited"]
+[connection signal="area_entered" from="Princess Atlantis Detector" to="." method="_on_princess_atlantis_detector_area_entered"]
+[connection signal="area_exited" from="Princess Atlantis Detector" to="." method="_on_princess_atlantis_detector_area_exited"]
 [connection signal="pressed" from="General Archfield Nlight" to="." method="_on_general_archfield_nlight_pressed"]
 [connection signal="pressed" from="General Archfield Slight" to="." method="_on_general_archfield_slight_pressed"]
 [connection signal="pressed" from="General Archfield Dlight" to="." method="_on_general_archfield_dlight_pressed"]
 [connection signal="pressed" from="General Archfield Ulight" to="." method="_on_general_archfield_ulight_pressed"]
 [connection signal="pressed" from="General Archfield Nair" to="." method="_on_general_archfield_nair_pressed"]
-[connection signal="pressed" from="Goku Nlight" to="." method="_on_general_archfield_nlight_pressed"]
-[connection signal="pressed" from="Goku Slight" to="." method="_on_general_archfield_slight_pressed"]
-[connection signal="pressed" from="Goku Dlight" to="." method="_on_general_archfield_dlight_pressed"]
-[connection signal="pressed" from="Goku Ulight" to="." method="_on_general_archfield_ulight_pressed"]
-[connection signal="pressed" from="Goku Nair" to="." method="_on_general_archfield_nair_pressed"]
+[connection signal="pressed" from="Goku Nlight" to="." method="_on_goku_nlight_pressed"]
+[connection signal="pressed" from="Goku Slight" to="." method="_on_goku_slight_pressed"]
+[connection signal="pressed" from="Goku Dlight" to="." method="_on_goku_dlight_pressed"]
+[connection signal="pressed" from="Goku Ulight" to="." method="_on_goku_ulight_pressed"]
+[connection signal="pressed" from="Goku Nair" to="." method="_on_goku_nair_pressed"]
+[connection signal="pressed" from="Nomad Nlight" to="." method="_on_nomad_nlight_pressed"]
+[connection signal="pressed" from="Nomad Slight" to="." method="_on_nomad_slight_pressed"]
+[connection signal="pressed" from="Nomad Dlight" to="." method="_on_nomad_dlight_pressed"]
+[connection signal="pressed" from="Nomad Ulight" to="." method="_on_nomad_ulight_pressed"]
+[connection signal="pressed" from="Nomad Nair" to="." method="_on_nomad_nair_pressed"]
+[connection signal="pressed" from="Hunter Nlight" to="." method="_on_hunter_nlight_pressed"]
+[connection signal="pressed" from="Hunter Slight" to="." method="_on_hunter_slight_pressed"]
+[connection signal="pressed" from="Hunter Dlight" to="." method="_on_hunter_dlight_pressed"]
+[connection signal="pressed" from="Hunter Ulight" to="." method="_on_hunter_ulight_pressed"]
+[connection signal="pressed" from="Hunter Nair" to="." method="_on_hunter_nair_pressed"]
+[connection signal="pressed" from="Primcess Atlantis Nlight" to="." method="_on_primcess_atlantis_nlight_pressed"]
+[connection signal="pressed" from="Princess Atlantis Slight" to="." method="_on_princess_atlantis_slight_pressed"]
+[connection signal="pressed" from="Princess Atlantis Dlight" to="." method="_on_princess_atlantis_dlight_pressed"]
+[connection signal="pressed" from="Princess Atlantis Ulight" to="." method="_on_princess_atlantis_ulight_pressed"]
+[connection signal="pressed" from="Princess Atlantis Nair" to="." method="_on_princess_atlantis_nair_pressed"]
+[connection signal="pressed" from="Nia Nlight" to="." method="_on_nia_nlight_pressed"]
+[connection signal="pressed" from="Nia Slight" to="." method="_on_nia_slight_pressed"]
+[connection signal="pressed" from="Nia Dlight" to="." method="_on_nia_dlight_pressed"]
+[connection signal="pressed" from="Nia Ulight" to="." method="_on_nia_ulight_pressed"]
+[connection signal="pressed" from="Nia Nair" to="." method="_on_nia_nair_pressed"]

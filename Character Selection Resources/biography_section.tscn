@@ -1,4 +1,4 @@
-[gd_scene load_steps=253 format=3 uid="uid://chgqx5t2gcx1h"]
+[gd_scene load_steps=254 format=3 uid="uid://chgqx5t2gcx1h"]
 
 [ext_resource type="Script" path="res://Character Selection Resources/biography_section.gd" id="1_44gk6"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Archfield/General Archfield Character Icon.png" id="2_ck146"]
@@ -1633,6 +1633,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ss1tk"]
 radius = 24.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dkak"]
+radius = 24.0
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -1641,6 +1644,7 @@ offset_bottom = 40.0
 script = ExtResource("1_44gk6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = -3
 layout_mode = 0
 offset_right = 1256.0
@@ -1764,36 +1768,6 @@ animation = &"Slight"
 [node name="General Archfield Detector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="General Archfield Detector"]
-position = Vector2(32, 32)
-shape = SubResource("CircleShape2D_ss1tk")
-
-[node name="Nia Detector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nia Detector"]
-position = Vector2(32, 32)
-shape = SubResource("CircleShape2D_ss1tk")
-
-[node name="Goku Detector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Goku Detector"]
-position = Vector2(32, 32)
-shape = SubResource("CircleShape2D_ss1tk")
-
-[node name="Hunter Detector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hunter Detector"]
-position = Vector2(32, 32)
-shape = SubResource("CircleShape2D_ss1tk")
-
-[node name="Nomad Detector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nomad Detector"]
-position = Vector2(32, 32)
-shape = SubResource("CircleShape2D_ss1tk")
-
-[node name="Princess Atlantis Detector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Princess Atlantis Detector"]
 position = Vector2(32, 32)
 shape = SubResource("CircleShape2D_ss1tk")
 
@@ -1993,7 +1967,7 @@ offset_bottom = 415.0
 text = "Nair
 "
 
-[node name="Primcess Atlantis Nlight" type="Button" parent="."]
+[node name="Princess Atlantis Nlight" type="Button" parent="."]
 visible = false
 layout_mode = 0
 offset_left = 400.0
@@ -2091,21 +2065,17 @@ offset_bottom = 415.0
 text = "Nair
 "
 
+[node name="Goku Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goku Detector"]
+position = Vector2(96, 32)
+shape = SubResource("CircleShape2D_8dkak")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="animation_finished" from="General Archfield" to="." method="_on_general_archfield_animation_finished"]
 [connection signal="animation_looped" from="General Archfield" to="." method="_on_general_archfield_animation_looped"]
 [connection signal="area_entered" from="General Archfield Detector" to="." method="_on_general_archfield_detector_area_entered"]
 [connection signal="area_exited" from="General Archfield Detector" to="." method="_on_general_archfield_detector_area_exited"]
-[connection signal="area_entered" from="Nia Detector" to="." method="_on_nia_detector_area_entered"]
-[connection signal="area_exited" from="Nia Detector" to="." method="_on_nia_detector_area_exited"]
-[connection signal="area_entered" from="Goku Detector" to="." method="_on_goku_detector_area_entered"]
-[connection signal="area_exited" from="Goku Detector" to="." method="_on_goku_detector_area_exited"]
-[connection signal="area_entered" from="Hunter Detector" to="." method="_on_hunter_detector_area_entered"]
-[connection signal="area_exited" from="Hunter Detector" to="." method="_on_hunter_detector_area_exited"]
-[connection signal="area_entered" from="Nomad Detector" to="." method="_on_nomad_detector_area_entered"]
-[connection signal="area_exited" from="Nomad Detector" to="." method="_on_nomad_detector_area_exited"]
-[connection signal="area_entered" from="Princess Atlantis Detector" to="." method="_on_princess_atlantis_detector_area_entered"]
-[connection signal="area_exited" from="Princess Atlantis Detector" to="." method="_on_princess_atlantis_detector_area_exited"]
 [connection signal="pressed" from="General Archfield Nlight" to="." method="_on_general_archfield_nlight_pressed"]
 [connection signal="pressed" from="General Archfield Slight" to="." method="_on_general_archfield_slight_pressed"]
 [connection signal="pressed" from="General Archfield Dlight" to="." method="_on_general_archfield_dlight_pressed"]
@@ -2126,7 +2096,7 @@ text = "Nair
 [connection signal="pressed" from="Hunter Dlight" to="." method="_on_hunter_dlight_pressed"]
 [connection signal="pressed" from="Hunter Ulight" to="." method="_on_hunter_ulight_pressed"]
 [connection signal="pressed" from="Hunter Nair" to="." method="_on_hunter_nair_pressed"]
-[connection signal="pressed" from="Primcess Atlantis Nlight" to="." method="_on_primcess_atlantis_nlight_pressed"]
+[connection signal="pressed" from="Princess Atlantis Nlight" to="." method="_on_princess_atlantis_nlight_pressed"]
 [connection signal="pressed" from="Princess Atlantis Slight" to="." method="_on_princess_atlantis_slight_pressed"]
 [connection signal="pressed" from="Princess Atlantis Dlight" to="." method="_on_princess_atlantis_dlight_pressed"]
 [connection signal="pressed" from="Princess Atlantis Ulight" to="." method="_on_princess_atlantis_ulight_pressed"]
@@ -2136,3 +2106,4 @@ text = "Nair
 [connection signal="pressed" from="Nia Dlight" to="." method="_on_nia_dlight_pressed"]
 [connection signal="pressed" from="Nia Ulight" to="." method="_on_nia_ulight_pressed"]
 [connection signal="pressed" from="Nia Nair" to="." method="_on_nia_nair_pressed"]
+[connection signal="area_entered" from="Goku Detector" to="." method="_on_goku_detector_area_entered"]

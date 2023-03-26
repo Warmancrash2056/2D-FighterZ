@@ -1,4 +1,4 @@
-[gd_scene load_steps=254 format=3 uid="uid://chgqx5t2gcx1h"]
+[gd_scene load_steps=258 format=3 uid="uid://chgqx5t2gcx1h"]
 
 [ext_resource type="Script" path="res://Character Selection Resources/biography_section.gd" id="1_44gk6"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Archfield/General Archfield Character Icon.png" id="2_ck146"]
@@ -247,6 +247,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g7nsm"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ss1tk"]
+radius = 24.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5amkk"]
 animations = [{
 "frames": [{
@@ -484,6 +487,120 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_km1se"]
+radius = 24.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wtetf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("215_ydl17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("216_5k7n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("217_i16po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("218_svdg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("219_1yskp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("220_u5r3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("221_nxhfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("222_7v6bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("223_24bt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("224_djhcv")
+}],
+"loop": true,
+"name": &"Dlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("225_c52ew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("226_px7qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("227_e1w2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("228_gy6fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("229_llbyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("230_cplc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("231_odkgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("232_m5b2j")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("233_ky7to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("234_ryyni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("235_12com")
+}, {
+"duration": 1.0,
+"texture": ExtResource("236_17kho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("237_xl6ap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("238_bad2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("239_264ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("240_aet64")
+}],
+"loop": true,
+"name": &"Nair",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Nlight",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Slight",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Ulight",
+"speed": 5.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3g3k8"]
 animations = [{
 "frames": [{
@@ -709,644 +826,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6s8ut"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("141_rdvlr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("142_83rs8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("143_43qgt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("144_6gu33")
-}, {
-"duration": 1.0,
-"texture": ExtResource("145_iuwbw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("146_fg4se")
-}, {
-"duration": 1.0,
-"texture": ExtResource("147_2v3yi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("148_sdjny")
-}, {
-"duration": 1.0,
-"texture": ExtResource("149_ixfrq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("150_yva4m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("151_aky4q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("152_2ydvd")
-}],
-"loop": true,
-"name": &"Dlight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("153_irisj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("154_hkk41")
-}, {
-"duration": 1.0,
-"texture": ExtResource("155_qjldd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("156_3pn43")
-}, {
-"duration": 1.0,
-"texture": ExtResource("157_puucs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("158_66iul")
-}, {
-"duration": 1.0,
-"texture": ExtResource("159_bnyl8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("160_x8gwf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("161_7s5es")
-}, {
-"duration": 1.0,
-"texture": ExtResource("162_mb6w1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("163_s6ryw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("164_s16gm")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("165_rhqva")
-}, {
-"duration": 1.0,
-"texture": ExtResource("166_7kryw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("167_fgfhv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("168_jr8nb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("169_8puxy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("170_xommm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("171_gp8mk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("172_v87i3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("173_5j2hr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("174_mysuj")
-}],
-"loop": true,
-"name": &"Nair",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("175_lhoqc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("176_8bco5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("177_3j4s0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("178_dm7fb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("179_eiqmh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("180_n58pw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("181_3uvna")
-}, {
-"duration": 1.0,
-"texture": ExtResource("182_q2tiw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("183_0rfw6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("184_mk3h7")
-}],
-"loop": true,
-"name": &"Nlight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("185_xxdc8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("186_t6e7x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("187_dhf0n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("188_hgco2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("189_ukuh8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("190_aoync")
-}, {
-"duration": 1.0,
-"texture": ExtResource("191_udbqa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("192_c6cpk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("193_vwmrs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("194_eynh5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("195_gm3ib")
-}, {
-"duration": 1.0,
-"texture": ExtResource("196_ku2eh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("197_mq0ju")
-}, {
-"duration": 1.0,
-"texture": ExtResource("198_dq2bp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("199_wmi7v")
-}],
-"loop": true,
-"name": &"Slight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("200_2seyu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("201_goeuf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("202_b73dn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("203_t0nmy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("204_ip4xc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("205_q16bd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("206_cug3o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("207_wuo7w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("208_ck4a2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("209_tkhba")
-}, {
-"duration": 1.0,
-"texture": ExtResource("210_u2jo1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("211_68bqj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("212_pks2l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("213_kr66d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("214_ryd3g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("215_bedti")
-}, {
-"duration": 1.0,
-"texture": ExtResource("216_g8ydm")
-}],
-"loop": true,
-"name": &"Ulight",
-"speed": 5.0
-}]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dkak"]
+radius = 24.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wtetf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("215_ydl17")
-}, {
-"duration": 1.0,
-"texture": ExtResource("216_5k7n2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("217_i16po")
-}, {
-"duration": 1.0,
-"texture": ExtResource("218_svdg2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("219_1yskp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("220_u5r3s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("221_nxhfq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("222_7v6bx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("223_24bt1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("224_djhcv")
-}],
-"loop": true,
-"name": &"Dlight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("225_c52ew")
-}, {
-"duration": 1.0,
-"texture": ExtResource("226_px7qg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("227_e1w2j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("228_gy6fb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("229_llbyh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("230_cplc0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("231_odkgr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("232_m5b2j")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("233_ky7to")
-}, {
-"duration": 1.0,
-"texture": ExtResource("234_ryyni")
-}, {
-"duration": 1.0,
-"texture": ExtResource("235_12com")
-}, {
-"duration": 1.0,
-"texture": ExtResource("236_17kho")
-}, {
-"duration": 1.0,
-"texture": ExtResource("237_xl6ap")
-}, {
-"duration": 1.0,
-"texture": ExtResource("238_bad2o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("239_264ky")
-}, {
-"duration": 1.0,
-"texture": ExtResource("240_aet64")
-}],
-"loop": true,
-"name": &"Nair",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Nlight",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Slight",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Ulight",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_56rl7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": true,
-"name": &"Dlight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": true,
-"name": &"Nair",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": true,
-"name": &"Nlight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": true,
-"name": &"Slight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": true,
-"name": &"Ulight",
-"speed": 10.0
-}]
+[sub_resource type="CircleShape2D" id="CircleShape2D_15kbh"]
+radius = 24.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iykdi"]
 animations = [{
@@ -1630,11 +1114,539 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ss1tk"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3liyc"]
+radius = 25.2982
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_56rl7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Dlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Nair",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Nlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Slight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Ulight",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3uwrl"]
 radius = 24.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8dkak"]
-radius = 24.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_6s8ut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("141_rdvlr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_83rs8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_43qgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_6gu33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_iuwbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_fg4se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_2v3yi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_sdjny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_ixfrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_yva4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_aky4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_2ydvd")
+}],
+"loop": true,
+"name": &"Dlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("153_irisj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_hkk41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_qjldd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_3pn43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_puucs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_66iul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_bnyl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_x8gwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_7s5es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_mb6w1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_s6ryw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_s16gm")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("165_rhqva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_7kryw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_fgfhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_jr8nb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_8puxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_xommm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_gp8mk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_v87i3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_5j2hr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_mysuj")
+}],
+"loop": true,
+"name": &"Nair",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("175_lhoqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_8bco5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_3j4s0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_dm7fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_eiqmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_n58pw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_3uvna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_q2tiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_0rfw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_mk3h7")
+}],
+"loop": true,
+"name": &"Nlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("185_xxdc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("186_t6e7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("187_dhf0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("188_hgco2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("189_ukuh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("190_aoync")
+}, {
+"duration": 1.0,
+"texture": ExtResource("191_udbqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("192_c6cpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("193_vwmrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("194_eynh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("195_gm3ib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("196_ku2eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("197_mq0ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("198_dq2bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("199_wmi7v")
+}],
+"loop": true,
+"name": &"Slight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("200_2seyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("201_goeuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("202_b73dn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("203_t0nmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("204_ip4xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("205_q16bd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("206_cug3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("207_wuo7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("208_ck4a2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("209_tkhba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("210_u2jo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("211_68bqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_pks2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("213_kr66d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("214_ryd3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("215_bedti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("216_g8ydm")
+}],
+"loop": true,
+"name": &"Ulight",
+"speed": 5.0
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -1642,15 +1654,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_44gk6")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-z_index = -3
-layout_mode = 0
-offset_right = 1256.0
-offset_bottom = 624.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+metadata/_edit_horizontal_guides_ = []
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -1661,24 +1665,86 @@ text = "Return to Character Selection"
 
 [node name="Biography" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 440.0
-offset_right = 112.0
-offset_bottom = 480.0
+offset_left = 550.0
+offset_top = 450.0
+offset_right = 654.0
+offset_bottom = 490.0
 text = "Biography
 "
+fit_content = true
 
-[node name="About Me" type="RichTextLabel" parent="."]
+[node name="General Archfield Description" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 8.0
+offset_top = 480.0
+offset_right = 1192.0
+offset_bottom = 618.0
+text = "	Archfield a renowned knight from the fire empire Pyrusa. Archfield is a man almost never bearing a smile. Hot to his core it was said that his blade when swung would ignite the air around him even touching the blade can leave third degree burns. Archfield's greatest accomplishment was the defeat of Archon the Dragon, a ferocious beast that terrorized Fable for centuries. Know Archfield trains and continues to hone his skills to participate in the tournament of fighters.
+
+General Arcfield is a heavy character with slow speed but the strongest character in the game with high hp"
+fit_content = true
+
+[node name="Goku Description" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
 offset_top = 472.0
-offset_right = 1200.0
-offset_bottom = 576.0
+offset_right = 1192.0
+offset_bottom = 610.0
+text = "Monk of the temple of Tula. Goku has always been known as the energetic monkey boy and a bit of a class clown. Goku, trained by his masters to know the way of terra he has surpassed his classmates and proved his teachers that he is not just a class clown but a student who just sees everything easy to him Quite a quick learner he is. Goku sets his sights on the tournament of power. Having daily spars with his best friend Nia.
+
+Goku is the fastest character in the game with low hp and mid damage power, great for players who love movement."
+fit_content = true
+
+[node name="Hunter Description" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 472.0
+offset_right = 1192.0
+offset_bottom = 610.0
+text = "Hunter has always been curious about the world. At a young age she would run around the wilds and hunt for deer and fish always bringing back food for her village. Hunter loved and adored nature so much so that she learned Nature magic to and imbued her bow in her travels now she sets her sights on Luna kingdom and the battle for one and all. 
+
+Hunter is a ranged character with slow speeds and high damage her attacks are useful keeping the distance and her health can help you stay in the fight longer."
+fit_content = true
+
+[node name="Princess Atlantis Description" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 472.0
+offset_right = 1192.0
+offset_bottom = 610.0
+text = "		Princess Atlantis is the upcoming queen of Trident. As a young girl atlantis has always strived to visit the surface world. And uncovers the wonders of the world. Know at the age 18 she is now at the age to join the Tournament of Fighters training with Nomad to control her water abilities.
+
+Princess Atlantis is high mobility and strong character who has a lot of distance with attacks."
+fit_content = true
+
+[node name="Nia Description" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 472.0
+offset_right = 1192.0
+offset_bottom = 610.0
+text = "		Nia ia the daughter of Isshin an old royal samurai. Nia father trained in the arts of fighting. Having fast reflexes and quick speeds Nia can get the drop on her opponent without breaking a sweat. Now Nia fights in the tournament using her cunning skills will she win the match.
+
+Nia a fast and agile fighter using her blade to stp opponents approach and she is the best for dodgers."
+fit_content = true
+
+[node name="Nomad Description" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 472.0
+offset_right = 1192.0
+offset_bottom = 610.0
+text = "Nomad or his actual Sozan Karma had a life growing up. Cursed by the gods of fable. His tribe had to roam the desolate lands of noma. Sozan dreamed of seeing trees and water but the land of noma had no end or path there was swirling sand. The people of noma learned the ways of the wind and Sozan picked up quickly, beginning to run through the winds and create paths which led his people out of the land. He is a trainer to the princess of Trident. And works hard for the tournament 
+
+Nomad is a middleground character with average speed and attack. He has the second highest health in the game and has strong speeds in the air.
+
+"
+fit_content = true
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 404.0
+offset_bottom = 64.0
 columns = 6
 
 [node name="General Archfield" type="TextureRect" parent="GridContainer" groups=["Character"]]
@@ -1720,350 +1786,200 @@ portraitOffset = Vector2(68, 0)
 shape = SubResource("CircleShape2D_g7nsm")
 debug_color = Color(1, 0, 0.721569, 0.478431)
 
-[node name="General Archfield" type="AnimatedSprite2D" parent="."]
+[node name="General Archfield Character Selection" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="General Archfield Nlight" type="Button" parent="General Archfield Character Selection"]
 visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="General Archfield Slight" type="Button" parent="General Archfield Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
+
+[node name="General Archfield Dlight" type="Button" parent="General Archfield Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Dlight"
+
+[node name="General Archfield Ulight" type="Button" parent="General Archfield Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Ulight
+"
+
+[node name="General Archfield Nair" type="Button" parent="General Archfield Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="General Archfield Detector" type="Area2D" parent="General Archfield Character Selection"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="General Archfield Character Selection/General Archfield Detector"]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_ss1tk")
+
+[node name="General Archfield Animation" type="AnimatedSprite2D" parent="General Archfield Character Selection"]
 z_index = -1
 position = Vector2(584, 24)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5amkk")
-animation = &"Nair"
+animation = &"Idle"
 
-[node name="Goku Animation" type="AnimatedSprite2D" parent="."]
+[node name="Nia Character Selection" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Nia Nlight" type="Button" parent="Nia Character Selection"]
 visible = false
-position = Vector2(576, 320)
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_3g3k8")
-animation = &"Dlight"
+layout_mode = 0
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nlight
+"
 
-[node name="Hunter Animation" type="AnimatedSprite2D" parent="."]
+[node name="Nia Slight" type="Button" parent="Nia Character Selection"]
 visible = false
-position = Vector2(576, 320)
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_6s8ut")
-animation = &"Ulight"
-frame_progress = 0.967568
+layout_mode = 0
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
 
-[node name="Nia Animation" type="AnimatedSprite2D" parent="."]
+[node name="Nia Dlight" type="Button" parent="Nia Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Dlight"
+
+[node name="Nia Ulight" type="Button" parent="Nia Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Ulight
+"
+
+[node name="Nia Nair" type="Button" parent="Nia Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Nia Detector" type="Area2D" parent="Nia Character Selection"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nia Character Selection/Nia Detector"]
+position = Vector2(232, 32)
+shape = SubResource("CircleShape2D_km1se")
+
+[node name="Nia Animation" type="AnimatedSprite2D" parent="Nia Character Selection"]
 visible = false
 position = Vector2(576, 320)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wtetf")
 animation = &"Nlight"
 
-[node name="Nomad Animation" type="AnimatedSprite2D" parent="."]
+[node name="Goku Character Selection" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Goku Nlight" type="Button" parent="Goku Character Selection"]
 visible = false
-position = Vector2(576, 320)
+layout_mode = 0
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Goku Slight" type="Button" parent="Goku Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
+
+[node name="Goku Dlight" type="Button" parent="Goku Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Dlight"
+
+[node name="Goku Ulight" type="Button" parent="Goku Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Ulight
+"
+
+[node name="Goku Nair" type="Button" parent="Goku Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Goku Animation" type="AnimatedSprite2D" parent="Goku Character Selection"]
+visible = false
+position = Vector2(584, 54)
 scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_56rl7")
-animation = &"Nair"
-frame_progress = 0.98057
-
-[node name="Princess Atlantis Animation" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(576, 320)
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_iykdi")
-animation = &"Slight"
-
-[node name="General Archfield Detector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="General Archfield Detector"]
-position = Vector2(32, 32)
-shape = SubResource("CircleShape2D_ss1tk")
-
-[node name="General Archfield Nlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 400.0
-offset_top = 384.0
-offset_right = 455.0
-offset_bottom = 415.0
-text = "Nlight
-"
-
-[node name="General Archfield Slight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 472.0
-offset_top = 384.0
-offset_right = 527.0
-offset_bottom = 415.0
-text = "Slight
-"
-
-[node name="General Archfield Dlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 544.0
-offset_top = 384.0
-offset_right = 599.0
-offset_bottom = 415.0
-text = "Dlight"
-
-[node name="General Archfield Ulight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 616.0
-offset_top = 384.0
-offset_right = 671.0
-offset_bottom = 415.0
-text = "Ulight
-"
-
-[node name="General Archfield Nair" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 688.0
-offset_top = 384.0
-offset_right = 743.0
-offset_bottom = 415.0
-text = "Nair
-"
-
-[node name="Goku Nlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 400.0
-offset_top = 384.0
-offset_right = 455.0
-offset_bottom = 415.0
-text = "Nlight
-"
-
-[node name="Goku Slight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 472.0
-offset_top = 384.0
-offset_right = 527.0
-offset_bottom = 415.0
-text = "Slight
-"
-
-[node name="Goku Dlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 544.0
-offset_top = 384.0
-offset_right = 599.0
-offset_bottom = 415.0
-text = "Dlight"
-
-[node name="Goku Ulight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 616.0
-offset_top = 384.0
-offset_right = 671.0
-offset_bottom = 415.0
-text = "Ulight
-"
-
-[node name="Goku Nair" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 688.0
-offset_top = 384.0
-offset_right = 743.0
-offset_bottom = 415.0
-text = "Nair
-"
-
-[node name="Nomad Nlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 400.0
-offset_top = 384.0
-offset_right = 455.0
-offset_bottom = 415.0
-text = "Nlight
-"
-
-[node name="Nomad Slight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 472.0
-offset_top = 384.0
-offset_right = 527.0
-offset_bottom = 415.0
-text = "Slight
-"
-
-[node name="Nomad Dlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 544.0
-offset_top = 384.0
-offset_right = 599.0
-offset_bottom = 415.0
-text = "Dlight"
-
-[node name="Nomad Ulight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 616.0
-offset_top = 384.0
-offset_right = 671.0
-offset_bottom = 415.0
-text = "Ulight
-"
-
-[node name="Nomad Nair" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 688.0
-offset_top = 384.0
-offset_right = 743.0
-offset_bottom = 415.0
-text = "Nair
-"
-
-[node name="Hunter Nlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 400.0
-offset_top = 384.0
-offset_right = 455.0
-offset_bottom = 415.0
-text = "Nlight
-"
-
-[node name="Hunter Slight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 472.0
-offset_top = 384.0
-offset_right = 527.0
-offset_bottom = 415.0
-text = "Slight
-"
-
-[node name="Hunter Dlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 544.0
-offset_top = 384.0
-offset_right = 599.0
-offset_bottom = 415.0
-text = "Dlight"
-
-[node name="Hunter Ulight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 616.0
-offset_top = 384.0
-offset_right = 671.0
-offset_bottom = 415.0
-text = "Ulight
-"
-
-[node name="Hunter Nair" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 688.0
-offset_top = 384.0
-offset_right = 743.0
-offset_bottom = 415.0
-text = "Nair
-"
-
-[node name="Princess Atlantis Nlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 400.0
-offset_top = 384.0
-offset_right = 455.0
-offset_bottom = 415.0
-text = "Nlight
-"
-
-[node name="Princess Atlantis Slight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 472.0
-offset_top = 384.0
-offset_right = 527.0
-offset_bottom = 415.0
-text = "Slight
-"
-
-[node name="Princess Atlantis Dlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 544.0
-offset_top = 384.0
-offset_right = 599.0
-offset_bottom = 415.0
-text = "Dlight"
-
-[node name="Princess Atlantis Ulight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 616.0
-offset_top = 384.0
-offset_right = 671.0
-offset_bottom = 415.0
-text = "Ulight
-"
-
-[node name="Princess Atlantis Nair" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 688.0
-offset_top = 384.0
-offset_right = 743.0
-offset_bottom = 415.0
-text = "Nair
-"
-
-[node name="Nia Nlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 400.0
-offset_top = 384.0
-offset_right = 455.0
-offset_bottom = 415.0
-text = "Nlight
-"
-
-[node name="Nia Slight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 472.0
-offset_top = 384.0
-offset_right = 527.0
-offset_bottom = 415.0
-text = "Slight
-"
-
-[node name="Nia Dlight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 544.0
-offset_top = 384.0
-offset_right = 599.0
-offset_bottom = 415.0
-text = "Dlight"
-
-[node name="Nia Ulight" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 616.0
-offset_top = 384.0
-offset_right = 671.0
-offset_bottom = 415.0
-text = "Ulight
-"
-
-[node name="Nia Nair" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 688.0
-offset_top = 384.0
-offset_right = 743.0
-offset_bottom = 415.0
-text = "Nair
-"
+sprite_frames = SubResource("SpriteFrames_3g3k8")
+animation = &"Idle"
 
 [node name="Goku Detector" type="Area2D" parent="."]
 
@@ -2071,39 +1987,266 @@ text = "Nair
 position = Vector2(96, 32)
 shape = SubResource("CircleShape2D_8dkak")
 
+[node name="Princess Atlantis Character Selection" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Princess Atlantis Nlight" type="Button" parent="Princess Atlantis Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Princess Atlantis Slight" type="Button" parent="Princess Atlantis Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
+
+[node name="Princess Atlantis Dlight" type="Button" parent="Princess Atlantis Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Dlight"
+
+[node name="Princess Atlantis Ulight" type="Button" parent="Princess Atlantis Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Ulight
+"
+
+[node name="Princess Atlantis Nair" type="Button" parent="Princess Atlantis Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Princess Atlantis Detector" type="Area2D" parent="Princess Atlantis Character Selection"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Princess Atlantis Character Selection/Princess Atlantis Detector"]
+position = Vector2(376, 32)
+shape = SubResource("CircleShape2D_15kbh")
+
+[node name="Princess Atlantis Animation" type="AnimatedSprite2D" parent="Princess Atlantis Character Selection"]
+visible = false
+position = Vector2(576, 320)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_iykdi")
+animation = &"Idle"
+
+[node name="Nomad Character Selection" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Nomad Nlight" type="Button" parent="Nomad Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Nomad Slight" type="Button" parent="Nomad Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
+
+[node name="Nomad Dlight" type="Button" parent="Nomad Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Dlight"
+
+[node name="Nomad Ulight" type="Button" parent="Nomad Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Ulight
+"
+
+[node name="Nomad Nair" type="Button" parent="Nomad Character Selection"]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Nomad Detector" type="Area2D" parent="Nomad Character Selection"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nomad Character Selection/Nomad Detector"]
+position = Vector2(312, 32)
+shape = SubResource("CircleShape2D_3liyc")
+
+[node name="Nomad Animation" type="AnimatedSprite2D" parent="Nomad Character Selection"]
+visible = false
+position = Vector2(576, 320)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_56rl7")
+animation = &"Nair"
+frame_progress = 0.98057
+
+[node name="Hunter Character Selelction" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Hunter Nlight" type="Button" parent="Hunter Character Selelction"]
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 384.0
+offset_right = 455.0
+offset_bottom = 415.0
+text = "Nlight
+"
+
+[node name="Hunter Slight" type="Button" parent="Hunter Character Selelction"]
+visible = false
+layout_mode = 0
+offset_left = 472.0
+offset_top = 384.0
+offset_right = 527.0
+offset_bottom = 415.0
+text = "Slight
+"
+
+[node name="Hunter Dlight" type="Button" parent="Hunter Character Selelction"]
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 599.0
+offset_bottom = 415.0
+text = "Dlight"
+
+[node name="Hunter Ulight" type="Button" parent="Hunter Character Selelction"]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "Ulight
+"
+
+[node name="Hunter Nair" type="Button" parent="Hunter Character Selelction"]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 415.0
+text = "Nair
+"
+
+[node name="Hunter Detector" type="Area2D" parent="Hunter Character Selelction"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hunter Character Selelction/Hunter Detector"]
+position = Vector2(168, 32)
+shape = SubResource("CircleShape2D_3uwrl")
+
+[node name="Hunter Animation" type="AnimatedSprite2D" parent="Hunter Character Selelction"]
+visible = false
+position = Vector2(576, 320)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_6s8ut")
+animation = &"Ulight"
+frame_progress = 0.967568
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -3
+layout_mode = 0
+offset_left = -20552.0
+offset_top = -21152.0
+offset_right = -20512.0
+offset_bottom = -21112.0
+scale = Vector2(1000, 1000)
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="animation_finished" from="General Archfield" to="." method="_on_general_archfield_animation_finished"]
-[connection signal="animation_looped" from="General Archfield" to="." method="_on_general_archfield_animation_looped"]
-[connection signal="area_entered" from="General Archfield Detector" to="." method="_on_general_archfield_detector_area_entered"]
-[connection signal="area_exited" from="General Archfield Detector" to="." method="_on_general_archfield_detector_area_exited"]
-[connection signal="pressed" from="General Archfield Nlight" to="." method="_on_general_archfield_nlight_pressed"]
-[connection signal="pressed" from="General Archfield Slight" to="." method="_on_general_archfield_slight_pressed"]
-[connection signal="pressed" from="General Archfield Dlight" to="." method="_on_general_archfield_dlight_pressed"]
-[connection signal="pressed" from="General Archfield Ulight" to="." method="_on_general_archfield_ulight_pressed"]
-[connection signal="pressed" from="General Archfield Nair" to="." method="_on_general_archfield_nair_pressed"]
-[connection signal="pressed" from="Goku Nlight" to="." method="_on_goku_nlight_pressed"]
-[connection signal="pressed" from="Goku Slight" to="." method="_on_goku_slight_pressed"]
-[connection signal="pressed" from="Goku Dlight" to="." method="_on_goku_dlight_pressed"]
-[connection signal="pressed" from="Goku Ulight" to="." method="_on_goku_ulight_pressed"]
-[connection signal="pressed" from="Goku Nair" to="." method="_on_goku_nair_pressed"]
-[connection signal="pressed" from="Nomad Nlight" to="." method="_on_nomad_nlight_pressed"]
-[connection signal="pressed" from="Nomad Slight" to="." method="_on_nomad_slight_pressed"]
-[connection signal="pressed" from="Nomad Dlight" to="." method="_on_nomad_dlight_pressed"]
-[connection signal="pressed" from="Nomad Ulight" to="." method="_on_nomad_ulight_pressed"]
-[connection signal="pressed" from="Nomad Nair" to="." method="_on_nomad_nair_pressed"]
-[connection signal="pressed" from="Hunter Nlight" to="." method="_on_hunter_nlight_pressed"]
-[connection signal="pressed" from="Hunter Slight" to="." method="_on_hunter_slight_pressed"]
-[connection signal="pressed" from="Hunter Dlight" to="." method="_on_hunter_dlight_pressed"]
-[connection signal="pressed" from="Hunter Ulight" to="." method="_on_hunter_ulight_pressed"]
-[connection signal="pressed" from="Hunter Nair" to="." method="_on_hunter_nair_pressed"]
-[connection signal="pressed" from="Princess Atlantis Nlight" to="." method="_on_princess_atlantis_nlight_pressed"]
-[connection signal="pressed" from="Princess Atlantis Slight" to="." method="_on_princess_atlantis_slight_pressed"]
-[connection signal="pressed" from="Princess Atlantis Dlight" to="." method="_on_princess_atlantis_dlight_pressed"]
-[connection signal="pressed" from="Princess Atlantis Ulight" to="." method="_on_princess_atlantis_ulight_pressed"]
-[connection signal="pressed" from="Princess Atlantis Nair" to="." method="_on_princess_atlantis_nair_pressed"]
-[connection signal="pressed" from="Nia Nlight" to="." method="_on_nia_nlight_pressed"]
-[connection signal="pressed" from="Nia Slight" to="." method="_on_nia_slight_pressed"]
-[connection signal="pressed" from="Nia Dlight" to="." method="_on_nia_dlight_pressed"]
-[connection signal="pressed" from="Nia Ulight" to="." method="_on_nia_ulight_pressed"]
-[connection signal="pressed" from="Nia Nair" to="." method="_on_nia_nair_pressed"]
+[connection signal="pressed" from="General Archfield Character Selection/General Archfield Nlight" to="." method="_on_general_archfield_nlight_pressed"]
+[connection signal="pressed" from="General Archfield Character Selection/General Archfield Slight" to="." method="_on_general_archfield_slight_pressed"]
+[connection signal="pressed" from="General Archfield Character Selection/General Archfield Dlight" to="." method="_on_general_archfield_dlight_pressed"]
+[connection signal="pressed" from="General Archfield Character Selection/General Archfield Ulight" to="." method="_on_general_archfield_ulight_pressed"]
+[connection signal="pressed" from="General Archfield Character Selection/General Archfield Nair" to="." method="_on_general_archfield_nair_pressed"]
+[connection signal="area_entered" from="General Archfield Character Selection/General Archfield Detector" to="." method="_on_general_archfield_detector_area_entered"]
+[connection signal="area_exited" from="General Archfield Character Selection/General Archfield Detector" to="." method="_on_general_archfield_detector_area_exited"]
+[connection signal="animation_looped" from="General Archfield Character Selection/General Archfield Animation" to="." method="_on_general_archfield_animation_looped"]
+[connection signal="pressed" from="Nia Character Selection/Nia Nlight" to="." method="_on_nia_nlight_pressed"]
+[connection signal="pressed" from="Nia Character Selection/Nia Slight" to="." method="_on_nia_slight_pressed"]
+[connection signal="pressed" from="Nia Character Selection/Nia Dlight" to="." method="_on_nia_dlight_pressed"]
+[connection signal="pressed" from="Nia Character Selection/Nia Ulight" to="." method="_on_nia_ulight_pressed"]
+[connection signal="pressed" from="Nia Character Selection/Nia Nair" to="." method="_on_nia_nair_pressed"]
+[connection signal="area_entered" from="Nia Character Selection/Nia Detector" to="." method="_on_nia_detector_area_entered"]
+[connection signal="area_exited" from="Nia Character Selection/Nia Detector" to="." method="_on_nia_detector_area_exited"]
+[connection signal="animation_looped" from="Nia Character Selection/Nia Animation" to="." method="_on_nia_animation_animation_looped"]
+[connection signal="pressed" from="Goku Character Selection/Goku Nlight" to="." method="_on_goku_nlight_pressed"]
+[connection signal="pressed" from="Goku Character Selection/Goku Slight" to="." method="_on_goku_slight_pressed"]
+[connection signal="pressed" from="Goku Character Selection/Goku Dlight" to="." method="_on_goku_dlight_pressed"]
+[connection signal="pressed" from="Goku Character Selection/Goku Ulight" to="." method="_on_goku_ulight_pressed"]
+[connection signal="pressed" from="Goku Character Selection/Goku Nair" to="." method="_on_goku_nair_pressed"]
+[connection signal="animation_looped" from="Goku Character Selection/Goku Animation" to="." method="_on_goku_animation_animation_looped"]
 [connection signal="area_entered" from="Goku Detector" to="." method="_on_goku_detector_area_entered"]
+[connection signal="area_exited" from="Goku Detector" to="." method="_on_goku_detector_area_exited"]
+[connection signal="pressed" from="Princess Atlantis Character Selection/Princess Atlantis Nlight" to="." method="_on_princess_atlantis_nlight_pressed"]
+[connection signal="pressed" from="Princess Atlantis Character Selection/Princess Atlantis Slight" to="." method="_on_princess_atlantis_slight_pressed"]
+[connection signal="pressed" from="Princess Atlantis Character Selection/Princess Atlantis Dlight" to="." method="_on_princess_atlantis_dlight_pressed"]
+[connection signal="pressed" from="Princess Atlantis Character Selection/Princess Atlantis Ulight" to="." method="_on_princess_atlantis_ulight_pressed"]
+[connection signal="pressed" from="Princess Atlantis Character Selection/Princess Atlantis Nair" to="." method="_on_princess_atlantis_nair_pressed"]
+[connection signal="area_entered" from="Princess Atlantis Character Selection/Princess Atlantis Detector" to="." method="_on_princess_atlantis_detector_area_entered"]
+[connection signal="area_exited" from="Princess Atlantis Character Selection/Princess Atlantis Detector" to="." method="_on_princess_atlantis_detector_area_exited"]
+[connection signal="animation_looped" from="Princess Atlantis Character Selection/Princess Atlantis Animation" to="." method="_on_princess_atlantis_animation_animation_looped"]
+[connection signal="pressed" from="Nomad Character Selection/Nomad Nlight" to="." method="_on_nomad_nlight_pressed"]
+[connection signal="pressed" from="Nomad Character Selection/Nomad Slight" to="." method="_on_nomad_slight_pressed"]
+[connection signal="pressed" from="Nomad Character Selection/Nomad Dlight" to="." method="_on_nomad_dlight_pressed"]
+[connection signal="pressed" from="Nomad Character Selection/Nomad Ulight" to="." method="_on_nomad_ulight_pressed"]
+[connection signal="pressed" from="Nomad Character Selection/Nomad Nair" to="." method="_on_nomad_nair_pressed"]
+[connection signal="area_entered" from="Nomad Character Selection/Nomad Detector" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Nomad Character Selection/Nomad Detector" to="." method="_on_area_2d_area_exited"]
+[connection signal="animation_looped" from="Nomad Character Selection/Nomad Animation" to="." method="_on_nomad_animation_animation_looped"]
+[connection signal="pressed" from="Hunter Character Selelction/Hunter Nlight" to="." method="_on_hunter_nlight_pressed"]
+[connection signal="pressed" from="Hunter Character Selelction/Hunter Slight" to="." method="_on_hunter_slight_pressed"]
+[connection signal="pressed" from="Hunter Character Selelction/Hunter Dlight" to="." method="_on_hunter_dlight_pressed"]
+[connection signal="pressed" from="Hunter Character Selelction/Hunter Ulight" to="." method="_on_hunter_ulight_pressed"]
+[connection signal="pressed" from="Hunter Character Selelction/Hunter Nair" to="." method="_on_hunter_nair_pressed"]
+[connection signal="area_entered" from="Hunter Character Selelction/Hunter Detector" to="." method="_on_hunter_detector_area_entered"]
+[connection signal="area_exited" from="Hunter Character Selelction/Hunter Detector" to="." method="_on_hunter_detector_area_exited"]
+[connection signal="animation_looped" from="Hunter Character Selelction/Hunter Animation" to="." method="_on_hunter_animation_animation_looped"]

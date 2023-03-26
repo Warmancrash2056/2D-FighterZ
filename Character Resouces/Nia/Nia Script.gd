@@ -136,6 +136,7 @@ func _physics_process(delta):
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
 				
+			
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nair
 			if Motion.y > 0:
@@ -163,6 +164,7 @@ func _physics_process(delta):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nair
+		
 					print(Motion)
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
@@ -190,8 +192,10 @@ func _physics_process(delta):
 			Motion.y = 0
 			Animate.play("Ulight")
 			
+			
 				
 		States.Nair:
+			Motion.x = lerp(Motion.x , 0.1, 0.05)
 			print(Motion)
 			Motion.y = 0
 			Animate.play("Nair")

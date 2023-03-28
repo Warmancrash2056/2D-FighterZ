@@ -1,8 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://banjimyvldurq"]
+[gd_scene load_steps=28 format=3 uid="uid://cedr87jcjav2s"]
 
-[ext_resource type="Script" path="res://Character Resouces/Princess Atlantis/Princess Atlantis Script.gd" id="1_0esvu"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="1_t7m3w"]
-[ext_resource type="Texture2D" uid="uid://d34u6qpcb7unm" path="res://Character Resouces/Princess Atlantis/png/Princess Atlantis SpriteSheet.png" id="2_cpmma"]
+[ext_resource type="Script" path="res://Character Resouces/Princess Atlantis/Princess Atlantis Script.gd" id="1_xs6au"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_2cfao"]
+[ext_resource type="Texture2D" uid="uid://d34u6qpcb7unm" path="res://Character Resouces/Princess Atlantis/png/Princess Atlantis SpriteSheet.png" id="3_t0841"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gklyv"]
 
@@ -169,6 +169,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [32, 33, 34, 35, 36, 37, 38, 39, 32]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scale Player/Nuetral Air Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_05ruk"]
 resource_name = "Nlight"
@@ -332,9 +344,22 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Scale Player/Nuetral Air Hitbox/CollisionShape2D:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_r0v1x"]
 resource_name = "Roll"
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -504,17 +529,21 @@ size = Vector2(81.6667, 5.83333)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0uyqq"]
 
-[node name="Player 2 Water Princess" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vnfn"]
+radius = 7.5
+height = 63.3333
+
+[node name="Player 1 Princess Atlantis" type="CharacterBody2D"]
 scale = Vector2(1.2, 1.2)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("1_0esvu")
-controls = ExtResource("1_t7m3w")
+script = ExtResource("1_xs6au")
+controls = ExtResource("2_2cfao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
 shape = SubResource("CapsuleShape2D_gklyv")
-debug_color = Color(1, 1, 1, 0.498039)
+debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -6.66667
@@ -522,7 +551,7 @@ offset_top = -21.6667
 offset_right = 59.3333
 offset_bottom = 1.33334
 scale = Vector2(0.2, 0.2)
-text = "Player 2
+text = "Player 1
 "
 fit_content = true
 
@@ -583,10 +612,26 @@ disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Hurtbox"]
 shape = SubResource("CapsuleShape2D_0uyqq")
-debug_color = Color(0, 0, 0, 0.419608)
+debug_color = Color(0, 0, 0, 0.490196)
+
+[node name="Nuetral Air Hitbox" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Air Hitbox"]
+position = Vector2(53.3333, -12.5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_0vnfn")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scale Player/Nuetral Air Hitbox"]
+position = Vector2(53.3333, -12.5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_0vnfn")
+disabled = true
 
 [node name="Animations" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-texture = ExtResource("2_cpmma")
+texture = ExtResource("3_t0841")
 hframes = 20
 vframes = 9
+
+[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

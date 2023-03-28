@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c808wmvm1k32l"]
 
-[ext_resource type="PackedScene" uid="uid://bvtaxhrltrruf" path="res://Character Resouces/Nia/Player 1 Nia.tscn" id="1_uh1gf"]
+[ext_resource type="PackedScene" uid="uid://bwukvsc7xqh5n" path="res://Character Resouces/Hunter/Player 1 Hunter.tscn" id="1_pn5y6"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -56,5 +56,5 @@ shape = SubResource("2")
 position = Vector2(256, 288)
 zoom = Vector2(3, 3)
 
-[node name="Player 1 Nia" parent="." instance=ExtResource("1_uh1gf")]
-position = Vector2(152, 280)
+[node name="Player 1 Hunter" parent="." instance=ExtResource("1_pn5y6")]
+position = Vector2(144, 312)

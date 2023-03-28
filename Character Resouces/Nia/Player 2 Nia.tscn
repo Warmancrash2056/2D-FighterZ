@@ -1,11 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://v3j6sg460ms3"]
+[gd_scene load_steps=28 format=3 uid="uid://ciasg5ddrli0n"]
 
 [ext_resource type="Script" path="res://Character Resouces/Nia/Nia Script.gd" id="1_q0oic"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="1_sxq3v"]
 [ext_resource type="Texture2D" uid="uid://cp7t6inhv4t3i" path="res://Character Resouces/Nia/Assasin SpriteSheet.png" id="2_8w3dn"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_yo6im"]
 [ext_resource type="Texture2D" uid="uid://djs8lc52wplls" path="res://Character Resouces/Nia/Single Aniamtions/projectile_and_trap/projectile_throw/projectile_throw.png" id="3_06b8n"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmxmx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr333"]
+size = Vector2(10, 2)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5whet"]
 animations = [{
@@ -164,6 +165,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [42, 43, 44, 45, 46, 47, 48, 49]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Nuetral Air Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Nuetral Air Hitbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.287334, 0.3, 0.393799, 0.4, 0.49119, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(49, -13), Vector2(49, -13), Vector2(49, -13), Vector2(49, -13), Vector2(55, -13), Vector2(55, -13), Vector2(52.5, -13), Vector2(52.5, -13), Vector2(42.5, -14), Vector2(49, -14)]
 }
 
 [sub_resource type="Animation" id="Animation_b5wn6"]
@@ -424,6 +449,30 @@ tracks/14/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Nuetral Air Hitbox/CollisionShape2D:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Nuetral Air Hitbox/CollisionShape2D:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(49, -13)]
+}
 
 [sub_resource type="Animation" id="Animation_imifl"]
 resource_name = "Roll"
@@ -567,7 +616,7 @@ tracks/5/path = NodePath("Hurtbox/CollisionShape2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.279059, 0.319484, 0.54247, 0.563334, 0.812401, 0.835873),
+"times": PackedFloat32Array(0, 0.279059, 0.319484, 0.54247, 0.563334, 0.812401, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -10), Vector2(0, -10), Vector2(0, -15), Vector2(0, -15), Vector2(0, 0)]
@@ -606,14 +655,15 @@ size = Vector2(1.8852, 15.4928)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ry0p"]
 
-[node name="Player 2 Nia" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_beenl"]
+size = Vector2(23, 18)
+
+[node name="Player 1 Nia" type="CharacterBody2D"]
 position = Vector2(0, -40)
-scale = Vector2(1.5, 1.5)
 collision_layer = 2
 platform_floor_layers = 4294901760
 script = ExtResource("1_q0oic")
-controls = ExtResource("1_sxq3v")
-Health = 200
+controls = ExtResource("2_yo6im")
 
 [node name="Animation" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
@@ -622,7 +672,8 @@ hframes = 20
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_rmxmx")
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_dr333")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Scale Player" type="Node2D" parent="."]
@@ -692,11 +743,17 @@ disabled = true
 shape = SubResource("CapsuleShape2D_3ry0p")
 debug_color = Color(0, 0, 0, 0.490196)
 
+[node name="Nuetral Air Hitbox" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Air Hitbox"]
+position = Vector2(49, -13)
+shape = SubResource("RectangleShape2D_beenl")
+disabled = true
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -8.0
-offset_top = -26.6667
-offset_right = 72.0
-offset_bottom = 0.333336
+offset_left = -6.0
+offset_top = -27.0
+offset_right = 59.0
 scale = Vector2(0.2, 0.2)
 text = "Player 2"
 fit_content = true

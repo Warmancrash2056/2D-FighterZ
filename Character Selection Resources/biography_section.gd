@@ -194,30 +194,75 @@ func _on_goku_detector_area_exited(area):
 	
 	GokuNairButton.disabled = true
 	GokuNairButton.visible = false
+	
+func _on_princess_atlantis_animation_animation_looped():
+	PrincessAtlantisAnimation.play("Idle")
+	
+func _on_princess_atlantis_nlight_pressed():
+	PrincessAtlantisAnimation.play("Nlight")
+
+func _on_princess_atlantis_slight_pressed():
+	PrincessAtlantisAnimation.play("Slight")
+
+func _on_princess_atlantis_dlight_pressed():
+	PrincessAtlantisAnimation.play("Dlight")
+
+
+func _on_princess_atlantis_ulight_pressed():
+	PrincessAtlantisAnimation.play("Ulight")
+
+
+func _on_princess_atlantis_nair_pressed():
+	PrincessAtlantisAnimation.play("Nair")
 
 
 func _on_princess_atlantis_detector_area_entered(area):
-	pass # Replace with function body.
+	PrincessAtlantisAnimation.play("Idle")
+	PrincessAtlantisAnimation.visible = true
+	
+	PrincessAtlantisDescription.visible = true
+	
+	PrincessAtlantisNlightButton.disabled = false
+	PrincessAtlantisNlightButton.visible = true
+	
+	PrincessAtlantisSlightButton.disabled = false
+	PrincessAtlantisSlightButton.visible = true
+	
+	PrincessAtlantisDlightButton.disabled = false
+	PrincessAtlantisDlightButton.visible = true
+	
+	PrincessAtlantisUlightButton.disabled = false
+	PrincessAtlantisUlightButton.visible = true
+	
+	PrincessAtlantisNairButton.disabled = false
+	PrincessAtlantisNairButton.visible = true
+	
+	
 
 
 func _on_princess_atlantis_detector_area_exited(area):
-	pass # Replace with function body.
+	PrincessAtlantisAnimation.visible = false
+	PrincessAtlantisAnimation.stop()
+	PrincessAtlantisAnimation.frame = 0
+	PrincessAtlantisDescription.visible = false
+	
+	
+	
+	PrincessAtlantisNlightButton.disabled = true
+	PrincessAtlantisNlightButton.visible = false
+	
+	PrincessAtlantisSlightButton.disabled = true
+	PrincessAtlantisSlightButton.visible = false
+	
+	PrincessAtlantisDlightButton.disabled = true
+	PrincessAtlantisDlightButton.visible = false
+	
+	PrincessAtlantisUlightButton.disabled = true
+	PrincessAtlantisUlightButton.visible = false
+	
+	PrincessAtlantisNairButton.disabled = true
+	PrincessAtlantisNairButton.visible = false
 
-
-func _on_area_2d_area_entered(area):
-	pass # Replace with function body.
-
-
-func _on_area_2d_area_exited(area):
-	pass # Replace with function body.
-
-
-func _on_hunter_detector_area_entered(area):
-	pass # Replace with function body.
-
-
-func _on_hunter_detector_area_exited(area):
-	pass # Replace with function body.
 
 
 func _on_nia_detector_area_entered(area):
@@ -227,8 +272,6 @@ func _on_nia_detector_area_entered(area):
 func _on_nia_detector_area_exited(area):
 	pass # Replace with function body.
 
-func _on_hunter_animation_animation_looped():
-	pass # Replace with function body.
 
 
 func _on_nia_animation_animation_looped():
@@ -236,9 +279,136 @@ func _on_nia_animation_animation_looped():
 
 
 func _on_nomad_animation_animation_looped():
+	NomadAnimation.play("Idle")
+
+
+
+
+func _on_hunter_detector_area_entered(area):
+	HunterAnimation.visible = true
+	HunterAnimation.play("Idle")
+	HunterDescription.visible = true
+	
+	HunterNlightButton.disabled = false
+	HunterNlightButton.visible = true
+	
+	HunterSlightButton.disabled = false
+	HunterSlightButton.visible = true
+	
+	HunterDlightButton.disabled = false
+	HunterDlightButton.visible = true
+	
+	HunterUlightButton.disabled = false
+	HunterUlightButton.visible = true
+	
+	HunterNairButton.disabled = false
+	HunterNairButton.visible = true
+func _on_hunter_detector_area_exited(area):
+	HunterAnimation.visible = false
+	HunterAnimation.frame = 0
+	HunterAnimation.stop()
+	HunterDescription.visible = false
+	
+	HunterNlightButton.disabled = true
+	HunterNlightButton.visible = false
+	
+	HunterSlightButton.disabled = true
+	HunterSlightButton.visible = false
+	
+	HunterDlightButton.disabled = true
+	HunterDlightButton.visible = false
+	
+	HunterUlightButton.disabled = true
+	HunterUlightButton.visible = false
+	
+	HunterNairButton.disabled = true
+	HunterNairButton.visible = false
+
+
+func _on_hunter_animation_animation_looped():
+	HunterAnimation.play("Idle")
+	
+func _on_hunter_nlight_pressed():
+	HunterAnimation.play("Nlight")
+
+
+func _on_hunter_slight_pressed():
+	HunterAnimation.play("Slight")
+
+
+func _on_hunter_dlight_pressed():
+	HunterAnimation.play("Dlight")
+
+
+func _on_hunter_ulight_pressed():
+	HunterAnimation.play("Ulight")
+
+
+func _on_hunter_nair_pressed():
+	HunterAnimation.play("Nair")
+
+
+func _on_nomad_detector_area_entered(area):
+	NomadAnimation.play("Idle")
+	NomadAnimation.visible = true
+	NomadDescription.visible = true
+
+	NomadNlightButton.disabled = false
+	NomadNlightButton.visible = true
+
+	NomadSlightButton.disabled = false
+	NomadSlightButton.visible = true
+	
+	NomadDlightButton.disabled = false
+	NomadDlightButton.visible = true
+	
+	NomadUlightButton.disabled = false
+	NomadUlightButton.visible = true
+	
+	NomadNairButton.disabled = false
+	NomadNairButton.visible = true
+	
+func _on_nomad_detector_area_exited(area):
+	NomadAnimation.stop()
+	NomadAnimation.frame = 0
+	NomadDescription.visible = false
+	NomadAnimation.visible = false
+	
+	NomadNlightButton.disabled = true
+	NomadNlightButton.visible = false
+	
+	NomadSlightButton.disabled = true
+	NomadSlightButton.visible = false
+	
+	NomadDlightButton.disabled = true
+	NomadDlightButton.visible = false
+	
+	NomadUlightButton.disabled = true
+	NomadUlightButton.visible = false
+	
+	NomadNairButton.disabled = true
+	NomadNairButton.visible = false
+
+
+func _on_nomad_nair_pressed():
+	NomadAnimation.play("Nair")
+
+
+func _on_nomad_ulight_pressed():
+	NomadAnimation.play("Ulight")
+
+
+func _on_nomad_dlight_pressed():
+	NomadAnimation.play("Dlight")
+
+
+func _on_nomad_slight_pressed():
+	NomadAnimation.play("Slight")
+
+
+func _on_nomad_nlight_pressed():
+	NomadAnimation.play("Nlight")
+
+
+func _on_nia_nlight_pressed():
 	pass # Replace with function body.
-
-
-func _on_princess_atlantis_animation_animation_looped():
-	pass # Replace with function body.
-

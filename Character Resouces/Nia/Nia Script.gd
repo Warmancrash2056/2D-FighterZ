@@ -188,14 +188,15 @@ func _physics_process(delta):
 			
 				
 		States.Ulight:
+			Motion.y += Gravity
 			Motion.x = 0
-			Motion.y = 0
+			Motion.y = -70
 			Animate.play("Ulight")
 			
 			
 				
 		States.Nair:
-			Motion.x = lerp(Motion.x , 0.1, 0.05)
+			Motion.x = lerp(Motion.x , 0.1, 0.03)
 			print(Motion)
 			Motion.y = 0
 			Animate.play("Nair")

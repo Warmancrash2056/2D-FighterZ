@@ -24,7 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_18.png" id="22_uwaf8"]
 [ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow/arrow_.png" id="23_j2hbl"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6n3xk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2a56"]
+size = Vector2(10, 2)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6wdl"]
 radius = 6.08276
@@ -689,7 +690,8 @@ script = ExtResource("1_n5r24")
 controls = ExtResource("2_bcqpl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_6n3xk")
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_m2a56")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Animation" type="Sprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://b50arrdm7ya66"]
+[gd_scene load_steps=109 format=3 uid="uid://dtgf4fvjo76vm"]
 
 [ext_resource type="Script" path="res://Character Selection Resources/Character Selection Menu.gd" id="1_jgc7u"]
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nia/Assasin Character Icon.png" id="2_1sahf"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/ground_monk.png" id="3_jmpsx"]
 [ext_resource type="Texture2D" uid="uid://dpa5754pfc4ay" path="res://Character Resouces/Hunter/Huntress Character Icon.png" id="4_ofjyk"]
 [ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Animations/Nomad Character Icon.png" id="6_grwg7"]
-[ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/png/Princess Atlantis.png" id="7_hefr4"]
+[ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/Animation/Princess Atlantis.png" id="7_002if"]
 [ext_resource type="Texture2D" uid="uid://c5tbxkeptjepb" path="res://Character Resouces/Global/SelectionCursorPlayer1.png" id="7_mbj6r"]
 [ext_resource type="Script" path="res://Character Selection Resources/Player 1 Cursor.gd" id="8_pl4yk"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="9_vldyq"]
@@ -951,7 +951,7 @@ anchor_right = 1.0
 anchor_bottom = 1.008
 offset_top = -15.0
 offset_bottom = -11.8
-color = Color(0.0431373, 0.0431373, 0.0431373, 0.313726)
+color = Color(0, 0, 0, 1)
 
 [node name="Character Bio" type="Button" parent="."]
 layout_mode = 0
@@ -992,7 +992,7 @@ texture = ExtResource("6_grwg7")
 
 [node name="Atlantis" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 layout_mode = 2
-texture = ExtResource("7_hefr4")
+texture = ExtResource("7_002if")
 
 [node name="Player 2 Selection" type="GridContainer" parent="."]
 layout_mode = 0
@@ -1025,7 +1025,7 @@ texture = ExtResource("6_grwg7")
 
 [node name="Atlantis" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 layout_mode = 2
-texture = ExtResource("7_hefr4")
+texture = ExtResource("7_002if")
 
 [node name="Player 1 Cursor" type="Sprite2D" parent="."]
 position = Vector2(235.2, 156.2)

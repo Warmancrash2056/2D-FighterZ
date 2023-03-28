@@ -264,26 +264,6 @@ func _on_princess_atlantis_detector_area_exited(area):
 	PrincessAtlantisNairButton.visible = false
 
 
-
-func _on_nia_detector_area_entered(area):
-	pass # Replace with function body.
-
-
-func _on_nia_detector_area_exited(area):
-	pass # Replace with function body.
-
-
-
-func _on_nia_animation_animation_looped():
-	pass # Replace with function body.
-
-
-func _on_nomad_animation_animation_looped():
-	NomadAnimation.play("Idle")
-
-
-
-
 func _on_hunter_detector_area_entered(area):
 	HunterAnimation.visible = true
 	HunterAnimation.play("Idle")
@@ -347,7 +327,9 @@ func _on_hunter_ulight_pressed():
 func _on_hunter_nair_pressed():
 	HunterAnimation.play("Nair")
 
-
+func _on_nomad_animation_animation_looped():
+	NomadAnimation.play("Idle")
+	
 func _on_nomad_detector_area_entered(area):
 	NomadAnimation.play("Idle")
 	NomadAnimation.visible = true
@@ -408,7 +390,73 @@ func _on_nomad_slight_pressed():
 
 func _on_nomad_nlight_pressed():
 	NomadAnimation.play("Nlight")
+	
+func _on_nia_detector_area_entered(area):
+	if area:
+		NiaAnimation.play("Idle")
+		NiaAnimation.visible = true
+		NiaDescription.visible = true
+		
+		NiaNlightButton.disabled = false
+		NiaNlightButton.visible = true
+		
+		NiaSlightButton.disabled = false
+		NiaSlightButton.visible = true
+		
+		NiaDlightButton.disabled = false
+		NiaDlightButton.visible = true
+		
+		NiaUlightButton.disabled = false
+		NiaUlightButton.visible = true
+		
+		NiaNairButton.disabled = false
+		NiaNairButton.visible = true
 
 
+func _on_nia_detector_area_exited(area):
+	if area:
+		NiaAnimation.stop()
+		NiaAnimation.frame = 0
+		NiaAnimation.visible = false
+		NiaDescription.visible = false
+		NiaNlightButton.disabled = true
+		NiaNlightButton.visible = false
+		
+		NiaSlightButton.disabled = true
+		NiaSlightButton.visible = false
+		
+		NiaDlightButton.disabled = true
+		NiaDlightButton.visible = false
+		
+		NiaUlightButton.disabled = true
+		NiaUlightButton.visible = false
+		
+		NiaNairButton.disabled = true
+		NiaNairButton.visible = false
+
+
+func _on_nia_animation_animation_looped():
+	NiaAnimation.play("Idle")
+	
 func _on_nia_nlight_pressed():
-	pass # Replace with function body.
+	NiaAnimation.play("Nlight")
+
+
+func _on_nia_slight_pressed():
+	NiaAnimation.play("Slight")
+
+
+func _on_nia_dlight_pressed():
+	NiaAnimation.play("Dlight")
+
+
+func _on_nia_ulight_pressed():
+	NiaAnimation.play("Ulight")
+
+
+func _on_nia_nair_pressed():
+	NiaAnimation.play("Nair")
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://Character Selection Resources/Character Selection Menu.tscn")

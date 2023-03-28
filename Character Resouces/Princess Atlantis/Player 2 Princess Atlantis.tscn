@@ -1,8 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://cedr87jcjav2s"]
+[gd_scene load_steps=28 format=3 uid="uid://dri3xi5ftd4fc"]
 
 [ext_resource type="Script" path="res://Character Resouces/Princess Atlantis/Princess Atlantis Script.gd" id="1_xs6au"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_2cfao"]
-[ext_resource type="Texture2D" uid="uid://d34u6qpcb7unm" path="res://Character Resouces/Princess Atlantis/png/Princess Atlantis SpriteSheet.png" id="3_t0841"]
+[ext_resource type="Texture2D" uid="uid://d34u6qpcb7unm" path="res://Character Resouces/Princess Atlantis/Animation/Princess Atlantis SpriteSheet.png" id="3_6evy0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gklyv"]
 
@@ -630,7 +630,7 @@ disabled = true
 
 [node name="Animations" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-texture = ExtResource("3_t0841")
+texture = ExtResource("3_6evy0")
 hframes = 20
 vframes = 9
 

@@ -7,8 +7,5 @@ func _ready():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-	
-
-func _on_character_bio_pressed():
-	get_tree().change_scene_to_file("res://biography_section.tscn")
+	if Input.is_action_just_pressed("exit"):
+		get_tree().change_scene_to_file("res://Character Selection Resources/Start Game.tscn")

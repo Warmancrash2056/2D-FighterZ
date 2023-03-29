@@ -1,6 +1,6 @@
 extends Control
 
-@export var Controller: Resource
+@export var Controls : Resource
 
 #Biography Section 
 @onready var GeneralArchfieldDescription = $"General Archfield Description"
@@ -62,8 +62,8 @@ extends Control
 
 
 func _process(delta):
-	if Input.is_action_just_pressed(controls.Player1_Block):
-		print("Return")
+	if Input.is_action_just_pressed("exit"):
+		get_tree().change_scene_to_file("res://Character Selection Resources/Start Game.tscn")
 
 func _on_general_archfield_animation_looped():
 	GeneralArchfieldAnimation.play("Idle")

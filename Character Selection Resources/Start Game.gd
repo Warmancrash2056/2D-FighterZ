@@ -28,7 +28,7 @@ func _process(delta):
 
 
 func _on_local_play_pressed():
-	get_tree().change_scene_to_file("res://Character Selection Resources/Character Selection Menu.tscn")
+	get_tree().change_scene_to_file("res://Character Selection Resources/Local Play.tscn")
 
 
 func _on_about_characters_pressed():

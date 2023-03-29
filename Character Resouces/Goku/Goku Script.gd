@@ -190,7 +190,7 @@ func _physics_process(delta):
 			
 				
 		States.Nair:
-			print(Motion)
+			Motion.x = lerp(Motion.x , 0.1, 0.03)
 			Motion.y = 0
 			Animate.play("Nair")
 

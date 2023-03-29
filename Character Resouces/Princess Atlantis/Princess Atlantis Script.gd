@@ -195,7 +195,7 @@ func _physics_process(delta):
 			
 				
 		States.Nair:
-			print(Motion)
+			Motion.x = lerp(Motion.x , 0.1, 0.03)
 			Motion.y = 0
 			Animate.play("Nair")
 
@@ -208,7 +208,8 @@ func _physics_process(delta):
 		
 			
 			
-		States.Roll:
+		States.Roll:	
+			Motion.x = lerp(Motion.x , 0.1, 0.03)
 			Motion.y += Gravity
 			Animate.play("Roll")
 			if !is_on_floor():

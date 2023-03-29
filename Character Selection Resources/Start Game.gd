@@ -25,3 +25,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_local_play_pressed():
+	get_tree().change_scene_to_file("res://Character Selection Resources/Character Selection Menu.tscn")
+
+
+func _on_about_characters_pressed():
+	get_tree().change_scene_to_file("res://Character Selection Resources/biography_section.tscn")
+
+
+func _on_training_room_pressed():
+	get_tree().change_scene_to_file("res://Character Selection Resources/Training Room.tscn")

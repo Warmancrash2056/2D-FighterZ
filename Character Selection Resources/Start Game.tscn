@@ -81,7 +81,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t2l6l"]
@@ -107,7 +107,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ojoq"]
@@ -151,7 +151,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_odliv"]
@@ -183,7 +183,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i5nnj"]
@@ -215,7 +215,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_35w24"]
@@ -247,7 +247,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="Start Game" type="Control"]
@@ -256,36 +256,15 @@ anchors_preset = 0
 script = ExtResource("1_sh8go")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -80.0
 offset_top = -88.0
 offset_right = 1280.0
 offset_bottom = 776.0
 color = Color(0, 0, 0, 1)
 
-[node name="Local Play" type="Button" parent="."]
-offset_left = 125.0
-offset_top = 128.0
-offset_right = 210.0
-offset_bottom = 159.0
-text = "Local Play
-"
-
-[node name="About Characters" type="Button" parent="."]
-offset_left = 125.0
-offset_top = 192.0
-offset_right = 261.0
-offset_bottom = 223.0
-text = "About Character
-"
-
-[node name="Training Room" type="Button" parent="."]
-offset_left = 125.0
-offset_top = 256.0
-offset_right = 246.0
-offset_bottom = 287.0
-text = "Training Room"
-
 [node name="Button4" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 496.0
 offset_top = 64.0
 offset_right = 736.0
@@ -329,3 +308,33 @@ position = Vector2(592, 320)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_35w24")
 animation = &"Idle"
+
+[node name="Local Play" type="Button" parent="."]
+layout_mode = 2
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 213.0
+offset_bottom = 95.0
+text = "Local Play
+"
+
+[node name="About Characters" type="Button" parent="."]
+layout_mode = 2
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 264.0
+offset_bottom = 159.0
+text = "About Character
+"
+
+[node name="Training Room" type="Button" parent="."]
+layout_mode = 2
+offset_left = 128.0
+offset_top = 192.0
+offset_right = 249.0
+offset_bottom = 223.0
+text = "Training Room"
+
+[connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
+[connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]
+[connection signal="pressed" from="Training Room" to="." method="_on_training_room_pressed"]

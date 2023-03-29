@@ -1837,14 +1837,6 @@ offset_bottom = 40.0
 script = ExtResource("1_44gk6")
 metadata/_edit_horizontal_guides_ = []
 
-[node name="Button" type="Button" parent="."]
-z_index = 2
-layout_mode = 0
-offset_left = 888.0
-offset_right = 1124.0
-offset_bottom = 31.0
-text = "Return to Character Selection"
-
 [node name="Biography" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 550.0
@@ -2382,7 +2374,6 @@ scale = Vector2(1000, 1000)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="General Archfield Character Selection/General Archfield Nlight" to="." method="_on_general_archfield_nlight_pressed"]
 [connection signal="pressed" from="General Archfield Character Selection/General Archfield Slight" to="." method="_on_general_archfield_slight_pressed"]
 [connection signal="pressed" from="General Archfield Character Selection/General Archfield Dlight" to="." method="_on_general_archfield_dlight_pressed"]

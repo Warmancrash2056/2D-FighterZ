@@ -1,5 +1,7 @@
 extends Control
 
+@export var Controller: Resource
+
 #Biography Section 
 @onready var GeneralArchfieldDescription = $"General Archfield Description"
 @onready var GokuDescription = $"Goku Description"
@@ -59,7 +61,9 @@ extends Control
 @onready var NiaNairButton = $"Nia Character Selection/Nia Nair"
 
 
-
+func _process(delta):
+	if Input.is_action_just_pressed(controls.Player1_Block):
+		print("Return")
 
 func _on_general_archfield_animation_looped():
 	GeneralArchfieldAnimation.play("Idle")

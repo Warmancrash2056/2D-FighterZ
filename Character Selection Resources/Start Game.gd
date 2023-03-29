@@ -32,7 +32,7 @@ func _on_local_play_pressed():
 
 
 func _on_about_characters_pressed():
-	get_tree().change_scene_to_file("res://Character Selection Resources/biography_section.tscn")
+	get_tree().change_scene_to_file("res://Character Selection Resources/Biography Menu.tscn")
 
 
 func _on_training_room_pressed():

@@ -67,6 +67,7 @@ func _physics_process(delta):
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
+					Motion.x = -200
 	
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
@@ -78,7 +79,7 @@ func _physics_process(delta):
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-
+					Motion.x = 200
 		
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
@@ -203,6 +204,7 @@ func _physics_process(delta):
 			
 			
 		States.Roll:
+			Motion.x = lerp(Motion.x , 0.1, 0.05)	
 			Motion.y += Gravity
 			Animate.play("Roll")
 			if !is_on_floor():

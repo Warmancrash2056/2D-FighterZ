@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c808wmvm1k32l"]
 
-[ext_resource type="PackedScene" uid="uid://duy4fwm15182h" path="res://Character Resouces/Princess Atlantis/Player 1 Princess Atlantis.tscn" id="1_mhhtn"]
+[ext_resource type="PackedScene" uid="uid://brf8lggy6mc6x" path="res://Character Resouces/General Archfield/Player 1 General Archfield.tscn" id="1_xl6ik"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -10,6 +10,7 @@ radius = 16.0
 height = 32.0
 
 [node name="Node2D" type="Node2D"]
+metadata/_edit_vertical_guides_ = [344.0]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
@@ -18,28 +19,36 @@ collision_mask = 0
 position = Vector2(696, 584)
 shape = SubResource("1")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="StaticBody2D/CollisionShape2D"]
+offset_left = -136.0
+offset_top = -224.0
+offset_right = -96.0
+offset_bottom = -201.0
+text = "Floor"
+fit_content = true
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(592, 472)
+position = Vector2(1000, 472)
 rotation = 1.5708
 shape = SubResource("1")
 
 [node name="Right Wall" type="RichTextLabel" parent="StaticBody2D/CollisionShape2D2"]
-offset_left = -96.0
+offset_left = -100.0
 offset_top = 240.0
-offset_right = 44.0
+offset_right = 40.0
 offset_bottom = 280.0
 rotation = 3.14159
 text = "         Right Wall"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-176, 432)
+position = Vector2(144, 472)
 rotation = 1.5708
 shape = SubResource("1")
 
 [node name="Left Wall" type="RichTextLabel" parent="StaticBody2D/CollisionShape2D3"]
-offset_left = -88.0
+offset_left = -100.0
 offset_top = -208.0
-offset_right = 52.0
+offset_right = 40.0
 offset_bottom = -168.0
 rotation = 3.14159
 text = "         Left Wall"
@@ -53,8 +62,8 @@ position = Vector2(284, 144)
 shape = SubResource("2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(256, 288)
-zoom = Vector2(3, 3)
+position = Vector2(568, 272)
+zoom = Vector2(2, 2)
 
-[node name="Player 1 Princess Atlantis" parent="." instance=ExtResource("1_mhhtn")]
-position = Vector2(176, 296)
+[node name="Player 1 General Archfield" parent="." instance=ExtResource("1_xl6ik")]
+position = Vector2(576, 272)

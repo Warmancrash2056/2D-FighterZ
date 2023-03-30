@@ -172,7 +172,7 @@ func _physics_process(delta):
 			
 		States.Slight:
 			Motion.y = 0
-			
+			Motion.x = lerp(Motion.x , 0.1, 0.06)
 			Animate.play("Slight")
 
 		States.Dlight:

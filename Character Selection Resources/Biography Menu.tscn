@@ -1,4 +1,4 @@
-[gd_scene load_steps=361 format=3 uid="uid://0yo4kt2lrt45"]
+[gd_scene load_steps=362 format=3 uid="uid://0yo4kt2lrt45"]
 
 [ext_resource type="Script" path="res://Character Selection Resources/Biography Menu.gd" id="1_51p2v"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_1ben7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nia/Assasin Character Icon.png" id="6_ha5jw"]
 [ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Animations/Nomad Character Icon.png" id="7_emba7"]
 [ext_resource type="Texture2D" uid="uid://c5tbxkeptjepb" path="res://Character Resouces/Global/SelectionCursorPlayer1.png" id="8_bqfsj"]
+[ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/Animation/Princess Atlantis.png" id="8_gxlsc"]
 [ext_resource type="Script" path="res://Character Selection Resources/Cursor.gd" id="9_a4mrb"]
 [ext_resource type="Texture2D" uid="uid://dpdpeoax0tmls" path="res://Character Resouces/General Archfield/Animations/07_3_atk/3_atk_18.png" id="10_4tr6d"]
 [ext_resource type="Texture2D" uid="uid://tyqhaui5vxop" path="res://Character Resouces/General Archfield/Animations/07_3_atk/3_atk_19.png" id="11_cxok5"]
@@ -1944,6 +1945,7 @@ texture = ExtResource("7_emba7")
 
 [node name="Princess Atlantis" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
+texture = ExtResource("8_gxlsc")
 
 [node name="Cursor" type="Sprite2D" parent="."]
 position = Vector2(32, 32)

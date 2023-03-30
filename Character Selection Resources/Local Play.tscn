@@ -247,29 +247,6 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("40_6tmao")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_nndgr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42_72ley")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_74fl5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44_etb2u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_6412k")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("45_6412k")
 }, {
 "duration": 1.0,
@@ -300,8 +277,31 @@ animations = [{
 "texture": ExtResource("54_hvhf6")
 }],
 "loop": true,
-"name": &"Ready",
+"name": &"Idle",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_6tmao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_nndgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_72ley")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_74fl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_etb2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_6412k")
+}],
+"loop": true,
+"name": &"Ready",
+"speed": 8.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y5eif"]
@@ -853,28 +853,28 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("86_htumq")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("87_a28px")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("88_qqqp4")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("89_rjw56")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("90_d1v3v")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("91_p38li")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("92_3vba8")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("93_pg4pn")
 }],
 "loop": true,
 "name": &"Idle",
@@ -882,49 +882,49 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("94_gsn58")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("95_mpdoe")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("96_ln0ys")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("97_iqk2b")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("98_hfg2h")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("99_uvxvb")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("100_pnafg")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("101_uipc7")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("102_uylov")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("103_ch1vg")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("104_3xmxg")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("105_r8f67")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("106_fkdjx")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("107_c0vg1")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("108_gqyo5")
 }],
 "loop": true,
 "name": &"Ready",
@@ -935,28 +935,28 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("109_37t5t")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("110_2negb")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("111_2r22s")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("112_jijve")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("113_fjfx8")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("114_4ox6p")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("115_scelj")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("116_2ma0c")
 }],
 "loop": true,
 "name": &"Ready",
@@ -1272,7 +1272,6 @@ position = Vector2(350, 185)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_iwkx3")
 animation = &"Ready"
-frame_progress = 0.443872
 
 [node name="Player 1 Hunter" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -1323,14 +1322,14 @@ visible = false
 position = Vector2(850, 205)
 scale = Vector2(-3, 3)
 sprite_frames = SubResource("SpriteFrames_fb631")
-animation = &"Ready"
+animation = &"Idle"
 
 [node name="Player 2 Nomad" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(850, 160)
 scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_f2ec0")
-animation = &"Ready"
+animation = &"Idle"
 
 [node name="Player 2 Atlantis" type="AnimatedSprite2D" parent="."]
 visible = false

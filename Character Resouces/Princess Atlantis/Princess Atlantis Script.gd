@@ -2,11 +2,19 @@ extends CharacterBody2D
 
 @export var controls: Resource
 
+var NlightPts = 1
+var SlightPts = 1
+var DlightPts = 1
+var UlightPts = 1
+var BlockPts = 1
+var DashPts = 1
+
+@onready var SideLightTimer = $"Side Light Timer"
 
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animations
 
-@export var Movement: int  = 250
+@export var Movement: int  = 100
 @export var AirMovement: int  = 100
 @export var Acceleration: int  = 35
 @export var JumpHeight: int = 500
@@ -51,6 +59,7 @@ func _physics_process(delta):
 	match Select:
 
 		States.Idle:
+			print(SideLightTimer.time_left)
 			Motion.y += Gravity 
 			if !is_on_floor():
 				Select = States.Fall
@@ -62,22 +71,28 @@ func _physics_process(delta):
 				Animate.play("Run")
 				Motion.x = max(Motion.x - Acceleration, -Movement)
 				
-				if Input.is_action_just_pressed(controls.input_attack):
+				if Input.is_action_just_pressed(controls.input_attack) and SlightPts == 1:
 					Select = States.Slight
+					SlightPts -= 1
+					SideLightTimer.start()
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
+					Motion.x = -350
 	
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				Motion.x = min(Motion.x + Acceleration, Movement)
 				
 				
-				if Input.is_action_just_pressed(controls.input_attack):
+				if Input.is_action_just_pressed(controls.input_attack) and SlightPts == 1:
 					Select = States.Slight
+					SlightPts -= 1
+					SideLightTimer.start()
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
+					Motion.x = 350
 
 		
 			elif Input.is_action_pressed(controls.input_down):
@@ -208,8 +223,9 @@ func _physics_process(delta):
 		
 			
 			
-		States.Roll:	
-			Motion.x = lerp(Motion.x , 0.1, 0.03)
+		States.Roll:
+			print(Motion)
+			Motion.x = lerp(Motion.x , 0.1, 0.03)	
 			Motion.y += Gravity
 			Animate.play("Roll")
 			if !is_on_floor():
@@ -256,3 +272,27 @@ func _on_animation_player_animation_finished(anim_name):
 		else: 
 			Select = States.Fall
 	
+
+# Player 1 Timer
+func _on_nuetral_light_timer_timeout():
+	pass # Replace with function body.
+
+
+func _on_side_light_timer_timeout():
+	SlightPts += 1
+	print("Side Light Ready")
+	print(SlightPts)
+func _on_down_light_timer_timeout():
+	pass # Replace with function body.
+
+
+func _on_up_light_timer_timeout():
+	pass # Replace with function body.
+
+
+func _on_dash_timer_timeout():
+	pass # Replace with function body.
+
+
+func _on_block_timer_timeout():
+	pass # Replace with function body.

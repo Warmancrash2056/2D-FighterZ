@@ -9,7 +9,6 @@ var UlightPts = 1
 var BlockPts = 1
 var DashPts = 1
 
-@onready var SideLightTimer = $"Side Light Timer"
 
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animations
@@ -59,7 +58,6 @@ func _physics_process(delta):
 	match Select:
 
 		States.Idle:
-			print(SideLightTimer.time_left)
 			Motion.y += Gravity 
 			if !is_on_floor():
 				Select = States.Fall
@@ -71,10 +69,9 @@ func _physics_process(delta):
 				Animate.play("Run")
 				Motion.x = max(Motion.x - Acceleration, -Movement)
 				
-				if Input.is_action_just_pressed(controls.input_attack) and SlightPts == 1:
+				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					SlightPts -= 1
-					SideLightTimer.start()
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
@@ -85,10 +82,9 @@ func _physics_process(delta):
 				Motion.x = min(Motion.x + Acceleration, Movement)
 				
 				
-				if Input.is_action_just_pressed(controls.input_attack) and SlightPts == 1:
+				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					SlightPts -= 1
-					SideLightTimer.start()
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll

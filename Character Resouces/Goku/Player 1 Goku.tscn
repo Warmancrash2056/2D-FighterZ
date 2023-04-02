@@ -1,9 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://dg7qymcx3y8fs"]
+[gd_scene load_steps=30 format=3 uid="uid://dg7qymcx3y8fs"]
 
 [ext_resource type="Script" path="res://Character Resouces/Goku/Goku Script.gd" id="1_ao5tm"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_tnerb"]
 [ext_resource type="Texture2D" uid="uid://b341moopt7xsq" path="res://Character Resouces/Goku/Ground Monk SpriteSheet.png" id="3_q25ue"]
 [ext_resource type="AudioStream" uid="uid://owrvoukdi21v" path="res://Jump.wav" id="4_ihkvg"]
+[ext_resource type="AudioStream" uid="uid://vkh3pkcuv12c" path="res://Character Resouces/Goku/Gregor Quendel - Designed Plastic - Elements - Liquid 17.wav" id="5_557ad"]
+[ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Goku/hit22.mp3.wav" id="6_ocfiv"]
 
 [sub_resource type="Animation" id="Animation_id6wq"]
 resource_name = "Block"
@@ -59,6 +61,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_down_light_audio"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_veaer"]
@@ -503,6 +519,23 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Side_light_first_audio"
+}, {
+"args": [],
+"method": &"side_light_audio_second"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_nfd27"]
 resource_name = "Ulight"
@@ -779,8 +812,24 @@ scale = Vector2(0.2, 0.2)
 text = "Player 1"
 fit_content = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ihkvg")
+max_distance = 500.0
+
+[node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_557ad")
+
+[node name="Nuetral Light Sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Side Light Sound First" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ocfiv")
+
+[node name="Side Light Sound Second" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ocfiv")
+
+[node name="Up Light Sounds" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Air Attack Sounds" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air First Hitbox" to="." method="_on_Nuetral_Air_area_entered"]

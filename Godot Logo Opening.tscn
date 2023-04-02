@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqfufe4m8hlxm"]
+[gd_scene load_steps=7 format=3 uid="uid://dqfufe4m8hlxm"]
 
 [ext_resource type="Script" path="res://Godot Logo.gd" id="1_gso0v"]
 [ext_resource type="Texture2D" uid="uid://cw2aiya5n0dbu" path="res://logo_large_monochrome_dark.png" id="2_6ox3v"]
+[ext_resource type="AudioStream" uid="uid://tik14eosxfl8" path="res://Godot Bing.wav" id="3_5irm2"]
 
 [sub_resource type="Animation" id="Animation_ojb0v"]
 resource_name = "Bing"
@@ -127,3 +128,4 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5irm2")

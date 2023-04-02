@@ -2,7 +2,10 @@ extends CharacterBody2D
 
 @export var controls: Resource
 
-
+@onready var JumpSound = $"Jump Sound"
+@onready var DLightSound = $"Down Light Sound"
+@onready var FirstSlightSound = $"Side Light Sound First"
+@onready var SecondSlightSound = $"Side Light Sound Second"
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animation
 
@@ -33,7 +36,14 @@ enum States {
 	Hurt
 }
 var Select = States.Idle
-
+func _down_light_audio():
+	DLightSound.play()
+	
+func Side_light_first_audio():
+	FirstSlightSound.play()
+	
+func side_light_audio_second():
+	SecondSlightSound.play()
 func _physics_process(delta):
 	if Motion.x >= 1:
 		SpriteH.flip_h = false
@@ -109,7 +119,7 @@ func _physics_process(delta):
 					Select = States.Defend
 			if Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
-				$AudioStreamPlayer2D.play()
+				JumpSound.play()
 				
 		States.Jump:
 			Motion.y += Gravity
@@ -216,7 +226,7 @@ func _physics_process(delta):
 				
 			elif Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
-				$AudioStreamPlayer2D.play()
+				JumpSound.play()
 				
 		States.Death:
 			Animate.play("Jump")

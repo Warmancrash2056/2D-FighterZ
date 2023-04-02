@@ -4,7 +4,8 @@
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_d6kga"]
 [ext_resource type="Texture2D" uid="uid://d34u6qpcb7unm" path="res://Character Resouces/Princess Atlantis/Animation/Princess Atlantis SpriteSheet.png" id="3_cyka1"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gklyv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj1w2"]
+size = Vector2(10, 2)
 
 [sub_resource type="Animation" id="Animation_rfmd1"]
 resource_name = "Block"
@@ -543,7 +544,8 @@ Movement = 120
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-shape = SubResource("CapsuleShape2D_gklyv")
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_uj1w2")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

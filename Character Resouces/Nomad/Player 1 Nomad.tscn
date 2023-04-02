@@ -493,6 +493,7 @@ radius = 20.0
 size = Vector2(10, 2)
 
 [node name="Player 1 Nomad" type="CharacterBody2D"]
+scale = Vector2(1.2, 1.2)
 script = ExtResource("1_hk7mu")
 controls = ExtResource("2_tx1n2")
 

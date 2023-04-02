@@ -660,6 +660,7 @@ size = Vector2(23, 18)
 
 [node name="Player 1 Nia" type="CharacterBody2D"]
 position = Vector2(0, -40)
+scale = Vector2(1.2, 1.2)
 collision_layer = 2
 platform_floor_layers = 4294901760
 script = ExtResource("1_47ll4")

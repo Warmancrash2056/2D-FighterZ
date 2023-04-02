@@ -7,13 +7,14 @@ extends Control
 @onready var PrincessAtlantis = $"Princess Atlantis"
 @onready var Hunter = $Hunter
 
-
+@onready var GameAudio = $AudioStreamPlayer2D
 @onready var LocalPlay = $"Local Play"
 @onready var AboutCharacters = $"About Characters"
 @onready var TrainingRoom = $"Training Room"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioStreamPlayer2D.play()
 	GeneralArchfield.play("Idle")
 	Goku.play("Idle")
 	Hunter.play("Idle")
@@ -36,4 +37,8 @@ func _on_about_characters_pressed():
 
 
 func _on_training_room_pressed():
-	get_tree().change_scene_to_file("res://Character Selection Resources/Training Room.tscn")
+	get_tree().change_scene_to_file("res://Game Maps/Galvin.tscn")
+
+
+func _on_audio_stream_player_2d_finished():
+	$AudioStreamPlayer2D.play()

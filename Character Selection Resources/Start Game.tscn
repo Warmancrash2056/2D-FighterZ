@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://brmmynt8ofmv0"]
+[gd_scene load_steps=59 format=3 uid="uid://brmmynt8ofmv0"]
 
 [ext_resource type="Script" path="res://Character Selection Resources/Start Game.gd" id="1_sh8go"]
 [ext_resource type="Texture2D" uid="uid://bwjnt30m56qyb" path="res://Character Resouces/General Archfield/Animations/01_idle/idle_1.png" id="2_2cu0f"]
@@ -51,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://dr112vevganxo" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_6.png" id="49_bis86"]
 [ext_resource type="Texture2D" uid="uid://ch0sei0rvxfkg" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_7.png" id="50_ycucb"]
 [ext_resource type="Texture2D" uid="uid://dauumo6tddbva" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_8.png" id="51_ehnf2"]
+[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://StaringAtReflections.wav" id="52_xcfes"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_flk7n"]
 animations = [{
@@ -335,6 +336,10 @@ offset_right = 249.0
 offset_bottom = 223.0
 text = "Training Room"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("52_xcfes")
+
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]
 [connection signal="pressed" from="Training Room" to="." method="_on_training_room_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

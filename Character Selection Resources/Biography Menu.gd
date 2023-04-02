@@ -60,7 +60,8 @@ extends Control
 @onready var NiaUlightButton = $"Nia Character Selection/Nia Ulight"
 @onready var NiaNairButton = $"Nia Character Selection/Nia Nair"
 
-
+func _ready():
+	$AudioStreamPlayer2D.play()
 func _process(delta):
 	if Input.is_action_just_pressed("exit"):
 		get_tree().change_scene_to_file("res://Character Selection Resources/Start Game.tscn")
@@ -464,3 +465,7 @@ func _on_nia_nair_pressed():
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://Character Selection Resources/Character Selection Menu.tscn")
+
+
+func _on_audio_stream_player_2d_finished():
+	$AudioStreamPlayer2D.play()

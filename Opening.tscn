@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdt1a2lhqsk8t"]
+
+[ext_resource type="Script" path="res://Opening.gd" id="1_prtgc"]
+
+[sub_resource type="Animation" id="Animation_wkodn"]
+resource_name = "Open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(272, 256), Vector2(2000, 256)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dlox4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 176)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nx6pn"]
+_data = {
+"Open": SubResource("Animation_wkodn"),
+"RESET": SubResource("Animation_dlox4")
+}
+
+[node name="Opening" type="Node2D"]
+script = ExtResource("1_prtgc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -336.0
+offset_top = -376.0
+offset_right = 1416.0
+offset_bottom = 992.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 1
+offset_left = 300.0
+offset_top = 176.0
+offset_right = 1292.0
+offset_bottom = 416.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 456.0
+offset_top = 352.0
+offset_right = 856.0
+offset_bottom = 624.0
+scale = Vector2(3, 3)
+text = "Mars  Gaming Studio Presents.
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 0.1
+libraries = {
+"": SubResource("AnimationLibrary_nx6pn")
+}

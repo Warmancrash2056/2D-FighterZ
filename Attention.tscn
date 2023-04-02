@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://dixlifqc3lx8h"]
+
+[ext_resource type="Script" path="res://Attention.gd" id="1_iag85"]
+
+[node name="Attention" type="Node2D"]
+script = ExtResource("1_iag85")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = -8.0
+offset_right = 1320.0
+offset_bottom = 768.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 1256.0
+offset_bottom = 832.0
+text = "Attetion. The Game requires two players on local. if one controller is present player will have default. player keyboard inputs."
+fit_content = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

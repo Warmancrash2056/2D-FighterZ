@@ -34,7 +34,6 @@ enum States {
 }
 var Select = States.Idle
 
-	
 func _physics_process(delta):
 	if Motion.x >= 1:
 		SpriteH.flip_h = false
@@ -68,6 +67,7 @@ func _physics_process(delta):
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
+					Motion.x = -300
 	
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
@@ -79,7 +79,7 @@ func _physics_process(delta):
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-
+					Motion.x = 300
 		
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
@@ -109,6 +109,7 @@ func _physics_process(delta):
 					Select = States.Defend
 			if Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
+				$AudioStreamPlayer2D.play()
 				
 		States.Jump:
 			Motion.y += Gravity
@@ -204,6 +205,7 @@ func _physics_process(delta):
 			
 			
 		States.Roll:
+			Motion.x = lerp(Motion.x , 0.01, 0.01)
 			Motion.y += Gravity
 			Animate.play("Roll")
 			if !is_on_floor():
@@ -214,6 +216,7 @@ func _physics_process(delta):
 				
 			elif Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
+				$AudioStreamPlayer2D.play()
 				
 		States.Death:
 			Animate.play("Jump")

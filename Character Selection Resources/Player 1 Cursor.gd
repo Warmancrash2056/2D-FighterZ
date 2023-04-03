@@ -80,7 +80,7 @@ func _process(delta):
 		if Player1CharacterSelection.Player1 == null:
 			print('Current Character Selected ', '[',characters[currentSelected].name,'] ', currentSelected)
 			Player1CharacterSelection.Player1
-			Player1CharacterSelection.Player1 = Player2CharacterSelection.SelectCharacters[characters[currentSelected].name]
+			Player1CharacterSelection.Player1 = Player1CharacterSelection.SelectCharacters[characters[currentSelected].name]
 			get_tree().change_scene_to_file("res://Game Maps/Galvin.tscn")
 			print("Player 1 Ready")
 			

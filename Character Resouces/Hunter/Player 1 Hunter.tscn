@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cfovl14wa58jr"]
+[gd_scene load_steps=45 format=3 uid="uid://jurhnb0mlxcl"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Hunter Script.gd" id="1_n5r24"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="2_gahy8"]
@@ -24,7 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_18.png" id="22_uwaf8"]
 [ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow/arrow_.png" id="23_j2hbl"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6n3xk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm13a"]
+size = Vector2(10, 1.8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6wdl"]
 radius = 6.08276
@@ -693,7 +694,10 @@ Movement = 200
 AirMovement = 130
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_6n3xk")
+z_index = 3
+position = Vector2(0, 22)
+scale = Vector2(1.3, 1.3)
+shape = SubResource("RectangleShape2D_mm13a")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Animation" type="Sprite2D" parent="."]

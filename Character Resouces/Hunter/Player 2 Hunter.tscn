@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow/arrow_.png" id="23_poicp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2a56"]
-size = Vector2(10, 2)
+size = Vector2(10, 1.8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6wdl"]
 radius = 6.08276
@@ -686,7 +686,8 @@ radius = 4.12311
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukc6m"]
 
 [node name="Player 1 Hunter" type="CharacterBody2D"]
-z_index = 2
+z_index = 3
+scale = Vector2(1.3, 1.3)
 script = ExtResource("1_bs4mj")
 controls = ExtResource("2_3aui7")
 

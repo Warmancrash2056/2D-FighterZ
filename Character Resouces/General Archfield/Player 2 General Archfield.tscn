@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://phx2b05okpg2"]
+[gd_scene load_steps=35 format=3 uid="uid://c8klcqb3f1uwe"]
 
 [ext_resource type="Script" path="res://Character Resouces/General Archfield/General Archfield Script.gd" id="1_cepbj"]
 [ext_resource type="Texture2D" uid="uid://wbgnd1vpa415" path="res://Character Resouces/General Archfield/General Archfield SpriteSheet.png" id="2_70pei"]
@@ -903,10 +903,15 @@ _data = {
 "Ulight": SubResource("Animation_vbuu8")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qjgpq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f81m"]
+size = Vector2(10, 1.8)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_auhw6"]
 
 [node name="Player 2 General Archfield" type="CharacterBody2D"]
+z_index = 3
 position = Vector2(0, -40)
+scale = Vector2(1.3, 1.3)
 script = ExtResource("1_cepbj")
 controls = ExtResource("2_l8itn")
 
@@ -1032,8 +1037,9 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Hurtbox"]
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2(0, 40)
-shape = SubResource("CapsuleShape2D_qjgpq")
+position = Vector2(0, 62)
+shape = SubResource("RectangleShape2D_0f81m")
+debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Animations" type="Sprite2D" parent="."]
 texture = ExtResource("2_70pei")
@@ -1048,6 +1054,13 @@ offset_bottom = 37.6667
 scale = Vector2(0.2, 0.2)
 text = "Player 2"
 fit_content = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 40)
+shape = SubResource("CapsuleShape2D_auhw6")
+debug_color = Color(0, 0, 0, 0.490196)
 
 [connection signal="area_entered" from="Scale Player/Nuetral Light3D Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Hitbox" to="." method="_on_Nuetral_Air_Hitbox_area_entered"]

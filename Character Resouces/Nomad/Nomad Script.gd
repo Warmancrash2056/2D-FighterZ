@@ -2,14 +2,13 @@ extends CharacterBody2D
 
 @export var controls: Resource
 
-
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animations
 
 @export var Movement: int  = 200
 @export var AirMovement: int  = 300
 @export var Acceleration: int  = 35
-@export var JumpHeight: int = 500
+@export var JumpHeight: int = 600
 @export var Gravity : int  = 35
 
 @export var Health = 800
@@ -107,6 +106,7 @@ func _physics_process(delta):
 					
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Defend
+					
 			if Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
 				
@@ -204,7 +204,7 @@ func _physics_process(delta):
 			
 			
 		States.Roll:
-			Motion.x = lerp(Motion.x , 0.1, 0.05)	
+			Motion.x = lerp(Motion.x , 0.1, 0.025)	
 			Motion.y += Gravity
 			Animate.play("Roll")
 			if !is_on_floor():

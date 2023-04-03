@@ -81,16 +81,10 @@ func _process(delta):
 			print('Current Character Selected ', '[',characters[currentSelected].name,'] ', currentSelected)
 			Player1CharacterSelection.Player1
 			Player1CharacterSelection.Player1 = Player2CharacterSelection.SelectCharacters[characters[currentSelected].name]
-			Player1Ready = true
+			get_tree().change_scene_to_file("res://Game Maps/Galvin.tscn")
 			print("Player 1 Ready")
 			
-		elif Input.is_action_just_pressed(Controls.input_jump):
-			if Player1CharacterSelection.Player1 != null:
-				print('Current Character Selected ', '[',characters[currentSelected].name,'] ', currentSelected)
-				Player1CharacterSelection.Player1
-				Player1CharacterSelection.Player1 = Player2CharacterSelection.SelectCharacters[characters[currentSelected].name]
-				Player1Ready = true
-				print("Player 1 Ready")
+	
 
 func _on_player_1_general_pyrus_animation_looped():
 	GeneralPyrusAnimation.play("Idle")

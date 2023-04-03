@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var Movement: int  = 175
 @export var AirMovement: int  = 120
 @export var Acceleration: int  = 35
-@export var JumpHeight: int = 500
+@export var JumpHeight: int = 600
 @export var Gravity : int  = 35
 
 @export var Health = 900
@@ -69,7 +69,7 @@ func _physics_process(delta):
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-	
+					Motion.x = -350
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				Motion.x = min(Motion.x + Acceleration, Movement)
@@ -78,8 +78,10 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
+					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
+					Motion.x = 350
 
 		
 			elif Input.is_action_pressed(controls.input_down):
@@ -205,6 +207,7 @@ func _physics_process(delta):
 			
 			
 		States.Roll:
+			Motion.x = lerp(Motion.x , 0.01, 0.02)
 			Motion.y += Gravity
 			Animate.play("Roll")
 			if !is_on_floor():

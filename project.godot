@@ -32,6 +32,10 @@ window/stretch/aspect="ignore"
 
 project/assembly_name="2D FighterZ"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GPTIntegration/plugin.cfg")
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

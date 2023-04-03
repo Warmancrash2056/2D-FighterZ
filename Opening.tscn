@@ -67,7 +67,7 @@ color = Color(0, 0, 0, 1)
 z_index = 1
 offset_left = 300.0
 offset_top = 176.0
-offset_right = 1292.0
+offset_right = 1292.01
 offset_bottom = 416.0
 color = Color(0, 0, 0, 1)
 
@@ -76,9 +76,10 @@ offset_left = 456.0
 offset_top = 352.0
 offset_right = 856.0
 offset_bottom = 624.0
-scale = Vector2(3, 3)
-text = "Mars  Gaming Studio Presents.
+scale = Vector2(2.5, 2.5)
+text = "Mars Gaming Studio Presents.
 "
+fit_content = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 0.1

@@ -1,8 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://cfovl14wa58jr"]
+[gd_scene load_steps=45 format=3 uid="uid://bwukvsc7xqh5n"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Hunter Script.gd" id="1_bs4mj"]
 [ext_resource type="Texture2D" uid="uid://csn8bf6hfirik" path="res://Character Resouces/Hunter/Huntress SpriteSheet.png" id="2_0roox"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="2_3rjfw"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_3aui7"]
 [ext_resource type="Texture2D" uid="uid://cek5bcrw4ug5q" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/diagonal_arrow/diagonal_arrow_.png" id="4_nc8ud"]
 [ext_resource type="Texture2D" uid="uid://cxnj3bax3fsjs" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_1.png" id="5_x3kx2"]
 [ext_resource type="Texture2D" uid="uid://bbjdg023asjqw" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_2.png" id="6_rscgj"]
@@ -24,7 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_18.png" id="22_17lqp"]
 [ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow/arrow_.png" id="23_poicp"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6n3xk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2a56"]
+size = Vector2(10, 2)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6wdl"]
 radius = 6.08276
@@ -523,7 +524,7 @@ tracks/14/keys = {
 
 [sub_resource type="Animation" id="Animation_df8h2"]
 resource_name = "Roll"
-length = 0.7
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -531,7 +532,7 @@ tracks/0/path = NodePath("Animation:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0869806, 0.173961, 0.258772, 0.344668, 0.430563, 0.515374, 0.60561),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [104, 105, 106, 107, 108, 109, 110, 111]
@@ -684,14 +685,14 @@ radius = 4.12311
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukc6m"]
 
-[node name="Player 2 Hunter" type="CharacterBody2D"]
+[node name="Player 1 Hunter" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_bs4mj")
-controls = ExtResource("2_3rjfw")
-Movement = 200
-AirMovement = 130
+controls = ExtResource("2_3aui7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_6n3xk")
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_m2a56")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Animation" type="Sprite2D" parent="."]
@@ -780,8 +781,7 @@ offset_top = -28.0
 offset_right = 60.0
 offset_bottom = -5.0
 scale = Vector2(0.2, 0.2)
-text = "Player 2
-"
+text = "Player 1"
 fit_content = true
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -16,7 +16,7 @@ var DashPts = 1
 @export var Movement: int  = 100
 @export var AirMovement: int  = 100
 @export var Acceleration: int  = 35
-@export var JumpHeight: int = 500
+@export var JumpHeight: int = 600
 @export var Gravity : int  = 35
 
 @export var Health = 200

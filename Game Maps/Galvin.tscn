@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/The Battlegrounds/background 2.png" id="3_rimp5"]
 [ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/The Battlegrounds/background 3.png" id="4_r7srj"]
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/The Battlegrounds/background 4.png" id="5_faiis"]
-[ext_resource type="PackedScene" uid="uid://dg7qymcx3y8fs" path="res://Character Resouces/Goku/Player 1 Goku.tscn" id="6_bfwi5"]
 [ext_resource type="AudioStream" uid="uid://c6rx30yjb54d8" path="res://Suspended.wav" id="8_7psbn"]
+[ext_resource type="Script" path="res://Game Maps/Player 1 Spawner.gd" id="8_b1nux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6m41"]
 texture = ExtResource("1_a0m0b")
@@ -5558,10 +5558,34 @@ position = Vector2(344, -152)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_1a41r")
 
-[node name="Earth Monk2" parent="." instance=ExtResource("6_bfwi5")]
-position = Vector2(200, -40)
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_7psbn")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 4
+z_index = 3
+offset_left = -496.0
+offset_top = -408.0
+offset_right = 536.0
+offset_bottom = 144.0
+color = Color(0, 0, 0, 0.639216)
+
+[node name="Pause Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Timer Notifier" type="RichTextLabel" parent="."]
+z_index = 3
+offset_left = -304.0
+offset_top = -264.0
+offset_right = 288.0
+offset_bottom = -216.0
+fit_content = true
+
+[node name="Player 1 Spawner" type="Node2D" parent="."]
+position = Vector2(-168, -160)
+script = ExtResource("8_b1nux")
+
+[node name="Player 2 Spawner" type="Node" parent="."]
+
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="timeout" from="Pause Timer" to="." method="_on_pause_timer_timeout"]

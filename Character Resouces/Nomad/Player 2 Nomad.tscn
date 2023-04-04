@@ -1,9 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://yd1se1ajdpj6"]
+[gd_scene load_steps=27 format=3 uid="uid://do45jvp6rnodg"]
 
 [ext_resource type="Script" path="res://Character Resouces/Nomad/Nomad Script.gd" id="1_3jmvr"]
 [ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Animations/wind_SpriteSheet_288x128.png" id="2_6ahgw"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="2_s7l71"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://jump_11.wav" id="4_f683y"]
+[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Player Jump.wav" id="4_02iuv"]
 
 [sub_resource type="Animation" id="Animation_6dpqg"]
 resource_name = "Block"
@@ -568,6 +568,6 @@ text = "Player 2"
 fit_content = true
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_f683y")
+stream = ExtResource("4_02iuv")
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

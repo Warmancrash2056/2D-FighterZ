@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://dri3xi5ftd4fc"]
+[gd_scene load_steps=29 format=3 uid="uid://c2xuw2eclk0xb"]
 
 [ext_resource type="Script" path="res://Character Resouces/Princess Atlantis/Princess Atlantis Script.gd" id="1_xs6au"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_2cfao"]
 [ext_resource type="Texture2D" uid="uid://d34u6qpcb7unm" path="res://Character Resouces/Princess Atlantis/Animation/Princess Atlantis SpriteSheet.png" id="3_6evy0"]
+[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Player Jump.wav" id="4_qwhxt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xe5wg"]
 size = Vector2(10, 2)
@@ -153,6 +154,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [26, 27, 28]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jump Sound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_887xk"]
@@ -357,6 +370,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Jump Sound:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_r0v1x"]
 resource_name = "Roll"
@@ -534,7 +559,7 @@ size = Vector2(81.6667, 5.83333)
 radius = 7.5
 height = 63.3333
 
-[node name="Player 1 Princess Atlantis" type="CharacterBody2D"]
+[node name="Player 2 Princess Atlantis" type="CharacterBody2D"]
 z_index = 2
 scale = Vector2(1.2, 1.2)
 collision_layer = 8
@@ -554,7 +579,7 @@ offset_top = -21.6667
 offset_right = 59.3333
 offset_bottom = 1.33334
 scale = Vector2(0.2, 0.2)
-text = "Player 1
+text = "Player 2
 "
 fit_content = true
 
@@ -636,5 +661,10 @@ position = Vector2(0, -40)
 texture = ExtResource("3_6evy0")
 hframes = 20
 vframes = 9
+
+[node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-6.66667, -21.6667)
+scale = Vector2(0.2, 0.2)
+stream = ExtResource("4_qwhxt")
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

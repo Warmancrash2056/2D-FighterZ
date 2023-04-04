@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1v1mu84a6ses"]
+[gd_scene load_steps=4 format=3 uid="uid://c1v1mu84a6ses"]
+
+[ext_resource type="PackedScene" uid="uid://jurhnb0mlxcl" path="res://Character Resouces/Hunter/Player 1 Hunter.tscn" id="1_a1qul"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -62,3 +64,6 @@ shape = SubResource("2")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(568, 272)
 zoom = Vector2(2, 2)
+
+[node name="Player 1  Hunter" parent="." instance=ExtResource("1_a1qul")]
+position = Vector2(479, 296)

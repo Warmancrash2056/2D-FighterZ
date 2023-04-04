@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bhvid1udeoden"]
+[gd_scene load_steps=59 format=3 uid="uid://bhvid1udeoden"]
 
 [ext_resource type="Script" path="res://Character Selection Resources/Start Game.gd" id="1_sh8go"]
 [ext_resource type="Texture2D" uid="uid://bwjnt30m56qyb" path="res://Character Resouces/General Archfield/Animations/01_idle/idle_1.png" id="2_2cu0f"]
@@ -27,6 +27,14 @@
 [ext_resource type="Texture2D" uid="uid://colamw54orhr" path="res://Character Resouces/Hunter/Animation/idle/idle_10.png" id="25_asl5r"]
 [ext_resource type="Texture2D" uid="uid://b0qal6i3f3nx4" path="res://Character Resouces/Hunter/Animation/idle/idle_11.png" id="26_aepjj"]
 [ext_resource type="Texture2D" uid="uid://ctwpbo576m2g6" path="res://Character Resouces/Hunter/Animation/idle/idle_12.png" id="27_pk7tb"]
+[ext_resource type="Texture2D" uid="uid://d1pmojx4o8rxq" path="res://Character Resouces/Nomad/Animations/idle/idle_1.png" id="28_2v2is"]
+[ext_resource type="Texture2D" uid="uid://bta2hqbooqxf8" path="res://Character Resouces/Nomad/Animations/idle/idle_2.png" id="29_wr2dx"]
+[ext_resource type="Texture2D" uid="uid://bq6aknfa5p0pg" path="res://Character Resouces/Nomad/Animations/idle/idle_3.png" id="30_xkfoc"]
+[ext_resource type="Texture2D" uid="uid://bdoiwl1kssffm" path="res://Character Resouces/Nomad/Animations/idle/idle_4.png" id="31_svuhg"]
+[ext_resource type="Texture2D" uid="uid://dpioa0relwcxi" path="res://Character Resouces/Nomad/Animations/idle/idle_5.png" id="32_mmy8s"]
+[ext_resource type="Texture2D" uid="uid://3j6ikcqp6pu6" path="res://Character Resouces/Nomad/Animations/idle/idle_6.png" id="33_b8d5k"]
+[ext_resource type="Texture2D" uid="uid://c34w08clfp1hr" path="res://Character Resouces/Nomad/Animations/idle/idle_7.png" id="34_yvy2t"]
+[ext_resource type="Texture2D" uid="uid://cv64u2i8s3mix" path="res://Character Resouces/Nomad/Animations/idle/idle_8.png" id="35_7jpdc"]
 [ext_resource type="Texture2D" uid="uid://ckgnbifb7ehgv" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_1.png" id="36_6slah"]
 [ext_resource type="Texture2D" uid="uid://bl2qb2hncljlv" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_2.png" id="37_m55hc"]
 [ext_resource type="Texture2D" uid="uid://dlr08j2rasqkr" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_3.png" id="38_nvgk1"]
@@ -151,28 +159,28 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("28_2v2is")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("29_wr2dx")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("30_xkfoc")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("31_svuhg")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("32_mmy8s")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("33_b8d5k")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("34_yvy2t")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("35_7jpdc")
 }],
 "loop": true,
 "name": &"Idle",

@@ -1,12 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://vsdaccxuvrhu"]
+[gd_scene load_steps=30 format=3 uid="uid://d0vkg80cmivsw"]
 
 [ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Animations/wind_SpriteSheet_288x128.png" id="1_3d7ry"]
 [ext_resource type="Script" path="res://Character Resouces/Nomad/Nomad Script.gd" id="1_hk7mu"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_tx1n2"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://jump_11.wav" id="4_2emk0"]
-[ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://melee sounds/melee sounds/sword sound.wav" id="5_3e6l6"]
+[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Player Jump.wav" id="4_u77db"]
+[ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="5_x1yyx"]
 [ext_resource type="AudioStream" uid="uid://iu46cc4k6bb6" path="res://Gregor Quendel - Designed Plastic - Free Sounds/Gregor Quendel - Designed Plastic - Elements - Ripping 03.wav" id="6_0o4j5"]
-[ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://melee sounds/melee sounds/animal melee sound.wav" id="7_we3il"]
+[ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="7_wkqtr"]
 
 [sub_resource type="Animation" id="Animation_6dpqg"]
 resource_name = "Block"
@@ -715,15 +715,15 @@ text = "Player 1"
 fit_content = true
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_2emk0")
+stream = ExtResource("4_u77db")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_3e6l6")
+stream = ExtResource("5_x1yyx")
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_0o4j5")
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_we3il")
+stream = ExtResource("7_wkqtr")
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 @export var controls: Resource
 
-
+# Call the animation for arrow shower in animationplayer
+@onready var DownArrow = $"Scale Player/Down Light Arrow"
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animation
 
@@ -35,7 +36,15 @@ enum States {
 	Hurt
 }
 var Select = States.Idle
-
+func _down_light():
+	print("good")
+	DownArrow.play("Shower")
+	DownArrow.visible = true
+	
+	if DownArrow.frame == 17:
+		DownArrow.visible = false
+		DownArrow.stop()
+		
 func _physics_process(delta):
 	if Motion.x >= 1:
 		SpriteH.flip_h = false
@@ -257,3 +266,10 @@ func _on_animation_player_animation_finished(anim_name):
 		else: 
 			Select = States.Fall
 	
+
+
+func _on_down_light_arrow_animation_looped():
+	if DownArrow.animation == "Shower":
+		DownArrow.stop()
+		DownArrow.frame = 0
+		DownArrow.visible = false

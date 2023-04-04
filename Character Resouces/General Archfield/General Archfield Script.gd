@@ -33,16 +33,16 @@ enum States {
 	Hurt
 }
 var Select = States.Idle
-
-func _physics_process(delta):
-	if Motion.x >= 1:
+func _update_flip():
+		if Motion.x >= 1:
 		SpriteH.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif Motion.x <= -1:
 		SpriteH.flip_h = true
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 
-	
+
+func _physics_process(delta):
 	set_velocity(Motion)
 	set_up_direction(Up)
 	move_and_slide()
@@ -51,6 +51,7 @@ func _physics_process(delta):
 	match Select:
 
 		States.Idle:
+			_update_flip()
 			Motion.y += Gravity 
 			if !is_on_floor():
 				Select = States.Fall
@@ -212,20 +213,28 @@ func _physics_process(delta):
 			await get_tree().create_timer(0.05).timeout
 			if Input.is_action_just_pressed(controls.input_block):
 				Select = States.Defend
-				
+			
+
 			elif Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
+
+			if Input.is_action_just_pressed(controls.input_attack
 				
 		States.Death:
-			Animate.play("Jump")
+			Animate.play("Death")
 			
 		States.Hurt:
 			Motion.x = 0
+			Motion.y = 0
 			Animate.play("Take Hit")
 
 
+#Add hitbox set test deature to 5.
 
+# signal hitbox. 
 
+# if player is hit -damage 1000 health.
+	
 	
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Nlight":

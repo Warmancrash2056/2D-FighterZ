@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://bvtaxhrltrruf"]
+[gd_scene load_steps=28 format=3 uid="uid://bvtaxhrltrruf"]
 
 [ext_resource type="Script" path="res://Character Resouces/Nia/Nia Script.gd" id="1_47ll4"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="1_lm2ho"]
 [ext_resource type="Texture2D" uid="uid://cp7t6inhv4t3i" path="res://Character Resouces/Nia/Assasin SpriteSheet.png" id="2_urahd"]
 [ext_resource type="Texture2D" uid="uid://djs8lc52wplls" path="res://Character Resouces/Nia/Single Aniamtions/projectile_and_trap/projectile_throw/projectile_throw.png" id="3_8lrdi"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Player Jump.wav" id="5_wrx18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr333"]
 size = Vector2(10, 2)
@@ -134,18 +133,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [16, 17, 18]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Jump Sound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_oet4d"]
@@ -486,18 +473,6 @@ tracks/16/keys = {
 "update": 0,
 "values": [Vector2(49, -13)]
 }
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("../Jump Sound:playing")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_imifl"]
 resource_name = "Roll"
@@ -785,8 +760,5 @@ offset_bottom = 0.333336
 scale = Vector2(0.2, 0.2)
 text = "Player 1"
 fit_content = true
-
-[node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_wrx18")
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

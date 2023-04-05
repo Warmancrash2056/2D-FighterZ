@@ -67,6 +67,7 @@ func _ready():
 
 
 func _on_local_play_pressed():
+	print("Good")
 	get_tree().change_scene_to_file("res://Character Selection Resources/Local Play.tscn")
 
 

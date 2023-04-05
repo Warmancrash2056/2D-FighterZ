@@ -1,9 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://c8klcqb3f1uwe"]
+[gd_scene load_steps=35 format=3 uid="uid://c8klcqb3f1uwe"]
 
 [ext_resource type="Script" path="res://Character Resouces/General Archfield/General Archfield Script.gd" id="1_cepbj"]
 [ext_resource type="Texture2D" uid="uid://wbgnd1vpa415" path="res://Character Resouces/General Archfield/General Archfield SpriteSheet.png" id="2_70pei"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="2_l8itn"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Player Jump.wav" id="4_c534i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
 radius = 3.5
@@ -184,18 +183,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [16, 17, 18]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../AudioStreamPlayer2D:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_d26hf"]
@@ -714,18 +701,6 @@ tracks/33/keys = {
 "update": 0,
 "values": [true]
 }
-tracks/34/type = "value"
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/path = NodePath("../AudioStreamPlayer2D:playing")
-tracks/34/interp = 1
-tracks/34/loop_wrap = true
-tracks/34/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_7gk38"]
 resource_name = "Roll"
@@ -1087,13 +1062,10 @@ position = Vector2(0, 40)
 shape = SubResource("CapsuleShape2D_auhw6")
 debug_color = Color(0, 0, 0, 0.490196)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_c534i")
-
 [connection signal="area_entered" from="Scale Player/Nuetral Light3D Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Hitbox" to="." method="_on_Nuetral_Air_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -21,11 +21,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 256.0
-offset_right = 1256.0
-offset_bottom = 832.0
-text = "Attetion. The Game requires two players on local. if one controller is present player will have default. player keyboard inputs."
+offset_top = 236.0
+offset_right = 1322.0
+offset_bottom = 812.0
+text = "Attention the game requires 1 controller for local play. If one controller is available player will have keyboard input Acess. Please look into player mapping.. "
 fit_content = true
 
 [node name="Timer" type="Timer" parent="."]

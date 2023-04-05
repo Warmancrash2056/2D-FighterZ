@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="2D FighterZ"
-run/main_scene="res://Attention.tscn"
+run/main_scene="res://Game Start/Attention Prompt/Attention.tscn"
 config/features=PackedStringArray("4.0")
 
 [autoload]
 
-Player1CharacterSelection="*res://Character Selection Resources/Player 1 Character Selection.gd"
-Player2CharacterSelection="*res://Character Selection Resources/Player 2 Character Selection.gd"
+Player1CharacterSelection="*res://Autoloads/Player 1 Character Selection.gd"
+Player2CharacterSelection="*res://Autoloads/Player 2 Character Selection.gd"
 
 [display]
 

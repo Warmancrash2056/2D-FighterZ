@@ -1,7 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://duy4fwm15182h"]
+[gd_scene load_steps=28 format=3 uid="uid://boda3iwfsquml"]
 
 [ext_resource type="Script" path="res://Character Resouces/Princess Atlantis/Princess Atlantis Script.gd" id="1_tb2o4"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_d6kga"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_pbq1p"]
 [ext_resource type="Texture2D" uid="uid://d34u6qpcb7unm" path="res://Character Resouces/Princess Atlantis/Animation/Princess Atlantis SpriteSheet.png" id="3_cyka1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uj1w2"]
@@ -540,7 +540,7 @@ scale = Vector2(1.3, 1.3)
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_tb2o4")
-controls = ExtResource("2_d6kga")
+controls = ExtResource("2_pbq1p")
 Movement = 120
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://k3mwm0t02t3r"]
+[gd_scene load_steps=17 format=3 uid="uid://c3xu2wjy8glsj"]
 
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/The Battlegrounds/mainlevbuildA.png" id="1_a0m0b"]
 [ext_resource type="Script" path="res://Game Maps/Galvin.gd" id="1_no2kx"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/The Battlegrounds/background 2.png" id="3_rimp5"]
 [ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/The Battlegrounds/background 3.png" id="4_r7srj"]
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/The Battlegrounds/background 4.png" id="5_faiis"]
-[ext_resource type="AudioStream" uid="uid://c6rx30yjb54d8" path="res://Suspended.wav" id="8_7psbn"]
+[ext_resource type="AudioStream" uid="uid://c6rx30yjb54d8" path="res://Game Music/Suspended.wav" id="7_sgdvf"]
 [ext_resource type="Script" path="res://Game Maps/Player 1 Spawner.gd" id="8_b1nux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6m41"]
@@ -5559,7 +5559,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_1a41r")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_7psbn")
+stream = ExtResource("7_sgdvf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 process_mode = 4

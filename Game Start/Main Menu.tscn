@@ -1,0 +1,400 @@
+[gd_scene load_steps=59 format=3 uid="uid://bt5ex12rx1y0p"]
+
+[ext_resource type="Script" path="res://Game Start/Start Game.gd" id="1_ljhc4"]
+[ext_resource type="Texture2D" uid="uid://bwjnt30m56qyb" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_1.png" id="2_jlv3j"]
+[ext_resource type="Texture2D" uid="uid://y1eglm80iyq7" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_2.png" id="3_eqxqf"]
+[ext_resource type="Texture2D" uid="uid://byw4tlqhshaet" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_3.png" id="4_vawfy"]
+[ext_resource type="Texture2D" uid="uid://ey5tm37at5ak" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_4.png" id="5_ilfur"]
+[ext_resource type="Texture2D" uid="uid://flek8wis8jsw" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_5.png" id="6_lkltn"]
+[ext_resource type="Texture2D" uid="uid://dm6146tms8lk5" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_6.png" id="7_h6dmc"]
+[ext_resource type="Texture2D" uid="uid://ifbwq7uo385c" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_7.png" id="8_3y8yh"]
+[ext_resource type="Texture2D" uid="uid://bfmufwp75833a" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_8.png" id="9_bnkhb"]
+[ext_resource type="Texture2D" uid="uid://bl82g11sr6u1l" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_1.png" id="10_mh4tw"]
+[ext_resource type="Texture2D" uid="uid://cjj08ipt7cpbu" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_2.png" id="11_8ly1f"]
+[ext_resource type="Texture2D" uid="uid://bi1a4iun5h86n" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_3.png" id="12_hli4g"]
+[ext_resource type="Texture2D" uid="uid://smvm5t33vbmn" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_4.png" id="13_h1dnm"]
+[ext_resource type="Texture2D" uid="uid://divcoy8tg6g1o" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_5.png" id="14_wkvw6"]
+[ext_resource type="Texture2D" uid="uid://brc6lshqr4p55" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_6.png" id="15_hmrmw"]
+[ext_resource type="Texture2D" uid="uid://cue751bbacnil" path="res://Character Resouces/Hunter/Animation/idle/idle_1.png" id="16_7nmnl"]
+[ext_resource type="Texture2D" uid="uid://cb6belxk5hy0q" path="res://Character Resouces/Hunter/Animation/idle/idle_2.png" id="17_i7l7f"]
+[ext_resource type="Texture2D" uid="uid://c6kf215fhosjs" path="res://Character Resouces/Hunter/Animation/idle/idle_3.png" id="18_m01ud"]
+[ext_resource type="Texture2D" uid="uid://cryfoc1klsdaq" path="res://Character Resouces/Hunter/Animation/idle/idle_4.png" id="19_ubmxg"]
+[ext_resource type="Texture2D" uid="uid://ctb2qle47bhp" path="res://Character Resouces/Hunter/Animation/idle/idle_5.png" id="20_dbgtr"]
+[ext_resource type="Texture2D" uid="uid://ba28rou6aud8" path="res://Character Resouces/Hunter/Animation/idle/idle_6.png" id="21_brkgy"]
+[ext_resource type="Texture2D" uid="uid://bmjx3ussaxyjc" path="res://Character Resouces/Hunter/Animation/idle/idle_7.png" id="22_cf421"]
+[ext_resource type="Texture2D" uid="uid://uutohwjws2n5" path="res://Character Resouces/Hunter/Animation/idle/idle_8.png" id="23_31n0m"]
+[ext_resource type="Texture2D" uid="uid://c1oul3ap3c16t" path="res://Character Resouces/Hunter/Animation/idle/idle_9.png" id="24_dqmkj"]
+[ext_resource type="Texture2D" uid="uid://colamw54orhr" path="res://Character Resouces/Hunter/Animation/idle/idle_10.png" id="25_5b1sp"]
+[ext_resource type="Texture2D" uid="uid://b0qal6i3f3nx4" path="res://Character Resouces/Hunter/Animation/idle/idle_11.png" id="26_46pgo"]
+[ext_resource type="Texture2D" uid="uid://ctwpbo576m2g6" path="res://Character Resouces/Hunter/Animation/idle/idle_12.png" id="27_cuyor"]
+[ext_resource type="Texture2D" uid="uid://d1pmojx4o8rxq" path="res://Character Resouces/Nomad/Animations/idle/idle_1.png" id="28_jsib3"]
+[ext_resource type="Texture2D" uid="uid://bta2hqbooqxf8" path="res://Character Resouces/Nomad/Animations/idle/idle_2.png" id="29_g1wgb"]
+[ext_resource type="Texture2D" uid="uid://bq6aknfa5p0pg" path="res://Character Resouces/Nomad/Animations/idle/idle_3.png" id="30_y1xgj"]
+[ext_resource type="Texture2D" uid="uid://bdoiwl1kssffm" path="res://Character Resouces/Nomad/Animations/idle/idle_4.png" id="31_lph80"]
+[ext_resource type="Texture2D" uid="uid://dpioa0relwcxi" path="res://Character Resouces/Nomad/Animations/idle/idle_5.png" id="32_pexto"]
+[ext_resource type="Texture2D" uid="uid://3j6ikcqp6pu6" path="res://Character Resouces/Nomad/Animations/idle/idle_6.png" id="33_fa72f"]
+[ext_resource type="Texture2D" uid="uid://c34w08clfp1hr" path="res://Character Resouces/Nomad/Animations/idle/idle_7.png" id="34_q6o5o"]
+[ext_resource type="Texture2D" uid="uid://cv64u2i8s3mix" path="res://Character Resouces/Nomad/Animations/idle/idle_8.png" id="35_yxy3s"]
+[ext_resource type="Texture2D" uid="uid://ckgnbifb7ehgv" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_1.png" id="36_ugm05"]
+[ext_resource type="Texture2D" uid="uid://bl2qb2hncljlv" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_2.png" id="37_dyi1t"]
+[ext_resource type="Texture2D" uid="uid://dlr08j2rasqkr" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_3.png" id="38_lmj6x"]
+[ext_resource type="Texture2D" uid="uid://dtvgukghiqd5s" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_4.png" id="39_ssxlr"]
+[ext_resource type="Texture2D" uid="uid://cytkk46m4nl62" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_5.png" id="40_ip1xu"]
+[ext_resource type="Texture2D" uid="uid://cq637jgsuect3" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_6.png" id="41_4jt5f"]
+[ext_resource type="Texture2D" uid="uid://dx6wfspjbk38r" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_7.png" id="42_stbda"]
+[ext_resource type="Texture2D" uid="uid://b78fsdjuf38km" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_8.png" id="43_i2aix"]
+[ext_resource type="Texture2D" uid="uid://bxc5ays304wd4" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_1.png" id="44_uruxj"]
+[ext_resource type="Texture2D" uid="uid://c78h4utc1sb8y" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_2.png" id="45_rvf6r"]
+[ext_resource type="Texture2D" uid="uid://bc6noh8ar44dv" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_3.png" id="46_h1aeq"]
+[ext_resource type="Texture2D" uid="uid://bfe8re6o3jp85" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_4.png" id="47_xc41c"]
+[ext_resource type="Texture2D" uid="uid://dml1tofqjjijw" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_5.png" id="48_rgpkg"]
+[ext_resource type="Texture2D" uid="uid://dr112vevganxo" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_6.png" id="49_rlglf"]
+[ext_resource type="Texture2D" uid="uid://ch0sei0rvxfkg" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_7.png" id="50_ucsw5"]
+[ext_resource type="Texture2D" uid="uid://dauumo6tddbva" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_8.png" id="51_r3qed"]
+[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/StaringAtReflections.wav" id="52_y7l3s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flk7n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jlv3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eqxqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vawfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ilfur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lkltn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h6dmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3y8yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bnkhb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2l6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_mh4tw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8ly1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hli4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_h1dnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wkvw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hmrmw")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ojoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_7nmnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_i7l7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_m01ud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ubmxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dbgtr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_brkgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_cf421")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_31n0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_dqmkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_5b1sp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_46pgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_cuyor")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_odliv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_jsib3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_g1wgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_y1xgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_lph80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_pexto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_fa72f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_q6o5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_yxy3s")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5nnj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_ugm05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_dyi1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_lmj6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ssxlr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ip1xu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_4jt5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_stbda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_i2aix")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35w24"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_uruxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_rvf6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_h1aeq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_xc41c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_rgpkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_rlglf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_ucsw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_r3qed")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[node name="Start Game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ljhc4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -80.0
+offset_top = -88.0
+offset_right = 1280.0
+offset_bottom = 776.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button4" type="RichTextLabel" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 496.0
+offset_top = 64.0
+offset_right = 736.0
+offset_bottom = 160.0
+scale = Vector2(3, 3)
+text = "2D FighterZ"
+fit_content = true
+
+[node name="General Archfield" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(464, 320)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_flk7n")
+animation = &"Idle"
+
+[node name="Goku" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(528, 336)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2l6l")
+animation = &"Idle"
+
+[node name="Hunter" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(736, 320)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_7ojoq")
+animation = &"Idle"
+
+[node name="Nomad" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(664, 320)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_odliv")
+animation = &"Idle"
+
+[node name="Nia" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(824, 320)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_i5nnj")
+animation = &"Idle"
+
+[node name="Princess Atlantis" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(592, 320)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_35w24")
+animation = &"Idle"
+
+[node name="Local Play" type="Button" parent="."]
+z_index = -1
+layout_mode = 2
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 213.0
+offset_bottom = 95.0
+text = "Local Play
+"
+
+[node name="About Characters" type="Button" parent="."]
+z_index = -1
+layout_mode = 2
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 264.0
+offset_bottom = 159.0
+text = "About Character
+"
+
+[node name="Training Room" type="Button" parent="."]
+z_index = -1
+layout_mode = 2
+offset_left = 128.0
+offset_top = 192.0
+offset_right = 249.0
+offset_bottom = 223.0
+text = "Training Room"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("52_y7l3s")
+
+[node name="End Game" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="End Game"]
+z_index = 1
+layout_mode = 0
+offset_left = 512.0
+offset_top = 256.0
+offset_right = 768.0
+offset_bottom = 302.0
+mouse_filter = 2
+text = "                   Are You Sure 
+   Press Esc again to leave game"
+fit_content = true
+
+[node name="ColorRect" type="ColorRect" parent="End Game"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.0
+anchor_top = -2.6
+offset_left = -48.0
+offset_top = -24.0
+offset_right = 1280.0
+offset_bottom = 888.0
+color = Color(0.4, 0.4, 0.4, 0.490196)
+
+[node name="Timer" type="RichTextLabel" parent="End Game"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.8
+anchor_bottom = 0.8
+offset_left = 784.0
+offset_top = 256.0
+offset_right = 752.0
+offset_bottom = 264.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
+[connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]
+[connection signal="pressed" from="Training Room" to="." method="_on_training_room_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

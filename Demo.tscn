@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1v1mu84a6ses"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="PackedScene" uid="uid://jurhnb0mlxcl" path="res://Character Resouces/Hunter/Player 1 Hunter.tscn" id="1_a1qul"]
+[ext_resource type="PackedScene" uid="uid://cgovpajhhmqtv" path="res://Character Resouces/General Archfield/Character Scenes/Player 2 General Archfield.tscn" id="1_nuhe1"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -65,5 +65,5 @@ shape = SubResource("2")
 position = Vector2(568, 272)
 zoom = Vector2(2, 2)
 
-[node name="Player 1  Hunter" parent="." instance=ExtResource("1_a1qul")]
-position = Vector2(479, 296)
+[node name="Player 2 General Archfield" parent="." instance=ExtResource("1_nuhe1")]
+position = Vector2(560, 264)

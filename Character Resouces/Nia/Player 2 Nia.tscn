@@ -1,8 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://ciasg5ddrli0n"]
+[gd_scene load_steps=28 format=3 uid="uid://d0aruxg8jfky0"]
 
 [ext_resource type="Script" path="res://Character Resouces/Nia/Nia Script.gd" id="1_q0oic"]
 [ext_resource type="Texture2D" uid="uid://cp7t6inhv4t3i" path="res://Character Resouces/Nia/Assasin SpriteSheet.png" id="2_8w3dn"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_yo6im"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_h2k4r"]
 [ext_resource type="Texture2D" uid="uid://djs8lc52wplls" path="res://Character Resouces/Nia/Single Aniamtions/projectile_and_trap/projectile_throw/projectile_throw.png" id="3_06b8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr333"]
@@ -665,7 +665,7 @@ scale = Vector2(1.3, 1.3)
 collision_layer = 2
 platform_floor_layers = 4294901760
 script = ExtResource("1_q0oic")
-controls = ExtResource("2_yo6im")
+controls = ExtResource("2_h2k4r")
 
 [node name="Animation" type="Sprite2D" parent="."]
 position = Vector2(0, -40)

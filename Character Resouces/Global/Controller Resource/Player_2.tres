@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Character Resouces/Global/Controller Resource/Controller.gd" id="1"]
+
+[resource]
+script = ExtResource( 1 )
+Player_Index = 1
+input_right = "Player2_Right"
+input_left = "Player2_Left"
+input_up = "Player2_Up"
+input_down = "Player2_Down"
+input_attack = "Player2_Attack"
+input_jump = "Player2_Jump"
+input_dash = "Player2_Dash"
+input_block = "Player2_Block"

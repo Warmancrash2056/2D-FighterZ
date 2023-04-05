@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://crbdwfccrkrdo"]
+[gd_scene load_steps=28 format=3 uid="uid://c5hevpdujrtyr"]
 
 [ext_resource type="Script" path="res://Character Resouces/Nomad/Nomad Script.gd" id="1_du2ui"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_1.tres" id="2_2kc3j"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_a23d7"]
 [ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Animations/wind_SpriteSheet_288x128.png" id="3_vwr6y"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="4_nys3d"]
-[ext_resource type="AudioStream" uid="uid://iu46cc4k6bb6" path="res://Gregor Quendel - Designed Plastic - Free Sounds/Gregor Quendel - Designed Plastic - Elements - Ripping 03.wav" id="6_ej6im"]
 [ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="6_yrgtu"]
 
 [sub_resource type="Animation" id="Animation_6dpqg"]
@@ -643,7 +642,7 @@ size = Vector2(10, 2)
 z_index = 3
 scale = Vector2(1.3, 1.3)
 script = ExtResource("1_du2ui")
-controls = ExtResource("2_2kc3j")
+controls = ExtResource("2_a23d7")
 
 [node name="Animations" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
@@ -719,7 +718,6 @@ fit_content = true
 stream = ExtResource("4_nys3d")
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_ej6im")
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_yrgtu")

@@ -1,8 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://jurhnb0mlxcl"]
+[gd_scene load_steps=45 format=3 uid="uid://bjg2ixxfc8n40"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Hunter Script.gd" id="1_n5r24"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Player_2.tres" id="2_gahy8"]
-[ext_resource type="Texture2D" uid="uid://csn8bf6hfirik" path="res://Character Resouces/Hunter/Huntress SpriteSheet.png" id="3_m6epm"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_bf5d2"]
+[ext_resource type="Texture2D" uid="uid://csn8bf6hfirik" path="res://Character Resouces/Hunter/Hunter Spritesheet.png" id="3_1dcqg"]
 [ext_resource type="Texture2D" uid="uid://cek5bcrw4ug5q" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/diagonal_arrow/diagonal_arrow_.png" id="4_srqx3"]
 [ext_resource type="Texture2D" uid="uid://cxnj3bax3fsjs" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_1.png" id="5_g87b8"]
 [ext_resource type="Texture2D" uid="uid://bbjdg023asjqw" path="res://Character Resouces/Hunter/Animation/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_2.png" id="6_ohvqu"]
@@ -689,7 +689,7 @@ radius = 4.12311
 z_index = 2
 scale = Vector2(1.2, 1.2)
 script = ExtResource("1_n5r24")
-controls = ExtResource("2_gahy8")
+controls = ExtResource("2_bf5d2")
 Movement = 200
 AirMovement = 130
 
@@ -701,7 +701,7 @@ shape = SubResource("RectangleShape2D_mm13a")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Animation" type="Sprite2D" parent="."]
-texture = ExtResource("3_m6epm")
+texture = ExtResource("3_1dcqg")
 offset = Vector2(0, -40)
 hframes = 20
 vframes = 12

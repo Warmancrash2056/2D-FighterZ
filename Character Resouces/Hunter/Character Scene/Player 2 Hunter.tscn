@@ -1,7 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://rsrq5j7f3y37"]
+[gd_scene load_steps=29 format=3 uid="uid://rsrq5j7f3y37"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Script/Hunter Script.gd" id="1_naj18"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_or2jn"]
+[ext_resource type="AudioStream" uid="uid://bddcg7xt5olvw" path="res://Character Resouces/Hunter/Sounds/Hunter Side Light.wav" id="3_20dbg"]
+[ext_resource type="AudioStream" uid="uid://dg23uykbeo64t" path="res://Character Resouces/Hunter/Sounds/Up Light Sound.wav" id="4_rvwn1"]
+[ext_resource type="AudioStream" uid="uid://cbpel8j5vnsq" path="res://Character Resouces/Hunter/Sounds/Down Light Sound.wav" id="5_kcotq"]
+[ext_resource type="AudioStream" uid="uid://dvnbf8odfka1u" path="res://Character Resouces/Hunter/Sounds/Arrow Sound Effects.wav" id="6_o12a1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm13a"]
 size = Vector2(10, 1.8)
@@ -822,12 +826,16 @@ fit_content = true
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Nuetral Light Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_20dbg")
 
 [node name="Up Light Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_rvwn1")
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_kcotq")
 
 [node name="Nuetral Air & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_o12a1")
 
 [connection signal="animation_looped" from="Scale Player/Down Light Arrow" to="." method="_on_down_light_arrow_animation_looped"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

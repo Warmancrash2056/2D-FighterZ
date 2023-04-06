@@ -1,13 +1,13 @@
 [gd_scene load_steps=33 format=3 uid="uid://djfrjc3ydgq3j"]
 
 [ext_resource type="Script" path="res://Character Resouces/Princess Atlantis/Script/Princess Atlantis Script.gd" id="1_1pron"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_7tskl"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Princess Atlantis/Spritesheet/Princess Atlantis SpriteSheet.png" id="3_bd773"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_81mmc"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Global/melee sounds/melee sound.wav" id="5_air7r"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Princess Atlantis/Side Light.wav" id="6_q3hvl"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Princess Atlantis/Down Light Start.wav" id="7_qdsje"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Princess Atlantis/Down Light End.wav" id="8_84loi"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_4mk62"]
+[ext_resource type="Texture2D" uid="uid://d34u6qpcb7unm" path="res://Character Resouces/Princess Atlantis/Spritesheet/Princess Atlantis SpriteSheet.png" id="3_bd773"]
+[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_81mmc"]
+[ext_resource type="AudioStream" uid="uid://bmsj2n0xspnmq" path="res://Character Resouces/Global/melee sounds/melee sound.wav" id="5_air7r"]
+[ext_resource type="AudioStream" uid="uid://b5hbcr4w7bgda" path="res://Character Resouces/Princess Atlantis/Side Light.wav" id="6_q3hvl"]
+[ext_resource type="AudioStream" uid="uid://g6lfjkfjemdu" path="res://Character Resouces/Princess Atlantis/Down Light Start.wav" id="7_qdsje"]
+[ext_resource type="AudioStream" uid="uid://8tw8og2yy4d7" path="res://Character Resouces/Princess Atlantis/Down Light End.wav" id="8_84loi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uj1w2"]
 size = Vector2(10, 2)
@@ -725,7 +725,7 @@ scale = Vector2(1.3, 1.3)
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_1pron")
-controls = ExtResource("2_7tskl")
+controls = ExtResource("2_4mk62")
 Movement = 120
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

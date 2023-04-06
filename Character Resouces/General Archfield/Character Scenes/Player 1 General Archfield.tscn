@@ -1,7 +1,12 @@
-[gd_scene load_steps=34 format=3 uid="uid://eaam6u58mq7b"]
+[gd_scene load_steps=39 format=3 uid="uid://eaam6u58mq7b"]
 
 [ext_resource type="Script" path="res://Character Resouces/General Archfield/Script/General Archfield Script.gd" id="1_762r4"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_0c6dm"]
+[ext_resource type="Texture2D" uid="uid://wbgnd1vpa415" path="res://Character Resouces/General Archfield/Spritesheet/General Archfield SpriteSheet.png" id="3_76ty0"]
+[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_12kcl"]
+[ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="5_k3gx6"]
+[ext_resource type="AudioStream" uid="uid://uvqcrwqnysys" path="res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav" id="6_bnpmr"]
+[ext_resource type="AudioStream" uid="uid://csft7v02oavc0" path="res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav" id="7_qyex6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
 radius = 3.5
@@ -1098,6 +1103,7 @@ shape = SubResource("RectangleShape2D_ghd62")
 debug_color = Color(1, 1, 1, 0.470588)
 
 [node name="Animations" type="Sprite2D" parent="."]
+texture = ExtResource("3_76ty0")
 hframes = 20
 vframes = 9
 
@@ -1116,12 +1122,16 @@ shape = SubResource("CapsuleShape2D_5c78f")
 debug_color = Color(0, 0, 0, 0.490196)
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_12kcl")
 
 [node name="Nuetral & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_k3gx6")
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_bnpmr")
 
 [node name="Up Light Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_qyex6")
 
 [connection signal="area_entered" from="Scale Player/Nuetral Light3D Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Hitbox" to="." method="_on_Nuetral_Air_Hitbox_area_entered"]

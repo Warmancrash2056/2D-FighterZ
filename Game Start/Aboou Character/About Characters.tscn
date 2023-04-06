@@ -1,4 +1,4 @@
-[gd_scene load_steps=447 format=3 uid="uid://bx6cw62jalo7y"]
+[gd_scene load_steps=446 format=3 uid="uid://cwo1fvhb6givv"]
 
 [ext_resource type="Script" path="res://Game Start/Aboou Character/About Character.gd" id="1_vkrci"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_u4mqr"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Icon/Goku.png" id="4_ervok"]
 [ext_resource type="Texture2D" uid="uid://dpa5754pfc4ay" path="res://Character Resouces/Hunter/Icon/Hunter.png" id="5_0cjqa"]
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nia/Icon/Assasin Character Icon.png" id="6_a608s"]
-[ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Nomad Character Icon.png" id="7_ax0au"]
 [ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/Icon/Princess Atlantis.png" id="8_8okm1"]
 [ext_resource type="Script" path="res://Game Start/Cursor.gd" id="8_w4x6b"]
 [ext_resource type="Texture2D" uid="uid://dpdpeoax0tmls" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_18.png" id="9_dq20h"]
@@ -2026,7 +2025,6 @@ texture = ExtResource("6_a608s")
 
 [node name="Nomad" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
-texture = ExtResource("7_ax0au")
 
 [node name="Princess Atlantis" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2

@@ -1,12 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://cx7lt4v6kcul1"]
+[gd_scene load_steps=30 format=3 uid="uid://8g6em1kua4o6"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Script/Hunter Script.gd" id="1_5q183"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_tqaja"]
 [ext_resource type="Texture2D" uid="uid://csn8bf6hfirik" path="res://Character Resouces/Hunter/Spritesheet/Hunter Spritesheet.png" id="3_0d372"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_41a4e"]
-[ext_resource type="AudioStream" uid="uid://bmsj2n0xspnmq" path="res://Character Resouces/Global/melee sounds/melee sound.wav" id="5_g0tka"]
-[ext_resource type="AudioStream" uid="uid://dg23uykbeo64t" path="res://Character Resouces/Hunter/Sounds/laser8.wav" id="6_vhoqn"]
-[ext_resource type="AudioStream" uid="uid://cbpel8j5vnsq" path="res://Character Resouces/Hunter/Sounds/Down Light Sound.wav" id="7_qbkwg"]
+[ext_resource type="AudioStream" uid="uid://bddcg7xt5olvw" path="res://Character Resouces/Hunter/Sounds/Hunter Side Light.wav" id="5_343nf"]
+[ext_resource type="AudioStream" uid="uid://dg23uykbeo64t" path="res://Character Resouces/Hunter/Sounds/Up Light Sound.wav" id="6_cikwc"]
+[ext_resource type="AudioStream" uid="uid://cbpel8j5vnsq" path="res://Character Resouces/Hunter/Sounds/Down Light Sound.wav" id="7_mcpqf"]
 [ext_resource type="AudioStream" uid="uid://dvnbf8odfka1u" path="res://Character Resouces/Hunter/Sounds/Arrow Sound Effects.wav" id="8_gc4n1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm13a"]
@@ -819,7 +819,7 @@ offset_top = -28.0
 offset_right = 60.0
 offset_bottom = -5.0
 scale = Vector2(0.2, 0.2)
-text = "Player 2
+text = "Player 1
 "
 fit_content = true
 
@@ -827,13 +827,13 @@ fit_content = true
 stream = ExtResource("4_41a4e")
 
 [node name="Nuetral Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_g0tka")
+stream = ExtResource("5_343nf")
 
 [node name="Up Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_vhoqn")
+stream = ExtResource("6_cikwc")
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_qbkwg")
+stream = ExtResource("7_mcpqf")
 
 [node name="Nuetral Air & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_gc4n1")

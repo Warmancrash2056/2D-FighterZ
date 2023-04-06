@@ -1,11 +1,11 @@
-[gd_scene load_steps=154 format=3 uid="uid://tatl60jrd8a6"]
+[gd_scene load_steps=154 format=3 uid="uid://dav2kmh7k0nbj"]
 
 [ext_resource type="Script" path="res://Game Start/Local Play/Local Play.gd" id="1_w8mfd"]
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nia/Icon/Assasin Character Icon.png" id="2_mr1wv"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Archfield/Character Icon/General Archfield Character Icon.png" id="3_cwg26"]
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Icon/Goku.png" id="4_ef4qh"]
 [ext_resource type="Texture2D" uid="uid://dpa5754pfc4ay" path="res://Character Resouces/Hunter/Icon/Hunter.png" id="5_dl8oi"]
-[ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Nomad Character Icon.png" id="6_p16yt"]
+[ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Icon/Nomad Character Icon.png" id="6_skwqb"]
 [ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/Icon/Princess Atlantis.png" id="7_c8qb4"]
 [ext_resource type="Script" path="res://Game Start/Player Cursors/Player 1 Cursor.gd" id="8_d3ttf"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="9_kuj4s"]
@@ -1058,7 +1058,7 @@ texture = ExtResource("5_dl8oi")
 
 [node name="Nomad" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 layout_mode = 2
-texture = ExtResource("6_p16yt")
+texture = ExtResource("6_skwqb")
 
 [node name="Princess Atlantis" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
 layout_mode = 2
@@ -1091,7 +1091,7 @@ texture = ExtResource("5_dl8oi")
 
 [node name="Nomad" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 layout_mode = 2
-texture = ExtResource("6_p16yt")
+texture = ExtResource("6_skwqb")
 
 [node name="Princess Atlantis" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
 layout_mode = 2

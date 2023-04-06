@@ -1,7 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://bxa0shqd8qvip"]
+[gd_scene load_steps=30 format=3 uid="uid://bxa0shqd8qvip"]
 
 [ext_resource type="Script" path="res://Character Resouces/Nomad/Script/Nomad Script.gd" id="1_uxdse"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_pd0p6"]
+[ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Spritesheet/Nomad Spritesheet.png" id="3_u2fcw"]
+[ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="4_4k3ae"]
+[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_oufvf"]
+[ext_resource type="AudioStream" uid="uid://bmn4eg23hqjk7" path="res://Character Resouces/Nomad/Sound Effect/Down Light Sound.wav" id="5_vdyul"]
+[ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="6_pu57f"]
 
 [sub_resource type="Animation" id="Animation_6dpqg"]
 resource_name = "Block"
@@ -89,7 +94,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/4/path = NodePath("Down Light Sound:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -217,7 +222,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/3/path = NodePath("Nuetral & Side Light Sound:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -269,7 +274,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/3/path = NodePath("Nuetral & Side Light Sound:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -404,7 +409,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/10/path = NodePath("Nuetral & Side Light Sound:playing")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -428,7 +433,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/12/path = NodePath("Down Light Sound:playing")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -500,7 +505,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/path = NodePath("Nuetral & Side Light Sound:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -576,22 +581,10 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/5/path = NodePath("Nuetral & Side Light Sound:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(1.2, 1.3, 1.7993, 1.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
@@ -643,6 +636,7 @@ controls = ExtResource("2_pd0p6")
 
 [node name="Animations" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
+texture = ExtResource("3_u2fcw")
 hframes = 20
 vframes = 8
 
@@ -705,15 +699,19 @@ offset_top = -22.0
 offset_right = 59.0
 offset_bottom = 0.999996
 scale = Vector2(0.2, 0.2)
-text = "Player 2"
+text = "Player 1"
 fit_content = true
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_oufvf")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Nuetral & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4k3ae")
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+[node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vdyul")
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_pu57f")
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,12 +1,12 @@
 [gd_scene load_steps=31 format=3 uid="uid://cbimyoc12vawc"]
 
 [ext_resource type="Script" path="res://Character Resouces/Nia/Script/Nia Script.gd" id="1_c7apn"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_6jxq6"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Nia/Spritesheet/Nia.png" id="3_ne73k"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Nia/Animation/Nuetral Light/projectile_throw/projectile_throw.png" id="4_anhoi"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="5_baet6"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Nia/Nia Blade Throw.wav" id="6_x5yc7"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="7_l0sap"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_jvmgp"]
+[ext_resource type="Texture2D" uid="uid://cp7t6inhv4t3i" path="res://Character Resouces/Nia/Spritesheet/Nia.png" id="3_ne73k"]
+[ext_resource type="Texture2D" uid="uid://djs8lc52wplls" path="res://Character Resouces/Nia/Animation/Nuetral Light/projectile_throw/projectile_throw.png" id="4_anhoi"]
+[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="5_baet6"]
+[ext_resource type="AudioStream" uid="uid://vkh3pkcuv12c" path="res://Character Resouces/Nia/Nia Blade Throw.wav" id="6_x5yc7"]
+[ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="7_l0sap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr333"]
 size = Vector2(10, 2)
@@ -764,7 +764,7 @@ scale = Vector2(1.3, 1.3)
 collision_layer = 2
 platform_floor_layers = 4294901760
 script = ExtResource("1_c7apn")
-controls = ExtResource("2_6jxq6")
+controls = ExtResource("2_jvmgp")
 
 [node name="Animation" type="Sprite2D" parent="."]
 position = Vector2(0, -40)

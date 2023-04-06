@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Character Resouces/General Archfield/Script/General Archfield Script.gd" id="1_762r4"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_0c6dm"]
-[ext_resource type="Texture2D" uid="uid://wbgnd1vpa415" path="res://Character Resouces/General Archfield/Spritesheet/General Archfield SpriteSheet.png" id="3_b3njk"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_f0iws"]
-[ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="5_ptg1e"]
-[ext_resource type="AudioStream" uid="uid://uvqcrwqnysys" path="res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav" id="6_gxew8"]
-[ext_resource type="AudioStream" uid="uid://csft7v02oavc0" path="res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav" id="7_hwxdm"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Spritesheet/General Archfield SpriteSheet.png" id="3_b3njk"]
+[ext_resource type="AudioStream" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_f0iws"]
+[ext_resource type="AudioStream" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="5_ptg1e"]
+[ext_resource type="AudioStream" path="res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav" id="6_gxew8"]
+[ext_resource type="AudioStream" path="res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav" id="7_hwxdm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
 radius = 3.5
@@ -243,7 +243,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Melee Sound:playing")
+tracks/2/path = NodePath("../Nuetral & Side Light Sound:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -319,7 +319,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Melee Sound:playing")
+tracks/5/path = NodePath("../Nuetral & Side Light Sound:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -706,7 +706,7 @@ tracks/30/keys = {
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("../Melee Sound:playing")
+tracks/31/path = NodePath("../Nuetral & Side Light Sound:playing")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
@@ -730,7 +730,7 @@ tracks/32/keys = {
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("../Up Light Sound2:playing")
+tracks/33/path = NodePath("../Up Light Sound:playing")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -838,7 +838,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Melee Sound:playing")
+tracks/5/path = NodePath("../Nuetral & Side Light Sound:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -938,7 +938,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Up Light Sound2:playing")
+tracks/7/path = NodePath("../Up Light Sound:playing")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -1124,13 +1124,13 @@ debug_color = Color(0, 0, 0, 0.490196)
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_f0iws")
 
-[node name="Melee Sound" type="AudioStreamPlayer2D" parent="."]
+[node name="Nuetral & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ptg1e")
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_gxew8")
 
-[node name="Up Light Sound2" type="AudioStreamPlayer2D" parent="."]
+[node name="Up Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_hwxdm")
 
 [connection signal="area_entered" from="Scale Player/Nuetral Light3D Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
@@ -1138,5 +1138,5 @@ stream = ExtResource("7_hwxdm")
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

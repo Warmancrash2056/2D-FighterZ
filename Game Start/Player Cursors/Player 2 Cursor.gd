@@ -79,14 +79,9 @@ func _process(delta):
 	if Input.is_action_just_pressed(Controls.input_jump):
 		if Player2CharacterSelection.Player2 == null:
 			Player2CharacterSelection.Player2
-			Player2CharacterSelection.Player2 = Player1CharacterSelection.SelectCharacters[characters[currentSelected].name]
-			Player1Ready = true
+			Player2CharacterSelection.Player2 = Player2CharacterSelection.SelectCharacters[characters[currentSelected].name]
 			
-		elif Input.is_action_just_pressed(Controls.input_jump):
-			if Player2CharacterSelection.Player1 != null:
-				Player2CharacterSelection.Player1
-				Player2CharacterSelection.Player1 = Player1CharacterSelection.SelectCharacters[characters[currentSelected].name]
-				Player1Ready = true
+	
 
 
 

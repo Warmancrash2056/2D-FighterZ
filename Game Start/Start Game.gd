@@ -61,7 +61,6 @@ func _process(delta):
 		Game.EndGame:
 			pass
 			
-		if get
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AudioStreamPlayer2D.play()
@@ -69,7 +68,7 @@ func _ready():
 
 func _on_local_play_pressed():
 	print("Good")
-	get_tree().change_scene_to_file("res://Character Selection Resources/Local Play.tscn")
+	get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
 
 
 func _on_about_characters_pressed():

@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://kod764tufq60"]
 
-[ext_resource type="Script" path="res://Attention Prompt/Attention.gd" id="1_t4afv"]
+[ext_resource type="Script" path="res://Game Start/Attention Prompt/Attention.gd" id="1_sx4js"]
 
 [node name="Attention" type="Node2D"]
-script = ExtResource("1_t4afv")
+script = ExtResource("1_sx4js")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -81,7 +81,6 @@ func _process(delta):
 			print('Current Character Selected ', '[',characters[currentSelected].name,'] ', currentSelected)
 			Player1CharacterSelection.Player1
 			Player1CharacterSelection.Player1 = Player1CharacterSelection.SelectCharacters[characters[currentSelected].name]
-			Player1Ready = true
 			print("Player 1 Ready")
 			
 	

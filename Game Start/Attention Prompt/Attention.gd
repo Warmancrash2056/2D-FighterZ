@@ -6,4 +6,4 @@ func _ready():
 	$Timer.start()
 
 func _on_timer_timeout():
-	get_tree().change_scene_to_file("res://Godot Logo Opening.tscn")
+	get_tree().change_scene_to_file("res://Game Start/Godot Logo/Godot Logo Opening.tscn")

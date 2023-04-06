@@ -1,358 +1,219 @@
-[gd_scene load_steps=367 format=3 uid="uid://5x1wlyfwuwpn"]
+[gd_scene load_steps=228 format=3 uid="uid://bx6cw62jalo7y"]
 
 [ext_resource type="Script" path="res://Game Start/Aboou Character/About Character.gd" id="1_vkrci"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_u4mqr"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Archfield/Character Icon/General Archfield Character Icon.png" id="3_6kcnm"]
-[ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Goku.png" id="4_bdaxj"]
-[ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nia/Assasin Character Icon.png" id="6_o1o7s"]
-[ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/Animation/Princess Atlantis.png" id="7_1w5sp"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Icon/Goku.png" id="4_ervok"]
 [ext_resource type="Script" path="res://Game Start/Cursor.gd" id="8_w4x6b"]
-[ext_resource type="Texture2D" uid="uid://dpdpeoax0tmls" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_18.png" id="9_dq20h"]
-[ext_resource type="Texture2D" uid="uid://tyqhaui5vxop" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_19.png" id="10_mxdxu"]
-[ext_resource type="Texture2D" uid="uid://cuserq8dlyscf" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_20.png" id="11_hqbk6"]
-[ext_resource type="Texture2D" uid="uid://c77fl4qgo1x3m" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_21.png" id="12_8gb2k"]
-[ext_resource type="Texture2D" uid="uid://crf13fg7hynpc" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_22.png" id="13_igv60"]
-[ext_resource type="Texture2D" uid="uid://b11dgj8cl1ndu" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_23.png" id="14_qaj21"]
-[ext_resource type="Texture2D" uid="uid://ugq3c65h5nh" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_24.png" id="15_46qpe"]
-[ext_resource type="Texture2D" uid="uid://4nhojcsn6ug7" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_25.png" id="16_njas3"]
-[ext_resource type="Texture2D" uid="uid://dgodnxxrd7uch" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_26.png" id="17_kby4i"]
-[ext_resource type="Texture2D" uid="uid://ccv7pqw3am3s8" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_27.png" id="18_fdaq3"]
-[ext_resource type="Texture2D" uid="uid://buq8lxmkr1s8b" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_28.png" id="19_u186w"]
-[ext_resource type="Texture2D" uid="uid://bwjnt30m56qyb" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_1.png" id="20_g860h"]
-[ext_resource type="Texture2D" uid="uid://y1eglm80iyq7" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_2.png" id="21_5svod"]
-[ext_resource type="Texture2D" uid="uid://byw4tlqhshaet" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_3.png" id="22_b4tqw"]
-[ext_resource type="Texture2D" uid="uid://ey5tm37at5ak" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_4.png" id="23_hj1pa"]
-[ext_resource type="Texture2D" uid="uid://flek8wis8jsw" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_5.png" id="24_81ws6"]
-[ext_resource type="Texture2D" uid="uid://dm6146tms8lk5" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_6.png" id="25_hcupo"]
-[ext_resource type="Texture2D" uid="uid://ifbwq7uo385c" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_7.png" id="26_is6s8"]
-[ext_resource type="Texture2D" uid="uid://bfmufwp75833a" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_8.png" id="27_ypikq"]
-[ext_resource type="Texture2D" uid="uid://crpx6368fvb8t" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_1.png" id="28_vi5nn"]
-[ext_resource type="Texture2D" uid="uid://bqmad3281vcst" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_2.png" id="29_o2mw2"]
-[ext_resource type="Texture2D" uid="uid://dtunlxed8qvrq" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_3.png" id="30_qv45u"]
-[ext_resource type="Texture2D" uid="uid://buv0crs3aju32" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_4.png" id="31_gxjjl"]
-[ext_resource type="Texture2D" uid="uid://buu1i0cc4lf2k" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_5.png" id="32_g6d0w"]
-[ext_resource type="Texture2D" uid="uid://c45igbug20g13" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_6.png" id="33_rr7j3"]
-[ext_resource type="Texture2D" uid="uid://b2r0oq6wn548n" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_7.png" id="34_hq5np"]
-[ext_resource type="Texture2D" uid="uid://dm2vlueksvu5b" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_8.png" id="35_vaksa"]
-[ext_resource type="Texture2D" uid="uid://b50wtmqecbe4n" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_1.png" id="36_uixcy"]
-[ext_resource type="Texture2D" uid="uid://d2bw2t6rpjt4b" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_2.png" id="37_r85nj"]
-[ext_resource type="Texture2D" uid="uid://c5xojkmh2nu6v" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_3.png" id="38_16wuy"]
-[ext_resource type="Texture2D" uid="uid://jsbmcqwwlng4" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_4.png" id="39_pexqw"]
-[ext_resource type="Texture2D" uid="uid://bvijb17yvn7rp" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_5.png" id="40_8qaix"]
-[ext_resource type="Texture2D" uid="uid://d35xat04a6yxi" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_6.png" id="41_nok8k"]
-[ext_resource type="Texture2D" uid="uid://dlpuf2h57yord" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_7.png" id="42_xwoxl"]
-[ext_resource type="Texture2D" uid="uid://c2mdqvcokvjda" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_8.png" id="43_a2kdx"]
-[ext_resource type="Texture2D" uid="uid://c1x2mb2pr4a7b" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_9.png" id="44_01aml"]
-[ext_resource type="Texture2D" uid="uid://8cyjxuvr4jjs" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_10.png" id="45_nenbs"]
-[ext_resource type="Texture2D" uid="uid://byurpuo7gtx7n" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_11.png" id="46_o7bjr"]
-[ext_resource type="Texture2D" uid="uid://cx0uoxguctsip" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_8.png" id="47_ja1v3"]
-[ext_resource type="Texture2D" uid="uid://b4hvlf2gusiwd" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_9.png" id="48_culyp"]
-[ext_resource type="Texture2D" uid="uid://2fir7vc5a66s" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_10.png" id="49_7u65e"]
-[ext_resource type="Texture2D" uid="uid://dejbv30vuhtaq" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_11.png" id="50_bh73c"]
-[ext_resource type="Texture2D" uid="uid://dgbth7qr2xcld" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_12.png" id="51_3ay40"]
-[ext_resource type="Texture2D" uid="uid://b2yhjo72ofocd" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_13.png" id="52_xy7ih"]
-[ext_resource type="Texture2D" uid="uid://c60dvos1ijpde" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_14.png" id="53_of300"]
-[ext_resource type="Texture2D" uid="uid://11qtj0il0alo" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_15.png" id="54_jpwjq"]
-[ext_resource type="Texture2D" uid="uid://b7jych62f6sk3" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_16.png" id="55_3a8sk"]
-[ext_resource type="Texture2D" uid="uid://bernts2kkd8y" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_17.png" id="56_cpi2a"]
-[ext_resource type="Texture2D" uid="uid://dtplhhkhqtvi0" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_18.png" id="57_kutsa"]
-[ext_resource type="Texture2D" uid="uid://2ulc34rpsnvo" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_19.png" id="58_3v5kc"]
-[ext_resource type="Texture2D" uid="uid://clr82v0t204ix" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_1.png" id="59_av52l"]
-[ext_resource type="Texture2D" uid="uid://bex32cjyrxf5f" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_2.png" id="60_wita7"]
-[ext_resource type="Texture2D" uid="uid://dfqxe6skl27fb" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_3.png" id="61_b1obf"]
-[ext_resource type="Texture2D" uid="uid://bo13dhkepdo0w" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_4.png" id="62_ilma0"]
-[ext_resource type="Texture2D" uid="uid://c3ydvjpbvxth6" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_5.png" id="63_gl62n"]
-[ext_resource type="Texture2D" uid="uid://cpweabdg5eeo" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_6.png" id="64_hmsqb"]
-[ext_resource type="Texture2D" uid="uid://icdr46d3fadv" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_7.png" id="65_tlm5m"]
-[ext_resource type="Texture2D" uid="uid://872ldx04vfhe" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_8.png" id="66_hqg6b"]
-[ext_resource type="Texture2D" uid="uid://cms8lpeiwsepq" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_9.png" id="67_kjg7s"]
-[ext_resource type="Texture2D" uid="uid://ck6aaeixqfls3" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_10.png" id="68_lbdsr"]
-[ext_resource type="Texture2D" uid="uid://dv364y7ii1s4m" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_11.png" id="69_bbnwg"]
-[ext_resource type="Texture2D" uid="uid://drhij43j7408y" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_12.png" id="70_r31cl"]
-[ext_resource type="Texture2D" uid="uid://5nibaej0vd4o" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_13.png" id="71_4w6sx"]
-[ext_resource type="Texture2D" uid="uid://dm577nihr0qnr" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_14.png" id="72_cwj6q"]
-[ext_resource type="Texture2D" uid="uid://biqokvla5h5mh" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_15.png" id="73_naqct"]
-[ext_resource type="Texture2D" uid="uid://c16nrfkbfmmq3" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_16.png" id="74_j300l"]
-[ext_resource type="Texture2D" uid="uid://cwaxrhy1sw5se" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_17.png" id="75_4rj8q"]
-[ext_resource type="Texture2D" uid="uid://c70xf42briedn" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_18.png" id="76_8ccub"]
-[ext_resource type="Texture2D" uid="uid://bn1n6r30pao2l" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_6.png" id="77_hgc35"]
-[ext_resource type="Texture2D" uid="uid://8cj6o024wpas" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_7.png" id="78_uciyb"]
-[ext_resource type="Texture2D" uid="uid://b6lw3ucb56mud" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_8.png" id="79_u87y6"]
-[ext_resource type="Texture2D" uid="uid://ba5f0d4hs6hvd" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_9.png" id="80_1easf"]
-[ext_resource type="Texture2D" uid="uid://bm40sjr6301jm" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_10.png" id="81_gy66x"]
-[ext_resource type="Texture2D" uid="uid://t56pvalepi6t" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_11.png" id="82_1ktvm"]
-[ext_resource type="Texture2D" uid="uid://bp2nx2xjue51m" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_12.png" id="83_p76rc"]
-[ext_resource type="Texture2D" uid="uid://cblm3sollmhu5" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_13.png" id="84_at6vp"]
-[ext_resource type="Texture2D" uid="uid://d2t2jb7yotmyx" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_14.png" id="85_131y1"]
-[ext_resource type="Texture2D" uid="uid://ddhjtfbqh5f2m" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_15.png" id="86_u5ood"]
-[ext_resource type="Texture2D" uid="uid://rrn20umfgyd3" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_16.png" id="87_a4ewo"]
-[ext_resource type="Texture2D" uid="uid://bkuhrsr5xm7ux" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_17.png" id="88_lfs8p"]
-[ext_resource type="Texture2D" uid="uid://bha8lw5u1p1tk" path="res://Character Resouces/Nia/Single Aniamtions/09_3_atk/09_3_atk_18.png" id="89_5eftf"]
-[ext_resource type="Texture2D" uid="uid://ckgnbifb7ehgv" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_1.png" id="90_q4cnt"]
-[ext_resource type="Texture2D" uid="uid://bl2qb2hncljlv" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_2.png" id="91_ckpkl"]
-[ext_resource type="Texture2D" uid="uid://dlr08j2rasqkr" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_3.png" id="92_i7u4l"]
-[ext_resource type="Texture2D" uid="uid://dtvgukghiqd5s" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_4.png" id="93_vfvo1"]
-[ext_resource type="Texture2D" uid="uid://cytkk46m4nl62" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_5.png" id="94_jui4i"]
-[ext_resource type="Texture2D" uid="uid://cq637jgsuect3" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_6.png" id="95_oyp38"]
-[ext_resource type="Texture2D" uid="uid://dx6wfspjbk38r" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_7.png" id="96_ms04f"]
-[ext_resource type="Texture2D" uid="uid://b78fsdjuf38km" path="res://Character Resouces/Nia/Single Aniamtions/01_idle/01_idle_8.png" id="97_jnhyq"]
-[ext_resource type="Texture2D" uid="uid://drsilag8w18u6" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk1.png" id="98_g3guo"]
-[ext_resource type="Texture2D" uid="uid://cpf3twuo8ccc5" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk2.png" id="99_dihu0"]
-[ext_resource type="Texture2D" uid="uid://caqvjsbxmypia" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk3.png" id="100_q42hr"]
-[ext_resource type="Texture2D" uid="uid://dsedq7qtnae7k" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk4.png" id="101_xmib8"]
-[ext_resource type="Texture2D" uid="uid://xdnpqkw8ju76" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk5.png" id="102_tee5y"]
-[ext_resource type="Texture2D" uid="uid://cp8wqvobueo0v" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk6.png" id="103_caih3"]
-[ext_resource type="Texture2D" uid="uid://dkaal0kkfx5s3" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk7.png" id="104_1tt2p"]
-[ext_resource type="Texture2D" uid="uid://dtr2vq1uyfqu4" path="res://Character Resouces/Nia/Single Aniamtions/air_atk/air_atk8.png" id="105_6kn68"]
-[ext_resource type="Texture2D" uid="uid://8kf1convhhgu" path="res://Character Resouces/Nia/Single Aniamtions/05_projectile_cast/05_projectile_cast_1.png" id="106_1tsqy"]
-[ext_resource type="Texture2D" uid="uid://cnafhc2wocavg" path="res://Character Resouces/Nia/Single Aniamtions/05_projectile_cast/05_projectile_cast_2.png" id="107_s5ljy"]
-[ext_resource type="Texture2D" uid="uid://bkysbn2q8bjpu" path="res://Character Resouces/Nia/Single Aniamtions/05_projectile_cast/05_projectile_cast_3.png" id="108_xup3h"]
-[ext_resource type="Texture2D" uid="uid://crnp5n2crbb1" path="res://Character Resouces/Nia/Single Aniamtions/05_projectile_cast/05_projectile_cast_4.png" id="109_crx44"]
-[ext_resource type="Texture2D" uid="uid://7ot1y1ihw68s" path="res://Character Resouces/Nia/Single Aniamtions/05_projectile_cast/05_projectile_cast_5.png" id="110_tdied"]
-[ext_resource type="Texture2D" uid="uid://bpyr3s70hrfqc" path="res://Character Resouces/Nia/Single Aniamtions/05_projectile_cast/05_projectile_cast_6.png" id="111_yqu3w"]
-[ext_resource type="Texture2D" uid="uid://d40g5twepaaj" path="res://Character Resouces/Nia/Single Aniamtions/05_projectile_cast/05_projectile_cast_7.png" id="112_va0da"]
-[ext_resource type="Texture2D" uid="uid://co6we8sbtufdt" path="res://Character Resouces/Nia/Single Aniamtions/08_2_atk/08_2_atk_1.png" id="113_gqai6"]
-[ext_resource type="Texture2D" uid="uid://n5u6i1c1e3li" path="res://Character Resouces/Nia/Single Aniamtions/08_2_atk/08_2_atk_2.png" id="114_kitux"]
-[ext_resource type="Texture2D" uid="uid://m3ejpfhjna1s" path="res://Character Resouces/Nia/Single Aniamtions/08_2_atk/08_2_atk_3.png" id="115_m3dt4"]
-[ext_resource type="Texture2D" uid="uid://mxgi243hcy3s" path="res://Character Resouces/Nia/Single Aniamtions/08_2_atk/08_2_atk_4.png" id="116_07ctv"]
-[ext_resource type="Texture2D" uid="uid://bnrtydkuscca7" path="res://Character Resouces/Nia/Single Aniamtions/08_2_atk/08_2_atk_5.png" id="117_30613"]
-[ext_resource type="Texture2D" uid="uid://co1wwrl81wsbt" path="res://Character Resouces/Nia/Single Aniamtions/08_2_atk/08_2_atk_6.png" id="118_di180"]
-[ext_resource type="Texture2D" uid="uid://bp2gkik53x13s" path="res://Character Resouces/Nia/Single Aniamtions/08_2_atk/08_2_atk_7.png" id="119_a0rw8"]
-[ext_resource type="Texture2D" uid="uid://cbk1yfqleek5e" path="res://Character Resouces/Nia/Single Aniamtions/08_2_atk/08_2_atk_8.png" id="120_rp2nk"]
-[ext_resource type="Texture2D" uid="uid://vsl6g5papc5t" path="res://Character Resouces/Nia/Single Aniamtions/06_trap_cast/06_trap_cast_1.png" id="121_hmrqk"]
-[ext_resource type="Texture2D" uid="uid://bc1ydqm5y4j5j" path="res://Character Resouces/Nia/Single Aniamtions/06_trap_cast/06_trap_cast_2.png" id="122_76psp"]
-[ext_resource type="Texture2D" uid="uid://bvbflaxgwymu3" path="res://Character Resouces/Nia/Single Aniamtions/06_trap_cast/06_trap_cast_3.png" id="123_acnms"]
-[ext_resource type="Texture2D" uid="uid://bp4825hqfhqh6" path="res://Character Resouces/Nia/Single Aniamtions/06_trap_cast/06_trap_cast_4.png" id="124_7ajqg"]
-[ext_resource type="Texture2D" uid="uid://c3snwkhh8krmd" path="res://Character Resouces/Nia/Single Aniamtions/06_trap_cast/06_trap_cast_5.png" id="125_4q8e7"]
-[ext_resource type="Texture2D" uid="uid://vi8lsqg6x63u" path="res://Character Resouces/Nia/Single Aniamtions/06_trap_cast/06_trap_cast_6.png" id="126_xg6oy"]
-[ext_resource type="Texture2D" uid="uid://donydr6tidcp" path="res://Character Resouces/Nia/Single Aniamtions/06_trap_cast/06_trap_cast_7.png" id="127_eybni"]
-[ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Nia/Single Aniamtions/06_trap_cast/06_trap_cast_8.png" id="128_7jdw4"]
-[ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Nia/Single Aniamtions/06_trap_cast/06_trap_cast_9.png" id="129_q024x"]
-[ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Nia/Single Aniamtions/06_trap_cast/06_trap_cast_10.png" id="130_ia86m"]
-[ext_resource type="Texture2D" uid="uid://2i2i8rqicthw" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_11.png" id="131_kiaui"]
-[ext_resource type="Texture2D" uid="uid://co482jubsjohy" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_12.png" id="132_1x88l"]
-[ext_resource type="Texture2D" uid="uid://cpdd0krdr40jm" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_13.png" id="133_y0yg4"]
-[ext_resource type="Texture2D" uid="uid://cn17ir5q20ueo" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_14.png" id="134_d0ol3"]
-[ext_resource type="Texture2D" uid="uid://cyfatxt8ardpg" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_15.png" id="135_su54i"]
-[ext_resource type="Texture2D" uid="uid://0o7lra7y7fw6" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_16.png" id="136_sngng"]
-[ext_resource type="Texture2D" uid="uid://d2u44dj5vwql2" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_17.png" id="137_uhare"]
-[ext_resource type="Texture2D" uid="uid://mv213r01wefb" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_18.png" id="138_enkw1"]
-[ext_resource type="Texture2D" uid="uid://c1iwbvq35784h" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_19.png" id="139_4dqns"]
-[ext_resource type="Texture2D" uid="uid://di7kqj5hvji8l" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_20.png" id="140_bsn5b"]
-[ext_resource type="Texture2D" uid="uid://dt73xror3n4uo" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_21.png" id="141_o6tjv"]
-[ext_resource type="Texture2D" uid="uid://dfsqliremqkq6" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_22.png" id="142_t6nx8"]
-[ext_resource type="Texture2D" uid="uid://bf6l5bs7oh8fo" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_23.png" id="143_6xn1f"]
-[ext_resource type="Texture2D" uid="uid://bl82g11sr6u1l" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_1.png" id="144_7c3w7"]
-[ext_resource type="Texture2D" uid="uid://cjj08ipt7cpbu" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_2.png" id="145_16gha"]
-[ext_resource type="Texture2D" uid="uid://bi1a4iun5h86n" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_3.png" id="146_rkymq"]
-[ext_resource type="Texture2D" uid="uid://smvm5t33vbmn" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_4.png" id="147_mhati"]
-[ext_resource type="Texture2D" uid="uid://divcoy8tg6g1o" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_5.png" id="148_bwq44"]
-[ext_resource type="Texture2D" uid="uid://brc6lshqr4p55" path="res://Character Resouces/Goku/Animations/Goku Idle/idle_6.png" id="149_4fxs1"]
-[ext_resource type="Texture2D" uid="uid://3elgtipgonao" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_1.png" id="150_5lvrx"]
-[ext_resource type="Texture2D" uid="uid://cm1d86chai77k" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_2.png" id="151_txhka"]
-[ext_resource type="Texture2D" uid="uid://bahqbme8wgs7k" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_3.png" id="152_davak"]
-[ext_resource type="Texture2D" uid="uid://cng2lonu5duwe" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_4.png" id="153_g5af8"]
-[ext_resource type="Texture2D" uid="uid://b3edsav3vviub" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_5.png" id="154_dsk6j"]
-[ext_resource type="Texture2D" uid="uid://cn0c4alvklu12" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_6.png" id="155_wgn32"]
-[ext_resource type="Texture2D" uid="uid://c7l132fqa0prw" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_7.png" id="156_wsy8d"]
-[ext_resource type="Texture2D" uid="uid://b1bw236kxafyd" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_1.png" id="157_vbdso"]
-[ext_resource type="Texture2D" uid="uid://dg1vhxd716rui" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_2.png" id="158_mjy0o"]
-[ext_resource type="Texture2D" uid="uid://c56avrq0bql2o" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_3.png" id="159_dr67h"]
-[ext_resource type="Texture2D" uid="uid://b2bab3tbqpxxj" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_4.png" id="160_ofu0d"]
-[ext_resource type="Texture2D" uid="uid://cscbqahrds3mk" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_5.png" id="161_treq0"]
-[ext_resource type="Texture2D" uid="uid://j6ewig2yk6oc" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_6.png" id="162_owdr4"]
-[ext_resource type="Texture2D" uid="uid://c2ulxrv2cunga" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_6.png" id="163_oilgp"]
-[ext_resource type="Texture2D" uid="uid://bdp1msnxu3ct7" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_7.png" id="164_628pa"]
-[ext_resource type="Texture2D" uid="uid://bj8ntbllxq1vs" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_8.png" id="165_kcs11"]
-[ext_resource type="Texture2D" uid="uid://icfhjwqdjbi4" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_9.png" id="166_qvopk"]
-[ext_resource type="Texture2D" uid="uid://deb5iravq1hil" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_10.png" id="167_iodln"]
-[ext_resource type="Texture2D" uid="uid://dpdisr5in5rf7" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_11.png" id="168_oaxnc"]
-[ext_resource type="Texture2D" uid="uid://coxoqy5po4d5f" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_12.png" id="169_jhwr7"]
-[ext_resource type="Texture2D" uid="uid://b8aatopj1qgd" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_1.png" id="170_fsn03"]
-[ext_resource type="Texture2D" uid="uid://cmw7iukqsm5ox" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_2.png" id="171_ipia7"]
-[ext_resource type="Texture2D" uid="uid://c08l7gsruie8" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_3.png" id="172_fw038"]
-[ext_resource type="Texture2D" uid="uid://tg6scrm3mfso" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_4.png" id="173_mfbgq"]
-[ext_resource type="Texture2D" uid="uid://b86p70m3usxks" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_5.png" id="174_k0al4"]
-[ext_resource type="Texture2D" uid="uid://b5m3080sttyq0" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_6.png" id="175_pw72t"]
-[ext_resource type="Texture2D" uid="uid://cjg8801nwm2e4" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_7.png" id="176_ikkve"]
-[ext_resource type="Texture2D" uid="uid://bwkbfvcu6hp3b" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_8.png" id="177_0adl1"]
-[ext_resource type="Texture2D" uid="uid://c7olwxhhncely" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_9.png" id="178_36rlm"]
-[ext_resource type="Texture2D" uid="uid://c8x1rq2cfsqmm" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_10.png" id="179_vk6ta"]
-[ext_resource type="Texture2D" uid="uid://c3ewa1sss7qj5" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_11.png" id="180_cp5r0"]
-[ext_resource type="Texture2D" uid="uid://bsgo01t2mf4bo" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_12.png" id="181_anjub"]
-[ext_resource type="Texture2D" uid="uid://bohu1h4bjjjy7" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_13.png" id="182_f78hn"]
-[ext_resource type="Texture2D" uid="uid://dgdwes1oe1ds2" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_14.png" id="183_2ny4d"]
-[ext_resource type="Texture2D" uid="uid://0bcw08qdyiuq" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_15.png" id="184_rwaef"]
-[ext_resource type="Texture2D" uid="uid://bn4w5er2m1w2y" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_16.png" id="185_hrpvn"]
-[ext_resource type="Texture2D" uid="uid://bnjylhryl67w4" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_17.png" id="186_b7koi"]
-[ext_resource type="Texture2D" uid="uid://bph3t4li1aq0v" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_18.png" id="187_gdnuv"]
-[ext_resource type="Texture2D" uid="uid://bschk5fd13kxo" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_19.png" id="188_bqc6d"]
-[ext_resource type="Texture2D" uid="uid://bhoo12k1pqyv0" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_20.png" id="189_ugimk"]
-[ext_resource type="Texture2D" uid="uid://bt5eum4t8wv07" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_21.png" id="190_b3w7h"]
-[ext_resource type="Texture2D" uid="uid://elui3lvp1qwg" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_22.png" id="191_cvafh"]
-[ext_resource type="Texture2D" uid="uid://bm2mdx1i46f0b" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_23.png" id="192_kjcck"]
-[ext_resource type="Texture2D" uid="uid://bctvwbbnmcs3t" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_24.png" id="193_ujj3f"]
-[ext_resource type="Texture2D" uid="uid://bcqynesoktq2w" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_25.png" id="194_ovql0"]
-[ext_resource type="Texture2D" uid="uid://dj6yx0go2udl0" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_17.png" id="195_tepwg"]
-[ext_resource type="Texture2D" uid="uid://cca1ip8w8jquy" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_18.png" id="196_tjww6"]
-[ext_resource type="Texture2D" uid="uid://dphgbnayvkrfh" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_19.png" id="197_28qsu"]
-[ext_resource type="Texture2D" uid="uid://bguw1h5e4kgw6" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_20.png" id="198_dou0v"]
-[ext_resource type="Texture2D" uid="uid://b4cvh3ghqs2k1" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_21.png" id="199_cthoc"]
-[ext_resource type="Texture2D" uid="uid://cu2nvdpeg05qc" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_22.png" id="200_b2x5v"]
-[ext_resource type="Texture2D" uid="uid://chyxmw1e7hh44" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_23.png" id="201_jfucg"]
-[ext_resource type="Texture2D" uid="uid://bhw3cgh6crrsn" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_24.png" id="202_dd43x"]
-[ext_resource type="Texture2D" uid="uid://dujeijvxu8aar" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_25.png" id="203_ecsre"]
-[ext_resource type="Texture2D" uid="uid://c622nh2scwrd0" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_26.png" id="204_0pd5i"]
-[ext_resource type="Texture2D" uid="uid://ku3h8rrn7ekn" path="res://Character Resouces/Princess Atlantis/Animation/09_3_atk/3_atk_27.png" id="205_o6xe1"]
-[ext_resource type="Texture2D" uid="uid://bxc5ays304wd4" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_1.png" id="206_40kdk"]
-[ext_resource type="Texture2D" uid="uid://c78h4utc1sb8y" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_2.png" id="207_a6c2b"]
-[ext_resource type="Texture2D" uid="uid://bc6noh8ar44dv" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_3.png" id="208_fubw5"]
-[ext_resource type="Texture2D" uid="uid://bfe8re6o3jp85" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_4.png" id="209_dbogw"]
-[ext_resource type="Texture2D" uid="uid://dml1tofqjjijw" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_5.png" id="210_jnno2"]
-[ext_resource type="Texture2D" uid="uid://dr112vevganxo" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_6.png" id="211_wj7kc"]
-[ext_resource type="Texture2D" uid="uid://ch0sei0rvxfkg" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_7.png" id="212_50uxx"]
-[ext_resource type="Texture2D" uid="uid://dauumo6tddbva" path="res://Character Resouces/Princess Atlantis/Animation/01_idle/idle_8.png" id="213_75hf7"]
-[ext_resource type="Texture2D" uid="uid://d4fwo02kqp64w" path="res://Character Resouces/Princess Atlantis/Animation/air_atk/air_atk_1.png" id="214_rjxb7"]
-[ext_resource type="Texture2D" uid="uid://bijco1a20tcdb" path="res://Character Resouces/Princess Atlantis/Animation/air_atk/air_atk_2.png" id="215_cfks3"]
-[ext_resource type="Texture2D" uid="uid://60vf8228lhef" path="res://Character Resouces/Princess Atlantis/Animation/air_atk/air_atk_3.png" id="216_6giya"]
-[ext_resource type="Texture2D" uid="uid://bm615tqdem7om" path="res://Character Resouces/Princess Atlantis/Animation/air_atk/air_atk_4.png" id="217_i8aom"]
-[ext_resource type="Texture2D" uid="uid://b72i8hp48hjeo" path="res://Character Resouces/Princess Atlantis/Animation/air_atk/air_atk_5.png" id="218_rdm7g"]
-[ext_resource type="Texture2D" uid="uid://e5owft8v60lt" path="res://Character Resouces/Princess Atlantis/Animation/air_atk/air_atk_6.png" id="219_hbxjq"]
-[ext_resource type="Texture2D" uid="uid://dl5scemhnsevy" path="res://Character Resouces/Princess Atlantis/Animation/air_atk/air_atk_7.png" id="220_1evl8"]
-[ext_resource type="Texture2D" uid="uid://dvp7ea0e3if12" path="res://Character Resouces/Princess Atlantis/Animation/air_atk/air_atk_8.png" id="221_x6duk"]
-[ext_resource type="Texture2D" uid="uid://bjfb0vrifrmrk" path="res://Character Resouces/Princess Atlantis/Animation/07_1_atk/1_atk_1.png" id="222_abkel"]
-[ext_resource type="Texture2D" uid="uid://dj4u87wvj23gs" path="res://Character Resouces/Princess Atlantis/Animation/07_1_atk/1_atk_2.png" id="223_lrhi4"]
-[ext_resource type="Texture2D" uid="uid://boeup2rv0c5h6" path="res://Character Resouces/Princess Atlantis/Animation/07_1_atk/1_atk_3.png" id="224_p0x5g"]
-[ext_resource type="Texture2D" uid="uid://bm2r2edcvd65f" path="res://Character Resouces/Princess Atlantis/Animation/07_1_atk/1_atk_4.png" id="225_ylxa3"]
-[ext_resource type="Texture2D" uid="uid://c7sxqw6pxqako" path="res://Character Resouces/Princess Atlantis/Animation/07_1_atk/1_atk_5.png" id="226_66ws5"]
-[ext_resource type="Texture2D" uid="uid://b2m0j1xlmhx1m" path="res://Character Resouces/Princess Atlantis/Animation/07_1_atk/1_atk_6.png" id="227_dofde"]
-[ext_resource type="Texture2D" uid="uid://btwbv4agdw6sb" path="res://Character Resouces/Princess Atlantis/Animation/07_1_atk/1_atk_7.png" id="228_3mf05"]
-[ext_resource type="Texture2D" uid="uid://ph0rsiqjec8k" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_5.png" id="229_0ld1k"]
-[ext_resource type="Texture2D" uid="uid://bnluia1ypcpyj" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_6.png" id="230_x28a5"]
-[ext_resource type="Texture2D" uid="uid://dodcat4hfow5g" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_7.png" id="231_iknye"]
-[ext_resource type="Texture2D" uid="uid://b0j7vrl6ui6in" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_8.png" id="232_vcbhp"]
-[ext_resource type="Texture2D" uid="uid://bytsosqckwlso" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_9.png" id="233_65bvl"]
-[ext_resource type="Texture2D" uid="uid://cnmiwaspy0i0j" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_10.png" id="234_i1cer"]
-[ext_resource type="Texture2D" uid="uid://dqt8lldfnphvv" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_11.png" id="235_hwe3r"]
-[ext_resource type="Texture2D" uid="uid://orqygkexpmmf" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_12.png" id="236_8yh86"]
-[ext_resource type="Texture2D" uid="uid://5qfuejg7x6wf" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_13.png" id="237_ojqji"]
-[ext_resource type="Texture2D" uid="uid://d3ynguo6426y1" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_14.png" id="238_5jkbt"]
-[ext_resource type="Texture2D" uid="uid://2chea3ymwvry" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_15.png" id="239_1xw1t"]
-[ext_resource type="Texture2D" uid="uid://ckrwt4hbgyuj5" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_16.png" id="240_3igl7"]
-[ext_resource type="Texture2D" uid="uid://oq7e35kbh386" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_17.png" id="241_uwcws"]
-[ext_resource type="Texture2D" uid="uid://fl7r0s08s787" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_18.png" id="242_dynh3"]
-[ext_resource type="Texture2D" uid="uid://cx3chrupl5gg2" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_19.png" id="243_3f52m"]
-[ext_resource type="Texture2D" uid="uid://c4mb34c1gh7le" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_20.png" id="244_xyhac"]
-[ext_resource type="Texture2D" uid="uid://dqbl8vp38fwbc" path="res://Character Resouces/Princess Atlantis/Animation/08_2_atk/2_atk_21.png" id="245_ykphv"]
-[ext_resource type="Texture2D" uid="uid://bx0e8a3xrsmpv" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_1.png" id="246_kckty"]
-[ext_resource type="Texture2D" uid="uid://dywly21iiahgd" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_2.png" id="247_2o55h"]
-[ext_resource type="Texture2D" uid="uid://focf1m55r42x" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_3.png" id="248_nuj8e"]
-[ext_resource type="Texture2D" uid="uid://bq4nrt3bnlwqr" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_4.png" id="249_ib6l3"]
-[ext_resource type="Texture2D" uid="uid://cewd4blarey15" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_5.png" id="250_7swe5"]
-[ext_resource type="Texture2D" uid="uid://c0u574hlyuxbb" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_6.png" id="251_ga3rf"]
-[ext_resource type="Texture2D" uid="uid://dtxvavbkbugoq" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_7.png" id="252_f8k6x"]
-[ext_resource type="Texture2D" uid="uid://br6j6pvg76lqv" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_8.png" id="253_cjvnh"]
-[ext_resource type="Texture2D" uid="uid://c1ha12p0w3dt7" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_9.png" id="254_ld5eh"]
-[ext_resource type="Texture2D" uid="uid://b8sexu1mq3yhu" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_10.png" id="255_53p2r"]
-[ext_resource type="Texture2D" uid="uid://cvnkac6t62kgp" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_11.png" id="256_lt1i8"]
-[ext_resource type="Texture2D" uid="uid://4pooqpxca8ji" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_12.png" id="257_oy6ut"]
-[ext_resource type="Texture2D" uid="uid://bwci1jjscrbni" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_13.png" id="258_yo6s2"]
-[ext_resource type="Texture2D" uid="uid://bctj3il0vmerw" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_14.png" id="259_tmusm"]
-[ext_resource type="Texture2D" uid="uid://drad1gm6asw1w" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_15.png" id="260_l7o2q"]
-[ext_resource type="Texture2D" uid="uid://d2i3vxg2di62e" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_16.png" id="261_tgqwm"]
-[ext_resource type="Texture2D" uid="uid://buqjobbxss7p2" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_17.png" id="262_buhn7"]
-[ext_resource type="Texture2D" uid="uid://dkyraxp3e02lb" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_18.png" id="263_u1lev"]
-[ext_resource type="Texture2D" uid="uid://cccxe62bwcme8" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_19.png" id="264_4gbv1"]
-[ext_resource type="Texture2D" uid="uid://5u4xi31qw6r8" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_20.png" id="265_lkvo4"]
-[ext_resource type="Texture2D" uid="uid://bm3yvmj66ekj0" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_21.png" id="266_i0ooi"]
-[ext_resource type="Texture2D" uid="uid://derwjecw6ephi" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_22.png" id="267_6w68q"]
-[ext_resource type="Texture2D" uid="uid://c1ca4gqisy8a0" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_23.png" id="268_ip343"]
-[ext_resource type="Texture2D" uid="uid://jems6vpwd0j1" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_24.png" id="269_5h7t6"]
-[ext_resource type="Texture2D" uid="uid://3pjvs6a502sb" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_25.png" id="270_xv030"]
-[ext_resource type="Texture2D" uid="uid://l3tvjgqfpetm" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_26.png" id="271_8ijol"]
-[ext_resource type="Texture2D" uid="uid://cjrrs3xdmmmbx" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_27.png" id="272_jjom8"]
-[ext_resource type="Texture2D" uid="uid://bc6sd6rthp6wa" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_28.png" id="273_ip101"]
-[ext_resource type="Texture2D" uid="uid://cg32t5aroal4l" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_29.png" id="274_fujmk"]
-[ext_resource type="Texture2D" uid="uid://bvprk72l4o2vd" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_30.png" id="275_7eg21"]
-[ext_resource type="Texture2D" uid="uid://cfs7caw2chsyu" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_31.png" id="276_xwujg"]
-[ext_resource type="Texture2D" uid="uid://clk1tbsexlgi2" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_1.png" id="277_3m0nr"]
-[ext_resource type="Texture2D" uid="uid://db2oh7wrtgxvh" path="res://Character Resouces/Princess Atlantis/Animation/10_sp_atk/sp_atk_32.png" id="277_ffrx1"]
-[ext_resource type="Texture2D" uid="uid://de30d3k1isi1a" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_2.png" id="278_rr8fx"]
-[ext_resource type="Texture2D" uid="uid://dpa3aku5xadew" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_3.png" id="279_n7e6y"]
-[ext_resource type="Texture2D" uid="uid://dlcbg7s4lfqsy" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_4.png" id="280_ckiaw"]
-[ext_resource type="Texture2D" uid="uid://dphys5w4xm763" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_5.png" id="281_dhyoe"]
-[ext_resource type="Texture2D" uid="uid://csh2sknkga8av" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_6.png" id="282_l265h"]
-[ext_resource type="Texture2D" uid="uid://c0h607t8akddn" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_7.png" id="283_b6dxa"]
-[ext_resource type="Texture2D" uid="uid://w6u62eacxh2l" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_8.png" id="284_kfyad"]
-[ext_resource type="Texture2D" uid="uid://mmdhn84ysgov" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_9.png" id="285_am3ch"]
-[ext_resource type="Texture2D" uid="uid://ddm7iwkeuh2wj" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_10.png" id="286_02hb4"]
-[ext_resource type="Texture2D" uid="uid://b6iykb0kl3gn8" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_11.png" id="287_gte6l"]
-[ext_resource type="Texture2D" uid="uid://ddp41ayibonf5" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_12.png" id="288_lccg1"]
-[ext_resource type="Texture2D" uid="uid://cue751bbacnil" path="res://Character Resouces/Hunter/Animation/idle/idle_1.png" id="290_hvcxq"]
-[ext_resource type="Texture2D" uid="uid://cb6belxk5hy0q" path="res://Character Resouces/Hunter/Animation/idle/idle_2.png" id="291_bjpoq"]
-[ext_resource type="Texture2D" uid="uid://c6kf215fhosjs" path="res://Character Resouces/Hunter/Animation/idle/idle_3.png" id="292_2wlbj"]
-[ext_resource type="Texture2D" uid="uid://cryfoc1klsdaq" path="res://Character Resouces/Hunter/Animation/idle/idle_4.png" id="293_nj6hf"]
-[ext_resource type="Texture2D" uid="uid://ctb2qle47bhp" path="res://Character Resouces/Hunter/Animation/idle/idle_5.png" id="294_xc0ib"]
-[ext_resource type="Texture2D" uid="uid://ba28rou6aud8" path="res://Character Resouces/Hunter/Animation/idle/idle_6.png" id="295_fak8b"]
-[ext_resource type="Texture2D" uid="uid://bmjx3ussaxyjc" path="res://Character Resouces/Hunter/Animation/idle/idle_7.png" id="296_n76pn"]
-[ext_resource type="Texture2D" uid="uid://uutohwjws2n5" path="res://Character Resouces/Hunter/Animation/idle/idle_8.png" id="297_5a6bl"]
-[ext_resource type="Texture2D" uid="uid://c1oul3ap3c16t" path="res://Character Resouces/Hunter/Animation/idle/idle_9.png" id="298_dojel"]
-[ext_resource type="Texture2D" uid="uid://colamw54orhr" path="res://Character Resouces/Hunter/Animation/idle/idle_10.png" id="299_v3msr"]
-[ext_resource type="Texture2D" uid="uid://b0qal6i3f3nx4" path="res://Character Resouces/Hunter/Animation/idle/idle_11.png" id="300_krwsu"]
-[ext_resource type="Texture2D" uid="uid://b7xtiwe58h1xa" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_1.png" id="301_86viw"]
-[ext_resource type="Texture2D" uid="uid://ctwpbo576m2g6" path="res://Character Resouces/Hunter/Animation/idle/idle_12.png" id="301_ycuc5"]
-[ext_resource type="Texture2D" uid="uid://gclxjpmkld31" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_2.png" id="302_bxdcr"]
-[ext_resource type="Texture2D" uid="uid://dsoxhl8qwbs2e" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_3.png" id="303_v134q"]
-[ext_resource type="Texture2D" uid="uid://bifkr2mfme1ck" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_4.png" id="304_det4e"]
-[ext_resource type="Texture2D" uid="uid://vl6a5dqm8t3" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_5.png" id="305_jv7ao"]
-[ext_resource type="Texture2D" uid="uid://cj5f31u2kasnh" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_6.png" id="306_n7q4b"]
-[ext_resource type="Texture2D" uid="uid://cjvjvsfee7aic" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_7.png" id="307_6i1sq"]
-[ext_resource type="Texture2D" uid="uid://c0wuxqeiiyk4c" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_8.png" id="308_tnlwy"]
-[ext_resource type="Texture2D" uid="uid://ci74668x71e44" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_9.png" id="309_ufeq0"]
-[ext_resource type="Texture2D" uid="uid://8od4apbr82we" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_10.png" id="310_ldmfu"]
-[ext_resource type="Texture2D" uid="uid://cnvx2x7ywqebx" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_1.png" id="311_iov2g"]
-[ext_resource type="Texture2D" uid="uid://drajjsq4jp01s" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_2.png" id="312_peeyc"]
-[ext_resource type="Texture2D" uid="uid://6qwd6h87dkeg" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_3.png" id="313_wtxi0"]
-[ext_resource type="Texture2D" uid="uid://bkpuwvvobyle" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_4.png" id="314_yth5p"]
-[ext_resource type="Texture2D" uid="uid://d2ner06eyehxs" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_5.png" id="315_dixk1"]
-[ext_resource type="Texture2D" uid="uid://bwy7vfd17uy8b" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_6.png" id="316_51pva"]
-[ext_resource type="Texture2D" uid="uid://bmqeleugm63o2" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_7.png" id="317_fvnu5"]
-[ext_resource type="Texture2D" uid="uid://c2wr7e58hnmh5" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_8.png" id="318_ven40"]
-[ext_resource type="Texture2D" uid="uid://b0xubi611hltl" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_9.png" id="319_71x0e"]
-[ext_resource type="Texture2D" uid="uid://cpyi0us7xqfsn" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_10.png" id="320_btn0x"]
-[ext_resource type="Texture2D" uid="uid://4ff0iophgnd6" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_1.png" id="321_etfws"]
-[ext_resource type="Texture2D" uid="uid://bbnfdd3h5ubcv" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_2.png" id="322_xbihx"]
-[ext_resource type="Texture2D" uid="uid://dr6ukx4wb5xh7" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_3.png" id="323_cy6de"]
-[ext_resource type="Texture2D" uid="uid://dohn6iwdxqxxl" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_4.png" id="324_xsobg"]
-[ext_resource type="Texture2D" uid="uid://cjglilojc8hfe" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_5.png" id="325_bxf0u"]
-[ext_resource type="Texture2D" uid="uid://b7huy65lb3u1r" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_6.png" id="326_nef2g"]
-[ext_resource type="Texture2D" uid="uid://cwikn25q0fl50" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_7.png" id="327_gylba"]
-[ext_resource type="Texture2D" uid="uid://mw2qx1uyyrdc" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_8.png" id="328_jp5r8"]
-[ext_resource type="Texture2D" uid="uid://d3t6wy3i6kdnf" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_9.png" id="329_grl3o"]
-[ext_resource type="Texture2D" uid="uid://cauntxr7d0vi3" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_10.png" id="330_yd4uw"]
-[ext_resource type="Texture2D" uid="uid://dmqxlj0pyeew7" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_11.png" id="331_hdery"]
-[ext_resource type="Texture2D" uid="uid://ds2otbyyxiers" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_12.png" id="332_0g7tc"]
-[ext_resource type="Texture2D" uid="uid://bad30oxbnxwr1" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_13.png" id="333_3yg1g"]
-[ext_resource type="Texture2D" uid="uid://muc1epehxpmf" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_14.png" id="334_5qabt"]
-[ext_resource type="Texture2D" uid="uid://07upjsyxsmla" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_15.png" id="335_yu3t0"]
-[ext_resource type="Texture2D" uid="uid://st73a2viks53" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_1.png" id="336_3ufn7"]
-[ext_resource type="Texture2D" uid="uid://bdk71jahubfog" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_2.png" id="337_l08bm"]
-[ext_resource type="Texture2D" uid="uid://f716pyaf331y" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_3.png" id="338_lj27e"]
-[ext_resource type="Texture2D" uid="uid://brhunah0o3ve" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_4.png" id="339_r8kv7"]
-[ext_resource type="Texture2D" uid="uid://bsqj1ylwhapbh" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_5.png" id="340_kp1lj"]
-[ext_resource type="Texture2D" uid="uid://dpvfue002wytg" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_6.png" id="341_75sl8"]
-[ext_resource type="Texture2D" uid="uid://bpne52gepsru1" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_7.png" id="342_1kxu5"]
-[ext_resource type="Texture2D" uid="uid://cvqm0ge3bhw3x" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_8.png" id="343_7q5jg"]
-[ext_resource type="Texture2D" uid="uid://cdupbuimma02l" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_9.png" id="344_uie78"]
-[ext_resource type="Texture2D" uid="uid://ru00ci3if2iu" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_10.png" id="345_a720j"]
-[ext_resource type="Texture2D" uid="uid://qkumvtsk8164" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_11.png" id="346_70ptq"]
-[ext_resource type="Texture2D" uid="uid://c05m2wb00gxxc" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_12.png" id="347_53aqq"]
-[ext_resource type="Texture2D" uid="uid://3mp2pkuvjdvu" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_13.png" id="348_sfo3h"]
-[ext_resource type="Texture2D" uid="uid://bkq2alqb80dci" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_14.png" id="349_w0raa"]
-[ext_resource type="Texture2D" uid="uid://7q48kujimrhy" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_15.png" id="350_m3bw6"]
-[ext_resource type="Texture2D" uid="uid://dnwht2ddmdy8" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_16.png" id="351_d568g"]
-[ext_resource type="Texture2D" uid="uid://dod0xqiyo6pfw" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_17.png" id="352_r0tys"]
-[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/StaringAtReflections.wav" id="354_qgcn4"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_18.png" id="9_dq20h"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_19.png" id="10_mxdxu"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_20.png" id="11_hqbk6"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_21.png" id="12_8gb2k"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_22.png" id="13_igv60"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_23.png" id="14_qaj21"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_24.png" id="15_46qpe"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_25.png" id="16_njas3"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_26.png" id="17_kby4i"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_27.png" id="18_fdaq3"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Down Light/3_atk_28.png" id="19_u186w"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_1.png" id="20_g860h"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_2.png" id="21_5svod"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_3.png" id="22_b4tqw"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_4.png" id="23_hj1pa"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_5.png" id="24_81ws6"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_6.png" id="25_hcupo"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_7.png" id="26_is6s8"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_8.png" id="27_ypikq"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_1.png" id="28_vi5nn"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_2.png" id="29_o2mw2"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_3.png" id="30_qv45u"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_4.png" id="31_gxjjl"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_5.png" id="32_g6d0w"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_6.png" id="33_rr7j3"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_7.png" id="34_hq5np"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Air Attack/air_atk_8.png" id="35_vaksa"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_1.png" id="36_uixcy"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_2.png" id="37_r85nj"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_3.png" id="38_16wuy"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_4.png" id="39_pexqw"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_5.png" id="40_8qaix"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_6.png" id="41_nok8k"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_7.png" id="42_xwoxl"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_8.png" id="43_a2kdx"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_9.png" id="44_01aml"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_10.png" id="45_nenbs"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Nuetral Light/1_atk_11.png" id="46_o7bjr"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_8.png" id="47_ja1v3"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_9.png" id="48_culyp"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_10.png" id="49_7u65e"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_11.png" id="50_bh73c"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_12.png" id="51_3ay40"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_13.png" id="52_xy7ih"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_14.png" id="53_of300"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_15.png" id="54_jpwjq"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_16.png" id="55_3a8sk"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_17.png" id="56_cpi2a"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_18.png" id="57_kutsa"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Side Light/2_atk_19.png" id="58_3v5kc"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_1.png" id="59_av52l"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_2.png" id="60_wita7"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_3.png" id="61_b1obf"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_4.png" id="62_ilma0"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_5.png" id="63_gl62n"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_6.png" id="64_hmsqb"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_7.png" id="65_tlm5m"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_8.png" id="66_hqg6b"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_9.png" id="67_kjg7s"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_10.png" id="68_lbdsr"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_11.png" id="69_bbnwg"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_12.png" id="70_r31cl"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_13.png" id="71_4w6sx"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_14.png" id="72_cwj6q"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_15.png" id="73_naqct"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_16.png" id="74_j300l"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_17.png" id="75_4rj8q"]
+[ext_resource type="Texture2D" path="res://Character Resouces/General Archfield/Showcase Animations/Up Light/sp_atk_18.png" id="76_8ccub"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_11.png" id="131_kiaui"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_12.png" id="132_1x88l"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_13.png" id="133_y0yg4"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_14.png" id="134_d0ol3"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_15.png" id="135_su54i"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_16.png" id="136_sngng"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_17.png" id="137_uhare"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_18.png" id="138_enkw1"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_19.png" id="139_4dqns"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_20.png" id="140_bsn5b"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_21.png" id="141_o6tjv"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_22.png" id="142_t6nx8"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Down Light/3_atk_23.png" id="143_6xn1f"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Idle/idle_1.png" id="143_lexdh"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Idle/idle_2.png" id="144_4xr4j"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Idle/idle_3.png" id="145_2bwmo"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Idle/idle_4.png" id="146_vpv2g"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Idle/idle_5.png" id="147_pj4gr"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Idle/idle_6.png" id="148_ha84p"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_1.png" id="150_5lvrx"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_2.png" id="151_txhka"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_3.png" id="152_davak"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_4.png" id="153_g5af8"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_5.png" id="154_dsk6j"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_6.png" id="155_wgn32"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Air Attack/air_atk_7.png" id="156_wsy8d"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_1.png" id="157_vbdso"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_2.png" id="158_mjy0o"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_3.png" id="159_dr67h"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_4.png" id="160_ofu0d"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_5.png" id="161_treq0"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Nuetral Light/1_atk_6.png" id="162_owdr4"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_6.png" id="163_oilgp"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_7.png" id="164_628pa"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_8.png" id="165_kcs11"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_9.png" id="166_qvopk"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_10.png" id="167_iodln"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_11.png" id="168_oaxnc"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Side Light/2_atk_12.png" id="169_jhwr7"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_1.png" id="170_fsn03"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_2.png" id="171_ipia7"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_3.png" id="172_fw038"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_4.png" id="173_mfbgq"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_5.png" id="174_k0al4"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_6.png" id="175_pw72t"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_7.png" id="176_ikkve"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_8.png" id="177_0adl1"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_9.png" id="178_36rlm"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_10.png" id="179_vk6ta"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_11.png" id="180_cp5r0"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_12.png" id="181_anjub"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_13.png" id="182_f78hn"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_14.png" id="183_2ny4d"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_15.png" id="184_rwaef"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_16.png" id="185_hrpvn"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_17.png" id="186_b7koi"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_18.png" id="187_gdnuv"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_19.png" id="188_bqc6d"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_20.png" id="189_ugimk"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_21.png" id="190_b3w7h"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_22.png" id="191_cvafh"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_23.png" id="192_kjcck"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_24.png" id="193_ujj3f"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Animations/Up Light/sp_atk_25.png" id="194_ovql0"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_1.png" id="277_3m0nr"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_2.png" id="278_rr8fx"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_3.png" id="279_n7e6y"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_4.png" id="280_ckiaw"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_5.png" id="281_dhyoe"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_6.png" id="282_l265h"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_7.png" id="283_b6dxa"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_8.png" id="284_kfyad"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_9.png" id="285_am3ch"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_10.png" id="286_02hb4"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_11.png" id="287_gte6l"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Down Light/3_atk_12.png" id="288_lccg1"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_1.png" id="290_hvcxq"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_2.png" id="291_bjpoq"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_3.png" id="292_2wlbj"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_4.png" id="293_nj6hf"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_5.png" id="294_xc0ib"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_6.png" id="295_fak8b"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_7.png" id="296_n76pn"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_8.png" id="297_5a6bl"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_9.png" id="298_dojel"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_10.png" id="299_v3msr"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_11.png" id="300_krwsu"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_1.png" id="301_86viw"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/idle/idle_12.png" id="301_ycuc5"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_2.png" id="302_bxdcr"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_3.png" id="303_v134q"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_4.png" id="304_det4e"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_5.png" id="305_jv7ao"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_6.png" id="306_n7q4b"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_7.png" id="307_6i1sq"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_8.png" id="308_tnlwy"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_9.png" id="309_ufeq0"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Air Attack/air_atk_10.png" id="310_ldmfu"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_1.png" id="311_iov2g"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_2.png" id="312_peeyc"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_3.png" id="313_wtxi0"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_4.png" id="314_yth5p"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_5.png" id="315_dixk1"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_6.png" id="316_51pva"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_7.png" id="317_fvnu5"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_8.png" id="318_ven40"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_9.png" id="319_71x0e"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Nuetral Light/1_atk_10.png" id="320_btn0x"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_1.png" id="321_etfws"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_2.png" id="322_xbihx"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_3.png" id="323_cy6de"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_4.png" id="324_xsobg"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_5.png" id="325_bxf0u"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_6.png" id="326_nef2g"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_7.png" id="327_gylba"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_8.png" id="328_jp5r8"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_9.png" id="329_grl3o"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_10.png" id="330_yd4uw"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_11.png" id="331_hdery"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_12.png" id="332_0g7tc"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_13.png" id="333_3yg1g"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_14.png" id="334_5qabt"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Side Light/2_atk_15.png" id="335_yu3t0"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_1.png" id="336_3ufn7"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_2.png" id="337_l08bm"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_3.png" id="338_lj27e"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_4.png" id="339_r8kv7"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_5.png" id="340_kp1lj"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_6.png" id="341_75sl8"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_7.png" id="342_1kxu5"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_8.png" id="343_7q5jg"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_9.png" id="344_uie78"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_10.png" id="345_a720j"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_11.png" id="346_70ptq"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_12.png" id="347_53aqq"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_13.png" id="348_sfo3h"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_14.png" id="349_w0raa"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_15.png" id="350_m3bw6"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_16.png" id="351_d568g"]
+[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_17.png" id="352_r0tys"]
+[ext_resource type="AudioStream" path="res://Game Music/StaringAtReflections.wav" id="354_qgcn4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g7nsm"]
 
@@ -603,43 +464,43 @@ radius = 24.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("77_hgc35")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("78_uciyb")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("79_u87y6")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("80_1easf")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("81_gy66x")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("82_1ktvm")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("83_p76rc")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("84_at6vp")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("85_131y1")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("86_u5ood")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("87_a4ewo")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("88_lfs8p")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("89_5eftf")
+"texture": null
 }],
 "loop": true,
 "name": &"Dlight",
@@ -647,28 +508,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("90_q4cnt")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("91_ckpkl")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("92_i7u4l")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("93_vfvo1")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("94_jui4i")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("95_oyp38")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("96_ms04f")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("97_jnhyq")
+"texture": null
 }],
 "loop": true,
 "name": &"Idle",
@@ -676,28 +537,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("98_g3guo")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("99_dihu0")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("100_q42hr")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("101_xmib8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("102_tee5y")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("103_caih3")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("104_1tt2p")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("105_6kn68")
+"texture": null
 }],
 "loop": true,
 "name": &"Nair",
@@ -705,25 +566,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("106_1tsqy")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("107_s5ljy")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("108_xup3h")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("109_crx44")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("110_tdied")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("111_yqu3w")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("112_va0da")
+"texture": null
 }],
 "loop": true,
 "name": &"Nlight",
@@ -731,28 +592,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("113_gqai6")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("114_kitux")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("115_m3dt4")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("116_07ctv")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("117_30613")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("118_di180")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("119_a0rw8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("120_rp2nk")
+"texture": null
 }],
 "loop": true,
 "name": &"Slight",
@@ -760,34 +621,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("121_hmrqk")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("122_76psp")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("123_acnms")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("124_7ajqg")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("125_4q8e7")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("126_xg6oy")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("127_eybni")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("128_7jdw4")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("129_q024x")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("130_ia86m")
+"texture": null
 }],
 "loop": true,
 "name": &"Ulight",
@@ -842,22 +703,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("144_7c3w7")
+"texture": ExtResource("143_lexdh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("145_16gha")
+"texture": ExtResource("144_4xr4j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("146_rkymq")
+"texture": ExtResource("145_2bwmo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("147_mhati")
+"texture": ExtResource("146_vpv2g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("148_bwq44")
+"texture": ExtResource("147_pj4gr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("149_4fxs1")
+"texture": ExtResource("148_ha84p")
 }],
 "loop": true,
 "name": &"Idle",
@@ -1029,37 +890,37 @@ radius = 24.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("195_tepwg")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("196_tjww6")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("197_28qsu")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("198_dou0v")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("199_cthoc")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("200_b2x5v")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("201_jfucg")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("202_dd43x")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("203_ecsre")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("204_0pd5i")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("205_o6xe1")
+"texture": null
 }],
 "loop": true,
 "name": &"Dlight",
@@ -1067,28 +928,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("206_40kdk")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("207_a6c2b")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("208_fubw5")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("209_dbogw")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("210_jnno2")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("211_wj7kc")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("212_50uxx")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("213_75hf7")
+"texture": null
 }],
 "loop": true,
 "name": &"Idle",
@@ -1096,28 +957,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("214_rjxb7")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("215_cfks3")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("216_6giya")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("217_i8aom")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("218_rdm7g")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("219_hbxjq")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("220_1evl8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("221_x6duk")
+"texture": null
 }],
 "loop": true,
 "name": &"Nair",
@@ -1125,25 +986,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("222_abkel")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("223_lrhi4")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("224_p0x5g")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("225_ylxa3")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("226_66ws5")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("227_dofde")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("228_3mf05")
+"texture": null
 }],
 "loop": true,
 "name": &"Nlight",
@@ -1151,55 +1012,55 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("229_0ld1k")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("230_x28a5")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("231_iknye")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("232_vcbhp")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("233_65bvl")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("234_i1cer")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("235_hwe3r")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("236_8yh86")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("237_ojqji")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("238_5jkbt")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("239_1xw1t")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("240_3igl7")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("241_uwcws")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("242_dynh3")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("243_3f52m")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("244_xyhac")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("245_ykphv")
+"texture": null
 }],
 "loop": true,
 "name": &"Slight",
@@ -1207,100 +1068,100 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("246_kckty")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("247_2o55h")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("248_nuj8e")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("249_ib6l3")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("250_7swe5")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("251_ga3rf")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("252_f8k6x")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("253_cjvnh")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("254_ld5eh")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("255_53p2r")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("256_lt1i8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("257_oy6ut")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("258_yo6s2")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("259_tmusm")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("260_l7o2q")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("261_tgqwm")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("262_buhn7")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("263_u1lev")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("264_4gbv1")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("265_lkvo4")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("266_i0ooi")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("267_6w68q")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("268_ip343")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("269_5h7t6")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("270_xv030")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("271_8ijol")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("272_jjom8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("273_ip101")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("274_fujmk")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("275_7eg21")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("276_xwujg")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("277_ffrx1")
+"texture": null
 }],
 "loop": true,
 "name": &"Ulight",
@@ -1934,21 +1795,19 @@ texture = ExtResource("3_6kcnm")
 
 [node name="Goku" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
-texture = ExtResource("4_bdaxj")
+texture = ExtResource("4_ervok")
 
 [node name="Hunter" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
 
 [node name="Nia" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
-texture = ExtResource("6_o1o7s")
 
 [node name="Nomad" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
 
 [node name="Princess Atlantis" type="TextureRect" parent="GridContainer" groups=["Character"]]
 layout_mode = 2
-texture = ExtResource("7_1w5sp")
 
 [node name="Cursor" type="Sprite2D" parent="."]
 position = Vector2(32, 32)

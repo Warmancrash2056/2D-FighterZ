@@ -7,4 +7,4 @@ func _ready():
 	$AnimationPlayer.play("Bing")
 
 func _change_scene():
-	get_tree().change_scene_to_file("res://Opening.tscn")
+	get_tree().change_scene_to_file("res://Game Start/Studio Logo/Opening.tscn")

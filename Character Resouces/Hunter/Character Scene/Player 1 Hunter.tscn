@@ -1,32 +1,7 @@
-[gd_scene load_steps=49 format=3 uid="uid://cx7lt4v6kcul1"]
+[gd_scene load_steps=24 format=3 uid="uid://cx7lt4v6kcul1"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Script/Hunter Script.gd" id="1_5q183"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_f2n83"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Spritesheet/Hunter Spritesheet.png" id="3_idoly"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/diagonal_arrow/diagonal_arrow_.png" id="4_kxldw"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_1.png" id="5_0cngk"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_2.png" id="6_wbm1f"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_3.png" id="7_onf40"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_4.png" id="8_0441r"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_5.png" id="9_286a6"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_6.png" id="10_owles"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_7.png" id="11_d87gp"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_8.png" id="12_g3i8j"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_9.png" id="13_0a0i7"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_10.png" id="14_044h4"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_11.png" id="15_nldrr"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_12.png" id="16_vob66"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_13.png" id="17_5lwxd"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_14.png" id="18_mjrmn"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_15.png" id="19_mhrbm"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_16.png" id="20_oxgio"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_17.png" id="21_w50he"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_18.png" id="22_aq6nv"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow/arrow_.png" id="23_8ky34"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="24_pl1wi"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Hunter/Sounds/Arrow Sound Effects.wav" id="25_15lhx"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Hunter/Sounds/laser8.wav" id="26_v7n67"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Hunter/Sounds/Up Light Sound.wav" id="27_j7eb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm13a"]
 size = Vector2(10, 1.8)
@@ -38,58 +13,58 @@ radius = 6.08276
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_0cngk")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_wbm1f")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_onf40")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_0441r")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_286a6")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_owles")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_d87gp")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_g3i8j")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_0a0i7")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_044h4")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_nldrr")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_vob66")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_5lwxd")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_mjrmn")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_mhrbm")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_oxgio")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_w50he")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_aq6nv")
+"texture": null
 }],
 "loop": true,
 "name": &"Shower",
@@ -755,7 +730,6 @@ shape = SubResource("RectangleShape2D_mm13a")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Animation" type="Sprite2D" parent="."]
-texture = ExtResource("3_idoly")
 offset = Vector2(0, -40)
 hframes = 20
 vframes = 12
@@ -766,7 +740,6 @@ z_index = 1
 [node name="Nuetral Air Arrow" type="Sprite2D" parent="Scale Player"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(32, 16)
-texture = ExtResource("4_kxldw")
 
 [node name="Area2D" type="Area2D" parent="Scale Player/Nuetral Air Arrow"]
 position = Vector2(-27.4846, -12.0654)
@@ -785,7 +758,6 @@ animation = &"Shower"
 [node name="Side Light Arrow" type="Sprite2D" parent="Scale Player"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(45, -12)
-texture = ExtResource("23_8ky34")
 
 [node name="Area2D" type="Area2D" parent="Scale Player/Side Light Arrow"]
 position = Vector2(-45, 12)
@@ -845,19 +817,14 @@ text = "Player 2
 fit_content = true
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("24_pl1wi")
 
 [node name="Nuetral Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("25_15lhx")
 
 [node name="Up Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("26_v7n67")
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("27_j7eb8")
 
 [node name="Nuetral Air & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("25_15lhx")
 
 [connection signal="animation_looped" from="Scale Player/Down Light Arrow" to="." method="_on_down_light_arrow_animation_looped"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,12 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://ge62epq1rkfd"]
+[gd_scene load_steps=34 format=3 uid="uid://ge62epq1rkfd"]
 
 [ext_resource type="Script" path="res://Character Resouces/General Archfield/Script/General Archfield Script.gd" id="1_fo2hb"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_rknsy"]
-[ext_resource type="Texture2D" uid="uid://wbgnd1vpa415" path="res://Character Resouces/General Archfield/Spritesheet/General Archfield SpriteSheet.png" id="3_qyke1"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_ws0m1"]
-[ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="5_suvfa"]
-[ext_resource type="AudioStream" uid="uid://uvqcrwqnysys" path="res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav" id="6_3bqlg"]
-[ext_resource type="AudioStream" uid="uid://csft7v02oavc0" path="res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav" id="7_1niec"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
 radius = 3.5
@@ -1103,7 +1098,6 @@ shape = SubResource("RectangleShape2D_ghd62")
 debug_color = Color(1, 1, 1, 0.470588)
 
 [node name="Animations" type="Sprite2D" parent="."]
-texture = ExtResource("3_qyke1")
 hframes = 20
 vframes = 9
 
@@ -1122,16 +1116,12 @@ shape = SubResource("CapsuleShape2D_5c78f")
 debug_color = Color(0, 0, 0, 0.490196)
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_ws0m1")
 
 [node name="Nuetral & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_suvfa")
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_3bqlg")
 
 [node name="Up Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_1niec")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_right = 4.0
@@ -1147,5 +1137,5 @@ offset_bottom = 40.0
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -82,7 +82,7 @@ func _process(delta):
 			Player1CharacterSelection.Player1
 			Player1CharacterSelection.Player1 = Player1CharacterSelection.SelectCharacters[characters[currentSelected].name]
 			print("Player 1 Ready")
-			
+			Player1Ready = true
 	
 
 func _on_player_1_general_pyrus_animation_looped():

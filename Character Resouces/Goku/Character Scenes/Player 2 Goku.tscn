@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Character Resouces/Goku/Script/Goku Script.gd" id="1_4xrb5"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_lw7ox"]
-[ext_resource type="Texture2D" path="res://Character Resouces/Goku/Spritesheet/Goku Spritesheet.png" id="3_6jlma"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_8htgm"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Goku/Sound Effects/First Punch.wav" id="6_eomkm"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Goku/Sound Effects/Up Light.wav" id="7_c8533"]
-[ext_resource type="AudioStream" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="8_10m2b"]
+[ext_resource type="Texture2D" uid="uid://b341moopt7xsq" path="res://Character Resouces/Goku/Spritesheet/Goku Spritesheet.png" id="3_6jlma"]
+[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_8htgm"]
+[ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Goku/Sound Effects/First Punch.wav" id="6_eomkm"]
+[ext_resource type="AudioStream" uid="uid://dl15dbgkg58hr" path="res://Character Resouces/Goku/Sound Effects/Up Light.wav" id="7_c8533"]
+[ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="8_10m2b"]
 
 [sub_resource type="Animation" id="Animation_id6wq"]
 resource_name = "Block"
@@ -955,9 +955,9 @@ stream = ExtResource("8_10m2b")
 [connection signal="area_entered" from="Scale Player/Nuetral Air Second Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Third Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Light Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light Buttom Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

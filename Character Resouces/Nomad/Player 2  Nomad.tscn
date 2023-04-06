@@ -1,12 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://bxa0shqd8qvip"]
+[gd_scene load_steps=28 format=3 uid="uid://dltlh3k18s87v"]
 
-[ext_resource type="Script" path="res://Character Resouces/Nomad/Script/Nomad Script.gd" id="1_uxdse"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_pd0p6"]
-[ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Spritesheet/Nomad Spritesheet.png" id="3_5wm6f"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_6h82n"]
-[ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="4_wq867"]
-[ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="5_d30dr"]
-[ext_resource type="AudioStream" uid="uid://dvnbf8odfka1u" path="res://Character Resouces/Hunter/Sounds/Arrow Sound Effects.wav" id="5_jnq3e"]
+[ext_resource type="Script" path="res://Character Resouces/Nomad/Script/Nomad Script.gd" id="1_du2ui"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_a23d7"]
+[ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Spritesheet/Nomad Spritesheet.png" id="3_gvu8j"]
+[ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="4_nys3d"]
+[ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="6_yrgtu"]
 
 [sub_resource type="Animation" id="Animation_6dpqg"]
 resource_name = "Block"
@@ -643,12 +641,12 @@ size = Vector2(10, 2)
 [node name="Player 2 Nomad" type="CharacterBody2D"]
 z_index = 3
 scale = Vector2(1.3, 1.3)
-script = ExtResource("1_uxdse")
-controls = ExtResource("2_pd0p6")
+script = ExtResource("1_du2ui")
+controls = ExtResource("2_a23d7")
 
 [node name="Animations" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-texture = ExtResource("3_5wm6f")
+texture = ExtResource("3_gvu8j")
 hframes = 20
 vframes = 8
 
@@ -715,15 +713,13 @@ text = "Player 2"
 fit_content = true
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_6h82n")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_wq867")
+stream = ExtResource("4_nys3d")
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_jnq3e")
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_d30dr")
+stream = ExtResource("6_yrgtu")
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

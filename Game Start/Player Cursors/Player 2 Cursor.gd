@@ -24,7 +24,7 @@ var currentRowSpot = 0       # Spot of the cursor based on the row
 # Objects
 @onready var gridContainer = get_parent().get_node("Player 1 Selection")   # Get the Gridcontainer
 
-var Player1Ready = false
+var Player2Ready = false
 func _ready():
 # Get all of the characters stored within the group "Characters" and place them in the Array characters
 	for nameOfCharacter in get_tree().get_nodes_in_group("Player1"):
@@ -80,6 +80,7 @@ func _process(delta):
 		if Player2CharacterSelection.Player2 == null:
 			Player2CharacterSelection.Player2
 			Player2CharacterSelection.Player2 = Player2CharacterSelection.SelectCharacters[characters[currentSelected].name]
+			Player2Ready = true
 			
 	
 

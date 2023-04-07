@@ -33,8 +33,8 @@ func _process(delta):
 				Galvin.visible = false
 				Artic.visible = true
 				
-			if Input.is_action_just_pressed(Controller.Input_jump):
-				get_tree().change_scene_to_file("res://Game Maps/Galvin.tscn")
+			#if Input.is_action_just_pressed(Controller.Input_jump):
+				#get_tree().change_scene_to_file("res://Game Maps/Galvin.tscn")
 				
 		Map.Artic:
 			MapName.set_text(str("Artic"))

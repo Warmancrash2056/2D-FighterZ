@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://c27kgbbjefdwo"]
+[gd_scene load_steps=30 format=3 uid="uid://c27kgbbjefdwo"]
 
 [ext_resource type="Script" path="res://Character Resouces/Nomad/Script/Nomad Script.gd" id="1_2g1ag"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_8lyst"]
 [ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Spritesheet/Nomad Spritesheet.png" id="3_gke6x"]
+[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_4rbnk"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="4_yvbuu"]
 [ext_resource type="AudioStream" uid="uid://bmn4eg23hqjk7" path="res://Character Resouces/Nomad/Sound Effect/Down Light Sound.wav" id="5_wpbew"]
 [ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="6_7vtm3"]
@@ -702,6 +703,7 @@ text = "Player 2"
 fit_content = true
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4rbnk")
 
 [node name="Nuetral & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_yvbuu")

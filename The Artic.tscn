@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8q12c5x24psu"]
+[gd_scene load_steps=14 format=3 uid="uid://b8q12c5x24psu"]
 
 [ext_resource type="Texture2D" uid="uid://ctp3n0w8q5blo" path="res://mainlevbuild1.png" id="1_2gcoi"]
+[ext_resource type="Script" path="res://The Artic.gd" id="1_f45sg"]
 [ext_resource type="Texture2D" uid="uid://dgywkkduvkvb3" path="res://Game Maps/PF_SnowyMountains_1/background1.png" id="2_urfho"]
 [ext_resource type="Texture2D" uid="uid://bftym75utdmis" path="res://Game Maps/PF_SnowyMountains_1/background2a.png" id="3_k7cmy"]
 [ext_resource type="Texture2D" uid="uid://8vldyuirig7n" path="res://Game Maps/PF_SnowyMountains_1/background2b.png" id="4_oqlos"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://yohx14s3h6cn" path="res://Game Maps/PF_SnowyMountains_1/background5.png" id="7_5xj0g"]
 [ext_resource type="Script" path="res://Game Maps/Player 1 Spawner.gd" id="8_7sqfb"]
 [ext_resource type="Script" path="res://Game Maps/Player 2 Spawner.gd" id="9_yi443"]
+[ext_resource type="AudioStream" uid="uid://cx7l4b0c7cgp6" path="res://Game Music/EuropaIce Extended.wav" id="11_kyahj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_largn"]
 texture = ExtResource("1_2gcoi")
@@ -1118,6 +1120,7 @@ texture = ExtResource("1_2gcoi")
 sources/0 = SubResource("TileSetAtlasSource_largn")
 
 [node name="The Caves" type="Node2D"]
+script = ExtResource("1_f45sg")
 
 [node name="Wall" type="TileMap" parent="."]
 z_index = 3
@@ -1162,7 +1165,16 @@ position = Vector2(-64, -80)
 polygon = PackedVector2Array(-312, -200, -264, -200, -264, 144, -272, 168, -32, 168, 376, 168, 376, -200, 424, -200, 424, 200, 64, 200, -312, 200)
 
 [node name="Player 1 Spawn" type="Node2D" parent="."]
+z_index = 3
+position = Vector2(256, 104)
 script = ExtResource("8_7sqfb")
 
 [node name="Player 2 Spawn" type="Node2D" parent="."]
+z_index = 3
+position = Vector2(-120, 80)
 script = ExtResource("9_yi443")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_kyahj")
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

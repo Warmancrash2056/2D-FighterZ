@@ -2,10 +2,7 @@ extends CharacterBody2D
 
 @export var controls: Resource
 
-@onready var JumpSound = $"Jump Sound"
-@onready var DLightSound = $"Down Light Sound"
-@onready var FirstSlightSound = $"Side Light Sound First"
-@onready var SecondSlightSound = $"Side Light Sound Second"
+
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animation
 
@@ -36,14 +33,7 @@ enum States {
 	Hurt
 }
 var Select = States.Idle
-func _down_light_audio():
-	DLightSound.play()
-	
-func Side_light_first_audio():
-	FirstSlightSound.play()
-	
-func side_light_audio_second():
-	SecondSlightSound.play()
+
 func _physics_process(delta):
 	if Motion.x >= 1:
 		SpriteH.flip_h = false
@@ -77,8 +67,7 @@ func _physics_process(delta):
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-					Motion.x = -300
-	
+					Motion.x = -350
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				Motion.x = min(Motion.x + Acceleration, Movement)
@@ -87,9 +76,11 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
+					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-					Motion.x = 300
+					Motion.x = 350
+
 		
 			elif Input.is_action_pressed(controls.input_down):
 				# Code for falling down platform #
@@ -119,7 +110,6 @@ func _physics_process(delta):
 					Select = States.Defend
 			if Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
-				JumpSound.play()
 				
 		States.Jump:
 			Motion.y += Gravity
@@ -215,7 +205,7 @@ func _physics_process(delta):
 			
 			
 		States.Roll:
-			Motion.x = lerp(Motion.x , 0.01, 0.01)
+			Motion.x = lerp(Motion.x , 0.01, 0.02)
 			Motion.y += Gravity
 			Animate.play("Roll")
 			if !is_on_floor():
@@ -226,7 +216,6 @@ func _physics_process(delta):
 				
 			elif Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
-				JumpSound.play()
 				
 		States.Death:
 			Animate.play("Jump")
@@ -234,7 +223,6 @@ func _physics_process(delta):
 		States.Hurt:
 			Motion.x = 0
 			Animate.play("Take Hit")
-
 
 
 	

@@ -119,6 +119,7 @@ func _physics_process(delta):
 					Select = States.Defend
 			if Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
+				$AudioStreamPlayer2D.play()
 				
 		States.Jump:
 			Motion.y += Gravity

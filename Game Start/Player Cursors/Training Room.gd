@@ -1,12 +1,5 @@
 extends Sprite2D
 
-@onready var NaiAnimation = $"../Player 1 Nia"
-@onready var GeneralPyrusAnimation = $"../Player 1 General Pyrus"
-@onready var HunterAnimation = $"../Player 1 Hunter"
-@onready var NomadAnimation = $"../Player 1 Nomad"
-@onready var AtlantisAnimation = $"../Player 1 Atlantis"
-@onready var GokuAnimation = $"../Player 1 Goku"
-
 @export var Controls: Resource 
 # Object Array
 var characters = []          # Array to store all the characters the player can select
@@ -21,13 +14,14 @@ var currentRowSpot = 0       # Spot of the cursor based on the row
 @export var amountOfRows: int = 2      # The total amount of rows the character select is able to show 
 @export var portraitOffset: Vector2    # The distance between the portraits
 
-# Call parent node to get the character selection
-@onready var gridContainer = get_parent().get_node("Player 1 Selection")   # Get the Gridcontainer
+# Call parent node to get the node player selction.
+# Important for using columms to move the cursor around
+@onready var gridContainer = get_parent().get_node("Player Selection")   # Get the Gridcontainer
 
 var Player1Ready = false
 func _ready():
 # Get all of the characters stored within the group "Player 1" and place them in the Array characters
-	for nameOfCharacter in get_tree().get_nodes_in_group("Player1"):
+	for nameOfCharacter in get_tree().get_nodes_in_group("Player 1"):
 		characters.append(nameOfCharacter)
 	print(characters)
 	
@@ -85,103 +79,3 @@ func _process(delta):
 			Player1Ready = true
 			portraitOffset.x = 0
 	
-
-func _on_player_1_general_pyrus_animation_looped():
-	GeneralPyrusAnimation.play("Idle")
-
-func _on_player_1_goku_animation_looped():
-	GokuAnimation.play("Idle")
-
-
-func _on_player_1_hunter_animation_looped():
-	HunterAnimation.play("Idle")
-
-
-func _on_player_1_nomad_animation_looped():
-	NomadAnimation.play("Idle")
-
-
-func _on_player_1_atlantis_animation_looped():
-	pass # Replace with function body.
-
-
-func _on_player_1_nai_animation_looped():
-	NaiAnimation.play("Idle")
-
-
-func _on_player_1_general_pyrus_select_area_entered(area):
-	if area:
-		GeneralPyrusAnimation.play("Ready")
-		GeneralPyrusAnimation.visible = true
-
-
-func _on_player_1_general_pyrus_select_area_exited(area):
-	if area:
-		GeneralPyrusAnimation.stop()
-		GeneralPyrusAnimation.frame = 0
-		GeneralPyrusAnimation.visible = false
-
-func _on_player_1_nai_select_area_entered(area):
-	if area:
-		NaiAnimation.play("Ready")
-		NaiAnimation.visible = true
-
-
-func _on_player_1_nai_select_area_exited(area):
-	if area:
-		NaiAnimation.stop()
-		NaiAnimation.frame = 0
-		NaiAnimation.visible = false
-
-func _on_player_1_hunter_select_area_entered(area):
-	if area:
-		HunterAnimation.play("Ready")
-		HunterAnimation.visible = true
-
-
-func _on_player_1_hunter_select_area_exited(area):
-	if area:
-		HunterAnimation.stop()
-		HunterAnimation.frame = 0
-		HunterAnimation.visible = false
-
-func _on_player_1_nomad_select_area_entered(area):
-	if area:
-		NomadAnimation.play("Ready")
-		NomadAnimation.visible = true
-
-
-func _on_player_1_nomad_select_area_exited(area):
-	if area:
-		NomadAnimation.stop()
-		NomadAnimation.frame = 0
-		NomadAnimation.visible = false
-
-func _on_player_1_atlantis_select_area_entered(area):
-	if area:
-		AtlantisAnimation.play("Ready")
-		AtlantisAnimation.visible = true
-
-
-func _on_player_1_atlantis_select_area_exited(area):
-	if area:
-		AtlantisAnimation.stop()
-		AtlantisAnimation.frame = 0
-		AtlantisAnimation.visible = false
-
-
-func _on_player_1_goku_select_area_entered(area):
-	if area:
-		GokuAnimation.play("Ready")
-		GokuAnimation.visible = true
-
-
-func _on_player_1_goku_select_area_exited(area):
-	if area:
-		GokuAnimation.stop()
-		GokuAnimation.frame = 0
-		GokuAnimation.visible = false
-
-
-func _on_player_2_hunter_animation_looped():
-	pass # Replace with function body.

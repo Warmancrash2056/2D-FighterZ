@@ -7,7 +7,7 @@ extends Control
 @onready var PrincessAtlantis = $"Princess Atlantis"
 @onready var Hunter = $Hunter
 
-@onready var GameAudio = $AudioStreamPlayer2D
+@onready var GameAudio = $"Game Audio"
 @onready var LocalPlay = $"Local Play"
 @onready var AboutCharacters = $"About Characters"
 @onready var TrainingRoom = $"Training Room"
@@ -63,11 +63,10 @@ func _process(delta):
 			
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AudioStreamPlayer2D.play()
+	GameAudio.play()
 
 
 func _on_local_play_pressed():
-	print("Good")
 	get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
 
 
@@ -76,12 +75,10 @@ func _on_about_characters_pressed():
 
 
 func _on_training_room_pressed():
-	get_tree().change_scene_to_file("res://Game Maps/Galvin.tscn")
-
-
-func _on_audio_stream_player_2d_finished():
-	$AudioStreamPlayer2D.play()
-
-
+	get_tree().change_scene_to_file("")
 func _on_timer_timeout():
 	CheckGame = Game.Return
+
+
+func _on_game_audio_finished():
+	GameAudio.play()

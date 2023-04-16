@@ -1,0 +1,138 @@
+[gd_scene load_steps=19 format=3 uid="uid://by6wgvnain6xk"]
+
+[ext_resource type="Script" path="res://Game Maps/Training'/Training Character Selection.gd" id="1_lcs50"]
+[ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Archfield/Character Icon/General Archfield Character Icon.png" id="2_divhe"]
+[ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Icon/Goku.png" id="3_63qer"]
+[ext_resource type="Texture2D" uid="uid://dpa5754pfc4ay" path="res://Character Resouces/Hunter/Icon/Hunter.png" id="4_3y8hm"]
+[ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Icon/Nomad Character Icon.png" id="5_e2tic"]
+[ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nia/Icon/Assasin Character Icon.png" id="6_p25k1"]
+[ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Princess Atlantis/Icon/Princess Atlantis.png" id="7_gpspn"]
+[ext_resource type="Texture2D" uid="uid://c5tbxkeptjepb" path="res://Game Start/Player Cursors/SelectionCursorPlayer1.png" id="8_6hnsn"]
+[ext_resource type="Script" path="res://Game Start/Player Cursors/Training Room.gd" id="9_iwesg"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="10_taeak"]
+[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/Main Menu Music.wav" id="11_rvv42"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vegc5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wcry2"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41rgg"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t80vx"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_32bhx"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b8uae"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_176xh"]
+radius = 16.0
+
+[node name="Training Room Select" type="Node2D"]
+position = Vector2(0, 2)
+script = ExtResource("1_lcs50")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -112.0
+offset_top = -122.0
+offset_right = 1328.0
+offset_bottom = 790.0
+color = Color(0, 0, 0, 1)
+
+[node name="Player Selection" type="GridContainer" parent="."]
+offset_left = 384.0
+offset_right = 788.0
+offset_bottom = 64.0
+columns = 6
+
+[node name="General Archfield" type="TextureRect" parent="Player Selection" groups=["Player 1"]]
+layout_mode = 2
+texture = ExtResource("2_divhe")
+
+[node name="Goku" type="TextureRect" parent="Player Selection" groups=["Player 1"]]
+layout_mode = 2
+texture = ExtResource("3_63qer")
+
+[node name="Hunter" type="TextureRect" parent="Player Selection" groups=["Player 1"]]
+layout_mode = 2
+texture = ExtResource("4_3y8hm")
+
+[node name="Nomad" type="TextureRect" parent="Player Selection" groups=["Player 1"]]
+layout_mode = 2
+texture = ExtResource("5_e2tic")
+
+[node name="Nia" type="TextureRect" parent="Player Selection" groups=["Player 1"]]
+layout_mode = 2
+texture = ExtResource("6_p25k1")
+
+[node name="Princess Atlantis" type="TextureRect" parent="Player Selection" groups=["Player 1"]]
+layout_mode = 2
+texture = ExtResource("7_gpspn")
+
+[node name="Player 1 Cursor" type="Sprite2D" parent="."]
+position = Vector2(416, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("8_6hnsn")
+script = ExtResource("9_iwesg")
+Controls = ExtResource("10_taeak")
+PlayerIcon = ExtResource("8_6hnsn")
+portraitOffset = Vector2(68, 0)
+
+[node name="Area2D" type="Area2D" parent="Player 1 Cursor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Cursor/Area2D"]
+shape = SubResource("CircleShape2D_vegc5")
+debug_color = Color(0.976471, 0, 0.137255, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(384, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_wcry2")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(384, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(104, 32)
+shape = SubResource("CircleShape2D_41rgg")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(384, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(168, 32)
+shape = SubResource("CircleShape2D_t80vx")
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(384, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(248, 32)
+shape = SubResource("CircleShape2D_32bhx")
+
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2(384, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2(304, 32)
+shape = SubResource("CircleShape2D_b8uae")
+
+[node name="Area2D6" type="Area2D" parent="."]
+position = Vector2(384, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6"]
+position = Vector2(368, 32)
+shape = SubResource("CircleShape2D_176xh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_rvv42")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(584, 286)
+zoom = Vector2(1.2, 1.2)

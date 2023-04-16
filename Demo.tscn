@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4436jc2knxei"]
 
-[ext_resource type="PackedScene" uid="uid://rsrq5j7f3y37" path="res://Character Resouces/Hunter/Character Scene/Player 2 Hunter.tscn" id="1_fpu12"]
+[ext_resource type="PackedScene" uid="uid://c27kgbbjefdwo" path="res://Character Resouces/Nomad/Character Scenes/Player 2 Nomad.tscn" id="1_qb7tt"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -65,5 +65,5 @@ shape = SubResource("2")
 position = Vector2(568, 272)
 zoom = Vector2(2, 2)
 
-[node name="Player 2 Hunter" parent="." instance=ExtResource("1_fpu12")]
-position = Vector2(520, 288)
+[node name="Player 2 Nomad" parent="." instance=ExtResource("1_qb7tt")]
+position = Vector2(416, 288)

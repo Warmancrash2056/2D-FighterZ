@@ -152,22 +152,16 @@ func _physics_process(delta):
 				Select = States.Idle
 			if Input.is_action_pressed(controls.input_down):
 				Motion.y += 20
-				print("Is Falling ", Motion)
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nair
-					print(Motion)
+				
 			elif Input.is_action_pressed(controls.input_right):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nair
-					print(Motion)
+				
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nair
+				
 					
 		States.Nlight:
 			Motion.x = 0

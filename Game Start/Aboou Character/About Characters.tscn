@@ -1,4 +1,4 @@
-[gd_scene load_steps=446 format=3 uid="uid://cwo1fvhb6givv"]
+[gd_scene load_steps=446 format=3 uid="uid://rwlgyy0flqjw"]
 
 [ext_resource type="Script" path="res://Game Start/Aboou Character/About Character.gd" id="1_vkrci"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_u4mqr"]
@@ -431,7 +431,7 @@
 [ext_resource type="Texture2D" uid="uid://7q48kujimrhy" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_15.png" id="350_m3bw6"]
 [ext_resource type="Texture2D" uid="uid://dnwht2ddmdy8" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_16.png" id="351_d568g"]
 [ext_resource type="Texture2D" uid="uid://dod0xqiyo6pfw" path="res://Character Resouces/Hunter/Animation/Up Light/sp_atk_17.png" id="352_r0tys"]
-[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/StaringAtReflections.wav" id="354_qgcn4"]
+[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/Main Menu Music.wav" id="432_hbwxe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g7nsm"]
 
@@ -2460,7 +2460,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("354_qgcn4")
+stream = ExtResource("432_hbwxe")
 
 [connection signal="pressed" from="General Archfield Character Selection/General Archfield Nlight" to="." method="_on_general_archfield_nlight_pressed"]
 [connection signal="pressed" from="General Archfield Character Selection/General Archfield Slight" to="." method="_on_general_archfield_slight_pressed"]

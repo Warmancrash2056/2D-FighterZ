@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://dav2kmh7k0nbj"]
+[gd_scene load_steps=154 format=3 uid="uid://c2kuts083ajp3"]
 
 [ext_resource type="Script" path="res://Game Start/Local Play/Local Play.gd" id="1_w8mfd"]
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nia/Icon/Assasin Character Icon.png" id="2_mr1wv"]
@@ -126,13 +126,13 @@
 [ext_resource type="Texture2D" uid="uid://bc1ydqm5y4j5j" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_2.png" id="123_l1ebm"]
 [ext_resource type="Texture2D" uid="uid://bvbflaxgwymu3" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_3.png" id="124_0502n"]
 [ext_resource type="Texture2D" uid="uid://bp4825hqfhqh6" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_4.png" id="125_sayyl"]
-[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/StaringAtReflections.wav" id="126_dd2mv"]
 [ext_resource type="Texture2D" uid="uid://c3snwkhh8krmd" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_5.png" id="126_x8jhm"]
 [ext_resource type="Texture2D" uid="uid://vi8lsqg6x63u" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_6.png" id="127_tkcpp"]
 [ext_resource type="Texture2D" uid="uid://donydr6tidcp" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_7.png" id="128_pm603"]
 [ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_8.png" id="129_785mv"]
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_9.png" id="130_bsukf"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_10.png" id="131_7qe0s"]
+[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/Main Menu Music.wav" id="133_l5gry"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0sqqb"]
 
@@ -1241,91 +1241,89 @@ debug_color = Color(1, 0, 0, 1)
 
 [node name="Player 1 General Pyrus" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(350, 205)
-scale = Vector2(3, 3)
+position = Vector2(350, 180)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_n1ibh")
 animation = &"Ready"
 
 [node name="Player 1 Goku" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(350, 185)
+position = Vector2(350, 180)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_iwkx3")
 animation = &"Ready"
 
 [node name="Player 1 Hunter" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(350, 205)
-scale = Vector2(3, 3)
+position = Vector2(350, 180)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_y5eif")
 animation = &"Idle"
 
 [node name="Player 1 Nomad" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(350, 160)
+position = Vector2(350, 180)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_wnyyd")
 animation = &"Ready"
 
 [node name="Player 1 Atlantis" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(350, 161)
+position = Vector2(350, 180)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_ru1qk")
 animation = &"Ready"
 frame_progress = 0.0753533
 
 [node name="Player 1 Nia" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(350, 175)
+position = Vector2(350, 180)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_ex0lh")
 animation = &"Ready"
 
 [node name="Player 2 General Pyrus" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(850, 205)
-scale = Vector2(-3, 3)
+position = Vector2(850, 180)
+scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_etnd1")
 animation = &"Ready"
 
 [node name="Player 2 Goku" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(850, 185)
+position = Vector2(850, 180)
 scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_ddid1")
 animation = &"Ready"
 
 [node name="Player 2 Hunter" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(850, 205)
-scale = Vector2(-3, 3)
+position = Vector2(850, 180)
+scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_fb631")
 animation = &"Ready"
 
 [node name="Player 2 Nomad" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(850, 160)
+position = Vector2(850, 180)
 scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_f2ec0")
 animation = &"Ready"
 
 [node name="Player 2 Atlantis" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(850, 161)
+position = Vector2(850, 180)
 scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_5lvnx")
 animation = &"Ready"
 
 [node name="Player 2 Nia" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(850, 175)
+position = Vector2(850, 180)
 scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_1cmhf")
 animation = &"Idle"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("126_dd2mv")
+stream = ExtResource("133_l5gry")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(608, 329)

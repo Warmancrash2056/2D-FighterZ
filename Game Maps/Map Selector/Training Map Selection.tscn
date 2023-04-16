@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdkivxnd5o6cs"]
+
+[ext_resource type="Script" path="res://Game Maps/Map Selector/Training Map Selection.gd" id="1_t7exm"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_gw6jq"]
+[ext_resource type="Texture2D" uid="uid://dojad3d7kkql6" path="res://Game Maps/Galvin Maps/Game Image/Galvin Image.jpg" id="3_8qdv5"]
+[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/Main Menu Music.wav" id="5_4utry"]
+
+[node name="Training Map Selection" type="Node2D"]
+script = ExtResource("1_t7exm")
+Controller = ExtResource("2_gw6jq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -120.0
+offset_top = -152.0
+offset_right = 1424.0
+offset_bottom = 832.0
+color = Color(0, 0, 0, 1)
+
+[node name="Galvin" type="Sprite2D" parent="."]
+position = Vector2(600, 350)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_8qdv5")
+
+[node name="Artic" type="Sprite2D" parent="."]
+position = Vector2(600, 350)
+scale = Vector2(0.301887, 0.365079)
+
+[node name="Map Name" type="RichTextLabel" parent="."]
+offset_left = 104.0
+offset_top = 320.0
+offset_right = 392.0
+offset_bottom = 360.0
+scale = Vector2(3, 3)
+fit_content = true
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_left = 425.0
+offset_right = 540.0
+offset_bottom = 27.0
+scale = Vector2(3, 3)
+text = "Training Room"
+fit_content = true
+
+[node name="Main Menu Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4utry")
+
+[connection signal="finished" from="Main Menu Audio" to="." method="_on_main_menu_audio_finished"]

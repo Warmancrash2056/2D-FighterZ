@@ -71,11 +71,11 @@ func _on_local_play_pressed():
 
 
 func _on_about_characters_pressed():
-	get_tree().change_scene_to_file("res://Character Selection Resources/Biography Menu.tscn")
+	get_tree().change_scene_to_file("res://Game Start/Aboou Character/About Characters.tscn")
 
 
 func _on_training_room_pressed():
-	get_tree().change_scene_to_file("")
+	get_tree().change_scene_to_file("res://Game Maps/Training'/Training Character Selection.tscn")
 func _on_timer_timeout():
 	CheckGame = Game.Return
 

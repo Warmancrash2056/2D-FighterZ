@@ -37,7 +37,7 @@ func _process(delta):
 				get_tree().change_scene_to_file("res://Game Maps/Galvin Maps/Map Scenes/Training Galvin.tscn")
 				
 		Map.Artic:
-			MapName.set_text(str("Artic"))
+			MapName.set_text(str("The Artic"))
 			Artic.visible = true
 			Galvin.visible = false
 			if Input.is_action_just_pressed(Controller.input_right):
@@ -51,7 +51,7 @@ func _process(delta):
 				Galvin.visible = true
 			
 			if Input.is_action_just_pressed(Controller.input_jump):
-				get_tree().change_scene_to_file("res://The Artic.tscn")
+				get_tree().change_scene_to_file("res://Game Maps/The Artic/Training Artic.tscn")
 
 
 func _on_main_menu_audio_finished():

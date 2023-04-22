@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 @export var Movement: int  = 50
 @export var AirMovement: int  = 50
-@export var Acceleration: int  = 35
+@export var Acceleration: int  = 10
 @export var JumpHeight: int = 500
 @export var Gravity : int  = 35
 
@@ -43,6 +43,7 @@ func _update_flip():
 
 
 func _physics_process(delta):
+	print(Motion)
 	set_velocity(Motion)
 	set_up_direction(Up)
 	move_and_slide()
@@ -113,6 +114,7 @@ func _physics_process(delta):
 				Select = States.Jump
 				$"Jump Sound".play()
 		States.Jump:
+			_update_flip()
 			Motion.y += Gravity
 			if is_on_floor():
 				Motion.y = -JumpHeight
@@ -145,6 +147,7 @@ func _physics_process(delta):
 			
 			
 		States.Fall:
+			_update_flip()
 			Motion.y += Gravity
 			Animate.play("Fall")
 			
@@ -153,21 +156,7 @@ func _physics_process(delta):
 			if Input.is_action_pressed(controls.input_down):
 				Motion.y += 20
 				print("Is Falling ", Motion)
-			if Input.is_action_pressed(controls.input_left):
-				Motion.x = max(Motion.x - Acceleration, -AirMovement)
-				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nair
-					print(Motion)
-			elif Input.is_action_pressed(controls.input_right):
-				Motion.x = min(Motion.x + Acceleration, AirMovement)
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nair
-					print(Motion)
-			else:
-				Motion.x = lerp(Motion.x , 0.01, 0.01)
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nair
+			
 					
 		States.Nlight:
 			Motion.x = 0

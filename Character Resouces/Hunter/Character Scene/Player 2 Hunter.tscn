@@ -741,7 +741,7 @@ radius = 4.12311
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukc6m"]
 
 [node name="Player 2 Hunter" type="CharacterBody2D"]
-z_index = 2
+z_index = 4
 scale = Vector2(1.2, 1.2)
 script = ExtResource("1_naj18")
 controls = ExtResource("2_or2jn")

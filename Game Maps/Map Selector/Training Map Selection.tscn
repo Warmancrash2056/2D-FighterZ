@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdkivxnd5o6cs"]
+[gd_scene load_steps=6 format=3 uid="uid://cdkivxnd5o6cs"]
 
 [ext_resource type="Script" path="res://Game Maps/Map Selector/Training Map Selection.gd" id="1_t7exm"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_gw6jq"]
 [ext_resource type="Texture2D" uid="uid://dojad3d7kkql6" path="res://Game Maps/Galvin Maps/Game Image/Galvin Image.jpg" id="3_8qdv5"]
+[ext_resource type="Texture2D" uid="uid://55jtgk7w1o2x" path="res://Game Maps/The Artic/The Artic Image.png" id="4_2m7ty"]
 [ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/Main Menu Music.wav" id="5_4utry"]
 
 [node name="Training Map Selection" type="Node2D"]
@@ -24,6 +25,7 @@ texture = ExtResource("3_8qdv5")
 [node name="Artic" type="Sprite2D" parent="."]
 position = Vector2(600, 350)
 scale = Vector2(0.301887, 0.365079)
+texture = ExtResource("4_2m7ty")
 
 [node name="Map Name" type="RichTextLabel" parent="."]
 offset_left = 104.0

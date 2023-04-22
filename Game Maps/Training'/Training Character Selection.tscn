@@ -136,3 +136,5 @@ stream = ExtResource("11_rvv42")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(584, 286)
 zoom = Vector2(1.2, 1.2)
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

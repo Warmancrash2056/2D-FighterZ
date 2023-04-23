@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animation
 
+@onready var ActionBar = $Action
+@onready var Healthbar = $Health
 @export var Movement: int  = 175
 @export var AirMovement: int  = 120
 @export var Acceleration: int  = 35
@@ -38,12 +40,17 @@ enum States {
 var Select = States.Idle
 
 func _ready():
+	# Sets the action bar to current action points 
 	$Action.value = action_pts
+	
+# Checks if action points needs to be replenished if under 6 points.
 func _add_action_pts():
 	
+	# Add 1pt of action after idle or run animation is finished. 
 	if action_pts < 6:
 		action_pts += 1
-		
+	
+	# If action points are at 6. Set action points to stop increasing number.
 	else:
 		action_pts = 6
 
@@ -54,7 +61,7 @@ func _down_light():
 	$"Down Light Sound".play()
 
 func _physics_process(delta):
-	
+	# If action points have been exhausted. Player will not be able to attack until action points is 
 	if action_pts <= 0:
 		can_attack = false
 	else:

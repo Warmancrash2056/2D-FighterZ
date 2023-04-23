@@ -28,10 +28,10 @@
 [ext_resource type="Texture2D" uid="uid://d0o4t0d5s2fld" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_17.png" id="21_4ood4"]
 [ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_18.png" id="22_38gxe"]
 [ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow/arrow_.png" id="23_iogmu"]
-[ext_resource type="Texture2D" uid="uid://cadyekdgkcur7" path="res://Health System/Progress Background.png" id="29_556r6"]
-[ext_resource type="Texture2D" uid="uid://dy6d83vdeh7xb" path="res://Health System/Progress Front.png" id="30_q2s7e"]
-[ext_resource type="Texture2D" uid="uid://qe54b4s6b8lo" path="res://Health System/Progress Bar-2.png.png" id="31_ks3xp"]
-[ext_resource type="Texture2D" uid="uid://dbdqwttorm1nb" path="res://Health System/Progress Bar-1.png.png" id="32_sm7pt"]
+[ext_resource type="Texture2D" uid="uid://cadyekdgkcur7" path="res://Health System/Progress Background.png" id="29_fcm7s"]
+[ext_resource type="Texture2D" uid="uid://dy6d83vdeh7xb" path="res://Health System/Progress Front.png" id="30_kqsc7"]
+[ext_resource type="Texture2D" uid="uid://dbdqwttorm1nb" path="res://Health System/Progress Bar-1.png.png" id="31_gds8d"]
+[ext_resource type="Texture2D" uid="uid://qe54b4s6b8lo" path="res://Health System/Progress Bar-2.png.png" id="31_qwiyr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm13a"]
 size = Vector2(10, 1.8)
@@ -216,6 +216,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_add_action_pts"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_rmv74"]
@@ -587,6 +601,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_add_action_pts"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_iio5n"]
 resource_name = "Slight"
@@ -872,9 +900,9 @@ offset_right = 242.667
 offset_bottom = 13.3333
 scale = Vector2(0.101993, 0.111084)
 value = 100.0
-texture_under = ExtResource("29_556r6")
-texture_over = ExtResource("30_q2s7e")
-texture_progress = ExtResource("31_ks3xp")
+texture_under = ExtResource("29_fcm7s")
+texture_over = ExtResource("30_kqsc7")
+texture_progress = ExtResource("31_qwiyr")
 
 [node name="Action" type="TextureProgressBar" parent="."]
 offset_left = -6.66667
@@ -884,19 +912,9 @@ offset_bottom = 7.0
 scale = Vector2(0.0546435, 0.0664489)
 max_value = 6.0
 value = 6.0
-texture_under = ExtResource("29_556r6")
-texture_over = ExtResource("30_q2s7e")
-texture_progress = ExtResource("32_sm7pt")
-
-[node name="Can Attack Again Timer" type="Timer" parent="."]
-wait_time = 5.0
-
-[node name="Add Attack Points Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-autostart = true
+texture_under = ExtResource("29_fcm7s")
+texture_over = ExtResource("30_kqsc7")
+texture_progress = ExtResource("31_gds8d")
 
 [connection signal="animation_looped" from="Scale Player/Down Light Arrow" to="." method="_on_down_light_arrow_animation_looped"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="Can Attack Again Timer" to="." method="_on_can_attack_again_timer_timeout"]
-[connection signal="timeout" from="Add Attack Points Timer" to="." method="_on_add_attack_points_timer_timeout"]

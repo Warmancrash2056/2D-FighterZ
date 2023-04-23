@@ -37,30 +37,30 @@ enum States {
 }
 var Select = States.Idle
 
+func _ready():
+	$Action.value = action_pts
+func _add_action_pts():
+	
+	if action_pts < 6:
+		action_pts += 1
+		
+	else:
+		action_pts = 6
+
 func _down_light():
 	print("good")
 	DownArrow.play("Shower")
 	DownArrow.visible = true
 	$"Down Light Sound".play()
+
+func _physics_process(delta):
 	
-func _action_system():
-	$Action.value = action_pts
-	print($"Add Attack Points Timer".time_left)
-	print($"Can Attack Again Timer".time_left)
-	print($Action.value)
 	if action_pts <= 0:
 		can_attack = false
-		print("No Ction")
-		$"Can Attack Again Timer".start()
-		
-	if action_pts < 5:
-		$"Add Attack Points Timer".start()
-		
-	if action_pts == 6:
-		$"Add Attack Points Timer".stop()
-func _physics_process(delta):
-	_action_system()
-		
+	else:
+		can_attack = true
+	$Action.value = action_pts
+	print(float($Action.value))
 	if Motion.x >= 1:
 		SpriteH.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -90,11 +90,12 @@ func _physics_process(delta):
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Slight
+						action_pts -= 2
 						
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Roll
 						Motion.x = -350
-						action_pts -=3
+						action_pts -= 3.5
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				Motion.x = min(Motion.x + Acceleration, Movement)
@@ -102,43 +103,49 @@ func _physics_process(delta):
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Slight
-						action_pts -= 3
+						action_pts -= 3.5
 						
 						
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Roll
 						Motion.x = 350
+						action_pts -= 2
 
 		
 			elif Input.is_action_pressed(controls.input_down):
-				# Code for falling down platform #
-				pass
+				if can_attack == true:
 				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Dlight
-					
-				else:
-					Motion.x = 0
-					Animate.play("Idle")
-					
+					if Input.is_action_just_pressed(controls.input_attack):
+						Select = States.Dlight
+						action_pts -= 4
+						
+					else:
+						Motion.x = 0
+						Animate.play("Idle")
+						
 				
 					
 			elif Input.is_action_pressed(controls.input_up):
-				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Ulight
+				if can_attack == true:
+					if Input.is_action_just_pressed(controls.input_attack):
+						Select = States.Ulight
+						action_pts -= 4.5
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.8)
 				Animate.play("Idle")
-				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nlight
-					
-				elif Input.is_action_just_pressed(controls.input_block):
-					Select = States.Defend
-			if Input.is_action_just_pressed(controls.input_jump):
-				Select = States.Jump
-				$"Jump Sound".play()
+				if can_attack == true:
+					if Input.is_action_just_pressed(controls.input_attack):
+						Select = States.Nlight
+						action_pts -= 2
+						
+					elif Input.is_action_just_pressed(controls.input_block):
+						Select = States.Defend
+						action_pts -= 4.8
+			if can_attack == true:
+				if Input.is_action_just_pressed(controls.input_jump):
+					Select = States.Jump
+					$"Jump Sound".play()
+					action_pts -= 1
 				
 		States.Jump:
 			Motion.y += Gravity
@@ -147,30 +154,33 @@ func _physics_process(delta):
 					
 				
 			Animate.play("Jump")
-			if Input.is_action_pressed(controls.input_down):
-				Motion.y += 20
+			if can_attack == true:
+				if Input.is_action_pressed(controls.input_down):
+					Motion.y += 20
+					action_pts -= 0.1
 				
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
-				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nair
+				if can_attack == true:
+					if Input.is_action_just_pressed(controls.input_attack):
+						Select = States.Nair
+						action_pts -= 2
 				
 			elif Input.is_action_pressed(controls.input_right):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
-				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nair
+				if can_attack == true:
+					if Input.is_action_just_pressed(controls.input_attack):
+						Select = States.Nair
+						action_pts -= 2
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
-				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nair
+				if can_attack == true:
+					if Input.is_action_just_pressed(controls.input_attack):
+						Select = States.Nair
+						action_pts -= 2
 			if Motion.y > 0:
 				Select = States.Fall
 				
-				
-			
 			
 		States.Fall:
 			Motion.y += Gravity
@@ -178,8 +188,11 @@ func _physics_process(delta):
 			
 			if is_on_floor():
 				Select = States.Idle
-			if Input.is_action_pressed(controls.input_down):
-				Motion.y += 20
+				
+			if can_attack == true:
+				if Input.is_action_pressed(controls.input_down):
+					Motion.y += 20
+					action_pts -= 0.1
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
@@ -233,11 +246,12 @@ func _physics_process(delta):
 			if !is_on_floor():
 				Select = States.Fall
 			await get_tree().create_timer(0.05).timeout
-			if Input.is_action_just_pressed(controls.input_block):
-				Select = States.Defend
-				
-			elif Input.is_action_just_pressed(controls.input_jump):
-				Select = States.Jump
+			if can_attack == true:
+				if Input.is_action_just_pressed(controls.input_block):
+					Select = States.Defend
+					
+				elif Input.is_action_just_pressed(controls.input_jump):
+					Select = States.Jump
 				
 		States.Death:
 			Animate.play("Jump")
@@ -287,12 +301,4 @@ func _on_down_light_arrow_animation_looped():
 		$"Down Light Sound".stop()
 
 
-
-
-func _on_add_attack_points_timer_timeout():
-	action_pts = 6
-
-
-func _on_can_attack_again_timer_timeout():
-	can_attack = true
 

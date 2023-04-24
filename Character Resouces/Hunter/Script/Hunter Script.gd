@@ -284,7 +284,7 @@ func _physics_process(delta):
 			
 		States.Hurt:
 			Motion.x = 0
-			Animate.play("Take Hit")
+			Animate.play("Hurt")
 
 
 
@@ -317,6 +317,8 @@ func _on_animation_player_animation_finished(anim_name):
 		else: 
 			Select = States.Fall
 	
+	if anim_name == "Hurt":
+		Select = States.Idle
 
 
 func _on_down_light_arrow_animation_looped():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dkaf4thtn7g0g"]
+[gd_scene load_steps=62 format=3 uid="uid://dkaf4thtn7g0g"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Script/Hunter Script.gd" id="1_naj18"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_or2jn"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dbdqwttorm1nb" path="res://Health System/Progress Bar-1.png.png" id="31_gds8d"]
 [ext_resource type="Texture2D" uid="uid://qe54b4s6b8lo" path="res://Health System/Progress Bar-2.png.png" id="31_qwiyr"]
 [ext_resource type="AudioStream" uid="uid://d1aup0p4geo12" path="res://Health System/multiple_cracks_2.wav" id="33_sf87j"]
+[ext_resource type="Texture2D" uid="uid://b36l71tfjxx6v" path="res://Health System/New Piskel-1.png (1).png" id="34_k8htv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm13a"]
 size = Vector2(10, 1.8)
@@ -217,20 +218,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_add_action_pts"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_rmv74"]
@@ -602,20 +589,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_add_action_pts"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_iio5n"]
 resource_name = "Slight"
@@ -775,6 +748,7 @@ radius = 4.12311
 
 [sub_resource type="Animation" id="Animation_f7pe7"]
 resource_name = "Break"
+length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -797,7 +771,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-5, -25), Vector2(-16.8, -25), Vector2(-10.8, -25)]
+"values": [Vector2(-10.8, -25), Vector2(-16.8, -25), Vector2(-10.8, -25)]
 }
 
 [sub_resource type="Animation" id="Animation_c8kne"]
@@ -847,6 +821,29 @@ _data = {
 "Break": SubResource("Animation_f7pe7"),
 "Idle": SubResource("Animation_c8kne"),
 "RESET": SubResource("Animation_ag0so")
+}
+
+[sub_resource type="Animation" id="Animation_6fxgb"]
+resource_name = "Add Points"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_add_action_pts"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sfo3q"]
+_data = {
+"Add Points": SubResource("Animation_6fxgb")
 }
 
 [node name="Player 2 Hunter" type="CharacterBody2D"]
@@ -945,7 +942,7 @@ shape = SubResource("CapsuleShape2D_ukc6m")
 disabled = true
 debug_color = Color(0, 0, 0, 0.490196)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Player Number" type="RichTextLabel" parent="."]
 offset_left = -7.5
 offset_top = -30.8333
 offset_right = 59.5
@@ -970,6 +967,16 @@ stream = ExtResource("6_o12a1")
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_m00bt")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_sf87j")
+volume_db = -10.0
+
+[node name="Break Action Bar" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Action")
+libraries = {
+"": SubResource("AnimationLibrary_aw3w4")
+}
+
 [node name="Health" type="TextureProgressBar" parent="."]
 offset_left = -13.3333
 offset_top = -26.6667
@@ -993,14 +1000,23 @@ texture_under = ExtResource("29_qax87")
 texture_over = ExtResource("30_kqsc7")
 texture_progress = ExtResource("31_gds8d")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("33_sf87j")
-volume_db = -10.0
+[node name="Action Notifier Body" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(14, -24.167)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("34_k8htv")
 
-[node name="Break Action Bar" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Action")
+[node name="Action Point Notifier" type="RichTextLabel" parent="Action Notifier Body"]
+offset_left = -2.0
+offset_top = -10.5
+offset_right = 38.0
+offset_bottom = 35.5
+scale = Vector2(0.9, 0.9)
+fit_content = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_aw3w4")
+"": SubResource("AnimationLibrary_sfo3q")
 }
 
 [connection signal="animation_looped" from="Scale Player/Down Light Arrow" to="." method="_on_down_light_arrow_animation_looped"]

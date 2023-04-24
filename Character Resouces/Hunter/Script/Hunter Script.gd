@@ -20,7 +20,7 @@ var can_attack = true
 var action_break = false
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
-var action_pts = 6
+var action_pts = 8
 var Direction = 1
 enum States {
 	Idle,
@@ -45,17 +45,22 @@ func _ready():
 	$Action.value = action_pts
 	$"Break Action Bar".play("Idle")
 	
+func _stop_points():
+	$AnimationPlayer.stop()
+
+func _start_points():
+	$AnimationPlayer.play("Add Points")
 # Checks if action points needs to be replenished if under 6 points.
 func _add_action_pts():
 	
 	# Add 1pt of action after idle or run animation is finished. 
-	if action_pts < 6:
+	if action_pts < 8:
 		action_pts += 1
 		
 	
 	# If action points are at 6. Set action points to stop increasing number.
 	else:
-		action_pts = 6
+		action_pts = 8
 
 func _down_light():
 	print("good")
@@ -64,6 +69,8 @@ func _down_light():
 	$"Down Light Sound".play()
 
 func _physics_process(delta):
+	$AnimationPlayer.play("Add Points")
+	$"Action Notifier Body/Action Point Notifier".set_text(str(int(action_pts)))
 	# If action points have been exhausted. Player will not be able to attack until action points is 
 	if action_pts <= 0:
 		can_attack = false

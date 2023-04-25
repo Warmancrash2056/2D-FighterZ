@@ -4,11 +4,15 @@ extends CharacterBody2D
 
 # Call the animation for arrow shower in animationplayer
 @onready var DownArrow = $"Scale Player/Down Light Arrow"
-@onready var Animate = $"Scale Player/AnimationPlayer"
+@onready var Animate = $"Scale Player/Character Animation"
 @onready var SpriteH = $Animation
 
-@onready var ActionBar = $Action
-@onready var Healthbar = $Health
+@onready var ActionBar = $"Action Bar"
+@onready var Healthbar = $"Health Bar"
+@onready var ActionNotifier = $"Action Notifier"
+@onready var HealthNotifier = $"Health Notifier"
+@onready var PointsPlayer = $"Add Points"
+@onready var ActionBrokenPlayer = $"Action Break"
 @export var Movement: int  = 175
 @export var AirMovement: int  = 120
 @export var Acceleration: int  = 35
@@ -42,8 +46,8 @@ var Select = States.Idle
 
 func _ready():
 	# Sets the action bar to current action points 
-	$Action.value = action_pts
-	$"Break Action Bar".play("Idle")
+	ActionBar.value = action_pts
+	acti.play("Idle")
 	
 func _stop_points():
 	$AnimationPlayer.stop()

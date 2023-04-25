@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dkaf4thtn7g0g"]
+[gd_scene load_steps=62 format=3 uid="uid://dkaf4thtn7g0g"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Script/Hunter Script.gd" id="1_naj18"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_or2jn"]
@@ -28,8 +28,14 @@
 [ext_resource type="Texture2D" uid="uid://d0o4t0d5s2fld" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_17.png" id="21_4ood4"]
 [ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_18.png" id="22_38gxe"]
 [ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow/arrow_.png" id="23_iogmu"]
-[ext_resource type="PackedScene" uid="uid://ciediwvjy3uep" path="res://Health Mechanic.tscn" id="30_cki2y"]
+[ext_resource type="Texture2D" uid="uid://b36l71tfjxx6v" path="res://Health System/New Piskel-1.png (1).png" id="30_fypmw"]
+[ext_resource type="Texture2D" uid="uid://c8con8he7gj5w" path="res://Health System/Action Bar Back.png" id="31_le2gw"]
+[ext_resource type="Texture2D" uid="uid://dko3ppiktidam" path="res://Action Bar Front.png" id="32_whr53"]
+[ext_resource type="Texture2D" uid="uid://dbdqwttorm1nb" path="res://Health System/Progress Bar-1.png.png" id="33_o2fjf"]
 [ext_resource type="AudioStream" uid="uid://d1aup0p4geo12" path="res://Health System/multiple_cracks_2.wav" id="33_sf87j"]
+[ext_resource type="Texture2D" uid="uid://cadyekdgkcur7" path="res://Health System/Unbroken Progress Background.png" id="34_2kwxc"]
+[ext_resource type="Texture2D" uid="uid://dy6d83vdeh7xb" path="res://Health System/Progress Front.png" id="35_tk828"]
+[ext_resource type="Texture2D" uid="uid://qe54b4s6b8lo" path="res://Health System/Progress Bar-2.png.png" id="36_qpj0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm13a"]
 size = Vector2(10, 1.8)
@@ -102,6 +108,18 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1ydp"]
 radius = 6.08276
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmvo0"]
+height = 150.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t7yv"]
+radius = 39.0
+height = 108.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hql1b"]
+radius = 4.12311
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukc6m"]
+
 [sub_resource type="Animation" id="Animation_pcn48"]
 resource_name = "Block"
 length = 1.6
@@ -129,6 +147,9 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+
+[sub_resource type="Animation" id="Animation_a7qru"]
+resource_name = "Dead"
 
 [sub_resource type="Animation" id="Animation_gen08"]
 resource_name = "Dlight"
@@ -205,6 +226,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [32, 33, 34]
 }
+
+[sub_resource type="Animation" id="Animation_odh6a"]
+resource_name = "Hurt"
 
 [sub_resource type="Animation" id="Animation_n4tvb"]
 resource_name = "Idle"
@@ -525,7 +549,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Scale Player/AnimationPlayer:speed_scale")
+tracks/10/path = NodePath("Scale Player/Character Animation:speed_scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -680,7 +704,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Scale Player/AnimationPlayer:speed_scale")
+tracks/4/path = NodePath("Scale Player/Character Animation:speed_scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -754,12 +778,6 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_odh6a"]
-resource_name = "Hurt"
-
-[sub_resource type="Animation" id="Animation_a7qru"]
-resource_name = "Dead"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1dgu"]
 _data = {
 "Block": SubResource("Animation_pcn48"),
@@ -777,18 +795,6 @@ _data = {
 "Slight": SubResource("Animation_iio5n"),
 "Ulight": SubResource("Animation_v533a")
 }
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmvo0"]
-height = 150.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t7yv"]
-radius = 39.0
-height = 108.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hql1b"]
-radius = 4.12311
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukc6m"]
 
 [sub_resource type="Animation" id="Animation_6fxgb"]
 resource_name = "Add Points"
@@ -820,6 +826,10 @@ script = ExtResource("1_naj18")
 controls = ExtResource("2_or2jn")
 Movement = 200
 AirMovement = 130
+Acceleration = null
+JumpHeight = null
+Gravity = null
+Health = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 3
@@ -851,7 +861,6 @@ shape = SubResource("CircleShape2D_a6wdl")
 disabled = true
 
 [node name="Down Light Arrow" type="AnimatedSprite2D" parent="Scale Player"]
-visible = false
 position = Vector2(136, -40)
 sprite_frames = SubResource("SpriteFrames_w6q8r")
 animation = &"Shower"
@@ -869,13 +878,6 @@ position = Vector2(-45, 12)
 position = Vector2(59.5627, -13)
 shape = SubResource("CircleShape2D_q1ydp")
 disabled = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../..")
-speed_scale = 1.2
-libraries = {
-"": SubResource("AnimationLibrary_m1dgu")
-}
 
 [node name="Area2D" type="Area2D" parent="Scale Player"]
 
@@ -909,11 +911,18 @@ shape = SubResource("CapsuleShape2D_ukc6m")
 disabled = true
 debug_color = Color(0, 0, 0, 0.490196)
 
+[node name="Character Animation" type="AnimationPlayer" parent="Scale Player"]
+root_node = NodePath("../..")
+speed_scale = 1.2
+libraries = {
+"": SubResource("AnimationLibrary_m1dgu")
+}
+
 [node name="Player Number" type="RichTextLabel" parent="."]
-offset_left = -7.5
-offset_top = -30.8333
-offset_right = 59.5
-offset_bottom = -7.83333
+offset_left = -5.0
+offset_top = -39.1667
+offset_right = 62.0
+offset_bottom = -16.1667
 scale = Vector2(0.2, 0.2)
 text = "Player 2
 "
@@ -934,7 +943,7 @@ stream = ExtResource("6_o12a1")
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_m00bt")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Action Break Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_sf87j")
 volume_db = -10.0
 
@@ -943,7 +952,58 @@ libraries = {
 "": SubResource("AnimationLibrary_sfo3q")
 }
 
-[node name="Health Mechanic" parent="." instance=ExtResource("30_cki2y")]
+[node name="Health Notifier" type="RichTextLabel" parent="."]
+offset_left = -15.0
+offset_top = -26.6667
+offset_right = 25.0
+offset_bottom = 13.3333
+scale = Vector2(0.08, 0.08)
+text = "900"
+
+[node name="Action Notifier" type="RichTextLabel" parent="."]
+offset_left = 13.3333
+offset_top = -26.6667
+offset_right = 53.3333
+offset_bottom = 13.3333
+scale = Vector2(0.1, 0.1)
+text = "8"
+
+[node name="Action Ring" type="Sprite2D" parent="."]
+position = Vector2(13.3333, -25.8333)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("30_fypmw")
+
+[node name="Health Ring" type="Sprite2D" parent="."]
+position = Vector2(-14, -25.833)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("30_fypmw")
+
+[node name="Action Bar" type="TextureProgressBar" parent="."]
+offset_left = -12.5
+offset_top = -25.8333
+offset_right = 243.5
+offset_bottom = 14.1667
+scale = Vector2(0.1, 0.1)
+max_value = 8.0
+value = 8.0
+texture_under = ExtResource("31_le2gw")
+texture_over = ExtResource("32_whr53")
+texture_progress = ExtResource("33_o2fjf")
+
+[node name="Health Bar" type="TextureProgressBar" parent="."]
+offset_left = -13.3333
+offset_top = -26.6667
+offset_right = 242.667
+offset_bottom = 13.3333
+scale = Vector2(0.1, 0.1)
+max_value = 900.0
+value = 900.0
+texture_under = ExtResource("34_2kwxc")
+texture_over = ExtResource("35_tk828")
+texture_progress = ExtResource("36_qpj0o")
+
+[node name="Action Break" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Add Points")
 
 [connection signal="animation_looped" from="Scale Player/Down Light Arrow" to="." method="_on_down_light_arrow_animation_looped"]
-[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_animation_player_animation_finished"]

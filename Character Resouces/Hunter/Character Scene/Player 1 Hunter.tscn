@@ -722,6 +722,10 @@ script = ExtResource("1_5q183")
 controls = ExtResource("2_tqaja")
 Movement = 200
 AirMovement = 130
+Acceleration = null
+JumpHeight = null
+Gravity = null
+Health = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 3

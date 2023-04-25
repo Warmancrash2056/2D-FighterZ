@@ -396,6 +396,6 @@ one_shot = true
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]
 [connection signal="pressed" from="Training Room" to="." method="_on_training_room_pressed"]
-[connection signal="finished" from="Game Audio" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="finished" from="Game Audio" to="." method="_on_game_audio_finished"]
+[connection signal="finished" from="Game Audio" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

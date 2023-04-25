@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4436jc2knxei"]
+[gd_scene load_steps=5 format=3 uid="uid://c4436jc2knxei"]
 
 [ext_resource type="PackedScene" uid="uid://dkaf4thtn7g0g" path="res://Character Resouces/Hunter/Character Scene/Player 2 Hunter.tscn" id="1_1myjh"]
 
@@ -8,6 +8,9 @@ size = Vector2(1640, 496)
 [sub_resource type="CapsuleShape2D" id="2"]
 radius = 16.0
 height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2kpki"]
+radius = 64.4981
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_vertical_guides_ = [344.0]
@@ -67,7 +70,9 @@ zoom = Vector2(2, 2)
 
 [node name="Player 2 Hunter" parent="." instance=ExtResource("1_1myjh")]
 position = Vector2(496, 296)
-Acceleration = null
-JumpHeight = null
-Gravity = null
-Health = null
+
+[node name="Area2D2" type="Area2D" parent="." groups=["Hurt"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(648, 264)
+shape = SubResource("CircleShape2D_2kpki")

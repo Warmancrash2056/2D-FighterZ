@@ -47,13 +47,13 @@ var Select = States.Idle
 func _ready():
 	# Sets the action bar to current action points 
 	ActionBar.value = action_pts
-	acti.play("Idle")
+	ActionBrokenPlayer.play("Idle")
 	
 func _stop_points():
-	$AnimationPlayer.stop()
+	PointsPlayer.stop()
 
 func _start_points():
-	$AnimationPlayer.play("Add Points")
+	PointsPlayer.play("Add Points")
 # Checks if action points needs to be replenished if under 6 points.
 func _add_action_pts():
 	
@@ -73,8 +73,8 @@ func _down_light():
 	$"Down Light Sound".play()
 
 func _physics_process(delta):
-	$AnimationPlayer.play("Add Points")
-	$"Action Notifier Body/Action Point Notifier".set_text(str(int(action_pts)))
+	PointsPlayer.play("Add Points")
+	ActionNotifier.set_text(str(int(action_pts)))
 	# If action points have been exhausted. Player will not be able to attack until action points is 
 	if action_pts <= 0:
 		can_attack = false
@@ -85,12 +85,9 @@ func _physics_process(delta):
 		ActionBar.texture_under = load("res://Health System/Unbroken Progress Background.png")
 	if action_pts <= -1:
 		ActionBar.texture_under = load("res://Health System/Broken Progress Background.png")
-		action_break = true
+		ActionBrokenPlayer.play("Break")
 		
-	if action_break == true:
-		$"Break Action Bar".play("Break")
-	$Action.value = action_pts
-	print(float(action_pts))
+	ActionBar.value = action_pts
 	if Motion.x >= 1:
 		SpriteH.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -187,7 +184,6 @@ func _physics_process(delta):
 			if can_attack == true:
 				if Input.is_action_pressed(controls.input_down):
 					Motion.y += 20
-					action_pts -= 0.1
 				
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
@@ -222,7 +218,6 @@ func _physics_process(delta):
 			if can_attack == true:
 				if Input.is_action_pressed(controls.input_down):
 					Motion.y += 20
-					action_pts -= 0.1
 			if Input.is_action_pressed(controls.input_left):
 				Motion.x = max(Motion.x - Acceleration, -AirMovement)
 				
@@ -340,3 +335,8 @@ func _on_break_action_bar_animation_finished(anim_name):
 	if anim_name == "Break":
 		$"Break Action Bar".play("Idle")
 		action_break = false
+
+
+func _on_hurtbox_area_entered(area):
+	if area.is_in_group("Hurt"):
+		print("Hurting")

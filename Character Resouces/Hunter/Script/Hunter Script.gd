@@ -339,4 +339,4 @@ func _on_break_action_bar_animation_finished(anim_name):
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Hurt"):
-		print("Hurting")
+		Select = States.Hurt

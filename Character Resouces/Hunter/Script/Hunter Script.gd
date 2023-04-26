@@ -13,13 +13,13 @@ extends CharacterBody2D
 @onready var HealthNotifier = $"Health Notifier"
 @onready var PointsPlayer = $"Add Points"
 @onready var ActionBrokenPlayer = $"Action Break"
-@export var Movement: int  = 175
-@export var AirMovement: int  = 120
-@export var Acceleration: int  = 35
+@export var Movement: int  = 1000
+@export var AirMovement: int  = 300
+@export var Acceleration: int  = 1000
 @export var JumpHeight: int = 600
 @export var Gravity : int  = 35
 
-@export var Health = 900
+var Health = 900
 var can_attack = true
 var action_break = false
 var Motion = Vector2.ZERO
@@ -47,8 +47,7 @@ var Select = States.Idle
 func _ready():
 	# Sets the action bar to current action points 
 	ActionBar.value = action_pts
-	ActionBrokenPlayer.play("Idle")
-	
+	ActionBrokenPlayer.play("Normal")
 func _stop_points():
 	PointsPlayer.stop()
 
@@ -73,8 +72,11 @@ func _down_light():
 	$"Down Light Sound".play()
 
 func _physics_process(delta):
+	Healthbar.value = Health
 	PointsPlayer.play("Add Points")
+	print(Motion.x)
 	ActionNotifier.set_text(str(int(action_pts)))
+	HealthNotifier.set_text(str(int(Health)))
 	# If action points have been exhausted. Player will not be able to attack until action points is 
 	if action_pts <= 0:
 		can_attack = false
@@ -83,9 +85,11 @@ func _physics_process(delta):
 	
 	if action_pts >= 1:
 		ActionBar.texture_under = load("res://Health System/Unbroken Progress Background.png")
+		action_break = false
 	if action_pts <= -1:
 		ActionBar.texture_under = load("res://Health System/Broken Progress Background.png")
 		ActionBrokenPlayer.play("Break")
+		action_break = true
 		
 	ActionBar.value = action_pts
 	if Motion.x >= 1:
@@ -140,7 +144,7 @@ func _physics_process(delta):
 
 		
 			elif Input.is_action_pressed(controls.input_down):
-				if can_attack == true:
+				if can_attack == false:
 				
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Dlight
@@ -158,7 +162,7 @@ func _physics_process(delta):
 						Select = States.Ulight
 						action_pts -= 4
 			else:
-				Motion.x = lerp(Motion.x , 0.01, 0.8)
+				Motion.x = lerp(Motion.x , 0.9, 1)
 				Animate.play("Idle")
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
@@ -168,7 +172,7 @@ func _physics_process(delta):
 					elif Input.is_action_just_pressed(controls.input_block):
 						Select = States.Defend
 						action_pts -= 4
-			if can_attack == true:
+			if action_break == false:
 				if Input.is_action_just_pressed(controls.input_jump):
 					Select = States.Jump
 					$"Jump Sound".play()
@@ -340,3 +344,4 @@ func _on_break_action_bar_animation_finished(anim_name):
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Hurt"):
 		Select = States.Hurt
+		Health -= 200

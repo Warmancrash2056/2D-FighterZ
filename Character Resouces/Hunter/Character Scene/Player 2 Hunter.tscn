@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dkaf4thtn7g0g"]
+[gd_scene load_steps=65 format=3 uid="uid://dkaf4thtn7g0g"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Script/Hunter Script.gd" id="1_naj18"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_or2jn"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://d0o4t0d5s2fld" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_17.png" id="21_4ood4"]
 [ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_18.png" id="22_38gxe"]
 [ext_resource type="Texture2D" uid="uid://bi5o1gwi6tjol" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow/arrow_.png" id="23_iogmu"]
-[ext_resource type="Texture2D" uid="uid://b36l71tfjxx6v" path="res://Health System/New Piskel-1.png (1).png" id="30_fypmw"]
+[ext_resource type="Texture2D" uid="uid://dsqdo7072qr7" path="res://Health System/New Piskel-1.png (3).png" id="30_vffp7"]
 [ext_resource type="Texture2D" uid="uid://dbdqwttorm1nb" path="res://Health System/Progress Bar-1.png.png" id="33_o2fjf"]
 [ext_resource type="AudioStream" uid="uid://d1aup0p4geo12" path="res://Health System/multiple_cracks_2.wav" id="33_sf87j"]
 [ext_resource type="Texture2D" uid="uid://cadyekdgkcur7" path="res://Health System/Unbroken Progress Background.png" id="34_2kwxc"]
@@ -145,6 +145,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_stop_points"
+}, {
+"args": [],
+"method": &"_start_points"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_a7qru"]
 resource_name = "Dead"
@@ -227,6 +244,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_odh6a"]
 resource_name = "Hurt"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -238,6 +256,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [198, 200, 201, 202]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_stop_points"
+}, {
+"args": [],
+"method": &"_start_points"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_n4tvb"]
@@ -644,6 +679,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [104, 105, 106, 107, 108, 109, 110, 111]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_stop_points"
+}, {
+"args": [],
+"method": &"_start_points"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_q546x"]
 resource_name = "Run"
@@ -735,6 +787,23 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_stop_points"
+}, {
+"args": [],
+"method": &"_start_points"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_v533a"]
 resource_name = "Ulight"
@@ -787,6 +856,23 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_stop_points"
+}, {
+"args": [],
+"method": &"_start_points"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1dgu"]
 _data = {
@@ -831,6 +917,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_kwmem"]
 resource_name = "Break"
+length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -838,10 +925,10 @@ tracks/0/path = NodePath("../Action Bar:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-10.8333, -25), Vector2(-10.8333, -25.8333), Vector2(-10.8333, -25)]
+"values": [Vector2(10, -27.5), Vector2(10, -26.6667), Vector2(10, -25.8333), Vector2(10, -26.6667), Vector2(10, -28.3333)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -850,7 +937,7 @@ tracks/1/path = NodePath("../Action Break Sound:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -897,11 +984,51 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Health Bar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10.8333, -25.8333)]
+}
+
+[sub_resource type="Animation" id="Animation_6q6xu"]
+resource_name = "Normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Action Bar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, -28.3333)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Health Bar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10.8333, -25.8333)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lo8cj"]
 _data = {
 "Break": SubResource("Animation_kwmem"),
 "Idle": SubResource("Animation_bwjkj"),
+"Normal": SubResource("Animation_6q6xu"),
 "RESET": SubResource("Animation_jp1wb")
 }
 
@@ -1002,9 +1129,9 @@ libraries = {
 
 [node name="Player Number" type="RichTextLabel" parent="."]
 offset_left = -5.83333
-offset_top = -30.0
+offset_top = -32.5
 offset_right = 61.1667
-offset_bottom = -6.99999
+offset_bottom = -9.49999
 scale = Vector2(0.2, 0.2)
 text = "Player 2
 "
@@ -1034,38 +1161,40 @@ libraries = {
 "": SubResource("AnimationLibrary_sfo3q")
 }
 
+[node name="Action Ring" type="Sprite2D" parent="."]
+position = Vector2(14.6, -26.2333)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("30_vffp7")
+
+[node name="Health Ring" type="Sprite2D" parent="."]
+position = Vector2(-16.2333, -26.2333)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("30_vffp7")
+
 [node name="Health Notifier" type="RichTextLabel" parent="."]
-offset_left = -18.3333
-offset_top = -27.5
-offset_right = 21.6667
-offset_bottom = 12.5
+offset_left = -19.1667
+offset_top = -29.1667
+offset_right = 20.8333
+offset_bottom = 10.8333
 scale = Vector2(0.26, 0.26)
-text = "900"
+text = "900
+"
 
 [node name="Action Notifier" type="RichTextLabel" parent="."]
 offset_left = 14.1667
-offset_top = -28.3333
+offset_top = -29.1667
 offset_right = 54.1667
-offset_bottom = 11.6667
+offset_bottom = 10.8333
 scale = Vector2(0.3, 0.3)
-text = "8"
-
-[node name="Action Ring" type="Sprite2D" parent="."]
-position = Vector2(15, -24.1667)
-scale = Vector2(0.434, 0.434)
-texture = ExtResource("30_fypmw")
-
-[node name="Health Ring" type="Sprite2D" parent="."]
-position = Vector2(-15, -25)
-scale = Vector2(0.434, 0.434)
-texture = ExtResource("30_fypmw")
+text = "8
+"
 
 [node name="Action Bar" type="TextureProgressBar" parent="."]
 offset_left = -10.8333
 offset_top = -25.0
 offset_right = 245.167
 offset_bottom = 15.0
-scale = Vector2(0.0889725, 0.0838933)
+scale = Vector2(-0.0786777, 0.103125)
 max_value = 8.0
 value = 8.0
 texture_under = ExtResource("34_2kwxc")
@@ -1077,7 +1206,7 @@ offset_left = -10.8333
 offset_top = -25.8333
 offset_right = 245.167
 offset_bottom = 14.1667
-scale = Vector2(0.0890188, 0.0770506)
+scale = Vector2(0.0863986, 0.157789)
 max_value = 900.0
 value = 900.0
 texture_under = ExtResource("34_2kwxc")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://r68nnf3p1exi"]
+[gd_scene load_steps=32 format=3 uid="uid://r68nnf3p1exi"]
 
 [ext_resource type="Script" path="res://Character Resouces/Nia/Script/Nia Script.gd" id="1_c7apn"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_jvmgp"]
@@ -7,9 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="5_baet6"]
 [ext_resource type="AudioStream" uid="uid://vkh3pkcuv12c" path="res://Character Resouces/Nia/Nia Blade Throw.wav" id="6_x5yc7"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="7_l0sap"]
+[ext_resource type="PackedScene" uid="uid://dueqp2qfxn8ag" path="res://status_bar.tscn" id="8_1iaqe"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr333"]
-size = Vector2(10, 2)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln3jp"]
+radius = 6.15385
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5whet"]
 animations = [{
@@ -772,9 +773,9 @@ texture = ExtResource("3_ne73k")
 hframes = 20
 vframes = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 22)
-shape = SubResource("RectangleShape2D_dr333")
+[node name="Foot" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16.9231)
+shape = SubResource("CircleShape2D_ln3jp")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Scale Player" type="Node2D" parent="."]
@@ -851,13 +852,13 @@ position = Vector2(49, -13)
 shape = SubResource("RectangleShape2D_beenl")
 disabled = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -8.0
-offset_top = -26.6667
-offset_right = 72.0
-offset_bottom = 0.333336
+[node name="Player Number" type="RichTextLabel" parent="."]
+offset_left = -7.69231
+offset_top = -30.0
+offset_right = 72.3077
+offset_bottom = -2.99997
 scale = Vector2(0.2, 0.2)
-text = "Player 1"
+text = "Player 2"
 fit_content = true
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
@@ -868,5 +869,8 @@ stream = ExtResource("6_x5yc7")
 
 [node name="Side Light & Down Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_l0sap")
+
+[node name="Status Bar" parent="." instance=ExtResource("8_1iaqe")]
+position = Vector2(0, 1.53846)
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

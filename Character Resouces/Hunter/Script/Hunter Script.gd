@@ -7,12 +7,13 @@ extends CharacterBody2D
 @onready var Animate = $"Scale Player/Character Animation"
 @onready var SpriteH = $Animation
 
-@onready var ActionBar = $"Action Bar"
-@onready var Healthbar = $"Health Bar"
-@onready var ActionNotifier = $"Action Notifier"
-@onready var HealthNotifier = $"Health Notifier"
-@onready var PointsPlayer = $"Add Points"
-@onready var ActionBrokenPlayer = $"Action Break"
+@onready var ActionBar = $"Status Bar/Action Bar"
+@onready var Healthbar = $"Status Bar/Health Bar"
+@onready var ActionNotifier = $"Status Bar/Action Notifier"
+@onready var HealthNotifier = $"Status Bar/Health Notifier"
+@onready var PointsPlayer = $"Status Bar/Add Points"
+@onready var ActionBrokenPlayer = $"Status Bar/Action Break"
+
 @export var Movement: int  = 1000
 @export var AirMovement: int  = 300
 @export var Acceleration: int  = 1000
@@ -144,7 +145,7 @@ func _physics_process(delta):
 
 		
 			elif Input.is_action_pressed(controls.input_down):
-				if can_attack == false:
+				if can_attack == true:
 				
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Dlight
@@ -162,7 +163,7 @@ func _physics_process(delta):
 						Select = States.Ulight
 						action_pts -= 4
 			else:
-				Motion.x = lerp(Motion.x , 0.9, 1)
+				Motion.x = lerp(Motion.x , 0.09, 1)
 				Animate.play("Idle")
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
@@ -176,7 +177,6 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_jump):
 					Select = States.Jump
 					$"Jump Sound".play()
-					action_pts -= 1
 				
 		States.Jump:
 			Motion.y += Gravity

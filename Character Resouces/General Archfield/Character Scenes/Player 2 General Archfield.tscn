@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ge62epq1rkfd"]
+[gd_scene load_steps=40 format=3 uid="uid://ge62epq1rkfd"]
 
 [ext_resource type="Script" path="res://Character Resouces/General Archfield/Script/General Archfield Script.gd" id="1_fo2hb"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_rknsy"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="5_wa676"]
 [ext_resource type="AudioStream" uid="uid://uvqcrwqnysys" path="res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav" id="6_jflho"]
 [ext_resource type="AudioStream" uid="uid://csft7v02oavc0" path="res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav" id="7_mjvvc"]
+[ext_resource type="PackedScene" uid="uid://dueqp2qfxn8ag" path="res://status_bar.tscn" id="8_muner"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
 radius = 3.5
@@ -1083,11 +1084,11 @@ texture = ExtResource("3_a0s3q")
 hframes = 20
 vframes = 9
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -6.66667
-offset_top = 14.6667
-offset_right = 57.3333
-offset_bottom = 37.6667
+[node name="Player Number" type="RichTextLabel" parent="."]
+offset_left = -4.61539
+offset_top = 8.46154
+offset_right = 59.3846
+offset_bottom = 31.4616
 scale = Vector2(0.2, 0.2)
 text = "Player 2"
 fit_content = true
@@ -1108,6 +1109,9 @@ stream = ExtResource("6_jflho")
 
 [node name="Up Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_mjvvc")
+
+[node name="Status Bar" parent="." instance=ExtResource("8_muner")]
+position = Vector2(1.53846, 40)
 
 [connection signal="area_entered" from="Scale Player/Nuetral Light3D Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Hitbox" to="." method="_on_Nuetral_Air_Hitbox_area_entered"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://kp64im4yiq1x"]
 
-[ext_resource type="Script" path="res://node_2d.gd" id="1_0478s"]
-[ext_resource type="Texture2D" uid="uid://bxiwnmbixki77" path="res://424765496-3.png" id="2_jyuch"]
-[ext_resource type="AudioStream" uid="uid://dt0pw750c6ur0" path="res://Wind.wav" id="3_qp62s"]
+[ext_resource type="Script" path="res://node_2d.gd" id="1_klfsb"]
+[ext_resource type="Texture2D" uid="uid://bxiwnmbixki77" path="res://424765496-3.png" id="2_nnn14"]
+[ext_resource type="AudioStream" uid="uid://dt0pw750c6ur0" path="res://Wind.wav" id="3_wtfwy"]
 
 [sub_resource type="Animation" id="Animation_mm7kk"]
 resource_name = "Bing"
@@ -90,7 +90,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_0478s")
+script = ExtResource("1_klfsb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -118.0
@@ -107,7 +107,7 @@ libraries = {
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(575, 303)
 scale = Vector2(5, 5)
-texture = ExtResource("2_jyuch")
+texture = ExtResource("2_nnn14")
 hframes = 50
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -120,6 +120,6 @@ text = "Mars Gaming Studio"
 fit_content = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_qp62s")
+stream = ExtResource("3_wtfwy")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

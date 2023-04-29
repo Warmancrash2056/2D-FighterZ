@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://eaam6u58mq7b"]
+[gd_scene load_steps=40 format=3 uid="uid://eaam6u58mq7b"]
 
 [ext_resource type="Script" path="res://Character Resouces/General Archfield/Script/General Archfield Script.gd" id="1_762r4"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_0c6dm"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="5_k3gx6"]
 [ext_resource type="AudioStream" uid="uid://uvqcrwqnysys" path="res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav" id="6_bnpmr"]
 [ext_resource type="AudioStream" uid="uid://csft7v02oavc0" path="res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav" id="7_qyex6"]
+[ext_resource type="PackedScene" uid="uid://bgmx5bsciokc" path="res://Status Bar.tscn" id="8_hvoqo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
 radius = 3.5
@@ -1133,10 +1134,12 @@ stream = ExtResource("6_bnpmr")
 [node name="Up Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_qyex6")
 
+[node name="Status Bar" parent="." instance=ExtResource("8_hvoqo")]
+
 [connection signal="area_entered" from="Scale Player/Nuetral Light3D Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Hitbox" to="." method="_on_Nuetral_Air_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bxa0shqd8qvip"]
+[gd_scene load_steps=31 format=3 uid="uid://bxa0shqd8qvip"]
 
 [ext_resource type="Script" path="res://Character Resouces/Nomad/Script/Nomad Script.gd" id="1_uxdse"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="2_pd0p6"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_oufvf"]
 [ext_resource type="AudioStream" uid="uid://bmn4eg23hqjk7" path="res://Character Resouces/Nomad/Sound Effect/Down Light Sound.wav" id="5_vdyul"]
 [ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="6_pu57f"]
+[ext_resource type="PackedScene" uid="uid://bgmx5bsciokc" path="res://Status Bar.tscn" id="8_sgmg3"]
 
 [sub_resource type="Animation" id="Animation_6dpqg"]
 resource_name = "Block"
@@ -713,5 +714,7 @@ stream = ExtResource("5_vdyul")
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_pu57f")
+
+[node name="Status Bar" parent="." instance=ExtResource("8_sgmg3")]
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

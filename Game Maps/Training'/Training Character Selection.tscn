@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://by6wgvnain6xk"]
+[gd_scene load_steps=144 format=3 uid="uid://by6wgvnain6xk"]
 
 [ext_resource type="Script" path="res://Game Maps/Training'/Training Character Selection.gd" id="1_lcs50"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Archfield/Character Icon/General Archfield Character Icon.png" id="2_divhe"]
@@ -81,6 +81,55 @@
 [ext_resource type="Texture2D" uid="uid://6lk558yo6bmh" path="res://Character Resouces/Hunter/Animation/defend/defend_17.png" id="79_yqu5o"]
 [ext_resource type="Texture2D" uid="uid://bl4hs3xnky4a1" path="res://Character Resouces/Hunter/Animation/defend/defend_18.png" id="80_b74a0"]
 [ext_resource type="Texture2D" uid="uid://b3ltwa7yg72yi" path="res://Character Resouces/Hunter/Animation/defend/defend_19.png" id="81_4w21t"]
+[ext_resource type="Texture2D" uid="uid://d1pmojx4o8rxq" path="res://Character Resouces/Nomad/Animations/idle/idle_1.png" id="82_bn6at"]
+[ext_resource type="Texture2D" uid="uid://bta2hqbooqxf8" path="res://Character Resouces/Nomad/Animations/idle/idle_2.png" id="83_s5sng"]
+[ext_resource type="Texture2D" uid="uid://bq6aknfa5p0pg" path="res://Character Resouces/Nomad/Animations/idle/idle_3.png" id="84_fvxmt"]
+[ext_resource type="Texture2D" uid="uid://bdoiwl1kssffm" path="res://Character Resouces/Nomad/Animations/idle/idle_4.png" id="85_uvgt8"]
+[ext_resource type="Texture2D" uid="uid://dpioa0relwcxi" path="res://Character Resouces/Nomad/Animations/idle/idle_5.png" id="86_r7yfi"]
+[ext_resource type="Texture2D" uid="uid://3j6ikcqp6pu6" path="res://Character Resouces/Nomad/Animations/idle/idle_6.png" id="87_up82l"]
+[ext_resource type="Texture2D" uid="uid://c34w08clfp1hr" path="res://Character Resouces/Nomad/Animations/idle/idle_7.png" id="88_hj0wn"]
+[ext_resource type="Texture2D" uid="uid://cv64u2i8s3mix" path="res://Character Resouces/Nomad/Animations/idle/idle_8.png" id="89_s4wrd"]
+[ext_resource type="Texture2D" uid="uid://bq3vaj740dyqi" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_12.png" id="90_je5rx"]
+[ext_resource type="Texture2D" uid="uid://cad4dijqi283" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_13.png" id="91_q0ado"]
+[ext_resource type="Texture2D" uid="uid://biv77a34kdw0u" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_14.png" id="92_62od7"]
+[ext_resource type="Texture2D" uid="uid://oo4f4tllucl5" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_15.png" id="93_vahsg"]
+[ext_resource type="Texture2D" uid="uid://dog18sd8y8pj5" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_16.png" id="94_hexlo"]
+[ext_resource type="Texture2D" uid="uid://m74uhrqtxm46" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_17.png" id="95_6eb3x"]
+[ext_resource type="Texture2D" uid="uid://55knceg45wtj" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_18.png" id="96_5opx2"]
+[ext_resource type="Texture2D" uid="uid://36m7wma87hrg" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_19.png" id="97_25k27"]
+[ext_resource type="Texture2D" uid="uid://hcdpofkjsb5s" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_20.png" id="98_nkokm"]
+[ext_resource type="Texture2D" uid="uid://okm1m7n2d3lj" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_21.png" id="99_3jcwk"]
+[ext_resource type="Texture2D" uid="uid://cpdxawdvm1yuw" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_22.png" id="100_7uwcn"]
+[ext_resource type="Texture2D" uid="uid://b751n6l80t2dx" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_23.png" id="101_ph76r"]
+[ext_resource type="Texture2D" uid="uid://be1listtb4eoq" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_24.png" id="102_ae6cq"]
+[ext_resource type="Texture2D" uid="uid://cnjhx46xp55y0" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_25.png" id="103_5lg0x"]
+[ext_resource type="Texture2D" uid="uid://cht15kixl26af" path="res://Character Resouces/Nomad/Animations/Down Light/3_atk_26.png" id="104_v6058"]
+[ext_resource type="Texture2D" uid="uid://ckgnbifb7ehgv" path="res://Character Resouces/Nia/Animation/Idle/01_idle_1.png" id="105_tkwo8"]
+[ext_resource type="Texture2D" uid="uid://bl2qb2hncljlv" path="res://Character Resouces/Nia/Animation/Idle/01_idle_2.png" id="106_g5v2h"]
+[ext_resource type="Texture2D" uid="uid://dlr08j2rasqkr" path="res://Character Resouces/Nia/Animation/Idle/01_idle_3.png" id="107_xjtu2"]
+[ext_resource type="Texture2D" uid="uid://dtvgukghiqd5s" path="res://Character Resouces/Nia/Animation/Idle/01_idle_4.png" id="108_6f70d"]
+[ext_resource type="Texture2D" uid="uid://cytkk46m4nl62" path="res://Character Resouces/Nia/Animation/Idle/01_idle_5.png" id="109_v4vwb"]
+[ext_resource type="Texture2D" uid="uid://cq637jgsuect3" path="res://Character Resouces/Nia/Animation/Idle/01_idle_6.png" id="110_fmlpf"]
+[ext_resource type="Texture2D" uid="uid://dx6wfspjbk38r" path="res://Character Resouces/Nia/Animation/Idle/01_idle_7.png" id="111_bfpbb"]
+[ext_resource type="Texture2D" uid="uid://b78fsdjuf38km" path="res://Character Resouces/Nia/Animation/Idle/01_idle_8.png" id="112_d72dh"]
+[ext_resource type="Texture2D" uid="uid://vsl6g5papc5t" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_1.png" id="113_lny6c"]
+[ext_resource type="Texture2D" uid="uid://bc1ydqm5y4j5j" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_2.png" id="114_rb62j"]
+[ext_resource type="Texture2D" uid="uid://bvbflaxgwymu3" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_3.png" id="115_7akie"]
+[ext_resource type="Texture2D" uid="uid://bp4825hqfhqh6" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_4.png" id="116_vrpi7"]
+[ext_resource type="Texture2D" uid="uid://c3snwkhh8krmd" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_5.png" id="117_s8y0h"]
+[ext_resource type="Texture2D" uid="uid://vi8lsqg6x63u" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_6.png" id="118_cpwl7"]
+[ext_resource type="Texture2D" uid="uid://donydr6tidcp" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_7.png" id="119_pu4v4"]
+[ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_8.png" id="120_hxr6d"]
+[ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_9.png" id="121_r2o3g"]
+[ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_10.png" id="122_fq1px"]
+[ext_resource type="Texture2D" uid="uid://cgs12cvmji3ka" path="res://Character Resouces/Princess Atlantis/Animation/Ready/surf_1.png" id="123_top7n"]
+[ext_resource type="Texture2D" uid="uid://dnk3wpqtsp7bw" path="res://Character Resouces/Princess Atlantis/Animation/Ready/surf_2.png" id="124_5qeus"]
+[ext_resource type="Texture2D" uid="uid://30oad6rlc5n6" path="res://Character Resouces/Princess Atlantis/Animation/Ready/surf_3.png" id="125_4p6gj"]
+[ext_resource type="Texture2D" uid="uid://cqikkouffivnv" path="res://Character Resouces/Princess Atlantis/Animation/Ready/surf_4.png" id="126_12a4t"]
+[ext_resource type="Texture2D" uid="uid://ckqxs6xxm5onv" path="res://Character Resouces/Princess Atlantis/Animation/Ready/surf_5.png" id="127_cs5ax"]
+[ext_resource type="Texture2D" uid="uid://dtu3xqfjftc72" path="res://Character Resouces/Princess Atlantis/Animation/Ready/surf_6.png" id="128_wmdc8"]
+[ext_resource type="Texture2D" uid="uid://bqiw44354o6n2" path="res://Character Resouces/Princess Atlantis/Animation/Ready/surf_7.png" id="129_kqwc2"]
+[ext_resource type="Texture2D" uid="uid://b2f4nmf6tg273" path="res://Character Resouces/Princess Atlantis/Animation/Ready/surf_8.png" id="130_qggy6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vegc5"]
 
@@ -353,12 +402,185 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xpov"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("82_bn6at")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_s5sng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_fvxmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_uvgt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_r7yfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_up82l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_hj0wn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_s4wrd")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("90_je5rx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_q0ado")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_62od7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_vahsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_hexlo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_6eb3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_5opx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_25k27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_nkokm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_3jcwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_7uwcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_ph76r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_ae6cq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_5lg0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_v6058")
+}],
+"loop": true,
+"name": &"Ready",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsd0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("105_tkwo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_g5v2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_xjtu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_6f70d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_v4vwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_fmlpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_bfpbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_d72dh")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("113_lny6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_rb62j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_7akie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_vrpi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_s8y0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_cpwl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_pu4v4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_hxr6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_r2o3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_fq1px")
+}],
+"loop": true,
+"name": &"Ready ",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gniwt"]
+animations = [{
 "frames": [],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("123_top7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_5qeus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_4p6gj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_12a4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_cs5ax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_wmdc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_kqwc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_qggy6")
+}],
 "loop": true,
 "name": &"Ready",
 "speed": 5.0
@@ -420,49 +642,49 @@ portraitOffset = Vector2(68, 0)
 shape = SubResource("CircleShape2D_vegc5")
 debug_color = Color(0.976471, 0, 0.137255, 0.419608)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="General Archfield Detector" type="Area2D" parent="."]
 position = Vector2(384, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="General Archfield Detector"]
 position = Vector2(32, 32)
 shape = SubResource("CircleShape2D_wcry2")
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="Goku Detector" type="Area2D" parent="."]
 position = Vector2(384, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goku Detector"]
 position = Vector2(104, 32)
 shape = SubResource("CircleShape2D_41rgg")
 
-[node name="Area2D3" type="Area2D" parent="."]
+[node name="Hunter Detector" type="Area2D" parent="."]
 position = Vector2(384, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hunter Detector"]
 position = Vector2(168, 32)
 shape = SubResource("CircleShape2D_t80vx")
 
-[node name="Area2D4" type="Area2D" parent="."]
+[node name="Nomad Detector" type="Area2D" parent="."]
 position = Vector2(384, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nomad Detector"]
 position = Vector2(248, 32)
 shape = SubResource("CircleShape2D_32bhx")
 
-[node name="Area2D5" type="Area2D" parent="."]
+[node name="Nia Detector" type="Area2D" parent="."]
 position = Vector2(384, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nia Detector"]
 position = Vector2(304, 32)
 shape = SubResource("CircleShape2D_b8uae")
 
-[node name="Area2D6" type="Area2D" parent="."]
+[node name="Princess Atlantis Detector" type="Area2D" parent="."]
 position = Vector2(384, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Princess Atlantis Detector"]
 position = Vector2(368, 32)
 shape = SubResource("CircleShape2D_176xh")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Game Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_rvv42")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -490,7 +712,14 @@ sprite_frames = SubResource("SpriteFrames_7xpov")
 animation = &"Ready"
 
 [node name="Nia Animation" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_fsd0v")
+animation = &"Ready "
 
 [node name="Princess Atlantis Aniamtion" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_gniwt")
+animation = &"Ready"
 
-[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="finished" from="Game Audio" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="animation_looped" from="General Archfield Animation" to="Player 1 Cursor" method="_on_general_archfield_animation_animation_looped"]

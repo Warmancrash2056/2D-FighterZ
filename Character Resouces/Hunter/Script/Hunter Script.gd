@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var Animate = $"Scale Player/Character Animation"
 @onready var SpriteH = $Animation
 
+# Action Bar Nodes #
 @onready var ActionBar = $"Status Bar/Action Bar"
 @onready var Healthbar = $"Status Bar/Health Bar"
 @onready var ActionNotifier = $"Status Bar/Action Notifier"

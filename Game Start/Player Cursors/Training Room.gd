@@ -79,3 +79,7 @@ func _process(delta):
 			Player1Ready = true
 			portraitOffset.x = 0
 	
+
+
+func _on_general_archfield_animation_animation_looped():
+	pass # Replace with function body.

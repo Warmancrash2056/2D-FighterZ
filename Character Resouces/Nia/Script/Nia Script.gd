@@ -6,6 +6,14 @@ extends CharacterBody2D
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animation
 
+# Action Bar Nodes #
+@onready var ActionBar = $"Status Bar/Action Bar"
+@onready var Healthbar = $"Status Bar/Health Bar"
+@onready var ActionNotifier = $"Status Bar/Action Notifier"
+@onready var HealthNotifier = $"Status Bar/Health Notifier"
+@onready var PointsPlayer = $"Status Bar/Add Points"
+@onready var ActionBrokenPlayer = $"Status Bar/Action Break"
+
 @export var Movement: int  = 250
 @export var AirMovement: int  = 250
 @export var Acceleration: int  = 35
@@ -13,7 +21,7 @@ extends CharacterBody2D
 @export var Gravity : int  = 35
 
 @export var Health = 600
-
+@export var ActionPts = 9
 var ChaseActive = false 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
@@ -36,6 +44,10 @@ enum States {
 	Hurt
 }
 var Select = States.Idle
+
+func _ready():
+	ActionBar.value = ActionPts
+	ActionBrokenPlayer.play("Normal")
 
 func _physics_process(delta):
 	if Motion.x >= 1:

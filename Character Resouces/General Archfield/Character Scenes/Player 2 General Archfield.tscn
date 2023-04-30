@@ -9,20 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://csft7v02oavc0" path="res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav" id="7_mjvvc"]
 [ext_resource type="PackedScene" uid="uid://bgmx5bsciokc" path="res://Status Bar.tscn" id="8_muner"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
-radius = 3.5
-height = 14.0092
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2f1ex"]
-radius = 4.0
-height = 34.909
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3tk3"]
-radius = 7.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l738h"]
-radius = 5.40626
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geckk"]
 radius = 12.3077
 height = 61.5385
@@ -260,7 +246,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Top Swing:disabled")
+tracks/1/path = NodePath("../Nuetral Light Hitbox Tree/Middle Hitbox/Top Swing:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -272,7 +258,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Lower:disabled")
+tracks/2/path = NodePath("../Nuetral Light Hitbox Tree/Starter Hitbox/Lower:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -284,7 +270,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Ground:disabled")
+tracks/3/path = NodePath("../Nuetral Light Hitbox Tree/Ender Hitbox/Ground:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -296,7 +282,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Final:disabled")
+tracks/4/path = NodePath("../Nuetral Light Hitbox Tree/Vertical Hitbox/Final:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -335,7 +321,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Lower:disabled")
+tracks/1/path = NodePath("../Nuetral Light Hitbox Tree/Starter Hitbox/Lower:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -347,7 +333,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Lower:position")
+tracks/2/path = NodePath("../Nuetral Light Hitbox Tree/Starter Hitbox/Lower:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -359,7 +345,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Lower:rotation_degrees")
+tracks/3/path = NodePath("../Nuetral Light Hitbox Tree/Starter Hitbox/Lower:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -371,7 +357,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Lower:shape:radius")
+tracks/4/path = NodePath("../Nuetral Light Hitbox Tree/Starter Hitbox/Lower:shape:radius")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -383,7 +369,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Lower:shape:height")
+tracks/5/path = NodePath("../Nuetral Light Hitbox Tree/Starter Hitbox/Lower:shape:height")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -515,7 +501,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Top Swing:disabled")
+tracks/16/path = NodePath("../Nuetral Light Hitbox Tree/Middle Hitbox/Top Swing:disabled")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -659,7 +645,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../Scale Player/Nuetral Light3D Hitbox/Final:disabled")
+tracks/28/path = NodePath("../Nuetral Light Hitbox Tree/Vertical Hitbox/Final:disabled")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -947,6 +933,20 @@ size = Vector2(10, 2)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5c78f"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l738h"]
+radius = 5.40626
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2f1ex"]
+radius = 4.0
+height = 34.909
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3tk3"]
+radius = 7.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
+radius = 3.5
+height = 14.0092
+
 [node name="Player 1 General Archfield" type="CharacterBody2D"]
 z_index = 3
 position = Vector2(0, -40)
@@ -959,33 +959,6 @@ JumpHeight = 600
 
 [node name="Scale Player" type="Node2D" parent="."]
 z_index = 1
-
-[node name="Nuetral Light3D Hitbox" type="Area2D" parent="Scale Player"]
-collision_layer = 32
-collision_mask = 16
-
-[node name="Lower" type="CollisionShape2D" parent="Scale Player/Nuetral Light3D Hitbox"]
-position = Vector2(-30, 51)
-rotation = 0.698132
-shape = SubResource("CapsuleShape2D_6up7n")
-disabled = true
-
-[node name="Top Swing" type="CollisionShape2D" parent="Scale Player/Nuetral Light3D Hitbox"]
-position = Vector2(-8, 13)
-rotation = 1.25664
-shape = SubResource("CapsuleShape2D_2f1ex")
-disabled = true
-
-[node name="Final" type="CollisionShape2D" parent="Scale Player/Nuetral Light3D Hitbox"]
-position = Vector2(64, 36)
-shape = SubResource("CapsuleShape2D_w3tk3")
-disabled = true
-
-[node name="Ground" type="CollisionShape2D" parent="Scale Player/Nuetral Light3D Hitbox"]
-position = Vector2(40, 58)
-rotation = 1.85703
-shape = SubResource("CapsuleShape2D_l738h")
-disabled = true
 
 [node name="Nuetral Air Hitbox" type="Area2D" parent="Scale Player"]
 collision_layer = 32
@@ -1113,12 +1086,50 @@ stream = ExtResource("7_mjvvc")
 [node name="Status Bar" parent="." instance=ExtResource("8_muner")]
 position = Vector2(1.53846, 40)
 
-[node name="Status Bar2" parent="." instance=ExtResource("8_muner")]
+[node name="Nuetral Light Hitbox Tree" type="Node" parent="."]
 
-[connection signal="area_entered" from="Scale Player/Nuetral Light3D Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
+[node name="Ender Hitbox" type="Area2D" parent="Nuetral Light Hitbox Tree" groups=["Ender"]]
+position = Vector2(0, -40)
+scale = Vector2(1.3, 1.3)
+
+[node name="Ground" type="CollisionShape2D" parent="Nuetral Light Hitbox Tree/Ender Hitbox"]
+position = Vector2(40, 58)
+rotation = 1.85703
+shape = SubResource("CapsuleShape2D_l738h")
+disabled = true
+
+[node name="Middle Hitbox" type="Area2D" parent="Nuetral Light Hitbox Tree" groups=["Middle"]]
+position = Vector2(0, -40)
+scale = Vector2(1.3, 1.3)
+
+[node name="Top Swing" type="CollisionShape2D" parent="Nuetral Light Hitbox Tree/Middle Hitbox"]
+position = Vector2(-8, 13)
+rotation = 1.25664
+shape = SubResource("CapsuleShape2D_2f1ex")
+disabled = true
+
+[node name="Vertical Hitbox" type="Area2D" parent="Nuetral Light Hitbox Tree" groups=["Vertical"]]
+position = Vector2(0, -40)
+scale = Vector2(1.3, 1.3)
+
+[node name="Final" type="CollisionShape2D" parent="Nuetral Light Hitbox Tree/Vertical Hitbox"]
+position = Vector2(64, 36)
+shape = SubResource("CapsuleShape2D_w3tk3")
+disabled = true
+
+[node name="Starter Hitbox" type="Area2D" parent="Nuetral Light Hitbox Tree" groups=["Starter"]]
+position = Vector2(0, -40)
+scale = Vector2(1.3, 1.3)
+
+[node name="Lower" type="CollisionShape2D" parent="Nuetral Light Hitbox Tree/Starter Hitbox"]
+position = Vector2(-30, 51)
+rotation = 0.698132
+shape = SubResource("CapsuleShape2D_6up7n")
+disabled = true
+
 [connection signal="area_entered" from="Scale Player/Nuetral Air Hitbox" to="." method="_on_Nuetral_Air_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

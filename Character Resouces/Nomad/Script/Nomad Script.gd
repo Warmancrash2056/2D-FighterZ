@@ -5,6 +5,14 @@ extends CharacterBody2D
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animations
 
+# Action Bar Nodes #
+@onready var ActionBar = $"Status Bar/Action Bar"
+@onready var Healthbar = $"Status Bar/Health Bar"
+@onready var ActionNotifier = $"Status Bar/Action Notifier"
+@onready var HealthNotifier = $"Status Bar/Health Notifier"
+@onready var PointsPlayer = $"Status Bar/Add Points"
+@onready var ActionBrokenPlayer = $"Status Bar/Action Break"
+
 @export var Movement: int  = 200
 @export var AirMovement: int  = 300
 @export var Acceleration: int  = 35

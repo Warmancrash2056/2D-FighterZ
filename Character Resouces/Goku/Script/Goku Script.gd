@@ -6,14 +6,22 @@ extends CharacterBody2D
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animation
 
+# Action Bar Nodes #
+@onready var ActionBar = $"Status Bar/Action Bar"
+@onready var Healthbar = $"Status Bar/Health Bar"
+@onready var ActionNotifier = $"Status Bar/Action Notifier"
+@onready var HealthNotifier = $"Status Bar/Health Notifier"
+@onready var PointsPlayer = $"Status Bar/Add Points"
+@onready var ActionBrokenPlayer = $"Status Bar/Action Break"
+
 @export var Movement: int  = 300
 @export var AirMovement: int  = 150
 @export var Acceleration: int  = 35
 @export var JumpHeight: int = 500
 @export var Gravity : int  = 35
 
-@export var Health = 400
-
+@export var Health: int
+@export var ActionPts: int
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
 
@@ -34,7 +42,19 @@ enum States {
 }
 var Select = States.Idle
 
-func _physics_process(delta):
+func _ready():
+	
+	# Set Status bar when player loaded #
+	ActionBar.value = ActionPts
+	ActionBar.max_value = 10
+	Healthbar.value = Health
+	Healthbar.max_value = 500
+	ActionBrokenPlayer.play("Normal")
+	
+	
+func _physics_process(delta): 
+	ActionNotifier.set_text(str(ActionPts))
+	HealthNotifier.set_text(str(Health))
 	if Motion.x >= 1:
 		SpriteH.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -60,7 +80,7 @@ func _physics_process(delta):
 				
 			if Input.is_action_pressed(controls.input_left):
 				Animate.play("Run")
-				Motion.x = max(Motion.x - Acceleration, -Movement)
+				Motion.x = max(Motion.x - Acceleration * delta, -Movement)
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
@@ -70,7 +90,7 @@ func _physics_process(delta):
 					Motion.x = -350
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
-				Motion.x = min(Motion.x + Acceleration, Movement)
+				Motion.x = min(Motion.x + Acceleration * delta, Movement)
 				
 				
 				if Input.is_action_just_pressed(controls.input_attack):

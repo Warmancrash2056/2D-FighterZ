@@ -6,6 +6,14 @@ extends CharacterBody2D
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animations
 
+# Action Bar Nodes #
+@onready var ActionBar = $"Status Bar/Action Bar"
+@onready var Healthbar = $"Status Bar/Health Bar"
+@onready var ActionNotifier = $"Status Bar/Action Notifier"
+@onready var HealthNotifier = $"Status Bar/Health Notifier"
+@onready var PointsPlayer = $"Status Bar/Add Points"
+@onready var ActionBrokenPlayer = $"Status Bar/Action Break"
+
 @export var Movement: int  = 50
 @export var AirMovement: int  = 50
 @export var Acceleration: int  = 10
@@ -13,6 +21,7 @@ extends CharacterBody2D
 @export var Gravity : int  = 35
 
 @export var Health = 200
+@export var ActionPts: int
 
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
@@ -41,6 +50,9 @@ func _update_flip():
 			SpriteH.flip_h = true
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 
+func _ready():
+	ActionBar.value = ActionPts
+	ActionBrokenPlayer.play("Normal")
 
 func _physics_process(delta):
 	print(Motion)

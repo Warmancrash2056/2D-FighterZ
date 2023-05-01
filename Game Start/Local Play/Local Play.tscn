@@ -1103,6 +1103,7 @@ scale = Vector2(2.2, 2.2)
 script = ExtResource("8_d3ttf")
 Controls = ExtResource("9_kuj4s")
 PlayerIcon = ExtResource("10_45wcx")
+amountOfRows = null
 portraitOffset = Vector2(68, 0)
 
 [node name="Area2D" type="Area2D" parent="Player 1 Cursor"]
@@ -1276,6 +1277,7 @@ animation = &"Ready"
 frame_progress = 0.0753533
 
 [node name="Player 1 Nia" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(350, 180)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_ex0lh")
@@ -1296,6 +1298,7 @@ sprite_frames = SubResource("SpriteFrames_ddid1")
 animation = &"Ready"
 
 [node name="Player 2 Hunter" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(850, 180)
 scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_fb631")

@@ -88,32 +88,23 @@ func _physics_process(delta):
 				Animate.play("Run")
 				Motion.x = min(Motion.x + Acceleration, Movement)
 				
-				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
 					
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
 					Motion.x = 300
-
 		
 			elif Input.is_action_pressed(controls.input_down):
-				# Code for falling down platform #
-				pass
-				
+				Animate.play("Idle")
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Dlight
-					
-				else:
-					Motion.x = 0
-					Animate.play("Idle")
-					
-				
-					
+
 			elif Input.is_action_pressed(controls.input_up):
-				
+				Animate.play("Idle")
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Ulight
+					
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.8)
 				Animate.play("Idle")

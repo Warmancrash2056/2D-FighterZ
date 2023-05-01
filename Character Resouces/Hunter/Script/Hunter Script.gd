@@ -46,14 +46,18 @@ enum States {
 	Hurt
 }
 var Select = States.Idle
-func turn_player_around():
+func _process(delta):
+	PointsPlayer.play("Add Points")
 	if Motion.x >= 1:
 		SpriteH.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif Motion.x <= -1:
 		SpriteH.flip_h = true
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-
+	ActionBar.value = ActionPts
+	Healthbar.value = Health
+	ActionNotifier.set_text(str(int(ActionPts)))
+	HealthNotifier.set_text(str(int(Health)))
 func _stop_points():
 	PointsPlayer.stop()
 
@@ -78,8 +82,6 @@ func _down_light():
 	$"Down Light Sound".play()
 func _ready():
 	ActionBrokenPlayer.play("Normal")
-func _process(delta):
-	PointsPlayer.play("Add Points")
 func _physics_process(delta):
 	ActionBar.value = ActionPts
 	Healthbar.value = Health
@@ -143,19 +145,14 @@ func _physics_process(delta):
 
 		
 			elif Input.is_action_pressed(controls.input_down):
+				Animate.play("Idle")
 				if can_attack == true:
-				
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Dlight
 						ActionPts -= 4
-						
-					else:
-						Motion.x = 0
-						Animate.play("Idle")
-						
-				
-					
+
 			elif Input.is_action_pressed(controls.input_up):
+				Animate.play("Idle")
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Ulight

@@ -66,6 +66,7 @@ func _add_action_pts():
 	else:
 		ActionPts = 9
 func _process(delta):
+	PointsPlayer.play("Add Points")
 	ActionBar.value = ActionPts
 	ActionBar.max_value = 9
 	Healthbar.value = Health
@@ -159,10 +160,10 @@ func _physics_process(delta):
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Defend
 					ActionPts -= 8
-					
-			if Input.is_action_just_pressed(controls.input_jump):
-				Select = States.Jump
-				$"Jump Sound".play()
+			if Action_Exceeded == false:
+				if Input.is_action_just_pressed(controls.input_jump):
+					Select = States.Jump
+					$"Jump Sound".play()
 				
 		States.Jump:
 			Motion.y += Gravity

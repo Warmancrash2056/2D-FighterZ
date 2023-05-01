@@ -53,6 +53,7 @@ func _update_flip():
 func _ready():
 	ActionBar.value = ActionPts
 	ActionBrokenPlayer.play("Normal")
+	
 
 func _physics_process(delta):
 	set_velocity(Motion)

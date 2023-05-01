@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bwdf01wxld4fy"]
+[gd_scene load_steps=41 format=3 uid="uid://bwdf01wxld4fy"]
 
 [ext_resource type="Script" path="res://Character Resouces/General Archfield/Script/General Archfield Script.gd" id="1_fo2hb"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_rknsy"]
@@ -928,10 +928,8 @@ _data = {
 "Ulight": SubResource("Animation_vbuu8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghd62"]
-size = Vector2(10, 2)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5c78f"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_e37rk"]
+radius = 6.27572
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l738h"]
 radius = 5.40626
@@ -946,6 +944,14 @@ radius = 7.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
 radius = 3.5
 height = 14.0092
+
+[sub_resource type="Animation" id="Animation_8its7"]
+resource_name = "Add Points"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_muik0"]
+_data = {
+"Add Points": SubResource("Animation_8its7")
+}
 
 [node name="Player 1 General Archfield" type="CharacterBody2D"]
 z_index = 3
@@ -1041,15 +1047,15 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_cauyt")
 disabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
+[node name="Character Animation" type="AnimationPlayer" parent="Scale Player"]
 root_node = NodePath("../../Animations")
 libraries = {
 "": SubResource("AnimationLibrary_4iyry")
 }
 
-[node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2(0, 62)
-shape = SubResource("RectangleShape2D_ghd62")
+[node name="Foot" type="CollisionShape2D" parent="."]
+position = Vector2(0, 58.4615)
+shape = SubResource("CircleShape2D_e37rk")
 debug_color = Color(1, 1, 1, 0.470588)
 
 [node name="Animations" type="Sprite2D" parent="."]
@@ -1065,11 +1071,6 @@ offset_bottom = 31.4616
 scale = Vector2(0.2, 0.2)
 text = "Player 2"
 fit_content = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 40)
-shape = SubResource("CapsuleShape2D_5c78f")
-debug_color = Color(0, 0, 0, 0.490196)
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_eria6")
@@ -1127,9 +1128,14 @@ rotation = 0.698132
 shape = SubResource("CapsuleShape2D_6up7n")
 disabled = true
 
+[node name="Add Points" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_muik0")
+}
+
 [connection signal="area_entered" from="Scale Player/Nuetral Air Hitbox" to="." method="_on_Nuetral_Air_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_AnimationPlayer_animation_finished"]

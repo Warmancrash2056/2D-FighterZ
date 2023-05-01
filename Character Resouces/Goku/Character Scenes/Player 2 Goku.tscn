@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bljwxybn30epc"]
+[gd_scene load_steps=35 format=3 uid="uid://bljwxybn30epc"]
 
 [ext_resource type="Script" path="res://Character Resouces/Goku/Script/Goku Script.gd" id="1_4xrb5"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_kc0i7"]
@@ -132,6 +132,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_add_action_pts"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_f73an"]
@@ -307,7 +321,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../AnimationPlayer:playback_speed")
+tracks/4/path = NodePath("../Add Points:playback_speed")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -639,6 +653,23 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9001),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_stop_points"
+}, {
+"args": [],
+"method": &"_start_points"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_nfd27"]
 resource_name = "Ulight"
@@ -784,6 +815,28 @@ radius = 3.84615
 radius = 7.0
 height = 22.0
 
+[sub_resource type="Animation" id="Animation_euyhx"]
+resource_name = "Add Points"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_add_action_pts"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vndp7"]
+_data = {
+"Add Points": SubResource("Animation_euyhx")
+}
+
 [node name="Player 2 Goku" type="CharacterBody2D"]
 z_index = 3
 scale = Vector2(1.3, 1.3)
@@ -793,7 +846,7 @@ script = ExtResource("1_4xrb5")
 controls = ExtResource("2_kc0i7")
 JumpHeight = 600
 Health = 500
-ActionPts = 10
+ActionPts = 9
 
 [node name="Scale Player" type="Node2D" parent="."]
 z_index = 1
@@ -931,11 +984,11 @@ texture = ExtResource("3_cughf")
 hframes = 20
 vframes = 8
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -5.0
-offset_top = -23.5
-offset_right = 57.0
-offset_bottom = -0.499998
+[node name="Player Number" type="RichTextLabel" parent="."]
+offset_left = -6.15385
+offset_top = -31.5385
+offset_right = 55.8462
+offset_bottom = -8.53846
 scale = Vector2(0.2, 0.2)
 text = "Player 2"
 fit_content = true
@@ -957,6 +1010,11 @@ stream = ExtResource("7_7lbd2")
 
 [node name="Air Attack Sounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_qb3km")
+
+[node name="Add Points" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vndp7")
+}
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_i4mp5")

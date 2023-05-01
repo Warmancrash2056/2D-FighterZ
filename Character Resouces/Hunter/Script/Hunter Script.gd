@@ -12,7 +12,7 @@ extends CharacterBody2D
 @onready var Healthbar = $"Status Bar/Health Bar"
 @onready var ActionNotifier = $"Status Bar/Action Notifier"
 @onready var HealthNotifier = $"Status Bar/Health Notifier"
-@onready var PointsPlayer = $"Status Bar/Add Points"
+@onready var PointsPlayer = $"Add Points"
 @onready var ActionBrokenPlayer = $"Status Bar/Action Break"
 
 @export var Movement: int  = 1000
@@ -23,10 +23,11 @@ extends CharacterBody2D
 
 var Health = 900
 var can_attack = true
+var Can_jump = false
 var action_break = false
 var Motion = Vector2.ZERO
 var Up = Vector2.UP
-var action_pts = 8
+var ActionPts = 8
 var Direction = 1
 enum States {
 	Idle,
@@ -45,11 +46,14 @@ enum States {
 	Hurt
 }
 var Select = States.Idle
+func turn_player_around():
+	if Motion.x >= 1:
+		SpriteH.flip_h = false
+		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+	elif Motion.x <= -1:
+		SpriteH.flip_h = true
+		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 
-func _ready():
-	# Sets the action bar to current action points 
-	ActionBar.value = action_pts
-	ActionBrokenPlayer.play("Normal")
 func _stop_points():
 	PointsPlayer.stop()
 
@@ -59,49 +63,42 @@ func _start_points():
 func _add_action_pts():
 	
 	# Add 1pt of action after idle or run animation is finished. 
-	if action_pts < 8:
-		action_pts += 1
+	if ActionPts < 8:
+		ActionPts += 1
 		
 	
 	# If action points are at 6. Set action points to stop increasing number.
 	else:
-		action_pts = 8
+		ActionPts = 8
 
 func _down_light():
 	print("good")
 	DownArrow.play("Shower")
 	DownArrow.visible = true
 	$"Down Light Sound".play()
-
-func _physics_process(delta):
-	Healthbar.value = Health
+func _ready():
+	ActionBrokenPlayer.play("Normal")
+func _process(delta):
 	PointsPlayer.play("Add Points")
-	print(Motion.x)
-	ActionNotifier.set_text(str(int(action_pts)))
+func _physics_process(delta):
+	ActionBar.value = ActionPts
+	Healthbar.value = Health
+	ActionNotifier.set_text(str(int(ActionPts)))
 	HealthNotifier.set_text(str(int(Health)))
 	# If action points have been exhausted. Player will not be able to attack until action points is 
-	if action_pts <= 0:
+	if ActionPts <= 0:
 		can_attack = false
 	else:
 		can_attack = true
 	
-	if action_pts >= 1:
+	if ActionPts >= 1:
 		ActionBar.texture_under = load("res://Health System/Unbroken Progress Background.png")
 		action_break = false
-	if action_pts <= -1:
+	if ActionPts <= -1:
 		ActionBar.texture_under = load("res://Health System/Broken Progress Background.png")
 		ActionBrokenPlayer.play("Break")
 		action_break = true
-		
-	ActionBar.value = action_pts
-	if Motion.x >= 1:
-		SpriteH.flip_h = false
-		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-	elif Motion.x <= -1:
-		SpriteH.flip_h = true
-		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 
-	
 	set_velocity(Motion)
 	set_up_direction(Up)
 	move_and_slide()
@@ -123,12 +120,12 @@ func _physics_process(delta):
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Slight
-						action_pts -= 2
+						ActionPts -= 2
 						
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Roll
 						Motion.x = -350
-						action_pts -= 3
+						ActionPts -= 3
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				Motion.x = min(Motion.x + Acceleration, Movement)
@@ -136,13 +133,13 @@ func _physics_process(delta):
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Slight
-						action_pts -= 3
+						ActionPts -= 3
 						
 						
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Roll
 						Motion.x = 350
-						action_pts -= 2
+						ActionPts -= 2
 
 		
 			elif Input.is_action_pressed(controls.input_down):
@@ -150,7 +147,7 @@ func _physics_process(delta):
 				
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Dlight
-						action_pts -= 4
+						ActionPts -= 4
 						
 					else:
 						Motion.x = 0
@@ -162,18 +159,18 @@ func _physics_process(delta):
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Ulight
-						action_pts -= 4
+						ActionPts -= 4
 			else:
 				Motion.x = lerp(Motion.x , 0.09, 1)
 				Animate.play("Idle")
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Nlight
-						action_pts -= 2
+						ActionPts -= 2
 						
 					elif Input.is_action_just_pressed(controls.input_block):
 						Select = States.Defend
-						action_pts -= 4
+						ActionPts -= 4
 			if action_break == false:
 				if Input.is_action_just_pressed(controls.input_jump):
 					Select = States.Jump
@@ -195,20 +192,20 @@ func _physics_process(delta):
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Nair
-						action_pts -= 2
+						ActionPts -= 2
 				
 			elif Input.is_action_pressed(controls.input_right):
 				Motion.x = min(Motion.x + Acceleration, AirMovement)
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Nair
-						action_pts -= 2
+						ActionPts -= 2
 			else:
 				Motion.x = lerp(Motion.x , 0.01, 0.01)
 				if can_attack == true:
 					if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Nair
-						action_pts -= 2
+						ActionPts -= 2
 			if Motion.y > 0:
 				Select = States.Fall
 				

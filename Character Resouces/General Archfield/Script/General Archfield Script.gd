@@ -20,7 +20,7 @@ extends CharacterBody2D
 @export var JumpHeight: int = 500
 @export var Gravity : int  = 35
 
-@export var Health = 200
+@export var Health: int
 @export var ActionPts: int
 
 var Motion = Vector2.ZERO
@@ -55,7 +55,6 @@ func _ready():
 	ActionBrokenPlayer.play("Normal")
 
 func _physics_process(delta):
-	print(Motion)
 	set_velocity(Motion)
 	set_up_direction(Up)
 	move_and_slide()
@@ -64,7 +63,6 @@ func _physics_process(delta):
 	match Select:
 
 		States.Idle:
-			_update_flip()
 			Motion.y += Gravity 
 			if !is_on_floor():
 				Select = States.Fall

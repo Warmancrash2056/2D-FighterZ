@@ -63,8 +63,7 @@ func _process(delta):
 			
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameAudio.play()
-
+	pass
 
 func _on_local_play_pressed():
 	get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
@@ -80,5 +79,5 @@ func _on_timer_timeout():
 	CheckGame = Game.Return
 
 
-func _on_game_audio_finished():
-	GameAudio.play()
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://Game Keys.tscn")

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/Galvin Maps/Galvin Assets/background 3.png" id="5_u7xty"]
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="6_i3s7w"]
 [ext_resource type="PackedScene" uid="uid://bqva0ey4etorq" path="res://player_2_spawn.tscn" id="7_1cix2"]
-[ext_resource type="AudioStream" uid="uid://c6rx30yjb54d8" path="res://Game Maps/Galvin Maps/Sounds/Galvin.wav" id="7_iqpq7"]
+[ext_resource type="PackedScene" uid="uid://bwhk7wqovw03k" path="res://Galvin Audio.tscn" id="8_8qvux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6m41"]
 texture = ExtResource("2_6u0qm")
@@ -5565,10 +5565,7 @@ position = Vector2(-296, -48)
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Game Audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_iqpq7")
-
 [node name="Player 2 Spawn" parent="." instance=ExtResource("7_1cix2")]
 position = Vector2(0, -208)
 
-[connection signal="finished" from="Game Audio" to="." method="_on_game_audio_finished"]
+[node name="Game Audio" parent="." instance=ExtResource("8_8qvux")]

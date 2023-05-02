@@ -132,7 +132,7 @@
 [ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_8.png" id="129_785mv"]
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_9.png" id="130_bsukf"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_10.png" id="131_7qe0s"]
-[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/Main Menu Music.wav" id="133_l5gry"]
+[ext_resource type="PackedScene" uid="uid://disgtv3rh3pj1" path="res://Main Menu Audio.tscn" id="133_gw3mh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0sqqb"]
 
@@ -1103,7 +1103,6 @@ scale = Vector2(2.2, 2.2)
 script = ExtResource("8_d3ttf")
 Controls = ExtResource("9_kuj4s")
 PlayerIcon = ExtResource("10_45wcx")
-amountOfRows = null
 portraitOffset = Vector2(68, 0)
 
 [node name="Area2D" type="Area2D" parent="Player 1 Cursor"]
@@ -1325,12 +1324,11 @@ scale = Vector2(-3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_1cmhf")
 animation = &"Idle"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("133_l5gry")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(608, 329)
 zoom = Vector2(1.4, 1.6)
+
+[node name="Game Audio" parent="." instance=ExtResource("133_gw3mh")]
 
 [connection signal="area_entered" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]
 [connection signal="area_exited" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_exited"]
@@ -1368,4 +1366,3 @@ zoom = Vector2(1.4, 1.6)
 [connection signal="animation_looped" from="Player 2 Nomad" to="Player 2 Cursor" method="_on_player_2_nomad_animation_looped"]
 [connection signal="animation_looped" from="Player 2 Atlantis" to="Player 2 Cursor" method="_on_player_2_atlantis_animation_looped"]
 [connection signal="animation_looped" from="Player 2 Nia" to="Player 2 Cursor" method="_on_player_2_nai_animation_looped"]
-[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

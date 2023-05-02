@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://disgtv3rh3pj1"]
+
+[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/Main Menu Music.wav" id="1_8q3jr"]
+[ext_resource type="Script" path="res://Game Start/Game Audio.gd" id="2_5ffd2"]
+
+[node name="Game Audio" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_8q3jr")
+volume_db = -35.0
+script = ExtResource("2_5ffd2")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

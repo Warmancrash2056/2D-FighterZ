@@ -51,7 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://dr112vevganxo" path="res://Character Resouces/Princess Atlantis/Animation/Idle/idle_6.png" id="49_l6awd"]
 [ext_resource type="Texture2D" uid="uid://ch0sei0rvxfkg" path="res://Character Resouces/Princess Atlantis/Animation/Idle/idle_7.png" id="50_6xugn"]
 [ext_resource type="Texture2D" uid="uid://dauumo6tddbva" path="res://Character Resouces/Princess Atlantis/Animation/Idle/idle_8.png" id="51_vu3tm"]
-[ext_resource type="AudioStream" uid="uid://boqixlnqnwwaw" path="res://Game Music/Main Menu Music.wav" id="52_6qf5v"]
+[ext_resource type="PackedScene" uid="uid://disgtv3rh3pj1" path="res://Main Menu Audio.tscn" id="52_ypeee"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_flk7n"]
 animations = [{
@@ -347,8 +347,7 @@ offset_right = 249.0
 offset_bottom = 223.0
 text = "Training Room"
 
-[node name="Game Audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("52_6qf5v")
+[node name="Game Audio" parent="." instance=ExtResource("52_ypeee")]
 
 [node name="End Game" type="Control" parent="."]
 anchors_preset = 0
@@ -393,9 +392,16 @@ offset_bottom = 264.0
 wait_time = 10.0
 one_shot = true
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 632.0
+offset_right = 1159.0
+offset_bottom = 663.0
+text = "Button Layout"
+
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]
 [connection signal="pressed" from="Training Room" to="." method="_on_training_room_pressed"]
-[connection signal="finished" from="Game Audio" to="." method="_on_audio_stream_player_2d_finished"]
-[connection signal="finished" from="Game Audio" to="." method="_on_game_audio_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

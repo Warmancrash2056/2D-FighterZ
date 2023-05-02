@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="6_kexdy"]
 [ext_resource type="Script" path="res://Game Maps/Player Spawn Scripts/Player 1 Spawner.gd" id="7_8o6ly"]
 [ext_resource type="Script" path="res://Game Maps/Player Spawn Scripts/Player 2 Spawner.gd" id="8_8ijcr"]
-[ext_resource type="AudioStream" uid="uid://c6rx30yjb54d8" path="res://Game Maps/Galvin Maps/Sounds/Galvin.wav" id="9_o32ir"]
+[ext_resource type="PackedScene" uid="uid://bwhk7wqovw03k" path="res://Galvin Audio.tscn" id="9_mrsnk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6m41"]
 texture = ExtResource("2_uq8es")
@@ -5574,7 +5574,4 @@ script = ExtResource("7_8o6ly")
 position = Vector2(72, -48)
 script = ExtResource("8_8ijcr")
 
-[node name="Game Audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_o32ir")
-
-[connection signal="finished" from="Game Audio" to="." method="_on_game_audio_finished"]
+[node name="Game Audio" parent="." instance=ExtResource("9_mrsnk")]

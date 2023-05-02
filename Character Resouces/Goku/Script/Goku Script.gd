@@ -95,6 +95,7 @@ func _process(delta):
 		Action_Exceeded = true
 		
 func _physics_process(delta):
+	PointsPlayer.play("Add Points")
 	set_velocity(Motion)
 	set_up_direction(Up)
 	move_and_slide()
@@ -190,6 +191,7 @@ func _physics_process(delta):
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nair
+					ActionPts -= 4
 			if Motion.y > 0:
 				Select = States.Fall
 				

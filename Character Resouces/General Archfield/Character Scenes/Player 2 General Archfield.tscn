@@ -1137,5 +1137,5 @@ libraries = {
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_animation_player_animation_finished"]

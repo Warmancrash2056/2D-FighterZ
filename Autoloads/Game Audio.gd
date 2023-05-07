@@ -29,3 +29,7 @@ func _artic_map_audio():
 func _logo_play_audio():
 	stream = Studio_Logo_Audio
 	play()
+
+
+func _on_finished():
+	play()

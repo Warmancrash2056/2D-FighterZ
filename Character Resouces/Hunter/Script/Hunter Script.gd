@@ -83,24 +83,6 @@ func _down_light():
 func _ready():
 	pass
 func _physics_process(delta):
-	ActidonBar.value = ActionPts
-	Healthbar.value = Health
-	ActionNotifier.set_text(str(int(ActionPts)))
-	HealthNotifier.set_text(str(int(Health)))
-	# If action points have been exhausted. Player will not be able to attack until action points is 
-	if ActionPts <= 0:
-		can_attack = false
-	else:
-		can_attack = true
-	
-	if ActionPts >= 1:
-		ActionBar.texture_under = load("res://Health System/Unbroken Progress Background.png")
-		action_break = false
-	if ActionPts <= -1:
-		ActionBar.texture_under = load("res://Health System/Broken Progress Background.png")
-		ActionBrokenPlayer.play("Break")
-		action_break = true
-
 	set_velocity(Motion)
 	set_up_direction(Up)
 	move_and_slide()

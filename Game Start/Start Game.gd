@@ -7,7 +7,7 @@ extends Control
 @onready var PrincessAtlantis = $"Princess Atlantis"
 @onready var Hunter = $Hunter
 
-@onready var GameAudio = $"Game Audio"
+
 @onready var LocalPlay = $"Local Play"
 @onready var AboutCharacters = $"About Characters"
 @onready var TrainingRoom = $"Training Room"

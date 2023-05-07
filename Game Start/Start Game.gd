@@ -25,7 +25,8 @@ enum Game{
 	
 }
 var CheckGame = Game.Return
-
+func _ready():
+	Audio._main_menu_play()
 func _process(delta):
 	
 	print(EscapeTimer.time_left)
@@ -61,9 +62,6 @@ func _process(delta):
 		Game.EndGame:
 			pass
 			
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
 func _on_local_play_pressed():
 	get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")

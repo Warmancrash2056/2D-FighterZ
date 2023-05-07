@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://di5auhdx6t7vg"]
+[gd_scene load_steps=58 format=3 uid="uid://di5auhdx6t7vg"]
 
 [ext_resource type="Script" path="res://Game Start/Start Game.gd" id="1_ljhc4"]
 [ext_resource type="Texture2D" uid="uid://bwjnt30m56qyb" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_1.png" id="2_jlv3j"]
@@ -51,7 +51,6 @@
 [ext_resource type="Texture2D" uid="uid://dr112vevganxo" path="res://Character Resouces/Princess Atlantis/Animation/Idle/idle_6.png" id="49_l6awd"]
 [ext_resource type="Texture2D" uid="uid://ch0sei0rvxfkg" path="res://Character Resouces/Princess Atlantis/Animation/Idle/idle_7.png" id="50_6xugn"]
 [ext_resource type="Texture2D" uid="uid://dauumo6tddbva" path="res://Character Resouces/Princess Atlantis/Animation/Idle/idle_8.png" id="51_vu3tm"]
-[ext_resource type="PackedScene" uid="uid://disgtv3rh3pj1" path="res://Main Menu Audio.tscn" id="52_ypeee"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_flk7n"]
 animations = [{
@@ -346,8 +345,6 @@ offset_top = 192.0
 offset_right = 249.0
 offset_bottom = 223.0
 text = "Training Room"
-
-[node name="Game Audio" parent="." instance=ExtResource("52_ypeee")]
 
 [node name="End Game" type="Control" parent="."]
 anchors_preset = 0

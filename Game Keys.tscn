@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dclg7ull4hk5g"]
+[gd_scene load_steps=18 format=3 uid="uid://dclg7ull4hk5g"]
 
 [ext_resource type="Texture2D" uid="uid://xi3iyhit1a73" path="res://KEYBOARD/KEYS/T.png" id="1_gfyjc"]
 [ext_resource type="Script" path="res://Game Keys.gd" id="1_mo6wm"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://d1ldr2flbx8o1" path="res://KEYBOARD/KEYS/A.png" id="14_mobp5"]
 [ext_resource type="Texture2D" uid="uid://cgwb6ei4yt1g2" path="res://KEYBOARD/KEYS/S.png" id="15_5xxp4"]
 [ext_resource type="Texture2D" uid="uid://b1xhk5vffgvge" path="res://KEYBOARD/KEYS/W.png" id="16_0ulov"]
-[ext_resource type="PackedScene" uid="uid://disgtv3rh3pj1" path="res://Main Menu Audio.tscn" id="18_d0vxg"]
 
 [node name="Game Keys" type="Node2D"]
 script = ExtResource("1_mo6wm")
@@ -146,5 +145,3 @@ Less Than Key - Block
 Greather Than key - Dash
 Question Mark Key - Attack "
 fit_content = true
-
-[node name="Game Audio" parent="." instance=ExtResource("18_d0vxg")]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://kp64im4yiq1x"]
+[gd_scene load_steps=6 format=3 uid="uid://kp64im4yiq1x"]
 
-[ext_resource type="Script" path="res://node_2d.gd" id="1_klfsb"]
-[ext_resource type="Texture2D" uid="uid://bxiwnmbixki77" path="res://424765496-3.png" id="2_nnn14"]
-[ext_resource type="AudioStream" uid="uid://dt0pw750c6ur0" path="res://Wind.wav" id="3_wtfwy"]
+[ext_resource type="Script" path="res://node_2d.gd" id="1_nyx1x"]
+[ext_resource type="Texture2D" uid="uid://bxiwnmbixki77" path="res://424765496-3.png" id="2_bym0a"]
 
 [sub_resource type="Animation" id="Animation_mm7kk"]
 resource_name = "Bing"
@@ -22,22 +21,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/path = NodePath("Node2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 2.5, 4.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -61,22 +48,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/path = NodePath("Node2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -90,7 +65,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_klfsb")
+script = ExtResource("1_nyx1x")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -118.0
@@ -104,9 +79,6 @@ libraries = {
 "": SubResource("AnimationLibrary_w4d2g")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_wtfwy")
-
 [node name="Node2D" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(575, 303)
@@ -114,7 +86,7 @@ position = Vector2(575, 303)
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 position = Vector2(2, 0)
 scale = Vector2(5, 5)
-texture = ExtResource("2_nnn14")
+texture = ExtResource("2_bym0a")
 hframes = 50
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Node2D"]

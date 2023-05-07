@@ -81,9 +81,9 @@ func _down_light():
 	DownArrow.visible = true
 	$"Down Light Sound".play()
 func _ready():
-	ActionBrokenPlayer.play("Normal")
+	pass
 func _physics_process(delta):
-	ActionBar.value = ActionPts
+	ActidonBar.value = ActionPts
 	Healthbar.value = Health
 	ActionNotifier.set_text(str(int(ActionPts)))
 	HealthNotifier.set_text(str(int(Health)))

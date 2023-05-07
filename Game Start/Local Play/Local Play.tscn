@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://c2kuts083ajp3"]
+[gd_scene load_steps=153 format=3 uid="uid://c2kuts083ajp3"]
 
 [ext_resource type="Script" path="res://Game Start/Local Play/Local Play.gd" id="1_w8mfd"]
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Nia/Icon/Assasin Character Icon.png" id="2_mr1wv"]
@@ -132,7 +132,6 @@
 [ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_8.png" id="129_785mv"]
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_9.png" id="130_bsukf"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Nia/Animation/Up Light/06_trap_cast_10.png" id="131_7qe0s"]
-[ext_resource type="PackedScene" uid="uid://disgtv3rh3pj1" path="res://Main Menu Audio.tscn" id="133_gw3mh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0sqqb"]
 
@@ -1327,8 +1326,6 @@ animation = &"Idle"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(608, 329)
 zoom = Vector2(1.4, 1.6)
-
-[node name="Game Audio" parent="." instance=ExtResource("133_gw3mh")]
 
 [connection signal="area_entered" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]
 [connection signal="area_exited" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_exited"]

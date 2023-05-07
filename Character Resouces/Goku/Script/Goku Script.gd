@@ -17,7 +17,7 @@ extends CharacterBody2D
 @export var Movement: int  = 300
 @export var AirMovement: int  = 150
 @export var Acceleration: int  = 35
-@export var JumpHeight: int = 600
+@export var JumpHeight: int = 550
 @export var Gravity : int  = 35
 
 @export var Health: int
@@ -27,16 +27,9 @@ var Motion = Vector2.ZERO
 var Up = Vector2.UP
 var Can_Attack = true
 var Action_Exceeded = false
-var Jump_Count = 2
+var Jump_Count = 3
 var Direction = 1
-enum States {
-	Idle,
-	Jump,
-	Fall,
-	Nlight,
-	Slight,
-	Dlight,
-	Ulight,
+enum States { Idle, Jump, Fall, Nlight, Slight, Dlight, Ulight,
 	Nair,
 	Defend,
 	Roll,
@@ -105,7 +98,7 @@ func _physics_process(delta):
 	match Select:
 
 		States.Idle:
-			Jump_Count = 2
+			Jump_Count = 3
 			Motion.y += Gravity * delta
 			if !is_on_floor():
 				Select = States.Fall
@@ -163,6 +156,7 @@ func _physics_process(delta):
 					ActionPts -= 8
 			if Action_Exceeded == false:
 				if Input.is_action_just_pressed(controls.input_jump) and Jump_Count > 0:
+					Animate.pla
 					Select = States.Jump
 					Jump_Count -= 1
 					$"Jump Sound".play()
@@ -197,29 +191,9 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nair
 					ActionPts -= 4
-			if Motion.y > 0:
+			if Motion.y > 100:
 				Select = States.Fall
 				
-				
-			
-			
-		States.Fall:
-			Motion.y += Gravity * delta
-			Animate.play("Fall")
-			
-			if is_on_floor():
-				Select = States.Idle
-			if Input.is_action_pressed(controls.input_down):
-				Motion.y += 20
-			if Input.is_action_pressed(controls.input_left):
-				Motion.x = max(Motion.x - Acceleration, -AirMovement)
-				
-				
-			elif Input.is_action_pressed(controls.input_right):
-				Motion.x = min(Motion.x + Acceleration, AirMovement)
-				
-			else:
-				Motion.x = lerp(Motion.x , 0.01, 0.01)
 				
 					
 		States.Nlight:

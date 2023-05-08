@@ -1,6 +1,5 @@
 [gd_scene load_steps=41 format=3 uid="uid://bwdf01wxld4fy"]
 
-[ext_resource type="Script" path="res://Character Resouces/General Archfield/Script/General Archfield Script.gd" id="1_fo2hb"]
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_rknsy"]
 [ext_resource type="Texture2D" uid="uid://wbgnd1vpa415" path="res://Character Resouces/General Archfield/Spritesheet/General Archfield SpriteSheet.png" id="3_a0s3q"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_eria6"]
@@ -8,6 +7,275 @@
 [ext_resource type="AudioStream" uid="uid://uvqcrwqnysys" path="res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav" id="6_jflho"]
 [ext_resource type="AudioStream" uid="uid://csft7v02oavc0" path="res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav" id="7_mjvvc"]
 [ext_resource type="PackedScene" uid="uid://bgmx5bsciokc" path="res://Status Bar.tscn" id="8_muner"]
+
+[sub_resource type="GDScript" id="GDScript_uo0hc"]
+script/source = "extends CharacterBody2D
+
+@export var controls: Resource
+
+
+@onready var Animate = $\"Scale Player/AnimationPlayer\"
+@onready var SpriteH = $Animations
+
+# Action Bar Nodes #
+@onready var ActionBar = $\"Status Bar/Action Bar\"
+@onready var Healthbar = $\"Status Bar/Health Bar\"
+@onready var ActionNotifier = $\"Status Bar/Action Notifier\"
+@onready var HealthNotifier = $\"Status Bar/Health Notifier\"
+@onready var PointsPlayer = $\"Status Bar/Add Points\"
+@onready var ActionBrokenPlayer = $\"Status Bar/Action Break\"
+
+@export var Movement: int  = 50
+@export var AirMovement: int  = 50
+@export var Acceleration: int  = 10
+@export var JumpHeight: int = 500
+@export var Gravity : int  = 35
+
+@export var Health: int
+@export var ActionPts: int
+
+var Motion = Vector2.ZERO
+var Up = Vector2.UP
+
+var Direction = 1
+enum States {
+	Idle,
+	Jump,
+	Fall,
+	Nlight,
+	Slight,
+	Dlight,
+	Ulight,
+	Nair,
+	Defend,
+	Roll,
+	Death,
+	Hurt
+}
+var Select = States.Idle
+func _update_flip():
+		if Motion.x >= 1:
+			SpriteH.flip_h = false
+			$\"Scale Player\".set_scale(Vector2(abs($\"Scale Player\".get_scale().x), $\"Scale Player\".get_scale().y))
+		elif Motion.x <= -1:
+			SpriteH.flip_h = true
+			$\"Scale Player\".set_scale(Vector2(-abs($\"Scale Player\".get_scale().x), $\"Scale Player\".get_scale().y))
+
+func _ready():
+	ActionBar.value = ActionPts
+	ActionBrokenPlayer.play(\"Normal\")
+	
+
+func _physics_process(delta):
+	set_velocity(Motion)
+	set_up_direction(Up)
+	move_and_slide()
+	Motion = velocity
+
+	match Select:
+
+		States.Idle:
+			Motion.y += Gravity 
+			if !is_on_floor():
+				Select = States.Fall
+				
+			else:
+				Select = States.Idle
+				
+			if Input.is_action_pressed(controls.input_left):
+				Animate.play(\"Run\")
+				Motion.x = max(Motion.x - Acceleration, -Movement)
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Slight
+					
+				if Input.is_action_just_pressed(controls.input_dash):
+					Select = States.Roll
+					Motion.x = -125
+	
+			elif Input.is_action_pressed(controls.input_right):
+				Animate.play(\"Run\")
+				Motion.x = min(Motion.x + Acceleration, Movement)
+				
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Slight
+					
+				if Input.is_action_just_pressed(controls.input_dash):
+					Select = States.Roll
+					Motion.x = 125
+
+		
+			elif Input.is_action_pressed(controls.input_down):
+				# Code for falling down platform #
+				pass
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Dlight
+					
+				else:
+					Motion.x = 0
+					Animate.play(\"Idle\")
+					
+				
+					
+			elif Input.is_action_pressed(controls.input_up):
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Ulight
+			else:
+				Motion.x = lerp(Motion.x , 0.01, 0.8)
+				Animate.play(\"Idle\")
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nlight
+					
+				elif Input.is_action_just_pressed(controls.input_block):
+					Select = States.Defend
+			if Input.is_action_just_pressed(controls.input_jump):
+				Select = States.Jump
+				$\"Jump Sound\".play()
+		States.Jump:
+			_update_flip()
+			Motion.y += Gravity
+			if is_on_floor():
+				Motion.y = -JumpHeight
+					
+				
+			Animate.play(\"Jump\")
+			if Input.is_action_pressed(controls.input_down):
+				Motion.y += 20
+				
+			if Input.is_action_pressed(controls.input_left):
+				Motion.x = max(Motion.x - Acceleration, -AirMovement)
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+				
+			elif Input.is_action_pressed(controls.input_right):
+				Motion.x = min(Motion.x + Acceleration, AirMovement)
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+			else:
+				Motion.x = lerp(Motion.x , 0.01, 0.01)
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Nair
+			if Motion.y > 0:
+				Select = States.Fall
+				
+				
+			
+			
+		States.Fall:
+			_update_flip()
+			Motion.y += Gravity
+			Animate.play(\"Fall\")
+			
+			if is_on_floor():
+				Select = States.Idle
+			if Input.is_action_pressed(controls.input_down):
+				Motion.y += 20
+				print(\"Is Falling \", Motion)
+			
+					
+		States.Nlight:
+			Motion.x = 0
+			Animate.play(\"Nlight\")
+			
+		States.Slight:
+			Motion.y = 0
+			Motion.x = lerp(Motion.x , 0.1, 0.06)
+			Animate.play(\"Slight\")
+
+		States.Dlight:
+			Motion.x = 0
+			Motion.y = 0
+			Animate.play(\"Dlight\")
+			
+				
+		States.Ulight:
+			Motion.x = 0
+			Motion.y = 0
+			Animate.play(\"Ulight\")
+			
+				
+		States.Nair:
+			Motion.x = lerp(Motion.x , 0.1, 0.03)
+			Motion.y = 0
+			Animate.play(\"Nair\")
+
+			
+		States.Defend:
+			Animate.play(\"Block\")
+			Motion.y = 0
+			Motion.x = 0
+			
+		
+			
+			
+		States.Roll:
+			Motion.x = lerp(Motion.x , 0.1, 0.03)
+			Motion.y += Gravity
+			Animate.play(\"Roll\")
+			if !is_on_floor():
+				Select = States.Fall
+			await get_tree().create_timer(0.05).timeout
+			if Input.is_action_just_pressed(controls.input_block):
+				Select = States.Defend
+			
+
+			elif Input.is_action_just_pressed(controls.input_jump):
+				Select = States.Jump
+
+			if Input.is_action_just_pressed(controls.input_attack):
+				Select = States.Nlight
+				
+		States.Death:
+			Animate.play(\"Death\")
+			
+		States.Hurt:
+			Motion.x = 0
+			Motion.y = 0
+			Animate.play(\"Take Hit\")
+
+
+#Add hitbox set test deature to 5.
+
+# signal hitbox. 
+
+# if player is hit -damage 1000 health.
+	
+	
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == \"Nlight\":
+		Select = States.Idle
+
+
+	if anim_name == \"Slight\":
+		Select = States.Idle
+
+	if anim_name == \"Ulight\":
+		Select = States.Idle
+		
+	if anim_name == \"Dlight\":
+		Select = States.Idle
+	
+	if anim_name == \"Nair\":
+		Select = States.Fall
+	
+	if anim_name == \"Roll\":
+		Select = States.Idle
+		
+	if anim_name == \"Block\":
+		if is_on_floor():
+			Select = States.Idle
+		else: 
+			Select = States.Fall
+
+	
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geckk"]
 radius = 12.3077
@@ -957,7 +1225,7 @@ _data = {
 z_index = 3
 position = Vector2(0, -40)
 scale = Vector2(1.3, 1.3)
-script = ExtResource("1_fo2hb")
+script = SubResource("GDScript_uo0hc")
 controls = ExtResource("2_rknsy")
 Movement = 80
 AirMovement = 80
@@ -1137,5 +1405,5 @@ libraries = {
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_animation_player_animation_finished"]

@@ -1,13 +1,12 @@
-[gd_scene load_steps=35 format=3 uid="uid://bljwxybn30epc"]
+[gd_scene load_steps=32 format=3 uid="uid://bljwxybn30epc"]
 
-[ext_resource type="Script" path="res://Character Resouces/Goku/Script/Goku Script.gd" id="1_4xrb5"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_kc0i7"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Script/Goku Script.gd" id="1_dg2kd"]
+[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_glfhs"]
 [ext_resource type="Texture2D" uid="uid://b341moopt7xsq" path="res://Character Resouces/Goku/Spritesheet/Goku Spritesheet.png" id="3_cughf"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_i4mp5"]
 [ext_resource type="AudioStream" uid="uid://bnflkqncnoaqx" path="res://Character Resouces/Goku/Sound Effects/Down Light.wav" id="5_7cw5g"]
 [ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Goku/Sound Effects/First Punch.wav" id="6_0f2do"]
 [ext_resource type="AudioStream" uid="uid://r5tlbrig47nu" path="res://Character Resouces/Goku/Sound Effects/Second Punch.wav" id="7_7lbd2"]
-[ext_resource type="PackedScene" uid="uid://bgmx5bsciokc" path="res://Status Bar.tscn" id="9_bjvgt"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="9_qb3km"]
 
 [sub_resource type="Animation" id="Animation_id6wq"]
@@ -184,7 +183,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_f73an"]
 resource_name = "Jump"
-length = 0.3
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -192,7 +191,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
+"times": PackedFloat32Array(0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [14, 15, 16]
@@ -389,19 +388,19 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Add Points:playback_speed")
+tracks/4/path = NodePath("../Scale Player/Down Light Buttom Hitbox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.3]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Scale Player/Down Light Buttom Hitbox/CollisionShape2D:disabled")
+tracks/5/path = NodePath("../Scale Player/Down Light Top Hitbox/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -413,7 +412,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Scale Player/Down Light Top Hitbox/CollisionShape2D:disabled")
+tracks/6/path = NodePath("../Scale Player/Nuetral Air Second Hitbox/CollisionShape2D:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -425,7 +424,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Scale Player/Nuetral Air Second Hitbox/CollisionShape2D:disabled")
+tracks/7/path = NodePath("../Scale Player/Nuetral Air Third Hitbox/CollisionShape2D:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -437,7 +436,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Scale Player/Nuetral Air Third Hitbox/CollisionShape2D:disabled")
+tracks/8/path = NodePath("../Scale Player/Nuetral Air First Hitbox/CollisionShape2D:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -449,7 +448,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Scale Player/Nuetral Air First Hitbox/CollisionShape2D:disabled")
+tracks/9/path = NodePath("../Scale Player/Nuetral Light Hitbox/Jab:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -461,7 +460,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Scale Player/Nuetral Light Hitbox/Jab:disabled")
+tracks/10/path = NodePath("../Scale Player/Side Light First Punch/First Jab:disabled")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -473,7 +472,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Scale Player/Side Light First Punch/First Jab:disabled")
+tracks/11/path = NodePath("../Scale Player/Side Light Second Punch/Second Jab:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -485,7 +484,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Scale Player/Side Light Second Punch/Second Jab:disabled")
+tracks/12/path = NodePath("../Scale Player/Up Light Left Hand/CollisionShape2D:disabled")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -497,7 +496,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Scale Player/Up Light Left Hand/CollisionShape2D:disabled")
+tracks/13/path = NodePath("../Scale Player/Up Light Right Hand/CollisionShape2D:disabled")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -509,11 +508,11 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Scale Player/Up Light Right Hand/CollisionShape2D:disabled")
+tracks/14/path = NodePath("../Scale Player/Up Light Grab/CollisionShape2D:disabled")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(-0.00787056),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -521,43 +520,43 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../Scale Player/Up Light Grab/CollisionShape2D:disabled")
+tracks/15/path = NodePath("../Scale Player/Up Light Grab/CollisionShape2D:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(-0.00787056),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("../Scale Player/Up Light Grab/CollisionShape2D:position")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-17, 0)]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../Scale Player/Up Light Smash/CollisionShape2D:disabled")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../Scale Player/Up Light Smash/CollisionShape2D:disabled")
+tracks/17/path = NodePath("../Nuetral Light Sound:playing")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../Nuetral Light Sound:playing")
+tracks/18/path = NodePath("../Down Light Sound:playing")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -569,7 +568,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../Down Light Sound:playing")
+tracks/19/path = NodePath("../Air Attack Sounds:playing")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -581,7 +580,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../Air Attack Sounds:playing")
+tracks/20/path = NodePath("../Up Light Sounds:playing")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -593,7 +592,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../Up Light Sounds:playing")
+tracks/21/path = NodePath("../Side Light Sound First:playing")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -605,22 +604,10 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../Side Light Sound First:playing")
+tracks/22/path = NodePath("../Side Light Sound Second:playing")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("../Side Light Sound Second:playing")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -900,37 +887,18 @@ radius = 3.84615
 radius = 7.0
 height = 22.0
 
-[sub_resource type="Animation" id="Animation_euyhx"]
-resource_name = "Add Points"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_add_action_pts"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vndp7"]
-_data = {
-"Add Points": SubResource("Animation_euyhx")
-}
-
 [node name="Player 2 Goku" type="CharacterBody2D"]
 z_index = 3
 scale = Vector2(1.3, 1.3)
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_4xrb5")
-controls = ExtResource("2_kc0i7")
+script = ExtResource("1_dg2kd")
+controls = ExtResource("2_glfhs")
+Movement = 100
+AirMovement = 100
+JumpHeight = 500
+Gravity = 35
 Health = 500
-ActionPts = 9
 
 [node name="Scale Player" type="Node2D" parent="."]
 z_index = 1
@@ -1095,24 +1063,17 @@ stream = ExtResource("7_7lbd2")
 [node name="Air Attack Sounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_qb3km")
 
-[node name="Add Points" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_vndp7")
-}
-
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_i4mp5")
-
-[node name="Status Bar" parent="." instance=ExtResource("9_bjvgt")]
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air First Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Second Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Third Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Light Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light Buttom Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4436jc2knxei"]
+[gd_scene load_steps=5 format=3 uid="uid://bvoacn4mm4638"]
 
-[ext_resource type="PackedScene" uid="uid://bljwxybn30epc" path="res://Character Resouces/Goku/Character Scenes/Player 2 Goku.tscn" id="1_ihl2d"]
+[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="1_gjww3"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -74,5 +74,5 @@ zoom = Vector2(2, 2)
 position = Vector2(648, 264)
 shape = SubResource("CircleShape2D_2kpki")
 
-[node name="Player 2 Goku" parent="." instance=ExtResource("1_ihl2d")]
-position = Vector2(512, 248)
+[node name="Player 2 Goku" parent="." instance=ExtResource("1_gjww3")]
+position = Vector2(488, 272)

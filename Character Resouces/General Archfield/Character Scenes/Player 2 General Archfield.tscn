@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bwdf01wxld4fy"]
+[gd_scene load_steps=41 format=3 uid="uid://ck30icp6wdbnr"]
 
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_rknsy"]
 [ext_resource type="Texture2D" uid="uid://wbgnd1vpa415" path="res://Character Resouces/General Archfield/Spritesheet/General Archfield SpriteSheet.png" id="3_a0s3q"]
@@ -1405,5 +1405,5 @@ libraries = {
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_AnimationPlayer_animation_finished"]

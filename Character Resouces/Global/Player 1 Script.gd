@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var controls: Resource
+var controls: Resource = load("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 
 
 @onready var Animate = $"Scale Player/AnimationPlayer"
@@ -32,6 +32,7 @@ func _process(delta):
 		SpriteH.flip_h = true
 		
 func _physics_process(delta):
+	print(Jump_Count)
 	velocity.y += Gravity
 	move_and_slide()
 
@@ -39,7 +40,6 @@ func _physics_process(delta):
 
 		States.Idle:
 			Jump_Count = 3
-				
 			if Input.is_action_pressed(controls.input_left):
 				Animate.play("Run")
 				velocity.x = -Movement
@@ -61,17 +61,6 @@ func _physics_process(delta):
 					Select = States.Roll
 					velocity.x = 350
 			
-			elif Input.is_action_pressed(controls.input_down):
-				Animate.play("Idle")
-				if Can_Attack == true:
-					if Input.is_action_just_pressed(controls.input_attack):
-						Select = States.Dlight
-
-					
-			elif Input.is_action_pressed(controls.input_up):
-				Animate.play("Idle")
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Ulight
 			else:
 				velocity.x = 0
 				Animate.play("Idle")
@@ -80,19 +69,30 @@ func _physics_process(delta):
 					Select = States.Nlight
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Defend
-			if Action_Exceeded == false:
-				if Input.is_action_just_pressed(controls.input_jump) and Jump_Count > 0:
+			if Input.is_action_pressed(controls.input_down):
+				Animate.play("Idle")
+				if Can_Attack == true:
+					if Input.is_action_just_pressed(controls.input_attack):
+						Select = States.Dlight
+
+					
+			if Input.is_action_pressed(controls.input_up):
+				Animate.play("Idle")
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Ulight
+		
+			if Input.is_action_just_pressed(controls.input_jump) and Jump_Count > 0:
 					Animate.play("Jump")
 					Select = States.Jump
-					Jump_Count -= 1
 					$"Jump Sound".play()
 					velocity.y = -JumpHeight
+					Jump_Count -= 1
 				
 		States.Jump:
 			if is_on_floor():
 				Select = States.Idle
 			if Input.is_action_pressed(controls.input_down):
-				velocity.y += 1
+				velocity.y += 10
 				Animate.play("Fall")
 			if not is_on_floor():
 				if Input.is_action_just_pressed(controls.input_jump) and Jump_Count > 0:

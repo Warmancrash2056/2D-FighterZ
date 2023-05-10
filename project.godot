@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="2D FighterZ"
-run/main_scene="res://Game Start/Studio Logo/Logo.tscn"
+run/main_scene="res://Demo.tscn"
 config/features=PackedStringArray("4.0")
 
 [autoload]
 
-Player1CharacterSelection="*res://Autoloads/Player 1 Character Selection.gd"
-Player2CharacterSelection="*res://Autoloads/Player 2 Character Selection.gd"
 Audio="*res://Autoloads/Game Audio.tscn"
+CharacterList="*res://Autoloads/Character List.gd"
 
 [display]
 

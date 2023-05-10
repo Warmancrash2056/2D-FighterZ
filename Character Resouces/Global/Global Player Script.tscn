@@ -12,7 +12,7 @@ script/source = "extends CharacterBody2D
 
 
 @onready var Animate = $\"Scale Player/AnimationPlayer\"
-@onready var SpriteH = $\"Goku Sprites\"
+@onready var SpriteH = $
 
 
 @export var Movement: int
@@ -965,7 +965,11 @@ collision_layer = 2
 collision_mask = 5
 script = SubResource("GDScript_oemfm")
 controls = ExtResource("1_j5c0x")
+Movement = null
+AirMovement = null
+Acceleration = null
 JumpHeight = 500
+Gravity = null
 Health = 100
 
 [node name="Scale Player" type="Node2D" parent="."]

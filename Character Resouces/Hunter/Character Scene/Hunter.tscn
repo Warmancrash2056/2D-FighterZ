@@ -1,7 +1,5 @@
-[gd_scene load_steps=55 format=3 uid="uid://dkaf4thtn7g0g"]
+[gd_scene load_steps=53 format=3 uid="uid://dkaf4thtn7g0g"]
 
-[ext_resource type="Script" path="res://Character Resouces/Hunter/Script/Hunter Script.gd" id="1_ucjm4"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_gd8ng"]
 [ext_resource type="Texture2D" uid="uid://csn8bf6hfirik" path="res://Character Resouces/Hunter/Spritesheet/Hunter Spritesheet.png" id="3_k7eqw"]
 [ext_resource type="Texture2D" uid="uid://cek5bcrw4ug5q" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/diagonal_arrow/diagonal_arrow_.png" id="4_mfl5n"]
 [ext_resource type="Texture2D" uid="uid://cxnj3bax3fsjs" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_1.png" id="5_ayglb"]
@@ -924,10 +922,6 @@ _data = {
 [node name="Player 2 Hunter" type="CharacterBody2D"]
 z_index = 4
 scale = Vector2(1.2, 1.2)
-script = ExtResource("1_ucjm4")
-controls = ExtResource("2_gd8ng")
-Movement = 200
-AirMovement = 130
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 3

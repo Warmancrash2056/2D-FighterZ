@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://83ko5lpmgpde"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ynjur"]
-
-[node name="Hurtbox" type="Area2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ynjur")
-debug_color = Color(0, 0, 0, 0.490196)

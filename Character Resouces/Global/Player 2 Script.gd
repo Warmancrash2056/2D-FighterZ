@@ -6,10 +6,10 @@ var controls: Resource = load("res://Character Resouces/Global/Controller Resour
 @onready var Animate = $"Scale Player/AnimationPlayer"
 @onready var SpriteH = $Animation
 
-@export var Movement: int
-@export var AirMovement: int
-@export var JumpHeight: int
-@export var Gravity : int
+@export var Movement = 120
+@export var AirMovement = 60
+@export var JumpHeight = 550
+@export var Gravity = 35
 
 @export var Health: int
 

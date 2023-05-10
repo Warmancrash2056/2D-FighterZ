@@ -1,12 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://c27kgbbjefdwo"]
+[gd_scene load_steps=26 format=3 uid="uid://c27kgbbjefdwo"]
 
 [ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Spritesheet/Nomad Spritesheet.png" id="3_xwsaw"]
-[ext_resource type="PackedScene" uid="uid://83ko5lpmgpde" path="res://hurtbox.tscn" id="4_6uhsu"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="5_xdrmu"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="6_0yays"]
 [ext_resource type="AudioStream" uid="uid://bmn4eg23hqjk7" path="res://Character Resouces/Nomad/Sound Effect/Down Light Sound.wav" id="7_xgqbn"]
 [ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="8_nbxvg"]
-[ext_resource type="PackedScene" uid="uid://bgmx5bsciokc" path="res://Status Bar.tscn" id="9_m7idj"]
 
 [sub_resource type="Animation" id="Animation_6dpqg"]
 resource_name = "Block"
@@ -620,9 +618,6 @@ height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7682v"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cfexx"]
-radius = 20.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_3x7xk"]
 radius = 4.62563
 
@@ -672,14 +667,6 @@ position = Vector2(26, -5)
 shape = SubResource("CircleShape2D_7682v")
 disabled = true
 
-[node name="Hurtbox" parent="Scale Player" instance=ExtResource("4_6uhsu")]
-
-[node name="Up Light Hitbox" type="Area2D" parent="Scale Player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Up Light Hitbox"]
-shape = SubResource("CircleShape2D_cfexx")
-disabled = true
-
 [node name="Foot" type="CollisionShape2D" parent="."]
 position = Vector2(0, 19.2308)
 shape = SubResource("CircleShape2D_3x7xk")
@@ -705,7 +692,3 @@ stream = ExtResource("7_xgqbn")
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_nbxvg")
-
-[node name="Status Bar" parent="." instance=ExtResource("9_m7idj")]
-
-[connection signal="animation_finished" from="Scale Player/Character Aniamtion Player" to="." method="_on_animation_player_animation_finished"]

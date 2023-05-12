@@ -3,12 +3,11 @@ extends CharacterBody2D
 var controls: Resource = load("res://Character Resouces/Global/Controller Resource/Player_2.tres")
 
 
-@onready var Animate = $"Scale Player/AnimationPlayer"
+@onready var Animate = $Character
 @onready var SpriteH = $Animation
 
-@export var Movement = 120
-@export var AirMovement = 60
-@export var JumpHeight = 550
+@export var Speed = 250
+@export var JumpHeight = 1000
 @export var Gravity = 35
 
 @export var Health: int
@@ -16,7 +15,7 @@ var controls: Resource = load("res://Character Resouces/Global/Controller Resour
 var Up = Vector2.UP
 var Can_Attack = true
 var Action_Exceeded = false
-var Jump_Count = 3
+var Jump_Count = 2
 enum States {Idle, Jump, Fall, Nlight, Slight, Dlight, Ulight, Nair, Defend, Roll, Death, Hurt}
 var Select = States.Idle
 
@@ -39,10 +38,10 @@ func _physics_process(delta):
 	match Select:
 
 		States.Idle:
-			Jump_Count = 3
+			Jump_Count = 2
 			if Input.is_action_pressed(controls.input_left):
 				Animate.play("Run")
-				velocity.x = -Movement
+				velocity.x = -Speed
 				if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Slight
 						
@@ -51,7 +50,7 @@ func _physics_process(delta):
 						velocity.x = -350
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
-				velocity.x = Movement
+				velocity.x = Speed
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
@@ -102,14 +101,14 @@ func _physics_process(delta):
 					Animate.play("Jump")
 				
 			if Input.is_action_pressed(controls.input_left):
-				velocity.x = -AirMovement
+				velocity.x = -Speed
 				
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nair
 				
 			elif Input.is_action_pressed(controls.input_right):
-				velocity.x = AirMovement
+				velocity.x = Speed
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nair

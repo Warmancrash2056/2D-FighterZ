@@ -980,23 +980,6 @@ disabled = true
 shape = SubResource("CapsuleShape2D_ukc6m")
 debug_color = Color(0, 0, 0, 0.490196)
 
-[node name="Character Animation" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../..")
-speed_scale = 1.2
-libraries = {
-"": SubResource("AnimationLibrary_m1dgu")
-}
-
-[node name="Player Number" type="RichTextLabel" parent="."]
-offset_left = -6.66667
-offset_top = -31.6667
-offset_right = 60.3334
-offset_bottom = -8.66665
-scale = Vector2(0.2, 0.2)
-text = "Player 2
-"
-fit_content = true
-
 [node name="Nuetral Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_vc57e")
 
@@ -1012,6 +995,12 @@ stream = ExtResource("27_rtgld")
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("28_cne24")
 
+[node name="Character" type="AnimationPlayer" parent="."]
+speed_scale = 1.2
+libraries = {
+"": SubResource("AnimationLibrary_m1dgu")
+}
+
 [connection signal="animation_looped" from="Scale Player/Down Light Arrow" to="." method="_on_down_light_arrow_animation_looped"]
 [connection signal="area_entered" from="Scale Player/Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Character" to="." method="_on_animation_player_animation_finished"]

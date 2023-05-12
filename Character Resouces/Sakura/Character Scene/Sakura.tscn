@@ -1,12 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://r68nnf3p1exi"]
+[gd_scene load_steps=31 format=3 uid="uid://r68nnf3p1exi"]
 
 [ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="1_meaxw"]
-[ext_resource type="Texture2D" uid="uid://cp7t6inhv4t3i" path="res://Character Resouces/Nia/Spritesheet/Nia.png" id="2_f7i7c"]
-[ext_resource type="Texture2D" uid="uid://djs8lc52wplls" path="res://Character Resouces/Nia/Animation/Nuetral Light/projectile_throw/projectile_throw.png" id="3_ghdqe"]
+[ext_resource type="Texture2D" uid="uid://cp7t6inhv4t3i" path="res://Character Resouces/Sakura/Spritesheet/Nia.png" id="2_f7i7c"]
+[ext_resource type="Texture2D" uid="uid://djs8lc52wplls" path="res://Character Resouces/Sakura/Animation/Nuetral Light/projectile_throw/projectile_throw.png" id="3_ghdqe"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_ydokd"]
-[ext_resource type="AudioStream" uid="uid://vkh3pkcuv12c" path="res://Character Resouces/Nia/Nia Blade Throw.wav" id="5_uhxd2"]
+[ext_resource type="AudioStream" uid="uid://vkh3pkcuv12c" path="res://Character Resouces/Sakura/Nia Blade Throw.wav" id="5_uhxd2"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="6_rlys0"]
-[ext_resource type="PackedScene" uid="uid://bgmx5bsciokc" path="res://Status Bar.tscn" id="7_r7sc2"]
 
 [sub_resource type="GDScript" id="GDScript_cnqgf"]
 script/source = "extends CharacterBody2D
@@ -1110,15 +1109,6 @@ position = Vector2(49, -13)
 shape = SubResource("RectangleShape2D_beenl")
 disabled = true
 
-[node name="Player Number" type="RichTextLabel" parent="."]
-offset_left = -6.92308
-offset_top = -30.0
-offset_right = 73.0769
-offset_bottom = -2.99997
-scale = Vector2(0.2, 0.2)
-text = "Player 1"
-fit_content = true
-
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ydokd")
 
@@ -1127,8 +1117,5 @@ stream = ExtResource("5_uhxd2")
 
 [node name="Side Light & Down Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_rlys0")
-
-[node name="Status Bar" parent="." instance=ExtResource("7_r7sc2")]
-position = Vector2(0, 1.53846)
 
 [connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

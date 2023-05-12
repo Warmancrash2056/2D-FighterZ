@@ -672,15 +672,6 @@ position = Vector2(0, 19.2308)
 shape = SubResource("CircleShape2D_3x7xk")
 debug_color = Color(1, 1, 1, 0.490196)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -6.0
-offset_top = -22.0
-offset_right = 59.0
-offset_bottom = 0.999996
-scale = Vector2(0.2, 0.2)
-text = "Player 2"
-fit_content = true
-
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_xdrmu")
 

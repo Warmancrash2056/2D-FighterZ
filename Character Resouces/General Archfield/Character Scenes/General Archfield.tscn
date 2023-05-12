@@ -1,13 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://w7vgf8q3ip3t"]
+[gd_scene load_steps=37 format=3 uid="uid://w7vgf8q3ip3t"]
 
 [ext_resource type="Script" path="res://Character Resouces/General Archfield/Script/General Archfield Script.gd" id="1_762r4"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_umg2n"]
 [ext_resource type="Texture2D" uid="uid://wbgnd1vpa415" path="res://Character Resouces/General Archfield/Spritesheet/General Archfield SpriteSheet.png" id="3_76ty0"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_12kcl"]
 [ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="5_k3gx6"]
 [ext_resource type="AudioStream" uid="uid://uvqcrwqnysys" path="res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav" id="6_bnpmr"]
 [ext_resource type="AudioStream" uid="uid://csft7v02oavc0" path="res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav" id="7_qyex6"]
-[ext_resource type="PackedScene" uid="uid://bgmx5bsciokc" path="res://Status Bar.tscn" id="8_hvoqo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geckk"]
 radius = 12.3077
@@ -44,6 +42,23 @@ height = 48.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cauyt"]
 radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e37rk"]
+radius = 6.27572
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l738h"]
+radius = 5.40626
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2f1ex"]
+radius = 4.0
+height = 34.909
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3tk3"]
+radius = 7.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
+radius = 3.5
+height = 14.0092
 
 [sub_resource type="Animation" id="Animation_2ujqb"]
 resource_name = "Block"
@@ -928,40 +943,11 @@ _data = {
 "Ulight": SubResource("Animation_vbuu8")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_e37rk"]
-radius = 6.27572
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l738h"]
-radius = 5.40626
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2f1ex"]
-radius = 4.0
-height = 34.909
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3tk3"]
-radius = 7.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6up7n"]
-radius = 3.5
-height = 14.0092
-
-[sub_resource type="Animation" id="Animation_8its7"]
-resource_name = "Add Points"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_muik0"]
-_data = {
-"Add Points": SubResource("Animation_8its7")
-}
-
 [node name="Player 1 General Archfield" type="CharacterBody2D"]
 z_index = 3
 position = Vector2(0, -40)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("1_762r4")
-controls = ExtResource("2_umg2n")
-Movement = 80
-AirMovement = 80
-JumpHeight = 600
 
 [node name="Scale Player" type="Node2D" parent="."]
 z_index = 1
@@ -1047,12 +1033,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_cauyt")
 disabled = true
 
-[node name="Character Animation" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../../Animations")
-libraries = {
-"": SubResource("AnimationLibrary_4iyry")
-}
-
 [node name="Foot" type="CollisionShape2D" parent="."]
 position = Vector2(0, 58.4615)
 shape = SubResource("CircleShape2D_e37rk")
@@ -1062,15 +1042,6 @@ debug_color = Color(1, 1, 1, 0.470588)
 texture = ExtResource("3_76ty0")
 hframes = 20
 vframes = 9
-
-[node name="Player Number" type="RichTextLabel" parent="."]
-offset_left = -4.61539
-offset_top = 8.46154
-offset_right = 59.3846
-offset_bottom = 31.4616
-scale = Vector2(0.2, 0.2)
-text = "Player 2"
-fit_content = true
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_12kcl")
@@ -1083,9 +1054,6 @@ stream = ExtResource("6_bnpmr")
 
 [node name="Up Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_qyex6")
-
-[node name="Status Bar" parent="." instance=ExtResource("8_hvoqo")]
-position = Vector2(1.53846, 40)
 
 [node name="Nuetral Light Hitbox Tree" type="Node" parent="."]
 
@@ -1128,14 +1096,15 @@ rotation = 0.698132
 shape = SubResource("CapsuleShape2D_6up7n")
 disabled = true
 
-[node name="Add Points" type="AnimationPlayer" parent="."]
+[node name="Character" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Animations")
 libraries = {
-"": SubResource("AnimationLibrary_muik0")
+"": SubResource("AnimationLibrary_4iyry")
 }
 
 [connection signal="area_entered" from="Scale Player/Nuetral Air Hitbox" to="." method="_on_Nuetral_Air_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light3D Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light3D Hitbox" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Up light Hitbox" to="." method="_on_Up_light_Hitbox_area_entered"]
-[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="Scale Player/Character Animation" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Character" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Character" to="." method="_on_animation_player_animation_finished"]

@@ -1,16 +1,37 @@
-[gd_scene load_steps=33 format=3 uid="uid://djfrjc3ydgq3j"]
+[gd_scene load_steps=31 format=3 uid="uid://djfrjc3ydgq3j"]
 
-[ext_resource type="Script" path="res://Character Resouces/Princess Atlantis/Script/Princess Atlantis Script.gd" id="1_bqjwk"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_ol3jy"]
-[ext_resource type="Texture2D" uid="uid://d34u6qpcb7unm" path="res://Character Resouces/Princess Atlantis/Spritesheet/Princess Atlantis SpriteSheet.png" id="3_ufgy8"]
+[ext_resource type="Texture2D" uid="uid://d34u6qpcb7unm" path="res://Character Resouces/Atlantis/Spritesheet/Princess Atlantis SpriteSheet.png" id="3_ufgy8"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_ois81"]
 [ext_resource type="AudioStream" uid="uid://bmsj2n0xspnmq" path="res://Character Resouces/Global/melee sounds/melee sound.wav" id="5_4h3r6"]
-[ext_resource type="AudioStream" uid="uid://b5hbcr4w7bgda" path="res://Character Resouces/Princess Atlantis/Side Light.wav" id="6_i0k7m"]
-[ext_resource type="AudioStream" uid="uid://g6lfjkfjemdu" path="res://Character Resouces/Princess Atlantis/Down Light Start.wav" id="7_en6rk"]
-[ext_resource type="AudioStream" uid="uid://8tw8og2yy4d7" path="res://Character Resouces/Princess Atlantis/Down Light End.wav" id="8_js0dj"]
+[ext_resource type="AudioStream" uid="uid://b5hbcr4w7bgda" path="res://Character Resouces/Atlantis/Side Light.wav" id="6_i0k7m"]
+[ext_resource type="AudioStream" uid="uid://g6lfjkfjemdu" path="res://Character Resouces/Atlantis/Down Light Start.wav" id="7_en6rk"]
+[ext_resource type="AudioStream" uid="uid://8tw8og2yy4d7" path="res://Character Resouces/Atlantis/Down Light End.wav" id="8_js0dj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uj1w2"]
 size = Vector2(10, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t27r6"]
+size = Vector2(30.8333, 2.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_la6r7"]
+size = Vector2(28.3333, 2.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eqykr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_03107"]
+radius = 11.8778
+height = 23.8949
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m0n5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfxrs"]
+size = Vector2(81.6667, 5.83333)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0uyqq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vnfn"]
+radius = 7.5
+height = 63.3333
 
 [sub_resource type="Animation" id="Animation_rfmd1"]
 resource_name = "Block"
@@ -18,7 +39,7 @@ length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,7 +67,7 @@ length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -62,7 +83,7 @@ length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -126,7 +147,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -142,7 +163,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -158,7 +179,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -174,7 +195,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -202,7 +223,7 @@ length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -242,7 +263,7 @@ length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -293,7 +314,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -513,7 +534,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -528,7 +549,7 @@ resource_name = "Run"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -544,7 +565,7 @@ length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -608,7 +629,7 @@ length = 3.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -696,37 +717,11 @@ _data = {
 "Ulight": SubResource("Animation_js1b7")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t27r6"]
-size = Vector2(30.8333, 2.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_la6r7"]
-size = Vector2(28.3333, 2.5)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_eqykr"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_03107"]
-radius = 11.8778
-height = 23.8949
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_m0n5g"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfxrs"]
-size = Vector2(81.6667, 5.83333)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0uyqq"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vnfn"]
-radius = 7.5
-height = 63.3333
-
-[node name="Player 1 Princess Atlantis" type="CharacterBody2D"]
+[node name="Atlantis" type="CharacterBody2D"]
 z_index = 3
 scale = Vector2(1.3, 1.3)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("1_bqjwk")
-controls = ExtResource("2_ol3jy")
-Movement = 120
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -734,24 +729,8 @@ position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_uj1w2")
 debug_color = Color(1, 1, 1, 0.490196)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -6.66667
-offset_top = -21.6667
-offset_right = 59.3333
-offset_bottom = 1.33334
-scale = Vector2(0.2, 0.2)
-text = "Player 1
-"
-fit_content = true
-
 [node name="Scale Player" type="Node2D" parent="."]
 z_index = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Scale Player"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_ngyk4")
-}
 
 [node name="Nuetral Air" type="Area2D" parent="Scale Player"]
 
@@ -817,7 +796,7 @@ rotation = -1.5708
 shape = SubResource("CapsuleShape2D_0vnfn")
 disabled = true
 
-[node name="Animations" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
 texture = ExtResource("3_ufgy8")
 hframes = 20
@@ -843,4 +822,9 @@ stream = ExtResource("7_en6rk")
 
 [node name="Up Light End" type="AudioStreamPlayer2D" parent="."]
 
-[connection signal="animation_finished" from="Scale Player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="Character" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ngyk4")
+}
+
+[connection signal="animation_finished" from="Character" to="." method="_on_animation_player_animation_finished"]

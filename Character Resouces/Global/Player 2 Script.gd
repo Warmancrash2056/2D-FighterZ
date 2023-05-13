@@ -4,10 +4,10 @@ var controls: Resource = load("res://Character Resouces/Global/Controller Resour
 
 
 @onready var Animate = $Character
-@onready var SpriteH = $Animation
+@onready var Sprite = $Sprite
 
 @export var Speed = 250
-@export var JumpHeight = 1000
+@export var JumpHeight = 550
 @export var Gravity = 35
 
 @export var Health: int
@@ -25,10 +25,10 @@ func _ready():
 
 func _process(delta):
 	if velocity.x >= 1:
-		SpriteH.flip_h = false
+		Sprite.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif velocity.x <= -1:
-		SpriteH.flip_h = true
+		Sprite.flip_h = true
 		
 func _physics_process(delta):
 	print(Jump_Count)

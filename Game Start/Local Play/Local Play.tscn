@@ -1063,39 +1063,6 @@ texture = ExtResource("6_skwqb")
 layout_mode = 2
 texture = ExtResource("7_c8qb4")
 
-[node name="Player 2 Selection" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 1011.2
-offset_top = 124.2
-offset_right = 1415.2
-offset_bottom = 188.2
-scale = Vector2(-1, 1)
-columns = 6
-
-[node name="Sakura" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
-layout_mode = 2
-texture = ExtResource("2_mr1wv")
-
-[node name="General Archfield" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
-layout_mode = 2
-texture = ExtResource("3_cwg26")
-
-[node name="Goku" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
-layout_mode = 2
-texture = ExtResource("4_ef4qh")
-
-[node name="Hunter" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
-layout_mode = 2
-texture = ExtResource("5_dl8oi")
-
-[node name="Nomad" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
-layout_mode = 2
-texture = ExtResource("6_skwqb")
-
-[node name="Atlantis" type="TextureRect" parent="Player 2 Selection" groups=["Player2"]]
-layout_mode = 2
-texture = ExtResource("7_c8qb4")
-
 [node name="Player 1 Cursor" type="Sprite2D" parent="."]
 position = Vector2(235.2, 156.2)
 scale = Vector2(2.2, 2.2)
@@ -1105,20 +1072,24 @@ PlayerIcon = ExtResource("10_45wcx")
 portraitOffset = Vector2(68, 0)
 
 [node name="Area2D" type="Area2D" parent="Player 1 Cursor"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Cursor/Area2D"]
 shape = SubResource("CircleShape2D_0sqqb")
 debug_color = Color(1, 0, 0.027451, 1)
 
 [node name="Player 2 Cursor" type="Sprite2D" parent="."]
-position = Vector2(979.2, 156.2)
+position = Vector2(232, 153)
 scale = Vector2(2.2, 2.2)
 script = ExtResource("11_sdn4v")
 Controls = ExtResource("12_l4kha")
 PlayerIcon = ExtResource("13_tjflb")
-portraitOffset = Vector2(-68, 0)
+portraitOffset = Vector2(68, 0)
 
 [node name="Area2D" type="Area2D" parent="Player 2 Cursor"]
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Cursor/Area2D"]
 shape = SubResource("CircleShape2D_w30jr")
@@ -1126,6 +1097,8 @@ debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 General Pyrus Select" type="Area2D" parent="."]
 position = Vector2(267.2, 124.2)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 General Pyrus Select"]
 position = Vector2(32, 32)
@@ -1134,6 +1107,8 @@ debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 Goku Select" type="Area2D" parent="."]
 position = Vector2(203.2, 124.2)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Goku Select"]
 position = Vector2(168, 32)
@@ -1142,6 +1117,8 @@ debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 Nai Select" type="Area2D" parent="."]
 position = Vector2(283.2, 140.2)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Nai Select"]
 position = Vector2(-48, 16)
@@ -1150,6 +1127,8 @@ debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 Hunter Select" type="Area2D" parent="."]
 position = Vector2(203.2, 124.2)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Hunter Select"]
 position = Vector2(240, 32)
@@ -1158,6 +1137,8 @@ debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 Nomad Select" type="Area2D" parent="."]
 position = Vector2(443.2, 156.2)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Nomad Select"]
 position = Vector2(72, 0)
@@ -1166,6 +1147,8 @@ debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 Atlantis Select" type="Area2D" parent="."]
 position = Vector2(203.2, 124.2)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Atlantis Select"]
 position = Vector2(376, 32)
@@ -1176,9 +1159,11 @@ debug_color = Color(0, 0, 1, 1)
 position = Vector2(904, 305)
 rotation = 3.14159
 scale = Vector2(1, -1)
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 General Pyrus Select"]
-position = Vector2(-8, -144)
+position = Vector2(608, -151.998)
 scale = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_a2ev6")
 debug_color = Color(1, 0, 0, 1)
@@ -1187,9 +1172,11 @@ debug_color = Color(1, 0, 0, 1)
 position = Vector2(840, 305)
 rotation = 3.14159
 scale = Vector2(1, -1)
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Goku Select"]
-position = Vector2(0, -144)
+position = Vector2(472, -151.999)
 scale = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_8qu8d")
 debug_color = Color(0.701961, 0, 0.0196078, 1)
@@ -1198,9 +1185,11 @@ debug_color = Color(0.701961, 0, 0.0196078, 1)
 position = Vector2(920, 321)
 rotation = 3.14159
 scale = Vector2(1, -1)
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Nai Select"]
-position = Vector2(-56, -160)
+position = Vector2(688, -168)
 scale = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_n6d1n")
 debug_color = Color(1, 0, 0, 1)
@@ -1209,9 +1198,11 @@ debug_color = Color(1, 0, 0, 1)
 position = Vector2(840, 305)
 rotation = 3.14159
 scale = Vector2(1, -1)
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Hunter Select"]
-position = Vector2(64, -144)
+position = Vector2(392, -143.999)
 scale = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_2j3qg")
 debug_color = Color(1, 0, 0, 1)
@@ -1220,9 +1211,11 @@ debug_color = Color(1, 0, 0, 1)
 position = Vector2(1080, 337)
 rotation = 3.14159
 scale = Vector2(1, -1)
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Nomad Select"]
-position = Vector2(384, -176)
+position = Vector2(568, -176)
 scale = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_3nve2")
 debug_color = Color(1, 0, 0.027451, 1)
@@ -1231,9 +1224,11 @@ debug_color = Color(1, 0, 0.027451, 1)
 position = Vector2(840, 305)
 rotation = 3.14159
 scale = Vector2(1, -1)
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Atlantis Select"]
-position = Vector2(208, -144)
+position = Vector2(264, -152.001)
 scale = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_lmp0e")
 debug_color = Color(1, 0, 0, 1)

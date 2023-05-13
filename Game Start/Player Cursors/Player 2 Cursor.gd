@@ -35,7 +35,7 @@ func _ready():
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
 	
-	if(Input.is_action_just_pressed(Controls.input_left)):
+	if(Input.is_action_just_pressed(Controls.input_right)):
 		currentSelected += 1
 		currentColumnSpot += 1
 		# If the cursor goes past the total amount of columns reset to the first item in the column and go 1 row down
@@ -55,7 +55,7 @@ func _process(delta):
 			currentSelected = 0
 		else:
 			position.x += portraitOffset.x
-	elif(Input.is_action_just_pressed(Controls.input_right)):
+	elif(Input.is_action_just_pressed(Controls.input_left)):
 		currentSelected -= 1
 		currentColumnSpot -= 1
 		# If the cursor goes past the 0 amount on a column position reset to the first item in the column and go 1 row up

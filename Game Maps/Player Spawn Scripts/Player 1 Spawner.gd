@@ -7,7 +7,10 @@ func _ready():
 
 func SpawnChosen():
 	call_deferred("add_child", Player1Spawn)
+	
+	# if says "could not resolve script usaully means that 
+	#script is error and needs to be fixed. before running again.
 	Player1Spawn.set_script(CharacterList.Player1Script)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
 func _process(delta):
 	print()

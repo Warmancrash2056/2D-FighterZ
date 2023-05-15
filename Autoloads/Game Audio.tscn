@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Autoloads/Game Audio.gd" id="1_xf05r"]
 
 [node name="Game Audio" type="AudioStreamPlayer"]
+volume_db = 5.0
 script = ExtResource("1_xf05r")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

@@ -26,10 +26,9 @@ enum Game{
 }
 var CheckGame = Game.Return
 func _ready():
-	Audio._main_menu_play()
+	pass
 func _process(delta):
 	
-	print(EscapeTimer.time_left)
 	match CheckGame:
 		Game.Return:
 			EscapeBackground.visible = false

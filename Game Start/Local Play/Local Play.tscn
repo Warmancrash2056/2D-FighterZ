@@ -1027,16 +1027,18 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.008
-offset_top = -15.0
-offset_bottom = -11.8
-color = Color(0, 0, 0, 1)
+offset_left = 8.0
+offset_top = -119.0
+offset_right = 8.0
+offset_bottom = -115.8
+color = Color(0.32549, 0.533333, 1, 1)
 
 [node name="Player 1 Selection" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 203.2
-offset_top = 124.2
-offset_right = 607.2
-offset_bottom = 188.2
+offset_left = 384.0
+offset_top = 17.0
+offset_right = 788.0
+offset_bottom = 81.0
 columns = 6
 
 [node name="Sakura" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
@@ -1064,7 +1066,7 @@ layout_mode = 2
 texture = ExtResource("7_c8qb4")
 
 [node name="Player 1 Cursor" type="Sprite2D" parent="."]
-position = Vector2(235.2, 156.2)
+position = Vector2(416, 49)
 scale = Vector2(2.2, 2.2)
 script = ExtResource("8_d3ttf")
 Controls = ExtResource("9_kuj4s")
@@ -1080,7 +1082,7 @@ shape = SubResource("CircleShape2D_0sqqb")
 debug_color = Color(1, 0, 0.027451, 1)
 
 [node name="Player 2 Cursor" type="Sprite2D" parent="."]
-position = Vector2(232, 153)
+position = Vector2(412.8, 45.8)
 scale = Vector2(2.2, 2.2)
 script = ExtResource("11_sdn4v")
 Controls = ExtResource("12_l4kha")
@@ -1096,7 +1098,7 @@ shape = SubResource("CircleShape2D_w30jr")
 debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 General Pyrus Select" type="Area2D" parent="."]
-position = Vector2(267.2, 124.2)
+position = Vector2(448, 17)
 collision_layer = 0
 collision_mask = 2
 
@@ -1106,7 +1108,7 @@ shape = SubResource("CircleShape2D_a2ev6")
 debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 Goku Select" type="Area2D" parent="."]
-position = Vector2(203.2, 124.2)
+position = Vector2(384, 17)
 collision_layer = 0
 collision_mask = 2
 
@@ -1116,7 +1118,7 @@ shape = SubResource("CircleShape2D_8qu8d")
 debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 Nai Select" type="Area2D" parent="."]
-position = Vector2(283.2, 140.2)
+position = Vector2(464, 33)
 collision_layer = 0
 collision_mask = 2
 
@@ -1126,7 +1128,7 @@ shape = SubResource("CircleShape2D_n6d1n")
 debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 Hunter Select" type="Area2D" parent="."]
-position = Vector2(203.2, 124.2)
+position = Vector2(384, 17)
 collision_layer = 0
 collision_mask = 2
 
@@ -1136,7 +1138,7 @@ shape = SubResource("CircleShape2D_2j3qg")
 debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 Nomad Select" type="Area2D" parent="."]
-position = Vector2(443.2, 156.2)
+position = Vector2(624, 49)
 collision_layer = 0
 collision_mask = 2
 
@@ -1146,7 +1148,7 @@ shape = SubResource("CircleShape2D_3nve2")
 debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 1 Atlantis Select" type="Area2D" parent="."]
-position = Vector2(203.2, 124.2)
+position = Vector2(384, 17)
 collision_layer = 0
 collision_mask = 2
 
@@ -1156,7 +1158,7 @@ shape = SubResource("CircleShape2D_lmp0e")
 debug_color = Color(0, 0, 1, 1)
 
 [node name="Player 2 General Pyrus Select" type="Area2D" parent="."]
-position = Vector2(904, 305)
+position = Vector2(1084.8, 197.8)
 rotation = 3.14159
 scale = Vector2(1, -1)
 collision_layer = 0
@@ -1169,7 +1171,7 @@ shape = SubResource("CircleShape2D_a2ev6")
 debug_color = Color(1, 0, 0, 1)
 
 [node name="Player 2 Goku Select" type="Area2D" parent="."]
-position = Vector2(840, 305)
+position = Vector2(1020.8, 197.8)
 rotation = 3.14159
 scale = Vector2(1, -1)
 collision_layer = 0
@@ -1182,7 +1184,7 @@ shape = SubResource("CircleShape2D_8qu8d")
 debug_color = Color(0.701961, 0, 0.0196078, 1)
 
 [node name="Player 2 Nai Select" type="Area2D" parent="."]
-position = Vector2(920, 321)
+position = Vector2(1100.8, 213.8)
 rotation = 3.14159
 scale = Vector2(1, -1)
 collision_layer = 0
@@ -1195,7 +1197,7 @@ shape = SubResource("CircleShape2D_n6d1n")
 debug_color = Color(1, 0, 0, 1)
 
 [node name="Player 2 Hunter Select" type="Area2D" parent="."]
-position = Vector2(840, 305)
+position = Vector2(1020.8, 197.8)
 rotation = 3.14159
 scale = Vector2(1, -1)
 collision_layer = 0
@@ -1208,7 +1210,7 @@ shape = SubResource("CircleShape2D_2j3qg")
 debug_color = Color(1, 0, 0, 1)
 
 [node name="Player 2 Nomad Select" type="Area2D" parent="."]
-position = Vector2(1080, 337)
+position = Vector2(1260.8, 229.8)
 rotation = 3.14159
 scale = Vector2(1, -1)
 collision_layer = 0
@@ -1221,7 +1223,7 @@ shape = SubResource("CircleShape2D_3nve2")
 debug_color = Color(1, 0, 0.027451, 1)
 
 [node name="Player 2 Atlantis Select" type="Area2D" parent="."]
-position = Vector2(840, 305)
+position = Vector2(1020.8, 197.8)
 rotation = 3.14159
 scale = Vector2(1, -1)
 collision_layer = 0
@@ -1319,8 +1321,8 @@ sprite_frames = SubResource("SpriteFrames_1cmhf")
 animation = &"Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(608, 329)
-zoom = Vector2(1.4, 1.6)
+position = Vector2(584, 209)
+zoom = Vector2(1.5, 1.5)
 
 [connection signal="area_entered" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]
 [connection signal="area_exited" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_exited"]

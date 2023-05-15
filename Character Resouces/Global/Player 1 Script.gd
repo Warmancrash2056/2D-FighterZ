@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 var controls: Resource = load("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 
-
-
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 
@@ -17,7 +15,22 @@ var Up = Vector2.UP
 var Can_Attack = true
 var Action_Exceeded = false
 var Jump_Count = 2
-enum States {Idle, Jump, Fall, Nlight, Slight, Dlight, Ulight, Nair, Defend, Roll, Death, Hurt}
+enum States {
+	Idle, 
+	Jump,
+	Fall, 
+	Nlight, 
+	Slight, 
+	Dlight, 
+	Ulight, 
+	Nair, 
+	Defend, 
+	Roll, 
+	Death, 
+	Hurt, 
+	ActivateSuper, 
+	DeactivateSuper, IdleSuper, RunSuper, JumpSuper, FallSuper, 
+NlightSuper, SlightSuper, DlightSuper, UlightSuper,}
 var Select = States.Idle
 
 func _ready():
@@ -32,14 +45,15 @@ func _process(delta):
 		Sprite.flip_h = true
 		
 func _physics_process(delta):
-	print(Jump_Count)
 	velocity.y += Gravity
 	move_and_slide()
 
 	match Select:
 
 		States.Idle:
-			Jump_Count = 2
+			if not is_on_floor():
+				Select = States.Fall
+				
 			if Input.is_action_pressed(controls.input_left):
 				Animate.play("Run")
 				velocity.x = -Speed
@@ -70,37 +84,30 @@ func _physics_process(delta):
 				elif Input.is_action_just_pressed(controls.input_block):
 					Select = States.Defend
 			if Input.is_action_pressed(controls.input_down):
-				Animate.play("Idle")
-				if Can_Attack == true:
-					if Input.is_action_just_pressed(controls.input_attack):
-						Select = States.Dlight
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Dlight
 
 					
 			if Input.is_action_pressed(controls.input_up):
-				Animate.play("Idle")
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Ulight
 		
-			if Input.is_action_just_pressed(controls.input_jump) and Jump_Count > 0:
+			if Input.is_action_just_pressed(controls.input_jump):
 					Animate.play("Jump")
 					Select = States.Jump
 					$"Jump Sound".play()
-					velocity.y = -JumpHeight
-					Jump_Count -= 1
+					
+			if Input.is_action_just_pressed(controls.input_dash):
+				Select = States.ActivateSuper
 				
 		States.Jump:
 			if is_on_floor():
-				Select = States.Idle
+				velocity.y = -JumpHeight
+				
+			if velocity.y > 0:
+				Select = States.Fall
 			if Input.is_action_pressed(controls.input_down):
 				velocity.y += 10
-				Animate.play("Fall")
-			if not is_on_floor():
-				if Input.is_action_just_pressed(controls.input_jump) and Jump_Count > 0:
-					velocity.y = -JumpHeight
-					Jump_Count -= 1
-					$"Jump Sound".play()
-					Animate.play("Jump")
-				
 			if Input.is_action_pressed(controls.input_left):
 				velocity.x = -Speed
 				
@@ -118,7 +125,13 @@ func _physics_process(delta):
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nair
-
+					
+		States.Fall:
+			velocity.y += Gravity
+			Animate.play("Fall")
+			
+			if is_on_floor():
+				Select = States.Idle
 		States.Nlight:
 			velocity.x = 0
 			Animate.play("Nlight")
@@ -168,7 +181,14 @@ func _physics_process(delta):
 			velocity.x = 0
 			Animate.play("Take Hit")
 
-
+		States.ActivateSuper:
+			Animate.play("Activate Super")
+			
+		States.IdleSuper:
+			pass
+			
+		States.DeactivateSuper:
+			Animate.play("Deactivate Super")
 	
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Nlight":
@@ -194,4 +214,7 @@ func _on_animation_player_animation_finished(anim_name):
 			Select = States.Idle
 		else: 
 			Select = States.Fall
-	
+	if anim_name == "Activate Super":
+		Select = States.DeactivateSuper
+	if anim_name == "Deactivate Super":
+		Select = States.Idle

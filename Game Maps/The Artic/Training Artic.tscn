@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://lm3lg6visl86"]
+[gd_scene load_steps=22 format=3 uid="uid://c56m1e5uy4hbw"]
 
 [ext_resource type="Script" path="res://Game Maps/The Artic/The Artic.gd" id="1_srgb3"]
 [ext_resource type="Texture2D" uid="uid://ctp3n0w8q5blo" path="res://Game Maps/The Artic/Map Assets/mainlevbuild1.png" id="2_w32yl"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://diuldhw1uxasj" path="res://Game Maps/The Artic/Map Assets/background4.png" id="7_mqci0"]
 [ext_resource type="Texture2D" uid="uid://yohx14s3h6cn" path="res://Game Maps/The Artic/Map Assets/background5.png" id="8_rk8nv"]
 [ext_resource type="AudioStream" uid="uid://cx7l4b0c7cgp6" path="res://Game Music/The Artic.wav" id="10_u170x"]
-[ext_resource type="PackedScene" uid="uid://bqva0ey4etorq" path="res://Spawners/player_2_spawn.tscn" id="11_8exra"]
 [ext_resource type="Texture2D" uid="uid://pdkb74qw2lxq" path="res://Game Maps/The Artic/Map Assets/mainlevbuild2.png" id="11_fdhf1"]
 [ext_resource type="Texture2D" uid="uid://b341moopt7xsq" path="res://Character Resouces/Goku/Spritesheet/Goku Spritesheet.png" id="12_mp3m5"]
 
@@ -4518,9 +4517,6 @@ zoom = Vector2(1.65, 1.8)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_u170x")
-
-[node name="Player 2 Spawn2" parent="." instance=ExtResource("11_8exra")]
-position = Vector2(0, 112)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 3

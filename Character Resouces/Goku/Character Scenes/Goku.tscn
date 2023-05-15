@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=33 format=3 uid="uid://c40ypkrmks8qe"]
 
-[ext_resource type="Texture2D" uid="uid://b341moopt7xsq" path="res://Character Resouces/Goku/Spritesheet/Goku Spritesheet.png" id="2_mp4ac"]
+[ext_resource type="Texture2D" uid="uid://bpvuyu78xasmb" path="res://Character Resouces/Goku/Spritesheet/ground_monk_FULL_v1.3-SpriteSheet_288x128 (1).png" id="1_ia6oy"]
 [ext_resource type="AudioStream" uid="uid://bnflkqncnoaqx" path="res://Character Resouces/Goku/Sound Effects/Down Light.wav" id="3_3hdml"]
 [ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Goku/Sound Effects/First Punch.wav" id="4_3o44d"]
 [ext_resource type="AudioStream" uid="uid://r5tlbrig47nu" path="res://Character Resouces/Goku/Sound Effects/Second Punch.wav" id="5_mgcwp"]
@@ -35,6 +35,22 @@ radius = 3.84615
 radius = 7.0
 height = 22.0
 
+[sub_resource type="Animation" id="Animation_w7cb0"]
+resource_name = "Activate Super"
+length = 2.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180]
+}
+
 [sub_resource type="Animation" id="Animation_id6wq"]
 resource_name = "Block"
 length = 0.9
@@ -66,6 +82,21 @@ tracks/1/keys = {
 "args": [],
 "method": &"_start_points"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_xc32p"]
+resource_name = "Deactivate Super"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [267, 268, 269, 270, 271, 272, 273, 274, 275, 276]
 }
 
 [sub_resource type="Animation" id="Animation_67kk3"]
@@ -191,20 +222,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("..")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_add_action_pts"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_f73an"]
@@ -793,6 +810,22 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_a2pen"]
+resource_name = "Super Transform"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [151, 152]
+}
+
 [sub_resource type="Animation" id="Animation_nfd27"]
 resource_name = "Ulight"
 length = 2.6
@@ -895,7 +928,9 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_467i5"]
 _data = {
+"Activate Super": SubResource("Animation_w7cb0"),
 "Block": SubResource("Animation_id6wq"),
+"Deactivate Super": SubResource("Animation_xc32p"),
 "Dlight": SubResource("Animation_67kk3"),
 "Fall": SubResource("Animation_veaer"),
 "Idle": SubResource("Animation_c7e8a"),
@@ -906,6 +941,7 @@ _data = {
 "Roll": SubResource("Animation_gn67f"),
 "Run": SubResource("Animation_jyc66"),
 "Slight": SubResource("Animation_t2w0d"),
+"Super Transform": SubResource("Animation_a2pen"),
 "Ulight": SubResource("Animation_nfd27")
 }
 
@@ -1041,9 +1077,9 @@ debug_color = Color(0, 0, 0, 0.490196)
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(0.91255, 0.861108, 0.827671, 1)
 position = Vector2(0, -40)
-texture = ExtResource("2_mp4ac")
-hframes = 20
-vframes = 8
+texture = ExtResource("1_ia6oy")
+hframes = 12
+vframes = 24
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_3hdml")
@@ -1076,10 +1112,10 @@ libraries = {
 [connection signal="area_entered" from="Scale Player/Nuetral Air Second Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Third Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Light Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light Buttom Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="animation_finished" from="Character" to="." method="_on_animation_player_animation_finished"]

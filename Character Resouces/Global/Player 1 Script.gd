@@ -43,6 +43,7 @@ func _process(delta):
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif velocity.x <= -1:
 		Sprite.flip_h = true
+		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 		
 func _physics_process(delta):
 	velocity.y += Gravity

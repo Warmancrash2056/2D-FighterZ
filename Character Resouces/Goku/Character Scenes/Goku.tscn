@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=32 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Texture2D" uid="uid://bpvuyu78xasmb" path="res://Character Resouces/Goku/Spritesheet/ground_monk_FULL_v1.3-SpriteSheet_288x128 (1).png" id="1_ia6oy"]
 [ext_resource type="AudioStream" uid="uid://bnflkqncnoaqx" path="res://Character Resouces/Goku/Sound Effects/Down Light.wav" id="3_3hdml"]
@@ -27,9 +27,6 @@ height = 28.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lwywl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kq3c8"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_o8wle"]
-radius = 3.84615
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8akjg"]
 radius = 7.0
@@ -1060,11 +1057,6 @@ disabled = true
 position = Vector2(20.5, 12)
 shape = SubResource("CircleShape2D_kq3c8")
 disabled = true
-
-[node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13.0769)
-shape = SubResource("CircleShape2D_o8wle")
-debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 16

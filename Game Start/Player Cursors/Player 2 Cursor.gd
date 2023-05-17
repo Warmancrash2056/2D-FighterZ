@@ -1,11 +1,11 @@
 extends Sprite2D
 
-@onready var NaiAnimation = $"../Player 2 Nia"
-@onready var GeneralPyrusAnimation = $"../Player 2 General Pyrus"
-@onready var HunterAnimation = $"../Player 2 Hunter"
-@onready var NomadAnimation = $"../Player 2 Nomad"
-@onready var AtlantisAnimation = $"../Player 2 Atlantis"
-@onready var GokuAnimation = $"../Player 2 Goku"
+@onready var sakura_animation = $pla
+@onready var general_archfield_animation = $"../Player 2 General Pyrus"
+@onready var hunter_animation = $"../Player 2 Hunter"
+@onready var nomad_animation = $"../Player 2 Nomad"
+@onready var atlantis_animation = $"../Player 2 Atlantis"
+@onready var goku_aniamtion = $"../Player 2 Goku"
 
 @export var Controls: Resource 
 # Object Array
@@ -17,7 +17,6 @@ var currentColumnSpot = 0    # Spot of the cursor based on the column
 var currentRowSpot = 0       # Spot of the cursor based on the row
 
 # Exports 
-@export var PlayerIcon: Texture2D    # Cursor Texture2D for when Player 1 is making a decision    
 @export var amountOfRows: int = 2      # The total amount of rows the character select is able to show 
 @export var portraitOffset: Vector2    # The distance between the portraits
 
@@ -29,9 +28,7 @@ func _ready():
 # Get all of the characters stored within the group "Characters" and place them in the Array characters
 	for nameOfCharacter in get_tree().get_nodes_in_group("Player1"):
 		characters.append(nameOfCharacter)
-	print(characters)
 	
-	texture = PlayerIcon
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
 	
@@ -42,7 +39,6 @@ func _process(delta):
 		if(currentColumnSpot > gridContainer.columns - 1 && currentSelected < characters.size() - 1):
 			position.x -= (currentColumnSpot - 1) * portraitOffset.x
 			position.y += portraitOffset.y
-			print(characters)
 			currentColumnSpot = 0
 			currentRowSpot += 1
 		# If the cursor goes past the total amount of columns and amount of characters, reset to the first item in the whole roster 
@@ -87,74 +83,71 @@ func _process(delta):
 
 
 func _on_player_2_general_pyrus_animation_looped():
-	GeneralPyrusAnimation.play("Idle")
+	general_archfield_animation.play("Idle")
 
 
 func _on_player_2_goku_animation_looped():
-	GokuAnimation.play("Idle")
+	goku_aniamtion.play("Idle")
 
 
 func _on_player_2_hunter_animation_looped():
-	HunterAnimation.play("Idle")
+	hunter_animation.play("Idle")
 
 
 func _on_player_2_nomad_animation_looped():
-	NomadAnimation.play("Idle")
+	nomad_animation.play("Idle")
 
 
 func _on_player_2_atlantis_animation_looped():
-	pass # Replace with function body.
+	pass
 
-
-func _on_player_2_nai_animation_looped():
-	NaiAnimation.play("Idle")
-
-
+func _on_player_2_sakura_animation_looped():
+	sakura_animation
 func _on_player_2_general_pyrus_select_area_entered(area):
 	if area:
-		GeneralPyrusAnimation.play("Ready")
-		GeneralPyrusAnimation.visible = true
+		general_archfield_animation.play("Ready")
+		general_archfield_animation.visible = true
 
 
 func _on_player_2_general_pyrus_select_area_exited(area):
 	if area:
-		GeneralPyrusAnimation.stop()
-		GeneralPyrusAnimation.frame = 0
-		GeneralPyrusAnimation.visible = false
+		general_archfield_animation.stop()
+		general_archfield_animation.frame = 0
+		general_archfield_animation.visible = false
 
 func _on_player_2_goku_select_area_entered(area):
 	if area:
-		GokuAnimation.play("Ready")
-		GokuAnimation.visible = true
+		goku_aniamtion.play("Ready")
+		goku_aniamtion.visible = true
 
 func _on_player_2_goku_select_area_exited(area):
 	if area:
-		GokuAnimation.stop()
-		GokuAnimation.frame = 0
-		GokuAnimation.visible = false
+		goku_aniamtion.stop()
+		goku_aniamtion.frame = 0
+		goku_aniamtion.visible = false
 
 func _on_player_2_nai_select_area_entered(area):
 	if area:
-		NaiAnimation.play("Ready")
-		NaiAnimation.visible = true
+		sakura_animation.play("Ready")
+		sakura_animation.visible = true
 
 
 func _on_player_2_nai_select_area_exited(area):
 	if area:
-		NaiAnimation.stop()
-		NaiAnimation.frame = 0
-		NaiAnimation.visible = false
+		sakura_animation.stop()
+		sakura_animation.frame = 0
+		sakura_animation.visible = false
 
 func _on_player_2_hunter_select_area_entered(area):
 	if area:
-		HunterAnimation.play("Ready")
-		HunterAnimation.visible = true
+		hunter_animation.play("Ready")
+		hunter_animation.visible = true
 
 func _on_player_2_hunter_select_area_exited(area):
 	if area:
-		HunterAnimation.stop()
-		HunterAnimation.frame = 0
-		HunterAnimation.visible = false
+		hunter_animation.stop()
+		hunter_animation.frame = 0
+		hunter_animation.visible = false
 
 func _on_player_2_nomad_select_area_entered(area):
 	if area:

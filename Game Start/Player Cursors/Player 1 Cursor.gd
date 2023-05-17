@@ -34,7 +34,7 @@ func _ready():
 	texture = PlayerIcon
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
-	
+	print(currentSelected)
 	if(Input.is_action_just_pressed(Controls.input_right)):
 		currentSelected += 1
 		currentColumnSpot += 1

@@ -1248,7 +1248,7 @@ visible = false
 position = Vector2(349, 95)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_iwkx3")
-animation = &"Ready"
+animation = &"Idle"
 
 [node name="Player 1 Hunter" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -1324,6 +1324,23 @@ animation = &"Idle"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 177)
 zoom = Vector2(1.5, 1.5)
+
+[node name="Player 1 Name" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 297.0
+offset_right = 469.0
+offset_bottom = 337.0
+text = "Atlantis"
+fit_content = true
+
+[node name="Player 2 Name" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 105.0
+offset_right = 434.0
+offset_bottom = 128.0
+fit_content = true
 
 [connection signal="area_entered" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]
 [connection signal="area_exited" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_exited"]

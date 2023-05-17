@@ -7,6 +7,7 @@ extends Sprite2D
 @onready var AtlantisAnimation = $"../Player 1 Atlantis"
 @onready var GokuAnimation = $"../Player 1 Goku"
 
+@onready var player_1_tag = $"../Player 1 Name"
 @export var Controls: Resource 
 # Object Array
 var characters = []          # Array to store all the characters the player can select
@@ -113,19 +114,21 @@ func _on_player_1_general_pyrus_select_area_entered(area):
 	if area:
 		GeneralPyrusAnimation.play("Ready")
 		GeneralPyrusAnimation.visible = true
-
+		player_1_tag.set_text(str("General Arcfield"))
+		player_1_tag.position.x = 304
 
 func _on_player_1_general_pyrus_select_area_exited(area):
 	if area:
 		GeneralPyrusAnimation.stop()
 		GeneralPyrusAnimation.frame = 0
 		GeneralPyrusAnimation.visible = false
-
 func _on_player_1_nai_select_area_entered(area):
 	if area:
 		NaiAnimation.play("Ready")
 		NaiAnimation.visible = true
-
+		player_1_tag.add_text("Sakura")
+		player_1_tag.set_text(str("Sakura"))
+		player_1_tag.position.x = 344
 
 func _on_player_1_nai_select_area_exited(area):
 	if area:
@@ -161,6 +164,8 @@ func _on_player_1_atlantis_select_area_entered(area):
 	if area:
 		AtlantisAnimation.play("Ready")
 		AtlantisAnimation.visible = true
+		player_1_tag.set_text(str("Atlantis"))
+		player_1_tag.position.x = 328
 
 
 func _on_player_1_atlantis_select_area_exited(area):
@@ -170,11 +175,14 @@ func _on_player_1_atlantis_select_area_exited(area):
 		AtlantisAnimation.visible = false
 
 
+
 func _on_player_1_goku_select_area_entered(area):
 	if area:
 		GokuAnimation.play("Ready")
 		GokuAnimation.visible = true
-
+		player_1_tag.set_text(str("Goku"))
+		player_1_tag.position.x = 332
+		
 
 func _on_player_1_goku_select_area_exited(area):
 	if area:

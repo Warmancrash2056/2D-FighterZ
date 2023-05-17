@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bvoacn4mm4638"]
 
-[ext_resource type="PackedScene" uid="uid://dkaf4thtn7g0g" path="res://Character Resouces/Hunter/Character Scene/Hunter.tscn" id="1_nm0nv"]
-[ext_resource type="Script" path="res://Character Resouces/Global/Player 2 Script.gd" id="2_o732g"]
+[ext_resource type="PackedScene" uid="uid://c27kgbbjefdwo" path="res://Character Resouces/Nomad/Character Scenes/Nomad.tscn" id="1_4khs3"]
+[ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="2_mvh82"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -75,6 +75,6 @@ zoom = Vector2(2, 2)
 position = Vector2(648, 264)
 shape = SubResource("CircleShape2D_2kpki")
 
-[node name="Hunter" parent="." instance=ExtResource("1_nm0nv")]
-position = Vector2(456, 280)
-script = ExtResource("2_o732g")
+[node name="Player 2 Nomad" parent="." instance=ExtResource("1_4khs3")]
+position = Vector2(496, 272)
+script = ExtResource("2_mvh82")

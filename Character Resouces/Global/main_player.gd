@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-var controls: Resource = load("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
@@ -55,24 +54,24 @@ func _physics_process(delta):
 			if not is_on_floor():
 				Select = States.Fall
 				
-			if Input.is_action_pressed(controls.input_left):
+			if Input.is_action_pressed("main_left"):
 				Animate.play("Run")
 				velocity.x = -Speed
-				if Input.is_action_just_pressed(controls.input_attack):
+				if Input.is_action_just_pressed("main_attack"):
 						Select = States.Slight
 						
-				if Input.is_action_just_pressed(controls.input_dash):
+				if Input.is_action_just_pressed("main_defend"):
 						Select = States.Roll
 						velocity.x = -350
-			elif Input.is_action_pressed(controls.input_right):
+			elif Input.is_action_pressed("main_right"):
 				Animate.play("Run")
 				velocity.x = Speed
 				
-				if Input.is_action_just_pressed(controls.input_attack):
+				if Input.is_action_just_pressed("main_attack"):
 					Select = States.Slight
 						
 						
-				if Input.is_action_just_pressed(controls.input_dash):
+				if Input.is_action_just_pressed("main_defend"):
 					Select = States.Roll
 					velocity.x = 350
 			
@@ -80,26 +79,27 @@ func _physics_process(delta):
 				velocity.x = 0
 				Animate.play("Idle")
 				
-				if Input.is_action_just_pressed(controls.input_attack):
+				if Input.is_action_just_pressed("main_attack"):
 					Select = States.Nlight
-				elif Input.is_action_just_pressed(controls.input_block):
+				elif Input.is_action_just_pressed("main_defend"):
 					Select = States.Defend
-			if Input.is_action_pressed(controls.input_down):
-				if Input.is_action_just_pressed(controls.input_attack):
+					
+			if Input.is_action_pressed("main_down"):
+				if Input.is_action_just_pressed("main_attack"):
 					Select = States.Dlight
 
 					
-			if Input.is_action_pressed(controls.input_up):
-				if Input.is_action_just_pressed(controls.input_attack):
+			if Input.is_action_pressed("main_up"):
+				if Input.is_action_just_pressed("main_attack"):
 					Select = States.Ulight
 		
-			if Input.is_action_just_pressed(controls.input_jump):
+			if Input.is_action_just_pressed("main_jump"):
 					Animate.play("Jump")
 					Select = States.Jump
 					$"Jump Sound".play()
 					
-			if Input.is_action_just_pressed(controls.input_dash):
-				Select = States.ActivateSuper
+			#if Input.is_action_just_pressed("main_transform"):
+				#Select = States.ActivateSuper
 				
 		States.Jump:
 			if is_on_floor():
@@ -107,24 +107,22 @@ func _physics_process(delta):
 				
 			if velocity.y > 0:
 				Select = States.Fall
-			if Input.is_action_pressed(controls.input_down):
+			if Input.is_action_pressed("main_down"):
 				velocity.y += 10
-			if Input.is_action_pressed(controls.input_left):
+			if Input.is_action_pressed("main_left"):
 				velocity.x = -Speed
 				
-				
-				if Input.is_action_just_pressed(controls.input_attack):
+				if Input.is_action_just_pressed("main_attack"):
 					Select = States.Nair
-				
-			elif Input.is_action_pressed(controls.input_right):
+			elif Input.is_action_pressed("main_right"):
 				velocity.x = Speed
 				
-				if Input.is_action_just_pressed(controls.input_attack):
+				if Input.is_action_just_pressed("main_attack"):
 					Select = States.Nair
 			else:
 				velocity.x = 0
 				
-				if Input.is_action_just_pressed(controls.input_attack):
+				if Input.is_action_just_pressed("main_attack"):
 					Select = States.Nair
 					
 		States.Fall:

@@ -190,8 +190,9 @@ func _physics_process(delta):
 			
 		States.DeactivateSuper:
 			Animate.play("Deactivate Super")
-	
-func _on_animation_player_animation_finished(anim_name):
+
+
+func _on_character_animation_finished(anim_name):
 	if anim_name == "Nlight":
 		Select = States.Idle
 
@@ -219,3 +220,4 @@ func _on_animation_player_animation_finished(anim_name):
 		Select = States.DeactivateSuper
 	if anim_name == "Deactivate Super":
 		Select = States.Idle
+

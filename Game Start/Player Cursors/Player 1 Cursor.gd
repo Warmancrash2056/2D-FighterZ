@@ -1,7 +1,7 @@
 extends Sprite2D
 
-@onready var NaiAnimation = $"../Player 1 Nia"
-@onready var GeneralPyrusAnimation = $"../Player 1 General Pyrus"
+@onready var NaiAnimation = $"../Player 1 Sakura"
+@onready var GeneralPyrusAnimation = $"../Player 1 General Archfield"
 @onready var HunterAnimation = $"../Player 1 Hunter"
 @onready var NomadAnimation = $"../Player 1 Nomad"
 @onready var AtlantisAnimation = $"../Player 1 Atlantis"

@@ -1,7 +1,7 @@
 extends Sprite2D
 
-@onready var sakura_animation = $pla
-@onready var general_archfield_animation = $"../Player 2 General Pyrus"
+@onready var sakura_animation = $"../Player 2 Sakura"
+@onready var general_archfield_animation = $"../Player 2 General Archfield"
 @onready var hunter_animation = $"../Player 2 Hunter"
 @onready var nomad_animation = $"../Player 2 Nomad"
 @onready var atlantis_animation = $"../Player 2 Atlantis"
@@ -102,7 +102,7 @@ func _on_player_2_atlantis_animation_looped():
 	pass
 
 func _on_player_2_sakura_animation_looped():
-	sakura_animation
+	sakura_animation.play("Idle")
 func _on_player_2_general_pyrus_select_area_entered(area):
 	if area:
 		general_archfield_animation.play("Ready")
@@ -151,24 +151,24 @@ func _on_player_2_hunter_select_area_exited(area):
 
 func _on_player_2_nomad_select_area_entered(area):
 	if area:
-		NomadAnimation.play("Ready")
-		NomadAnimation.visible = true
+		nomad_animation.play("Ready")
+		nomad_animation.visible = true
 
 
 func _on_player_2_nomad_select_area_exited(area):
 	if area:
-		NomadAnimation.stop()
-		NomadAnimation.frame = 0
-		NomadAnimation.visible = false
+		nomad_animation.stop()
+		nomad_animation.frame = 0
+		nomad_animation.visible = false
 
 func _on_player_2_atlantis_select_area_entered(area):
 	if area:
-		AtlantisAnimation.play("")
-		AtlantisAnimation.visible = true
+		atlantis_animation.play("Ready")
+		atlantis_animation.visible = true
 
 
 func _on_player_2_atlantis_select_area_exited(area):
 	if area:
-		AtlantisAnimation.stop()
-		AtlantisAnimation.frame = 0
-		AtlantisAnimation.visible = false
+		atlantis_animation.stop()
+		atlantis_animation.frame = 0
+		atlantis_animation.visible = false

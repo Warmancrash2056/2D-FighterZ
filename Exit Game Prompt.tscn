@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://ee8uls67u4jy"]
+
+[ext_resource type="Script" path="res://Exit Game Prompt.gd" id="1_1uv6i"]
+
+[node name="Exit Game Prompt" type="Control"]
+layout_mode = 3
+anchor_right = 0.806
+anchor_bottom = 0.272
+offset_right = -928.512
+offset_bottom = -176.256
+script = ExtResource("1_1uv6i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(23.1457, 4.44662)
+color = Color(0, 0.0862745, 0.431373, 1)
+
+[node name="Leave Game" type="Button" parent="."]
+offset_right = 480.0
+offset_bottom = 176.0
+size_flags_horizontal = 8
+text = "Yes"
+
+[node name="Return to menu" type="Button" parent="."]
+offset_left = 480.0
+offset_right = 928.0
+offset_bottom = 176.0
+text = "No"
+
+[connection signal="pressed" from="Leave Game" to="." method="_on_leave_game_pressed"]

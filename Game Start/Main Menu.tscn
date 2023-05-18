@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://di5auhdx6t7vg"]
+[gd_scene load_steps=60 format=3 uid="uid://di5auhdx6t7vg"]
 
 [ext_resource type="Script" path="res://Game Start/Start Game.gd" id="1_ljhc4"]
 [ext_resource type="Texture2D" uid="uid://bwjnt30m56qyb" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_1.png" id="2_jlv3j"]
@@ -51,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://dr112vevganxo" path="res://Character Resouces/Atlantis/Animation/Idle/idle_6.png" id="49_l6awd"]
 [ext_resource type="Texture2D" uid="uid://ch0sei0rvxfkg" path="res://Character Resouces/Atlantis/Animation/Idle/idle_7.png" id="50_6xugn"]
 [ext_resource type="Texture2D" uid="uid://dauumo6tddbva" path="res://Character Resouces/Atlantis/Animation/Idle/idle_8.png" id="51_vu3tm"]
+[ext_resource type="PackedScene" uid="uid://ee8uls67u4jy" path="res://Exit Game Prompt.tscn" id="52_u3ua5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_flk7n"]
 animations = [{
@@ -250,6 +251,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5b8ut"]
+radius = 81.1035
+
 [node name="Start Game" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -404,6 +408,22 @@ text = "Button Layout"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(552, 336)
 zoom = Vector2(1.7, 1.7)
+
+[node name="Exit Game Prompt" parent="." instance=ExtResource("52_u3ua5")]
+layout_mode = 1
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 272.0
+offset_top = 304.0
+offset_right = 272.0
+offset_bottom = 304.0
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(368, 368)
+rotation = 3.14159
+scale = Vector2(0.4, -0.6)
+shape = SubResource("CircleShape2D_5b8ut")
 
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]

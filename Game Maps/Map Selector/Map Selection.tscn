@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://wbmg6gxwhb3d"]
 
 [ext_resource type="Script" path="res://Game Maps/Map Selector/Map Selection.gd" id="1_8yfhr"]
-[ext_resource type="Resource" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_fvfy2"]
+[ext_resource type="Resource" uid="uid://clcyfwysl6fkw" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_fvfy2"]
 
 [node name="Map Selection" type="Node2D"]
 script = ExtResource("1_8yfhr")

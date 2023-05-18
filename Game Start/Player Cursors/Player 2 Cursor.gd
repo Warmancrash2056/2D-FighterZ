@@ -7,6 +7,7 @@ extends Sprite2D
 @onready var atlantis_animation = $"../Player 2 Atlantis"
 @onready var goku_aniamtion = $"../Player 2 Goku"
 
+@onready var player_2_tag = $"../Player 2 Name"
 @export var Controls: Resource 
 # Object Array
 var characters = []          # Array to store all the characters the player can select
@@ -107,7 +108,8 @@ func _on_player_2_general_pyrus_select_area_entered(area):
 	if area:
 		general_archfield_animation.play("Ready")
 		general_archfield_animation.visible = true
-
+		player_2_tag.set_text(str("General Archfield"))
+		player_2_tag.position.x = 736
 
 func _on_player_2_general_pyrus_select_area_exited(area):
 	if area:

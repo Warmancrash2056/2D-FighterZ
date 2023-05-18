@@ -140,6 +140,7 @@ func _on_player_1_hunter_select_area_entered(area):
 	if area:
 		HunterAnimation.play("Ready")
 		HunterAnimation.visible = true
+		player_1_tag.set_text(str("Hunter"))
 
 
 func _on_player_1_hunter_select_area_exited(area):
@@ -152,6 +153,7 @@ func _on_player_1_nomad_select_area_entered(area):
 	if area:
 		NomadAnimation.play("Ready")
 		NomadAnimation.visible = true
+		player_1_tag.set_text(str("Nomad"))
 
 
 func _on_player_1_nomad_select_area_exited(area):

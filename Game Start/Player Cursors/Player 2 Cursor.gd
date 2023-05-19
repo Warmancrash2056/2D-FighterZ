@@ -22,7 +22,7 @@ var currentRowSpot = 0       # Spot of the cursor based on the row
 @export var portraitOffset: Vector2    # The distance between the portraits
 
 # Objects
-@onready var gridContainer = get_parent().get_node("Player 1 Selection")   # Get the Gridcontainer
+@onready var gridContainer = get_parent().get_node("Character Selection")   # Get the Gridcontainer
 
 var Player2Ready = false
 func _ready():
@@ -121,7 +121,8 @@ func _on_player_2_goku_select_area_entered(area):
 	if area:
 		goku_aniamtion.play("Ready")
 		goku_aniamtion.visible = true
-
+		player_2_tag.set_text(str("Goku"))
+		player_2_tag.position.x = 792
 func _on_player_2_goku_select_area_exited(area):
 	if area:
 		goku_aniamtion.stop()
@@ -132,8 +133,8 @@ func _on_player_2_nai_select_area_entered(area):
 	if area:
 		sakura_animation.play("Ready")
 		sakura_animation.visible = true
-
-
+		player_2_tag.set_text("Sakura")
+		player_2_tag.position.x = 768
 func _on_player_2_nai_select_area_exited(area):
 	if area:
 		sakura_animation.stop()
@@ -144,7 +145,8 @@ func _on_player_2_hunter_select_area_entered(area):
 	if area:
 		hunter_animation.play("Ready")
 		hunter_animation.visible = true
-
+		player_2_tag.set_text(str("Hunter"))
+		player_2_tag.position.x = 765
 func _on_player_2_hunter_select_area_exited(area):
 	if area:
 		hunter_animation.stop()
@@ -155,7 +157,8 @@ func _on_player_2_nomad_select_area_entered(area):
 	if area:
 		nomad_animation.play("Ready")
 		nomad_animation.visible = true
-
+		player_2_tag.set_text(str("Nomad"))
+		player_2_tag.position.x = 768
 
 func _on_player_2_nomad_select_area_exited(area):
 	if area:
@@ -167,8 +170,8 @@ func _on_player_2_atlantis_select_area_entered(area):
 	if area:
 		atlantis_animation.play("Ready")
 		atlantis_animation.visible = true
-
-
+		player_2_tag.set_text(str("Atlantis"))
+		player_2_tag.position.x = 776
 func _on_player_2_atlantis_select_area_exited(area):
 	if area:
 		atlantis_animation.stop()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=3 uid="uid://c2kuts083ajp3"]
+[gd_scene load_steps=159 format=3 uid="uid://c2kuts083ajp3"]
 
 [ext_resource type="Script" path="res://Game Start/Local Play/Local Play.gd" id="1_w8mfd"]
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Sakura/Icon/Assasin Character Icon.png" id="2_mr1wv"]
@@ -133,22 +133,47 @@
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_9.png" id="130_bsukf"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_10.png" id="131_7qe0s"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0sqqb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwqe8"]
+size = Vector2(25, 25)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_w30jr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xe2r"]
+size = Vector2(25, 25)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a2ev6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apncb"]
+size = Vector2(60, 60)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8qu8d"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fufml"]
+size = Vector2(60, 60)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_n6d1n"]
-radius = 11.3137
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u2db"]
+size = Vector2(60, 60)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2j3qg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vkfj"]
+size = Vector2(60, 60)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3nve2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxqcr"]
+size = Vector2(60, 60)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lmp0e"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpejh"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc05r"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goudo"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktbe7"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grmlc"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5cgw"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pxd3"]
+size = Vector2(60, 60)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n1ibh"]
 animations = [{
@@ -1012,13 +1037,11 @@ animations = [{
 
 [node name="Local Play" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 7.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_left = -192.0
+offset_top = 40.0
+offset_right = -192.0
+offset_bottom = 40.0
 script = ExtResource("1_w8mfd")
 metadata/_edit_vertical_guides_ = [-155.0]
 
@@ -1027,86 +1050,87 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.008
-offset_left = -132.0
-offset_top = -231.0
-offset_right = 244.0
-offset_bottom = 278.816
+offset_left = 176.0
+offset_top = -48.0
+offset_right = 960.0
+offset_bottom = 432.0
 color = Color(0.32549, 0.533333, 1, 1)
 
-[node name="Player 1 Selection" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 371.2
-offset_top = -11.8
-offset_right = 775.2
-offset_bottom = 52.2
+[node name="Character Selection" type="GridContainer" parent="."]
+offset_left = 384.0
+offset_top = -7.0
+offset_right = 788.0
+offset_bottom = 57.0
+scale = Vector2(0.947972, 1)
 columns = 6
 
-[node name="Sakura" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+[node name="Sakura" type="TextureRect" parent="Character Selection" groups=["Player1"]]
 layout_mode = 2
 texture = ExtResource("2_mr1wv")
 
-[node name="General Archfield" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+[node name="General Archfield" type="TextureRect" parent="Character Selection" groups=["Player1"]]
 layout_mode = 2
 texture = ExtResource("3_cwg26")
 
-[node name="Goku" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+[node name="Goku" type="TextureRect" parent="Character Selection" groups=["Player1"]]
 layout_mode = 2
 texture = ExtResource("4_ef4qh")
 
-[node name="Hunter" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+[node name="Hunter" type="TextureRect" parent="Character Selection" groups=["Player1"]]
 layout_mode = 2
 texture = ExtResource("5_dl8oi")
 
-[node name="Nomad" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+[node name="Nomad" type="TextureRect" parent="Character Selection" groups=["Player1"]]
 layout_mode = 2
 texture = ExtResource("6_skwqb")
 
-[node name="Atlantis" type="TextureRect" parent="Player 1 Selection" groups=["Player1"]]
+[node name="Atlantis" type="TextureRect" parent="Character Selection" groups=["Player1"]]
 layout_mode = 2
 texture = ExtResource("7_c8qb4")
 
 [node name="Player 1 Cursor" type="Sprite2D" parent="."]
-position = Vector2(403.2, 20.2)
-scale = Vector2(2.2, 2.2)
+position = Vector2(416, 25)
+scale = Vector2(2, 2)
 texture = ExtResource("10_45wcx")
 script = ExtResource("8_d3ttf")
 Controls = ExtResource("9_kuj4s")
 PlayerIcon = ExtResource("10_45wcx")
-portraitOffset = Vector2(68, 0)
+portraitOffset = Vector2(65, 0)
 
 [node name="Area2D" type="Area2D" parent="Player 1 Cursor"]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Cursor/Area2D"]
-shape = SubResource("CircleShape2D_0sqqb")
-debug_color = Color(1, 0, 0.027451, 1)
+shape = SubResource("RectangleShape2D_uwqe8")
+debug_color = Color(0, 0, 1, 0)
 
 [node name="Player 2 Cursor" type="Sprite2D" parent="."]
-position = Vector2(403.2, 20.2)
-scale = Vector2(2.2, 2.2)
+position = Vector2(416, 25)
+scale = Vector2(2, 2)
 texture = ExtResource("13_tjflb")
 script = ExtResource("11_sdn4v")
 Controls = ExtResource("12_l4kha")
-portraitOffset = Vector2(68, 0)
+portraitOffset = Vector2(65, 0)
 
 [node name="Area2D" type="Area2D" parent="Player 2 Cursor"]
 collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Cursor/Area2D"]
-shape = SubResource("CircleShape2D_w30jr")
-debug_color = Color(0, 0, 1, 1)
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_5xe2r")
+debug_color = Color(1, 0, 0, 0)
 
-[node name="Player 1 General Pyrus Select" type="Area2D" parent="."]
+[node name="Player 1 General Archfield Select" type="Area2D" parent="."]
 position = Vector2(435.2, -11.8)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 General Pyrus Select"]
-position = Vector2(32, 32)
-shape = SubResource("CircleShape2D_a2ev6")
-debug_color = Color(0, 0, 1, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 General Archfield Select"]
+position = Vector2(44.8, 36.8)
+shape = SubResource("RectangleShape2D_apncb")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 1 Goku Select" type="Area2D" parent="."]
 position = Vector2(371.2, -11.8)
@@ -1114,19 +1138,19 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Goku Select"]
-position = Vector2(168, 32)
-shape = SubResource("CircleShape2D_8qu8d")
-debug_color = Color(0, 0, 1, 1)
+position = Vector2(172.8, 36.8)
+shape = SubResource("RectangleShape2D_fufml")
+debug_color = Color(1, 1, 1, 0.419608)
 
-[node name="Player 1 Nai Select" type="Area2D" parent="."]
+[node name="Player 1 Sakura Select" type="Area2D" parent="."]
 position = Vector2(451.2, 4.2)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Nai Select"]
-position = Vector2(-48, 16)
-shape = SubResource("CircleShape2D_n6d1n")
-debug_color = Color(0, 0, 1, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Sakura Select"]
+position = Vector2(-35.2, 20.8)
+shape = SubResource("RectangleShape2D_6u2db")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 1 Hunter Select" type="Area2D" parent="."]
 position = Vector2(371.2, -11.8)
@@ -1134,9 +1158,9 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Hunter Select"]
-position = Vector2(240, 32)
-shape = SubResource("CircleShape2D_2j3qg")
-debug_color = Color(0, 0, 1, 1)
+position = Vector2(236.8, 36.8)
+shape = SubResource("RectangleShape2D_3vkfj")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 1 Nomad Select" type="Area2D" parent="."]
 position = Vector2(611.2, 20.2)
@@ -1144,9 +1168,9 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Nomad Select"]
-position = Vector2(72, 0)
-shape = SubResource("CircleShape2D_3nve2")
-debug_color = Color(0, 0, 1, 1)
+position = Vector2(60.8, 4.8)
+shape = SubResource("RectangleShape2D_rxqcr")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 1 Atlantis Select" type="Area2D" parent="."]
 position = Vector2(371.2, -11.8)
@@ -1154,22 +1178,22 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1 Atlantis Select"]
-position = Vector2(376, 32)
-shape = SubResource("CircleShape2D_lmp0e")
-debug_color = Color(0, 0, 1, 1)
+position = Vector2(364.8, 36.8)
+shape = SubResource("RectangleShape2D_cpejh")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 2 General Pyrus Select" type="Area2D" parent="."]
 position = Vector2(1072, 169)
 rotation = 3.14159
-scale = Vector2(1, -1)
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 General Pyrus Select"]
-position = Vector2(608, -151.998)
-scale = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_a2ev6")
-debug_color = Color(1, 0, 0, 1)
+position = Vector2(592.001, 145.001)
+rotation = -3.14159
+scale = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_dc05r")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 2 Goku Select" type="Area2D" parent="."]
 position = Vector2(1008, 169)
@@ -1179,10 +1203,9 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Goku Select"]
-position = Vector2(472, -151.999)
-scale = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_8qu8d")
-debug_color = Color(0.701961, 0, 0.0196078, 1)
+position = Vector2(464, -144.001)
+shape = SubResource("RectangleShape2D_goudo")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 2 Nai Select" type="Area2D" parent="."]
 position = Vector2(1088, 185)
@@ -1192,10 +1215,10 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Nai Select"]
-position = Vector2(688, -168)
+position = Vector2(672, -161.002)
 scale = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_n6d1n")
-debug_color = Color(1, 0, 0, 1)
+shape = SubResource("RectangleShape2D_ktbe7")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 2 Hunter Select" type="Area2D" parent="."]
 position = Vector2(1008, 169)
@@ -1205,10 +1228,9 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Hunter Select"]
-position = Vector2(392, -143.999)
-scale = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_2j3qg")
-debug_color = Color(1, 0, 0, 1)
+position = Vector2(400, -145.001)
+shape = SubResource("RectangleShape2D_grmlc")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 2 Nomad Select" type="Area2D" parent="."]
 position = Vector2(1248, 201)
@@ -1218,10 +1240,9 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Nomad Select"]
-position = Vector2(568, -176)
-scale = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_3nve2")
-debug_color = Color(1, 0, 0.027451, 1)
+position = Vector2(576, -177.001)
+shape = SubResource("RectangleShape2D_s5cgw")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 2 Atlantis Select" type="Area2D" parent="."]
 position = Vector2(1008, 169)
@@ -1231,10 +1252,9 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player 2 Atlantis Select"]
-position = Vector2(264, -152.001)
-scale = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_lmp0e")
-debug_color = Color(1, 0, 0, 1)
+position = Vector2(272, -145.001)
+shape = SubResource("RectangleShape2D_8pxd3")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Player 1 General Archfield" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -1282,72 +1302,76 @@ animation = &"Idle"
 [node name="Player 2 General Archfield" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(800, 74)
-scale = Vector2(-3.5, 3.5)
+rotation = -3.14159
+scale = Vector2(3.5, -3.5)
 sprite_frames = SubResource("SpriteFrames_etnd1")
 animation = &"Ready"
 
 [node name="Player 2 Goku" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(807, 95)
-scale = Vector2(-3.5, 3.5)
+rotation = -3.14159
+scale = Vector2(3.5, -3.5)
 sprite_frames = SubResource("SpriteFrames_ddid1")
-animation = &"Ready"
+animation = &"Idle"
 
 [node name="Player 2 Hunter" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(789, 74)
-scale = Vector2(-3.5, 3.5)
+rotation = -3.14159
+scale = Vector2(3.5, -3.5)
 sprite_frames = SubResource("SpriteFrames_fb631")
 animation = &"Ready"
 
 [node name="Player 2 Nomad" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(796, 74)
-scale = Vector2(-3.5, 3.5)
+rotation = -3.14159
+scale = Vector2(3.5, -3.5)
 sprite_frames = SubResource("SpriteFrames_f2ec0")
 animation = &"Ready"
 
 [node name="Player 2 Atlantis" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(803, 74)
-scale = Vector2(-3.5, 3.5)
+rotation = -3.14159
+scale = Vector2(3.5, -3.5)
 sprite_frames = SubResource("SpriteFrames_5lvnx")
 animation = &"Ready"
 
 [node name="Player 2 Sakura" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(775, 74)
-scale = Vector2(-3.5, 3.5)
+rotation = -3.14159
+scale = Vector2(3.5, -3.5)
 sprite_frames = SubResource("SpriteFrames_1cmhf")
 animation = &"Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 177)
+position = Vector2(576, 208)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Player 1 Name" type="RichTextLabel" parent="."]
-layout_mode = 0
 offset_left = 328.0
 offset_top = 297.0
 offset_right = 469.0
 offset_bottom = 337.0
-text = "Atlantis"
 fit_content = true
 
 [node name="Player 2 Name" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 736.0
+offset_left = 768.0
 offset_top = 297.0
-offset_right = 892.0
+offset_right = 924.0
 offset_bottom = 320.0
+text = "Sakura"
 fit_content = true
 
-[connection signal="area_entered" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]
-[connection signal="area_exited" from="Player 1 General Pyrus Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_exited"]
+[connection signal="area_entered" from="Player 1 General Archfield Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]
+[connection signal="area_exited" from="Player 1 General Archfield Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_exited"]
 [connection signal="area_entered" from="Player 1 Goku Select" to="Player 1 Cursor" method="_on_player_1_goku_select_area_entered"]
 [connection signal="area_exited" from="Player 1 Goku Select" to="Player 1 Cursor" method="_on_player_1_goku_select_area_exited"]
-[connection signal="area_entered" from="Player 1 Nai Select" to="Player 1 Cursor" method="_on_player_1_nai_select_area_entered"]
-[connection signal="area_exited" from="Player 1 Nai Select" to="Player 1 Cursor" method="_on_player_1_nai_select_area_exited"]
+[connection signal="area_entered" from="Player 1 Sakura Select" to="Player 1 Cursor" method="_on_player_1_nai_select_area_entered"]
+[connection signal="area_exited" from="Player 1 Sakura Select" to="Player 1 Cursor" method="_on_player_1_nai_select_area_exited"]
 [connection signal="area_entered" from="Player 1 Hunter Select" to="Player 1 Cursor" method="_on_player_1_hunter_select_area_entered"]
 [connection signal="area_exited" from="Player 1 Hunter Select" to="Player 1 Cursor" method="_on_player_1_hunter_select_area_exited"]
 [connection signal="area_entered" from="Player 1 Nomad Select" to="Player 1 Cursor" method="_on_player_1_nomad_select_area_entered"]

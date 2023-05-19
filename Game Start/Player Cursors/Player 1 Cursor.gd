@@ -23,7 +23,7 @@ var currentRowSpot = 0       # Spot of the cursor based on the row
 @export var portraitOffset: Vector2    # The distance between the portraits
 
 # Call parent node to get the character selection
-@onready var gridContainer = get_parent().get_node("Player 1 Selection")   # Get the Gridcontainer
+@onready var gridContainer = get_parent().get_node("Character Selection")   # Get the Gridcontainer
 
 var Player1Ready = false
 func _ready():

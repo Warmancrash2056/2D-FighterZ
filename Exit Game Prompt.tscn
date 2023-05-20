@@ -11,21 +11,25 @@ offset_bottom = -176.256
 script = ExtResource("1_1uv6i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(23.1457, 4.44662)
 color = Color(0, 0.0862745, 0.431373, 1)
 
 [node name="Leave Game" type="Button" parent="."]
+layout_mode = 0
 offset_right = 480.0
 offset_bottom = 176.0
 size_flags_horizontal = 8
 text = "Yes"
 
 [node name="Return to menu" type="Button" parent="."]
+layout_mode = 0
 offset_left = 480.0
 offset_right = 928.0
 offset_bottom = 176.0
 text = "No"
 
 [connection signal="pressed" from="Leave Game" to="." method="_on_leave_game_pressed"]
+[connection signal="pressed" from="Return to menu" to="." method="_on_return_to_menu_pressed"]

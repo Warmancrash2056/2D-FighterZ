@@ -12,11 +12,10 @@ var controls: Resource = load("res://Character Resouces/Global/Controller Resour
 @export var Health: int
 
 var Up = Vector2.UP
-var Can_Attack = true
-var Action_Exceeded = false
 var Jump_Count = 2
 enum States {
 	Idle, 
+	move
 	Jump,
 	Fall, 
 	Nlight, 
@@ -29,22 +28,32 @@ enum States {
 	Death, 
 	Hurt, 
 	ActivateSuper, 
-	DeactivateSuper, IdleSuper, RunSuper, JumpSuper, FallSuper, 
-NlightSuper, SlightSuper, DlightSuper, UlightSuper,}
+	DeactivateSuper, 
+	IdleSuper, 
+	RunSuper, 
+	JumpSuper, 
+	FallSuper, 
+	NlightSuper, 
+	SlightSuper, 
+	DlightSuper, 
+	UlightSuper
+	}
 var Select = States.Idle
 
 func _ready():
 	pass
 
-
-func _process(delta):
+func move_left():
+	
+		
 	if velocity.x >= 1:
 		Sprite.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 	elif velocity.x <= -1:
 		Sprite.flip_h = true
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-		
+func move_right():
+	
 func _physics_process(delta):
 	velocity.y += Gravity
 	move_and_slide()
@@ -52,21 +61,15 @@ func _physics_process(delta):
 	match Select:
 
 		States.Idle:
-			if not is_on_floor():
-				Select = States.Fall
+		
 				
 			if Input.is_action_pressed(controls.input_left):
-				Animate.play("Run")
-				velocity.x = -Speed
 				if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Slight
 						
 				if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Roll
-						velocity.x = -350
 			elif Input.is_action_pressed(controls.input_right):
-				Animate.play("Run")
-				velocity.x = Speed
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
@@ -74,10 +77,8 @@ func _physics_process(delta):
 						
 				if Input.is_action_just_pressed(controls.input_dash):
 					Select = States.Roll
-					velocity.x = 350
 			
 			else:
-				velocity.x = 0
 				Animate.play("Idle")
 				
 				if Input.is_action_just_pressed(controls.input_attack):
@@ -100,7 +101,7 @@ func _physics_process(delta):
 					
 			if Input.is_action_just_pressed(controls.input_dash):
 				Select = States.ActivateSuper
-				
+			
 		States.Jump:
 			if is_on_floor():
 				velocity.y = -JumpHeight

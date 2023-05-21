@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var controls: Resource = load("res://Character Resouces/Global/Controller Resource/Player_2.tres")
 
+
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 
@@ -52,18 +53,17 @@ func _physics_process(delta):
 	match Select:
 
 		States.Idle:
-			if not is_on_floor():
-				Select = States.Fall
+			var direction = Input.get_axis(controls.input_left, controls.input_right)
+			
+		
 				
 			if Input.is_action_pressed(controls.input_left):
 				Animate.play("Run")
-				velocity.x = -Speed
 				if Input.is_action_just_pressed(controls.input_attack):
 						Select = States.Slight
 						
 				if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Roll
-						velocity.x = -350
 			elif Input.is_action_pressed(controls.input_right):
 				Animate.play("Run")
 				velocity.x = Speed
@@ -77,7 +77,6 @@ func _physics_process(delta):
 					velocity.x = 350
 			
 			else:
-				velocity.x = 0
 				Animate.play("Idle")
 				
 				if Input.is_action_just_pressed(controls.input_attack):
@@ -100,7 +99,10 @@ func _physics_process(delta):
 					
 			if Input.is_action_just_pressed(controls.input_dash):
 				Select = States.ActivateSuper
-				
+			if direction:
+				velocity.x = direction * Speed
+			else:
+				velocity.x = move_toward(velocity.x, 0, Speed)
 		States.Jump:
 			if is_on_floor():
 				velocity.y = -JumpHeight
@@ -190,8 +192,7 @@ func _physics_process(delta):
 			
 		States.DeactivateSuper:
 			Animate.play("Deactivate Super")
-
-
+			
 func _on_character_animation_finished(anim_name):
 	if anim_name == "Nlight":
 		Select = States.Idle
@@ -221,3 +222,10 @@ func _on_character_animation_finished(anim_name):
 	if anim_name == "Deactivate Super":
 		Select = States.Idle
 
+
+
+
+func _on_smoke_animation_looped():
+	$Smoke.stop()
+	$Smoke.frame = 0
+	$Smoke.visible = false

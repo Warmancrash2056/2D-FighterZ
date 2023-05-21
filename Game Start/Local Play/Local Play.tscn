@@ -1057,6 +1057,7 @@ offset_bottom = 432.0
 color = Color(0.32549, 0.533333, 1, 1)
 
 [node name="Character Selection" type="GridContainer" parent="."]
+layout_mode = 0
 offset_left = 384.0
 offset_top = -7.0
 offset_right = 788.0
@@ -1352,6 +1353,7 @@ position = Vector2(576, 208)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Player 1 Name" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 328.0
 offset_top = 297.0
 offset_right = 469.0
@@ -1359,6 +1361,7 @@ offset_bottom = 337.0
 fit_content = true
 
 [node name="Player 2 Name" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 768.0
 offset_top = 297.0
 offset_right = 924.0

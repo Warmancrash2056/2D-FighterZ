@@ -3,8 +3,9 @@ extends Node
 var Player1
 var Player2
 
-var Player1Script = preload("res://Character Resouces/Global/Player 1 Script.gd")
+#var Player1Script = preload("res://Character Resouces/Global/Player 1 Script.gd")
 var Player2Script = preload("res://Character Resouces/Global/Player 2 Script.gd")
+var main_player_script = preload("res://Character Resouces/Global/main_player.gd")
 
 # Get character resouces to be called in character selection menu
 var SelectCharacters = {

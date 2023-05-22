@@ -15,7 +15,7 @@ var Up = Vector2.UP
 var Jump_Count = 2
 enum States {
 	Idle, 
-	move
+	move,
 	Jump,
 	Fall, 
 	Nlight, 
@@ -53,6 +53,7 @@ func move_left():
 		Sprite.flip_h = true
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 func move_right():
+	
 	
 func _physics_process(delta):
 	velocity.y += Gravity

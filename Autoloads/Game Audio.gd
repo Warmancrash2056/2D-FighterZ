@@ -1,4 +1,4 @@
-extends AudioStreamPlayer
+extends AudioStreamPlayer2D
 
 var Main_Menu_Audio = load("res://Game Music/Ludum Dare 38 - Track 2.wav")
 var Galvin_Map_Audio = load("res://Game Music/Galvin.wav")

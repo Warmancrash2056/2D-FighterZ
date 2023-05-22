@@ -4,7 +4,6 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-	Audio._character_select_play()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Cursor1.Player1Ready == true and Cursor2.Player2Ready == true:

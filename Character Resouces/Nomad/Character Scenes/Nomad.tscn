@@ -1,28 +1,11 @@
-[gd_scene load_steps=46 format=3 uid="uid://c27kgbbjefdwo"]
+[gd_scene load_steps=27 format=3 uid="uid://c27kgbbjefdwo"]
 
-[ext_resource type="Script" path="res://Character Resouces/Global/Player 2 Script.gd" id="1_fd1qq"]
+[ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_ky4fu"]
 [ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Spritesheet/Nomad Spritesheet.png" id="3_xwsaw"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="5_xdrmu"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="6_0yays"]
-[ext_resource type="Texture2D" uid="uid://d6uhov8uw8wk" path="res://Smoke VFX C1.png" id="7_b7uo4"]
 [ext_resource type="AudioStream" uid="uid://bmn4eg23hqjk7" path="res://Character Resouces/Nomad/Sound Effect/Down Light Sound.wav" id="7_xgqbn"]
-[ext_resource type="Texture2D" uid="uid://cpivnwtvaybv" path="res://Smoke VFX C2.png" id="8_7yf4b"]
 [ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="8_nbxvg"]
-[ext_resource type="Texture2D" uid="uid://cs1n252nbfym5" path="res://Smoke VFX C3.png" id="9_5k65v"]
-[ext_resource type="Texture2D" uid="uid://b5iahlydtlri1" path="res://Smoke VFX C4.png" id="10_uok5l"]
-[ext_resource type="Texture2D" uid="uid://o1teine6qdxf" path="res://Smoke VFX C5.png" id="11_ndaeq"]
-[ext_resource type="Texture2D" uid="uid://ds3rk1j4y23s" path="res://Smoke VFX C6.png" id="12_irwdm"]
-[ext_resource type="Texture2D" uid="uid://b5748t7l2a4ms" path="res://Smoke VFX C7.png" id="13_tnpa7"]
-[ext_resource type="Texture2D" uid="uid://cdjw57lrpfoxh" path="res://Smoke VFX C8.png" id="14_ntufi"]
-[ext_resource type="Texture2D" uid="uid://dn27ndevqgpy8" path="res://Smoke VFX A1.png" id="15_rg34v"]
-[ext_resource type="Texture2D" uid="uid://dyexjgt1kfpto" path="res://Smoke VFX A2.png" id="16_n87ac"]
-[ext_resource type="Texture2D" uid="uid://bw2we0pwn1xrd" path="res://Smoke VFX A3.png" id="17_n2b54"]
-[ext_resource type="Texture2D" uid="uid://cl6fth16i6yfj" path="res://Smoke VFX A4.png" id="18_h7deq"]
-[ext_resource type="Texture2D" uid="uid://cycgs8821puaw" path="res://Smoke VFX A5.png" id="19_62fy8"]
-[ext_resource type="Texture2D" uid="uid://ca3tkoppc3gty" path="res://Smoke VFX A6.png" id="20_twsy6"]
-[ext_resource type="Texture2D" uid="uid://buupqbey3om41" path="res://Smoke VFX A7.png" id="21_8xq55"]
-[ext_resource type="Texture2D" uid="uid://dn4f3m78ayn" path="res://Smoke VFX A8.png" id="22_rv7qi"]
-[ext_resource type="Texture2D" uid="uid://bnlsnsff3yd6r" path="res://Smoke VFX A9.png" id="23_obme2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm08w"]
 size = Vector2(26, 10)
@@ -233,34 +216,17 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".")
+tracks/2/path = NodePath("Character:speed_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0419283),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"smoke_jump"
-}, {
-"args": [],
-"method": &"jump_height"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Character:speed_scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.5]
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_0dvjl"]
@@ -552,7 +518,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("AudioStreamPlayer2D3:playing")
+tracks/13/path = NodePath("Up Light Phase In:playing")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -608,7 +574,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_j42kb"]
 resource_name = "Slight"
-length = 2.0
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -700,7 +666,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AudioStreamPlayer2D3:playing")
+tracks/4/path = NodePath("Up Light Phase In:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -752,109 +718,10 @@ _data = {
 "Ulight": SubResource("Animation_v7m2d")
 }
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_m32x1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_b7uo4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_7yf4b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_5k65v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_uok5l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_ndaeq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_irwdm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_tnpa7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_ntufi")
-}],
-"loop": true,
-"name": &"Jump",
-"speed": 60.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_rg34v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_n87ac")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_n2b54")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_h7deq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_62fy8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_twsy6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_8xq55")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_rv7qi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_obme2")
-}],
-"loop": true,
-"name": &"Run",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gat0n"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_rg34v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_n87ac")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_n2b54")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_h7deq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_62fy8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_twsy6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_8xq55")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_rv7qi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_obme2")
-}],
-"loop": true,
-"name": &"Smoke Run",
-"speed": 12.0
-}]
-
 [node name="Nomad" type="CharacterBody2D"]
 z_index = 3
 scale = Vector2(1.3, 1.3)
-script = ExtResource("1_fd1qq")
+script = ExtResource("1_ky4fu")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
@@ -899,43 +766,23 @@ debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_xdrmu")
+volume_db = -35.0
 
 [node name="Nuetral & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_0yays")
+volume_db = -30.0
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_xgqbn")
+volume_db = -20.0
 
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+[node name="Up Light Phase In" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_nbxvg")
+volume_db = -20.0
 
 [node name="Character" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_118q5")
 }
 
-[node name="Jump Smoke" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(0, 18.4615)
-scale = Vector2(0.769231, 0.769231)
-sprite_frames = SubResource("SpriteFrames_m32x1")
-animation = &"Jump"
-
-[node name="Right Side Run Smoke" type="AnimatedSprite2D" parent="."]
-position = Vector2(13.0769, 15.3846)
-scale = Vector2(-0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_gat0n")
-animation = &"Smoke Run"
-
-[node name="Left Side Run Smoke" type="AnimatedSprite2D" parent="."]
-position = Vector2(-13.0769, 15.3846)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_gat0n")
-animation = &"Smoke Run"
-
 [connection signal="animation_finished" from="Character" to="." method="_on_character_animation_finished"]
-[connection signal="animation_looped" from="Jump Smoke" to="." method="_on_smoke_animation_looped"]
-[connection signal="animation_looped" from="Right Side Run Smoke" to="." method="_on_smoke_run_animation_looped"]
-[connection signal="animation_looped" from="Right Side Run Smoke" to="." method="_on_right_side_run_smoke_animation_looped"]
-[connection signal="animation_looped" from="Left Side Run Smoke" to="." method="_on_smoke_run_animation_looped"]
-[connection signal="animation_looped" from="Left Side Run Smoke" to="." method="_on_left_side_run_smoke_animation_looped"]

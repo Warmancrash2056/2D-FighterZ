@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvoacn4mm4638"]
+[gd_scene load_steps=6 format=3 uid="uid://bvoacn4mm4638"]
 
 [ext_resource type="PackedScene" uid="uid://c27kgbbjefdwo" path="res://Character Resouces/Nomad/Character Scenes/Nomad.tscn" id="1_4khs3"]
+[ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="2_3pfn2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -77,4 +78,4 @@ shape = SubResource("CircleShape2D_2kpki")
 
 [node name="Player 2 Nomad" parent="." instance=ExtResource("1_4khs3")]
 position = Vector2(544, 184)
-Health = 0
+script = ExtResource("2_3pfn2")

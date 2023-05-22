@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://idab74ajmvh1"]
+[gd_scene load_steps=2 format=3 uid="uid://b682vqfbo8db4"]
 
-[ext_resource type="Script" path="res://ready_mian_menu_audio.gd" id="1_pcxqn"]
+[sub_resource type="GDScript" id="GDScript_1qd0h"]
+script/source = "extends Node2D
+
+
+# Play audio before the main menu to prevent stopping the player when entering.
+# Scene and replaying audio again.
+func _ready():
+	Audio._main_menu_play()
+	get_tree().change_scene_to_file(\"res://Game Start/Main Menu.tscn\")
+
+"
 
 [node name="Ready Mian Menu Audio" type="Node2D"]
-script = ExtResource("1_pcxqn")
+script = SubResource("GDScript_1qd0h")

@@ -1,9 +1,9 @@
-[gd_resource type="Resource" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="InputSys" load_steps=2 format=3 uid="uid://cwyii8duo366p"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Controller Resource/Controller.gd" id="1"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 Player_Index = 0
 input_right = "Player1_Right"
 input_left = "Player1_Left"

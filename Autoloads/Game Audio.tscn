@@ -1,9 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://deraa25uwof3"]
+[gd_scene load_steps=2 format=3 uid="uid://dgjlhjvyylf1h"]
 
-[ext_resource type="Script" path="res://Autoloads/Game Audio.gd" id="1_xf05r"]
+[ext_resource type="Script" path="res://Autoloads/Game Audio.gd" id="1_xl5yx"]
 
-[node name="Game Audio" type="AudioStreamPlayer"]
-volume_db = 5.0
-script = ExtResource("1_xf05r")
+[node name="Game Audio" type="AudioStreamPlayer2D"]
+script = ExtResource("1_xl5yx")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

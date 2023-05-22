@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var Controller: Resource
-@onready var GameAudio = $"Main Menu Audio"
 @onready var MapName = $"Map Name"
 @onready var Galvin = $Galvin
 @onready var Artic = $Artic
@@ -13,11 +12,13 @@ enum Map{
 var MapCall = Map.Galvin
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameAudio.play()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("exit"):
+		pass
 	match MapCall:
 		Map.Galvin:
 			MapName.set_text(str("Galvin"))
@@ -52,7 +53,4 @@ func _process(delta):
 			
 			if Input.is_action_just_pressed(Controller.input_jump):
 				get_tree().change_scene_to_file("res://Game Maps/The Artic/Training Artic.tscn")
-
-
-func _on_main_menu_audio_finished():
-	GameAudio.play()
+		

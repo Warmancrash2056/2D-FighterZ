@@ -6,9 +6,11 @@ var controls: Resource = load("res://Character Resouces/Global/Controller Resour
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var Jump_Smoke = $"Jump Smoke"
-@onready var Run_Smoke = $"Smoke Run"
+@onready var Left_Run_Smoke = $"Left Side Run Smoke"
+@onready var Right_Run_Smoke = $"Right Side Run Smoke"
 
-const Speed = 250
+
+const Speed = 350
 const Jump_Height = 550
 const Gravity = 35
 
@@ -30,13 +32,22 @@ enum States {
 	Death, 
 	Hurt, 
 	ActivateSuper, 
-	DeactivateSuper, IdleSuper, RunSuper, JumpSuper, FallSuper, 
-NlightSuper, SlightSuper, DlightSuper, UlightSuper,}
+	DeactivateSuper, 
+	IdleSuper, 
+	RunSuper, 
+	JumpSuper, 
+	FallSuper, 
+	NlightSuper, 
+	SlightSuper, 
+	DlightSuper, 
+	UlightSuper,}
 var Select = States.Standing
 
 func _ready():
 	Jump_Smoke.frame = 0
 	Jump_Smoke.visible = false
+	Left_Run_Smoke.visible = false
+	Right_Run_Smoke.visible = false
 
 func smoke_jump():
 	Jump_Smoke.play("Jump")
@@ -59,6 +70,9 @@ func turn_left():
 		await get_tree().create_timer(0.1).timeout
 		if Input.is_action_pressed(controls.input_left):
 			Select = States.Move_Left
+			Right_Run_Smoke.play("Smoke Run")
+			Right_Run_Smoke.visible = true
+			Right_Run_Smoke.flip_h = false
 func turn_right():
 	if Sprite.flip_h == false:
 		Select = States.Move_Right
@@ -73,8 +87,10 @@ func turn_right():
 		await get_tree().create_timer(0.1).timeout
 		if Input.is_action_pressed(controls.input_right):
 			Select = States.Move_Right
+			Left_Run_Smoke.play("Smoke Run")
+			Left_Run_Smoke.visible = true
+			Left_Run_Smoke.flip_h = false
 func _physics_process(delta):
-	print(Sprite.flip_h)
 	velocity.y += Gravity
 	move_and_slide()
 
@@ -87,16 +103,15 @@ func _physics_process(delta):
 			if !is_on_floor():
 				Select = States.Fall
 				
-			if Input.is_action_pressed(controls.input_left):
-				turn_left()
-				
-			if Input.is_action_pressed(controls.input_right):
-				turn_right()
-				
 			if Input.is_action_just_pressed(controls.input_attack):
 				Select = States.Nlight
-			if Input.is_action_just_pressed(controls.input_jump):
+			if Input.is_action_just_pressed(controls.input_jump) and is_on_floor():
 				Select = States.Jump
+			elif Input.is_action_pressed(controls.input_left):
+				turn_left()
+				
+			elif Input.is_action_pressed(controls.input_right):
+				turn_right()
 		States.Move_Left:
 			if Input.is_action_pressed(controls.input_left):
 				velocity.x = -Speed
@@ -106,6 +121,10 @@ func _physics_process(delta):
 					
 			else:
 				Select = States.Standing
+			
+			if Input.is_action_pressed(controls.input_up):
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Ulight
 			if Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
 		States.Move_Right:
@@ -122,6 +141,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed(controls.input_jump):
 				Select = States.Jump
 		States.Jump:
+			print("Jump")
 			if is_on_floor():
 				Animate.play("Jump")
 			if velocity.y > 0:
@@ -247,8 +267,13 @@ func _on_smoke_animation_looped():
 	Jump_Smoke.frame = 0
 	Jump_Smoke.visible = false
 
+func _on_left_side_run_smoke_animation_looped():
+	Left_Run_Smoke.stop()
+	Left_Run_Smoke.frame = 0
+	Left_Run_Smoke.visible = false
 
-func _on_smoke_run_animation_looped():
-	Run_Smoke.stop()
-	Run_Smoke.frame = 0
-	Run_Smoke.visible = false
+
+func _on_right_side_run_smoke_animation_looped():
+	Right_Run_Smoke.stop()
+	Right_Run_Smoke.frame = 0
+	Right_Run_Smoke.visible = false

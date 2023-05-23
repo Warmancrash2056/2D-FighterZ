@@ -9,8 +9,8 @@ size = Vector2(1640, 496)
 radius = 16.0
 height = 32.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2kpki"]
-radius = 64.4981
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p54th"]
+size = Vector2(204.5, 20)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(1, 8)
@@ -69,11 +69,13 @@ shape = SubResource("2")
 position = Vector2(568, 272)
 zoom = Vector2(2, 2)
 
-[node name="Area2D2" type="Area2D" parent="." groups=["Hurt"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(648, 264)
-shape = SubResource("CircleShape2D_2kpki")
-
 [node name="Player 2 Nomad" parent="." instance=ExtResource("1_4khs3")]
 position = Vector2(544, 184)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(639, 264)
+shape = SubResource("RectangleShape2D_p54th")

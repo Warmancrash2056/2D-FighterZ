@@ -1,18 +1,24 @@
 extends Control
 
-@onready var GeneralArchfield = $"General Archfield"
-@onready var Goku = $Goku
-@onready var Nomad = $Nomad
-@onready var Nia = $Nia
-@onready var PrincessAtlantis = $"Princess Atlantis"
-@onready var Hunter = $Hunter
+@onready var general_archfield = $"Character Pose/General Archfield"
+@onready var goku = $"Character Pose/Goku"
+@onready var nomad = $"Character Pose/Nomad"
+@onready var sakura = $"Character Pose/Sakura"
+@onready var atlantis = $"Character Pose/Atlantis"
+@onready var hunter = $"Character Pose/Hunter"
 
 
 @onready var LocalPlay = $"Local Play"
 @onready var AboutCharacters = $"About Characters"
 @onready var TrainingRoom = $"Training Room"
 
-@onready var exit_prompt = $"Exit Game Prompt"
+func _ready():
+	general_archfield.play("Idle")
+	goku.play("Idle")
+	hunter.play("Idle")
+	nomad.play("Idle")
+	atlantis.play("Idle")
+	sakura.play("Idle")
 
 
 

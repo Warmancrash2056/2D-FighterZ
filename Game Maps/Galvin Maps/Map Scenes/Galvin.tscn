@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=18 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="6_kexdy"]
 [ext_resource type="Script" path="res://Game Maps/Player Spawn Scripts/Player 1 Spawner.gd" id="7_8o6ly"]
 [ext_resource type="Script" path="res://Game Maps/Player Spawn Scripts/Player 2 Spawner.gd" id="8_8ijcr"]
+[ext_resource type="PackedScene" uid="uid://cp74isk70i6ph" path="res://Fps Counter.tscn" id="9_s6rqs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6m41"]
 texture = ExtResource("2_uq8es")
@@ -5572,3 +5573,10 @@ script = ExtResource("7_8o6ly")
 [node name="Player 2 Spawn" type="Node2D" parent="."]
 position = Vector2(72, -48)
 script = ExtResource("8_8ijcr")
+
+[node name="Fps Counter" parent="." instance=ExtResource("9_s6rqs")]
+modulate = Color(0.345946, 0.345946, 0.345946, 1)
+offset_left = 224.0
+offset_top = -352.0
+offset_right = 296.0
+offset_bottom = -329.0

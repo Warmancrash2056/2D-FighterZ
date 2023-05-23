@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgi3g7e8imrsb"]
 
 [ext_resource type="Script" path="res://Game Start/Studio Logo/Logo.gd" id="1_7ib3g"]
-[ext_resource type="Texture2D" uid="uid://lnvfuge6bvix" path="res://Game Start/Studio Logo/424765496-3.png" id="2_ph1n2"]
+[ext_resource type="Texture2D" uid="uid://lnvfuge6bvix" path="res://Game Start/Studio Logo/Logo Animation.png" id="2_i4aou"]
 
 [sub_resource type="Animation" id="Animation_twgi5"]
 length = 0.001
@@ -86,7 +86,7 @@ position = Vector2(575, 303)
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 position = Vector2(2, 0)
 scale = Vector2(5, 5)
-texture = ExtResource("2_ph1n2")
+texture = ExtResource("2_i4aou")
 hframes = 50
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Node2D"]

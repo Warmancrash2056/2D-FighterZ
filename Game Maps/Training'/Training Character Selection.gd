@@ -15,5 +15,3 @@ func _process(delta):
 	if Input.is_action_just_pressed("exit"):
 		get_tree().change_scene_to_file("res://Game Start/Main Menu.tscn")
 
-func _on_audio_stream_player_2d_finished():
-	GameAudio.play()

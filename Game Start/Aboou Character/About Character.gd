@@ -63,7 +63,7 @@ extends Control
 func _ready():
 	pass
 func _process(delta):
-	if Input.is_action_just_pressed("exit"):
+	if Input.is_action_just_pressed(""):
 		get_tree().change_scene_to_file("res://Character Selection Resources/Start Game.tscn")
 
 func _on_general_archfield_animation_looped():

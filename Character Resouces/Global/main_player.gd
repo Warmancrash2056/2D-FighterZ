@@ -51,9 +51,9 @@ func _physics_process(delta):
 
 		States.Standing:
 			velocity.y += Gravity
-			var direction = Input.get_axis(controls.input_left, controls.input_right)
-			if direction:
-				velocity.x = direction * Speed
+			var controller_direction = Input.get_axis(controls.input_left, controls.input_right)
+			if controller_direction:
+				velocity.x = controller_direction * Speed
 				Animate.play("Run")
 			else:
 				velocity.x = move_toward(velocity.x, 0, Speed)

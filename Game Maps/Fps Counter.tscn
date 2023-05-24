@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cp74isk70i6ph"]
 
-[ext_resource type="Script" path="res://Fps Counter.gd" id="1_d8wdx"]
+[ext_resource type="Script" path="res://Game Maps/Fps Counter.gd" id="1_ebrqa"]
 
 [node name="Fps Counter" type="RichTextLabel"]
 modulate = Color(0.396889, 0.396889, 0.396889, 1)
@@ -12,4 +12,4 @@ offset_bottom = -376.0
 grow_horizontal = 2
 grow_vertical = 2
 fit_content = true
-script = ExtResource("1_d8wdx")
+script = ExtResource("1_ebrqa")

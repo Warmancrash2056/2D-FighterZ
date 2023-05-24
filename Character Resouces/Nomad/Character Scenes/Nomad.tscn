@@ -18,8 +18,8 @@ height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7682v"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3x7xk"]
-radius = 4.62563
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axsxp"]
+size = Vector2(27.6923, 37.6923)
 
 [sub_resource type="Animation" id="Animation_6dpqg"]
 resource_name = "Block"
@@ -762,25 +762,25 @@ shape = SubResource("CircleShape2D_7682v")
 disabled = true
 
 [node name="Foot" type="CollisionShape2D" parent="."]
-position = Vector2(0, 19.2308)
-shape = SubResource("CircleShape2D_3x7xk")
+position = Vector2(3.66798e-07, 4.23077)
+shape = SubResource("RectangleShape2D_axsxp")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_xdrmu")
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="Nuetral & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_0yays")
-volume_db = -30.0
+volume_db = -10.0
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_xgqbn")
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="Up Light Phase In" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_nbxvg")
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="Character" type="AnimationPlayer" parent="."]
 libraries = {

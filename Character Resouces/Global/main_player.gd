@@ -40,7 +40,6 @@ var Select = States.Standing
 func _process(delta):
 	pass
 func _physics_process(delta):
-	print(Speed)
 	move_and_slide()
 
 	match Select:
@@ -66,9 +65,15 @@ func _physics_process(delta):
 			if Input.is_action_pressed(controls.input_right) or Input.is_action_pressed(controls.input_left):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Slight
-				if velocity.x != 0:
+			if velocity.x != 0:
+				if Input.is_action_pressed(controls.input_left):
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Roll
+						velocity.x = -250
+				if Input.is_action_pressed(controls.input_right):
+					if Input.is_action_just_pressed(controls.input_dash):
+						Select = States.Roll
+						velocity.x = 250
 			if Input.is_action_pressed(controls.input_down):
 				
 				if Input.is_action_just_pressed(controls.input_attack):
@@ -85,11 +90,11 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed(controls.input_jump) and is_on_floor():
 				Select = States.Jump
 			
-			if Input.is_action_just_pressed(controls.input_right):
+			if Input.is_action_pressed(controls.input_right):
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 		
-			if Input.is_action_just_pressed(controls.input_left):
+			if Input.is_action_pressed(controls.input_left):
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 			

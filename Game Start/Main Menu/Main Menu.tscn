@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://di5auhdx6t7vg"]
 
 [ext_resource type="Script" path="res://Game Start/Main Menu/Main Menu.gd" id="1_a0kbw"]
-[ext_resource type="PackedScene" uid="uid://bys0ptudnouiw" path="res://Character Idle.tscn" id="2_3wm2l"]
+[ext_resource type="PackedScene" uid="uid://bys0ptudnouiw" path="res://Game Start/Character Idle.tscn" id="2_3wm2l"]
+
 
 [node name="Start Game" type="Control"]
 layout_mode = 3

@@ -5561,8 +5561,10 @@ shape = SubResource("RectangleShape2D_1a41r")
 position = Vector2(-296, -48)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 226.0
+offset_top = -369.0
+offset_right = 266.0
+offset_bottom = -329.0
 
 [node name="Player 2 Spawn" type="Node2D" parent="."]
 position = Vector2(72, -48)

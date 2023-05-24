@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpuwl1bs85r1b"]
-
-[ext_resource type="AudioStream" uid="uid://c6rx30yjb54d8" path="res://Game Music/Galvin.wav" id="1_nahnt"]
-
-[node name="Game Audio" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_nahnt")
-volume_db = -25.0

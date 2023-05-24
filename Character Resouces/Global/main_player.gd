@@ -12,6 +12,7 @@ const Gravity = 35
 
 @export var Health: int
 
+
 enum States {
 	Standing,
 	Jump,
@@ -37,20 +38,15 @@ enum States {
 	UlightSuper,}
 var Select = States.Standing
 func _process(delta):
-	if velocity.x > 0:
-		Sprite.flip_h = false
-		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-		
-	elif velocity.x < 0:
-		Sprite.flip_h = true
-		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+	pass
 func _physics_process(delta):
-	print(get_collision_mask_value(3))
+	print(Speed)
 	move_and_slide()
 
 	match Select:
 
 		States.Standing:
+			
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
 				Select = States.Fall
@@ -78,7 +74,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Dlight
 			
-				await  get_tree().create_timer(0.1).timeout
+				await  get_tree().create_timer(0.05).timeout
 				if Input.is_action_pressed(controls.input_down):
 					set_collision_mask_value(3, false)
 					
@@ -88,9 +84,21 @@ func _physics_process(delta):
 					
 			if Input.is_action_just_pressed(controls.input_jump) and is_on_floor():
 				Select = States.Jump
+			
+			if Input.is_action_just_pressed(controls.input_right):
+				Sprite.flip_h = false
+				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+		
+			if Input.is_action_just_pressed(controls.input_left):
+				Sprite.flip_h = true
+				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+			
 				
 		States.Jump:
 			set_collision_mask_value(3, false)
+			if Input.is_action_pressed(controls.input_down):
+				velocity.y += 10
+				set_collision_mask_value(3, false)
 			velocity.y += Gravity
 			if is_on_floor():
 				Animate.play("Jump")
@@ -108,9 +116,20 @@ func _physics_process(delta):
 				
 			if Input.is_action_just_pressed(controls.input_attack):
 				Select = States.Nair
+				
+			if Input.is_action_just_pressed(controls.input_right):
+				Sprite.flip_h = false
+				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+		
+			if Input.is_action_just_pressed(controls.input_left):
+				Sprite.flip_h = true
+				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 		States.Fall:
 			velocity.y += Gravity
 			Animate.play("Fall")
+			if Input.is_action_pressed(controls.input_down):
+				velocity.y += 10
+				set_collision_mask_value(3,false)
 			var direction = Input.get_axis(controls.input_left, controls.input_right)
 			if direction:
 				velocity.x = direction * Air_Speed
@@ -121,6 +140,14 @@ func _physics_process(delta):
 			if is_on_floor():
 				Select = States.Standing
 				set_collision_mask_value(3, true)
+				
+			if Input.is_action_just_pressed(controls.input_right):
+				Sprite.flip_h = false
+				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+		
+			if Input.is_action_just_pressed(controls.input_left):
+				Sprite.flip_h = true
+				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 		States.Nlight:
 			velocity.x = 0
 			Animate.play("Nlight")
@@ -132,6 +159,7 @@ func _physics_process(delta):
 			Animate.play("Slight")
 
 		States.Dlight:
+			set_collision_mask_value(3, true)
 			velocity.x = lerp(velocity.x , 0.1, 0.03)
 			velocity.y = 0
 			Animate.play("Dlight")
@@ -158,7 +186,6 @@ func _physics_process(delta):
 			
 			
 		States.Roll:
-			velocity.x = lerp(velocity.x , 0.01, 0.02)
 			Animate.play("Roll")
 			if !is_on_floor():
 				Select = States.Fall

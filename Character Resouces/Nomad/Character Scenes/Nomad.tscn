@@ -768,7 +768,7 @@ debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_xdrmu")
-volume_db = -35.0
+volume_db = -20.0
 
 [node name="Nuetral & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_0yays")

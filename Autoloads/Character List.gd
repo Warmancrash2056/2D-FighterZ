@@ -3,6 +3,8 @@ extends Node
 var Player1
 var Player2
 
+# Reminder that if script is not erroing and cannot register script. 
+# Usually means that script has an error.
 var Player1Script = preload("res://Character Resouces/Global/Player 1 Script.gd")
 var Player2Script = preload("res://Character Resouces/Global/Player 2 Script.gd")
 var main_player_script = preload("res://Character Resouces/Global/main_player.gd")

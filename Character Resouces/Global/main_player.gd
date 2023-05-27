@@ -1,14 +1,17 @@
 extends CharacterBody2D
 var controls: Resource = load("res://Character Resouces/Global/Controller Resource/Player_3.tres")
-
+var jump_smoke = preload("res://jump_smoke.tscn")
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
-
+@onready var Jump_Smoke = $"Jump Smoke"
+@onready var smoke_position = $Marker2D
 
 const Speed = 200
 const Air_Speed = 200
 const Jump_Height = 650
+const Sakura_Ulight_Jump = 400
 const Gravity = 35
+
 
 @export var Health: int
 
@@ -37,8 +40,19 @@ enum States {
 	DlightSuper, 
 	UlightSuper,}
 var Select = States.Standing
-func _process(delta):
+
+func _jump_smoke():
+	var instance_smoke_jump = jump_smoke.instantiate()
+	instance_smoke_jump.global_position = smoke_position.global_position
+	get_parent().add_child(instance_smoke_jump)
+	
+	
+func _ready():
 	pass
+	
+func _process(delta):
+	velocity.y += Gravity
+	print(smoke_position.global_position)
 func _physics_process(delta):
 	move_and_slide()
 
@@ -79,7 +93,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Dlight
 			
-				await  get_tree().create_timer(0.05).timeout
+				await  get_tree().create_timer(0.08).timeout
 				if Input.is_action_pressed(controls.input_down):
 					set_collision_mask_value(3, false)
 					
@@ -100,11 +114,9 @@ func _physics_process(delta):
 			
 				
 		States.Jump:
-			set_collision_mask_value(3, false)
 			if Input.is_action_pressed(controls.input_down):
-				velocity.y += 10
+				velocity.y += 50
 				set_collision_mask_value(3, false)
-			velocity.y += Gravity
 			if is_on_floor():
 				Animate.play("Jump")
 				velocity.y -= Jump_Height
@@ -248,3 +260,9 @@ func _on_character_animation_finished(anim_name):
 		Select = States.DeactivateSuper
 	if anim_name == "Deactivate Super":
 		Select = States.Standing
+
+
+func _on_jump_smoke_animation_looped():
+	Jump_Smoke.frame = 0 
+	Jump_Smoke.stop()
+	Jump_Smoke.visible = false

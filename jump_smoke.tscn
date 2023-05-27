@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=3 uid="uid://bo08t0pi17rio"]
+
+[ext_resource type="Texture2D" uid="uid://d6uhov8uw8wk" path="res://Smoke VFX C1.png" id="1_apaqq"]
+[ext_resource type="Texture2D" uid="uid://cpivnwtvaybv" path="res://Smoke VFX C2.png" id="2_aej3r"]
+[ext_resource type="Texture2D" uid="uid://cs1n252nbfym5" path="res://Smoke VFX C3.png" id="3_4cwfv"]
+[ext_resource type="Texture2D" uid="uid://b5iahlydtlri1" path="res://Smoke VFX C4.png" id="4_on5kn"]
+[ext_resource type="Texture2D" uid="uid://o1teine6qdxf" path="res://Smoke VFX C5.png" id="5_0c8dh"]
+[ext_resource type="Texture2D" uid="uid://ds3rk1j4y23s" path="res://Smoke VFX C6.png" id="6_u8ivt"]
+[ext_resource type="Texture2D" uid="uid://b5748t7l2a4ms" path="res://Smoke VFX C7.png" id="7_0652x"]
+[ext_resource type="Texture2D" uid="uid://cdjw57lrpfoxh" path="res://Smoke VFX C8.png" id="8_whdch"]
+[ext_resource type="Script" path="res://jump_smoke.gd" id="9_gpk86"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c4gd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_apaqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aej3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4cwfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_on5kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0c8dh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u8ivt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0652x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_whdch")
+}],
+"loop": true,
+"name": &"Jump Smoke",
+"speed": 12.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Jump Smoke" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_1c4gd")
+animation = &"Jump Smoke"
+frame_progress = 0.291173
+script = ExtResource("9_gpk86")
+
+[connection signal="animation_looped" from="Jump Smoke" to="Jump Smoke" method="_on_animation_looped"]

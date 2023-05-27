@@ -18,8 +18,8 @@ height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7682v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_axsxp"]
-size = Vector2(27.6923, 37.6923)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qpisd"]
+radius = 5.43928
 
 [sub_resource type="Animation" id="Animation_6dpqg"]
 resource_name = "Block"
@@ -188,6 +188,17 @@ tracks/1/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_gui56"]
 resource_name = "Jump"
@@ -227,6 +238,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_jump_smoke"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_0dvjl"]
@@ -762,8 +787,8 @@ shape = SubResource("CircleShape2D_7682v")
 disabled = true
 
 [node name="Foot" type="CollisionShape2D" parent="."]
-position = Vector2(3.66798e-07, 4.23077)
-shape = SubResource("RectangleShape2D_axsxp")
+position = Vector2(0, 17.6923)
+shape = SubResource("CircleShape2D_qpisd")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
@@ -786,5 +811,8 @@ volume_db = -10.0
 libraries = {
 "": SubResource("AnimationLibrary_118q5")
 }
+
+[node name="Marker2D" type="Node2D" parent="."]
+position = Vector2(0, 17.6923)
 
 [connection signal="animation_finished" from="Character" to="." method="_on_character_animation_finished"]

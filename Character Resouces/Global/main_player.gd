@@ -41,25 +41,32 @@ enum States {
 	UlightSuper,}
 var Select = States.Standing
 
+func go_into_nlight():
+	if Input.is_action_pressed(controls.input_attack):
+		Select = States.Nlight
+		print("Nlight Active")
+func go_into_slight():
+	if Input.is_action_pressed(controls.input_down):
+		if Input.is_action_pressed(controls.input_attack):
+			Select = States.Dlight
+			print("Slight Active")
 func _jump_smoke():
-	var instance_smoke_jump = jump_smoke.instantiate()
-	instance_smoke_jump.global_position = smoke_position.global_position
-	get_parent().add_child(instance_smoke_jump)
+	if is_on_floor():
+		var instance_smoke_jump = jump_smoke.instantiate()
+		instance_smoke_jump.global_position = smoke_position.global_position
+		get_parent().add_child(instance_smoke_jump)
 	
 	
 func _ready():
 	pass
 	
-func _process(delta):
-	velocity.y += Gravity
-	print(smoke_position.global_position)
 func _physics_process(delta):
 	move_and_slide()
 
 	match Select:
 
 		States.Standing:
-			
+			velocity.y += Gravity
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
 				Select = States.Fall
@@ -71,7 +78,8 @@ func _physics_process(delta):
 			else:
 				velocity.x = move_toward(velocity.x, 0, Speed)
 				Animate.play("Idle")
-			
+				if Input.is_action_just_pressed(controls.input_dash):
+					Select = States.Defend
 				
 			if Input.is_action_just_pressed(controls.input_attack):
 				Select = States.Nlight
@@ -88,12 +96,13 @@ func _physics_process(delta):
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Roll
 						velocity.x = 250
+
 			if Input.is_action_pressed(controls.input_down):
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Dlight
 			
-				await  get_tree().create_timer(0.08).timeout
+				await  get_tree().create_timer(0.15).timeout
 				if Input.is_action_pressed(controls.input_down):
 					set_collision_mask_value(3, false)
 					
@@ -114,6 +123,7 @@ func _physics_process(delta):
 			
 				
 		States.Jump:
+			velocity.y += Gravity
 			if Input.is_action_pressed(controls.input_down):
 				velocity.y += 50
 				set_collision_mask_value(3, false)
@@ -141,6 +151,9 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed(controls.input_left):
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				
+			if Input.is_action_just_pressed(controls.input_dash):
+				Select = States.Defend
 		States.Fall:
 			velocity.y += Gravity
 			Animate.play("Fall")
@@ -195,6 +208,8 @@ func _physics_process(delta):
 
 			
 		States.Defend:
+			velocity.x = 0
+			velocity.y = 0
 			Animate.play("Block")
 			velocity.y = 0
 			velocity.x = 0

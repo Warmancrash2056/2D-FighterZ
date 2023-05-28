@@ -1,22 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://di5auhdx6t7vg"]
+[gd_scene load_steps=4 format=3 uid="uid://di5auhdx6t7vg"]
 
 [ext_resource type="Script" path="res://Game Start/Main Menu/Main Menu.gd" id="1_a0kbw"]
+[ext_resource type="PackedScene" uid="uid://ca1ht6fsu7nle" path="res://Game Start/Background.tscn" id="2_0dt38"]
 [ext_resource type="PackedScene" uid="uid://bys0ptudnouiw" path="res://Game Start/Character Idle.tscn" id="2_3wm2l"]
-
 
 [node name="Start Game" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_a0kbw")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
+[node name="ColorRect" parent="." instance=ExtResource("2_0dt38")]
 layout_mode = 0
-offset_left = -80.0
-offset_top = -88.0
-offset_right = 1280.0
-offset_bottom = 776.0
-color = Color(0.32549, 0.533333, 1, 1)
 
 [node name="Title Name" type="RichTextLabel" parent="."]
 z_index = -1

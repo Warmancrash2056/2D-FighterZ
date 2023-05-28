@@ -7,10 +7,12 @@ var jump_smoke = preload("res://jump_smoke.tscn")
 @onready var smoke_position = $Marker2D
 
 const Speed = 200
-const Air_Speed = 200
-const Jump_Height = 650
-const Sakura_Ulight_Jump = 400
-const Gravity = 35
+const Air_Speed = 120
+const Jump_Height = 450
+const Sakura_Ulight_Jump = 15
+const Gravity = 20
+
+var jump_points = 2
 
 
 @export var Health: int
@@ -67,7 +69,8 @@ func _physics_process(delta):
 
 		States.Standing:
 			velocity.y += Gravity
-			set_collision_mask_value(3, true)
+			if is_on_floor():
+				set_collision_mask_value(3, true)
 			if !is_on_floor():
 				Select = States.Fall
 			velocity.y += Gravity
@@ -102,16 +105,16 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Dlight
 			
-				await  get_tree().create_timer(0.15).timeout
+				await  get_tree().create_timer(0.2).timeout
 				if Input.is_action_pressed(controls.input_down):
 					set_collision_mask_value(3, false)
 					
 			if Input.is_action_pressed(controls.input_up):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Ulight
-					
-			if Input.is_action_just_pressed(controls.input_jump) and is_on_floor():
-				Select = States.Jump
+			if is_on_floor():
+				if Input.is_action_just_pressed(controls.input_jump):
+					Select = States.Jump
 			
 			if Input.is_action_pressed(controls.input_right):
 				Sprite.flip_h = false
@@ -123,10 +126,19 @@ func _physics_process(delta):
 			
 				
 		States.Jump:
+			
+			if is_on_floor():
+				Select = States.Standing
+			lerp(velocity.y , 0.1, 0.03)
 			velocity.y += Gravity
 			if Input.is_action_pressed(controls.input_down):
+				print("pressing downa")
 				velocity.y += 50
+				await  get_tree().create_timer(0.2).timeout
 				set_collision_mask_value(3, false)
+			else:
+				set_collision_mask_value(3, true)
+				velocity.y = 0
 			if is_on_floor():
 				Animate.play("Jump")
 				velocity.y -= Jump_Height
@@ -159,7 +171,10 @@ func _physics_process(delta):
 			Animate.play("Fall")
 			if Input.is_action_pressed(controls.input_down):
 				velocity.y += 10
+				await  get_tree().create_timer(0.2).timeout
 				set_collision_mask_value(3,false)
+			else:
+				set_collision_mask_value(3,true)
 			var direction = Input.get_axis(controls.input_left, controls.input_right)
 			if direction:
 				velocity.x = direction * Air_Speed
@@ -189,6 +204,8 @@ func _physics_process(delta):
 			Animate.play("Slight")
 
 		States.Dlight:
+			velocity.x = 0
+			velocity.y = 0
 			set_collision_mask_value(3, true)
 			velocity.x = lerp(velocity.x , 0.1, 0.03)
 			velocity.y = 0
@@ -196,13 +213,13 @@ func _physics_process(delta):
 			
 				
 		States.Ulight:
-			velocity.x = lerp(velocity.x , 0.1, 0.03)
+			velocity.x = 0
 			velocity.y = 0
 			Animate.play("Ulight")
 			
 				
 		States.Nair:
-			velocity.x = lerp(velocity.x , 0.1, 0.03)
+			velocity.x = 0
 			velocity.y = 0
 			Animate.play("Nair")
 
@@ -211,13 +228,12 @@ func _physics_process(delta):
 			velocity.x = 0
 			velocity.y = 0
 			Animate.play("Block")
-			velocity.y = 0
-			velocity.x = 0
 			
 		
 			
 			
 		States.Roll:
+			lerp(velocity.x , 0.1, 0.03)
 			Animate.play("Roll")
 			if !is_on_floor():
 				Select = States.Fall
@@ -227,6 +243,7 @@ func _physics_process(delta):
 			
 		States.Hurt:
 			velocity.x = 0
+			
 			Animate.play("Take Hit")
 
 		States.ActivateSuper:

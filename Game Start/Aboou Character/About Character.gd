@@ -64,7 +64,7 @@ func _ready():
 	pass
 func _process(delta):
 	if Input.is_action_just_pressed("exit"):
-		get_tree().change_scene_to_file("res://Character Selection Resources/Start Game.tscn")
+		get_tree().change_scene_to_file("res://Game Start/Main Menu/Main Menu.tscn")
 
 func _on_general_archfield_animation_looped():
 	GeneralArchfieldAnimation.play("Idle")
@@ -90,7 +90,7 @@ func _on_general_archfield_nair_pressed():
 
 
 func _on_general_archfield_detector_area_entered(area):
-	if area:	
+	if area:
 		# Make Character Visible. #
 		GeneralArchfieldDescription.visible = true
 		GeneralArchfieldAnimation.play("Idle")
@@ -114,7 +114,7 @@ func _on_general_archfield_detector_area_entered(area):
 
 
 func _on_general_archfield_detector_area_exited(area):
-	
+	if area:
 		GeneralArchfieldDescription.visible = false
 		GeneralArchfieldAnimation.visible = false
 		GeneralArchfieldAnimation.stop()

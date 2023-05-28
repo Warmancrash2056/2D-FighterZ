@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbmak8yswscbe"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_xk8tc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jnywb"]
+radius = 60.208
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_xk8tc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(349, 269)
+shape = SubResource("CircleShape2D_jnywb")

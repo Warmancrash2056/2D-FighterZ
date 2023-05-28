@@ -13,5 +13,6 @@ func _process(delta):
 		get_tree().change_scene_to_file("res://Game Maps/Map Selector/Training Map Selection.tscn")
 	
 	if Input.is_action_just_pressed("exit"):
-		get_tree().change_scene_to_file("res://Game Start/Main Menu.tscn")
+		get_tree().change_scene_to_file("res://Game Start/Main Menu/Main Menu.tscn")
+		Audio._main_menu_play()
 

@@ -1,13 +1,17 @@
 extends Node
 
-var Player1
-var Player2
+var get_player_1
+var get_player_2
+
+var check_player_1_is_called = false
+var check_player_2_is_called = false
+
 
 # Reminder that if script is not erroing and cannot register script. 
 # Usually means that script has an error.
-var Player1Script = preload("res://Character Resouces/Global/Player 1 Script.gd")
-var Player2Script = preload("res://Character Resouces/Global/Player 2 Script.gd")
-var main_player_script = preload("res://Character Resouces/Global/main_player.gd")
+var get_player_1_script = preload("res://Character Resouces/Global/Player 1 Script.gd")
+var get_player_2_script = preload("res://Character Resouces/Global/Player 2 Script.gd")
+var get_main_player_script = preload("res://Character Resouces/Global/main_player.gd")
 
 # Get character resouces to be called in character selection menu
 var SelectCharacters = {

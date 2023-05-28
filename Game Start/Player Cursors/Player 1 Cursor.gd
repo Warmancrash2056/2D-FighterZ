@@ -78,10 +78,10 @@ func _process(delta):
 			position.x -= portraitOffset.x
 	
 	if Input.is_action_just_pressed(Controls.input_jump):
-		if CharacterList.Player1 == null:
+		if CharacterList.get_player_1 == null:
 			print('Current Character Selected ', '[',characters[currentSelected].name,'] ', currentSelected)
-			CharacterList.Player1
-			CharacterList.Player1 = CharacterList.SelectCharacters[characters[currentSelected].name]
+			CharacterList.get_player_1
+			CharacterList.get_player_1 = CharacterList.SelectCharacters[characters[currentSelected].name]
 			print("Player 1 Ready")
 			Player1Ready = true
 			portraitOffset.x = 0

@@ -79,11 +79,11 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed(Controls.input_jump):
 		if CharacterList.get_player_1 == null:
-			print('Current Character Selected ', '[',characters[currentSelected].name,'] ', currentSelected)
 			CharacterList.get_player_1
 			CharacterList.get_player_1 = CharacterList.SelectCharacters[characters[currentSelected].name]
-			print("Player 1 Ready")
 			Player1Ready = true
+			# when character selected map spawn will be active for player 1.
+			CharacterList.check_player_1_is_called = true
 			portraitOffset.x = 0
 	
 

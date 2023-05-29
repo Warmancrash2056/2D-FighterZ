@@ -77,6 +77,8 @@ func _process(delta):
 		if CharacterList.get_player_2 == null:
 			CharacterList.get_player_2
 			CharacterList.get_player_2 = CharacterList.SelectCharacters[characters[currentSelected].name]
+			# Set active in map spawner
+			CharacterList.check_player_2_is_called = true
 			Player2Ready = true
 			
 	

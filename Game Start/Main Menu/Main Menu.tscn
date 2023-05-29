@@ -11,6 +11,10 @@ script = ExtResource("1_a0kbw")
 
 [node name="ColorRect" parent="." instance=ExtResource("2_0dt38")]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1360.0
+offset_bottom = 864.0
 
 [node name="Title Name" type="RichTextLabel" parent="."]
 z_index = -1

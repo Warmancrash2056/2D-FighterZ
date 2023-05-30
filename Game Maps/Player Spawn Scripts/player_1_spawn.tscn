@@ -4,8 +4,3 @@
 
 [node name="Player 1 Spawn" type="CharacterBody2D"]
 script = ExtResource("1_whnds")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 112.0
-offset_bottom = 40.0
-text = "	Hello world"

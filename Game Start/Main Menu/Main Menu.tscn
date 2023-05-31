@@ -73,7 +73,41 @@ zoom = Vector2(1.7, 1.7)
 
 [node name="Character Pose" parent="." instance=ExtResource("2_3wm2l")]
 
+[node name="Exit Prompt" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1360.0
+offset_bottom = 872.0
+color = Color(0.14902, 0.14902, 0.14902, 0.768627)
+
+[node name="Exit Game" type="Button" parent="Exit Prompt"]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 384.0
+offset_right = 515.0
+offset_bottom = 415.0
+text = "Yes"
+
+[node name="Return To Game" type="Button" parent="Exit Prompt"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 384.0
+offset_right = 671.0
+offset_bottom = 415.0
+text = "No"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Exit Prompt"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 360.0
+offset_right = 632.0
+offset_bottom = 406.0
+text = "Are You Sure"
+fit_content = true
+
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]
 [connection signal="pressed" from="Training Room" to="." method="_on_training_room_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Exit Prompt/Exit Game" to="Exit Prompt/Exit Game" method="_on_pressed"]
+[connection signal="pressed" from="Exit Prompt/Return To Game" to="Exit Prompt/Return To Game" method="_on_pressed"]

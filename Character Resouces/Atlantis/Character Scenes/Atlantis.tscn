@@ -8,8 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://g6lfjkfjemdu" path="res://Character Resouces/Atlantis/Down Light Start.wav" id="7_en6rk"]
 [ext_resource type="AudioStream" uid="uid://8tw8og2yy4d7" path="res://Character Resouces/Atlantis/Down Light End.wav" id="8_js0dj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj1w2"]
-size = Vector2(10, 2)
+[sub_resource type="CircleShape2D" id="CircleShape2D_uijpd"]
+radius = 6.15385
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t27r6"]
 size = Vector2(30.8333, 2.5)
@@ -727,8 +727,8 @@ script = ExtResource("1_8mta8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(0, 22)
-shape = SubResource("RectangleShape2D_uj1w2")
+position = Vector2(0, 16.9231)
+shape = SubResource("CircleShape2D_uijpd")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Scale Player" type="Node2D" parent="."]
@@ -828,5 +828,8 @@ stream = ExtResource("7_en6rk")
 libraries = {
 "": SubResource("AnimationLibrary_ngyk4")
 }
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 23.0769)
 
 [connection signal="animation_finished" from="Character" to="." method="_on_character_animation_finished"]

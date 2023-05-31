@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://vkh3pkcuv12c" path="res://Character Resouces/Sakura/Nia Blade Throw.wav" id="5_uhxd2"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="6_rlys0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr333"]
-size = Vector2(10, 2)
+[sub_resource type="CircleShape2D" id="CircleShape2D_vu6ki"]
+radius = 7.09863
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5whet"]
 animations = [{
@@ -772,8 +772,8 @@ hframes = 20
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 22)
-shape = SubResource("RectangleShape2D_dr333")
+position = Vector2(0, 16.1538)
+shape = SubResource("CircleShape2D_vu6ki")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Scale Player" type="Node2D" parent="."]
@@ -859,5 +859,8 @@ root_node = NodePath("../Scale Player")
 libraries = {
 "": SubResource("AnimationLibrary_mugsx")
 }
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 16.1538)
 
 [connection signal="animation_finished" from="Character" to="." method="_on_character_animation_finished"]

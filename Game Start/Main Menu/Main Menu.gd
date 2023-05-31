@@ -1,5 +1,8 @@
 extends Control
 
+var player_1_controller = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
+var player_2_controller = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
+var main_player_controller = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
 @onready var general_archfield = $"Character Pose/General Archfield"
 @onready var goku = $"Character Pose/Goku"
 @onready var nomad = $"Character Pose/Nomad"
@@ -12,6 +15,10 @@ extends Control
 @onready var AboutCharacters = $"About Characters"
 @onready var TrainingRoom = $"Training Room"
 
+@onready var exit_prompt = $"Exit Prompt"
+@onready var exit_game = $"Exit Prompt/Exit Game"
+@onready var return_game = $"Exit Prompt/Return To Game"
+
 func _ready():
 	general_archfield.play("Idle")
 	goku.play("Idle")
@@ -19,9 +26,25 @@ func _ready():
 	nomad.play("Idle")
 	atlantis.play("Idle")
 	sakura.play("Idle")
+	exit_prompt.visible = false
 
-
-
+func _process(delta):
+	if Input.is_action_just_pressed("exit") and exit_prompt.visible == false:
+		exit_prompt.visible = true
+	elif Input.is_action_just_pressed("exit") and exit_prompt.visible == true:
+		exit_prompt.visible = false
+		
+	if exit_game.button_pressed == true:
+		get_tree().quit()
+		
+	if return_game.button_pressed == true:
+		exit_prompt.visible = false
+		
+	if Input.is_action_just_pressed(player_1_controller.input_jump) or Input.is_action_just_pressed(player_2_controller.input_jump) or Input.is_action_just_pressed(main_player_controller.input_jump):
+		get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
+		
+	
+	
 func _on_local_play_pressed():
 	get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
 
@@ -36,3 +59,4 @@ func _on_training_room_pressed():
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://Game Keys.tscn")
+

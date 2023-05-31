@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c27kgbbjefdwo"]
+[gd_scene load_steps=28 format=3 uid="uid://c27kgbbjefdwo"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_ky4fu"]
 [ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Spritesheet/Nomad Spritesheet.png" id="3_xwsaw"]
@@ -36,6 +36,46 @@ tracks/0/keys = {
 "update": 1,
 "values": [115, 116, 117, 118, 119, 120, 121, 122]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_nlight"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"turn_around"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Character:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_okptg"]
 resource_name = "Death"
@@ -51,6 +91,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
 }
 
 [sub_resource type="Animation" id="Animation_owypo"]
@@ -116,6 +168,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Character:speed_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.2]
+}
 
 [sub_resource type="Animation" id="Animation_0ds1h"]
 resource_name = "Fall"
@@ -146,6 +210,18 @@ tracks/1/keys = {
 "method": &"drop_down"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Character:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_kihf8"]
 resource_name = "Hurt"
@@ -162,6 +238,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [123, 124, 125, 126, 127]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
 
 [sub_resource type="Animation" id="Animation_dyxsn"]
 resource_name = "Idle"
@@ -177,6 +265,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
 }
 
 [sub_resource type="Animation" id="Animation_gui56"]
@@ -219,6 +319,32 @@ tracks/2/keys = {
 "args": [],
 "method": &"_activate_jump_smoke"
 }]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"drop_down"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Character:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_0dvjl"]
@@ -272,57 +398,17 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
-
-[sub_resource type="Animation" id="Animation_ctau3"]
-resource_name = "Nlight"
-length = 0.9
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [34, 35, 36, 37, 38, 39, 40, 41, 42]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Nuetral Light First Swing/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Scale Player/Nuetral Light Second Swing/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Nuetral & Side Light Sound:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Character:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.2]
 }
 
 [sub_resource type="Animation" id="Animation_k1p75"]
@@ -342,7 +428,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Nuetral Light First Swing/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Scale Player/Nomad Nuetral Light/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -426,19 +512,19 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Scale Player/Up Light Hitbox/CollisionShape2D:position")
+tracks/8/path = NodePath("Nuetral & Side Light Sound:playing")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [false]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Scale Player/Up Light Hitbox/CollisionShape2D:disabled")
+tracks/9/path = NodePath("Jump Sound:playing")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -450,50 +536,38 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Nuetral & Side Light Sound:playing")
+tracks/10/path = NodePath("Down Light Sound:playing")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Jump Sound:playing")
+tracks/11/path = NodePath("Up Light Phase In:playing")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Down Light Sound:playing")
+tracks/12/path = NodePath("Character:speed_scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Up Light Phase In:playing")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_g84f5"]
@@ -511,6 +585,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [29, 30, 31, 32, 33, 34]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
+}
 
 [sub_resource type="Animation" id="Animation_2n762"]
 resource_name = "Run"
@@ -527,10 +613,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [8, 9, 10, 11, 12, 13, 14, 15]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
+}
 
 [sub_resource type="Animation" id="Animation_j42kb"]
 resource_name = "Slight"
-length = 1.2
+length = 1.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -538,10 +636,10 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+"values": [46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -550,27 +648,22 @@ tracks/1/path = NodePath("Nuetral & Side Light Sound:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, true, true, true]
+"values": [true, true, true, true, true, false]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".")
+tracks/2/path = NodePath("Character:speed_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.8, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"go_into_nlight"
-}, {
-"args": [],
-"method": &"go_into_nlight"
-}]
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -579,20 +672,17 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.8, 1.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"go_into_slight"
-}, {
-"args": [],
-"method": &"go_into_slight"
+"method": &"_idle_state_"
 }]
 }
 
-[sub_resource type="Animation" id="Animation_v7m2d"]
-resource_name = "Ulight"
-length = 3.5
+[sub_resource type="Animation" id="Animation_ctau3"]
+resource_name = "Nuetral Light Sarter"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -600,70 +690,156 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 59, 60]
+"values": [34, 35, 38, 39, 40, 41, 42]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/1/path = NodePath("Scale Player/Nomad Nuetral Light/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.577678, 0.6, 0.678088, 0.706776, 0.891946, 0.918026, 1.12076, 1.14423, 1.21465, 1.24073, 1.38737, 1.4074, 1.4739, 1.5039, 1.59518, 1.60691, 1.6682, 1.7, 1.79208, 1.80643, 1.886, 1.91491, 1.9762, 1.99032, 2.0138, 2.57866),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(40, 0), Vector2(40, 0), Vector2(70, 0), Vector2(70, 0), Vector2(0, -67), Vector2(0, -67), Vector2(0, -50), Vector2(0, -50), Vector2(0, 0), Vector2(0, 0), Vector2(18, 0), Vector2(18, 0), Vector2(75, 0), Vector2(75, 0), Vector2(65, 0), Vector2(65, 0), Vector2(45, 0), Vector2(45, 0), Vector2(-45, 0), Vector2(-45, 0), Vector2(-67, 0), Vector2(-67, 0), Vector2(-60, 0), Vector2(60, 0), Vector2(0, 0)]
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Scale Player/Up Light Hitbox/CollisionShape2D:position")
+tracks/2/path = NodePath("Scale Player/Nuetral Light Second Swing/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.24073, 1.85394, 1.86775),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -15), Vector2(0, -15), Vector2(0, 0)]
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scale Player/Up Light Hitbox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("Nuetral & Side Light Sound:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.24073, 1.29379, 1.8211, 1.90817, 2.0138, 2.12203),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false, true, false, true, false, true]
+"values": [true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Up Light Phase In:playing")
+tracks/4/path = NodePath("Character:speed_scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.6, 0.9, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, true, true]
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.5]
 }
-tracks/5/type = "value"
+tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Nuetral & Side Light Sound:playing")
+tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(1.2, 1.3, 1.7993, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_17nj4"]
+resource_name = "Nuetral Light Finisher"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, true, false]
+"values": [36, 37, 38, 39, 40, 41, 42]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_v7m2d"]
+resource_name = "Up Light Statrter"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [85, 86, 87, 88, 89, 90, 91, 90, 89, 88, 87, 86]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Up Light Phase In:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Nuetral & Side Light Sound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_118q5"]
@@ -676,12 +852,13 @@ _data = {
 "Idle": SubResource("Animation_dyxsn"),
 "Jump": SubResource("Animation_gui56"),
 "Nair": SubResource("Animation_0dvjl"),
-"Nlight": SubResource("Animation_ctau3"),
+"Nuetral Light Finisher": SubResource("Animation_17nj4"),
+"Nuetral Light Sarter": SubResource("Animation_ctau3"),
 "RESET": SubResource("Animation_k1p75"),
 "Roll": SubResource("Animation_g84f5"),
 "Run": SubResource("Animation_2n762"),
 "Slight": SubResource("Animation_j42kb"),
-"Ulight": SubResource("Animation_v7m2d")
+"Up Light Statrter": SubResource("Animation_v7m2d")
 }
 
 [node name="Nomad" type="CharacterBody2D"]
@@ -699,9 +876,9 @@ vframes = 8
 
 [node name="Scale Player" type="Node2D" parent="."]
 
-[node name="Nuetral Light First Swing" type="Area2D" parent="Scale Player"]
+[node name="Nomad Nuetral Light" type="Area2D" parent="Scale Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Light First Swing"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nomad Nuetral Light"]
 position = Vector2(26, -3)
 shape = SubResource("RectangleShape2D_lm08w")
 disabled = true
@@ -749,7 +926,6 @@ stream = ExtResource("8_nbxvg")
 volume_db = -10.0
 
 [node name="Character" type="AnimationPlayer" parent="."]
-speed_scale = 1.2
 libraries = {
 "": SubResource("AnimationLibrary_118q5")
 }
@@ -757,4 +933,8 @@ libraries = {
 [node name="Marker2D" type="Node2D" parent="."]
 position = Vector2(0, 20)
 
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Scale Player/Nomad Nuetral Light" to="." method="_on_nuetral_light_area_entered"]
+[connection signal="area_entered" from="Scale Player/Nomad Nuetral Light" to="." method="_on_nomad_nuetral_light_area_entered"]
 [connection signal="animation_finished" from="Character" to="." method="_on_character_animation_finished"]

@@ -20,8 +20,9 @@ enum States {
 	Slight, 
 	Dlight, 
 	Ulight, 
-	Nair, 
-	Defend, 
+	Nair,
+	AirDefend, 
+	GroundDefend, 
 	Roll, 
 	Death, 
 	Hurt, 
@@ -44,14 +45,18 @@ func _fall_state_():
 func _nlight():
 	if Input.is_action_pressed(controls.input_attack):
 		Select = States.Nlight
-		print("good")
+func _nair():
+	if Input.is_action_pressed(controls.input_attack):
+		Select = States.Nair
 func turn_around():
 	if Input.is_action_pressed(controls.input_right):
 		Sprite.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+		Color(1, 1, 1, 1)
 	if Input.is_action_pressed(controls.input_left):
 		Sprite.flip_h = true
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+		Color(1, 1, 1, 1)
 func drop_down():
 	if Input.is_action_pressed(controls.input_down):
 		velocity.y += 100
@@ -100,7 +105,7 @@ func _process(delta):
 					Select = States.Nlight
 					
 				if Input.is_action_just_pressed(controls.input_dash):
-					Select = States.Defend
+					Select = States.GroundDefend
 					
 				
 			if Input.is_action_pressed(controls.input_down):
@@ -140,7 +145,7 @@ func _process(delta):
 				Select = States.Nair
 				
 			if Input.is_action_just_pressed(controls.input_dash):
-				Select = States.Defend
+				Select = States.AirDefend
 			
 			if Input.is_action_pressed(controls.input_right):
 				Sprite.flip_h = false
@@ -158,7 +163,8 @@ func _process(delta):
 			else:
 				velocity.x = move_toward(velocity.x, 0, Air_Speed)
 			
-				
+			if Input.is_action_just_pressed(controls.input_dash):
+				Select = States.AirDefend
 			if is_on_floor():
 				Select = States.Standing
 				set_collision_mask_value(3, true)
@@ -194,10 +200,15 @@ func _process(delta):
 			velocity.y = 0
 			Animate.play("Nair")
 			
-		States.Defend:
-			Animate.play("Block")
+		States.GroundDefend:
+			Animate.play("Ground Defend")
 			velocity.y = 0
 			velocity.x = 0
+			
+		States.AirDefend:
+			Animate.play("Air Defend")
+			velocity.x = 0
+			velocity.y = 0
 			
 		States.Roll:
 			velocity.x = lerp(velocity.x , 0.01, 0.02)

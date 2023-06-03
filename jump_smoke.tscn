@@ -39,16 +39,15 @@ animations = [{
 }],
 "loop": true,
 "name": &"Jump Smoke",
-"speed": 12.0
+"speed": 3.0
 }]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Jump Smoke" type="AnimatedSprite2D" parent="."]
+[node name="Jump Smoke" type="AnimatedSprite2D"]
+z_index = 5
 scale = Vector2(2.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1c4gd")
 animation = &"Jump Smoke"
 frame_progress = 0.291173
 script = ExtResource("9_gpk86")
 
-[connection signal="animation_looped" from="Jump Smoke" to="Jump Smoke" method="_on_animation_looped"]
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

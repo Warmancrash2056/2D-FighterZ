@@ -42,18 +42,27 @@ func _idle_state_():
 	Animate.play("Idle")
 func _fall_state_():
 	Select = States.Fall
+	Animate.play("Fall")
 func _nlight():
 	if Input.is_action_pressed(controls.input_attack):
 		Select = States.Nlight
 func _nair():
 	if Input.is_action_pressed(controls.input_attack):
 		Select = States.Nair
+func _dlight():
+	if Input.is_action_pressed(controls.input_down):
+		if Input.is_action_pressed(controls.input_attack):
+			Select = States.Dlight
+func _ulight():
+	if Input.is_action_pressed(controls.input_up):
+		if Input.is_action_pressed(controls.input_attack):
+			Select = States.Ulight
 func turn_around():
 	if Input.is_action_pressed(controls.input_right):
 		Sprite.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 		Color(1, 1, 1, 1)
-	if Input.is_action_pressed(controls.input_left):
+	elif Input.is_action_pressed(controls.input_left):
 		Sprite.flip_h = true
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 		Color(1, 1, 1, 1)
@@ -231,8 +240,3 @@ func _process(delta):
 		States.DeactivateSuper:
 			Animate.play("Deactivate Super")
 			
-func _on_character_animation_finished(anim_name):
-	pass
-
-func _on_nomad_nuetral_light_area_entered(area):
-	pass

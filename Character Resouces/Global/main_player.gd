@@ -9,21 +9,23 @@ const Speed = 200
 const Air_Speed = 220
 const Jump_Height = 450
 const Gravity = 20
-
+var can_change_dir = false
 @export var Health: int
 
 enum States {
-	Standing,
-	Jump,
-	Fall, 
-	Nlight, 
-	Slight, 
-	Dlight, 
-	Ulight, 
-	Nair,
-	AirDefend, 
-	GroundDefend, 
-	Roll, 
+	Idling,
+	Jumping,
+	Falling, 
+	Nuetral_Light_Start,
+	Nuetral_Light_Finish,
+	Side_light, 
+	Down_Light, 
+	Up_Light_Start,
+	Up_Light_Finsh,
+	Nuetral_Air,
+	Air_Defend, 
+	Ground_Defend, 
+	Dodge_Roll, 
 	Death, 
 	Hurt, 
 	ActivateSuper, 
@@ -36,7 +38,7 @@ enum States {
 	SlightSuper, 
 	DlightSuper, 
 	UlightSuper,}
-var Select = States.Standing
+var Select = States.Idling
 func _idle_state_():
 	Select = States.Standing
 	Animate.play("Idle")
@@ -58,14 +60,19 @@ func _ulight():
 		if Input.is_action_pressed(controls.input_attack):
 			Select = States.Ulight
 func turn_around():
-	if Input.is_action_pressed(controls.input_right):
-		Sprite.flip_h = false
-		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-		Color(1, 1, 1, 1)
-	elif Input.is_action_pressed(controls.input_left):
-		Sprite.flip_h = true
-		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-		Color(1, 1, 1, 1)
+	if can_change_dir ==  false:
+		if Input.is_action_just_pressed(controls.input_right):
+			Sprite.flip_h = false
+			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+			can_change_dir = true
+			print("right")
+		elif Input.is_action_just_pressed(controls.input_left):
+			Sprite.flip_h = true
+			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+			can_change_dir = true
+			print("left")
+			
+			
 func drop_down():
 	if Input.is_action_pressed(controls.input_down):
 		velocity.y += 100
@@ -96,6 +103,7 @@ func _process(delta):
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Roll
+						velocity.x = -270
 			elif Input.is_action_pressed(controls.input_right):
 				velocity.x = Speed
 				Animate.play("Run")
@@ -106,6 +114,7 @@ func _process(delta):
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Roll
+						velocity.x = 270
 			else:
 				velocity.x = 0
 				Animate.play("Idle")
@@ -189,7 +198,7 @@ func _process(delta):
 			velocity.x = 0
 			velocity.y = 0
 			Animate.play("Nuetral Light Sarter")
-			
+		States.
 		States.Slight:
 			velocity.x = 0
 			velocity.y = 0
@@ -220,10 +229,11 @@ func _process(delta):
 			velocity.y = 0
 			
 		States.Roll:
-			velocity.x = lerp(velocity.x , 0.01, 0.02)
-			velocity.y = 0
+			turn_around()
+			velocity.x = lerp(velocity.x , 0.01, 0.05)
+			velocity.y += Gravity
 			Animate.play("Roll")
-				
+			can_change_dir = false
 		States.Death:
 			Animate.play("Jump")
 			
@@ -240,3 +250,7 @@ func _process(delta):
 		States.DeactivateSuper:
 			Animate.play("Deactivate Super")
 			
+
+
+func _on_nomad_nuetral_light_area_entered(area):
+	Animate.play()

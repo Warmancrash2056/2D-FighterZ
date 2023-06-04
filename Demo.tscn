@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvoacn4mm4638"]
+[gd_scene load_steps=7 format=3 uid="uid://bvoacn4mm4638"]
 
 [ext_resource type="PackedScene" uid="uid://c27kgbbjefdwo" path="res://Character Resouces/Nomad/Character Scenes/Nomad.tscn" id="1_4khs3"]
-[ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="2_5gkrl"]
+[ext_resource type="Script" path="res://Hurtbox.gd" id="1_we47s"]
+[ext_resource type="Script" path="res://Character Resouces/Nomad/Character Scenes/Dummy Character.gd" id="2_xcbgu"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
 
 [sub_resource type="CapsuleShape2D" id="2"]
-radius = 16.0
+radius = 8.0
 height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p54th"]
@@ -58,12 +59,13 @@ offset_bottom = -168.0
 rotation = 3.14159
 text = "         Left Wall"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." groups=["Hurtbox"]]
 collision_layer = 16
 collision_mask = 32
+script = ExtResource("1_we47s")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(284, 144)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(615, 304)
 shape = SubResource("2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -81,4 +83,9 @@ one_way_collision = true
 
 [node name="Nomad" parent="." instance=ExtResource("1_4khs3")]
 position = Vector2(447, 280)
-script = ExtResource("2_5gkrl")
+
+[node name="Nomad2" parent="." instance=ExtResource("1_4khs3")]
+position = Vector2(615, 304)
+script = ExtResource("2_xcbgu")
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

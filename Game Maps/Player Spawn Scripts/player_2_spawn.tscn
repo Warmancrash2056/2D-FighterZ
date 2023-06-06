@@ -2,6 +2,5 @@
 
 [ext_resource type="Script" path="res://Game Maps/Player Spawn Scripts/Player 2 Spawner.gd" id="1_go2ui"]
 
-[node name="Player 2 Spawn" type="Node2D"]
+[node name="Player 2 Spawn" type="Marker2D"]
 script = ExtResource("1_go2ui")
-metadata/_edit_group_ = true

@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var Controls: Resource 
+var Controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres") 
 # Object Array
 var characters = []          # Array to store all the characters the player can select
 
@@ -71,11 +71,9 @@ func _process(delta):
 			position.x -= portraitOffset.x
 	
 	if Input.is_action_just_pressed(Controls.input_jump):
-		if CharacterList.Player2 == null:
-			print('Current Character Selected ', '[',characters[currentSelected].name,'] ', currentSelected)
-			CharacterList.Player2
-			CharacterList.Player2 = CharacterList.SelectCharacters[characters[currentSelected].name]
-			print("Player 1 Ready")
+		if CharacterList.get_player_1 == null:
+			CharacterList.get_player_1
+			CharacterList.get_player_1 = CharacterList.SelectCharacters[characters[currentSelected].name]
 			Player1Ready = true
 			portraitOffset.x = 0
 	

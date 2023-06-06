@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://di5auhdx6t7vg"]
+[gd_scene load_steps=5 format=3 uid="uid://di5auhdx6t7vg"]
 
 [ext_resource type="Script" path="res://Game Start/Main Menu/Main Menu.gd" id="1_a0kbw"]
 [ext_resource type="PackedScene" uid="uid://ca1ht6fsu7nle" path="res://Game Start/Background.tscn" id="2_0dt38"]
 [ext_resource type="PackedScene" uid="uid://bys0ptudnouiw" path="res://Game Start/Character Idle.tscn" id="2_3wm2l"]
+[ext_resource type="Script" path="res://Game Start/Main Menu/Local Play.gd" id="3_m8lw7"]
 
 [node name="Start Game" type="Control"]
 layout_mode = 3
@@ -17,6 +18,7 @@ offset_right = 1360.0
 offset_bottom = 864.0
 
 [node name="Title Name" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 0
 offset_left = 440.0
@@ -28,6 +30,7 @@ text = "2D FighterZ"
 fit_content = true
 
 [node name="Local Play" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 2
 offset_left = 224.0
@@ -37,8 +40,10 @@ offset_bottom = 231.0
 text = "Local Play
 "
 flat = true
+script = ExtResource("3_m8lw7")
 
 [node name="About Characters" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 2
 offset_left = 224.0
@@ -50,6 +55,7 @@ text = "About Character
 flat = true
 
 [node name="Training Room" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 2
 offset_left = 224.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dstbbg4lspon4"]
+[gd_scene load_steps=15 format=3 uid="uid://dstbbg4lspon4"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_ctwfg"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_6u0qm"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="4_qssb0"]
 [ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/Galvin Maps/Galvin Assets/background 3.png" id="5_u7xty"]
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="6_i3s7w"]
-[ext_resource type="Script" path="res://Game Maps/Player Spawn Scripts/Player 2 Spawner.gd" id="8_y3noa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6m41"]
 texture = ExtResource("2_6u0qm")
@@ -5565,8 +5564,3 @@ offset_left = 226.0
 offset_top = -369.0
 offset_right = 266.0
 offset_bottom = -329.0
-
-[node name="Player 2 Spawn" type="Node2D" parent="."]
-position = Vector2(72, -48)
-script = ExtResource("8_y3noa")
-metadata/_edit_group_ = true

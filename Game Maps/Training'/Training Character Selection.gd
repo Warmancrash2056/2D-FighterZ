@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var Player1 = $"Player 1 Cursor"
 @onready var GameAudio = $"Game Audio"

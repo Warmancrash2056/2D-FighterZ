@@ -1,16 +1,14 @@
 extends Node2D
 
-@onready var Player1Spawn = CharacterList.Player1.instantiate()
+@onready var player_1_spawn = CharacterList.get_player_1.instantiate()
 # Called when the node enters the scene treefor the first time.
 func _ready():
 	SpawnChosen()
 
 func SpawnChosen():
-	call_deferred("add_child", Player1Spawn)
+	call_deferred("add_child", player_1_spawn)
 	
 	# if says "could not resolve script usaully means that 
 	#script is error and needs to be fixed. before running again.
-	Player1Spawn.set_script(CharacterList.Player1Script)
+	player_1_spawn.set_script(CharacterList.get_player_1_script)
 	
-func _process(delta):
-	print()

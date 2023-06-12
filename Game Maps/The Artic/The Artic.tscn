@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://xdyab80kxadi"]
+[gd_scene load_steps=13 format=3 uid="uid://xdyab80kxadi"]
 
 [ext_resource type="Script" path="res://Game Maps/The Artic/The Artic.gd" id="1_ix1hs"]
 [ext_resource type="Texture2D" uid="uid://ctp3n0w8q5blo" path="res://Game Maps/The Artic/Map Assets/mainlevbuild1.png" id="2_inebc"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://yohx14s3h6cn" path="res://Game Maps/The Artic/Map Assets/background5.png" id="8_2v74r"]
 [ext_resource type="Script" path="res://Game Maps/Player Spawn Scripts/Player 1 Spawner.gd" id="9_m1l2i"]
 [ext_resource type="Script" path="res://Game Maps/Player Spawn Scripts/Player 2 Spawner.gd" id="10_tsfvc"]
-[ext_resource type="AudioStream" uid="uid://cx7l4b0c7cgp6" path="res://Game Music/The Artic.wav" id="11_pjh4k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_largn"]
 texture = ExtResource("2_inebc")
@@ -1173,8 +1172,3 @@ script = ExtResource("9_m1l2i")
 z_index = 3
 position = Vector2(-120, 80)
 script = ExtResource("10_tsfvc")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_pjh4k")
-
-[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=16 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="4_8pavo"]
 [ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/Galvin Maps/Galvin Assets/background 3.png" id="5_37ogg"]
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="6_kexdy"]
+[ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Map Camera.tscn" id="7_j87ny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6m41"]
 texture = ExtResource("2_uq8es")
@@ -7716,18 +7717,14 @@ collision_mask = 10
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
 polygon = PackedVector2Array(112, -80, 112, -72, 160, -72, 160, -80)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -192)
-zoom = Vector2(1.8, 1.8)
-
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 
 [node name="Left Wall" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(-344, -152)
+position = Vector2(-352, -152)
 shape = SubResource("RectangleShape2D_b7mxf")
 
 [node name="Right Wall" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(344, -152)
+position = Vector2(304, -152)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_1a41r")
 
@@ -7737,3 +7734,12 @@ position = Vector2(-296, -48)
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Player 1 Position" type="Marker2D" parent="."]
+position = Vector2(-112, -152)
+
+[node name="Player 2 Position" type="Marker2D" parent="."]
+position = Vector2(136, -104)
+
+[node name="Camera2D" parent="." instance=ExtResource("7_j87ny")]
+position = Vector2(-24, -168)

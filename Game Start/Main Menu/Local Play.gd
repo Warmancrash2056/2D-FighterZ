@@ -11,4 +11,7 @@ func _process(delta):
 	print(is_hovered())
 	
 	if is_hovered() == true:
-		print("WHITE")
+		modulate = Color(1, 1, 1)
+	else:
+		modulate = Color(0, 0, 0)
+		

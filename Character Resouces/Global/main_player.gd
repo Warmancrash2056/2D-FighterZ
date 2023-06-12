@@ -1,19 +1,24 @@
 extends CharacterBody2D
 var controls: Resource = load("res://Character Resouces/Global/Controller Resource/Player_3.tres")
 var jump_smoke = preload("res://jump_smoke.tscn")
+var counter_smoke = preload("res://counter.tscn")
+
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $Marker2D
 
-const Speed = 200
+const Speed = 170
 const Acceleration = 25
-const Air_Speed = 220
+const Air_Speed = 135
+const Fall_Speed = 100
 const Roll_Speed = 400
 const Jump_Height = 600
 const Gravity = 30
 var can_change_dir = false
 var nomad_nlight_hit = false
+var nomad_ulight_hit = false
 var can_jump = false
+var can_counter = false
 @export var Health: int
 
 enum States {
@@ -22,7 +27,8 @@ enum States {
 	Falling, 
 	Nuetral_Light_Start,
 	Nuetral_Light_Finish,
-	Side_light, 
+	Side_light_Start,
+	Side_Light_Finish,
 	Down_Light, 
 	Up_Light_Start,
 	Up_Light_Finsh,
@@ -43,15 +49,31 @@ enum States {
 	DlightSuper, 
 	UlightSuper,}
 var Select = States.Idling
+
 func _transition_nlight_finisher():
 	if nomad_nlight_hit == true:
 		Select = States.Nuetral_Light_Finish
 	else:
 		pass
+
+func  _transition_ulight_finisher():
+	if nomad_ulight_hit == true:
+		Select = States.Up_Light_Finsh
+	
+
 func _idle_state_():
+	nomad_nlight_hit = false
 	can_jump = false
 	Select = States.Idling
 	Animate.play("Idle")
+func _cannot_counter():
+	can_counter = false
+func _cannot_change_direction():
+	print(can_change_dir)
+# Reset Defend directional change at end of animation
+	can_change_dir = false
+func _gravity():
+	velocity.y += Gravity
 func _can_jump():
 	can_jump = true
 func _fall_state_():
@@ -59,6 +81,10 @@ func _fall_state_():
 func _nlight():
 	if Input.is_action_pressed(controls.input_attack):
 		Select = States.Nuetral_Light_Start
+func _slight():
+	if Input.is_action_pressed(controls.input_left) or Input.is_action_pressed(controls.input_right):
+		if Input.is_action_pressed(controls.input_attack):
+			Select = States.Side_light_Start
 func _nair():
 	if Input.is_action_pressed(controls.input_attack):
 		Select = States.Nuetral_Air
@@ -70,18 +96,20 @@ func _ulight():
 	if Input.is_action_pressed(controls.input_up):
 		if Input.is_action_pressed(controls.input_attack):
 			Select = States.Up_Light_Start
+func _jump():
+	if Input.is_action_pressed(controls.input_jump):
+		Select = States.Jumping
 func turn_around():
+	print(can_change_dir)
 	if can_change_dir ==  false:
 		if Input.is_action_just_pressed(controls.input_right):
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 			can_change_dir = true
-			print("right")
 		elif Input.is_action_just_pressed(controls.input_left):
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 			can_change_dir = true
-			print("left")
 			
 			
 func drop_down():
@@ -95,6 +123,12 @@ func _activate_jump_smoke():
 	var instance_smoke_jump = jump_smoke.instantiate()
 	instance_smoke_jump.global_position = smoke_position.global_position
 	get_tree().get_root().add_child(instance_smoke_jump)
+
+func _activate_counter_smoke():
+	var instance_smoke_counter = counter_smoke.instantiate()
+	if can_counter == true:
+		instance_smoke_counter.global_position = smoke_position.global_position
+		get_tree().get_root().add_child(instance_smoke_counter)
 func _process(delta):
 	move_and_slide()
 	match Select:
@@ -109,8 +143,6 @@ func _process(delta):
 				Animate.play("Run")
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Side_light
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Dodge_Roll
@@ -121,8 +153,7 @@ func _process(delta):
 				Animate.play("Run")
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Side_light
+	
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Dodge_Roll
@@ -185,32 +216,42 @@ func _process(delta):
 					Select = States.Air_Defend
 			
 		States.Falling:
+			if Input.is_action_pressed(controls.input_left):
+				Sprite.flip_h = true
+				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				velocity.x = max(velocity.x - Acceleration, -Fall_Speed)
+			elif Input.is_action_pressed(controls.input_right):
+				Sprite.flip_h = false
+				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
+				
+			else:
+				velocity.x = 0
+				
+				if Input.is_action_just_pressed(controls.input_dash):
+					Select = States.Air_Defend
 			if !is_on_floor():
 				Animate.play("Fall")
 				velocity.y += Gravity
 			else:
 				Select = States.Idling
-			if Input.is_action_just_pressed(controls.input_right):
-				Sprite.flip_h = false
-				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			
-			if Input.is_action_just_pressed(controls.input_left):
-				Sprite.flip_h = true
-				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 		States.Nuetral_Light_Start:
 			velocity.x = 0
 			velocity.y = 0
-			Animate.play("Nuetral Light Sarter")
+			Animate.play("Nuetral Light Starter")
 		States.Nuetral_Light_Finish:
 			Animate.play("Nuetral Light Finisher")
 			velocity.x = 0
 			velocity.y = 0
 			nomad_nlight_hit = false
-		States.Side_light:
+		States.Side_light_Start:
 			velocity.x = 0
 			velocity.y = 0
-			Animate.play("Slight")
-
+			Animate.play("Side Light Starter")
+		States.Side_Light_Finish:
+			velocity.x = 0
+			velocity.y = 0
+			Animate.play("Side Light Finisher")
 		States.Down_Light:
 			velocity.y = 0
 			velocity.x = 0
@@ -219,8 +260,12 @@ func _process(delta):
 		States.Up_Light_Start:
 			velocity.y = 0
 			velocity.x = 0
-			Animate.play("Up Light Statrter")
-				
+			Animate.play("Up Light Starter")
+		States.Up_Light_Finsh:
+			velocity.x = 0
+			velocity.y = 0
+			Animate.play("Up Light Finisher")
+			nomad_ulight_hit = false
 		States.Nuetral_Air:
 			velocity.x = lerp(velocity.x , 0.01, 0.06)
 			velocity.y = 0
@@ -231,19 +276,16 @@ func _process(delta):
 			Animate.play("Ground Defend")
 			velocity.y = 0
 			velocity.x = 0
-			can_change_dir = false
 		States.Air_Defend:
 			turn_around()
 			Animate.play("Air Defend")
 			velocity.x = 0
 			velocity.y = 0
-			can_change_dir = false
-			
+			can_counter = true
 		States.Dodge_Roll:
 			if can_jump == true:
 				if Input.is_action_just_pressed(controls.input_jump):
 					Select = States.Jumping
-					print("dodge to jump")
 			turn_around()
 			velocity.x = lerp(velocity.x , 0.01, 0.05)
 			velocity.y += Gravity
@@ -271,3 +313,9 @@ func _on_nomad_nuetral_light_area_entered(area):
 	if area:
 		nomad_nlight_hit = true
 		
+
+
+func _on_up_light_hitbox_area_entered(area):
+	if area:
+		nomad_ulight_hit = true
+		print(nomad_ulight_hit)

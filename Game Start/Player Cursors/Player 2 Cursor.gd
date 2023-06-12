@@ -74,12 +74,12 @@ func _process(delta):
 			position.x -= portraitOffset.x
 	
 	if Input.is_action_just_pressed(Controls.input_jump):
+		Player2Ready = true
 		if CharacterList.get_player_2 == null:
 			CharacterList.get_player_2
 			CharacterList.get_player_2 = CharacterList.SelectCharacters[characters[currentSelected].name]
 			# Set active in map spawner
 			CharacterList.check_player_2_is_called = true
-			Player2Ready = true
 			
 	
 

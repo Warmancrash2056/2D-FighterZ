@@ -2,9 +2,11 @@ extends Node
 
 var get_player_1
 var get_player_2
+var get_main_player
 
 var check_player_1_is_called = false
 var check_player_2_is_called = false
+var check_main_is_called = false
 
 
 # Reminder that if script is not erroing and cannot register script. 

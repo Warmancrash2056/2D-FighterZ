@@ -1,53 +1,48 @@
-[gd_scene load_steps=11 format=3 uid="uid://bo08t0pi17rio"]
+[gd_scene load_steps=10 format=3 uid="uid://bo08t0pi17rio"]
 
-[ext_resource type="Texture2D" uid="uid://d6uhov8uw8wk" path="res://Smoke VFX C1.png" id="1_apaqq"]
-[ext_resource type="Texture2D" uid="uid://cpivnwtvaybv" path="res://Smoke VFX C2.png" id="2_aej3r"]
-[ext_resource type="Texture2D" uid="uid://cs1n252nbfym5" path="res://Smoke VFX C3.png" id="3_4cwfv"]
-[ext_resource type="Texture2D" uid="uid://b5iahlydtlri1" path="res://Smoke VFX C4.png" id="4_on5kn"]
-[ext_resource type="Texture2D" uid="uid://o1teine6qdxf" path="res://Smoke VFX C5.png" id="5_0c8dh"]
-[ext_resource type="Texture2D" uid="uid://ds3rk1j4y23s" path="res://Smoke VFX C6.png" id="6_u8ivt"]
-[ext_resource type="Texture2D" uid="uid://b5748t7l2a4ms" path="res://Smoke VFX C7.png" id="7_0652x"]
-[ext_resource type="Texture2D" uid="uid://cdjw57lrpfoxh" path="res://Smoke VFX C8.png" id="8_whdch"]
+[ext_resource type="Texture2D" uid="uid://7u6lkg55hnv6" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)1.png" id="1_icf20"]
+[ext_resource type="Texture2D" uid="uid://cd7ee0hqpi1tf" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)2.png" id="2_b1jab"]
+[ext_resource type="Texture2D" uid="uid://d14llquikkfkm" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)3.png" id="3_j2ewg"]
+[ext_resource type="Texture2D" uid="uid://branhkmm0jdv8" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)4.png" id="4_khnrf"]
+[ext_resource type="Texture2D" uid="uid://d2pyfv1atwr6j" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)5.png" id="5_to3i0"]
+[ext_resource type="Texture2D" uid="uid://fxjia53csui6" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)6.png" id="6_qn4os"]
+[ext_resource type="Texture2D" uid="uid://dfa2ducw4uwyx" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)7.png" id="7_vp52h"]
 [ext_resource type="Script" path="res://jump_smoke.gd" id="9_gpk86"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1c4gd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_apaqq")
+"texture": ExtResource("1_icf20")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_aej3r")
+"texture": ExtResource("2_b1jab")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_4cwfv")
+"texture": ExtResource("3_j2ewg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_on5kn")
+"texture": ExtResource("4_khnrf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_0c8dh")
+"texture": ExtResource("5_to3i0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_u8ivt")
+"texture": ExtResource("6_qn4os")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_0652x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_whdch")
+"texture": ExtResource("7_vp52h")
 }],
 "loop": true,
-"name": &"Jump Smoke",
+"name": &"Smoke",
 "speed": 6.0
 }]
 
 [node name="Jump Smoke" type="AnimatedSprite2D"]
 z_index = 5
-scale = Vector2(2.5, 1.5)
+scale = Vector2(1.3, 1)
 sprite_frames = SubResource("SpriteFrames_1c4gd")
-animation = &"Jump Smoke"
-frame_progress = 0.291173
+animation = &"Smoke"
 script = ExtResource("9_gpk86")
 
 [connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

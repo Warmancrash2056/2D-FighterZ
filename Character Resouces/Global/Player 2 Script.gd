@@ -6,14 +6,17 @@ var jump_smoke = preload("res://jump_smoke.tscn")
 @onready var Sprite = $Sprite
 @onready var smoke_position = $Marker2D
 
-const Speed = 200
+const Speed = 170
 const Acceleration = 25
-const Air_Speed = 220
+const Air_Speed = 135
+const Fall_Speed = 100
 const Roll_Speed = 400
 const Jump_Height = 600
 const Gravity = 30
 var can_change_dir = false
 var nomad_nlight_hit = false
+var nomad_ulight_hit = false
+var can_jump = false
 @export var Health: int
 
 enum States {
@@ -43,14 +46,25 @@ enum States {
 	DlightSuper, 
 	UlightSuper,}
 var Select = States.Idling
+
 func _transition_nlight_finisher():
 	if nomad_nlight_hit == true:
 		Select = States.Nuetral_Light_Finish
 	else:
 		pass
+
+func  _transition_ulight_finisher():
+	if nomad_ulight_hit == true:
+		Select = States.Up_Light_Finsh
+	
+
 func _idle_state_():
+	nomad_nlight_hit = false
+	can_jump = false
 	Select = States.Idling
 	Animate.play("Idle")
+func _can_jump():
+	can_jump = true
 func _fall_state_():
 	Select = States.Falling
 func _nlight():
@@ -93,6 +107,7 @@ func _activate_jump_smoke():
 	instance_smoke_jump.global_position = smoke_position.global_position
 	get_tree().get_root().add_child(instance_smoke_jump)
 func _process(delta):
+	print(nomad_nlight_hit)
 	move_and_slide()
 	match Select:
 
@@ -112,6 +127,7 @@ func _process(delta):
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Dodge_Roll
 						velocity.x = -270
+						set_collision_mask_value(2, false)
 			elif Input.is_action_pressed(controls.input_right):
 				velocity.x = min(velocity.x + Acceleration, Speed)
 				Animate.play("Run")
@@ -123,6 +139,7 @@ func _process(delta):
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Dodge_Roll
 						velocity.x = 270
+						set_collision_mask_value(2, false)
 			else:
 				velocity.x = 0
 				Animate.play("Idle")
@@ -180,27 +197,26 @@ func _process(delta):
 					Select = States.Air_Defend
 			
 		States.Falling:
-			velocity.y += Gravity
-			Animate.play("Fall")
-			var direction = Input.get_axis(controls.input_left, controls.input_right)
-			if direction:
-				velocity.x = direction * Air_Speed
-			else:
-				velocity.x = move_toward(velocity.x, 0, Air_Speed)
-			
-			if Input.is_action_just_pressed(controls.input_dash):
-				Select = States.Air_Defend
-			if is_on_floor():
-				Select = States.Idling
-				set_collision_mask_value(3, true)
-				
-			if Input.is_action_just_pressed(controls.input_right):
-				Sprite.flip_h = false
-				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			
-			if Input.is_action_just_pressed(controls.input_left):
+			if Input.is_action_pressed(controls.input_left):
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				velocity.x = max(velocity.x - Acceleration, -Fall_Speed)
+			elif Input.is_action_pressed(controls.input_right):
+				Sprite.flip_h = false
+				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
+				
+			else:
+				velocity.x = 0
+				
+				if Input.is_action_just_pressed(controls.input_dash):
+					Select = States.Air_Defend
+			if !is_on_floor():
+				Animate.play("Fall")
+				velocity.y += Gravity
+			else:
+				Select = States.Idling
+				_activate_jump_smoke()
 		States.Nuetral_Light_Start:
 			velocity.x = 0
 			velocity.y = 0
@@ -223,8 +239,12 @@ func _process(delta):
 		States.Up_Light_Start:
 			velocity.y = 0
 			velocity.x = 0
-			Animate.play("Up Light Statrter")
-				
+			Animate.play("Up Light Starter")
+		States.Up_Light_Finsh:
+			velocity.x = 0
+			velocity.y = 0
+			Animate.play("Up Light Finisher")
+			nomad_ulight_hit = false
 		States.Nuetral_Air:
 			velocity.x = lerp(velocity.x , 0.01, 0.06)
 			velocity.y = 0
@@ -236,7 +256,6 @@ func _process(delta):
 			velocity.y = 0
 			velocity.x = 0
 			can_change_dir = false
-			
 		States.Air_Defend:
 			turn_around()
 			Animate.play("Air Defend")
@@ -245,6 +264,10 @@ func _process(delta):
 			can_change_dir = false
 			
 		States.Dodge_Roll:
+			if can_jump == true:
+				if Input.is_action_just_pressed(controls.input_jump):
+					Select = States.Jumping
+					print("dodge to jump")
 			turn_around()
 			velocity.x = lerp(velocity.x , 0.01, 0.05)
 			velocity.y += Gravity
@@ -272,3 +295,9 @@ func _on_nomad_nuetral_light_area_entered(area):
 	if area:
 		nomad_nlight_hit = true
 		
+
+
+func _on_up_light_hitbox_area_entered(area):
+	if area:
+		nomad_ulight_hit = true
+		print(nomad_ulight_hit)

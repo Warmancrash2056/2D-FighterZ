@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvoacn4mm4638"]
+[gd_scene load_steps=8 format=3 uid="uid://bvoacn4mm4638"]
 
 [ext_resource type="PackedScene" uid="uid://c27kgbbjefdwo" path="res://Character Resouces/Nomad/Character Scenes/Nomad.tscn" id="1_4khs3"]
 [ext_resource type="Script" path="res://Hurtbox.gd" id="1_we47s"]
 [ext_resource type="Script" path="res://Character Resouces/Nomad/Character Scenes/Dummy Character.gd" id="2_xcbgu"]
+[ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Map Camera.tscn" id="4_l55e5"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -17,6 +18,7 @@ size = Vector2(204.5, 20)
 [node name="Node2D" type="Node2D"]
 position = Vector2(9, 0)
 metadata/_edit_vertical_guides_ = [344.0]
+metadata/_edit_horizontal_guides_ = [312.0]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
@@ -68,10 +70,6 @@ script = ExtResource("1_we47s")
 position = Vector2(615, 304)
 shape = SubResource("2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(568, 272)
-zoom = Vector2(2, 2)
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 10
@@ -81,11 +79,14 @@ position = Vector2(639, 272)
 shape = SubResource("RectangleShape2D_p54th")
 one_way_collision = true
 
-[node name="Nomad" parent="." instance=ExtResource("1_4khs3")]
-position = Vector2(447, 280)
-
 [node name="Nomad2" parent="." instance=ExtResource("1_4khs3")]
-position = Vector2(615, 304)
+position = Vector2(687, 296)
 script = ExtResource("2_xcbgu")
+
+[node name="Nomad" parent="." instance=ExtResource("1_4khs3")]
+position = Vector2(495, 272)
+
+[node name="Camera2D" parent="." instance=ExtResource("4_l55e5")]
+position = Vector2(567, 216)
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

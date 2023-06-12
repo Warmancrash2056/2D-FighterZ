@@ -1,6 +1,7 @@
-[gd_scene load_steps=159 format=3 uid="uid://c2kuts083ajp3"]
+[gd_scene load_steps=164 format=3 uid="uid://c2kuts083ajp3"]
 
 [ext_resource type="Script" path="res://Game Start/Local Play/Local Play.gd" id="1_w8mfd"]
+[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://background.tscn" id="2_fwe2m"]
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Sakura/Icon/Assasin Character Icon.png" id="2_mr1wv"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Archfield/Character Icon/General Archfield Character Icon.png" id="3_cwg26"]
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Icon/Goku.png" id="4_ef4qh"]
@@ -132,6 +133,7 @@
 [ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_8.png" id="129_785mv"]
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_9.png" id="130_bsukf"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_10.png" id="131_7qe0s"]
+[ext_resource type="Script" path="res://Game Start/Local Play/Prompt Animate.gd" id="134_lcku6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwqe8"]
 size = Vector2(25, 25)
@@ -1035,6 +1037,66 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Animation" id="Animation_a3v7f"]
+resource_name = "Phase"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.588235), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.8, 1.8), Vector2(1.9, 1.9), Vector2(1.8, 1.8)]
+}
+
+[sub_resource type="Animation" id="Animation_5jdit"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.8, 1.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7laxo"]
+_data = {
+"Phase": SubResource("Animation_a3v7f"),
+"RESET": SubResource("Animation_5jdit")
+}
+
 [node name="Local Play" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -1044,17 +1106,6 @@ offset_right = -192.0
 offset_bottom = 40.0
 script = ExtResource("1_w8mfd")
 metadata/_edit_vertical_guides_ = [-155.0]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.008
-offset_left = 192.0
-offset_top = -80.0
-offset_right = 976.0
-offset_bottom = 400.0
-color = Color(0.32549, 0.533333, 1, 1)
 
 [node name="Character Selection" type="GridContainer" parent="."]
 layout_mode = 0
@@ -1372,6 +1423,7 @@ fit_content = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 modulate = Color(0, 0, 0, 1)
+layout_mode = 0
 offset_left = 456.0
 offset_top = -80.0
 offset_right = 536.0
@@ -1379,6 +1431,36 @@ offset_bottom = -56.0
 scale = Vector2(3, 3)
 text = "Local Play"
 fit_content = true
+
+[node name="Background" parent="." instance=ExtResource("2_fwe2m")]
+z_index = -2
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 193.0
+offset_top = -86.0
+offset_right = 977.0
+offset_bottom = 394.0
+mouse_filter = 2
+
+[node name="Prompt Name" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 448.0
+offset_top = 152.0
+offset_right = 590.0
+offset_bottom = 204.0
+scale = Vector2(1.8, 1.8)
+text = "Select Characters "
+fit_content = true
+
+[node name="Prompt Animate" type="AnimationPlayer" parent="Prompt Name"]
+speed_scale = 0.1
+libraries = {
+"": SubResource("AnimationLibrary_7laxo")
+}
+script = ExtResource("134_lcku6")
 
 [connection signal="area_entered" from="Player 1 General Archfield Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]
 [connection signal="area_exited" from="Player 1 General Archfield Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_exited"]

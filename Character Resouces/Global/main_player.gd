@@ -66,11 +66,6 @@ func _idle_state_():
 	can_jump = false
 	Select = States.Idling
 	Animate.play("Idle")
-func _cannot_counter():
-	can_counter = false
-func _cannot_change_direction():
-# Reset Defend directional change at end of animation
-	can_change_dir = false
 func _gravity():
 	velocity.y += Gravity
 func _can_jump():
@@ -98,8 +93,10 @@ func _ulight():
 func _jump():
 	if Input.is_action_pressed(controls.input_jump):
 		Select = States.Jumping
+func _reset_turn_around():
+# Reset Defend directional change at end of animation
+	can_change_dir = false
 func turn_around():
-	print(can_change_dir)
 	if can_change_dir ==  false:
 		if Input.is_action_just_pressed(controls.input_right):
 			Sprite.flip_h = false
@@ -122,16 +119,20 @@ func _activate_jump_smoke():
 	var instance_smoke_jump = jump_smoke.instantiate()
 	instance_smoke_jump.global_position = smoke_position.global_position
 	get_tree().get_root().add_child(instance_smoke_jump)
-
+	
+func _reset_counter():
+	# Reset counter after if player uses an attack or not.
+	can_counter = false
+	
 func _activate_counter_smoke():
 	var instance_smoke_counter = counter_smoke.instantiate()
 	if can_counter == true:
 		instance_smoke_counter.global_position = smoke_position.global_position
 		get_tree().get_root().add_child(instance_smoke_counter)
+		
 func _process(delta):
 	move_and_slide()
 	match Select:
-
 		States.Idling:
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
@@ -142,12 +143,14 @@ func _process(delta):
 				Animate.play("Run")
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				print(velocity)
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Dodge_Roll
 						velocity.x = -270
 						set_collision_mask_value(2, false)
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Side_light_Start
 			elif Input.is_action_pressed(controls.input_right):
 				velocity.x = min(velocity.x + Acceleration, Speed)
 				Animate.play("Run")
@@ -159,6 +162,9 @@ func _process(delta):
 						Select = States.Dodge_Roll
 						velocity.x = 270
 						set_collision_mask_value(2, false)
+				
+				if Input.is_action_just_pressed(controls.input_attack):
+					Select = States.Side_light_Start
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 1)
 				Animate.play("Idle")
@@ -280,6 +286,7 @@ func _process(delta):
 			Animate.play("Air Defend")
 			velocity.x = 0
 			velocity.y = 0
+			# Activate counter smoke to be called during an attack.
 			can_counter = true
 		States.Dodge_Roll:
 			if can_jump == true:

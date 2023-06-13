@@ -118,7 +118,6 @@ layout_mode = 0
 layout_mode = 1
 offset_top = 88.0
 offset_bottom = 568.0
-mouse_filter = 2
 
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]

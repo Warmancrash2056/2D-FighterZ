@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var Controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres") 
+var Controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
 # Object Array
 var characters = []          # Array to store all the characters the player can select
 
@@ -73,6 +73,7 @@ func _process(delta):
 	if Input.is_action_just_pressed(Controls.input_jump):
 		if CharacterList.get_main_player == null:
 			CharacterList.get_main_player
+			print(CharacterList.get_main_player)
 			CharacterList.get_main_player = CharacterList.SelectCharacters[characters[currentSelected].name]
 			CharacterList.check_main_is_called = true
 			Player1Ready = true

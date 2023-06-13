@@ -8,7 +8,7 @@ extends Sprite2D
 @onready var GokuAnimation = $"../Player 1 Goku"
 
 @onready var player_1_tag = $"../Player 1 Name"
-var Controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
+var Controls = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
 # Object Array
 var characters = []          # Array to store all the characters the player can select
 
@@ -28,6 +28,7 @@ func _ready():
 # Get all of the characters stored within the group "Player 1" and place them in the Array characters
 	for nameOfCharacter in get_tree().get_nodes_in_group("Player1"):
 		characters.append(nameOfCharacter)
+	
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
 	print(currentSelected)
@@ -74,11 +75,11 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed(Controls.input_jump):
 		Player1Ready = true
-		if CharacterList.get_player_1 == null:
-			CharacterList.get_player_1
-			CharacterList.get_player_1 = CharacterList.SelectCharacters[characters[currentSelected].name]
+		if CharacterList.get_main_player == null:
+			CharacterList.get_main_player
+			CharacterList.get_main_player = CharacterList.SelectCharacters[characters[currentSelected].name]
 			# when character selected map spawn will be active for player 1.
-			CharacterList.check_player_1_is_called = true
+			CharacterList.check_main_is_called = true
 			portraitOffset.x = 0
 	
 

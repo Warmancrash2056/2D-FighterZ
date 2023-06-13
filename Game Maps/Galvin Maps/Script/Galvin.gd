@@ -30,8 +30,9 @@ func _process(delta):
 		exit_prompt.visible = false
 		
 	if exit_prompt_exit.button_pressed == true:
-		get_tree().change_scene_to_file("res://Game Start/Main Menu/Main Menu.tscn")
+		get_tree().change_scene_to_file("res://Game Start/Local Play/Training Character Selection.tscn")
 		Audio._main_menu_play()
+		CharacterList.get_main_player = null
 	if exit_prompt_return.button_pressed == true:
 		exit_prompt.visible = false
 func _spawn_player_1():

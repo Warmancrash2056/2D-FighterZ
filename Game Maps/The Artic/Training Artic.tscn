@@ -1,6 +1,5 @@
 [gd_scene load_steps=19 format=3 uid="uid://c56m1e5uy4hbw"]
 
-[ext_resource type="Script" path="res://Game Maps/The Artic/The Artic.gd" id="1_srgb3"]
 [ext_resource type="Texture2D" uid="uid://ctp3n0w8q5blo" path="res://Game Maps/The Artic/Map Assets/mainlevbuild1.png" id="2_w32yl"]
 [ext_resource type="Texture2D" uid="uid://dgywkkduvkvb3" path="res://Game Maps/The Artic/Map Assets/background1.png" id="3_f2pdw"]
 [ext_resource type="Texture2D" uid="uid://bftym75utdmis" path="res://Game Maps/The Artic/Map Assets/background2a.png" id="4_4qr6j"]
@@ -9,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://diuldhw1uxasj" path="res://Game Maps/The Artic/Map Assets/background4.png" id="7_mqci0"]
 [ext_resource type="Texture2D" uid="uid://yohx14s3h6cn" path="res://Game Maps/The Artic/Map Assets/background5.png" id="8_rk8nv"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="9_wja84"]
+[ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://exit_prompt.tscn" id="10_ohdw1"]
 [ext_resource type="Texture2D" uid="uid://pdkb74qw2lxq" path="res://Game Maps/The Artic/Map Assets/mainlevbuild2.png" id="11_fdhf1"]
-
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_largn"]
 texture = ExtResource("2_w32yl")
@@ -4460,7 +4459,7 @@ texture = ExtResource("11_fdhf1")
 sources/0 = SubResource("TileSetAtlasSource_jdgas")
 
 [node name="The Caves" type="Node2D"]
-script = ExtResource("1_srgb3")
+position = Vector2(-174, -79)
 
 [node name="Wall" type="TileMap" parent="."]
 z_index = 3
@@ -4540,3 +4539,10 @@ format = 2
 layer_0/tile_data = PackedInt32Array(720913, 1638400, 35, 720914, 1703936, 35, 393225, 1114112, 30, 458761, 1114112, 31, 524297, 1114112, 32, 589833, 1114112, 33, 327690, 1179648, 29, 393226, 1179648, 30, 458762, 1179648, 31, 524298, 1179648, 32, 589834, 1179648, 33, 327691, 1245184, 29, 393227, 1245184, 30, 458763, 1245184, 31, 524299, 1245184, 32, 589835, 1245184, 33, 393228, 1310720, 30, 458764, 1310720, 31, 524300, 1310720, 32, 589836, 1310720, 33, 393229, 1376256, 30, 458765, 1376256, 31, 524301, 1376256, 32, 589837, 1376256, 33, 393230, 1441792, 30, 458766, 1441792, 31, 524302, 1441792, 32, 589838, 1441792, 33, 655374, 1441792, 34, 327695, 1507328, 29, 393231, 1507328, 30, 458767, 1507328, 31, 524303, 1507328, 32, 589839, 1507328, 33, 655375, 1507328, 34, 262160, 1572864, 28, 327696, 1572864, 29, 393232, 1572864, 30, 458768, 1572864, 31, 524304, 1572864, 32, 589840, 1572864, 33, 655376, 1572864, 34, 720912, 1572864, 35, 196625, 1638400, 27, 262161, 1638400, 28, 327697, 1638400, 29, 393233, 1638400, 30, 458769, 1638400, 31, 524305, 1638400, 32, 589841, 1638400, 33, 655377, 1638400, 34, 196626, 1703936, 27, 262162, 1703936, 28, 327698, 1703936, 29, 393234, 1703936, 30, 458770, 1703936, 31, 524306, 1703936, 32, 589842, 1703936, 33, 655378, 1703936, 34, 262163, 1769472, 28, 327699, 1769472, 29, 393235, 1769472, 30, 458771, 1769472, 31, 524307, 1769472, 32, 589843, 1769472, 33, 655379, 1769472, 34, 720915, 1769472, 35, 327700, 1835008, 29, 393236, 1835008, 30, 458772, 1835008, 31, 524308, 1835008, 32, 589844, 1835008, 33, 655380, 1835008, 34, 720916, 1835008, 35, 327701, 1900544, 29, 393237, 1900544, 30, 458773, 1900544, 31, 524309, 1900544, 32, 589845, 1900544, 33, 655381, 1900544, 34, 720917, 1900544, 35, 589846, 1966080, 33, 655382, 1966080, 34, 589847, 2031616, 33, 655383, 2031616, 34, 655384, 2097152, 34, 655369, 1114112, 34, 655370, 1179648, 34, 655371, 1245184, 34, 655372, 1310720, 34, 655373, 1376256, 34)
 
 [node name="Main Player Position" type="Marker2D" parent="."]
+
+[node name="Exit Prompt" parent="." instance=ExtResource("10_ohdw1")]
+visible = true
+offset_left = -501.0
+offset_top = -341.0
+offset_right = 859.0
+offset_bottom = 531.0

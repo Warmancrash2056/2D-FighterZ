@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvoacn4mm4638"]
+[gd_scene load_steps=9 format=3 uid="uid://bvoacn4mm4638"]
 
 [ext_resource type="PackedScene" uid="uid://c27kgbbjefdwo" path="res://Character Resouces/Nomad/Character Scenes/Nomad.tscn" id="1_4khs3"]
 [ext_resource type="Script" path="res://Hurtbox.gd" id="1_we47s"]
 [ext_resource type="Script" path="res://Character Resouces/Nomad/Character Scenes/Dummy Character.gd" id="2_xcbgu"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
+[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="5_chdvm"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -83,10 +84,10 @@ one_way_collision = true
 position = Vector2(687, 296)
 script = ExtResource("2_xcbgu")
 
-[node name="Nomad" parent="." instance=ExtResource("1_4khs3")]
-position = Vector2(495, 272)
-
 [node name="Camera2D" parent="." instance=ExtResource("4_l55e5")]
 position = Vector2(567, 216)
+
+[node name="Goku" parent="." instance=ExtResource("5_chdvm")]
+position = Vector2(431, 288)
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

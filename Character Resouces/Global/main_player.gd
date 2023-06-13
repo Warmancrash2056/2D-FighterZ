@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var controls: Resource = load("res://Character Resouces/Global/Controller Resource/Player_3.tres")
-var jump_smoke = preload("res://jump_smoke.tscn")
-var counter_smoke = preload("res://counter.tscn")
+var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
+var counter_smoke = preload("res://Character Resouces/counter.tscn")
 
 @onready var Animate = $Character
 @onready var Sprite = $Sprite

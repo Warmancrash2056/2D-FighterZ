@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://di5auhdx6t7vg"]
+[gd_scene load_steps=6 format=3 uid="uid://di5auhdx6t7vg"]
 
 [ext_resource type="Script" path="res://Game Start/Main Menu/Main Menu.gd" id="1_a0kbw"]
 [ext_resource type="PackedScene" uid="uid://bys0ptudnouiw" path="res://Game Start/Character Idle.tscn" id="2_3wm2l"]
 [ext_resource type="Script" path="res://Game Start/Main Menu/Local Play.gd" id="3_m8lw7"]
-[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://background.tscn" id="4_66d6i"]
+[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/background.tscn" id="4_qpfyd"]
+[ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://exit_prompt.tscn" id="4_u8wxl"]
 
 [node name="Start Game" type="Control"]
 layout_mode = 3
@@ -60,14 +61,14 @@ text = "Training Room"
 flat = true
 script = ExtResource("3_m8lw7")
 
-[node name="Button" type="Button" parent="."]
+[node name="Control Layout" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 240.0
 offset_top = 288.0
 offset_right = 359.0
 offset_bottom = 319.0
-text = "Button Layout"
+text = "Controller Layout"
 flat = true
 script = ExtResource("3_m8lw7")
 
@@ -110,50 +111,19 @@ zoom = Vector2(1.7, 1.7)
 
 [node name="Character Pose" parent="." instance=ExtResource("2_3wm2l")]
 
-[node name="Exit Prompt" type="ColorRect" parent="."]
-visible = false
+[node name="Exit Prompt" parent="." instance=ExtResource("4_u8wxl")]
 layout_mode = 0
-offset_right = 1360.0
-offset_bottom = 872.0
-color = Color(0.14902, 0.14902, 0.14902, 0.768627)
 
-[node name="Exit Game" type="Button" parent="Exit Prompt"]
-layout_mode = 0
-offset_left = 480.0
-offset_top = 384.0
-offset_right = 515.0
-offset_bottom = 415.0
-text = "Yes"
-
-[node name="Return To Game" type="Button" parent="Exit Prompt"]
-layout_mode = 0
-offset_left = 640.0
-offset_top = 384.0
-offset_right = 671.0
-offset_bottom = 415.0
-text = "No"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Exit Prompt"]
-layout_mode = 0
-offset_left = 528.0
-offset_top = 360.0
-offset_right = 632.0
-offset_bottom = 406.0
-text = "Are You Sure"
-fit_content = true
-
-[node name="Background" parent="." instance=ExtResource("4_66d6i")]
+[node name="Background" parent="." instance=ExtResource("4_qpfyd")]
 layout_mode = 1
-offset_left = 167.0
-offset_top = 102.0
-offset_right = 951.0
-offset_bottom = 582.0
+offset_top = 88.0
+offset_bottom = 568.0
 mouse_filter = 2
-mouse_force_pass_scroll_events = false
 
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]
 [connection signal="pressed" from="Training Room" to="." method="_on_training_room_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Exit Prompt/Exit Game" to="Exit Prompt/Exit Game" method="_on_pressed"]
-[connection signal="pressed" from="Exit Prompt/Return To Game" to="Exit Prompt/Return To Game" method="_on_pressed"]
+[connection signal="pressed" from="Control Layout" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Setting Menu" to="." method="_on_setting_menu_pressed"]
+[connection signal="pressed" from="Online Play" to="." method="_on_online_play_pressed"]
+[connection signal="pressed" from="Mars Studio" to="." method="_on_mars_studio_pressed"]

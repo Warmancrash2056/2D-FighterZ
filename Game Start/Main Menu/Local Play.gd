@@ -8,7 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(is_hovered())
 	
 	if is_hovered() == true:
 		modulate = Color(1, 1, 1)

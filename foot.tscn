@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://vinflscbehb3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g8eg"]
-size = Vector2(6.15385, 0.769224)
-
-[node name="Foot" type="CollisionShape2D"]
-position = Vector2(0, 22.3077)
-shape = SubResource("RectangleShape2D_8g8eg")
-debug_color = Color(1, 1, 1, 0.490196)

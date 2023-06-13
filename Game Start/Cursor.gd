@@ -1,6 +1,8 @@
 extends Sprite2D
 
-@export var Controls: Resource 
+var player_1_controller: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
+var player_2_controller: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
+var main_player_controller: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
 # Object Array
 var characters = []          # Array to store all the characters the player can select
 
@@ -28,14 +30,13 @@ func _ready():
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
 	
-	if(Input.is_action_just_pressed(Controls.input_right)):
+	if Input.is_action_just_pressed(player_1_controller.input_right) or Input.is_action_just_pressed(player_2_controller.input_right) or Input.is_action_just_pressed(main_player_controller.input_right):
 		currentSelected += 1
 		currentColumnSpot += 1
 		# If the cursor goes past the total amount of columns reset to the first item in the column and go 1 row down
 		if(currentColumnSpot > gridContainer.columns - 1 && currentSelected < characters.size() - 1):
 			position.x -= (currentColumnSpot - 1) * portraitOffset.x
 			position.y += portraitOffset.y
-			print(characters)
 			currentColumnSpot = 0
 			currentRowSpot += 1
 		# If the cursor goes past the total amount of columns and amount of characters, reset to the first item in the whole roster 
@@ -48,7 +49,7 @@ func _process(delta):
 			currentSelected = 0
 		else:
 			position.x += portraitOffset.x
-	elif(Input.is_action_just_pressed(Controls.input_left)):
+	elif Input.is_action_just_pressed(player_1_controller.input_left) or Input.is_action_just_pressed(player_2_controller.input_left) or Input.is_action_just_pressed(main_player_controller.input_left):
 		currentSelected -= 1
 		currentColumnSpot -= 1
 		# If the cursor goes past the 0 amount on a column position reset to the first item in the column and go 1 row up

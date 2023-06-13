@@ -1,9 +1,9 @@
 [gd_scene load_steps=32 format=3 uid="uid://c27kgbbjefdwo"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_oxeiu"]
-[ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://hurtbox.tscn" id="3_521n3"]
+[ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="3_521n3"]
 [ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Spritesheet/Nomad Spritesheet.png" id="3_xwsaw"]
-[ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://foot.tscn" id="4_n55kq"]
+[ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="4_n55kq"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="5_xdrmu"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="6_0yays"]
 [ext_resource type="AudioStream" uid="uid://bmn4eg23hqjk7" path="res://Character Resouces/Nomad/Sound Effect/Down Light Sound.wav" id="7_xgqbn"]

@@ -1,7 +1,5 @@
 extends Control
 
-@export var Controls : Resource
-
 #Biography Section 
 @onready var GeneralArchfieldDescription = $"General Archfield Description"
 @onready var GokuDescription = $"Goku Description"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=164 format=3 uid="uid://c2kuts083ajp3"]
 
 [ext_resource type="Script" path="res://Game Start/Local Play/Local Play.gd" id="1_w8mfd"]
-[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://background.tscn" id="2_fwe2m"]
+[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/background.tscn" id="2_fwe2m"]
 [ext_resource type="Texture2D" uid="uid://d0qtth810xxwu" path="res://Character Resouces/Sakura/Icon/Assasin Character Icon.png" id="2_mr1wv"]
 [ext_resource type="Texture2D" uid="uid://b75cj5x3yjfxl" path="res://Character Resouces/General Archfield/Character Icon/General Archfield Character Icon.png" id="3_cwg26"]
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Icon/Goku.png" id="4_ef4qh"]
@@ -134,6 +134,7 @@
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_9.png" id="130_bsukf"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_10.png" id="131_7qe0s"]
 [ext_resource type="Script" path="res://Game Start/Local Play/Prompt Animate.gd" id="134_lcku6"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwqe8"]
 size = Vector2(25, 25)

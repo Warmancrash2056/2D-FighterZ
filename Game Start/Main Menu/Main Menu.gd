@@ -10,11 +10,13 @@ var main_player_controller = preload("res://Character Resouces/Global/Controller
 @onready var atlantis = $"Character Pose/Atlantis"
 @onready var hunter = $"Character Pose/Hunter"
 
-
+@onready var setting_menu = $"Setting Menu"
+@onready var controller_layout = $"Control Layout"
 @onready var LocalPlay = $"Local Play"
 @onready var AboutCharacters = $"About Characters"
 @onready var TrainingRoom = $"Training Room"
-
+@onready var online_play = $"Online Play"
+@onready var mars_studio = $"Mars Studio"
 @onready var exit_prompt = $"Exit Prompt"
 @onready var exit_game = $"Exit Prompt/Exit Game"
 @onready var return_game = $"Exit Prompt/Return To Game"
@@ -48,15 +50,20 @@ func _process(delta):
 func _on_local_play_pressed():
 	get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
 
-
 func _on_about_characters_pressed():
 	get_tree().change_scene_to_file("res://Game Start/Aboou Character/About Characters.tscn")
-
 
 func _on_training_room_pressed():
 	get_tree().change_scene_to_file("res://Game Maps/Training'/Training Character Selection.tscn")
 
-
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://Game Keys.tscn")
 
+func _on_setting_menu_pressed():
+	get_tree().change_scene_to_file("res://Game Start/Setting Menu.tscn")
+	print("Setting")
+func _on_online_play_pressed():
+	get_tree().change_scene_to_file("")
+
+func _on_mars_studio_pressed():
+	pass # Replace with function body.

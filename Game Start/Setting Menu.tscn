@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=3 uid="uid://xoddx118tc6u"]
+
+[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/background.tscn" id="1_c5mro"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y0qt7"]
+
+[sub_resource type="GDScript" id="GDScript_uw1bo"]
+script/source = "extends Control
+
+@onready var volume_change = Audio.volume_db
+
+@onready var volume_down = $\"Volume Down\"
+@onready var volume_up = $\"Volume Up\"
+@onready var pause_sound = $\"Pause Button\"
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	
+	if Input.is_action_just_pressed(\"exit\"):
+		get_tree().change_scene_to_file(\"res://Game Start/Main Menu/Main Menu.tscn\")
+		
+	# Default Audio volume is 5/ 50%
+	$ProgressBar.value = Audio.volume_db
+	
+	if Input.is_action_just_pressed(\"Player1_Left\"):
+		Audio.volume_db -= 1
+		
+		
+	if Input.is_action_just_pressed(\"Player1_Right\"):
+		Audio.volume_db += 1
+		
+	if pause_sound.button_pressed == true:
+		Audio.stream_paused = true
+	
+	else:
+		Audio.stream_paused = false
+	
+	
+
+
+func _on_volume_down_pressed():
+	Audio.volume_db -= 1
+
+
+func _on_volume_up_pressed():
+	Audio.volume_db += 1
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hggfm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t80vm"]
+
+[node name="Control2" type="Control"]
+material = SubResource("ShaderMaterial_y0qt7")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_uw1bo")
+
+[node name="Volume Down" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 256.0
+offset_top = 120.0
+offset_right = 296.0
+offset_bottom = 160.0
+scale = Vector2(3, 3)
+text = "<"
+icon = SubResource("CompressedTexture2D_hggfm")
+
+[node name="Volume Up" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 832.0
+offset_top = 120.0
+offset_right = 872.0
+offset_bottom = 160.0
+scale = Vector2(3, 3)
+text = ">"
+icon = SubResource("CompressedTexture2D_t80vm")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 376.0
+offset_top = 136.0
+offset_right = 528.0
+offset_bottom = 163.0
+scale = Vector2(3, 3)
+max_value = 10.0
+value = 5.0
+
+[node name="Pause Button" type="CheckButton" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 368.0
+offset_top = 48.0
+offset_right = 412.0
+offset_bottom = 72.0
+scale = Vector2(3, 3)
+
+[node name="Background" parent="." instance=ExtResource("1_c5mro")]
+layout_mode = 1
+offset_left = -256.0
+offset_top = -128.0
+offset_right = 528.0
+offset_bottom = 352.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(608, 216)
+scale = Vector2(3, 3)
+zoom = Vector2(1.3, 1.3)
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="Volume Down" to="." method="_on_volume_down_pressed"]
+[connection signal="pressed" from="Volume Up" to="." method="_on_volume_up_pressed"]
+[connection signal="pressed" from="Pause Button" to="." method="_on_check_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtoc4inmod25n"]
+[gd_scene load_steps=17 format=3 uid="uid://dtoc4inmod25n"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_ctwfg"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_6u0qm"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="4_qssb0"]
 [ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/Galvin Maps/Galvin Assets/background 3.png" id="5_u7xty"]
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="6_i3s7w"]
-[ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Map Camera.tscn" id="7_esfc6"]
+[ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="7_3sjgk"]
+[ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://exit_prompt.tscn" id="8_b0ugh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6m41"]
 texture = ExtResource("2_6u0qm")
@@ -7659,6 +7660,14 @@ size = Vector2(485, 20)
 [node name="Galvin" type="Node2D"]
 script = ExtResource("1_ctwfg")
 
+[node name="Exit Prompt" parent="." instance=ExtResource("8_b0ugh")]
+process_mode = 3
+z_index = 5
+offset_left = -592.0
+offset_top = -512.0
+offset_right = 768.0
+offset_bottom = 360.0
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2tgn7")
 format = 2
@@ -7740,5 +7749,5 @@ offset_bottom = 40.0
 [node name="Main Player Position" type="Marker2D" parent="."]
 position = Vector2(-24, -160)
 
-[node name="Camera2D" parent="." instance=ExtResource("7_esfc6")]
-position = Vector2(-24, -168)
+[node name="Camera2D" parent="." instance=ExtResource("7_3sjgk")]
+position = Vector2(-24, -184)

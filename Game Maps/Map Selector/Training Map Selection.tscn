@@ -1,20 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7kefd7c6d3cx"]
 
 [ext_resource type="Script" path="res://Game Maps/Map Selector/Training Map Selection.gd" id="1_t7exm"]
-[ext_resource type="Resource" uid="uid://clcyfwysl6fkw" path="res://Character Resouces/Global/Controller Resource/Player_2.tres" id="2_gw6jq"]
 [ext_resource type="Texture2D" uid="uid://dojad3d7kkql6" path="res://Game Maps/Galvin Maps/Game Image/Galvin Image.jpg" id="3_8qdv5"]
 [ext_resource type="Texture2D" uid="uid://55jtgk7w1o2x" path="res://Game Maps/The Artic/The Artic Image.png" id="4_2m7ty"]
+[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/background.tscn" id="4_7s06g"]
 
 [node name="Training Map Selection" type="Node2D"]
 script = ExtResource("1_t7exm")
-Controller = ExtResource("2_gw6jq")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -120.0
-offset_top = -152.0
-offset_right = 1424.0
-offset_bottom = 832.0
-color = Color(0, 0, 0, 1)
 
 [node name="Galvin" type="Sprite2D" parent="."]
 position = Vector2(600, 350)
@@ -27,10 +19,10 @@ scale = Vector2(0.301887, 0.365079)
 texture = ExtResource("4_2m7ty")
 
 [node name="Map Name" type="RichTextLabel" parent="."]
-offset_left = 104.0
-offset_top = 320.0
-offset_right = 392.0
-offset_bottom = 360.0
+offset_left = 59.0
+offset_top = 326.0
+offset_right = 347.0
+offset_bottom = 366.0
 scale = Vector2(3, 3)
 fit_content = true
 
@@ -41,3 +33,13 @@ offset_bottom = 27.0
 scale = Vector2(3, 3)
 text = "Training Room"
 fit_content = true
+
+[node name="Background" parent="." instance=ExtResource("4_7s06g")]
+offset_left = -486.0
+offset_top = -261.0
+offset_right = 298.0
+offset_bottom = 219.0
+scale = Vector2(3, 3)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 317)

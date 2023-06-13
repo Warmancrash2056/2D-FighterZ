@@ -1,7 +1,6 @@
 extends Control
 
 @onready var Player1 = $"Player 1 Cursor"
-@onready var GameAudio = $"Game Audio"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Audio._character_select_play()

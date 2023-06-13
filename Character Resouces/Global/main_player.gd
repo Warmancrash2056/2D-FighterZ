@@ -8,7 +8,7 @@ var counter_smoke = preload("res://counter.tscn")
 @onready var smoke_position = $Marker2D
 
 const Speed = 170
-const Acceleration = 25
+const Acceleration = 10
 const Air_Speed = 135
 const Fall_Speed = 100
 const Roll_Speed = 400
@@ -69,7 +69,6 @@ func _idle_state_():
 func _cannot_counter():
 	can_counter = false
 func _cannot_change_direction():
-	print(can_change_dir)
 # Reset Defend directional change at end of animation
 	can_change_dir = false
 func _gravity():
@@ -143,6 +142,7 @@ func _process(delta):
 				Animate.play("Run")
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				print(velocity)
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Dodge_Roll
@@ -160,9 +160,8 @@ func _process(delta):
 						velocity.x = 270
 						set_collision_mask_value(2, false)
 			else:
-				velocity.x = 0
+				velocity.x = lerp(velocity.x, 0.0, 1)
 				Animate.play("Idle")
-				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nuetral_Light_Start
 					
@@ -212,8 +211,8 @@ func _process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nuetral_Air
 					
-				if Input.is_action_just_pressed(controls.input_dash):
-					Select = States.Air_Defend
+			if Input.is_action_just_pressed(controls.input_dash):
+				Select = States.Air_Defend
 			
 		States.Falling:
 			if Input.is_action_pressed(controls.input_left):
@@ -228,8 +227,8 @@ func _process(delta):
 			else:
 				velocity.x = 0
 				
-				if Input.is_action_just_pressed(controls.input_dash):
-					Select = States.Air_Defend
+			if Input.is_action_just_pressed(controls.input_dash):
+				Select = States.Air_Defend
 			if !is_on_floor():
 				Animate.play("Fall")
 				velocity.y += Gravity
@@ -309,13 +308,21 @@ func _process(delta):
 			
 
 
-func _on_nomad_nuetral_light_area_entered(area):
-	if area:
-		nomad_nlight_hit = true
-		
-
-
 func _on_up_light_hitbox_area_entered(area):
 	if area:
 		nomad_ulight_hit = true
 		print(nomad_ulight_hit)
+
+
+func _on_nomad_nuetral_light_start_area_entered(area):
+	if area:
+		nomad_nlight_hit = true
+	print(nomad_nlight_hit)
+
+
+
+func _on_nomad_nuetral_light_finish_area_entered(area):
+	if area:
+		nomad_nlight_hit = true
+	print(nomad_nlight_hit)
+

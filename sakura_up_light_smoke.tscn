@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=3 uid="uid://dvfpcjwt21qr6"]
+
+[ext_resource type="Texture2D" uid="uid://n7nrg84268yb" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 4/Separated Frames/Smoke VFX 4 (56X56)1.png" id="1_6b1ne"]
+[ext_resource type="Texture2D" uid="uid://uqv6uptm4ke8" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 4/Separated Frames/Smoke VFX 4 (56X56)2.png" id="2_pwlc8"]
+[ext_resource type="Texture2D" uid="uid://ctdh02y0ho2gb" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 4/Separated Frames/Smoke VFX 4 (56X56)3.png" id="3_hmheg"]
+[ext_resource type="Texture2D" uid="uid://cwophyj2fj3h1" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 4/Separated Frames/Smoke VFX 4 (56X56)4.png" id="4_uk8oi"]
+[ext_resource type="Texture2D" uid="uid://cjht4t7wc1jna" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 4/Separated Frames/Smoke VFX 4 (56X56)5.png" id="5_ri4go"]
+[ext_resource type="Texture2D" uid="uid://ybv6m14h6sra" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 4/Separated Frames/Smoke VFX 4 (56X56)6.png" id="6_63eu6"]
+[ext_resource type="Texture2D" uid="uid://gjh4vpm2gfq7" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 4/Separated Frames/Smoke VFX 4 (56X56)7.png" id="7_wttrg"]
+[ext_resource type="Texture2D" uid="uid://yoguvuk0v500" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 4/Separated Frames/Smoke VFX 4 (56X56)8.png" id="8_4cwbv"]
+[ext_resource type="Texture2D" uid="uid://bynbbbhiu1yqq" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 4/Separated Frames/Smoke VFX 4 (56X56)9.png" id="9_68apq"]
+[ext_resource type="Texture2D" uid="uid://bhil51qsjajqq" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 4/Separated Frames/Smoke VFX 4 (56X56)10.png" id="10_edrsh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_piuq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6b1ne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pwlc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hmheg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uk8oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ri4go")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_63eu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wttrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4cwbv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_68apq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_edrsh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Sakura Up Light Smoke" type="AnimatedSprite2D"]
+position = Vector2(-3, 0)
+sprite_frames = SubResource("SpriteFrames_piuq2")
+frame_progress = 0.734734

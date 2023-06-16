@@ -5,7 +5,7 @@ var counter_smoke = preload("res://Character Resouces/counter.tscn")
 
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
-@onready var smoke_position = $Marker2D
+@onready var smoke_position = $"Scale Player/Marker2D"
 
 const Speed = 170
 const Acceleration = 10
@@ -66,8 +66,8 @@ func _idle_state_():
 	can_jump = false
 	Select = States.Idling
 	Animate.play("Idle")
-func _gravity():
-	velocity.y += Gravity
+	
+# Between 2 and 5 frames player can perform a dodge roll
 func _can_jump():
 	can_jump = true
 func _fall_state_():
@@ -90,9 +90,8 @@ func _ulight():
 	if Input.is_action_pressed(controls.input_up):
 		if Input.is_action_pressed(controls.input_attack):
 			Select = States.Up_Light_Start
-func _jump():
-	if Input.is_action_pressed(controls.input_jump):
-		Select = States.Jumping
+			
+# Reset Defend directional change at end of animation
 func _reset_turn_around():
 # Reset Defend directional change at end of animation
 	can_change_dir = false
@@ -115,20 +114,22 @@ func drop_down():
 	else:
 		set_collision_mask_value(3, true)
 
+# Activates jump and counter smoke at first frame of jumps and directional attacks.
 func _activate_jump_smoke():
 	var instance_smoke_jump = jump_smoke.instantiate()
 	instance_smoke_jump.global_position = smoke_position.global_position
 	get_tree().get_root().add_child(instance_smoke_jump)
-	
-func _reset_counter():
-	# Reset counter after if player uses an attack or not.
-	can_counter = false
 	
 func _activate_counter_smoke():
 	var instance_smoke_counter = counter_smoke.instantiate()
 	if can_counter == true:
 		instance_smoke_counter.global_position = smoke_position.global_position
 		get_tree().get_root().add_child(instance_smoke_counter)
+# Reset counter smoke at the frist frame of idle and fall state.
+func _reset_counter():
+	# Reset counter after if player uses an attack or not.
+	can_counter = false
+
 		
 func _process(delta):
 	move_and_slide()

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Hurtbox.gd" id="1_we47s"]
 [ext_resource type="Script" path="res://Character Resouces/Nomad/Character Scenes/Dummy Character.gd" id="2_xcbgu"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
-[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="5_chdvm"]
+[ext_resource type="PackedScene" uid="uid://r68nnf3p1exi" path="res://Character Resouces/Sakura/Character Scene/Sakura.tscn" id="5_8dtoi"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -87,7 +87,7 @@ script = ExtResource("2_xcbgu")
 [node name="Camera2D" parent="." instance=ExtResource("4_l55e5")]
 position = Vector2(567, 216)
 
-[node name="Goku" parent="." instance=ExtResource("5_chdvm")]
-position = Vector2(431, 288)
+[node name="Sakura" parent="." instance=ExtResource("5_8dtoi")]
+position = Vector2(447, 232)
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

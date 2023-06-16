@@ -1,12 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=30 format=3 uid="uid://c40ypkrmks8qe"]
 
-[ext_resource type="Texture2D" uid="uid://bpvuyu78xasmb" path="res://Character Resouces/Goku/Spritesheet/ground_monk_FULL_v1.3-SpriteSheet_288x128 (1).png" id="1_ia6oy"]
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_ob1e8"]
-[ext_resource type="AudioStream" uid="uid://bnflkqncnoaqx" path="res://Character Resouces/Goku/Sound Effects/Down Light.wav" id="3_3hdml"]
-[ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Goku/Sound Effects/First Punch.wav" id="4_3o44d"]
-[ext_resource type="AudioStream" uid="uid://r5tlbrig47nu" path="res://Character Resouces/Goku/Sound Effects/Second Punch.wav" id="5_mgcwp"]
-[ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="6_u5ela"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="7_xo8w6"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="8_hefpj"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="9_g74am"]
 
@@ -1543,30 +1537,22 @@ disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-texture = ExtResource("1_ia6oy")
 hframes = 12
 vframes = 24
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_3hdml")
 
 [node name="Nuetral Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_3o44d")
 
 [node name="Side Light Sound First" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_3o44d")
 
 [node name="Side Light Sound Second" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_mgcwp")
 
 [node name="Up Light Sounds" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_mgcwp")
 
 [node name="Air Attack Sounds" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_u5ela")
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_xo8w6")
 
 [node name="Character" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
@@ -1584,8 +1570,8 @@ position = Vector2(0, -3.84615)
 [connection signal="area_entered" from="Scale Player/Nuetral Air Second Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Third Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Light Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light Buttom Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]

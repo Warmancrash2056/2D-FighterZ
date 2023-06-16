@@ -1,11 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://r68nnf3p1exi"]
+[gd_scene load_steps=27 format=3 uid="uid://r68nnf3p1exi"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_pq8g1"]
-[ext_resource type="Texture2D" uid="uid://cp7t6inhv4t3i" path="res://Character Resouces/Sakura/Spritesheet/Nia.png" id="2_f7i7c"]
-[ext_resource type="Texture2D" uid="uid://djs8lc52wplls" path="res://Character Resouces/Sakura/Animation/Nuetral Light/projectile_throw/projectile_throw.png" id="3_ghdqe"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_ydokd"]
-[ext_resource type="AudioStream" uid="uid://vkh3pkcuv12c" path="res://Character Resouces/Sakura/Nia Blade Throw.wav" id="5_uhxd2"]
-[ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="6_rlys0"]
+[ext_resource type="Texture2D" uid="uid://cp7t6inhv4t3i" path="res://Character Resouces/Sakura/Spritesheet/Nia.png" id="2_g4utf"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="7_rbukg"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="8_ua7mb"]
 
@@ -13,7 +9,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ghdqe")
+"texture": null
 }],
 "loop": true,
 "name": &"Throw",
@@ -77,6 +73,22 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [16]
+}
+
+[sub_resource type="Animation" id="Animation_v8cc6"]
+resource_name = "Dlight"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_hewnt"]
@@ -967,9 +979,6 @@ tracks/6/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_v8cc6"]
-resource_name = "Dlight"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mugsx"]
 _data = {
 "Air Defend": SubResource("Animation_cu4hc"),
@@ -999,7 +1008,7 @@ script = ExtResource("1_pq8g1")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-texture = ExtResource("2_f7i7c")
+texture = ExtResource("2_g4utf")
 hframes = 20
 vframes = 8
 
@@ -1070,13 +1079,10 @@ disabled = true
 position = Vector2(0, 23.8462)
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_ydokd")
 
 [node name="Up Light & Nuetral Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_uhxd2")
 
 [node name="Side Light & Down Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_rlys0")
 
 [node name="Character" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Scale Player")

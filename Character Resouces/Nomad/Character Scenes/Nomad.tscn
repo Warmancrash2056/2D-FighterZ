@@ -1,13 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://c27kgbbjefdwo"]
+[gd_scene load_steps=27 format=3 uid="uid://c27kgbbjefdwo"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_oxeiu"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="3_521n3"]
-[ext_resource type="Texture2D" uid="uid://dlrigshdh60a0" path="res://Character Resouces/Nomad/Spritesheet/Nomad Spritesheet.png" id="3_xwsaw"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="4_n55kq"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="5_xdrmu"]
-[ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="6_0yays"]
-[ext_resource type="AudioStream" uid="uid://bmn4eg23hqjk7" path="res://Character Resouces/Nomad/Sound Effect/Down Light Sound.wav" id="7_xgqbn"]
-[ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="8_nbxvg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3cv4"]
 radius = 7.73067
@@ -1782,7 +1777,6 @@ script = ExtResource("1_oxeiu")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-texture = ExtResource("3_xwsaw")
 hframes = 20
 vframes = 8
 
@@ -1833,19 +1827,15 @@ disabled = true
 position = Vector2(0, 23.077)
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_xdrmu")
 volume_db = -10.0
 
 [node name="Nuetral & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_0yays")
 volume_db = -10.0
 
 [node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_xgqbn")
 volume_db = -10.0
 
 [node name="Up Light Phase In" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_nbxvg")
 volume_db = -10.0
 
 [node name="Character" type="AnimationPlayer" parent="."]

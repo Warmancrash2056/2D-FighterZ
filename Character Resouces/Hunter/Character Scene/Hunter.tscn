@@ -1,6 +1,6 @@
 [gd_scene load_steps=51 format=3 uid="uid://dkaf4thtn7g0g"]
 
-[ext_resource type="Script" path="res://Character Resouces/Global/Player 2 Script.gd" id="1_no6y0"]
+[ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_cvyji"]
 [ext_resource type="Texture2D" uid="uid://csn8bf6hfirik" path="res://Character Resouces/Hunter/Spritesheet/Hunter Spritesheet.png" id="3_k7eqw"]
 [ext_resource type="Texture2D" uid="uid://cek5bcrw4ug5q" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/diagonal_arrow/diagonal_arrow_.png" id="4_mfl5n"]
 [ext_resource type="Texture2D" uid="uid://cxnj3bax3fsjs" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_1.png" id="5_ayglb"]
@@ -27,9 +27,8 @@
 [ext_resource type="AudioStream" uid="uid://cbpel8j5vnsq" path="res://Character Resouces/Hunter/Sounds/Down Light Sound.wav" id="26_k2k5j"]
 [ext_resource type="AudioStream" uid="uid://dvnbf8odfka1u" path="res://Character Resouces/Hunter/Sounds/Arrow Sound Effects.wav" id="27_rtgld"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="28_cne24"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_sf3in"]
-radius = 3.86534
+[ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="28_h5me4"]
+[ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="29_p70q7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6wdl"]
 radius = 6.08276
@@ -109,53 +108,6 @@ height = 108.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hql1b"]
 radius = 4.12311
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukc6m"]
-
-[sub_resource type="Animation" id="Animation_pcn48"]
-resource_name = "Block"
-length = 1.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0880656, 0.170706, 0.256602, 0.343583, 0.426224, 0.513204, 0.598015, 0.682826, 0.765467, 0.851362, 0.939428, 1.02098, 1.10796, 1.19278, 1.28084, 1.36457, 1.44938),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"_stop_points"
-}, {
-"args": [],
-"method": &"_start_points"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_a7qru"]
 resource_name = "Dead"
 
@@ -174,49 +126,43 @@ tracks/0/keys = {
 "update": 1,
 "values": [true, false, true]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-13, 0), Vector2(-13, 0), Vector2(0, 0)]
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".")
+tracks/2/path = NodePath("Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [],
-"method": &"_stop_points"
-}, {
-"args": [],
-"method": &"_down_light"
-}, {
-"args": [],
-"method": &"_start_points"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 1, 2, 3, 4, 5, 6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_xhxcp"]
@@ -233,6 +179,36 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [32, 33, 34]
+}
+
+[sub_resource type="Animation" id="Animation_pcn48"]
+resource_name = "Ground Defend"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0880656, 0.170706, 0.256602, 0.343583, 0.426224, 0.513204, 0.598015, 0.682826, 0.765467, 0.851362, 0.939428, 1.02098, 1.10796, 1.19278, 1.28084, 1.36457, 1.44938),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_odh6a"]
@@ -354,34 +330,22 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/4/path = NodePath("Nuetral Air & Side Light Sound:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, -10), Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Nuetral Air & Side Light Sound:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0.2, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -394,7 +358,7 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_q56n8"]
-resource_name = "Nlight"
+resource_name = "Nuetral Light Starter"
 length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -423,34 +387,22 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/2/path = NodePath("Nuetral Light Sound:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.383457, 0.4, 0.483789, 0.5, 0.765457, 0.785017),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-3, 0), Vector2(-3, 0), Vector2(12, 0), Vector2(12, 0), Vector2(40, 0), Vector2(40, 0), Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Nuetral Light Sound:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -599,31 +551,31 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:disabled")
+tracks/11/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/12/path = NodePath("Nuetral Air & Side Light Sound:playing")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [false]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Up Light Sound:playing")
+tracks/13/path = NodePath("Nuetral Light Sound:playing")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -635,26 +587,14 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Nuetral Air & Side Light Sound:playing")
+tracks/14/path = NodePath("Sprite:modulate")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Nuetral Light Sound:playing")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_df8h2"]
@@ -718,7 +658,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_iio5n"]
-resource_name = "Slight"
+resource_name = "Side Light Starter"
 length = 1.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -811,7 +751,7 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_v533a"]
-resource_name = "Ulight"
+resource_name = "Up Light Starter"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -840,34 +780,22 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/2/path = NodePath("Up Light Sound:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0743288, 0.101713, 0.17213, 0.185656, 0.783713, 0.800665, 0.904986, 0.964971, 1.17726, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-5, 0), Vector2(-5, 0), Vector2(-15, 0), Vector2(-15, 0), Vector2(-22, 0), Vector2(-22, 0), Vector2(-28, 0), Vector2(-28, 0), Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Up Light Sound:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -881,33 +809,26 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1dgu"]
 _data = {
-"Block": SubResource("Animation_pcn48"),
 "Dead": SubResource("Animation_a7qru"),
 "Dlight": SubResource("Animation_gen08"),
 "Fall": SubResource("Animation_xhxcp"),
+"Ground Defend": SubResource("Animation_pcn48"),
 "Hurt": SubResource("Animation_odh6a"),
 "Idle": SubResource("Animation_n4tvb"),
 "Jump": SubResource("Animation_rmv74"),
 "Nair": SubResource("Animation_ubj5p"),
-"Nlight": SubResource("Animation_q56n8"),
+"Nuetral Light Starter": SubResource("Animation_q56n8"),
 "RESET": SubResource("Animation_eqtuk"),
 "Roll": SubResource("Animation_df8h2"),
 "Run": SubResource("Animation_q546x"),
-"Slight": SubResource("Animation_iio5n"),
-"Ulight": SubResource("Animation_v533a")
+"Side Light Starter": SubResource("Animation_iio5n"),
+"Up Light Starter": SubResource("Animation_v533a")
 }
 
 [node name="Hunter" type="CharacterBody2D"]
 z_index = 4
 scale = Vector2(1.2, 1.2)
-script = ExtResource("1_no6y0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 3
-position = Vector2(0, 18.3333)
-scale = Vector2(1.3, 1.3)
-shape = SubResource("CircleShape2D_sf3in")
-debug_color = Color(1, 1, 1, 0.490196)
+script = ExtResource("1_cvyji")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_k7eqw")
@@ -976,12 +897,6 @@ position = Vector2(79, -9)
 shape = SubResource("CircleShape2D_hql1b")
 disabled = true
 
-[node name="Hurtbox" type="Area2D" parent="Scale Player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Hurtbox"]
-shape = SubResource("CapsuleShape2D_ukc6m")
-debug_color = Color(0, 0, 0, 0.490196)
-
 [node name="Nuetral Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_vc57e")
 
@@ -1003,6 +918,10 @@ libraries = {
 "": SubResource("AnimationLibrary_m1dgu")
 }
 
+[node name="Foot" parent="." instance=ExtResource("28_h5me4")]
+
+[node name="Hurtbox" parent="." instance=ExtResource("29_p70q7")]
+
 [connection signal="animation_looped" from="Scale Player/Down Light Arrow" to="." method="_on_down_light_arrow_animation_looped"]
-[connection signal="area_entered" from="Scale Player/Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="animation_finished" from="Character" to="." method="_on_character_animation_finished"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

@@ -10,4 +10,4 @@ class_name InputSys
 @export var input_attack = "Player1_Attack"
 @export var input_jump = "Player1_Jump"
 @export var input_dash ="Player1_Dash"
-@export var input_block = "Player1_Block"
+@export var input_transform = "Player1_Transform"

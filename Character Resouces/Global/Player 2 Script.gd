@@ -301,3 +301,4 @@ func _on_up_light_hitbox_area_entered(area):
 	if area:
 		nomad_ulight_hit = true
 		print(nomad_ulight_hit)
+

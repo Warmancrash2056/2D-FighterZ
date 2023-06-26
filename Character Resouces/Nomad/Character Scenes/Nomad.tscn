@@ -1,7 +1,6 @@
-[gd_scene load_steps=45 format=3 uid="uid://c27kgbbjefdwo"]
+[gd_scene load_steps=44 format=3 uid="uid://c27kgbbjefdwo"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_oxeiu"]
-[ext_resource type="Texture2D" uid="uid://bu8m47gsmcmw0" path="res://elementals_wind_hashashin_FULL_v1.1 2/wind_SpriteSheet_288x128 (1).png" id="2_0npu2"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="3_521n3"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="4_n55kq"]
 
@@ -2338,7 +2337,6 @@ script = ExtResource("1_oxeiu")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-texture = ExtResource("2_0npu2")
 hframes = 11
 vframes = 26
 

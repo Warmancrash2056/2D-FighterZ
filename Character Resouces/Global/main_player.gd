@@ -6,7 +6,8 @@ var sakura_ulight_smoke = preload("res://sakura_up_light_smoke.tscn")
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $Marker2D
-
+@onready var super_energy = $"Super Energy"
+@onready var deplete_energy = $"Deplete Energy"
 const Speed = 150
 const Acceleration = 10
 const Air_Speed = 125
@@ -22,6 +23,9 @@ var nomad_nlight_hit = false
 var nomad_ulight_hit = false
 var can_jump = false
 var can_counter = false
+
+var super_pts = 1
+var current_super_pts = 1 
 @export var Health: int
 @export var Super_Pts: int
 
@@ -66,6 +70,15 @@ enum States {
 # Default State when entering the scene tree. #
 var Select = States.Normal_Idling
 
+func _idle_energy_refill():
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+	
+func _deplete_energy():
+	current_super_pts -= super_pts
 # Check if nomad nlight or ulight starter hitbox detected the opponent to perfrom follow up attacks
 func _transition_nuetral_attack_finisher():
 	if nomad_nlight_hit == true:
@@ -84,7 +97,7 @@ func _reset_nomad_ulight():
 # Reset to idle and fall state after attacks 
 func _idle_state_():
 	Select = States.Normal_Idling
-	Animate.play("Idle")
+	Animate.play("N")
 	
 func _fall_state_():
 	Select = States.Normal_Falling
@@ -173,18 +186,24 @@ func _reset_counter():
 	# Reset counter after if player uses an attack or not.
 	can_counter = false
 
-		
 func _process(delta):
+	if current_super_pts < 0:
+		Select = States.Deactivate_Super
+	super_energy.value = current_super_pts
+	print(super_energy.value)
 	move_and_slide()
 	match Select:
 		States.Activate_Super:
 			Animate.play("Activate Super")
 			velocity.x = 0
 			velocity.y = 0
+			deplete_energy.start()
 		States.Deactivate_Super:
 			Animate.play("Deactivate Super")
 			velocity.x = 0
 			velocity.y = 0
+			deplete_energy.stop()
+			current_super_pts = 0
 		States.Normal_Idling:
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
@@ -459,7 +478,7 @@ func _process(delta):
 			velocity.x = 0
 		States.Normal_Air_Block:
 			turn_around()
-			Animate.play("Air Defend")
+			Animate.play("Normal - Air Block")
 			velocity.x = 0
 			velocity.y = 0
 			# Activate counter smoke to be called during an attack.
@@ -500,3 +519,11 @@ func _on_nomad_nuetral_light_finish_area_entered(area):
 
 func _on_hurtbox_area_entered(area):
 	Select = States.Normal_Hurt
+
+
+func _on_super_timer_timeout():
+	Select = States.Deactivate_Super
+
+
+func _on_deplete_energy_timeout():
+	current_super_pts -= super_pts	

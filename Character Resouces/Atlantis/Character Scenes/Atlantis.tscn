@@ -1,7 +1,6 @@
-[gd_scene load_steps=45 format=3 uid="uid://djfrjc3ydgq3j"]
+[gd_scene load_steps=44 format=3 uid="uid://djfrjc3ydgq3j"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_lcarg"]
-[ext_resource type="Texture2D" uid="uid://dpsb4r31ba6ga" path="res://Elementals_water_priestess_FULL_v1.1 2/water_FULL_SpriteSheet_288x128.png" id="2_ph5va"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_ois81"]
 [ext_resource type="AudioStream" uid="uid://bmsj2n0xspnmq" path="res://Character Resouces/Global/melee sounds/melee sound.wav" id="5_4h3r6"]
 [ext_resource type="AudioStream" uid="uid://b5hbcr4w7bgda" path="res://Character Resouces/Atlantis/Side Light.wav" id="6_i0k7m"]
@@ -1657,7 +1656,6 @@ shape = SubResource("CapsuleShape2D_tsl62")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-texture = ExtResource("2_ph5va")
 hframes = 12
 vframes = 28
 

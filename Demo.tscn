@@ -84,4 +84,32 @@ position = Vector2(567, 216)
 [node name="Sakura" parent="." instance=ExtResource("5_u7jiw")]
 position = Vector2(487, 248)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 199.0
+offset_top = 336.0
+offset_right = 903.0
+offset_bottom = 776.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 751.0
+offset_top = 16.0
+offset_right = 1455.0
+offset_bottom = 456.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -313.0
+offset_top = 40.0
+offset_right = 391.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 535.0
+offset_top = 264.0
+offset_right = 743.0
+offset_bottom = 280.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

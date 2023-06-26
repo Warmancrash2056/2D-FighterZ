@@ -82,10 +82,11 @@ func _process(delta):
 			CharacterList.check_main_is_called = true
 			portraitOffset.x = 0
 	
-	if Input.is_action_just_pressed(Controls.input_block):
+	if Input.is_action_just_pressed(Controls.input_dash):
 		Player1Ready = false
 		if CharacterList.get_main_player != null:
 			CharacterList.get_main_player = null
+			portraitOffset.x = 63
 
 func _on_player_1_general_pyrus_animation_looped():
 	GeneralPyrusAnimation.play("Idle")

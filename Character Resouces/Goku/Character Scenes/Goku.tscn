@@ -324,6 +324,22 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_cr2q8"]
+resource_name = "Normal - Death"
+length = 1.80001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150]
+}
+
 [sub_resource type="Animation" id="Animation_67kk3"]
 resource_name = "Normal - Down Attack"
 length = 1.4
@@ -531,6 +547,22 @@ tracks/3/keys = {
 "args": [],
 "method": &"_reset_turn_around"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_fl5qb"]
+resource_name = "Normal - Hurt"
+length = 0.70001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [127, 128, 129, 130, 131, 132, 133]
 }
 
 [sub_resource type="Animation" id="Animation_c7e8a"]
@@ -1532,6 +1564,21 @@ tracks/0/keys = {
 "values": [186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197]
 }
 
+[sub_resource type="Animation" id="Animation_fdg31"]
+resource_name = "Super - Side Attack Starter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [218, 219, 220]
+}
+
 [sub_resource type="Animation" id="Animation_h2gye"]
 resource_name = "Super Ulight"
 length = 1.4
@@ -1546,53 +1593,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
-}
-
-[sub_resource type="Animation" id="Animation_cr2q8"]
-resource_name = "Normal - Death"
-length = 1.80001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150]
-}
-
-[sub_resource type="Animation" id="Animation_fl5qb"]
-resource_name = "Normal - Hurt"
-length = 0.70001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [127, 128, 129, 130, 131, 132, 133]
-}
-
-[sub_resource type="Animation" id="Animation_fdg31"]
-resource_name = "Super - Side Attack Starter"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [218, 219, 220]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_467i5"]

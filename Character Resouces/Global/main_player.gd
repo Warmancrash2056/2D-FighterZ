@@ -8,6 +8,7 @@ var sakura_ulight_smoke = preload("res://sakura_up_light_smoke.tscn")
 @onready var smoke_position = $Marker2D
 @onready var super_energy = $"Super Energy"
 @onready var deplete_energy = $"Deplete Energy"
+@onready var refill_energy = $"Refill Energy"
 const Speed = 150
 const Acceleration = 10
 const Air_Speed = 125
@@ -97,7 +98,7 @@ func _reset_nomad_ulight():
 # Reset to idle and fall state after attacks 
 func _idle_state_():
 	Select = States.Normal_Idling
-	Animate.play("N")
+	Animate.play("Normal - Idle")
 	
 func _fall_state_():
 	Select = States.Normal_Falling
@@ -132,7 +133,7 @@ func _nair():
 func _dlight():
 	if Input.is_action_pressed(controls.input_down):
 		if Input.is_action_pressed(controls.input_attack):
-			Select = States.Normal_Dash_Run
+			Select = States.Normal_Down_Attack
 func _ulight():
 	if Input.is_action_pressed(controls.input_up):
 		if Input.is_action_pressed(controls.input_attack):
@@ -185,8 +186,12 @@ func _activate_counter_smoke():
 func _reset_counter():
 	# Reset counter after if player uses an attack or not.
 	can_counter = false
+ 
+func _ready():
+	pass
+func _process(delta):	
 
-func _process(delta):
+		
 	if current_super_pts < 0:
 		Select = States.Deactivate_Super
 	super_energy.value = current_super_pts
@@ -259,7 +264,7 @@ func _process(delta):
 					
 			if Input.is_action_pressed(controls.input_up):
 				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Normal_Down_Attack
+					Select = States.Normal_Up_Attack_Start
 					
 			if Input.is_action_just_pressed(controls.input_jump) and is_on_floor():
 				Select = States.Normal_Jumping
@@ -451,7 +456,7 @@ func _process(delta):
 			else:
 				velocity.y = 0
 			velocity.x = 0
-			Animate.play("Up Light Starter")
+			Animate.play("Normal - Up Attack Starter")
 		States.Normal_Up_Attack_Finsh:
 			velocity.x = 0
 			velocity.y = 0
@@ -464,7 +469,7 @@ func _process(delta):
 		States.Normal_Air_Attack:
 			velocity.x = lerp(velocity.x , 0.01, 0.06)
 			velocity.y = 0
-			Animate.play("Nair")
+			Animate.play("Normal - Air Attack")
 		
 		States.Super_Air_Attack:
 			velocity.x = lerp(velocity.x , 0.01, 0.06)
@@ -527,3 +532,4 @@ func _on_super_timer_timeout():
 
 func _on_deplete_energy_timeout():
 	current_super_pts -= super_pts	
+

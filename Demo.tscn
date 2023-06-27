@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bvoacn4mm4638"]
 
 [ext_resource type="Script" path="res://Hurtbox.gd" id="1_we47s"]
+[ext_resource type="PackedScene" uid="uid://c27kgbbjefdwo" path="res://Character Resouces/Nomad/Character Scenes/Nomad.tscn" id="3_o5o4k"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
-[ext_resource type="PackedScene" uid="uid://r68nnf3p1exi" path="res://Character Resouces/Sakura/Character Scene/Sakura.tscn" id="5_u7jiw"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -81,9 +81,6 @@ one_way_collision = true
 [node name="Camera2D" parent="." instance=ExtResource("4_l55e5")]
 position = Vector2(567, 216)
 
-[node name="Sakura" parent="." instance=ExtResource("5_u7jiw")]
-position = Vector2(487, 248)
-
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 199.0
 offset_top = 336.0
@@ -111,5 +108,8 @@ offset_top = 264.0
 offset_right = 743.0
 offset_bottom = 280.0
 color = Color(0, 0, 0, 1)
+
+[node name="Nomad" parent="." instance=ExtResource("3_o5o4k")]
+position = Vector2(607, 144)
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

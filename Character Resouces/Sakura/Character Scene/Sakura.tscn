@@ -4,15 +4,10 @@
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="3_60lwp"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="3_ah03g"]
 [ext_resource type="AudioStream" uid="uid://vkh3pkcuv12c" path="res://Character Resouces/Sakura/Nia Blade Throw.wav" id="4_1j7wx"]
-<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://gv2p1ffyxomm" path="res://metal_bladekeeper_FULL_v1.1_SpriteSheet_288x128.png" id="6_gt4k1"]
 [ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://health.tscn" id="7_q86ml"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="7_rbukg"]
 [ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://super_energy.tscn" id="8_06n6p"]
-=======
-[ext_resource type="Texture2D" uid="uid://gv2p1ffyxomm" path="res://Character Resouces/Sakura/Spritesheet/Sakura Spritesheet.png" id="6_14kt3"]
-[ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="7_rbukg"]
->>>>>>> Stashed changes
 
 [sub_resource type="Animation" id="Animation_2ip10"]
 resource_name = "Activate Super"
@@ -2177,7 +2172,7 @@ stream = ExtResource("3_ah03g")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-texture = ExtResource("6_14kt3")
+texture = ExtResource("6_gt4k1")
 hframes = 12
 vframes = 26
 

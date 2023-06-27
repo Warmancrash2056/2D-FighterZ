@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://diuldhw1uxasj" path="res://Game Maps/The Artic/Map Assets/background4.png" id="7_mqci0"]
 [ext_resource type="Texture2D" uid="uid://yohx14s3h6cn" path="res://Game Maps/The Artic/Map Assets/background5.png" id="8_rk8nv"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="9_wja84"]
-[ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://exit_prompt.tscn" id="10_ohdw1"]
+[ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://Game Start/exit_prompt.tscn" id="10_ohdw1"]
 [ext_resource type="Texture2D" uid="uid://pdkb74qw2lxq" path="res://Game Maps/The Artic/Map Assets/mainlevbuild2.png" id="11_fdhf1"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_largn"]
 texture = ExtResource("2_w32yl")

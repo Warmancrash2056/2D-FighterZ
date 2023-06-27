@@ -1,11 +1,13 @@
-[gd_scene load_steps=52 format=3 uid="uid://r68nnf3p1exi"]
+[gd_scene load_steps=54 format=3 uid="uid://r68nnf3p1exi"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_pq8g1"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="3_60lwp"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="3_ah03g"]
 [ext_resource type="AudioStream" uid="uid://vkh3pkcuv12c" path="res://Character Resouces/Sakura/Nia Blade Throw.wav" id="4_1j7wx"]
 [ext_resource type="Texture2D" uid="uid://gv2p1ffyxomm" path="res://metal_bladekeeper_FULL_v1.1_SpriteSheet_288x128.png" id="6_gt4k1"]
+[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://health.tscn" id="7_q86ml"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="7_rbukg"]
+[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://super_energy.tscn" id="8_06n6p"]
 
 [sub_resource type="Animation" id="Animation_2ip10"]
 resource_name = "Activate Super"
@@ -359,6 +361,74 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v8cc6"]
+resource_name = "Normal - Down Attack"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_activate_counter_smoke"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Character:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_drbts"]
@@ -1831,74 +1901,6 @@ tracks/2/keys = {
 "values": [true, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_v8cc6"]
-resource_name = "Normal - Down Attack"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.9),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_idle_state_"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_activate_counter_smoke"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Sprite:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Character:speed_scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mugsx"]
 _data = {
 "Activate Super": SubResource("Animation_2ip10"),
@@ -2174,25 +2176,9 @@ texture = ExtResource("6_gt4k1")
 hframes = 12
 vframes = 26
 
-[node name="Health" type="ProgressBar" parent="."]
-modulate = Color(0, 1, 0, 1)
-z_index = 1
-offset_left = -12.308
-offset_top = -38.0
-offset_right = 110.692
-offset_bottom = -34.0
-scale = Vector2(0.2, 0.2)
-value = 100.0
-show_percentage = false
+[node name="Health" parent="." instance=ExtResource("7_q86ml")]
 
-[node name="Super Energy" type="ProgressBar" parent="."]
-modulate = Color(1, 1, 0, 1)
-offset_left = -12.3077
-offset_top = -36.9231
-offset_right = 69.6923
-offset_bottom = -32.9231
-scale = Vector2(0.3, 0.3)
-show_percentage = false
+[node name="Super Energy" parent="." instance=ExtResource("8_06n6p")]
 
 [node name="Block Timer" type="Timer" parent="."]
 

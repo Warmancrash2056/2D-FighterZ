@@ -525,11 +525,6 @@ func _on_nomad_nuetral_light_finish_area_entered(area):
 func _on_hurtbox_area_entered(area):
 	Select = States.Normal_Hurt
 
-
-func _on_super_timer_timeout():
-	Select = States.Deactivate_Super
-
-
 func _on_deplete_energy_timeout():
 	current_super_pts -= super_pts	
 

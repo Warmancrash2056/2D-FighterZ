@@ -1,7 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://w7vgf8q3ip3t"]
+[gd_scene load_steps=36 format=3 uid="uid://w7vgf8q3ip3t"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player 2 Script.gd" id="1_rfto1"]
-[ext_resource type="Texture2D" uid="uid://wbgnd1vpa415" path="res://Character Resouces/General Archfield/Spritesheet/General Archfield SpriteSheet.png" id="3_76ty0"]
+[ext_resource type="Texture2D" uid="uid://ddjkqmw4jctaq" path="res://Character Resouces/General Archfield Spritesheet.png" id="2_0340f"]
 [ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="4_12kcl"]
 [ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="5_k3gx6"]
 [ext_resource type="AudioStream" uid="uid://uvqcrwqnysys" path="res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav" id="6_bnpmr"]
@@ -44,22 +44,6 @@ height = 48.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cauyt"]
 radius = 6.0
-
-[sub_resource type="Animation" id="Animation_2ujqb"]
-resource_name = "Block"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.101136, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [135, 136, 137, 138, 139, 140, 141, 142]
-}
 
 [sub_resource type="Animation" id="Animation_ng37l"]
 resource_name = "Dlight"
@@ -151,109 +135,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [19, 20, 21]
-}
-
-[sub_resource type="Animation" id="Animation_6dgbi"]
-resource_name = "Hurt"
-
-[sub_resource type="Animation" id="Animation_57jhy"]
-resource_name = "Idle"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_x2anf"]
-resource_name = "Jump"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [16, 17, 18]
-}
-
-[sub_resource type="Animation" id="Animation_d26hf"]
-resource_name = "Nair"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [42, 43, 44, 45, 46, 47, 48, 49, 30, 31, 32]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Scale Player/Nuetral Air Hitbox/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Nuetral & Side Light Sound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_aei0y"]
-resource_name = "Nlight"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Nuetral Light Hitbox Tree/Starter Hitbox/Lower:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_widbv"]
@@ -571,38 +452,6 @@ tracks/25/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_7gk38"]
-resource_name = "Roll"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.100495, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [51, 52, 53, 54, 55, 56]
-}
-
-[sub_resource type="Animation" id="Animation_f6cl7"]
-resource_name = "Run"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [8, 9, 10, 11, 12, 13, 14, 15]
-}
-
 [sub_resource type="Animation" id="Animation_uxoo6"]
 resource_name = "Slight"
 length = 1.3
@@ -779,19 +628,217 @@ tracks/7/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_2ujqb"]
+resource_name = "Normal - Ground Block"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.101136, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [135, 136, 137, 138, 139, 140, 141, 142]
+}
+
+[sub_resource type="Animation" id="Animation_1snw0"]
+resource_name = "Normal - Air Block"
+length = 0.30001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [42]
+}
+
+[sub_resource type="Animation" id="Animation_aei0y"]
+resource_name = "Normal - Nuetral Attack Starter"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Nuetral Light Hitbox Tree/Starter Hitbox/Lower:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_d26hf"]
+resource_name = "Normal - Air Attack"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [42, 43, 44, 45, 46, 47, 48, 49, 30, 31, 32]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Scale Player/Nuetral Air Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Nuetral & Side Light Sound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_x2anf"]
+resource_name = "Normal - Jump"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [16, 17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_57jhy"]
+resource_name = "Normal - Idle"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_6dgbi"]
+resource_name = "Normal - Hurt"
+length = 0.80001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [143, 144, 145, 146, 147, 148, 149, 150]
+}
+
+[sub_resource type="Animation" id="Animation_cocpu"]
+resource_name = "Normal - Death"
+length = 1.30001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162]
+}
+
+[sub_resource type="Animation" id="Animation_7gk38"]
+resource_name = "Normal - Dash Run"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100495, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [51, 52, 53, 54, 55, 56]
+}
+
+[sub_resource type="Animation" id="Animation_f6cl7"]
+resource_name = "Normal - Run"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4iyry"]
 _data = {
-"Block": SubResource("Animation_2ujqb"),
 "Dlight": SubResource("Animation_ng37l"),
 "Fall": SubResource("Animation_0ii5v"),
-"Hurt": SubResource("Animation_6dgbi"),
-"Idle": SubResource("Animation_57jhy"),
-"Jump": SubResource("Animation_x2anf"),
-"Nair": SubResource("Animation_d26hf"),
-"Nlight": SubResource("Animation_aei0y"),
+"Normal - Air Attack": SubResource("Animation_d26hf"),
+"Normal - Air Block": SubResource("Animation_1snw0"),
+"Normal - Dash Run": SubResource("Animation_7gk38"),
+"Normal - Death": SubResource("Animation_cocpu"),
+"Normal - Ground Block": SubResource("Animation_2ujqb"),
+"Normal - Hurt": SubResource("Animation_6dgbi"),
+"Normal - Idle": SubResource("Animation_57jhy"),
+"Normal - Jump": SubResource("Animation_x2anf"),
+"Normal - Nuetral Attack Starter": SubResource("Animation_aei0y"),
+"Normal - Run": SubResource("Animation_f6cl7"),
 "RESET": SubResource("Animation_widbv"),
-"Roll": SubResource("Animation_7gk38"),
-"Run": SubResource("Animation_f6cl7"),
 "Slight": SubResource("Animation_uxoo6"),
 "Ulight": SubResource("Animation_vbuu8")
 }
@@ -887,9 +934,9 @@ shape = SubResource("CapsuleShape2D_cauyt")
 disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_76ty0")
-hframes = 20
-vframes = 9
+texture = ExtResource("2_0340f")
+hframes = 12
+vframes = 29
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_12kcl")

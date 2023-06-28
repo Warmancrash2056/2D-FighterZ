@@ -79,7 +79,8 @@ func _idle_energy_refill():
 		current_super_pts = 100
 	
 func _deplete_energy():
-	current_super_pts -= super_pts
+	if current_super_pts < 0:
+		Select = States.Deactivate_Super
 # Check if nomad nlight or ulight starter hitbox detected the opponent to perfrom follow up attacks
 func _transition_nuetral_attack_finisher():
 	if nomad_nlight_hit == true:
@@ -210,6 +211,7 @@ func _process(delta):
 			deplete_energy.stop()
 			current_super_pts = 0
 		States.Normal_Idling:
+			print(velocity)
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
 				Select = States.Normal_Falling
@@ -242,7 +244,7 @@ func _process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nornmal_Side_Attack_Start
 			else:
-				velocity.x = lerp(velocity.x, 0.0, 1)
+				velocity.x = lerp(velocity.x, 0.0, 0.3)
 				Animate.play("Normal - Idle")
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Normal_Nuetral_Attack_Start
@@ -338,7 +340,7 @@ func _process(delta):
 					Select = States.Normal_Air_Attack
 					
 			else:
-				velocity.x = 0
+				velocity.x = lerp(velocity.x, 0.0, 0.01)
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Normal_Air_Attack
 					
@@ -381,7 +383,7 @@ func _process(delta):
 				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
 				
 			else:
-				velocity.x = 0
+				velocity.x = lerp(velocity.x, 0.0, 0.05)
 			
 
 			if !is_on_floor():

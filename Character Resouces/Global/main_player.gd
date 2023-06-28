@@ -121,21 +121,18 @@ func _reset_jump():
 	can_jump = false
 
 # Perform attacks within 2-3 frames of the air block. #
-func counter_normal_nuetral_attack():
+func _counter_nuetral_attack():
 	if Input.is_action_pressed(controls.input_attack):
 		Select = States.Normal_Nuetral_Attack_Start
-func _slight():
+func _counter_side_attack():
 	if Input.is_action_pressed(controls.input_left) or Input.is_action_pressed(controls.input_right):
 		if Input.is_action_pressed(controls.input_attack):
 			Select = States.Nornmal_Side_Attack_Start
-func _nair():
-	if Input.is_action_pressed(controls.input_attack):
-		Select = States.Normal_Air_Attack
-func _dlight():
+func counter_down_attack():
 	if Input.is_action_pressed(controls.input_down):
 		if Input.is_action_pressed(controls.input_attack):
 			Select = States.Normal_Down_Attack
-func _ulight():
+func _counter_up_attack():
 	if Input.is_action_pressed(controls.input_up):
 		if Input.is_action_pressed(controls.input_attack):
 			Select = States.Normal_Up_Attack_Start
@@ -436,7 +433,7 @@ func _process(delta):
 		States.Super_Side_Attack_Starter:
 			velocity.x = 0
 			velocity.y = 0
-			Animate.play("Super- Side Attack Starter")
+			Animate.play("Super - Side Attack Starter")
 		States.Normal_Side_Attack_Finish:
 			velocity.x = 0
 			velocity.y = 0

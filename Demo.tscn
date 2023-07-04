@@ -263,7 +263,7 @@ libraries = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D2"]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_07qj5")
-animation = &"Hurt"
+animation = &"Run"
 
 [node name="Foot" parent="CharacterBody2D2" instance=ExtResource("4_tmeg4")]
 position = Vector2(-1, 56)

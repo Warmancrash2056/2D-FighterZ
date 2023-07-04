@@ -21,33 +21,38 @@ func _physics_process(delta):
 				velocity.x = 0
 				animate.play("Idle")
 		hurt:
+			print(velocity)
 			animate.play("Hurt")
 			
 			
 	move_and_slide()
 	velocity.y += 15
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("Goku Side Attack Start"):
-		states = hurt
-		velocity = Vector2.ZERO
-	
-	elif area.is_in_group("Goku Side Attack Finish"):
-		states = hurt
-		if CharacterList.main_player_facing_left == false:
-			velocity.x = 100
-		
-		elif CharacterList.main_player_facing_left == true:
-			velocity.x = -100
-	elif area.is_in_group("Goku Nuetral Attack"):
+	if area.is_in_group("Goku Nuetral Attack"):
 		states = hurt
 		if CharacterList.main_player_facing_left == false:
 			velocity = Vector2(60,-200)
 			
 		elif CharacterList.main_player_facing_left == true:
 			velocity = Vector2(-60,-200)
-	elif area.is_in_group("Goku Down Attack Bottom"):
+	if area.is_in_group("Goku Side Attack Start"):
 		states = hurt
-		velocity.y = -500
+		velocity = Vector2.ZERO
+	
+	if area.is_in_group("Goku Side Attack Finish"):
+		states = hurt
+		if CharacterList.main_player_facing_left == false:
+			velocity.x = 100
+		
+		elif CharacterList.main_player_facing_left == true:
+			velocity.x = -100
+	if area.is_in_group("Goku Down Attack Bottom"):
+		states = hurt
+		velocity.y = -300
+		
+	if area.is_in_group("Goku Down Attack Top"):
+		states = hurt
+		velocity.y = -300
 	
 	elif area.is_in_group("Goku First Air Attack"):
 		states = hurt
@@ -88,7 +93,6 @@ func _on_area_2d_area_entered(area):
 			
 		elif CharacterList.main_player_facing_left == true:
 			velocity = Vector2(-100,-60)
-
 
 func _on_animated_sprite_2d_animation_looped():
 	if animate.animation == "Hurt":

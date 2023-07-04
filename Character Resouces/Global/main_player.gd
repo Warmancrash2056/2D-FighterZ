@@ -38,7 +38,7 @@ var block_active = false
 
 
 
-var super_pts = 1
+var super_pts = 5
 var current_super_pts = 1
 
 @export var Health: int
@@ -92,9 +92,6 @@ func _idle_energy_refill():
 	else:
 		current_super_pts = 100
 	
-func _deplete_energy():
-	if current_super_pts < 0:
-		Select = States.Deactivate_Super
 # Check if nomad nuetral Attack or Up Attack starter hitbox detected the opponent to perfrom follow up attacks
 func _transition_nomad_nuetral_attack_finisher():
 	if nomad_nuetral_attack_hit == true:
@@ -115,6 +112,13 @@ func _reset_nomad_up_attack():
 func _transition_goku_side_attack_finisher():
 	if goku_side_attack_hit == true:
 		Select = States.Normal_Side_Attack_Finish
+		print("side attack hits")
+		
+func _reset_goku_side_attack():
+	goku_side_attack_hit = false
+	
+func _reset_nomad_side_attack():
+	goku_side_attack_hit = false
 # Reset to idle and fall state after attacks 
 func _idle_state_():
 	Select = States.Normal_Idling
@@ -540,3 +544,119 @@ func _on_deplete_energy_timeout():
 
 func _on_block_timer_timeout():
 	block_active = false
+
+
+func _on_goku_side_attack_start_area_entered(area):
+	goku_side_attack_hit = true
+	current_super_pts
+
+
+func _on_goku_air_attack_left_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_air_attack_middle_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_air_attack_right_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_nuetral_attack_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_side_attack_finish_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_down_attack_bottom_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_down_attack_top_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_up_attack_right_hand_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_up_attack_left_hand_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_up_attack_grab_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_up_attack_smash_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_super_nuetral_attack_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+func _on_goku_super_side_attack_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100
+
+
+func _on_goku_super_down_attack_area_entered(area):
+	if current_super_pts < 100:
+		current_super_pts += super_pts
+		
+	else:
+		current_super_pts = 100

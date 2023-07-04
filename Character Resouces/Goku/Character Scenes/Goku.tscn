@@ -863,27 +863,13 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-12.308, -19)]
 }
-tracks/5/type = "method"
+tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("..")
+tracks/5/path = NodePath("../Character:speed_scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_idle_energy_refill"
-}]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../Character:speed_scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1078,6 +1064,100 @@ tracks/2/keys = {
 "values": [1.0]
 }
 
+[sub_resource type="Animation" id="Animation_t2w0d"]
+resource_name = "Normal - Side Attack Finisher"
+length = 0.40001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Scale Player/Goku Side Attack Finish/Second Jab:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_activate_counter_smoke"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Character:speed_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.8]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_reset_goku_side_attack"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_ryj8h"]
 resource_name = "Normal - Side Attack Starter"
 length = 0.6
@@ -1180,86 +1260,6 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.6]
-}
-
-[sub_resource type="Animation" id="Animation_t2w0d"]
-resource_name = "Normal - Side Light Finisher"
-length = 0.40001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [40, 41, 42, 43]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Scale Player/Goku Side Attack Finish/Second Jab:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_activate_counter_smoke"
-}]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("..")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_idle_state_"
-}]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../Character:speed_scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.8]
 }
 
 [sub_resource type="Animation" id="Animation_nfd27"]
@@ -2222,8 +2222,8 @@ _data = {
 "Normal - Jump": SubResource("Animation_f73an"),
 "Normal - Nuetral Attack Starter": SubResource("Animation_auvrv"),
 "Normal - Run": SubResource("Animation_jyc66"),
+"Normal - Side Attack Finisher": SubResource("Animation_t2w0d"),
 "Normal - Side Attack Starter": SubResource("Animation_ryj8h"),
-"Normal - Side Light Finisher": SubResource("Animation_t2w0d"),
 "Normal - Up Attack Starter": SubResource("Animation_nfd27"),
 "RESET": SubResource("Animation_jtfqx"),
 "Super - Air Attack": SubResource("Animation_m3v0i"),
@@ -2263,20 +2263,39 @@ position = Vector2(-3, -25.5)
 [node name="Goku Down Attack Bottom" parent="Scale Player" instance=ExtResource("8_s2445")]
 
 [node name="Goku Down Attack Top" parent="Scale Player" instance=ExtResource("9_k021d")]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Goku Up Attack Right Hand" parent="Scale Player" instance=ExtResource("10_q5ncu")]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Goku Up Attack Left Hand" parent="Scale Player" instance=ExtResource("11_8kctm")]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Goku Up Attack Grab" parent="Scale Player" instance=ExtResource("12_nl7u3")]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Goku Up Attack Smash" parent="Scale Player" instance=ExtResource("13_r5l15")]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Goku Super Nuetral Attack" parent="Scale Player" groups=["Goku Super Nuetral Attack"] instance=ExtResource("14_0g1im")]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Goku Super Side Attack" parent="Scale Player" groups=["Goku Super Side Attack"] instance=ExtResource("15_a6ku3")]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="Scale Player/Goku Super Side Attack" index="0"]
+disabled = true
 
 [node name="Goku Super Down Attack" parent="Scale Player" instance=ExtResource("16_6kug0")]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
@@ -2312,6 +2331,21 @@ offset_bottom = -15.0
 
 [node name="Block Timer" parent="." instance=ExtResource("12_n0d42")]
 
+[connection signal="area_entered" from="Scale Player/Goku Air Attack Left" to="." method="_on_goku_air_attack_left_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Air Attack Middle" to="." method="_on_goku_air_attack_middle_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Air Attack Right" to="." method="_on_goku_air_attack_right_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Nuetral Attack" to="." method="_on_goku_nuetral_attack_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Side Attack Start" to="." method="_on_goku_side_attack_start_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Side Attack Finish" to="." method="_on_goku_side_attack_finish_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Down Attack Bottom" to="." method="_on_goku_down_attack_bottom_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Down Attack Top" to="." method="_on_goku_down_attack_top_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Up Attack Right Hand" to="." method="_on_goku_up_attack_right_hand_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Up Attack Left Hand" to="." method="_on_goku_up_attack_left_hand_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Up Attack Grab" to="." method="_on_goku_up_attack_grab_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Up Attack Smash" to="." method="_on_goku_up_attack_smash_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Super Nuetral Attack" to="." method="_on_goku_super_nuetral_attack_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Super Side Attack" to="." method="_on_goku_super_side_attack_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Super Down Attack" to="." method="_on_goku_super_down_attack_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="Deplete Energy" to="." method="_on_deplete_energy_timeout"]
 [connection signal="timeout" from="Block Timer" to="." method="_on_block_timer_timeout"]

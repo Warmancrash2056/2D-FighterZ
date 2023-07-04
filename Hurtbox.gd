@@ -20,3 +20,7 @@ func _on_area_entered(area):
 
 func _on_area_2d_body_entered(body):
 	pass # Replace with function body.
+
+
+func _on_animated_sprite_2d_animation_looped():
+	pass # Replace with function body.

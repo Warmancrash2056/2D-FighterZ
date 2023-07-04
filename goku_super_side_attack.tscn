@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://hr7l6o3dxee8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sra8u"]
+height = 42.0
+
+[node name="Goku Super Side Attack" type="Area2D"]
+position = Vector2(3, 25.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(76, -7)
+shape = SubResource("CapsuleShape2D_sra8u")

@@ -34,7 +34,7 @@ func _on_area_2d_area_entered(area):
 			
 		elif CharacterList.main_player_facing_left == true:
 			velocity = Vector2(-60,-200)
-	elif area.is_in_group("Goku Down Attack"):
+	elif area.is_in_group("Goku Down Attack Bottom"):
 		states = hurt
 		velocity.y = -500
 	
@@ -61,3 +61,19 @@ func _on_area_2d_area_entered(area):
 			
 		elif CharacterList.main_player_facing_left == true:
 			velocity = Vector2(-270,0)
+	
+	elif area.is_in_group("Goku Super Nuetral Attack"):
+		states = hurt
+		if CharacterList.main_player_facing_left == false:
+			velocity = Vector2(100,-60)
+			
+		elif CharacterList.main_player_facing_left == true:
+			velocity = Vector2(-100,-60)
+			
+	elif area.is_in_group("Goku Super Side Attack"):
+		states = hurt
+		if CharacterList.main_player_facing_left == false:
+			velocity = Vector2(100,-60)
+			
+		elif CharacterList.main_player_facing_left == true:
+			velocity = Vector2(-100,-60)

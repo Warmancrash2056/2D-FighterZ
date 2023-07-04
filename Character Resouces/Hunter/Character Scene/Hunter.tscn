@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dkaf4thtn7g0g"]
+[gd_scene load_steps=72 format=3 uid="uid://dkaf4thtn7g0g"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_cvyji"]
 [ext_resource type="Texture2D" uid="uid://dd2rhi2iioqq8" path="res://Elementals_leaf_ranger_288x128_SpriteSheet_full.png" id="2_hhpwo"]
@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://cd3cla3ets7ll" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_16.png" id="20_vjjiw"]
 [ext_resource type="Texture2D" uid="uid://d0o4t0d5s2fld" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_17.png" id="21_n1wix"]
 [ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_18.png" id="22_djb2d"]
-[ext_resource type="Texture2D" uid="uid://b6m5bprtib1t3" path="res://arrow_.png" id="24_24b0p"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="24_vc57e"]
 [ext_resource type="AudioStream" uid="uid://dg23uykbeo64t" path="res://Character Resouces/Hunter/Sounds/Up Light Sound.wav" id="25_7c44d"]
 [ext_resource type="AudioStream" uid="uid://dvnbf8odfka1u" path="res://Character Resouces/Hunter/Sounds/Arrow Sound Effects.wav" id="27_rtgld"]
@@ -2585,7 +2584,6 @@ script = ExtResource("1_cvyji")
 [node name="Side Light Arrow" type="Sprite2D" parent="Scale Player"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(45, -10)
-texture = ExtResource("24_24b0p")
 
 [node name="Area2D" type="Area2D" parent="Scale Player/Side Light Arrow"]
 position = Vector2(-45, 12)

@@ -20,6 +20,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("exit"):
+		get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
 	match MapCall:
 		Map.Galvin:
 			MapName.set_text(str("Galvin"))

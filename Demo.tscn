@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvoacn4mm4638"]
+[gd_scene load_steps=13 format=3 uid="uid://bvoacn4mm4638"]
 
 [ext_resource type="Script" path="res://Hurtbox.gd" id="1_we47s"]
-[ext_resource type="PackedScene" uid="uid://dkaf4thtn7g0g" path="res://Character Resouces/Hunter/Character Scene/Hunter.tscn" id="3_yqig8"]
+[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="4_1octd"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
+[ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="4_tmeg4"]
+[ext_resource type="Script" path="res://Area2D.gd" id="5_r0s7k"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -13,6 +15,35 @@ height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p54th"]
 size = Vector2(204.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysrhy"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6reih"]
+size = Vector2(20, 0)
+
+[sub_resource type="Animation" id="Animation_sho4o"]
+resource_name = "hurt"
+length = 0.20001
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_hurt"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_naeif"]
+_data = {
+"hurt": SubResource("Animation_sho4o")
+}
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(9, 0)
@@ -109,7 +140,40 @@ offset_right = 743.0
 offset_bottom = 280.0
 color = Color(0, 0, 0, 1)
 
-[node name="Hunter" parent="." instance=ExtResource("3_yqig8")]
-position = Vector2(503, 208)
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_tmeg4")]
+position = Vector2(687, 184)
+
+[node name="Goku" parent="." instance=ExtResource("4_1octd")]
+position = Vector2(511, 184)
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+position = Vector2(-257, 0)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("5_r0s7k")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D2"]
+collision_layer = 16
+collision_mask = 32
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D2/Area2D"]
+offset_left = 687.0
+offset_top = 224.0
+offset_right = 727.0
+offset_bottom = 264.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/Area2D"]
+position = Vector2(707, 244)
+shape = SubResource("RectangleShape2D_ysrhy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(704, 264)
+shape = SubResource("RectangleShape2D_6reih")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_naeif")
+}
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
+[connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]

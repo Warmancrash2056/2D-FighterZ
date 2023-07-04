@@ -61,9 +61,8 @@ func _on_button_pressed():
 
 func _on_setting_menu_pressed():
 	get_tree().change_scene_to_file("res://Game Start/Setting Menu.tscn")
-	print("Setting")
 func _on_online_play_pressed():
 	get_tree().change_scene_to_file("")
 
 func _on_mars_studio_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://About Studio.tscn")

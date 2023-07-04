@@ -1,4 +1,4 @@
-extends Area2D
+extends Control
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,15 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-
-func _on_area_entered(area):
-	if area.is_in_group("Hurbox"):
-		print('Nlight')
-
-
-
-
-func _on_area_2d_body_entered(body):
-	pass # Replace with function body.
+	if Input.is_action_just_pressed("exit"):
+		get_tree().change_scene_to_file("res://Game Start/Main Menu/Main Menu.tscn")
+		Audio._main_menu_play()

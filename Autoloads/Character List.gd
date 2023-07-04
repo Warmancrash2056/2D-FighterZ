@@ -8,6 +8,9 @@ var check_player_1_is_called = false
 var check_player_2_is_called = false
 var check_main_is_called = false
 
+var player_1_facing_left = false
+var player_2_facing_left= false
+var main_player_facing_left = false
 
 # Reminder that if script is not erroing and cannot register script. 
 # Usually means that script has an error.

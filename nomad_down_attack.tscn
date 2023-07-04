@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://de3y3uvf810dx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_juggh"]
+height = 34.0
+
+[node name="Nomad Down Attack" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 7)
+shape = SubResource("CapsuleShape2D_juggh")
+disabled = true

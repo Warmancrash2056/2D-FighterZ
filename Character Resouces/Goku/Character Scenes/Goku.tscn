@@ -1,13 +1,14 @@
-[gd_scene load_steps=46 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=50 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_ob1e8"]
 [ext_resource type="Texture2D" uid="uid://d2edge0rpk5w3" path="res://Elementals_ground_monk_FULL_v1.3 4/ground_monk_FULL_v1.3-SpriteSheet_288x128 (1).png" id="2_ipcwa"]
-[ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Goku/Sound Effects/First Punch.wav" id="4_47fjc"]
-[ext_resource type="AudioStream" uid="uid://r5tlbrig47nu" path="res://Character Resouces/Goku/Sound Effects/Second Punch.wav" id="5_jvwbc"]
-[ext_resource type="AudioStream" uid="uid://dl15dbgkg58hr" path="res://Character Resouces/Goku/Sound Effects/Up Light.wav" id="6_3oj0e"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="7_7vvh2"]
+[ext_resource type="PackedScene" uid="uid://chd4n86tcqokf" path="res://character_jump_sound.tscn" id="8_gtluj"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="8_hefpj"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="9_g74am"]
+[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://health.tscn" id="9_tgrup"]
+[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://super_energy.tscn" id="10_oxjgc"]
+[ext_resource type="PackedScene" uid="uid://bgm4l7ardrnil" path="res://deplete_energy.tscn" id="11_5nu4o"]
+[ext_resource type="PackedScene" uid="uid://b3mosh5sutup4" path="res://block_timer.tscn" id="12_n0d42"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_anuv4"]
 radius = 3.0
@@ -29,6 +30,15 @@ height = 28.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lwywl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kq3c8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkihm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sra8u"]
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sor6q"]
+radius = 27.0
+height = 84.0
 
 [sub_resource type="Animation" id="Animation_w7cb0"]
 resource_name = "Activate Super"
@@ -59,6 +69,30 @@ tracks/1/keys = {
 "method": &"_super_idle_state"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Health:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12.308, -20), Vector2(-12.308, -52)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Super Energy:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12.308, -19), Vector2(-12.308, -51)]
+}
 
 [sub_resource type="Animation" id="Animation_xc32p"]
 resource_name = "Deactivate Super"
@@ -73,6 +107,44 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [267, 268, 269, 270, 271, 272, 273, 274, 275, 276]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Health:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12.308, -52), Vector2(-12.308, -20)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Super Energy:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12.308, -51), Vector2(-12.308, -19)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_8rqie"]
@@ -126,25 +198,13 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false, true]
 }
-tracks/4/type = "value"
+tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Air Attack Sounds:playing")
+tracks/4/path = NodePath("..")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.1, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [true, false]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("..")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -152,17 +212,41 @@ tracks/5/keys = {
 "method": &"_fall_state_"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath(".:modulate")
+tracks/6/path = NodePath("../Health:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(-12.308, -24)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Super Energy:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -23)]
 }
 
 [sub_resource type="Animation" id="Animation_h1784"]
@@ -201,11 +285,14 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"_nlight"
+"method": &"_counter_nuetral_attack"
+}, {
+"args": [],
+"method": &"_counter_nuetral_attack"
 }]
 }
 tracks/3/type = "method"
@@ -215,11 +302,14 @@ tracks/3/path = NodePath("..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"_slight"
+"method": &"_counter_side_attack"
+}, {
+"args": [],
+"method": &"_counter_side_attack"
 }]
 }
 tracks/4/type = "method"
@@ -229,11 +319,14 @@ tracks/4/path = NodePath("..")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"_reset_turn_around"
+"method": &"counter_down_attack"
+}, {
+"args": [],
+"method": &"counter_down_attack"
 }]
 }
 tracks/5/type = "method"
@@ -243,42 +336,95 @@ tracks/5/path = NodePath("..")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"_dlight"
+"method": &"_counter_up_attack"
+}, {
+"args": [],
+"method": &"_counter_up_attack"
 }]
 }
-tracks/6/type = "method"
+tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("..")
+tracks/6/path = NodePath(".:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_ulight"
-}]
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath(".:modulate")
+tracks/7/path = NodePath("../Super Energy:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.529412), Color(1, 1, 1, 1)]
+"values": [Vector2(-12.308, -19)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Health:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -20)]
+}
+
+[sub_resource type="Animation" id="Animation_cr2q8"]
+resource_name = "Normal - Death"
+length = 1.80001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Super Energy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -19)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Health:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -20)]
 }
 
 [sub_resource type="Animation" id="Animation_gn67f"]
-resource_name = "Normal - Dash Run"
+resource_name = "Normal - Dodge Dash"
 length = 0.80001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -323,21 +469,29 @@ tracks/2/keys = {
 "method": &"_can_jump"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_cr2q8"]
-resource_name = "Normal - Death"
-length = 1.80001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150]
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Super Energy:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -25)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Health:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -26)]
 }
 
 [sub_resource type="Animation" id="Animation_67kk3"]
@@ -379,17 +533,19 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, false, true]
 }
-tracks/3/type = "value"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Down Light Sound:playing")
+tracks/3/path = NodePath("..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.4, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [true, false]
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -398,20 +554,6 @@ tracks/4/path = NodePath("..")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_idle_state_"
-}]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("..")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -421,6 +563,42 @@ tracks/5/keys = {
 "args": [],
 "method": &"_activate_counter_smoke"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Super Energy:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -19)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Health:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -20)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Character:speed_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.6]
 }
 
 [sub_resource type="Animation" id="Animation_veaer"]
@@ -492,6 +670,30 @@ tracks/4/keys = {
 "method": &"drop_down"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Health:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -21)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Super Energy:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -20)]
+}
 
 [sub_resource type="Animation" id="Animation_id6wq"]
 resource_name = "Normal - Ground Block"
@@ -529,24 +731,46 @@ tracks/2/path = NodePath(".:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.266667, 0.266667, 0.266667, 0.529412), Color(0.478431, 0.478431, 0.478431, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
-tracks/3/type = "method"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("..")
+tracks/3/path = NodePath("../Super Energy:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_reset_turn_around"
-}]
+"update": 0,
+"values": [Vector2(-12.308, -17)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Health:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -18)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Character:speed_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.8]
 }
 
 [sub_resource type="Animation" id="Animation_fl5qb"]
@@ -563,6 +787,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [127, 128, 129, 130, 131, 132, 133]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Super Energy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -19)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Health:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -20)]
 }
 
 [sub_resource type="Animation" id="Animation_c7e8a"]
@@ -605,6 +853,56 @@ tracks/2/keys = {
 "args": [],
 "method": &"_reset_counter"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Health:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -20)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Super Energy:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -19)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_energy_refill"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Character:speed_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4]
 }
 
 [sub_resource type="Animation" id="Animation_f73an"]
@@ -653,26 +951,38 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Jump Sound:playing")
+tracks/3/path = NodePath(".:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true, false]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath(".:modulate")
+tracks/4/path = NodePath("../Character Jump Sound:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Character:speed_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_auvrv"]
@@ -702,17 +1012,19 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false, true]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Nuetral Light Sound:playing")
+tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -721,26 +1033,24 @@ tracks/3/path = NodePath("..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_idle_state_"
-}]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("..")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"_activate_counter_smoke"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Character:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.6]
 }
 
 [sub_resource type="Animation" id="Animation_jyc66"]
@@ -770,89 +1080,21 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_t2w0d"]
-resource_name = "Normal - Side Light Finisher"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [40, 41, 42, 43, 44]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Side Light Sound Second:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(-0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [true, false]
-}
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Scale Player/Side Light Second Punch/Second Jab:disabled")
+tracks/2/path = NodePath("../Character:speed_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("..")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_activate_counter_smoke"
-}]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("..")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_idle_state_"
-}]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_ryj8h"]
-resource_name = "Normal - Side Light Starter"
+resource_name = "Normal - Side Attack Starter"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -869,26 +1111,132 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Side Light Sound Second:playing")
+tracks/1/path = NodePath("../Side Light Sound First:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Side Light Sound First:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Scale Player/Side Light First Punch/First Jab:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Side Light Sound Second:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_transition_goku_side_attack_finisher"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Character:speed_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.6]
+}
+
+[sub_resource type="Animation" id="Animation_t2w0d"]
+resource_name = "Normal - Side Light Finisher"
+length = 0.40001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Scale Player/Side Light Second Punch/Second Jab:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_activate_counter_smoke"
+}]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -897,53 +1245,41 @@ tracks/3/path = NodePath("..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"_activate_counter_smoke"
+"method": &"_idle_state_"
 }]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Scale Player/Side Light First Punch/First Jab:disabled")
+tracks/4/path = NodePath(".:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath(".:modulate")
+tracks/5/path = NodePath("../Character:speed_scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../Side Light Sound Second:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [1.8]
 }
 
 [sub_resource type="Animation" id="Animation_nfd27"]
-resource_name = "Normal - Up Light Starter"
-length = 2.6
+resource_name = "Normal - Up Attack Starter"
+length = 2.40001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -951,10 +1287,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93]
+"values": [68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1016,49 +1352,13 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false, true]
 }
-tracks/6/type = "value"
+tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Up Light Sounds:playing")
+tracks/6/path = NodePath("..")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.8, 2.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [true, false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../Nuetral Light Sound:playing")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(1.7),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../Nuetral Light Sound:playing")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(1.7),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/9/type = "method"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("..")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
@@ -1132,31 +1432,43 @@ tracks/9/keys = {
 "method": &"_activate_counter_smoke"
 }]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath(".:modulate")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/11/type = "method"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("..")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(2.6),
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("..")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"_idle_state_"
 }]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Character:speed_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.8]
 }
 
 [sub_resource type="Animation" id="Animation_jtfqx"]
@@ -1320,7 +1632,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Jump Sound:playing")
+tracks/13/path = NodePath("../Down Light Sound:playing")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -1332,7 +1644,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Nuetral Light Sound:playing")
+tracks/14/path = NodePath("../Side Light Sound Second:playing")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -1344,114 +1656,98 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../Down Light Sound:playing")
+tracks/15/path = NodePath("../Up Light Sounds:playing")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [false]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../Air Attack Sounds:playing")
+tracks/16/path = NodePath("../Scale Player/Side Light First Punch/First Jab:disabled")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
+"update": 1,
+"values": [true]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../Up Light Sounds:playing")
+tracks/17/path = NodePath("../Scale Player/Area2D/CollisionShape2D:disabled")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
+"update": 1,
+"values": [true]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../Side Light Sound Second:playing")
+tracks/18/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:disabled")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
+"update": 1,
+"values": [true]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../Side Light Sound First:playing")
+tracks/19/path = NodePath("../Super Energy:position")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
+"values": [Vector2(-12.308, -19)]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../Up Light Sounds:playing")
+tracks/20/path = NodePath(".:modulate")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../Side Light Sound Second:playing")
+tracks/21/path = NodePath("../Health:position")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(-12.308, -20)]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../Scale Player/Side Light First Punch/First Jab:disabled")
+tracks/22/path = NodePath("../Character:speed_scale")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_eefw1"]
-resource_name = "Super -  Jump"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [245, 246, 247]
+"update": 0,
+"values": [1.6]
 }
 
 [sub_resource type="Animation" id="Animation_m3v0i"]
@@ -1469,6 +1765,44 @@ tracks/0/keys = {
 "update": 1,
 "values": [253, 254, 255, 256, 257, 258, 259]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_super_idle_state"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Health:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -65)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Super Energy:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -64)]
+}
 
 [sub_resource type="Animation" id="Animation_amyx2"]
 resource_name = "Super - Down Attack"
@@ -1484,6 +1818,32 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [221, 222, 223, 224, 225, 226, 227, 228, 229]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_super_idle_state"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_mvv23"]
@@ -1520,6 +1880,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_an0f0"]
 resource_name = "Super - Idle"
+length = 0.60001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1532,9 +1893,111 @@ tracks/0/keys = {
 "update": 1,
 "values": [180, 181, 182, 183, 184, 185]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Super Energy:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -51)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Health:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -52)]
+}
+
+[sub_resource type="Animation" id="Animation_eefw1"]
+resource_name = "Super - Jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [245, 246, 247]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Character Jump Sound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_activate_jump_smoke"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Health:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -52)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Super Energy:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -51)]
+}
 
 [sub_resource type="Animation" id="Animation_5s6m0"]
 resource_name = "Super - Nuetral Attack"
+length = 0.70001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1546,6 +2009,56 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [198, 199, 200, 201, 202, 203, 204]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_super_idle_state"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Scale Player/Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Super Energy:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -51)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Health:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -52)]
 }
 
 [sub_resource type="Animation" id="Animation_bdw1t"]
@@ -1563,9 +2076,34 @@ tracks/0/keys = {
 "update": 1,
 "values": [186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Health:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -52)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Super Energy:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -51)]
+}
 
 [sub_resource type="Animation" id="Animation_fdg31"]
 resource_name = "Super - Side Attack Starter"
+length = 0.30001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1578,9 +2116,59 @@ tracks/0/keys = {
 "update": 1,
 "values": [218, 219, 220]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_super_idle_state"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Super Energy:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -51)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Health:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -52)]
+}
 
 [sub_resource type="Animation" id="Animation_h2gye"]
-resource_name = "Super Ulight"
+resource_name = "Super - Up Attack"
 length = 1.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1594,6 +2182,44 @@ tracks/0/keys = {
 "update": 1,
 "values": [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_super_idle_state"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Health:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -52)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Super Energy:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.308, -51)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_467i5"]
 _data = {
@@ -1601,8 +2227,8 @@ _data = {
 "Deactivate Super": SubResource("Animation_xc32p"),
 "Normal - Air Attack": SubResource("Animation_8rqie"),
 "Normal - Air Block": SubResource("Animation_h1784"),
-"Normal - Dash Run": SubResource("Animation_gn67f"),
 "Normal - Death": SubResource("Animation_cr2q8"),
+"Normal - Dodge Dash": SubResource("Animation_gn67f"),
 "Normal - Down Attack": SubResource("Animation_67kk3"),
 "Normal - Fall": SubResource("Animation_veaer"),
 "Normal - Ground Block": SubResource("Animation_id6wq"),
@@ -1611,25 +2237,24 @@ _data = {
 "Normal - Jump": SubResource("Animation_f73an"),
 "Normal - Nuetral Attack Starter": SubResource("Animation_auvrv"),
 "Normal - Run": SubResource("Animation_jyc66"),
+"Normal - Side Attack Starter": SubResource("Animation_ryj8h"),
 "Normal - Side Light Finisher": SubResource("Animation_t2w0d"),
-"Normal - Side Light Starter": SubResource("Animation_ryj8h"),
-"Normal - Up Light Starter": SubResource("Animation_nfd27"),
+"Normal - Up Attack Starter": SubResource("Animation_nfd27"),
 "RESET": SubResource("Animation_jtfqx"),
-"Super -  Jump": SubResource("Animation_eefw1"),
 "Super - Air Attack": SubResource("Animation_m3v0i"),
 "Super - Down Attack": SubResource("Animation_amyx2"),
 "Super - Fall": SubResource("Animation_mvv23"),
 "Super - Hurt": SubResource("Animation_yej25"),
 "Super - Idle": SubResource("Animation_an0f0"),
+"Super - Jump": SubResource("Animation_eefw1"),
 "Super - Nuetral Attack": SubResource("Animation_5s6m0"),
 "Super - Run": SubResource("Animation_bdw1t"),
 "Super - Side Attack Starter": SubResource("Animation_fdg31"),
-"Super Ulight": SubResource("Animation_h2gye")
+"Super - Up Attack": SubResource("Animation_h2gye")
 }
 
 [node name="Goku" type="CharacterBody2D"]
 z_index = 3
-scale = Vector2(1.3, 1.3)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_ob1e8")
@@ -1638,7 +2263,7 @@ script = ExtResource("1_ob1e8")
 z_index = 1
 position = Vector2(-3, -25.5)
 
-[node name="Nuetral Air First Hitbox" type="Area2D" parent="Scale Player"]
+[node name="Nuetral Air First Hitbox" type="Area2D" parent="Scale Player" groups=["Goku First Air Attack"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -1647,7 +2272,7 @@ position = Vector2(-17, 20)
 shape = SubResource("CircleShape2D_anuv4")
 disabled = true
 
-[node name="Nuetral Air Second Hitbox" type="Area2D" parent="Scale Player"]
+[node name="Nuetral Air Second Hitbox" type="Area2D" parent="Scale Player" groups=["Goku Second Air Attack"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -1656,7 +2281,7 @@ position = Vector2(-3, 4.5)
 shape = SubResource("CircleShape2D_anuv4")
 disabled = true
 
-[node name="Nuetral Air Third Hitbox" type="Area2D" parent="Scale Player"]
+[node name="Nuetral Air Third Hitbox" type="Area2D" parent="Scale Player" groups=["Goku Third Air Attack"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -1665,7 +2290,7 @@ position = Vector2(23.5, 9)
 shape = SubResource("CircleShape2D_anuv4")
 disabled = true
 
-[node name="Nuetral Light Hitbox" type="Area2D" parent="Scale Player"]
+[node name="Nuetral Light Hitbox" type="Area2D" parent="Scale Player" groups=["Goku Nuetral Attack"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -1674,7 +2299,7 @@ position = Vector2(30, 17)
 shape = SubResource("CircleShape2D_7v6kp")
 disabled = true
 
-[node name="Side Light First Punch" type="Area2D" parent="Scale Player"]
+[node name="Side Light First Punch" type="Area2D" parent="Scale Player" groups=["Goku Side Attack Start"]]
 position = Vector2(10, 26.5)
 collision_layer = 32
 collision_mask = 16
@@ -1683,7 +2308,6 @@ collision_mask = 16
 position = Vector2(14.375, -7.5)
 shape = SubResource("RectangleShape2D_p38pj")
 disabled = true
-debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="Side Light Second Punch" type="Area2D" parent="Scale Player"]
 position = Vector2(10, 26.5)
@@ -1695,11 +2319,11 @@ position = Vector2(14.375, -7.5)
 shape = SubResource("RectangleShape2D_p38pj")
 disabled = true
 
-[node name="Down Light Buttom Hitbox" type="Area2D" parent="Scale Player"]
+[node name="Down Light Buttom Hitbox" type="Area2D" parent="Scale Player" groups=["Goku Down Attack"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Down Light Buttom Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Down Light Buttom Hitbox" groups=["Goku Down Attack"]]
 position = Vector2(71, 33)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0bnbk")
@@ -1745,33 +2369,40 @@ position = Vector2(20.5, 12)
 shape = SubResource("CircleShape2D_kq3c8")
 disabled = true
 
+[node name="Area2D" type="Area2D" parent="Scale Player"]
+position = Vector2(3, 25.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D"]
+position = Vector2(70.7692, -25.3846)
+shape = SubResource("CircleShape2D_qkihm")
+disabled = true
+
+[node name="Area2D2" type="Area2D" parent="Scale Player"]
+position = Vector2(3, 25.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D2"]
+position = Vector2(76, -7)
+shape = SubResource("CapsuleShape2D_sra8u")
+disabled = true
+
+[node name="Area2D3" type="Area2D" parent="Scale Player"]
+position = Vector2(3, 25.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D3"]
+position = Vector2(90, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sor6q")
+disabled = true
+
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
 texture = ExtResource("2_ipcwa")
 hframes = 11
 vframes = 26
 
-[node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
-
-[node name="Nuetral Light Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_47fjc")
-
-[node name="Side Light Sound First" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_47fjc")
-
-[node name="Side Light Sound Second" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_jvwbc")
-
-[node name="Up Light Sounds" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_3oj0e")
-
-[node name="Air Attack Sounds" type="AudioStreamPlayer2D" parent="."]
-
-[node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_7vvh2")
-
 [node name="Character" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
+speed_scale = 1.6
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
@@ -1782,16 +2413,30 @@ position = Vector2(0, 16.4)
 [node name="Hurtbox" parent="." instance=ExtResource("9_g74am")]
 position = Vector2(0, -3.84615)
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, 16.9231)
+[node name="Character Jump Sound" parent="." instance=ExtResource("8_gtluj")]
+
+[node name="Health" parent="." instance=ExtResource("9_tgrup")]
+offset_top = -20.0
+offset_bottom = -16.0
+
+[node name="Super Energy" parent="." instance=ExtResource("10_oxjgc")]
+offset_left = -12.308
+offset_top = -19.0
+offset_bottom = -15.0
+
+[node name="Deplete Energy" parent="." instance=ExtResource("11_5nu4o")]
+
+[node name="Block Timer" parent="." instance=ExtResource("12_n0d42")]
 
 [connection signal="area_entered" from="Scale Player/Nuetral Air First Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Second Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Air Third Hitbox" to="." method="_on_Nuetral_Air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Nuetral Light Hitbox" to="." method="_on_Nuetral_Light_Hitbox_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
-[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light First Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_First_Punch_area_entered"]
+[connection signal="area_entered" from="Scale Player/Side Light Second Punch" to="." method="_on_Side_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Scale Player/Down Light Buttom Hitbox" to="." method="_on_Down_Light_Hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="Deplete Energy" to="." method="_on_deplete_energy_timeout"]
+[connection signal="timeout" from="Block Timer" to="." method="_on_block_timer_timeout"]

@@ -1,44 +1,21 @@
-[gd_scene load_steps=48 format=3 uid="uid://c27kgbbjefdwo"]
+[gd_scene load_steps=47 format=3 uid="uid://c27kgbbjefdwo"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_oxeiu"]
 [ext_resource type="Texture2D" uid="uid://bu8m47gsmcmw0" path="res://elementals_wind_hashashin_FULL_v1.1 2/wind_SpriteSheet_288x128 (1).png" id="2_pvbmo"]
-[ext_resource type="AudioStream" uid="uid://cyejc3wbe4pgc" path="res://Character Resouces/Global/Jump Sound Effect/Player Jump.wav" id="3_xqnq5"]
+[ext_resource type="PackedScene" uid="uid://ch6l2lt2f78mn" path="res://nomad_nuetral_attack_starter.tscn" id="3_nvjpr"]
+[ext_resource type="PackedScene" uid="uid://c6shqgarp7um3" path="res://nomad_side_attack_finisher.tscn" id="4_bgk25"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/foot.tscn" id="4_n55kq"]
+[ext_resource type="PackedScene" uid="uid://de3y3uvf810dx" path="res://nomad_down_attack.tscn" id="5_eujnc"]
 [ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://health.tscn" id="5_givbn"]
 [ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://super_energy.tscn" id="6_7rfxx"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q3cv4"]
-radius = 7.73067
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0kp4"]
-size = Vector2(14.6154, 10.7692)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_juggh"]
-height = 34.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_7682v"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p2hgr"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7oqp"]
-radius = 23.0769
-height = 75.3846
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5lbk3"]
-radius = 15.4613
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yqix1"]
-radius = 16.9231
-height = 47.6923
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhg5g"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i53i4"]
-radius = 11.5385
-height = 23.0769
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sgwq0"]
-height = 35.3846
+[ext_resource type="PackedScene" uid="uid://de2m0ft623a3m" path="res://nomad_air_attack.tscn" id="6_ssujm"]
+[ext_resource type="PackedScene" uid="uid://2mvd1n3pxqoi" path="res://nomad_up_attack.tscn" id="7_yb0ev"]
+[ext_resource type="PackedScene" uid="uid://b3pnef0ji2ka6" path="res://nomad_super_air_attack.tscn" id="8_mcmq3"]
+[ext_resource type="PackedScene" uid="uid://b7rx7452g120d" path="res://nomad_super_nuetral_attack.tscn" id="9_ware2"]
+[ext_resource type="PackedScene" uid="uid://cfqr7q4quwtj5" path="res://nomad_super_down_attack.tscn" id="10_hrfvt"]
+[ext_resource type="PackedScene" uid="uid://cmmp84xt21823" path="res://nomad_super_side_attack_starter.tscn" id="11_fa14u"]
+[ext_resource type="PackedScene" uid="uid://bdjr2p10miiak" path="res://nomad_hurtbox.tscn" id="12_kcmub"]
+[ext_resource type="PackedScene" uid="uid://chd4n86tcqokf" path="res://character_jump_sound.tscn" id="13_ganvk"]
 
 [sub_resource type="Animation" id="Animation_1ji0l"]
 resource_name = "Activate Super"
@@ -190,7 +167,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Nuetral Air Hitbox/CollisionShape2D:position")
+tracks/1/path = NodePath("Scale Player/Nomad Air Attack/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -236,6 +213,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scale Player/Nomad Air Attack/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_7txsr"]
@@ -489,7 +478,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Down Light Hitbox/CollisionShape2D:position")
+tracks/1/path = NodePath("Scale Player/Nomad Down Attack/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -925,7 +914,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Jump Sound:playing")
+tracks/1/path = NodePath("Character Jump Sound:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1005,7 +994,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Nomad Nuetral Light Finish/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Scale Player/Nomad Side Attack Finisher/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1041,7 +1030,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Scale Player/Nomad Nuetral Light Start/CollisionShape2D:disabled")
+tracks/4/path = NodePath("Scale Player/Nomad Nuetral Attack Starter/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1159,7 +1148,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Scale Player/Nomad Nuetral Light Start/CollisionShape2D:disabled")
+tracks/5/path = NodePath("Scale Player/Nomad Nuetral Attack Starter/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1321,7 +1310,7 @@ length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Scale Player/Up Light Hitbox/CollisionShape2D:position")
+tracks/0/path = NodePath("Scale Player/Nomad Up Attack/CollisionShape2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1333,7 +1322,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Up Light Hitbox/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Scale Player/Nomad Up Attack/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1427,7 +1416,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scale Player/Up Light Hitbox/CollisionShape2D:position")
+tracks/3/path = NodePath("Scale Player/Nomad Up Attack/CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1439,7 +1428,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Scale Player/Up Light Hitbox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("Scale Player/Nomad Up Attack/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1460,25 +1449,13 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/6/type = "value"
+tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Marker2D:position")
+tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.469565, 0.5, 0.583185, 0.597654),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 23.077), Vector2(0, 23.077), Vector2(20, 23.077), Vector2(20, 23.077), Vector2(0, 23.077)]
-}
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
@@ -1510,7 +1487,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Nomad Nuetral Light Finish/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Scale Player/Nomad Side Attack Finisher/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1522,7 +1499,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Scale Player/Down Light Hitbox/CollisionShape2D:position")
+tracks/2/path = NodePath("Scale Player/Nomad Down Attack/CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1534,7 +1511,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scale Player/Nuetral Air Hitbox/CollisionShape2D:position")
+tracks/3/path = NodePath("Scale Player/Nomad Air Attack/CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1606,7 +1583,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Scale Player/Nomad Nuetral Light Start/CollisionShape2D:disabled")
+tracks/9/path = NodePath("Scale Player/Nomad Nuetral Attack Starter/CollisionShape2D:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -1630,7 +1607,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Scale Player/Up Light Hitbox/CollisionShape2D:disabled")
+tracks/11/path = NodePath("Scale Player/Nomad Up Attack/CollisionShape2D:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -1654,19 +1631,19 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Marker2D:position")
+tracks/13/path = NodePath("Scale Player/Nomad Super Air Attack/CollisionShape2D:disabled")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 23.077)]
+"update": 1,
+"values": [true]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Scale Player/Super - Air Attack/CollisionShape2D:disabled")
+tracks/14/path = NodePath("Scale Player/Nomad Super Nuetral Attack/CollisionShape2D:disabled")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -1678,67 +1655,67 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Scale Player/Super - Nuetral Attack/CollisionShape2D:disabled")
+tracks/15/path = NodePath("Scale Player/Nomad Super Nuetral Attack/CollisionShape2D:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(53.8462, -9.23077)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Scale Player/Super - Nuetral Attack/CollisionShape2D:position")
+tracks/16/path = NodePath("Scale Player/Nomad Super Down Attack/Top:disabled")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(53.8462, -9.23077)]
+"update": 1,
+"values": [true]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Scale Player/Super - Down Attack/Top:disabled")
+tracks/17/path = NodePath("Scale Player/Nomad Super Down Attack/Top:position")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(77.6923, -57.6923)]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Scale Player/Super - Down Attack/Top:position")
+tracks/18/path = NodePath("Scale Player/Nomad Super Down Attack/Buttom:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(77.6923, -57.6923)]
+"values": [Vector2(83.8462, -9.23077)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Scale Player/Super - Down Attack/Buttom:position")
+tracks/19/path = NodePath("Scale Player/Nomad Super Down Attack/Buttom:disabled")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(83.8462, -9.23077)]
+"update": 1,
+"values": [true]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Scale Player/Super - Down Attack/Buttom:disabled")
+tracks/20/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Buttom:disabled")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -1750,7 +1727,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Scale Player/Area2D/Buttom:disabled")
+tracks/21/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Middle:disabled")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -1762,7 +1739,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("Scale Player/Area2D/Middle:disabled")
+tracks/22/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Top:disabled")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -1774,134 +1751,134 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("Scale Player/Area2D/Top:disabled")
+tracks/23/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Top:position")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(76, -21)]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("Scale Player/Area2D/Top:position")
+tracks/24/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Middle:position")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(76, -21)]
+"values": [Vector2(100, -10)]
 }
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("Scale Player/Area2D/Middle:position")
+tracks/25/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Buttom:position")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(100, -10)]
+"values": [Vector2(78, 5)]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("Scale Player/Area2D/Buttom:position")
+tracks/26/path = NodePath("Health:position")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(78, 5)]
+"values": [Vector2(-11.5385, -17.6923)]
 }
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("Health:position")
+tracks/27/path = NodePath("Super Energy:position")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-11.5385, -17.6923)]
+"values": [Vector2(-12.3077, -16.9231)]
 }
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("Super Energy:position")
+tracks/28/path = NodePath("Scale Player/Nomad Hurtbox/CollisionShape2D:position")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.3077, -16.9231)]
+"values": [Vector2(0, 3)]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("Scale Player/Nomad Hurtbox/CollisionShape2D:position")
+tracks/29/path = NodePath("Scale Player/Nomad Hurtbox/CollisionShape2D:shape:radius")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 3)]
+"values": [10.0]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("Scale Player/Nomad Hurtbox/CollisionShape2D:shape:radius")
+tracks/30/path = NodePath("Scale Player/Nomad Hurtbox/CollisionShape2D:shape:height")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [10.0]
+"values": [35.3846]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("Scale Player/Nomad Hurtbox/CollisionShape2D:shape:height")
+tracks/31/path = NodePath("Scale Player/Nomad Hurtbox/CollisionShape2D:disabled")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [35.3846]
+"update": 1,
+"values": [true]
 }
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("Scale Player/Nomad Hurtbox/CollisionShape2D:disabled")
+tracks/32/path = NodePath("Character Jump Sound:playing")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("Jump Sound:playing")
+tracks/33/path = NodePath("Scale Player/Nomad Air Attack/CollisionShape2D:disabled")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_pj75o"]
@@ -1922,7 +1899,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Super - Air Attack/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Scale Player/Nomad Super Air Attack/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1988,7 +1965,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Super - Down Attack/Top:disabled")
+tracks/1/path = NodePath("Scale Player/Nomad Super Down Attack/Top:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2000,7 +1977,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Scale Player/Super - Down Attack/Top:position")
+tracks/2/path = NodePath("Scale Player/Nomad Super Down Attack/Top:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2012,7 +1989,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scale Player/Super - Down Attack/Buttom:position")
+tracks/3/path = NodePath("Scale Player/Nomad Super Down Attack/Buttom:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2024,7 +2001,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Scale Player/Super - Down Attack/Buttom:disabled")
+tracks/4/path = NodePath("Scale Player/Nomad Super Down Attack/Buttom:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -2164,7 +2141,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Jump Sound:playing")
+tracks/1/path = NodePath("Character Jump Sound:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2204,7 +2181,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Super - Nuetral Attack/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Scale Player/Nomad Super Nuetral Attack/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2216,7 +2193,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Scale Player/Super - Nuetral Attack/CollisionShape2D:position")
+tracks/2/path = NodePath("Scale Player/Nomad Super Nuetral Attack/CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2283,7 +2260,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scale Player/Area2D/Buttom:disabled")
+tracks/1/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Buttom:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2295,7 +2272,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Scale Player/Area2D/Middle:disabled")
+tracks/2/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Middle:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2307,7 +2284,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scale Player/Area2D/Top:disabled")
+tracks/3/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Top:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2319,7 +2296,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Scale Player/Area2D/Top:position")
+tracks/4/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Top:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -2331,7 +2308,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Scale Player/Area2D/Middle:position")
+tracks/5/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Middle:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -2343,7 +2320,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Scale Player/Area2D/Buttom:position")
+tracks/6/path = NodePath("Scale Player/Nomad Super Side Attack Starter/Buttom:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -2365,6 +2342,18 @@ tracks/7/keys = {
 "args": [],
 "method": &"_super_idle_state"
 }]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Character:speed_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_aqili"]
@@ -2445,101 +2434,27 @@ vframes = 26
 
 [node name="Scale Player" type="Node2D" parent="."]
 
-[node name="Nomad Nuetral Light Start" type="Area2D" parent="Scale Player"]
-collision_layer = 32
-collision_mask = 16
+[node name="Nomad Nuetral Attack Starter" parent="Scale Player" instance=ExtResource("3_nvjpr")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nomad Nuetral Light Start"]
-position = Vector2(22.3077, -2.30769)
-shape = SubResource("CircleShape2D_q3cv4")
-disabled = true
+[node name="Nomad Side Attack Finisher" parent="Scale Player" instance=ExtResource("4_bgk25")]
 
-[node name="Nomad Nuetral Light Finish" type="Area2D" parent="Scale Player"]
+[node name="Nomad Down Attack" parent="Scale Player" instance=ExtResource("5_eujnc")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nomad Nuetral Light Finish"]
-position = Vector2(21.9231, -3.07692)
-shape = SubResource("RectangleShape2D_i0kp4")
-disabled = true
+[node name="Nomad Air Attack" parent="Scale Player" instance=ExtResource("6_ssujm")]
 
-[node name="Down Light Hitbox" type="Area2D" parent="Scale Player"]
+[node name="Nomad Up Attack" parent="Scale Player" instance=ExtResource("7_yb0ev")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Down Light Hitbox"]
-position = Vector2(20, 7)
-shape = SubResource("CapsuleShape2D_juggh")
-disabled = true
+[node name="Nomad Super Air Attack" parent="Scale Player" instance=ExtResource("8_mcmq3")]
 
-[node name="Nuetral Air Hitbox" type="Area2D" parent="Scale Player"]
+[node name="Nomad Super Nuetral Attack" parent="Scale Player" instance=ExtResource("9_ware2")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Air Hitbox"]
-position = Vector2(26, -5)
-shape = SubResource("CircleShape2D_7682v")
-disabled = true
+[node name="Nomad Super Down Attack" parent="Scale Player" instance=ExtResource("10_hrfvt")]
 
-[node name="Up Light Hitbox" type="Area2D" parent="Scale Player"]
-collision_layer = 32
-collision_mask = 16
+[node name="Nomad Super Side Attack Starter" parent="Scale Player" instance=ExtResource("11_fa14u")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Up Light Hitbox"]
-position = Vector2(0, 3.84615)
-shape = SubResource("CapsuleShape2D_p2hgr")
-disabled = true
+[node name="Nomad Hurtbox" parent="Scale Player" instance=ExtResource("12_kcmub")]
 
-[node name="Super - Air Attack" type="Area2D" parent="Scale Player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Super - Air Attack"]
-position = Vector2(0, -19.231)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_d7oqp")
-disabled = true
-
-[node name="Super - Nuetral Attack" type="Area2D" parent="Scale Player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Super - Nuetral Attack"]
-position = Vector2(53.8462, -9.23077)
-shape = SubResource("CircleShape2D_5lbk3")
-disabled = true
-
-[node name="Super - Down Attack" type="Area2D" parent="Scale Player"]
-
-[node name="Top" type="CollisionShape2D" parent="Scale Player/Super - Down Attack"]
-position = Vector2(77.6923, -57.6923)
-shape = SubResource("CapsuleShape2D_yqix1")
-disabled = true
-
-[node name="Buttom" type="CollisionShape2D" parent="Scale Player/Super - Down Attack"]
-position = Vector2(83.8462, -9.23077)
-shape = SubResource("CapsuleShape2D_yqix1")
-disabled = true
-
-[node name="Area2D" type="Area2D" parent="Scale Player"]
-
-[node name="Top" type="CollisionShape2D" parent="Scale Player/Area2D"]
-position = Vector2(76, -21)
-rotation = 2.01935
-shape = SubResource("CapsuleShape2D_vhg5g")
-disabled = true
-
-[node name="Middle" type="CollisionShape2D" parent="Scale Player/Area2D"]
-position = Vector2(100, -10)
-shape = SubResource("CapsuleShape2D_i53i4")
-disabled = true
-
-[node name="Buttom" type="CollisionShape2D" parent="Scale Player/Area2D"]
-position = Vector2(78, 5)
-rotation = 1.12225
-shape = SubResource("CapsuleShape2D_vhg5g")
-disabled = true
-
-[node name="Nomad Hurtbox" type="Area2D" parent="Scale Player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nomad Hurtbox"]
-position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_sgwq0")
-disabled = true
-
-[node name="Jump Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_xqnq5")
-volume_db = -10.0
+[node name="Character Jump Sound" parent="." instance=ExtResource("13_ganvk")]
 
 [node name="Nuetral & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
 volume_db = -10.0
@@ -2558,9 +2473,6 @@ libraries = {
 
 [node name="Foot" parent="." instance=ExtResource("4_n55kq")]
 
-[node name="Marker2D" type="Node2D" parent="."]
-position = Vector2(0, 23.077)
-
 [node name="Deplete Energy" type="Timer" parent="."]
 
 [node name="Health" parent="." instance=ExtResource("5_givbn")]
@@ -2573,7 +2485,4 @@ offset_bottom = -13.6923
 offset_top = -16.9231
 offset_bottom = -12.9231
 
-[connection signal="area_entered" from="Scale Player/Nomad Nuetral Light Start" to="." method="_on_nomad_nuetral_light_start_area_entered"]
-[connection signal="area_entered" from="Scale Player/Nomad Nuetral Light Finish" to="." method="_on_nomad_nuetral_light_finish_area_entered"]
-[connection signal="area_entered" from="Scale Player/Up Light Hitbox" to="." method="_on_up_light_hitbox_area_entered"]
 [connection signal="timeout" from="Deplete Energy" to="." method="_on_deplete_energy_timeout"]

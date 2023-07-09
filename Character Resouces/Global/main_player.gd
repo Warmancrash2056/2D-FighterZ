@@ -231,6 +231,8 @@ func _process(delta):
 		States.Normal_Idling:
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
+				get_tree().create_timer(10).timeout
+				
 				Select = States.Normal_Falling
 				Animate.play("Normal - Fall")
 			velocity.y += Gravity
@@ -317,7 +319,7 @@ func _process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Super_Side_Attack_Starter
 			else:
-				velocity.x = lerp(velocity.x, 0.0, 1)
+				velocity.x = lerp(velocity.x, 0.0, 0.3)
 				Animate.play("Super - Idle")
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Super_Nuetral_Attack_Starter
@@ -398,7 +400,7 @@ func _process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Super_Air_Attack
 			else:
-				velocity.x = 0
+				velocity.x = lerp(velocity.x, 0.0, 0.01)
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Super_Air_Attack
 		States.Normal_Falling:
@@ -439,7 +441,7 @@ func _process(delta):
 				CharacterList.main_player_facing_left = false
 				
 			else:
-				velocity.x = 0
+				velocity.x = lerp(velocity.x, 0.0, 0.05)
 			
 
 			if !is_on_floor():

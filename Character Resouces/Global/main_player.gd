@@ -245,7 +245,7 @@ func _process(delta):
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Normal_Dash_Run
-						velocity.x = -270
+						velocity.x = -500
 						set_collision_mask_value(2, false)
 				
 				if Input.is_action_just_pressed(controls.input_attack):
@@ -260,7 +260,7 @@ func _process(delta):
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Normal_Dash_Run
-						velocity.x = 270
+						velocity.x = 500
 						set_collision_mask_value(2, false)
 						
 				
@@ -532,7 +532,6 @@ func _process(delta):
 			if can_jump == true:
 				if Input.is_action_just_pressed(controls.input_jump):
 					Select = States.Normal_Jumping
-			turn_around()
 			velocity.x = lerp(velocity.x , 0.0, 0.05)
 			velocity.y += Gravity
 			Animate.play("Normal - Dodge Dash")

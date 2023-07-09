@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dshchbx5jpi75"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lwywl"]
+
+[node name="Goku Up Attack Grab" type="Area2D" groups=["Goku Up Attack Grab"]]
+position = Vector2(56.5, 11)
+
+[node name="Up Attack Grab" type="CollisionShape2D" parent="."]
+position = Vector2(-17, 0)
+shape = SubResource("CapsuleShape2D_lwywl")
+disabled = true

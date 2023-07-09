@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://de2m0ft623a3m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7682v"]
+
+[node name="Nomad Air Attack" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26, -5)
+shape = SubResource("CircleShape2D_7682v")
+disabled = true

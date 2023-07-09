@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmm8ev8so7ypy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_anuv4"]
+radius = 3.0
+
+[node name="Goku Air Attack Left" type="Area2D" groups=["Goku First Air Attack"]]
+collision_layer = 32
+collision_mask = 16
+
+[node name="Left Side Air Attack" type="CollisionShape2D" parent="."]
+position = Vector2(-17, 20)
+shape = SubResource("CircleShape2D_anuv4")
+disabled = true

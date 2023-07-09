@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0c77g33kijqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p38pj"]
+size = Vector2(23.25, 4)
+
+[node name="Goku Side Attack Start" type="Area2D" groups=["Goku Side Attack Start"]]
+position = Vector2(10, 26.5)
+collision_layer = 32
+collision_mask = 16
+
+[node name="Side Attack Start" type="CollisionShape2D" parent="."]
+position = Vector2(14.375, -7.5)
+shape = SubResource("RectangleShape2D_p38pj")
+disabled = true

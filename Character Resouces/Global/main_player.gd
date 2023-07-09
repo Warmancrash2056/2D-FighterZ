@@ -302,6 +302,7 @@ func _process(delta):
 				Animate.play("Super - Run")
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				CharacterList.main_player_facing_left = true
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Super_Side_Attack_Starter
@@ -311,6 +312,7 @@ func _process(delta):
 				Animate.play("Super - Run")
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				CharacterList.main_player_facing_left = false
 				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Super_Side_Attack_Starter
@@ -383,12 +385,16 @@ func _process(delta):
 				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				CharacterList.main_player_facing_left = true
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Super_Air_Attack
+					
 			elif Input.is_action_pressed(controls.input_right):
 				velocity.x = min(velocity.x + Acceleration, Air_Speed)
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				CharacterList.main_player_facing_left = false
+				
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Super_Air_Attack
 			else:
@@ -399,11 +405,13 @@ func _process(delta):
 			if Input.is_action_pressed(controls.input_left):
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				CharacterList.main_player_facing_left = true
 				velocity.x = max(velocity.x - Acceleration, -Fall_Speed)
 			elif Input.is_action_pressed(controls.input_right):
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
+				CharacterList.main_player_facing_left = false
 				
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.05)
@@ -423,10 +431,12 @@ func _process(delta):
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				velocity.x = max(velocity.x - Acceleration, -Fall_Speed)
+				CharacterList.main_player_facing_left = true
 			elif Input.is_action_pressed(controls.input_right):
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
+				CharacterList.main_player_facing_left = false
 				
 			else:
 				velocity.x = 0
@@ -532,7 +542,6 @@ func _process(delta):
 			Animate.play("Normal - Death")
 			
 		States.Normal_Hurt:
-			velocity.x = 0
 			Animate.play("Normal - Hurt")
 
 func _on_hurtbox_area_entered(area):

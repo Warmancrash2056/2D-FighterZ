@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cynn6615ss1fr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xb80j"]
+radius = 14.1912
+
+[node name="Goku Super Up Attack Top" type="Area2D"]
+position = Vector2(3, 25.5)
+
+[node name="Super Up Attack Top" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(14.1667, -65)
+shape = SubResource("CircleShape2D_xb80j")
+disabled = true

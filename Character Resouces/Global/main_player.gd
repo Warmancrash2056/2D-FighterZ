@@ -3,14 +3,15 @@ var controls: Resource = load("res://Character Resouces/Global/Controller Resour
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var counter_smoke = preload("res://Character Resouces/counter.tscn")
 var sakura_ulight_smoke = preload("res://sakura_up_light_smoke.tscn")
-
+var dash_smoke = preload("res://dash_smoke.tscn")
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
-@onready var smoke_position = $Foot/Marker2D
+@onready var smoke_position = $"Foot/Jump Smoke"
 @onready var super_energy = $"Super Energy"
 @onready var deplete_energy = $"Deplete Energy"
 @onready var health = $Health
 @onready var block_timer = $"Block Timer"
+@onready var dash_smoke_position = $"Scale Player/Dash Smoke"
 
 
 
@@ -37,9 +38,11 @@ var can_counter = false
 var block_active = false
 
 
+# Increment super points every hit 
+var add_super_pts = 5
 
-var super_pts = 5
-var current_super_pts = 1
+# Current Supe pts available at the start of match 
+var current_super_pts = 0
 
 @export var Health: int
 @export var Super_Pts: int
@@ -85,13 +88,6 @@ enum States {
 # Default State when entering the scene tree. #
 var Select = States.Normal_Idling
 
-func _idle_energy_refill():
-	if current_super_pts < 100:
-		current_super_pts += super_pts
-		
-	else:
-		current_super_pts = 100
-	
 # Check if nomad nuetral Attack or Up Attack starter hitbox detected the opponent to perfrom follow up attacks
 func _transition_nomad_nuetral_attack_finisher():
 	if nomad_nuetral_attack_hit == true:
@@ -208,6 +204,10 @@ func _reset_counter():
 	# Reset counter after if player uses an attack or not.
 	can_counter = false
  
+func _activate_dash_smoke():
+	var instance_dash_smoke = dash_smoke.instantiate()
+	instance_dash_smoke.global_position = dash_smoke_position.global_position
+	get_tree().get_root().add_child(instance_dash_smoke)
 func _ready():
 	pass
 func _process(delta):	
@@ -245,7 +245,7 @@ func _process(delta):
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Normal_Dash_Run
-						velocity.x = -500
+						velocity.x = -350
 						set_collision_mask_value(2, false)
 				
 				if Input.is_action_just_pressed(controls.input_attack):
@@ -260,7 +260,7 @@ func _process(delta):
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Normal_Dash_Run
-						velocity.x = 500
+						velocity.x = 350
 						set_collision_mask_value(2, false)
 						
 				
@@ -549,7 +549,7 @@ func _on_hurtbox_area_entered(area):
 	Select = States.Normal_Hurt
 
 func _on_deplete_energy_timeout():
-	current_super_pts -= super_pts	
+	current_super_pts -= add_super_pts	
 
 
 func _on_block_timer_timeout():
@@ -563,7 +563,7 @@ func _on_goku_side_attack_start_area_entered(area):
 
 func _on_goku_air_attack_left_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
@@ -571,7 +571,7 @@ func _on_goku_air_attack_left_area_entered(area):
 
 func _on_goku_air_attack_middle_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
@@ -579,7 +579,7 @@ func _on_goku_air_attack_middle_area_entered(area):
 
 func _on_goku_air_attack_right_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
@@ -587,7 +587,7 @@ func _on_goku_air_attack_right_area_entered(area):
 
 func _on_goku_nuetral_attack_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
@@ -595,7 +595,7 @@ func _on_goku_nuetral_attack_area_entered(area):
 
 func _on_goku_side_attack_finish_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
@@ -603,7 +603,7 @@ func _on_goku_side_attack_finish_area_entered(area):
 
 func _on_goku_down_attack_bottom_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
@@ -611,7 +611,7 @@ func _on_goku_down_attack_bottom_area_entered(area):
 
 func _on_goku_down_attack_top_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
@@ -619,7 +619,7 @@ func _on_goku_down_attack_top_area_entered(area):
 
 func _on_goku_up_attack_right_hand_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
@@ -627,7 +627,7 @@ func _on_goku_up_attack_right_hand_area_entered(area):
 
 func _on_goku_up_attack_left_hand_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
@@ -635,7 +635,7 @@ func _on_goku_up_attack_left_hand_area_entered(area):
 
 func _on_goku_up_attack_grab_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
@@ -643,30 +643,19 @@ func _on_goku_up_attack_grab_area_entered(area):
 
 func _on_goku_up_attack_smash_area_entered(area):
 	if current_super_pts < 100:
-		current_super_pts += super_pts
+		current_super_pts += add_super_pts
 		
 	else:
 		current_super_pts = 100
 
 
 func _on_goku_super_nuetral_attack_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += super_pts
-		
-	else:
-		current_super_pts = 100
+	pass
 
 func _on_goku_super_side_attack_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += super_pts
-		
-	else:
-		current_super_pts = 100
-
+	pass
 
 func _on_goku_super_down_attack_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += super_pts
-		
-	else:
-		current_super_pts = 100
+	pass
+func _on_goku_super_air_attack_area_entered(area):
+	pass # Replace with function body.

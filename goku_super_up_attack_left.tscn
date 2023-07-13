@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7tm7gfi6yji1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ggr1o"]
+radius = 17.157
+height = 94.0587
+
+[node name="Goku Super Up Attack Left" type="Area2D"]
+position = Vector2(3, 25.5)
+
+[node name="Super Up Attack Left" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-30, -26)
+rotation = 0.340339
+shape = SubResource("CapsuleShape2D_ggr1o")
+disabled = true

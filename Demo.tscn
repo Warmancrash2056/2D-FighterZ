@@ -237,9 +237,6 @@ color = Color(0, 0, 0, 1)
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_tmeg4")]
 position = Vector2(687, 184)
 
-[node name="Goku" parent="." instance=ExtResource("4_1octd")]
-position = Vector2(511, 184)
-
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 position = Vector2(414, 158)
 collision_layer = 2
@@ -267,6 +264,9 @@ animation = &"Run"
 
 [node name="Foot" parent="CharacterBody2D2" instance=ExtResource("4_tmeg4")]
 position = Vector2(-1, 56)
+
+[node name="Goku" parent="." instance=ExtResource("4_1octd")]
+position = Vector2(662, 205)
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]

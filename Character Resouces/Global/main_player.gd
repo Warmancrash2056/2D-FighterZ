@@ -4,6 +4,8 @@ var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var counter_smoke = preload("res://Character Resouces/counter.tscn")
 var sakura_ulight_smoke = preload("res://sakura_up_light_smoke.tscn")
 var dash_smoke = preload("res://dash_smoke.tscn")
+var hunter_side_attakc_arrow = preload("res://side_attack_arrow.tscn")
+
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $"Foot/Jump Smoke"
@@ -11,8 +13,8 @@ var dash_smoke = preload("res://dash_smoke.tscn")
 @onready var deplete_energy = $"Deplete Energy"
 @onready var health = $Health
 @onready var block_timer = $"Block Timer"
-@onready var dash_smoke_position = $"Scale Player/Dash Smoke"
-
+@onready var dash_smoke_position = $"Scale Player/Dash Smoke Position"
+@onready var hunter_side_arrow_position =$"Scale Player/Side Attack Position"
 
 
 const Speed = 150
@@ -208,6 +210,17 @@ func _activate_dash_smoke():
 	var instance_dash_smoke = dash_smoke.instantiate()
 	instance_dash_smoke.global_position = dash_smoke_position.global_position
 	get_tree().get_root().add_child(instance_dash_smoke)
+	
+func activate_hunter_side_attack():
+	var instance_hunter_arrow = hunter_side_attakc_arrow.instantiate()
+	instance_hunter_arrow.global_position = hunter_side_arrow_position.global_position
+	get_tree().get_root().add_child(instance_hunter_arrow)
+	if CharacterList.main_player_facing_left == true:
+		instance_hunter_arrow.velocity.x = -200
+		instance_hunter_arrow
+	else:
+		instance_hunter_arrow.velocity.x = 200
+		
 func _ready():
 	pass
 func _process(delta):	
@@ -515,12 +528,14 @@ func _process(delta):
 			Animate.play("Super - Air Attack")
 			
 		States.Normal_Ground_Block:
+			#  Activate turn around at the start of the state. #
 			turn_around()
 			Animate.play("Normal - Ground Block")
 			velocity.y = 0
 			velocity.x = 0
 			block_timer.start()
 		States.Normal_Air_Block:
+			#  Activate turn around at the start of the state. #
 			turn_around()
 			Animate.play("Normal - Air Block")
 			velocity.x = 0
@@ -535,10 +550,12 @@ func _process(delta):
 			velocity.x = lerp(velocity.x , 0.0, 0.05)
 			velocity.y += Gravity
 			Animate.play("Normal - Dodge Dash")
-			can_change_dir = false
 			
 			if Input.is_action_just_pressed(controls.input_dash):
 				Select = States.Normal_Idling
+				
+			if !is_on_floor():
+				Select = States.Normal_Falling
 		States.Normal_Death:
 			Animate.play("Normal - Death")
 			

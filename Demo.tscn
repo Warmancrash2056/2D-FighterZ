@@ -1,7 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://bvoacn4mm4638"]
 
 [ext_resource type="Script" path="res://Hurtbox.gd" id="1_we47s"]
-[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="4_1octd"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="4_tmeg4"]
 [ext_resource type="Script" path="res://Area2D.gd" id="5_r0s7k"]
@@ -25,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bt3fmouv5vlhd" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_6.png" id="23_p8slu"]
 [ext_resource type="Texture2D" uid="uid://c7hexj5g46qy8" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_7.png" id="24_irnh0"]
 [ext_resource type="Texture2D" uid="uid://cgvjpp28j4krd" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_8.png" id="25_3654q"]
+[ext_resource type="PackedScene" uid="uid://dkaf4thtn7g0g" path="res://Character Resouces/Hunter/Character Scene/Hunter.tscn" id="25_kr3ro"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -265,8 +265,8 @@ animation = &"Run"
 [node name="Foot" parent="CharacterBody2D2" instance=ExtResource("4_tmeg4")]
 position = Vector2(-1, 56)
 
-[node name="Goku" parent="." instance=ExtResource("4_1octd")]
-position = Vector2(662, 205)
+[node name="Hunter" parent="." instance=ExtResource("25_kr3ro")]
+position = Vector2(469, 244)
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]

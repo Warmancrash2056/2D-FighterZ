@@ -5,6 +5,7 @@ var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
 var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
 var dash_smoke = preload("res://Character Resouces/Global/dash_smoke.tscn")
 var hunter_side_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/side_attack_arrow.tscn")
+var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn")
 
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
@@ -14,8 +15,12 @@ var hunter_side_attack_arrow = preload("res://Character Resouces/Hunter/Projecti
 @onready var health = $Health
 @onready var block_timer = $"Block Timer"
 @onready var dash_smoke_position = $"Scale Player/Dash Smoke Position"
+
+
 @onready var hunter_side_arrow_position =$"Scale Player/Side Attack Position"
 
+# General Archfield Fireball Position #
+@onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 
 const Speed = 150
 const Acceleration = 10
@@ -88,7 +93,7 @@ enum States {
 	Super_Air_Attack
 	}
 # Default State when entering the scene tree. #
-var Select = States.Normal_Idling
+var Select = States.Super_Idling
 
 # Check if nomad nuetral Attack or Up Attack starter hitbox detected the opponent to perfrom follow up attacks
 func _transition_nomad_nuetral_attack_finisher():
@@ -182,7 +187,17 @@ func drop_down():
 		set_collision_mask_value(3, false)
 	else:
 		set_collision_mask_value(3, true)
-
+func _general_archfield_freball():
+	var instance_fireball = general_nuetral_attack_fireball.instantiate()
+	instance_fireball.global_position = general_arcfield_fireball_position.global_position
+	get_tree().get_root().add_child(instance_fireball)
+	if CharacterList.main_player_facing_left == true:
+		instance_fireball.velocity.x = -100
+		instance_fireball.scale.x = -1
+	else:
+		instance_fireball.velocity.x = 100
+		
+		instance_fireball.scale.x = 1
 func can_sakura_ulight():
 	sakura_ulight_active = true
 func _reset_sakura_ulight():

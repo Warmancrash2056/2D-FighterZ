@@ -21,9 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://c1mwtctbg0mou" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_4.png" id="21_1wx56"]
 [ext_resource type="Texture2D" uid="uid://dd71igodscgen" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_5.png" id="22_lego1"]
 [ext_resource type="Texture2D" uid="uid://bt3fmouv5vlhd" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_6.png" id="23_p8slu"]
+[ext_resource type="PackedScene" uid="uid://w7vgf8q3ip3t" path="res://Character Resouces/General Archfield/Character Scenes/General Archfield.tscn" id="24_2lc6f"]
 [ext_resource type="Texture2D" uid="uid://c7hexj5g46qy8" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_7.png" id="24_irnh0"]
 [ext_resource type="Texture2D" uid="uid://cgvjpp28j4krd" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_8.png" id="25_3654q"]
-[ext_resource type="PackedScene" uid="uid://xjr8aac2s8dj" path="res://Character Resouces/Hunter/Character Scene/Hunter.tscn" id="25_kr3ro"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -225,6 +225,7 @@ position = Vector2(687, 184)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 position = Vector2(414, 158)
+scale = Vector2(1.3, 1.3)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("5_r0s7k")
@@ -251,8 +252,8 @@ animation = &"Run"
 [node name="Foot" parent="CharacterBody2D2" instance=ExtResource("4_tmeg4")]
 position = Vector2(-1, 56)
 
-[node name="Hunter" parent="." instance=ExtResource("25_kr3ro")]
-position = Vector2(469, 244)
+[node name="General Archfield" parent="." instance=ExtResource("24_2lc6f")]
+position = Vector2(500, 243)
 
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
 [connection signal="animation_looped" from="CharacterBody2D2/AnimatedSprite2D" to="CharacterBody2D2" method="_on_animated_sprite_2d_animation_looped"]

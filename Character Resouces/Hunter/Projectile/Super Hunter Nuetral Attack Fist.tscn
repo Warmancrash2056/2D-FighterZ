@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4c6fvsblgqdo"]
+
+[ext_resource type="Texture2D" uid="uid://ci58gffyhbvt5" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/e_1_atk_2nd_projectile_hit/e_1_atk_2nd_projectile_hit.png" id="1_uhk45"]
+[ext_resource type="Texture2D" uid="uid://bai7hjcgti1c0" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/e_1_atk_2nd_projectile/e_1_atk_2nd_projectile.png" id="2_cqt8b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01n76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uhk45")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cqt8b")
+}],
+"loop": true,
+"name": &"Shoot",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_01n76")
+animation = &"Hit"

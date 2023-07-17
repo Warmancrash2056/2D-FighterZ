@@ -1,0 +1,86 @@
+[gd_scene load_steps=20 format=3 uid="uid://dkf8epbitp2a8"]
+
+[ext_resource type="Texture2D" uid="uid://cpciqnfkq7um8" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_1.png" id="1_7su4c"]
+[ext_resource type="Texture2D" uid="uid://bgt3tdkxr0w86" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_2.png" id="2_p5362"]
+[ext_resource type="Texture2D" uid="uid://qadowmgx2ekb" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_3.png" id="3_xxs7h"]
+[ext_resource type="Texture2D" uid="uid://cajj7gb2i0klq" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_4.png" id="4_khf3f"]
+[ext_resource type="Texture2D" uid="uid://dldab40dfk1o3" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_5.png" id="5_8ulxo"]
+[ext_resource type="Texture2D" uid="uid://dl7ci4xok5gef" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_6.png" id="6_42kll"]
+[ext_resource type="Texture2D" uid="uid://dhxo6651wix18" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_7.png" id="7_m8giq"]
+[ext_resource type="Texture2D" uid="uid://dfsyjgsq70aiq" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_8.png" id="8_0bog2"]
+[ext_resource type="Texture2D" uid="uid://bo4ibv1cewu4k" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_9.png" id="9_b4v50"]
+[ext_resource type="Texture2D" uid="uid://balnwr22i7pu6" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_10.png" id="10_nau6f"]
+[ext_resource type="Texture2D" uid="uid://6mj53cqw6ayp" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_11.png" id="11_5jnik"]
+[ext_resource type="Texture2D" uid="uid://dho65wn7g2bal" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_12.png" id="12_6pc4x"]
+[ext_resource type="Texture2D" uid="uid://du1vn60qndhbx" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_13.png" id="13_c40e7"]
+[ext_resource type="Texture2D" uid="uid://ca737y6gos626" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_14.png" id="14_nv8ry"]
+[ext_resource type="Texture2D" uid="uid://cborhjugdqkvo" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_15.png" id="15_7o6y3"]
+[ext_resource type="Texture2D" uid="uid://ncn5ndwpl857" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_16.png" id="16_b1lbn"]
+[ext_resource type="Texture2D" uid="uid://ccofugrwnkfp4" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_17.png" id="17_tpy7u"]
+[ext_resource type="Texture2D" uid="uid://dbw4dxp3ybyhb" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_shower_effect/arrow_shower_effect_18.png" id="18_xgeto"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8h7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7su4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p5362")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xxs7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_khf3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8ulxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_42kll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m8giq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0bog2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b4v50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nau6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5jnik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6pc4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_c40e7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nv8ry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_7o6y3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_b1lbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tpy7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xgeto")
+}],
+"loop": true,
+"name": &"Arrow Shower",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_s8h7b")
+animation = &"Arrow Shower"

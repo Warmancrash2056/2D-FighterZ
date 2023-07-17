@@ -1,0 +1,84 @@
+[gd_scene load_steps=17 format=3 uid="uid://didvojypkaeqx"]
+
+[ext_resource type="Texture2D" uid="uid://bikql6qdh1rre" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow/diagonal_arrow_.png" id="1_k1hyy"]
+[ext_resource type="Texture2D" uid="uid://rpbe2fho53cp" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit/diagonal_arrow_hit_1.png" id="2_yoq2t"]
+[ext_resource type="Texture2D" uid="uid://ds70tesfy1cei" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit/diagonal_arrow_hit_2.png" id="3_oh60s"]
+[ext_resource type="Texture2D" uid="uid://c3nnvcf1ibb37" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit/diagonal_arrow_hit_3.png" id="4_ekkhe"]
+[ext_resource type="Texture2D" uid="uid://cqhnjkvvj17aw" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit/diagonal_arrow_hit_4.png" id="5_h8xd0"]
+[ext_resource type="Texture2D" uid="uid://cy7roejdrxyc0" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit/diagonal_arrow_hit_5.png" id="6_m46ws"]
+[ext_resource type="Texture2D" uid="uid://dn61ht2g8idjw" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit/diagonal_arrow_hit_6.png" id="7_kfh17"]
+[ext_resource type="Texture2D" uid="uid://4l7q6rxatd6b" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit_thorns/diagonal_arrow_hit_thorns_1.png" id="8_h42u2"]
+[ext_resource type="Texture2D" uid="uid://dfjy6xtx4x2xb" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit_thorns/diagonal_arrow_hit_thorns_2.png" id="9_bm453"]
+[ext_resource type="Texture2D" uid="uid://day7ogwkcle6b" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit_thorns/diagonal_arrow_hit_thorns_3.png" id="10_wnn8h"]
+[ext_resource type="Texture2D" uid="uid://bw7nc6xgd0wm5" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit_thorns/diagonal_arrow_hit_thorns_4.png" id="11_bqkfe"]
+[ext_resource type="Texture2D" uid="uid://c0bbmdicywoqk" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit_thorns/diagonal_arrow_hit_thorns_5.png" id="12_axf6e"]
+[ext_resource type="Texture2D" uid="uid://byx8u4ewth5uv" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit_thorns/diagonal_arrow_hit_thorns_6.png" id="13_gnqls"]
+[ext_resource type="Texture2D" uid="uid://bbdycip11c7mf" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit_thorns/diagonal_arrow_hit_thorns_7.png" id="14_noe8o"]
+[ext_resource type="Texture2D" uid="uid://d13jsngeo7odi" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/diagonal_arrow_hit_thorns/diagonal_arrow_hit_thorns_8.png" id="15_q567p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0ewi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k1hyy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yoq2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oh60s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ekkhe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h8xd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m46ws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kfh17")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_h42u2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bm453")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wnn8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bqkfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_axf6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gnqls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_noe8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_q567p")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_w0ewi")
+frame_progress = 0.00930978

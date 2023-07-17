@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_ob1e8"]
 [ext_resource type="PackedScene" uid="uid://cmm8ev8so7ypy" path="res://Character Resouces/Goku/Goku Hitboxes/goku_air_attack_left.tscn" id="2_5qep7"]
-[ext_resource type="Texture2D" uid="uid://d2edge0rpk5w3" path="res://Elementals_ground_monk_FULL_v1.3 4/ground_monk_FULL_v1.3-SpriteSheet_288x128 (1).png" id="2_ipcwa"]
 [ext_resource type="PackedScene" uid="uid://cmj8ikgsnplda" path="res://Character Resouces/Goku/Goku Hitboxes/goku_air_attack_middle.tscn" id="3_j0woi"]
 [ext_resource type="PackedScene" uid="uid://df55f6jtl3ake" path="res://Character Resouces/Goku/Goku Hitboxes/goku_air_attack_right.tscn" id="4_ywrel"]
 [ext_resource type="PackedScene" uid="uid://bw5gankokb2by" path="res://Character Resouces/Goku/Goku Hitboxes/goku_nuetral_attack.tscn" id="5_stpck"]
@@ -29,6 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://wy28d2jkn1rj" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_up_attack_right.tscn" id="19_l6ioo"]
 [ext_resource type="PackedScene" uid="uid://cynn6615ss1fr" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_up_attack_top.tscn" id="20_fc5bs"]
 [ext_resource type="PackedScene" uid="uid://0lcq7ms702iy" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_air_attack.tscn" id="26_gvn22"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_42blo"]
+load_path = "res://.godot/imported/ground_monk_FULL_v1.3-SpriteSheet_288x128 (1).png-3a882b28267402db86c3df1393db7ae6.ctex"
 
 [sub_resource type="Animation" id="Animation_w7cb0"]
 resource_name = "Activate Super"
@@ -3996,7 +3998,7 @@ position = Vector2(0, 37)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0.833333, -40)
-texture = ExtResource("2_ipcwa")
+texture = SubResource("CompressedTexture2D_42blo")
 hframes = 11
 vframes = 26
 

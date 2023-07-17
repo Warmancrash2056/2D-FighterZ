@@ -25,3 +25,7 @@ var state = Shoot
 func _on_fireball_area_entered(area):
 	state = Explode
 	
+
+
+func _on_fireball_body_entered(body):
+	state = Explode

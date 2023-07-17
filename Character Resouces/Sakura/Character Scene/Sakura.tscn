@@ -1,13 +1,12 @@
-[gd_scene load_steps=54 format=3 uid="uid://r68nnf3p1exi"]
+[gd_scene load_steps=53 format=3 uid="uid://r68nnf3p1exi"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_pq8g1"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="3_ah03g"]
 [ext_resource type="AudioStream" uid="uid://vkh3pkcuv12c" path="res://Character Resouces/Sakura/Nia Blade Throw.wav" id="4_1j7wx"]
-[ext_resource type="Texture2D" uid="uid://gv2p1ffyxomm" path="res://metal_bladekeeper_FULL_v1.1_SpriteSheet_288x128.png" id="6_gt4k1"]
-[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://health.tscn" id="7_q86ml"]
+[ext_resource type="Texture2D" uid="uid://gv2p1ffyxomm" path="res://Character Resouces/Sakura/Spritesheet/Sakura Spritesheet.png" id="6_gt4k1"]
+[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://Character Resouces/Global/health.tscn" id="7_q86ml"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="7_rbukg"]
-[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://super_energy.tscn" id="8_06n6p"]
-[ext_resource type="PackedScene" uid="uid://chd4n86tcqokf" path="res://character_jump_sound.tscn" id="8_l87i3"]
+[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://Character Resouces/Global/super_energy.tscn" id="8_06n6p"]
 
 [sub_resource type="Animation" id="Animation_2ip10"]
 resource_name = "Activate Super"
@@ -2193,8 +2192,3 @@ vframes = 26
 [node name="Deplete Energy" type="Timer" parent="."]
 
 [node name="Refill Energy" type="Timer" parent="."]
-
-[node name="Character Jump Sound" parent="." instance=ExtResource("8_l87i3")]
-
-[connection signal="timeout" from="Deplete Energy" to="." method="_on_deplete_energy_timeout"]
-[connection signal="timeout" from="Refill Energy" to="." method="_on_refill_energy_timeout"]

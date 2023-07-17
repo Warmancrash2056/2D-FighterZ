@@ -1,10 +1,10 @@
 extends CharacterBody2D
 var controls: Resource = load("res://Character Resouces/Global/Controller Resource/Player_3.tres")
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
-var counter_smoke = preload("res://Character Resouces/counter.tscn")
-var sakura_ulight_smoke = preload("res://sakura_up_light_smoke.tscn")
-var dash_smoke = preload("res://dash_smoke.tscn")
-var hunter_side_attakc_arrow = preload("res://side_attack_arrow.tscn")
+var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
+var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
+var dash_smoke = preload("res://Character Resouces/Global/dash_smoke.tscn")
+var hunter_side_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/side_attack_arrow.tscn")
 
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
@@ -167,10 +167,12 @@ func turn_around():
 		if Input.is_action_just_pressed(controls.input_right):
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+			CharacterList.main_player_facing_left = false
 			can_change_dir = true
 		elif Input.is_action_just_pressed(controls.input_left):
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+			CharacterList.main_player_facing_left = true
 			can_change_dir = true
 			
 # Active at first frame
@@ -212,15 +214,15 @@ func _activate_dash_smoke():
 	get_tree().get_root().add_child(instance_dash_smoke)
 	
 func activate_hunter_side_attack():
-	var instance_hunter_arrow = hunter_side_attakc_arrow.instantiate()
+	var instance_hunter_arrow = hunter_side_attack_arrow.instantiate()
 	instance_hunter_arrow.global_position = hunter_side_arrow_position.global_position
 	get_tree().get_root().add_child(instance_hunter_arrow)
 	if CharacterList.main_player_facing_left == true:
-		instance_hunter_arrow.velocity.x = -200
-		instance_hunter_arrow
+		instance_hunter_arrow.velocity.x = -600
+		instance_hunter_arrow.scale.x = -1
 	else:
-		instance_hunter_arrow.velocity.x = 200
-		
+		instance_hunter_arrow.velocity.x = 600
+		instance_hunter_arrow.scale.x = 1
 func _ready():
 	pass
 func _process(delta):	

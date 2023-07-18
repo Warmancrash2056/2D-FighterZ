@@ -1,29 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://bvoacn4mm4638"]
+[gd_scene load_steps=11 format=3 uid="uid://bvoacn4mm4638"]
 
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="4_tmeg4"]
 [ext_resource type="Script" path="res://Area2D.gd" id="5_r0s7k"]
-[ext_resource type="Texture2D" uid="uid://c3d821imj6lb5" path="res://Elementals_ground_monk_FULL_v1.3 4/png/take_hit/take_hit_1.png" id="6_aikea"]
-[ext_resource type="Texture2D" uid="uid://21jhpo6fo25r" path="res://Elementals_ground_monk_FULL_v1.3 4/png/take_hit/take_hit_2.png" id="7_xl3in"]
-[ext_resource type="Texture2D" uid="uid://bb1j85fb87cxx" path="res://Elementals_ground_monk_FULL_v1.3 4/png/take_hit/take_hit_3.png" id="8_anyib"]
-[ext_resource type="Texture2D" uid="uid://cywm7u77q617k" path="res://Elementals_ground_monk_FULL_v1.3 4/png/take_hit/take_hit_4.png" id="9_ib8qb"]
-[ext_resource type="Texture2D" uid="uid://dvl0b25sesbnh" path="res://Elementals_ground_monk_FULL_v1.3 4/png/take_hit/take_hit_5.png" id="10_y12ve"]
-[ext_resource type="Texture2D" uid="uid://cxqsqtsnn8lfk" path="res://Elementals_ground_monk_FULL_v1.3 4/png/take_hit/take_hit_6.png" id="11_p6r1n"]
-[ext_resource type="Texture2D" uid="uid://cl1cg3eynf7md" path="res://Elementals_ground_monk_FULL_v1.3 4/png/idle/idle_1.png" id="12_cokt2"]
-[ext_resource type="Texture2D" uid="uid://c5rcs18isteq6" path="res://Elementals_ground_monk_FULL_v1.3 4/png/idle/idle_2.png" id="13_80rpm"]
-[ext_resource type="Texture2D" uid="uid://bl5r02vrop7ds" path="res://Elementals_ground_monk_FULL_v1.3 4/png/idle/idle_3.png" id="14_qrkfp"]
-[ext_resource type="Texture2D" uid="uid://bft4gkwkua84c" path="res://Elementals_ground_monk_FULL_v1.3 4/png/idle/idle_4.png" id="15_oufp8"]
-[ext_resource type="Texture2D" uid="uid://cm1qoojvi0lfi" path="res://Elementals_ground_monk_FULL_v1.3 4/png/idle/idle_5.png" id="16_bg1co"]
-[ext_resource type="Texture2D" uid="uid://bm5rpcrnad77m" path="res://Elementals_ground_monk_FULL_v1.3 4/png/idle/idle_6.png" id="17_0xsla"]
-[ext_resource type="Texture2D" uid="uid://bu3mkk2gwb02y" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_1.png" id="18_umrj4"]
-[ext_resource type="Texture2D" uid="uid://evv3qwrrbb" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_2.png" id="19_rhfcd"]
-[ext_resource type="Texture2D" uid="uid://bp2e2onc2k3ni" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_3.png" id="20_w3w18"]
-[ext_resource type="Texture2D" uid="uid://c1mwtctbg0mou" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_4.png" id="21_1wx56"]
-[ext_resource type="Texture2D" uid="uid://dd71igodscgen" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_5.png" id="22_lego1"]
-[ext_resource type="Texture2D" uid="uid://bt3fmouv5vlhd" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_6.png" id="23_p8slu"]
 [ext_resource type="PackedScene" uid="uid://w7vgf8q3ip3t" path="res://Character Resouces/General Archfield/Character Scenes/General Archfield.tscn" id="24_2lc6f"]
-[ext_resource type="Texture2D" uid="uid://c7hexj5g46qy8" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_7.png" id="24_irnh0"]
-[ext_resource type="Texture2D" uid="uid://cgvjpp28j4krd" path="res://Elementals_ground_monk_FULL_v1.3 4/png/run/run_8.png" id="25_3654q"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -60,22 +40,22 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_aikea")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_xl3in")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_anyib")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_ib8qb")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_y12ve")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_p6r1n")
+"texture": null
 }],
 "loop": true,
 "name": &"Hurt",
@@ -83,22 +63,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_cokt2")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_80rpm")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_qrkfp")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_oufp8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_bg1co")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_0xsla")
+"texture": null
 }],
 "loop": true,
 "name": &"Idle",
@@ -106,28 +86,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("18_umrj4")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_rhfcd")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_w3w18")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_1wx56")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_lego1")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_p8slu")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_irnh0")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_3654q")
+"texture": null
 }],
 "loop": true,
 "name": &"Run",

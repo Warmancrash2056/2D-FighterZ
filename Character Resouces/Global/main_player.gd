@@ -4,7 +4,7 @@ var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
 var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
 var dash_smoke = preload("res://Character Resouces/Global/dash_smoke.tscn")
-var hunter_side_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/side_attack_arrow.tscn")
+var hunter_side_attack_arrow = preload( "res://Character Resouces/Hunter/Projectile/Hunter Side Attack Arrow.tscn")
 var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn")
 
 @onready var Animate = $Character

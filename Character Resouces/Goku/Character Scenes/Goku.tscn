@@ -27,10 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://c7tm7gfi6yji1" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_up_attack_left.tscn" id="18_hsyv7"]
 [ext_resource type="PackedScene" uid="uid://wy28d2jkn1rj" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_up_attack_right.tscn" id="19_l6ioo"]
 [ext_resource type="PackedScene" uid="uid://cynn6615ss1fr" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_up_attack_top.tscn" id="20_fc5bs"]
+[ext_resource type="Texture2D" uid="uid://cxvgkwq6eirdn" path="res://Character Resouces/Goku/Spritesheet/ground_monk_FULL_v1.3-SpriteSheet_288x128 (1).png" id="22_6xqed"]
 [ext_resource type="PackedScene" uid="uid://0lcq7ms702iy" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_air_attack.tscn" id="26_gvn22"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_42blo"]
-load_path = "res://.godot/imported/ground_monk_FULL_v1.3-SpriteSheet_288x128 (1).png-3a882b28267402db86c3df1393db7ae6.ctex"
 
 [sub_resource type="Animation" id="Animation_w7cb0"]
 resource_name = "Activate Super"
@@ -3998,7 +3996,7 @@ position = Vector2(0, 37)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0.833333, -40)
-texture = SubResource("CompressedTexture2D_42blo")
+texture = ExtResource("22_6xqed")
 hframes = 11
 vframes = 26
 

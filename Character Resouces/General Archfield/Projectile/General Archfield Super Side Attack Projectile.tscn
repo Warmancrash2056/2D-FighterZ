@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ds1qqdaajirwb"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_e6q8l"]
+[ext_resource type="Script" path="res://Character Resouces/General Archfield/Projectile/CharacterBody2D.gd" id="1_3gdqj"]
 [ext_resource type="Texture2D" uid="uid://7r7blr12i40w" path="res://Character Resouces/General Archfield/Projectile/General Archfield Side Attack Projectile Spritesheet (1x8).png" id="2_68k43"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n645w"]
@@ -150,7 +150,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfxf0"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_e6q8l")
+script = ExtResource("1_3gdqj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_68k43")

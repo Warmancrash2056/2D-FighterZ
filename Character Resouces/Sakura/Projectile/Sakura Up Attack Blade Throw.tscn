@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://bya0grjjr3uph"]
+
+[ext_resource type="Texture2D" uid="uid://blbq3gm1bjaod" path="res://Character Resouces/Sakura/Projectile/projectile_and_trap/trap_throw/trap_throw.png" id="1_n328m"]
+[ext_resource type="Texture2D" uid="uid://dhnosykojie1t" path="res://Character Resouces/Sakura/Projectile/projectile_and_trap/trap_land/trap_land_1.png" id="2_lpk20"]
+[ext_resource type="Texture2D" uid="uid://j4ewbivafah1" path="res://Character Resouces/Sakura/Projectile/projectile_and_trap/trap_land/trap_land_2.png" id="3_s3ick"]
+[ext_resource type="Texture2D" uid="uid://c4w5hkgbbf63p" path="res://Character Resouces/Sakura/Projectile/projectile_and_trap/trap_land/trap_land_3.png" id="4_6hgfi"]
+[ext_resource type="Texture2D" uid="uid://c7bpq2wbntkvx" path="res://Character Resouces/Sakura/Projectile/projectile_and_trap/trap_detonate/trap_detonate_1.png" id="5_v1683"]
+[ext_resource type="Texture2D" uid="uid://dkwxbbou6iq03" path="res://Character Resouces/Sakura/Projectile/projectile_and_trap/trap_detonate/trap_detonate_2.png" id="6_qkdp5"]
+[ext_resource type="Texture2D" uid="uid://dk4j7ecp51v83" path="res://Character Resouces/Sakura/Projectile/projectile_and_trap/trap_detonate/trap_detonate_3.png" id="7_kkush"]
+[ext_resource type="Texture2D" uid="uid://dav15cc8nxqwh" path="res://Character Resouces/Sakura/Projectile/projectile_and_trap/trap_detonate/trap_detonate_4.png" id="8_53jjn"]
+[ext_resource type="Texture2D" uid="uid://cnlq2vaci56aw" path="res://Character Resouces/Sakura/Projectile/projectile_and_trap/trap_detonate/trap_detonate_5.png" id="9_w1k8p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vytv6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n328m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lpk20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s3ick")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6hgfi")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_v1683")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qkdp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kkush")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_53jjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_w1k8p")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_vytv6")
+animation = &"new_animation_1"

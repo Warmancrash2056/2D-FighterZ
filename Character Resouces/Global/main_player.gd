@@ -1,11 +1,12 @@
 extends CharacterBody2D
-var controls: Resource = load("res://Character Resouces/Global/Controller Resource/Player_3.tres")
+var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
 var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
 var dash_smoke = preload("res://Character Resouces/Global/dash_smoke.tscn")
 var hunter_side_attack_arrow = preload( "res://Character Resouces/Hunter/Projectile/Hunter Side Attack Arrow.tscn")
 var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn")
+var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Projectile/Super Hunter Side Attack Spear.tscn")
 
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
@@ -43,7 +44,7 @@ var goku_side_attack_hit = false
 var can_jump = false
 var can_counter = false
 var block_active = false
-
+var attack_active = false
 
 # Increment super points every hit 
 var add_super_pts = 5
@@ -93,7 +94,7 @@ enum States {
 	Super_Air_Attack
 	}
 # Default State when entering the scene tree. #
-var Select = States.Super_Idling
+var Select = States.Normal_Idling
 
 # Check if nomad nuetral Attack or Up Attack starter hitbox detected the opponent to perfrom follow up attacks
 func _transition_nomad_nuetral_attack_finisher():
@@ -240,7 +241,7 @@ func activate_hunter_side_attack():
 		instance_hunter_arrow.scale.x = 1
 func _ready():
 	pass
-func _process(delta):	
+func _physics_process(delta):
 		
 	if current_super_pts < 0:
 		Select = States.Deactivate_Super

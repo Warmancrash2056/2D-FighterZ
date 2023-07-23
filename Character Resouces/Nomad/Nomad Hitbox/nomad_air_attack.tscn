@@ -4,7 +4,7 @@
 
 [node name="Nomad Air Attack" type="Area2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Air Attack Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(26, -5)
 shape = SubResource("CircleShape2D_7682v")
 disabled = true

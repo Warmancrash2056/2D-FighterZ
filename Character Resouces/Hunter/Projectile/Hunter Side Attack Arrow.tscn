@@ -1,19 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlltb5gpwwaod"]
+[gd_scene load_steps=5 format=3 uid="uid://dlltb5gpwwaod"]
 
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Projectile/side_attack_arrow.gd" id="1_0i6q6"]
-[ext_resource type="Texture2D" uid="uid://3c8c6b1oi5yq" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow/arrow_.png" id="2_u2ncn"]
-[ext_resource type="Texture2D" uid="uid://bjp1jfjm04ea7" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_hit/arrow_hit_1.png" id="3_wiiu8"]
-[ext_resource type="Texture2D" uid="uid://cxxknlkcxhw0q" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_hit/arrow_hit_2.png" id="4_0m3f6"]
-[ext_resource type="Texture2D" uid="uid://b0cnjhrf4j0hg" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_hit/arrow_hit_3.png" id="5_uepf2"]
-[ext_resource type="Texture2D" uid="uid://mq42xgamjm8a" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_hit/arrow_hit_4.png" id="6_bybvw"]
-[ext_resource type="Texture2D" uid="uid://bjny4sohqlncf" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_hit/arrow_hit_5.png" id="7_iyg12"]
-[ext_resource type="Texture2D" uid="uid://d2dak4jykwdjn" path="res://Character Resouces/General Archfield/Projectile/projectiles_and_effects/arrow_hit/arrow_hit_6.png" id="8_oblsy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dgou8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_u2ncn")
+"texture": null
 }],
 "loop": true,
 "name": &"Arrow",
@@ -21,22 +14,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_wiiu8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_0m3f6")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_uepf2")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_bybvw")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_iyg12")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_oblsy")
+"texture": null
 }],
 "loop": true,
 "name": &"Arrow Hit",

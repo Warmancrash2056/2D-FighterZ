@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bvoacn4mm4638"]
 
+[ext_resource type="PackedScene" uid="uid://c27kgbbjefdwo" path="res://Character Resouces/Nomad/Character Scenes/Nomad.tscn" id="4_0cdqm"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="4_tmeg4"]
 [ext_resource type="Script" path="res://Area2D.gd" id="5_r0s7k"]
-[ext_resource type="PackedScene" uid="uid://w7vgf8q3ip3t" path="res://Character Resouces/General Archfield/Character Scenes/General Archfield.tscn" id="24_2lc6f"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -232,8 +232,8 @@ animation = &"Run"
 [node name="Foot" parent="CharacterBody2D2" instance=ExtResource("4_tmeg4")]
 position = Vector2(-1, 56)
 
-[node name="General Archfield" parent="." instance=ExtResource("24_2lc6f")]
-position = Vector2(500, 243)
+[node name="Nomad" parent="." instance=ExtResource("4_0cdqm")]
+position = Vector2(472, 228)
 
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
 [connection signal="animation_looped" from="CharacterBody2D2/AnimatedSprite2D" to="CharacterBody2D2" method="_on_animated_sprite_2d_animation_looped"]

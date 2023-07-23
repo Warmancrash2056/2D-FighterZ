@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmmp84xt21823"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhg5g"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_scgbu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i53i4"]
 radius = 11.5385
@@ -8,19 +8,19 @@ height = 23.0769
 
 [node name="Nomad Super Side Attack Starter" type="Area2D"]
 
-[node name="Top" type="CollisionShape2D" parent="."]
+[node name="Super Side Attack Top Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(76, -21)
 rotation = 2.01935
-shape = SubResource("CapsuleShape2D_vhg5g")
+shape = SubResource("CapsuleShape2D_scgbu")
 disabled = true
 
-[node name="Middle" type="CollisionShape2D" parent="."]
+[node name="Super Side Attack Middle Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(100, -10)
 shape = SubResource("CapsuleShape2D_i53i4")
 disabled = true
 
-[node name="Buttom" type="CollisionShape2D" parent="."]
+[node name="Super Side Attack Buttom Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(78, 5)
 rotation = 1.12225
-shape = SubResource("CapsuleShape2D_vhg5g")
+shape = SubResource("CapsuleShape2D_scgbu")
 disabled = true

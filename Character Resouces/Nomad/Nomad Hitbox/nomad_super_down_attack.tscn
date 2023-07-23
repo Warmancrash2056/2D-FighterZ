@@ -6,12 +6,12 @@ height = 47.6923
 
 [node name="Nomad Super Down Attack" type="Area2D"]
 
-[node name="Top" type="CollisionShape2D" parent="."]
+[node name="Nomad Super Down Attack Top Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(77, -57)
 shape = SubResource("CapsuleShape2D_yqix1")
 disabled = true
 
-[node name="Buttom" type="CollisionShape2D" parent="."]
+[node name="Nomad Super Down Attack Bottom Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(83, -9)
 shape = SubResource("CapsuleShape2D_yqix1")
 disabled = true

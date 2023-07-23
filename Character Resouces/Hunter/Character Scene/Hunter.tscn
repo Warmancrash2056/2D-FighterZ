@@ -1,27 +1,8 @@
 [gd_scene load_steps=72 format=3 uid="uid://xjr8aac2s8dj"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_cvyji"]
-[ext_resource type="Texture2D" uid="uid://cek5bcrw4ug5q" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/diagonal_arrow/diagonal_arrow_.png" id="4_mfl5n"]
-[ext_resource type="Texture2D" uid="uid://cxnj3bax3fsjs" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_1.png" id="5_ayglb"]
-[ext_resource type="Texture2D" uid="uid://bbjdg023asjqw" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_2.png" id="6_bfmin"]
-[ext_resource type="Texture2D" uid="uid://cigep8o8ffvae" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_3.png" id="7_unsfj"]
-[ext_resource type="Texture2D" uid="uid://nsunqesuehyb" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_4.png" id="8_pon6n"]
-[ext_resource type="Texture2D" uid="uid://ct2ig0ip76ufh" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_5.png" id="9_obh08"]
-[ext_resource type="Texture2D" uid="uid://d02yf02i26fkq" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_6.png" id="10_jpcwp"]
-[ext_resource type="Texture2D" uid="uid://mfdwj0kuxcbf" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_7.png" id="11_ewhkt"]
-[ext_resource type="Texture2D" uid="uid://c5i8obsiafpdf" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_8.png" id="12_wcbl4"]
-[ext_resource type="Texture2D" uid="uid://mvsqu1e3706j" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_9.png" id="13_38k2l"]
-[ext_resource type="Texture2D" uid="uid://c6044olp1ne36" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_10.png" id="14_gxfi1"]
-[ext_resource type="Texture2D" uid="uid://dee25s22sull6" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_11.png" id="15_s6jgs"]
-[ext_resource type="Texture2D" uid="uid://cbsfrxc3cy744" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_12.png" id="16_p2sdx"]
-[ext_resource type="Texture2D" uid="uid://2pcmy7ucghw" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_13.png" id="17_w25ba"]
-[ext_resource type="Texture2D" uid="uid://d0en3uwhleknq" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_14.png" id="18_s302i"]
-[ext_resource type="Texture2D" uid="uid://baynpktvoolew" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_15.png" id="19_qf8vj"]
-[ext_resource type="Texture2D" uid="uid://cd3cla3ets7ll" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_16.png" id="20_vjjiw"]
 [ext_resource type="PackedScene" uid="uid://duiga22704uhr" path="res://Character Resouces/Global/dash_smoke_position.tscn" id="21_3328p"]
-[ext_resource type="Texture2D" uid="uid://d0o4t0d5s2fld" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_17.png" id="21_n1wix"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="22_3mu5l"]
-[ext_resource type="Texture2D" uid="uid://c0rjc04nxwugu" path="res://Character Resouces/Hunter/Animation/Projectile Sprites/arrow_shower_effect/arrow_shower_effect_18.png" id="22_djb2d"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="24_vc57e"]
 [ext_resource type="AudioStream" uid="uid://dg23uykbeo64t" path="res://Character Resouces/Hunter/Sounds/Up Light Sound.wav" id="25_7c44d"]
 [ext_resource type="Texture2D" uid="uid://dd2rhi2iioqq8" path="res://Character Resouces/Hunter/Spritesheet/Hunter Spritesheet.png" id="27_kc285"]
@@ -30,65 +11,122 @@
 [ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://Character Resouces/Global/health.tscn" id="30_urjkv"]
 [ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://Character Resouces/Global/super_energy.tscn" id="31_ew6pv"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mpmhp"]
+load_path = "res://.godot/imported/diagonal_arrow_.png-3b62c64905b68c455e9f90c1091e45be.ctex"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6wdl"]
 radius = 6.08276
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tvsyw"]
+load_path = "res://.godot/imported/arrow_shower_effect_1.png-4f39437d3b528d4df0f3b9200e130936.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ntgx0"]
+load_path = "res://.godot/imported/arrow_shower_effect_2.png-2ba473a1a0d11b9b5f96e9611bdcc242.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_seqna"]
+load_path = "res://.godot/imported/arrow_shower_effect_3.png-db02ab81d9ca43f0ce398a85c4b69721.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xn2lr"]
+load_path = "res://.godot/imported/arrow_shower_effect_4.png-80d2185077920341801871cc463c11c0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t2b85"]
+load_path = "res://.godot/imported/arrow_shower_effect_5.png-7d4f9d4f9a0cf538b487a1f4f741f55d.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nlsxd"]
+load_path = "res://.godot/imported/arrow_shower_effect_6.png-52c7058797677b9c339c1eee34a96f20.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g4eak"]
+load_path = "res://.godot/imported/arrow_shower_effect_7.png-6dda9f86df9dfd3cb86c9b9f83ed704b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xq6w8"]
+load_path = "res://.godot/imported/arrow_shower_effect_8.png-df92735e3b7feb600ddab7ec1e48dade.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1igso"]
+load_path = "res://.godot/imported/arrow_shower_effect_9.png-b3f4dda02ea29a7b8a036b3549b881dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnhwr"]
+load_path = "res://.godot/imported/arrow_shower_effect_10.png-0ef6a92e8c1cefb27ee1472a68bb165e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kh11i"]
+load_path = "res://.godot/imported/arrow_shower_effect_11.png-a464199a2cf7449facbe2115eda8a41f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uxi1n"]
+load_path = "res://.godot/imported/arrow_shower_effect_12.png-470d1925339d059c02832c6a14441da8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dfyqv"]
+load_path = "res://.godot/imported/arrow_shower_effect_13.png-0e6db7ad8eb8931d733511988711c2f1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s1mbc"]
+load_path = "res://.godot/imported/arrow_shower_effect_14.png-688be8e1c25f32fc67f108d4c53995fe.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k83es"]
+load_path = "res://.godot/imported/arrow_shower_effect_15.png-511f30c2a9ffa0dcb621fa58dc8aaa28.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hagmw"]
+load_path = "res://.godot/imported/arrow_shower_effect_16.png-a72ebb69125297f43de1df268a16156f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t2qt5"]
+load_path = "res://.godot/imported/arrow_shower_effect_17.png-f0a62b31de9c158e4a355dd01347ba0a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_51838"]
+load_path = "res://.godot/imported/arrow_shower_effect_18.png-b38bc8a39f50c69a3882269ec88ab067.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w6q8r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_ayglb")
+"texture": SubResource("CompressedTexture2D_tvsyw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_bfmin")
+"texture": SubResource("CompressedTexture2D_ntgx0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_unsfj")
+"texture": SubResource("CompressedTexture2D_seqna")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_pon6n")
+"texture": SubResource("CompressedTexture2D_xn2lr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_obh08")
+"texture": SubResource("CompressedTexture2D_t2b85")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_jpcwp")
+"texture": SubResource("CompressedTexture2D_nlsxd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_ewhkt")
+"texture": SubResource("CompressedTexture2D_g4eak")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_wcbl4")
+"texture": SubResource("CompressedTexture2D_xq6w8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_38k2l")
+"texture": SubResource("CompressedTexture2D_1igso")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_gxfi1")
+"texture": SubResource("CompressedTexture2D_gnhwr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_s6jgs")
+"texture": SubResource("CompressedTexture2D_kh11i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_p2sdx")
+"texture": SubResource("CompressedTexture2D_uxi1n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_w25ba")
+"texture": SubResource("CompressedTexture2D_dfyqv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_s302i")
+"texture": SubResource("CompressedTexture2D_s1mbc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_qf8vj")
+"texture": SubResource("CompressedTexture2D_k83es")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_vjjiw")
+"texture": SubResource("CompressedTexture2D_hagmw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_n1wix")
+"texture": SubResource("CompressedTexture2D_t2qt5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_djb2d")
+"texture": SubResource("CompressedTexture2D_51838")
 }],
 "loop": true,
 "name": &"Shower",
@@ -2414,7 +2452,7 @@ z_index = 1
 [node name="Air Attack Arrow" type="Sprite2D" parent="Scale Player"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(32, 16)
-texture = ExtResource("4_mfl5n")
+texture = SubResource("CompressedTexture2D_mpmhp")
 
 [node name="Area2D" type="Area2D" parent="Scale Player/Air Attack Arrow"]
 position = Vector2(-27.4846, -12.0654)

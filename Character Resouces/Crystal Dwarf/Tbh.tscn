@@ -1,10 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://f88kddpcarlm"]
+[gd_scene load_steps=24 format=3 uid="uid://f88kddpcarlm"]
 
 [ext_resource type="Texture2D" uid="uid://o7egxmtclkbe" path="res://Elementals_Crystal_Mauler_Full_v1.0/animations/spritesheet/crystal_mauler_full_288x128_SpriteSheet.png" id="1_1kuc6"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="2_nq0m2"]
+[ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="3_h78p8"]
+[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://Character Resouces/Global/health.tscn" id="4_375s8"]
+[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://Character Resouces/Global/super_energy.tscn" id="5_0anwn"]
+[ext_resource type="PackedScene" uid="uid://duiga22704uhr" path="res://Character Resouces/Global/dash_smoke_position.tscn" id="6_kjeqr"]
+[ext_resource type="PackedScene" uid="uid://bgm4l7ardrnil" path="res://Character Resouces/Global/deplete_energy.tscn" id="7_elip6"]
+[ext_resource type="PackedScene" uid="uid://b3mosh5sutup4" path="res://Character Resouces/Global/block_timer.tscn" id="8_4skqw"]
 
-[sub_resource type="Animation" id="Animation_fec7o"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_6ihc4"]
+resource_name = "Normal - Fall"
+length = 0.30001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -12,26 +19,10 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_23nj5"]
-resource_name = "Normal - Run"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [8, 9, 10, 11, 12, 13, 14, 15]
+"values": [19, 20, 21]
 }
 
 [sub_resource type="Animation" id="Animation_et3w7"]
@@ -66,22 +57,6 @@ tracks/0/keys = {
 "values": [16, 17, 18]
 }
 
-[sub_resource type="Animation" id="Animation_6ihc4"]
-resource_name = "Normal - Fall"
-length = 0.30001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [19, 20, 21]
-}
-
 [sub_resource type="Animation" id="Animation_21deg"]
 resource_name = "Normal - Nuetral Attack Starter"
 length = 1.10001
@@ -98,15 +73,112 @@ tracks/0/keys = {
 "values": [164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 164]
 }
 
+[sub_resource type="Animation" id="Animation_23nj5"]
+resource_name = "Normal - Run"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_ihp3f"]
+resource_name = "Normal - Side Attack Starter"
+length = 0.80001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [164, 172, 173, 174, 175, 176, 177, 178]
+}
+
+[sub_resource type="Animation" id="Animation_fec7o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_afocw"]
+resource_name = "Normal - Up Attack Starter"
+length = 1.70001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [164, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194]
+}
+
+[sub_resource type="Animation" id="Animation_aw0ml"]
+resource_name = "Normal - Down Attack"
+length = 1.50001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.40001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [195, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210]
+}
+
+[sub_resource type="Animation" id="Animation_es0e2"]
+resource_name = "Normal - Dodge Dash"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u7cjo"]
 _data = {
+"Normal - Dodge Dash": SubResource("Animation_es0e2"),
+"Normal - Down Attack": SubResource("Animation_aw0ml"),
 "Normal - Fall": SubResource("Animation_6ihc4"),
 "Normal - Idle": SubResource("Animation_et3w7"),
 "Normal - Jump": SubResource("Animation_07fgy"),
 "Normal - Nuetral Attack Starter": SubResource("Animation_21deg"),
 "Normal - Run": SubResource("Animation_23nj5"),
+"Normal - Side Attack Starter": SubResource("Animation_ihp3f"),
+"Normal - Up Attack Starter": SubResource("Animation_afocw"),
 "RESET": SubResource("Animation_fec7o")
 }
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h6kma"]
+radius = 2.95442
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b2vdp"]
+height = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mi2oe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxr60"]
+radius = 8.06226
 
 [node name="Tbh" type="CharacterBody2D"]
 
@@ -121,4 +193,55 @@ libraries = {
 "": SubResource("AnimationLibrary_u7cjo")
 }
 
-[node name="Hurtbox" parent="." instance=ExtResource("2_nq0m2")]
+[node name="Scale Player" type="Node2D" parent="."]
+
+[node name="Hurtbox" parent="Scale Player" instance=ExtResource("2_nq0m2")]
+
+[node name="Area2D" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D"]
+position = Vector2(21, -21)
+rotation = 1.74533
+shape = SubResource("CapsuleShape2D_h6kma")
+disabled = true
+
+[node name="Area2D2" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D2"]
+position = Vector2(-1, 8)
+rotation = 1.39626
+shape = SubResource("CapsuleShape2D_b2vdp")
+disabled = true
+
+[node name="Area2D3" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D3"]
+position = Vector2(32, 2)
+shape = SubResource("CircleShape2D_mi2oe")
+disabled = true
+
+[node name="Area2D4" type="Area2D" parent="Scale Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D4"]
+position = Vector2(36, -12)
+shape = SubResource("CircleShape2D_yxr60")
+disabled = true
+
+[node name="Foot" parent="." instance=ExtResource("3_h78p8")]
+
+[node name="Health" parent="." instance=ExtResource("4_375s8")]
+
+[node name="Super Energy" parent="." instance=ExtResource("5_0anwn")]
+offset_left = -14.7695
+offset_top = -45.3846
+offset_right = 67.2305
+offset_bottom = -41.3846
+
+[node name="Dash Smoke Position" parent="." instance=ExtResource("6_kjeqr")]
+
+[node name="Deplete Energy" parent="." instance=ExtResource("7_elip6")]
+
+[node name="Block Timer" parent="." instance=ExtResource("8_4skqw")]
+
+[editable path="Scale Player/Hurtbox"]
+[editable path="Foot"]

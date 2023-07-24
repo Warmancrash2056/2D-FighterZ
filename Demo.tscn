@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bvoacn4mm4638"]
 
-[ext_resource type="PackedScene" uid="uid://c27kgbbjefdwo" path="res://Character Resouces/Nomad/Character Scenes/Nomad.tscn" id="4_0cdqm"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
+[ext_resource type="PackedScene" uid="uid://xjr8aac2s8dj" path="res://Character Resouces/Hunter/Character Scene/Hunter.tscn" id="4_sy4jw"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="4_tmeg4"]
 [ext_resource type="Script" path="res://Area2D.gd" id="5_r0s7k"]
 
@@ -200,9 +200,6 @@ offset_right = 743.0
 offset_bottom = 280.0
 color = Color(0, 0, 0, 1)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_tmeg4")]
-position = Vector2(687, 184)
-
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 position = Vector2(414, 158)
 scale = Vector2(1.3, 1.3)
@@ -232,8 +229,8 @@ animation = &"Run"
 [node name="Foot" parent="CharacterBody2D2" instance=ExtResource("4_tmeg4")]
 position = Vector2(-1, 56)
 
-[node name="Nomad" parent="." instance=ExtResource("4_0cdqm")]
-position = Vector2(472, 228)
+[node name="Hunter" parent="." instance=ExtResource("4_sy4jw")]
+position = Vector2(585, 229)
 
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
 [connection signal="animation_looped" from="CharacterBody2D2/AnimatedSprite2D" to="CharacterBody2D2" method="_on_animated_sprite_2d_animation_looped"]

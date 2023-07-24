@@ -1,12 +1,13 @@
 extends CharacterBody2D
 var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
-var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
 var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
 var dash_smoke = preload("res://Character Resouces/Global/dash_smoke.tscn")
 var hunter_side_attack_arrow = preload( "res://Character Resouces/Hunter/Projectile/Hunter Side Attack Arrow.tscn")
 var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn")
-var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Projectile/Super Hunter Side Attack Spear.tscn")
+var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Projectile/projectiles_and_effects/Hunter Super Spear.tscn")
+var hunter_down_attack_shower = preload("res://Character Resouces/Hunter/Projectile/Hunter Arrow Shower .tscn")
+var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.tscn")
 
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
@@ -16,10 +17,9 @@ var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Pr
 @onready var health = $Health
 @onready var block_timer = $"Block Timer"
 @onready var dash_smoke_position = $"Scale Player/Dash Smoke Position"
-
-
+@onready var hunter_super_side_attack_position = $"Scale Player/Hunter Super Side Attack Position"
 @onready var hunter_side_arrow_position =$"Scale Player/Side Attack Position"
-
+@onready var hunter_super_nuetral_position = $"Scale Player/Hunter Super Nuetral Attack Position"
 # General Archfield Fireball Position #
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 
@@ -94,7 +94,7 @@ enum States {
 	Super_Air_Attack
 	}
 # Default State when entering the scene tree. #
-var Select = States.Normal_Idling
+var Select = States.Super_Idling
 
 # Check if nomad nuetral Attack or Up Attack starter hitbox detected the opponent to perfrom follow up attacks
 func _transition_nomad_nuetral_attack_finisher():
@@ -199,6 +199,19 @@ func _general_archfield_freball():
 		instance_fireball.velocity.x = 100
 		
 		instance_fireball.scale.x = 1
+		
+func hunter_spear_throw():
+	var instance_spear = hunter_super_side_attack_spear.instantiate()
+	instance_spear.global_position = hunter_super_side_attack_position.global_position
+	get_tree().get_root().add_child(instance_spear)
+	
+	if CharacterList.main_player_facing_left == true:
+		instance_spear.velocity.x = -100
+		instance_spear.scale.x = -1
+	else:
+		instance_spear.velocity.x = 100
+		instance_spear.scale.x = 1
+		
 func can_sakura_ulight():
 	sakura_ulight_active = true
 func _reset_sakura_ulight():

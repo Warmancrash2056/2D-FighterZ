@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://vinflscbehb3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g8eg"]
-size = Vector2(6.07693, 1.42331)
+[sub_resource type="CircleShape2D" id="CircleShape2D_y7gmw"]
+radius = 6.0
 
 [node name="Foot" type="CollisionShape2D"]
 position = Vector2(0, 22.3077)
-shape = SubResource("RectangleShape2D_8g8eg")
+shape = SubResource("CircleShape2D_y7gmw")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Jump Smoke" type="Marker2D" parent="."]

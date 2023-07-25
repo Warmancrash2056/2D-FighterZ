@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
-@onready var Sprite = $"Arrow Head"
-
-var arrow_speed = 100
+func queue_object():
+	queue_free()
+	
+func _ready():
+	$AnimationPlayer.play("Shoot")
 	
 
 func _process(delta):
-	
 	move_and_slide()
 	
 	

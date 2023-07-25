@@ -119,20 +119,8 @@ position = Vector2(9, 0)
 metadata/_edit_vertical_guides_ = [344.0]
 metadata/_edit_horizontal_guides_ = [312.0]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Wall"]]
 collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(696, 584)
-shape = SubResource("1")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="StaticBody2D/CollisionShape2D"]
-offset_left = -136.0
-offset_top = -224.0
-offset_right = -96.0
-offset_bottom = -201.0
-text = "Floor"
-fit_content = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1000, 472)
@@ -160,11 +148,11 @@ offset_bottom = -168.0
 rotation = 3.14159
 text = "         Left Wall"
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="."]
 collision_layer = 4
-collision_mask = 10
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2(639, 272)
 shape = SubResource("RectangleShape2D_p54th")
 one_way_collision = true
@@ -231,6 +219,24 @@ position = Vector2(-1, 56)
 
 [node name="Hunter" parent="." instance=ExtResource("4_sy4jw")]
 position = Vector2(585, 229)
+Health = null
+Super_Pts = null
+
+[node name="Floor Area" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor Area"]
+position = Vector2(696, 584)
+shape = SubResource("1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Floor Area/CollisionShape2D"]
+offset_left = -136.0
+offset_top = -224.0
+offset_right = -96.0
+offset_bottom = -201.0
+text = "Floor"
+fit_content = true
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
 [connection signal="animation_looped" from="CharacterBody2D2/AnimatedSprite2D" to="CharacterBody2D2" method="_on_animated_sprite_2d_animation_looped"]

@@ -2,6 +2,7 @@ extends CharacterBody2D
 var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
+var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
 var dash_smoke = preload("res://Character Resouces/Global/dash_smoke.tscn")
 var hunter_side_attack_arrow = preload( "res://Character Resouces/Hunter/Projectile/Hunter Side Attack Arrow.tscn")
 var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn")
@@ -18,8 +19,9 @@ var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectil
 @onready var block_timer = $"Block Timer"
 @onready var dash_smoke_position = $"Scale Player/Dash Smoke Position"
 @onready var hunter_super_side_attack_position = $"Scale Player/Hunter Super Side Attack Position"
-@onready var hunter_side_arrow_position =$"Scale Player/Side Attack Position"
+@onready var hunter_side_arrow_position = $"Scale Player/Hunter Side Attack Arrow Position"
 @onready var hunter_super_nuetral_position = $"Scale Player/Hunter Super Nuetral Attack Position"
+@onready var hunter_air_attack_position = $"Scale Player/Hunter Air Attack Position"
 # General Archfield Fireball Position #
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 
@@ -94,7 +96,7 @@ enum States {
 	Super_Air_Attack
 	}
 # Default State when entering the scene tree. #
-var Select = States.Super_Idling
+var Select = States.Normal_Idling
 
 # Check if nomad nuetral Attack or Up Attack starter hitbox detected the opponent to perfrom follow up attacks
 func _transition_nomad_nuetral_attack_finisher():
@@ -206,10 +208,10 @@ func hunter_spear_throw():
 	get_tree().get_root().add_child(instance_spear)
 	
 	if CharacterList.main_player_facing_left == true:
-		instance_spear.velocity.x = -100
+		instance_spear.velocity.x = -700
 		instance_spear.scale.x = -1
 	else:
-		instance_spear.velocity.x = 100
+		instance_spear.velocity.x = 700
 		instance_spear.scale.x = 1
 		
 func can_sakura_ulight():
@@ -252,13 +254,24 @@ func activate_hunter_side_attack():
 	else:
 		instance_hunter_arrow.velocity.x = 600
 		instance_hunter_arrow.scale.x = 1
+func hunter_air_attack():
+	var instance_arrow = hunter_air_attack_arrow.instantiate()
+	instance_arrow.global_position = hunter_air_attack_position.global_position
+	get_tree().get_root().add_child(instance_arrow)
+	
+	if CharacterList.main_player_facing_left == true:
+		instance_arrow.velocity = Vector2(-150,150)
+		instance_arrow.scale.x = -1
+	else:
+		instance_arrow.velocity = Vector2(150,150)
+		instance_arrow.scale.x = 1
 func _ready():
 	pass
 func _physics_process(delta):
 		
 	if current_super_pts < 0:
 		Select = States.Deactivate_Super
-	super_energy.value = current_super_pts
+	super_energy.value = current_super_ptsD
 	move_and_slide()
 	match Select:
 		States.Activate_Super:

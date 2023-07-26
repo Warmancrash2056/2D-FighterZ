@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://xoddx118tc6u"]
 
-[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/background.tscn" id="1_c5mro"]
+[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/Background.tscn" id="1_c5mro"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y0qt7"]
 
@@ -13,9 +13,13 @@ script/source = "extends Control
 @onready var volume_up = $\"Volume Up\"
 @onready var pause_sound = $\"Pause Button\"
 
+var is_paused
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	if is_paused == true:
+		Audio.stream_paused = true
+	else:
+		Audio.stream_paused = false
 	if Input.is_action_just_pressed(\"exit\"):
 		get_tree().change_scene_to_file(\"res://Game Start/Main Menu/Main Menu.tscn\")
 		
@@ -30,10 +34,10 @@ func _process(delta):
 		Audio.volume_db += 1
 		
 	if pause_sound.button_pressed == true:
-		Audio.stream_paused = true
+		is_paused = true
 	
 	else:
-		Audio.stream_paused = false
+		is_paused = false
 	
 	
 

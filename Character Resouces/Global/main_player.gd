@@ -271,7 +271,7 @@ func _physics_process(delta):
 		
 	if current_super_pts < 0:
 		Select = States.Deactivate_Super
-	super_energy.value = current_super_ptsD
+	super_energy.value = current_super_pts
 	move_and_slide()
 	match Select:
 		States.Activate_Super:

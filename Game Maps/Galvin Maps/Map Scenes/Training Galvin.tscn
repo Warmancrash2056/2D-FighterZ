@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtoc4inmod25n"]
+[gd_scene load_steps=18 format=3 uid="uid://dtoc4inmod25n"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_ctwfg"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_6u0qm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="6_i3s7w"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="7_3sjgk"]
 [ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://Game Start/exit_prompt.tscn" id="8_b0ugh"]
+[ext_resource type="Script" path="res://Game Maps/Galvin Maps/Map Scenes/Small Platform.gd" id="8_vb1xu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6m41"]
 texture = ExtResource("2_6u0qm")
@@ -7712,23 +7713,24 @@ tile_set = SubResource("TileSet_ngbfs")
 format = 2
 layer_0/tile_data = PackedInt32Array(-393219, 131072, 42, -327683, 131072, 44, -262147, 131072, 45, -196611, 131072, 46, -131075, 131072, 47, -65539, 131072, 48, -393218, 196608, 42, -327682, 196608, 44, -262146, 196608, 45, -196610, 196608, 46, -131074, 196608, 47, -65538, 196608, 48, -393217, 262144, 42, -327681, 262144, 44, -262145, 262144, 45, -196609, 262144, 46, -131073, 262144, 47, -65537, 262144, 48, -458760, 983040, 60, -393224, 983040, 61, -458759, 1048576, 60, -393223, 1048576, 61, -458758, 1114112, 60, -393222, 1114112, 61, -458757, 1179648, 60, -393221, 1179648, 61, -458756, 983040, 60, -393220, 983040, 61, -524288, 1245184, 60, -458752, 1245184, 61, -524287, 1310720, 60, -458751, 1310720, 61, -524286, 1179648, 60, -458750, 1179648, 61, -524285, 1245184, 60, -458749, 1245184, 61, -524284, 1310720, 60, -458748, 1310720, 61, -458755, 1048576, 60, -458754, 1114112, 60, -458753, 1179648, 60, -327673, 131072, 42, -65529, 131072, 46, 7, 131072, 47, 65543, 131072, 48, -327672, 196608, 42, -65528, 196608, 46, 8, 196608, 47, 65544, 196608, 48, -327671, 262144, 42, -65527, 262144, 46, 9, 262144, 47, 65545, 262144, 48, -327675, 983040, 61, -262137, 131072, 43, -262136, 196608, 43, -262135, 262144, 43, -196601, 131072, 44, -131065, 131072, 45, -196600, 196608, 44, -131064, 196608, 45, -196599, 262144, 44, -131063, 262144, 45)
 
-[node name="Main Platform" type="StaticBody2D" parent="."]
+[node name="Main Platform" type="StaticBody2D" parent="." groups=["Large Platform"]]
 collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Main Platform"]
-polygon = PackedVector2Array(-128, -128, -128, -112, 80, -112, 80, -128)
+polygon = PackedVector2Array(-128, -128, -128, -112, -48, -112, -48, -104, -40, -96, -8, -96, 0, -104, 0, -112, 24, -112, 32, -112, 80, -112, 80, -128)
 one_way_collision = true
 
-[node name="Small Platform" type="StaticBody2D" parent="."]
+[node name="Small Platform" type="StaticBody2D" parent="." groups=["Small Platform"]]
 collision_layer = 4
-collision_mask = 10
+collision_mask = 0
+script = ExtResource("8_vb1xu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Small Platform"]
-polygon = PackedVector2Array(112, -80, 112, -72, 160, -72, 160, -80)
+polygon = PackedVector2Array(112, -80, 120, -72, 120, -24, 152, -24, 152, -72, 160, -80)
 one_way_collision = true
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="." groups=["Wall"]]
 
 [node name="Left Wall" type="CollisionShape2D" parent="StaticBody2D4"]
 position = Vector2(-352, -152)

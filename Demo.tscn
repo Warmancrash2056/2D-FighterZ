@@ -219,10 +219,8 @@ position = Vector2(-1, 56)
 
 [node name="Hunter" parent="." instance=ExtResource("4_sy4jw")]
 position = Vector2(585, 229)
-Health = null
-Super_Pts = null
 
-[node name="Floor Area" type="StaticBody2D" parent="."]
+[node name="Floor Area" type="StaticBody2D" parent="." groups=["Floor"]]
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor Area"]

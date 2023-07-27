@@ -765,7 +765,7 @@ libraries = {
 "": SubResource("AnimationLibrary_nnavt")
 }
 
-[node name="Hunter Diagonal Arrow" type="Area2D" parent="."]
+[node name="Hunter Diagonal Arrow" type="Area2D" parent="." groups=["Hunter Diagonal Arrow"]]
 collision_layer = 32
 collision_mask = 21
 

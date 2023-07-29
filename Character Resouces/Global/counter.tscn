@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://pxiesse3skf5" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)10.png" id="10_u6p3h"]
 [ext_resource type="Script" path="res://Character Resouces/jump_smoke.gd" id="11_gxe3s"]
 
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujrol"]
 animations = [{
 "frames": [{
@@ -52,11 +51,12 @@ animations = [{
 }]
 
 [node name="Counter" type="AnimatedSprite2D"]
+z_index = 5
 rotation = 1.5708
-scale = Vector2(0.45, 1.5)
+scale = Vector2(0.2, 1.5)
 sprite_frames = SubResource("SpriteFrames_ujrol")
 animation = &"Smoke"
-frame_progress = 0.83677
+frame_progress = 0.490543
 script = ExtResource("11_gxe3s")
 
 [connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

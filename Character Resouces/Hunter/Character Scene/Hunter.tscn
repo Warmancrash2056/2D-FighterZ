@@ -1,6 +1,8 @@
-[gd_scene load_steps=69 format=3 uid="uid://xjr8aac2s8dj"]
+[gd_scene load_steps=49 format=3 uid="uid://xjr8aac2s8dj"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_cvyji"]
+[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://Character Resouces/Global/health.tscn" id="10_0e0np"]
+[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://Character Resouces/Global/super_energy.tscn" id="11_0havx"]
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="11_bysv5"]
 [ext_resource type="PackedScene" uid="uid://duiga22704uhr" path="res://Character Resouces/Global/dash_smoke_position.tscn" id="21_3328p"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="22_3mu5l"]
@@ -9,131 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dd2rhi2iioqq8" path="res://Character Resouces/Hunter/Spritesheet/Hunter Spritesheet.png" id="27_kc285"]
 [ext_resource type="AudioStream" uid="uid://dvnbf8odfka1u" path="res://Character Resouces/Hunter/Sounds/Arrow Sound Effects.wav" id="27_rtgld"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="28_h5me4"]
-[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://Character Resouces/Global/health.tscn" id="30_urjkv"]
-[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://Character Resouces/Global/super_energy.tscn" id="31_ew6pv"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tvsyw"]
-load_path = "res://.godot/imported/arrow_shower_effect_1.png-4f39437d3b528d4df0f3b9200e130936.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ntgx0"]
-load_path = "res://.godot/imported/arrow_shower_effect_2.png-2ba473a1a0d11b9b5f96e9611bdcc242.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_seqna"]
-load_path = "res://.godot/imported/arrow_shower_effect_3.png-db02ab81d9ca43f0ce398a85c4b69721.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xn2lr"]
-load_path = "res://.godot/imported/arrow_shower_effect_4.png-80d2185077920341801871cc463c11c0.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t2b85"]
-load_path = "res://.godot/imported/arrow_shower_effect_5.png-7d4f9d4f9a0cf538b487a1f4f741f55d.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nlsxd"]
-load_path = "res://.godot/imported/arrow_shower_effect_6.png-52c7058797677b9c339c1eee34a96f20.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g4eak"]
-load_path = "res://.godot/imported/arrow_shower_effect_7.png-6dda9f86df9dfd3cb86c9b9f83ed704b.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xq6w8"]
-load_path = "res://.godot/imported/arrow_shower_effect_8.png-df92735e3b7feb600ddab7ec1e48dade.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1igso"]
-load_path = "res://.godot/imported/arrow_shower_effect_9.png-b3f4dda02ea29a7b8a036b3549b881dc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnhwr"]
-load_path = "res://.godot/imported/arrow_shower_effect_10.png-0ef6a92e8c1cefb27ee1472a68bb165e.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kh11i"]
-load_path = "res://.godot/imported/arrow_shower_effect_11.png-a464199a2cf7449facbe2115eda8a41f.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uxi1n"]
-load_path = "res://.godot/imported/arrow_shower_effect_12.png-470d1925339d059c02832c6a14441da8.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dfyqv"]
-load_path = "res://.godot/imported/arrow_shower_effect_13.png-0e6db7ad8eb8931d733511988711c2f1.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s1mbc"]
-load_path = "res://.godot/imported/arrow_shower_effect_14.png-688be8e1c25f32fc67f108d4c53995fe.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k83es"]
-load_path = "res://.godot/imported/arrow_shower_effect_15.png-511f30c2a9ffa0dcb621fa58dc8aaa28.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hagmw"]
-load_path = "res://.godot/imported/arrow_shower_effect_16.png-a72ebb69125297f43de1df268a16156f.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t2qt5"]
-load_path = "res://.godot/imported/arrow_shower_effect_17.png-f0a62b31de9c158e4a355dd01347ba0a.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_51838"]
-load_path = "res://.godot/imported/arrow_shower_effect_18.png-b38bc8a39f50c69a3882269ec88ab067.ctex"
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_w6q8r"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_tvsyw")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_ntgx0")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_seqna")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_xn2lr")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_t2b85")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_nlsxd")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_g4eak")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_xq6w8")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_1igso")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_gnhwr")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_kh11i")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_uxi1n")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_dfyqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_s1mbc")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_k83es")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_hagmw")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_t2qt5")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_51838")
-}],
-"loop": true,
-"name": &"Shower",
-"speed": 20.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmvo0"]
 height = 150.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t7yv"]
-radius = 39.0
-height = 108.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hql1b"]
 radius = 4.12311
@@ -184,50 +64,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Health:position")
+tracks/2/path = NodePath("Super Energy:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -52)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Super Energy:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Vector2(-12.308, -51)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Super Energy:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -51)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:shape:height")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [56.6667]
 }
 
 [sub_resource type="Animation" id="Animation_cqrss"]
@@ -338,46 +182,22 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Super Energy:position")
+tracks/4/path = NodePath("Health:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -30)]
+"values": [Vector2(-12.308, -31)]
 }
-tracks/5/type = "value"
+tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Health:position")
+tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -31)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Character:speed_scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -385,13 +205,13 @@ tracks/7/keys = {
 "method": &"hunter_air_attack"
 }]
 }
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath(".")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -520,18 +340,6 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.8]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Super Energy:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -30)]
 }
 
 [sub_resource type="Animation" id="Animation_a7qru"]
@@ -699,102 +507,96 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Health:position")
+tracks/3/path = NodePath("Super Energy:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -24)]
+"values": [Vector2(-12.308, -23)]
 }
-tracks/4/type = "value"
+tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Super Energy:position")
+tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -23)]
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Super Energy:position")
+tracks/5/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -23)]
+"values": [Vector2(0, -4)]
 }
-tracks/6/type = "method"
+tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath(".")
+tracks/6/path = NodePath("Character:speed_scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_activate_counter_smoke"
-}]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -4)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Character:speed_scale")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.5]
 }
-tracks/10/type = "method"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath(".")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(1.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"hunter_down_attack"
 }]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Foot/Jump Smoke:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 9)]
 }
 
 [sub_resource type="Animation" id="Animation_xhxcp"]
@@ -843,46 +645,22 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Super Energy:position")
+tracks/3/path = NodePath("Health:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -31)]
+"values": [Vector2(-12.308, -32)]
 }
-tracks/4/type = "value"
+tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Health:position")
+tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -32)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Health:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -32)]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -890,37 +668,25 @@ tracks/6/keys = {
 "method": &"drop_down"
 }]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:shape:height")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [30.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -4)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:disabled")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -959,70 +725,34 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Super Energy:position")
+tracks/2/path = NodePath("Health:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -23)]
+"values": [Vector2(-12.308, -24)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Health:position")
+tracks/3/path = NodePath("Character:speed_scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -24)]
+"values": [1.3]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Health:position")
+tracks/4/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -24)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Character:speed_scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.3]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.4, 1.4, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -4), Vector2(14, -4), Vector2(14, -4), Vector2(0, -4)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:disabled")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.7, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
@@ -1061,50 +791,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Health:position")
+tracks/2/path = NodePath("Super Energy:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -24)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Super Energy:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Vector2(-12.308, -23)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Super Energy:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -23)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_n4tvb"]
@@ -1167,38 +861,26 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Health:position")
+tracks/4/path = NodePath("Super Energy:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -24)]
+"values": [Vector2(-12.308, -23)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Super Energy:position")
+tracks/5/path = NodePath("Foot/Jump Smoke:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -23)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Character:speed_scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.4]
+"values": [Vector2(0, 0.692301)]
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ue8qa"]
@@ -1258,25 +940,13 @@ tracks/3/keys = {
 "update": 1,
 "values": [SubResource("CapsuleShape2D_ue8qa")]
 }
-tracks/4/type = "value"
+tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Super Energy:position")
+tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -30)]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -1284,61 +954,61 @@ tracks/5/keys = {
 "method": &"_activate_jump_smoke"
 }]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Character Jump Sound:playing")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Character Jump Sound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -4)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:disabled")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Health:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Health:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1405,9 +1075,15 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
 "args": [],
 "method": &"_activate_counter_smoke"
 }, {
@@ -1421,26 +1097,26 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Super Energy:position")
+tracks/5/path = NodePath("Health:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -23)]
+"values": [Vector2(-12.308, -24)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Health:position")
+tracks/6/path = NodePath("Nuetral Light Sound:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -24)]
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_q546x"]
@@ -1469,35 +1145,10 @@ tracks/1/keys = {
 "update": 0,
 "values": [1.2]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Super Energy:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -23)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Health:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -24)]
-}
 
 [sub_resource type="Animation" id="Animation_gen08"]
 resource_name = "Normal - Side Attack Starter"
 length = 1.60001
-step = 0.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1539,58 +1190,34 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Health:position")
+tracks/3/path = NodePath("Super Energy:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -24)]
+"values": [Vector2(-12.308, -23)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Super Energy:position")
+tracks/4/path = NodePath("Scale Player/Side Attack Arrow:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -23)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Character:speed_scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.20847),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.8, 1.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Scale Player/Side Attack Arrow:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.9, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -1598,19 +1225,55 @@ tracks/7/keys = {
 "method": &"activate_hunter_side_attack"
 }]
 }
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath(".")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
 }]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Foot/Jump Smoke:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 9)]
 }
 
 [sub_resource type="Animation" id="Animation_pcn48"]
@@ -1649,9 +1312,30 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
+"args": [],
+"method": &"_activate_counter_smoke"
+}, {
 "args": [],
 "method": &"_activate_counter_smoke"
 }]
@@ -1659,7 +1343,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scale Player/Up Attack/CollisionShape2D:disabled")
+tracks/3/path = NodePath("Scale Player/Hunter Normal Up Attack/Up Attack Laser:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1683,26 +1367,26 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Health:position")
+tracks/5/path = NodePath("Super Energy:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -24)]
+"values": [Vector2(-12.308, -23)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Super Energy:position")
+tracks/6/path = NodePath("Up Light Sound:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -23)]
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_eqtuk"]
@@ -1782,43 +1466,43 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Health:position")
+tracks/6/path = NodePath("Super Energy:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -52)]
+"values": [Vector2(-12.308, -51)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Super Energy:position")
+tracks/7/path = NodePath("Scale Player/Nuetral Light Hitbox/CollisionShape2D:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.308, -51)]
+"update": 1,
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Super Energy:position")
+tracks/8/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12.308, -51)]
+"values": [Vector2(0, 0)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Scale Player/Nuetral Light Hitbox/CollisionShape2D:disabled")
+tracks/9/path = NodePath("Scale Player/Area2D7/CollisionShape2D:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -1830,91 +1514,91 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Scale Player/Up Attack/CollisionShape2D:disabled")
+tracks/10/path = NodePath("Scale Player/Area2D9/CollisionShape2D:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(-16.6667, 16.6667)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:position")
+tracks/11/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:shape:radius")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [15.0]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Scale Player/Area2D7/CollisionShape2D:disabled")
+tracks/12/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:shape:height")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [56.6667]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Scale Player/Area2D9/CollisionShape2D:position")
+tracks/13/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:disabled")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-16.6667, 16.6667)]
+"update": 1,
+"values": [false]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:shape:radius")
+tracks/14/path = NodePath("Character Jump Sound:playing")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [15.0]
+"update": 1,
+"values": [false]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:shape:height")
+tracks/15/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:disabled")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [56.6667]
+"update": 1,
+"values": [false]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Scale Player/Hurtbox/CollisionShape2D:disabled")
+tracks/16/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0, 4)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Character Jump Sound:playing")
+tracks/17/path = NodePath("Scale Player/Side Attack Arrow:visible")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -1926,62 +1610,62 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:disabled")
+tracks/18/path = NodePath("Scale Player/Hunter Super Side Attack Position:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(55, -17)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Scale Player/Hurtbox/Hurtbox Collision:position")
+tracks/19/path = NodePath("Character:speed_scale")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 4)]
+"values": [1.2]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Scale Player/Side Attack Arrow:visible")
+tracks/20/path = NodePath("Foot/Jump Smoke:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0, 9)]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Scale Player/Hunter Super Side Attack Position:position")
+tracks/21/path = NodePath("Nuetral Light Sound:playing")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(55, -17)]
+"update": 1,
+"values": [false]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("Character:speed_scale")
+tracks/22/path = NodePath("Up Light Sound:playing")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.2]
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_whug7"]
@@ -2480,31 +2164,17 @@ script = ExtResource("1_cvyji")
 [node name="Scale Player" type="Node2D" parent="."]
 
 [node name="Hurtbox" parent="Scale Player" instance=ExtResource("22_3mu5l")]
-z_index = 1
+z_index = 6
 
-[node name="Down Light Arrow" type="AnimatedSprite2D" parent="Scale Player"]
-visible = false
-position = Vector2(136, -40)
-sprite_frames = SubResource("SpriteFrames_w6q8r")
-animation = &"Shower"
-frame_progress = 0.583773
+[node name="Hurtbox Collision" parent="Scale Player/Hurtbox" index="0"]
+z_index = 15
 
-[node name="Up Attack" type="Area2D" parent="Scale Player"]
+[node name="Hunter Normal Up Attack" type="Area2D" parent="Scale Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Up Attack"]
+[node name="Up Attack Laser" type="CollisionShape2D" parent="Scale Player/Hunter Normal Up Attack"]
 position = Vector2(73, -5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pmvo0")
-disabled = true
-
-[node name="Down Light Hitbox" type="Area2D" parent="Scale Player"]
-position = Vector2(73, -5)
-rotation = 1.5708
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scale Player/Down Light Hitbox"]
-position = Vector2(-33, -66)
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_8t7yv")
 disabled = true
 
 [node name="Nuetral Light Hitbox" type="Area2D" parent="Scale Player"]
@@ -2571,15 +2241,6 @@ position = Vector2(26, -10)
 [node name="Hunter Down Attack Position" type="Marker2D" parent="Scale Player"]
 position = Vector2(150, -40)
 
-[node name="Health" parent="." instance=ExtResource("30_urjkv")]
-offset_top = -52.0
-offset_bottom = -48.0
-
-[node name="Super Energy" parent="." instance=ExtResource("31_ew6pv")]
-offset_left = -12.308
-offset_top = -51.0
-offset_bottom = -47.0
-
 [node name="Deplete Energy" type="Timer" parent="."]
 
 [node name="Block Timer" type="Timer" parent="."]
@@ -2589,13 +2250,14 @@ one_shot = true
 [node name="Foot" parent="." instance=ExtResource("28_h5me4")]
 position = Vector2(0, 17)
 
+[node name="Jump Smoke" parent="Foot" index="0"]
+position = Vector2(0, 9)
+
 [node name="Nuetral Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_vc57e")
 
 [node name="Up Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_7c44d")
-
-[node name="Down Light Sound" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Nuetral Air & Side Light Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_rtgld")
@@ -2614,8 +2276,17 @@ vframes = 34
 
 [node name="Character Jump Sound" parent="." instance=ExtResource("11_bysv5")]
 
-[connection signal="animation_looped" from="Scale Player/Down Light Arrow" to="." method="_on_down_light_arrow_animation_looped"]
+[node name="Health" parent="." instance=ExtResource("10_0e0np")]
+offset_top = -24.0
+offset_bottom = -20.0
+
+[node name="Super Energy" parent="." instance=ExtResource("11_0havx")]
+offset_left = -12.308
+offset_top = -51.0
+offset_bottom = -47.0
+
 [connection signal="timeout" from="Deplete Energy" to="." method="_on_deplete_energy_timeout"]
 [connection signal="timeout" from="Block Timer" to="." method="_on_block_timer_timeout"]
 
 [editable path="Scale Player/Hurtbox"]
+[editable path="Foot"]

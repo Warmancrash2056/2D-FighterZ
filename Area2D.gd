@@ -1,30 +1,47 @@
 extends CharacterBody2D
 
-@onready var animate = $AnimatedSprite2D
-
-enum {idle,hurt}
+@onready var animate = $AnimationPlayer
+@onready var sprite = $Sprite2D
+enum {idle,hurt,falls}
 func _ready():
 	pass
 var states = idle
+
+func _reset():
+	set_velocity(Vector2.ZERO)
+func _knockback(delta):
+	var col_info = move_and_collide(velocity * delta)
+	if col_info:
+		velocity = velocity.bounce(col_info.get_normal())
+		velocity.x *= 0.5
+		velocity.y *= 0.5
 func _physics_process(delta):
 	match states:
 		idle:
+			if !is_on_floor():
+				states = falls
+				animate.play("Fall")
 			if Input.is_action_pressed("Player2_Right"):
 				velocity.x = 100
 				animate.play("Run")
-				animate.flip_h = false
+				$Sprite2D.flip_h = false
 			elif Input.is_action_pressed("Player2_Left"):
 				velocity.x = -100
 				animate.play("Run")
-				animate.flip_h = true
+				$Sprite2D.flip_h = true
 			else:
 				velocity.x = 0
 				animate.play("Idle")
 		hurt:
-			print(velocity)
+			_knockback(delta)
 			animate.play("Hurt")
 			
+		falls:
+			animate.play("Fall")
 			
+			if is_on_floor():
+				states = idle
+				animate.play("Idle")
 	move_and_slide()
 	velocity.y += 15
 func _on_area_2d_area_entered(area):
@@ -40,10 +57,10 @@ func _on_area_2d_area_entered(area):
 	
 	if area.is_in_group("Goku Side Attack Finish"):
 		if CharacterList.main_player_facing_left == false:
-			velocity.x = 100
+			set_velocity(Vector2(100,100))
 		
 		elif CharacterList.main_player_facing_left == true:
-			velocity.x = -100
+			set_velocity(Vector2(-100,100))
 	if area.is_in_group("Goku Down Attack Bottom"):
 		velocity.y = -300
 		
@@ -114,3 +131,10 @@ func _on_animated_sprite_2d_animation_looped():
 		states = idle
 		animate.play("Idle")
 	
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "Hurt":
+		states = idle
+		print("Retyurn to idle")
+		

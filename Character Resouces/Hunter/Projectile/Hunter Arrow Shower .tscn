@@ -1,13 +1,78 @@
+<<<<<<< HEAD
 [gd_scene load_steps=8 format=3 uid="uid://caivfawwlo66v"]
 
 [ext_resource type="Texture2D" uid="uid://bsv2gf55r1i4v" path="res://Character Resouces/Hunter/Projectile/Arrow Shower.png" id="1_r8pj1"]
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Projectile/Arrow Shower.gd" id="2_y5xy0"]
 [ext_resource type="AudioStream" uid="uid://cbpel8j5vnsq" path="res://Character Resouces/Hunter/Sounds/Down Light Sound.wav" id="3_64822"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://caivfawwlo66v"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yvmqw"]
-radius = 34.0
-height = 82.0
+[ext_resource type="Texture2D" uid="uid://bol6ujekts0qj" path="res://Character Resouces/Hunter/Projectile/projectiles_and_effects/arrow_shower_effect_1.png" id="1_ornhr"]
+>>>>>>> parent of bb707938 (Updates)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8h7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ornhr")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Arrow Shower",
+"speed": 5.0
+}]
+
+<<<<<<< HEAD
 [sub_resource type="Animation" id="Animation_mche3"]
 length = 0.001
 tracks/0/type = "value"
@@ -115,3 +180,8 @@ libraries = {
 stream = ExtResource("3_64822")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+=======
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_s8h7b")
+animation = &"Arrow Shower"
+>>>>>>> parent of bb707938 (Updates)

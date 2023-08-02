@@ -9,6 +9,7 @@ var general_nuetral_attack_fireball = preload("res://Character Resouces/General 
 var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Projectile/projectiles_and_effects/Hunter Super Spear.tscn")
 var hunter_down_attack_shower = preload("res://Character Resouces/Hunter/Projectile/Hunter Arrow Shower .tscn")
 var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.tscn")
+
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $"Foot/Jump Smoke"
@@ -21,7 +22,6 @@ var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectil
 @onready var hunter_side_arrow_position = $"Scale Player/Hunter Side Attack Arrow Position"
 @onready var hunter_super_nuetral_position = $"Scale Player/Hunter Super Nuetral Attack Position"
 @onready var hunter_air_attack_position = $"Scale Player/Hunter Air Attack Position"
-@onready var hunter_down_attack_position = $"Scale Player/Hunter Down Attack Position"
 # General Archfield Fireball Position #
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 
@@ -265,17 +265,6 @@ func hunter_air_attack():
 	else:
 		instance_arrow.velocity = Vector2(150,150)
 		instance_arrow.scale.x = 1
-		
-func hunter_down_attack():
-	var instance_shower = hunter_down_attack_shower.instantiate()
-	instance_shower.global_position = hunter_down_attack_position.global_position
-	get_tree().get_root().add_child(instance_shower)
-	
-	if CharacterList.main_player_facing_left == true:
-		instance_shower.scale.x = -1
-	else:
-		instance_shower.scale.x = 1
-	
 func _ready():
 	pass
 func _physics_process(delta):

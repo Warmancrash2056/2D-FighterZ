@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1690966346
+::res://::1690966413
 Area2D.gd::GDScript::-1::1690965941::0::1::::<>CharacterBody2D<>::
 default_env.tres::::-1::1679282871::0::1::::<><>::
 Demo.tscn::PackedScene::3889291988401745469::1690965941::0::1::::<><>::uid://bbtv74wv7kkme::::res://Game Maps/Map Camera.tscn<>uid://xjr8aac2s8dj::::res://Character Resouces/Hunter/Character Scene/Hunter.tscn<>uid://vinflscbehb3::::res://Character Resouces/Global/foot.tscn<>res://Area2D.gd
@@ -17,7 +17,7 @@ Game Audio.gd::GDScript::-1::1685261733::0::1::::<>AudioStreamPlayer2D<>::
 Game Audio.tscn::PackedScene::4588974479685802981::1686541165::0::1::::<><>::res://Autoloads/Game Audio.gd
 Healthbar.tscn::PackedScene::4388124762612825714::1685260347::0::1::::<><>::
 Move to Map Selection.gd::GDScript::-1::1680743014::0::1::::<>Node<>::
-::res://Character Resouces/::1690966346
+::res://Character Resouces/::1690966391
 General Archfield Spritesheet.png::CompressedTexture2D::7389044390005735068::1687942047::1687942067::1::::<><>::
 Healthbar.tscn::PackedScene::9131975086980516152::1686686686::0::1::::<><>::uid://b75cj5x3yjfxl
 hurtbox.tscn::PackedScene::3431226262420657621::1690248597::0::1::::<><>::
@@ -233,7 +233,7 @@ sp_atk_18.png::CompressedTexture2D::7071900792413231667::1679170606::1680700424:
 ::res://Character Resouces/General Archfield/Sound Effects/::1680702410
 Down Light Sound.wav::AudioStreamWAV::1448104776695929882::1680412121::1680699920::1::::<><>::
 Up Light Sound.wav::AudioStreamWAV::6047774352764556337::1680412121::1680699926::1::::<><>::
-::res://Character Resouces/Global/::1690966356
+::res://Character Resouces/Global/::1690966363
 block_timer.tscn::PackedScene::4377363435648662019::1688410940::0::1::::<><>::
 counter.tscn::PackedScene::5134451810636157939::1690966342::0::1::::<><>::uid://c10d8cd8853sa::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)1.png<>uid://cghmuc2cp1ch8::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)2.png<>uid://ryh4yi351mjk::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)3.png<>uid://bc10wnbhik7tb::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)4.png<>uid://b2xv46nhf6rgv::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)5.png<>uid://dts3l8yr73w74::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)6.png<>uid://cogck3ve4x75b::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)7.png<>uid://bas16kqt7smf8::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)8.png<>uid://5q555qk3hjoo::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)9.png<>uid://pxiesse3skf5::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)10.png<>res://Character Resouces/jump_smoke.gd
 dash_smoke.gd::GDScript::-1::1688890720::0::1::::<>AnimatedSprite2D<>::
@@ -366,7 +366,7 @@ Second Punch.wav::AudioStreamWAV::1256315020221564374::1680743014::1680743020::1
 Up Light.wav::AudioStreamWAV::7986840082123688595::1680743014::1680743021::1::::<><>::
 ::res://Character Resouces/Goku/Spritesheet/::1690965969
 ground_monk_FULL_v1.3-SpriteSheet_288x128 (1).png::CompressedTexture2D::6430920045436601495::1690965941::1690965941::1::::<><>::
-::res://Character Resouces/Hunter/::1690966356
+::res://Character Resouces/Hunter/::1690966392
 ::res://Character Resouces/Hunter/Animation/::1690068299
 ::res://Character Resouces/Hunter/Animation/Air Attack/::1680702681
 air_atk_1.png::CompressedTexture2D::4681113440767702782::1679282871::1680701638::1::::<><>::
@@ -470,19 +470,19 @@ sp_atk_14.png::CompressedTexture2D::3122979125507318736::1679282871::1680701930:
 sp_atk_15.png::CompressedTexture2D::2280893321020772554::1679282871::1680701930::1::::<><>::
 sp_atk_16.png::CompressedTexture2D::238752755909233933::1679282871::1680701930::1::::<><>::
 sp_atk_17.png::CompressedTexture2D::8149658847195342548::1679282871::1680701930::1::::<><>::
-::res://Character Resouces/Hunter/Character Scene/::1690966356
-Hunter.tscn::PackedScene::1634013923664871923::1690966356::0::1::::<><>::res://Character Resouces/Global/main_player.gd<>uid://bdexwo5ypwmay::::res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn<>uid://duiga22704uhr::::res://Character Resouces/Global/dash_smoke_position.tscn<>uid://bo5d2bj4lq3gj::::res://Character Resouces/hurtbox.tscn<>uid://c2ldo6ed1yggw::::res://Character Resouces/Global/melee sounds/sword sound.wav<>uid://dg23uykbeo64t::::res://Character Resouces/Hunter/Sounds/Up Light Sound.wav<>uid://dd2rhi2iioqq8::::res://Character Resouces/Hunter/Spritesheet/Hunter Spritesheet.png<>uid://dvnbf8odfka1u::::res://Character Resouces/Hunter/Sounds/Arrow Sound Effects.wav<>uid://vinflscbehb3::::res://Character Resouces/Global/foot.tscn<>uid://cxmroxl1y07bn::::res://Character Resouces/Global/health.tscn<>uid://6h3gp84hs6n4::::res://Character Resouces/Global/super_energy.tscn
+::res://Character Resouces/Hunter/Character Scene/::1690966363
+Hunter.tscn::PackedScene::1634013923664871923::1690966356::0::1::::<><>::res://Character Resouces/Global/main_player.gd<>uid://cxmroxl1y07bn::::res://Character Resouces/Global/health.tscn<>uid://6h3gp84hs6n4::::res://Character Resouces/Global/super_energy.tscn<>uid://bdexwo5ypwmay::::res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn<>uid://duiga22704uhr::::res://Character Resouces/Global/dash_smoke_position.tscn<>uid://bo5d2bj4lq3gj::::res://Character Resouces/hurtbox.tscn<>uid://c2ldo6ed1yggw::::res://Character Resouces/Global/melee sounds/sword sound.wav<>uid://dg23uykbeo64t::::res://Character Resouces/Hunter/Sounds/Up Light Sound.wav<>uid://dd2rhi2iioqq8::::res://Character Resouces/Hunter/Spritesheet/Hunter Spritesheet.png<>uid://dvnbf8odfka1u::::res://Character Resouces/Hunter/Sounds/Arrow Sound Effects.wav<>uid://vinflscbehb3::::res://Character Resouces/Global/foot.tscn
 ::res://Character Resouces/Hunter/Icon/::1680750452
 Hunter.png::CompressedTexture2D::8213974982025897100::1680743014::1680743018::1::::<><>::
-::res://Character Resouces/Hunter/Projectile/::1690966356
+::res://Character Resouces/Hunter/Projectile/::1690966392
 Arrow Shower.gd::GDScript::-1::1690966342::0::1::::<>Sprite2D<>::
 diagonal_arrow_ (1).png::CompressedTexture2D::8093999299059836094::1690101196::1690101234::1::::<><>::
 Hunter Air Attack Arrow.gd::GDScript::-1::1690252502::0::1::::<>CharacterBody2D<>::
 Hunter Air Attack Arrow.tscn::PackedScene::7728266501888863047::1690966356::0::1::::<><>::uid://dnk18rydtttva::::res://Character Resouces/Hunter/Projectile/diagonal_arrow_ (1).png<>res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.gd
-Hunter Arrow Shower .tscn::PackedScene::4790640410236863887::1690966356::0::1::::<><>::uid://bsv2gf55r1i4v::::res://Character Resouces/Hunter/Projectile/Arrow Shower.png<>res://Character Resouces/Hunter/Projectile/Arrow Shower.gd
+Hunter Arrow Shower .tscn::PackedScene::-1::1690966356::0::1::::<><>::
 Hunter Side Attack Arrow.tscn::PackedScene::7955204480729911375::1690966356::0::1::::<><>::res://Character Resouces/Hunter/Projectile/side_attack_arrow.gd<>uid://kflcloxr867g::::res://Character Resouces/Hunter/Projectile/projectiles_and_effects/arrow_ (1).png
 side_attack_arrow.gd::GDScript::-1::1690387968::0::1::::<>CharacterBody2D<>::
-::res://Character Resouces/Hunter/Projectile/projectiles_and_effects/::1690966356
+::res://Character Resouces/Hunter/Projectile/projectiles_and_effects/::1690966363
 arrow_ (1).png::CompressedTexture2D::712882384112043450::1690069574::1690069602::1::::<><>::
 arrow_shower_effect_1.png::CompressedTexture2D::3393691071943920781::1690966356::1690966360::1::::<><>::
 diagonal_arrow_ (1).png::CompressedTexture2D::8171137718799433004::1690068754::1690069602::1::::<><>::
@@ -2360,7 +2360,7 @@ Training Character Selection.tscn::PackedScene::6635015430133853829::1688543031:
 Exit Game.gd::GDScript::-1::1685521258::0::1::::<>Button<>::
 Local Play.gd::GDScript::-1::1686686632::0::1::::<>Button<>::
 Main Menu.gd::GDScript::-1::1688481919::0::1::::<>Control<>::
-Main Menu.tscn::PackedScene::7782740222068543352::1690965941::0::1::::<><>::res://Game Start/Main Menu/Main Menu.gd<>uid://bys0ptudnouiw::::res://Game Start/Character Idle.tscn<>res://Game Start/Main Menu/Local Play.gd<>uid://dxt3p4j6tq4np::::res://Game Start/Background.tscn<>uid://rasoy20rgw2q::::res://exit_prompt.tscn
+Main Menu.tscn::PackedScene::7782740222068543352::1690965941::0::1::::<><>::res://Game Start/Main Menu/Main Menu.gd<>uid://bys0ptudnouiw
 Return To Game.gd::GDScript::-1::1685521258::0::1::::<>Button<>::
 ::res://Game Start/Player Cursors/::1687800168
 Main Cursor.gd::GDScript::-1::1687800156::0::1::::<>Sprite2D<>::

@@ -9,7 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://bgm4l7ardrnil" path="res://Character Resouces/Global/deplete_energy.tscn" id="11_5nu4o"]
 [ext_resource type="PackedScene" uid="uid://b3mosh5sutup4" path="res://Character Resouces/Global/block_timer.tscn" id="12_n0d42"]
 [ext_resource type="PackedScene" uid="uid://duiga22704uhr" path="res://Character Resouces/Global/dash_smoke_position.tscn" id="17_ffpuk"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://cxvgkwq6eirdn" path="res://Character Resouces/Goku/Spritesheet/Goku 11x26.png" id="22_6nwer"]
+=======
+[ext_resource type="PackedScene" uid="uid://48ga3il68637" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_up_attack_floor.tscn" id="17_ltydp"]
+[ext_resource type="PackedScene" uid="uid://c7tm7gfi6yji1" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_up_attack_left.tscn" id="18_hsyv7"]
+[ext_resource type="PackedScene" uid="uid://wy28d2jkn1rj" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_up_attack_right.tscn" id="19_l6ioo"]
+[ext_resource type="PackedScene" uid="uid://cynn6615ss1fr" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_up_attack_top.tscn" id="20_fc5bs"]
+[ext_resource type="Texture2D" uid="uid://cxvgkwq6eirdn" path="res://Character Resouces/Goku/Spritesheet/ground_monk_FULL_v1.3-SpriteSheet_288x128 (1).png" id="22_6xqed"]
+[ext_resource type="PackedScene" uid="uid://0lcq7ms702iy" path="res://Character Resouces/Goku/Goku Hitboxes/goku_super_air_attack.tscn" id="26_gvn22"]
+>>>>>>> parent of 1e3538fa (Updates)
 
 [sub_resource type="Animation" id="Animation_w7cb0"]
 resource_name = "Activate Super"
@@ -700,23 +709,6 @@ tracks/6/keys = {
 "method": &"_activate_dash_smoke"
 }]
 }
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("..")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"drop_down"
-}, {
-"args": [],
-"method": &"drop_down"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_67kk3"]
 resource_name = "Normal - Down Attack"
@@ -1248,6 +1240,7 @@ tracks/14/keys = {
 "update": 0,
 "values": [30.0]
 }
+<<<<<<< HEAD
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
@@ -1296,6 +1289,8 @@ tracks/18/keys = {
 "update": 1,
 "values": [true]
 }
+=======
+>>>>>>> parent of 1e3538fa (Updates)
 
 [sub_resource type="Animation" id="Animation_f73an"]
 resource_name = "Normal - Jump"
@@ -2167,6 +2162,21 @@ tracks/30/keys = {
 "update": 0,
 "values": [30.0]
 }
+<<<<<<< HEAD
+=======
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("../Hurtbox/Hurtbox Collision:disabled")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+>>>>>>> parent of 1e3538fa (Updates)
 
 [sub_resource type="Animation" id="Animation_m3v0i"]
 resource_name = "Super - Air Attack"
@@ -3060,13 +3070,90 @@ radius = 11.0345
 
 [node name="Goku" type="CharacterBody2D"]
 z_index = 3
-collision_layer = 0
+collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_ob1e8")
 
 [node name="Scale Player" type="Node2D" parent="."]
 z_index = 1
+<<<<<<< HEAD
 position = Vector2(0, -20)
+=======
+position = Vector2(-3, -25.5)
+
+[node name="Goku Air Attack Left" parent="Scale Player" instance=ExtResource("2_5qep7")]
+
+[node name="Left Side Air Attack" parent="Scale Player/Goku Air Attack Left" index="0"]
+visible = false
+
+[node name="Goku Air Attack Middle" parent="Scale Player" instance=ExtResource("3_j0woi")]
+
+[node name="Middle Side Air Attack" parent="Scale Player/Goku Air Attack Middle" index="0"]
+visible = false
+
+[node name="Goku Air Attack Right" parent="Scale Player" instance=ExtResource("4_ywrel")]
+
+[node name="Right Side Air Attack" parent="Scale Player/Goku Air Attack Right" index="0"]
+visible = false
+
+[node name="Goku Nuetral Attack" parent="Scale Player" instance=ExtResource("5_stpck")]
+visible = false
+
+[node name="Goku Side Attack Start" parent="Scale Player" instance=ExtResource("6_7vx34")]
+visible = false
+
+[node name="Goku Side Attack Finish" parent="Scale Player" groups=["Goku Side Attack Finish"] instance=ExtResource("7_bxcms")]
+visible = false
+
+[node name="Goku Down Attack Bottom" parent="Scale Player" instance=ExtResource("8_s2445")]
+visible = false
+
+[node name="Goku Up Attack Right Hand" parent="Scale Player" instance=ExtResource("10_q5ncu")]
+visible = false
+collision_layer = 32
+collision_mask = 16
+
+[node name="Goku Up Attack Left Hand" parent="Scale Player" instance=ExtResource("11_8kctm")]
+visible = false
+collision_layer = 32
+collision_mask = 16
+
+[node name="Goku Up Attack Grab" parent="Scale Player" instance=ExtResource("12_nl7u3")]
+visible = false
+collision_layer = 32
+collision_mask = 16
+
+[node name="Goku Up Attack Smash" parent="Scale Player" instance=ExtResource("13_r5l15")]
+visible = false
+position = Vector2(58, 18.5)
+collision_layer = 32
+collision_mask = 16
+
+[node name="Goku Super Nuetral Attack" parent="Scale Player" groups=["Goku Super Nuetral Attack"] instance=ExtResource("14_0g1im")]
+visible = false
+collision_layer = 32
+collision_mask = 16
+
+[node name="Goku Super Side Attack" parent="Scale Player" groups=["Goku Super Side Attack"] instance=ExtResource("15_a6ku3")]
+visible = false
+collision_layer = 32
+collision_mask = 16
+
+[node name="Super Side Attack" parent="Scale Player/Goku Super Side Attack" index="0"]
+disabled = true
+
+[node name="Goku Super Down Attack" parent="Scale Player" instance=ExtResource("16_6kug0")]
+visible = false
+collision_layer = 32
+collision_mask = 16
+
+[node name="Goku Super Air Attack" parent="Scale Player" groups=["Goku Super Air Attack"] instance=ExtResource("26_gvn22")]
+visible = false
+position = Vector2(3, 25.5)
+
+[node name="Super Air Attack" parent="Scale Player/Goku Super Air Attack" index="0"]
+position = Vector2(24, -25)
+>>>>>>> parent of 1e3538fa (Updates)
 
 [node name="Dash Smoke Position" parent="Scale Player" instance=ExtResource("17_ffpuk")]
 position = Vector2(0, 37)
@@ -3076,7 +3163,7 @@ position = Vector2(22, 15)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0.833333, -40)
-texture = ExtResource("22_6nwer")
+texture = ExtResource("22_6xqed")
 hframes = 11
 vframes = 26
 
@@ -3088,10 +3175,7 @@ libraries = {
 }
 
 [node name="Foot" parent="." instance=ExtResource("8_hefpj")]
-position = Vector2(0, 11)
-
-[node name="Jump Smoke" parent="Foot" index="0"]
-position = Vector2(0, 6)
+position = Vector2(0, 16.4)
 
 [node name="Character Jump Sound" parent="." instance=ExtResource("8_gtluj")]
 

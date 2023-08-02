@@ -9,7 +9,6 @@ var general_nuetral_attack_fireball = preload("res://Character Resouces/General 
 var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Projectile/projectiles_and_effects/Hunter Super Spear.tscn")
 var hunter_down_attack_shower = preload("res://Character Resouces/Hunter/Projectile/Hunter Arrow Shower .tscn")
 var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.tscn")
-
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $"Foot/Jump Smoke"
@@ -607,17 +606,11 @@ func _physics_process(delta):
 			velocity.y += Gravity
 			Animate.play("Normal - Dodge Dash")
 			
-			if block_timer.time_left == 0:
-				if Input.is_action_just_pressed(controls.input_dash):
-					Select = States.Normal_Ground_Block
-			
+			if Input.is_action_just_pressed(controls.input_dash):
+				Select = States.Normal_Idling
+				
 			if !is_on_floor():
 				Select = States.Normal_Falling
-				
-			if CharacterList.main_player_facing_left == true:
-				if Input.is_action_just_pressed(controls.input_right):
-					Select = States.Normal_Idling
-					velocity.x = 0
 		States.Normal_Death:
 			Animate.play("Normal - Death")
 			

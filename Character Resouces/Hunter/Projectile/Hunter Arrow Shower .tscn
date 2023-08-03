@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://caivfawwlo66v"]
+[gd_scene load_steps=7 format=3 uid="uid://caivfawwlo66v"]
 
-[ext_resource type="Texture2D" uid="uid://bsv2gf55r1i4v" path="res://Character Resouces/Hunter/Projectile/Arrow Shower.png" id="1_r8pj1"]
 [ext_resource type="Script" path="res://Character Resouces/Hunter/Projectile/Arrow Shower.gd" id="2_y5xy0"]
 [ext_resource type="AudioStream" uid="uid://cbpel8j5vnsq" path="res://Character Resouces/Hunter/Sounds/Down Light Sound.wav" id="3_64822"]
 
@@ -95,7 +94,6 @@ _data = {
 
 [node name="Hunter Down Attack Shower" type="Sprite2D"]
 z_index = 6
-texture = ExtResource("1_r8pj1")
 vframes = 17
 script = ExtResource("2_y5xy0")
 

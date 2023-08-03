@@ -13,8 +13,8 @@ func _knockback(delta):
 	var col_info = move_and_collide(velocity * delta)
 	if col_info:
 		velocity = velocity.bounce(col_info.get_normal())
-		velocity.x *= 0.5
-		velocity.y *= 0.5
+		velocity.x *= 1.2
+		velocity.y *= 1.2
 func _physics_process(delta):
 	match states:
 		idle:
@@ -47,15 +47,18 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	states = hurt
 	if area.is_in_group("Goku Nuetral Attack"):
+		print("Goku Nuetral Attack Connnected")
 		if CharacterList.main_player_facing_left == false:
 			velocity = Vector2(60,-200)
 			
 		elif CharacterList.main_player_facing_left == true:
 			velocity = Vector2(-60,-200)
 	if area.is_in_group("Goku Side Attack Start"):
+		print("Goku Side Attack Start Connected")
 		velocity = Vector2.ZERO
 	
 	if area.is_in_group("Goku Side Attack Finish"):
+		print("Goku Side Attack Finish Connected")
 		if CharacterList.main_player_facing_left == false:
 			set_velocity(Vector2(100,100))
 		
@@ -124,7 +127,12 @@ func _on_area_2d_area_entered(area):
 			
 		elif  CharacterList.main_player_facing_left == true:
 			velocity = Vector2(-200,-200)
-		
+	
+	if area.is_in_group("Hunter Up Attack Laser"):
+		if CharacterList.main_player_facing_left == false:
+			set_velocity(Vector2(150,150))
+		elif CharacterList.main_player_facing_left == true:
+			set_velocity(Vector2(-150,150))
 
 func _on_animated_sprite_2d_animation_looped():
 	if animate.animation == "Hurt":

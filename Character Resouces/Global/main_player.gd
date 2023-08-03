@@ -618,6 +618,12 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_right):
 					Select = States.Normal_Idling
 					velocity.x = 0
+					
+			else:
+				if Input.is_action_just_pressed(controls.input_left):
+					Select = States.Normal_Idling
+					velocity.x = 0
+					
 		States.Normal_Death:
 			Animate.play("Normal - Death")
 			

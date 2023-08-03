@@ -2169,7 +2169,9 @@ z_index = 6
 [node name="Hurtbox Collision" parent="Scale Player/Hurtbox" index="0"]
 z_index = 15
 
-[node name="Hunter Normal Up Attack" type="Area2D" parent="Scale Player"]
+[node name="Hunter Normal Up Attack" type="Area2D" parent="Scale Player" groups=["Hunter Up Attack Laser"]]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Up Attack Laser" type="CollisionShape2D" parent="Scale Player/Hunter Normal Up Attack"]
 position = Vector2(73, -5)
@@ -2177,7 +2179,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pmvo0")
 disabled = true
 
-[node name="Nuetral Light Hitbox" type="Area2D" parent="Scale Player"]
+[node name="Nuetral Light Hitbox" type="Area2D" parent="Scale Player" groups=["Hunter Nuetral Light"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Light Hitbox"]
 position = Vector2(79, -9)

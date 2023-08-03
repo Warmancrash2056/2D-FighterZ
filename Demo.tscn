@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvoacn4mm4638"]
+[gd_scene load_steps=6 format=3 uid="uid://3tdxqfvkkqb2"]
 
 [ext_resource type="PackedScene" uid="uid://blueaocd2qf0r" path="res://Dummy.tscn" id="2_fpuu4"]
+[ext_resource type="PackedScene" uid="uid://xjr8aac2s8dj" path="res://Character Resouces/Hunter/Character Scene/Hunter.tscn" id="3_xx2k1"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
-[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="4_w5sij"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
@@ -103,6 +103,5 @@ text = "Floor"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Goku" parent="." instance=ExtResource("4_w5sij")]
-position = Vector2(590, 192)
-scale = Vector2(1.3, 1.3)
+[node name="Hunter" parent="." instance=ExtResource("3_xx2k1")]
+position = Vector2(601, 223)

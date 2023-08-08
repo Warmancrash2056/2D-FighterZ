@@ -3,6 +3,8 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sjoa0"]
 
 [node name="Hurtbox" type="Area2D"]
+collision_layer = 16
+collision_mask = 32
 
 [node name="Hurtbox Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)

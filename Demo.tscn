@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://3tdxqfvkkqb2"]
 
 [ext_resource type="PackedScene" uid="uid://blueaocd2qf0r" path="res://Dummy.tscn" id="2_fpuu4"]
-[ext_resource type="PackedScene" uid="uid://xjr8aac2s8dj" path="res://Character Resouces/Hunter/Character Scene/Hunter.tscn" id="3_xx2k1"]
+[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="3_78bt5"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1640, 496)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p54th"]
-size = Vector2(204.5, 20)
+size = Vector2(208, 16)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(9, 0)
@@ -23,11 +23,18 @@ position = Vector2(1000, 472)
 rotation = 1.5708
 shape = SubResource("1")
 
+[node name="ColorRect2" type="ColorRect" parent="StaticBody2D/CollisionShape2D2"]
+offset_left = -474.001
+offset_top = -190.998
+offset_right = 229.999
+offset_bottom = 249.002
+color = Color(0, 0, 0, 1)
+
 [node name="Right Wall" type="RichTextLabel" parent="StaticBody2D/CollisionShape2D2"]
-offset_left = -100.0
-offset_top = 240.0
-offset_right = 40.0
-offset_bottom = 280.0
+offset_left = -135.999
+offset_top = 249.0
+offset_right = 4.00092
+offset_bottom = 289.0
 rotation = 3.14159
 text = "         Right Wall"
 
@@ -36,17 +43,31 @@ position = Vector2(144, 472)
 rotation = 1.5708
 shape = SubResource("1")
 
+[node name="ColorRect3" type="ColorRect" parent="StaticBody2D/CollisionShape2D3"]
+offset_left = -480.001
+offset_top = -246.998
+offset_right = 223.999
+offset_bottom = 193.002
+color = Color(0, 0, 0, 1)
+
 [node name="Left Wall" type="RichTextLabel" parent="StaticBody2D/CollisionShape2D3"]
-offset_left = -100.0
-offset_top = -208.0
-offset_right = 40.0
-offset_bottom = -168.0
+offset_left = -136.001
+offset_top = -207.0
+offset_right = 3.99921
+offset_bottom = -167.0
 rotation = 3.14159
 text = "         Left Wall"
 
 [node name="Platform" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 0
+
+[node name="ColorRect4" type="ColorRect" parent="Platform"]
+offset_left = 535.0
+offset_top = 264.0
+offset_right = 743.0
+offset_bottom = 280.0
+color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2(639, 272)
@@ -56,39 +77,18 @@ one_way_collision = true
 [node name="Camera2D" parent="." instance=ExtResource("4_l55e5")]
 position = Vector2(567, 216)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 199.0
-offset_top = 336.0
-offset_right = 903.0
-offset_bottom = 776.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 751.0
-offset_top = 16.0
-offset_right = 1455.0
-offset_bottom = 456.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-offset_left = -313.0
-offset_top = 40.0
-offset_right = 391.0
-offset_bottom = 480.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="."]
-offset_left = 535.0
-offset_top = 264.0
-offset_right = 743.0
-offset_bottom = 280.0
-color = Color(0, 0, 0, 1)
-
 [node name="CharacterBody2D2" parent="." instance=ExtResource("2_fpuu4")]
 position = Vector2(421, 251)
 
 [node name="Floor Area" type="StaticBody2D" parent="." groups=["Floor"]]
 collision_mask = 0
+
+[node name="ColorRect" type="ColorRect" parent="Floor Area"]
+offset_left = 199.0
+offset_top = 336.0
+offset_right = 903.0
+offset_bottom = 776.0
+color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor Area"]
 position = Vector2(696, 584)
@@ -103,5 +103,5 @@ text = "Floor"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Hunter" parent="." instance=ExtResource("3_xx2k1")]
-position = Vector2(601, 223)
+[node name="Goku" parent="." instance=ExtResource("3_78bt5")]
+position = Vector2(618, 200)

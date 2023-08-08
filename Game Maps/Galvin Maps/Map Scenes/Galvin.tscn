@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=17 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
+[ext_resource type="PackedScene" uid="uid://d3dukbtyk8drc" path="res://Character Resouces/Healthbar.tscn" id="2_636p3"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
 [ext_resource type="Texture2D" uid="uid://b07grplvo2wco" path="res://Game Maps/Galvin Maps/Galvin Assets/background 1.png" id="3_qrqqu"]
 [ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="4_8pavo"]
@@ -7659,6 +7660,13 @@ size = Vector2(485, 20)
 [node name="Galvin" type="Node2D"]
 script = ExtResource("1_cxki7")
 
+[node name="Healthbar2" parent="." instance=ExtResource("2_636p3")]
+offset_left = 294.0
+offset_top = -389.0
+offset_right = 294.0
+offset_bottom = -389.0
+scale = Vector2(-1, 1)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2tgn7")
 format = 2
@@ -7743,3 +7751,9 @@ position = Vector2(136, -104)
 
 [node name="Camera2D" parent="." instance=ExtResource("7_j87ny")]
 position = Vector2(-24, -168)
+
+[node name="Healthbar" parent="." instance=ExtResource("2_636p3")]
+offset_left = -342.0
+offset_top = -389.0
+offset_right = -342.0
+offset_bottom = -389.0

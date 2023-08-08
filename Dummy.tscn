@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://Area2D.gd" id="1_muvrs"]
 [ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="2_h8vp3"]
 [ext_resource type="Texture2D" uid="uid://cxvgkwq6eirdn" path="res://Character Resouces/Goku/Spritesheet/Goku 11x26.png" id="3_4hax2"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vp4ei"]
+[ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="4_mhb21"]
 
 [sub_resource type="Animation" id="Animation_tdwpn"]
 resource_name = "Fall"
@@ -115,31 +114,30 @@ collision_mask = 5
 script = ExtResource("1_muvrs")
 metadata/_edit_group_ = true
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 40)
-shape = SubResource("CapsuleShape2D_vp4ei")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_naeif")
 }
 
-[node name="Foot" parent="." instance=ExtResource("2_h8vp3")]
-position = Vector2(0, 50.7692)
-
-[node name="Jump Smoke" parent="Foot" index="0"]
-position = Vector2(0, 6.15384)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
 texture = ExtResource("3_4hax2")
 hframes = 11
 vframes = 26
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="Foot" parent="." instance=ExtResource("2_h8vp3")]
+position = Vector2(0, 10.7692)
+
+[node name="Jump Smoke" parent="Foot" index="0"]
+position = Vector2(0, 6.15384)
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_mhb21")]
+
+[node name="Hurtbox Collision" parent="Hurtbox" index="0"]
+position = Vector2(0, -1.53846)
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="Foot"]
+[editable path="Hurtbox"]

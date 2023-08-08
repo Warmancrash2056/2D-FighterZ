@@ -10,9 +10,12 @@ var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Pr
 var hunter_down_attack_shower = preload("res://Character Resouces/Hunter/Projectile/Hunter Arrow Shower .tscn")
 var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.tscn")
 
+var goku_nuetral_attack_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_nuetral_attack.tscn")
+var goku_side_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_side_attack_start.tscn")
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $"Foot/Jump Smoke"
+@onready var counter_position = $"Foot/Counter Position"
 @onready var super_energy = $"Super Energy"
 @onready var deplete_energy = $"Deplete Energy"
 @onready var health = $Health
@@ -25,6 +28,8 @@ var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectil
 @onready var hunter_down_attack_position = $"Scale Player/Hunter Down Attack Position"
 # General Archfield Fireball Position #
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
+
+@onready var goku_nuetral_attack_position = $"Scale Player/Goku Nuetral Attack"
 
 const Speed = 150
 const Acceleration = 10
@@ -42,8 +47,6 @@ var can_change_dir = false
 var nomad_nuetral_attack_hit = false
 var nomad_up_attack_hit = false
 
-# Check if hit at 3rd frame to swith to side attack finish.
-var goku_side_attack_hit = false
 var can_jump = false
 var can_counter = false
 var block_active = false
@@ -117,15 +120,15 @@ func _reset_nomad_up_attack():
 
 # Check if hit at 3rd frame to swith to side attack finish.
 func _transition_goku_side_attack_finisher():
-	if goku_side_attack_hit == true:
-		Select = States.Normal_Side_Attack_Finish
-		print("side attack hits")
+		if CharacterList.goku_side_start_transition == true:
+			Select = States.Normal_Side_Attack_Finish
+			print("side attack hits")
 		
 func _reset_goku_side_attack():
-	goku_side_attack_hit = false
+	CharacterList.goku_side_start_transition = false
 	
 func _reset_nomad_side_attack():
-	goku_side_attack_hit = false
+	CharacterList.goku_side_start_transition = false
 # Reset to idle and fall state after attacks 
 func _idle_state_():
 	Select = States.Normal_Idling
@@ -233,7 +236,7 @@ func _activate_jump_smoke():
 func _activate_counter_smoke():
 	var instance_smoke_counter = counter_smoke.instantiate()
 	if can_counter == true:
-		instance_smoke_counter.global_position = smoke_position.global_position
+		instance_smoke_counter.global_position = counter_position.global_position
 		get_tree().get_root().add_child(instance_smoke_counter)
 # Reset counter smoke at the frist frame of idle and fall state.
 func _reset_counter():
@@ -276,7 +279,17 @@ func hunter_down_attack():
 		instance_shower.scale.x = -1
 	else:
 		instance_shower.scale.x = 1
+
+
+func _goku_nuetral():
+	var instance = goku_nuetral_attack_hitbox.instantiate()
+	instance.global_position = goku_nuetral_attack_position.global_position
+	get_tree().get_root().add_child(instance)
 	
+func goku_side_start_():
+	var instance = goku_side_start_hitbox.instantiate()
+	instance.global_position = goku_nuetral_attack_position.global_position
+	get_tree().get_root().add_child(instance)
 func _ready():
 	pass
 func _physics_process(delta):
@@ -641,106 +654,3 @@ func _on_block_timer_timeout():
 	block_active = false
 
 
-func _on_goku_side_attack_start_area_entered(area):
-	goku_side_attack_hit = true
-	current_super_pts
-
-
-func _on_goku_air_attack_left_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_air_attack_middle_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_air_attack_right_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_nuetral_attack_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_side_attack_finish_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_down_attack_bottom_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_down_attack_top_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_up_attack_right_hand_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_up_attack_left_hand_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_up_attack_grab_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_up_attack_smash_area_entered(area):
-	if current_super_pts < 100:
-		current_super_pts += add_super_pts
-		
-	else:
-		current_super_pts = 100
-
-
-func _on_goku_super_nuetral_attack_area_entered(area):
-	pass
-
-func _on_goku_super_side_attack_area_entered(area):
-	pass
-
-func _on_goku_super_down_attack_area_entered(area):
-	pass
-func _on_goku_super_air_attack_area_entered(area):
-	pass # Replace with function body.

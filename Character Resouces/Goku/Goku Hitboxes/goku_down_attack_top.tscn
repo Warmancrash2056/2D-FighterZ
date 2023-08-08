@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpvqmugeksvr8"]
+[gd_scene load_steps=3 format=3 uid="uid://cpvqmugeksvr8"]
+
+[ext_resource type="Script" path="res://Character Resouces/Goku/Goku Hitboxes/goku_nuetral_attack.gd" id="1_dgp7s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4jmqy"]
 
 [node name="Goku Down Attack Top" type="Area2D" groups=["Goku Down Attack Top"]]
+script = ExtResource("1_dgp7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(70.5, 17.5)

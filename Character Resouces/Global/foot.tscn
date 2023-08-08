@@ -4,9 +4,10 @@
 radius = 6.0
 
 [node name="Foot" type="CollisionShape2D"]
-position = Vector2(0, 22.3077)
 shape = SubResource("CircleShape2D_y7gmw")
 debug_color = Color(1, 1, 1, 0.490196)
 
 [node name="Jump Smoke" type="Marker2D" parent="."]
-position = Vector2(0, 0.692301)
+
+[node name="Counter Position" type="Marker2D" parent="."]
+position = Vector2(0, 6)

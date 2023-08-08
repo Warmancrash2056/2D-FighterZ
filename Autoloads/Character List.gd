@@ -12,6 +12,7 @@ var player_1_facing_left = false
 var player_2_facing_left= false
 var main_player_facing_left = false
 
+var goku_side_start_transition = false
 var disable_mini_platform = false
 # Reminder that if script is not erroing and cannot register script. 
 # Usually means that script has an error.

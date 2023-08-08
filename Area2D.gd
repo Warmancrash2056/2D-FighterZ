@@ -8,7 +8,6 @@ func _ready():
 var states = idle
 
 func _reset():
-	set_velocity(Vector2.ZERO)
 	animate.play("Idle")
 	states = idle
 func _knockback(delta):
@@ -65,10 +64,11 @@ func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Goku Side Attack Finish"):
 		print("Goku Side Attack Finish Connected")
 		if CharacterList.main_player_facing_left == false:
-			set_velocity(Vector2(100,100))
-		
+			velocity = Vector2(60,-200)
+			
 		elif CharacterList.main_player_facing_left == true:
-			set_velocity(Vector2(-100,100))
+			velocity = Vector2(-60,-200)
+		
 	if area.is_in_group("Goku Down Attack Bottom"):
 		velocity.y = -300
 		

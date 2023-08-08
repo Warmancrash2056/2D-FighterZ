@@ -10,3 +10,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_area_entered(area):
+	CharacterList.goku_side_start_transition = true
+	print("Goku side attack hit")

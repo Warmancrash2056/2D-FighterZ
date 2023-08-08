@@ -12,6 +12,10 @@ var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectil
 
 var goku_nuetral_attack_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_nuetral_attack.tscn")
 var goku_side_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_side_attack_start.tscn")
+var goku_side_finish_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_side_attack_finish.tscn")
+var goku_down_bottom_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_down_attack_bottom.tscn")
+var goku_down_top_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_down_attack_top.tscn")
+var goku_down_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_down_attack_start.tscn")
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $"Foot/Jump Smoke"
@@ -30,6 +34,9 @@ var goku_side_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxe
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 
 @onready var goku_nuetral_attack_position = $"Scale Player/Goku Nuetral Attack"
+@onready var goku_down_attack_top_position = $"Scale Player/Goku Down Attack Top"
+@onready var goku_down_attack_bottom_position = $"Scale Player/Goku Down Attack Bottom"
+@onready var goku_down_attack_start_position = $"Scale Player/Goku Down Attack Start"
 
 const Speed = 150
 const Acceleration = 10
@@ -118,17 +125,6 @@ func  _transition_nomad_up_attack_finisher():
 func _reset_nomad_up_attack():
 	nomad_up_attack_hit = false
 
-# Check if hit at 3rd frame to swith to side attack finish.
-func _transition_goku_side_attack_finisher():
-		if CharacterList.goku_side_start_transition == true:
-			Select = States.Normal_Side_Attack_Finish
-			print("side attack hits")
-		
-func _reset_goku_side_attack():
-	CharacterList.goku_side_start_transition = false
-	
-func _reset_nomad_side_attack():
-	CharacterList.goku_side_start_transition = false
 # Reset to idle and fall state after attacks 
 func _idle_state_():
 	Select = States.Normal_Idling
@@ -279,7 +275,17 @@ func hunter_down_attack():
 		instance_shower.scale.x = -1
 	else:
 		instance_shower.scale.x = 1
-
+# Check if hit at 3rd frame to swith to side attack finish.
+func _transition_goku_side_attack_finisher():
+		if CharacterList.goku_side_start_transition == true:
+			Select = States.Normal_Side_Attack_Finish
+			print("side attack hits")
+		
+func _reset_goku_side_attack():
+	CharacterList.goku_side_start_transition = false
+	
+func _reset_nomad_side_attack():
+	CharacterList.goku_side_start_transition = false
 
 func _goku_nuetral():
 	var instance = goku_nuetral_attack_hitbox.instantiate()
@@ -289,6 +295,21 @@ func _goku_nuetral():
 func goku_side_start_():
 	var instance = goku_side_start_hitbox.instantiate()
 	instance.global_position = goku_nuetral_attack_position.global_position
+	get_tree().get_root().add_child(instance)
+
+func goku_side_finish():
+	var instance = goku_side_finish_hitbox.instantiate()
+	instance.global_position = goku_nuetral_attack_position.global_position
+	get_tree().get_root().add_child(instance)
+
+func _goku_down_top():
+	var instance = goku_down_top_hitbox.instantiate()
+	instance.global_position = goku_down_attack_top_position.global_position
+	get_tree().get_root().add_child(instance)
+	
+func goku_down_bottom():
+	var instance = goku_down_bottom_hitbox.instantiate()
+	instance.global_position = goku_down_attack_bottom_position.global_position
 	get_tree().get_root().add_child(instance)
 func _ready():
 	pass

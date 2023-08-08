@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+var knock_increase = 0.0
 @onready var animate = $AnimationPlayer
 @onready var sprite = $Sprite2D
 enum {idle,hurt,falls}
@@ -15,8 +15,8 @@ func _knockback(delta):
 	var col_info = move_and_collide(velocity * delta)
 	if col_info:
 		velocity = velocity.bounce(col_info.get_normal())
-		velocity.x *= 0.9
-		velocity.y *= 0.9
+		velocity.x *= knock_increase
+		velocity.y *= knock_increase
 func _physics_process(delta):
 	match states:
 		idle:
@@ -49,6 +49,7 @@ func _physics_process(delta):
 
 
 func _on_hurtbox_area_entered(area):
+	knock_increase + 0.01
 	states = hurt
 	if area.is_in_group("Goku Nuetral Attack"):
 		print("Goku Nuetral Attack Connnected")
@@ -70,6 +71,9 @@ func _on_hurtbox_area_entered(area):
 			set_velocity(Vector2(-100,100))
 	if area.is_in_group("Goku Down Attack Bottom"):
 		velocity.y = -300
+		
+	if area.is_in_group("Goku Down Attack Top"):
+		velocity.y = -150
 		
 	if area.is_in_group("Goku Up Attack Left Hand"):
 		if CharacterList.main_player_facing_left == false:

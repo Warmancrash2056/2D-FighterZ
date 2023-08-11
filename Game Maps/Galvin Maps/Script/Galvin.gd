@@ -47,5 +47,9 @@ func _spawn_player_2():
 	
 func _spawn_main_player():
 	var main_player_instance = main_player_spawn.instantiate()
-	get_parent().add_child(main_player_instance)
+	add_child(main_player_instance)
 	main_player_instance.global_position = main_player_position.global_position
+
+
+func _on_area_2d_area_entered(area):
+	pass

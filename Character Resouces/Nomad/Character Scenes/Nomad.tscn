@@ -8554,6 +8554,7 @@ script = ExtResource("1_oxeiu")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_yqfqb")
 hframes = 11
 vframes = 26
@@ -8649,6 +8650,7 @@ position = Vector2(0, 1.53846)
 volume_db = -10.0
 
 [node name="Foot" parent="." instance=ExtResource("4_n55kq")]
+position = Vector2(0, 22.3077)
 
 [node name="Deplete Energy" type="Timer" parent="."]
 
@@ -8679,3 +8681,4 @@ offset_bottom = -12.9231
 [editable path="Scale Player/Nomad Super Down Attack"]
 [editable path="Scale Player/Nomad Super Side Attack Starter"]
 [editable path="Scale Player/Hurtbox"]
+[editable path="Foot"]

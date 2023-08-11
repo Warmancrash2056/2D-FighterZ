@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dafkm35dg3pbk"]
+[gd_scene load_steps=3 format=3 uid="uid://dafkm35dg3pbk"]
+
+[ext_resource type="Script" path="res://Character Resouces/Goku/Goku Hitboxes/goku_nuetral_attack.gd" id="1_iw312"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5clbs"]
 radius = 6.0
 height = 20.0
 
 [node name="Goku Down Attack Start" type="Area2D" groups=["Goku Down Attack Start"]]
+z_index = 7
+script = ExtResource("1_iw312")
 
 [node name="Down Start" type="CollisionShape2D" parent="."]
 rotation = 1.5708

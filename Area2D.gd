@@ -142,3 +142,6 @@ func _on_hurtbox_area_entered(area):
 		elif CharacterList.main_player_facing_left == true:
 			set_velocity(Vector2(-150,150))
 
+
+
+

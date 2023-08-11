@@ -18,7 +18,7 @@ var goku_down_top_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/
 var goku_down_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_down_attack_start.tscn")
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
-@onready var smoke_position = $"Foot/Jump Smoke"
+@onready var smoke_position = $"Scale Player/Jump Smoke"
 @onready var counter_position = $"Foot/Counter Position"
 @onready var super_energy = $"Super Energy"
 @onready var deplete_energy = $"Deplete Energy"
@@ -39,7 +39,7 @@ var goku_down_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxe
 @onready var goku_down_attack_start_position = $"Scale Player/Goku Down Attack Start"
 
 const Speed = 150
-const Acceleration = 10
+const Acceleration = 50
 const Air_Speed = 125
 const Fall_Speed = 100
 const Roll_Speed = 1000
@@ -311,10 +311,15 @@ func goku_down_bottom():
 	var instance = goku_down_bottom_hitbox.instantiate()
 	instance.global_position = goku_down_attack_bottom_position.global_position
 	get_tree().get_root().add_child(instance)
+	
+func goku_down_start():
+	var instance = goku_down_start_hitbox.instantiate()
+	instance.global_position = goku_down_attack_start_position.global_position
+	get_tree().get_root().add_child(instance)
 func _ready():
 	pass
 func _physics_process(delta):
-		
+	#print(velocity)
 	if current_super_pts < 0:
 		Select = States.Deactivate_Super
 	super_energy.value = current_super_pts
@@ -370,7 +375,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Nornmal_Side_Attack_Start
 			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.3)
+				velocity.x = lerp(velocity.x, 0.0, 0.5)
 				Animate.play("Normal - Idle")
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Normal_Nuetral_Attack_Start
@@ -608,8 +613,8 @@ func _physics_process(delta):
 			velocity.y = 0
 			Animate.play("Super - Up Attack")
 		States.Normal_Air_Attack:
-			velocity.x = lerp(velocity.x , 0.01, 0.06)
-			velocity.y = 0
+			velocity.x = lerp(velocity.x , 0.0, 0.08)
+			velocity.y = 10
 			Animate.play("Normal - Air Attack")
 		
 		States.Super_Air_Attack:

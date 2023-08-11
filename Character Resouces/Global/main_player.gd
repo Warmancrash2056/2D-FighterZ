@@ -680,3 +680,9 @@ func _on_block_timer_timeout():
 	block_active = false
 
 
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Off Stage"):
+		position = Vector2(416,200)
+		print("Respawn")

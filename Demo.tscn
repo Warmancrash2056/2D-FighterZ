@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://3tdxqfvkkqb2"]
+[gd_scene load_steps=9 format=3 uid="uid://3tdxqfvkkqb2"]
 
 [ext_resource type="Script" path="res://Demo.gd" id="1_xsqsc"]
 [ext_resource type="PackedScene" uid="uid://blueaocd2qf0r" path="res://Dummy.tscn" id="2_fpuu4"]
 [ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="3_78bt5"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
+[ext_resource type="PackedScene" uid="uid://newdm6jcaivv" path="res://main_player_position.tscn" id="5_di4pr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p54th"]
 size = Vector2(208, 16)
@@ -41,8 +42,7 @@ shape = SubResource("RectangleShape2D_p54th")
 one_way_collision = true
 
 [node name="Camera2D" parent="." instance=ExtResource("4_l55e5")]
-position = Vector2(551, 152)
-zoom = Vector2(1, 1)
+position = Vector2(543, 264)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("2_fpuu4")]
 position = Vector2(421, 251)
@@ -73,12 +73,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Goku" parent="." instance=ExtResource("3_78bt5")]
 position = Vector2(623, 208)
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+[node name="Area2D" type="Area2D" parent="." groups=["Off Stage"]]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(511, 336)
+position = Vector2(511, 568)
 shape = SubResource("RectangleShape2D_vosk0")
 
 [node name="Marker2D" type="Marker2D" parent="Area2D"]
@@ -86,5 +86,7 @@ shape = SubResource("RectangleShape2D_vosk0")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(351, 464)
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="Main Player Position" parent="." instance=ExtResource("5_di4pr")]
+position = Vector2(519, 136)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

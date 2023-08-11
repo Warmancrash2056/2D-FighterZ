@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.1")
 
 CharacterList="*res://Autoloads/Character List.gd"
 Audio="*res://Autoloads/Game Audio.tscn"
+MainPlayerPosition="*res://main_player_position.tscn"
 
 [display]
 
@@ -249,7 +250,7 @@ exit={
 [layer_names]
 
 2d_physics/layer_1="World"
-2d_physics/layer_2="Player1"
+2d_physics/layer_2="Off Stage"
 2d_physics/layer_3="Platform"
 2d_physics/layer_4="Wall"
 2d_physics/layer_5="Hurtbox"

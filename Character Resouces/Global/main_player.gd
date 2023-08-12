@@ -38,11 +38,11 @@ var goku_down_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxe
 @onready var goku_down_attack_bottom_position = $"Scale Player/Goku Down Attack Bottom"
 @onready var goku_down_attack_start_position = $"Scale Player/Goku Down Attack Start"
 
-const Speed = 150
+const Speed = 300
 const Acceleration = 50
 const Air_Speed = 125
 const Fall_Speed = 100
-const Roll_Speed = 1000
+const Roll_Speed = 600
 const Jump_Height = 400
 const Gravity = 15
 
@@ -59,6 +59,7 @@ var can_counter = false
 var block_active = false
 var attack_active = false
 
+var jump_count = 3
 # Increment super points every hit 
 var add_super_pts = 5
 
@@ -320,7 +321,7 @@ func goku_down_start():
 func _ready():
 	pass
 func _physics_process(delta):
-	#print(velocity)
+	print(jump_count)
 	if current_super_pts < 0:
 		Select = States.Deactivate_Super
 	super_energy.value = current_super_pts
@@ -354,7 +355,7 @@ func _physics_process(delta):
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Normal_Dash_Run
-						velocity.x = -350
+						velocity.x = -Roll_Speed
 						set_collision_mask_value(2, false)
 				
 				if Input.is_action_just_pressed(controls.input_attack):
@@ -369,7 +370,7 @@ func _physics_process(delta):
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.input_dash):
 						Select = States.Normal_Dash_Run
-						velocity.x = 350
+						velocity.x = Roll_Speed
 						set_collision_mask_value(2, false)
 						
 				
@@ -401,8 +402,9 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Normal_Up_Attack_Start
 					
-			if Input.is_action_just_pressed(controls.input_jump) and is_on_floor():
+			if Input.is_action_just_pressed(controls.input_jump) and jump_count > 0:
 				Select = States.Normal_Jumping
+				jump_count -= 1
 		States.Super_Idling:
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
@@ -445,9 +447,11 @@ func _physics_process(delta):
 			if Input.is_action_pressed(controls.input_up):
 				if Input.is_action_just_pressed(controls.input_attack):
 					Select = States.Super_Up_Attack_Starter
-					
-			if Input.is_action_just_pressed(controls.input_jump) and is_on_floor():
-				Select = States.Super_Jump
+				
+			if jump_count > 0:	
+				if Input.is_action_just_pressed(controls.input_jump) and is_on_floor():
+					Select = States.Super_Jump
+					jump_count -= 1
 		States.Normal_Jumping:
 			set_collision_mask_value(3, false)
 			velocity.y += Gravity
@@ -457,7 +461,11 @@ func _physics_process(delta):
 			if velocity.y > 0:
 				Select = States.Normal_Falling
 				set_collision_mask_value(3, true)
-			
+				
+			if Input.is_action_just_pressed(controls.input_jump) and jump_count > 0:
+				jump_count -= 1
+				velocity.y -= 300
+				Animate.play("Normal - Jump")
 			if Input.is_action_pressed(controls.input_left):
 				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
 				Sprite.flip_h = true
@@ -537,6 +545,7 @@ func _physics_process(delta):
 			else:
 				Select = States.Normal_Idling
 				Animate.play("Normal - Idle")
+				jump_count = 3
 		States.Super_Fall:
 			if Input.is_action_pressed(controls.input_left):
 				Sprite.flip_h = true
@@ -691,3 +700,4 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("Off Stage - Galvin"):
 		position = CharacterList.galvin_player_respawn
 		Select = States.Respawn
+		$Area2D/Respawn.play("Invisibilty")

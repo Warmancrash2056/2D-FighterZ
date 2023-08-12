@@ -18,11 +18,10 @@ config/features=PackedStringArray("4.1")
 
 CharacterList="*res://Autoloads/Character List.gd"
 Audio="*res://Autoloads/Game Audio.tscn"
-MainPlayerPosition="*res://main_player_position.tscn"
 
 [display]
 
-window/size/mode=2
+window/size/mode=1
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 window/handheld/orientation=6

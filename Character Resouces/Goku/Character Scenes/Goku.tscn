@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=41 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_ob1e8"]
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="8_gtluj"]
@@ -985,7 +985,7 @@ tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.05),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -2334,9 +2334,70 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_grncf"]
 radius = 16.6667
 
+[sub_resource type="Animation" id="Animation_6fnn5"]
+resource_name = "Invisibilty"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/CollisionShape2D2:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.490196), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gq1dh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/CollisionShape2D2:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.490196)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wvkn"]
+_data = {
+"Invisibilty": SubResource("Animation_6fnn5"),
+"RESET": SubResource("Animation_gq1dh")
+}
+
 [node name="Goku" type="CharacterBody2D" groups=["Goku"]]
 z_index = 3
-scale = Vector2(1.2, 1.2)
+scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_ob1e8")
@@ -2362,8 +2423,10 @@ position = Vector2(89.1667, -16.6667)
 [node name="Goku Down Attack4" type="Marker2D" parent="Scale Player"]
 
 [node name="Jump Smoke" type="Marker2D" parent="Scale Player"]
+position = Vector2(0, 10.5)
 
 [node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(0, -50)
 texture = ExtResource("22_03chf")
 hframes = 11
@@ -2371,7 +2434,6 @@ vframes = 26
 
 [node name="Character" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
@@ -2395,6 +2457,26 @@ offset_bottom = -14.3333
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9.7)
 shape = SubResource("CircleShape2D_grncf")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.833333, 0.833333)
+collision_layer = 18
+collision_mask = 32
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -11.64)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("CircleShape2D_grncf")
+disabled = true
+
+[node name="Respawn" type="AnimationPlayer" parent="Area2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_3wvkn")
+}
+
+[node name="Counter Position" type="Marker2D" parent="."]
+position = Vector2(0, 7)
 
 [connection signal="timeout" from="Deplete Energy" to="." method="_on_deplete_energy_timeout"]
 [connection signal="timeout" from="Block Timer" to="." method="_on_block_timer_timeout"]

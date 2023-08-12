@@ -1,16 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://3tdxqfvkkqb2"]
+[gd_scene load_steps=7 format=3 uid="uid://3tdxqfvkkqb2"]
 
 [ext_resource type="Script" path="res://Demo.gd" id="1_xsqsc"]
 [ext_resource type="PackedScene" uid="uid://c27w5ukns7wr4" path="res://Dummy.tscn" id="2_fpuu4"]
 [ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="3_78bt5"]
 [ext_resource type="PackedScene" uid="uid://bbtv74wv7kkme" path="res://Game Maps/Map Camera.tscn" id="4_l55e5"]
 [ext_resource type="PackedScene" uid="uid://d1ktwft2wly5k" path="res://main_player_position.tscn" id="5_di4pr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p54th"]
-size = Vector2(208, 16)
-
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(584, 440)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vosk0"]
 size = Vector2(1132.5, 266)
@@ -36,13 +30,14 @@ offset_right = 743.0
 offset_bottom = 280.0
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Platform"]
 position = Vector2(639, 272)
-shape = SubResource("RectangleShape2D_p54th")
+polygon = PackedVector2Array(-103, 0, -95, -8, 97, -8, 105, 0, 105, 8, -103, 8)
 one_way_collision = true
 
 [node name="Camera2D" parent="." instance=ExtResource("4_l55e5")]
 position = Vector2(543, 264)
+zoom = Vector2(1.25, 1.25)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("2_fpuu4")]
 position = Vector2(421, 251)
@@ -57,9 +52,9 @@ offset_right = 831.0
 offset_bottom = 776.0
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor Area"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Floor Area"]
 position = Vector2(539, 556)
-shape = SubResource("1")
+polygon = PackedVector2Array(-292, -220, 36, -220, 292, -220, 292, -204, 292, 204, 292, 220, -292, 220, -292, 204, -292, -204)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Floor Area/CollisionShape2D"]
 offset_left = -136.0

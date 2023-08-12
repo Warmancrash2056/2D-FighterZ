@@ -19,7 +19,7 @@ var goku_down_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxe
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $"Scale Player/Jump Smoke"
-@onready var counter_position = $"Foot/Counter Position"
+@onready var counter_position = $"Counter Position"
 @onready var super_energy = $"Super Energy"
 @onready var deplete_energy = $"Deplete Energy"
 @onready var health = $Health
@@ -91,6 +91,7 @@ enum States {
 	Activate_Super, 
 	Deactivate_Super, 
 	
+	Respawn,
 	# Super Mode Transformations States. #
 	Super_Idling, 
 	Super_Run, 
@@ -668,7 +669,11 @@ func _physics_process(delta):
 			
 		States.Normal_Hurt:
 			Animate.play("Normal - Hurt")
-
+		
+		States.Respawn:
+			Animate.play("Respawn")
+			velocity.x = 0
+			velocity.y = 0
 func _on_hurtbox_area_entered(area):
 	Select = States.Normal_Hurt
 
@@ -683,6 +688,6 @@ func _on_block_timer_timeout():
 
 
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("Off Stage"):
-		position = Vector2(416,200)
-		print("Respawn")
+	if area.is_in_group("Off Stage - Galvin"):
+		position = CharacterList.galvin_player_respawn
+		Select = States.Respawn

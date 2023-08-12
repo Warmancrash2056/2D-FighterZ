@@ -1,5 +1,6 @@
 extends Node
 
+var galvin_player_respawn = Vector2(0,-192)
 var get_player_1
 var get_player_2
 var get_main_player

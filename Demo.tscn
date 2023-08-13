@@ -15,25 +15,22 @@ script = ExtResource("1_xsqsc")
 metadata/_edit_vertical_guides_ = [344.0]
 metadata/_edit_horizontal_guides_ = [312.0]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Wall"]]
-collision_mask = 0
-
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(-17, -32)
 collision_layer = 4
 collision_mask = 0
 
 [node name="ColorRect4" type="ColorRect" parent="Platform"]
-offset_left = 535.0
-offset_top = 264.0
-offset_right = 743.0
-offset_bottom = 280.0
+offset_left = 536.0
+offset_top = 280.0
+offset_right = 744.0
+offset_bottom = 296.0
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Platform"]
-position = Vector2(639, 272)
-polygon = PackedVector2Array(-103, 0, -95, -8, 97, -8, 105, 0, 105, 8, -103, 8)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform"]
+polygon = PackedVector2Array(536, 280, 744, 280, 744, 296, 536, 296)
 one_way_collision = true
+one_way_collision_margin = 128.0
 
 [node name="Camera2D" parent="." instance=ExtResource("4_l55e5")]
 position = Vector2(543, 264)

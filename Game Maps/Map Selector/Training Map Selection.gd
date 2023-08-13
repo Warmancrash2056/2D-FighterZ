@@ -27,33 +27,33 @@ func _process(delta):
 			MapName.set_text(str("Galvin"))
 			Galvin.visible = true
 			Artic.visible = false
-			if Input.is_action_just_pressed(player_1_controller.input_right) or Input.is_action_just_pressed(player_2_controller.input_right) or Input.is_action_just_pressed(main_player_controller.input_right):
+			if Input.is_action_just_pressed(player_1_controller.right) or Input.is_action_just_pressed(player_2_controller.right) or Input.is_action_just_pressed(main_player_controller.right):
 				MapCall = Map.Artic
 				Galvin.visible = false
 				Artic.visible = true
 				
-			elif Input.is_action_just_pressed(player_1_controller.input_left) or Input.is_action_just_pressed(player_2_controller.input_left) or Input.is_action_just_pressed(main_player_controller.input_left):
+			elif Input.is_action_just_pressed(player_1_controller.left) or Input.is_action_just_pressed(player_2_controller.left) or Input.is_action_just_pressed(main_player_controller.left):
 				MapCall = Map.Artic
 				Galvin.visible = false
 				Artic.visible = true
 				
-			if Input.is_action_just_pressed(player_1_controller.input_jump) or Input.is_action_just_pressed(player_2_controller.input_jump) or Input.is_action_just_pressed(main_player_controller.input_jump):
+			if Input.is_action_just_pressed(player_1_controller.jump) or Input.is_action_just_pressed(player_2_controller.jump) or Input.is_action_just_pressed(main_player_controller.jump):
 				get_tree().change_scene_to_file("res://Game Maps/Galvin Maps/Map Scenes/Galvin.tscn")
 				
 		Map.Artic:
 			MapName.set_text(str("The Artic"))
 			Artic.visible = true
 			Galvin.visible = false
-			if Input.is_action_just_pressed(player_1_controller.input_right) or Input.is_action_just_pressed(player_2_controller.input_right) or Input.is_action_just_pressed(main_player_controller.input_right):
+			if Input.is_action_just_pressed(player_1_controller.right) or Input.is_action_just_pressed(player_2_controller.right) or Input.is_action_just_pressed(main_player_controller.right):
 				MapCall = Map.Galvin
 				Artic.visible = false
 				Galvin.visible = true
 				
-			elif Input.is_action_just_pressed(player_1_controller.input_left) or Input.is_action_just_pressed(player_2_controller.input_left) or Input.is_action_just_pressed(main_player_controller.input_left):
+			elif Input.is_action_just_pressed(player_1_controller.left) or Input.is_action_just_pressed(player_2_controller.left) or Input.is_action_just_pressed(main_player_controller.left):
 				MapCall = Map.Galvin
 				Artic.visible = false
 				Galvin.visible = true
 			
-			if Input.is_action_just_pressed(player_1_controller.input_jump) or Input.is_action_just_pressed(player_2_controller.input_jump) or Input.is_action_just_pressed(main_player_controller.input_jump):
+			if Input.is_action_just_pressed(player_1_controller.input_jump) or Input.is_action_just_pressed(player_2_controller.input_jump) or Input.is_action_just_pressed(main_player_controller.jump):
 				get_tree().change_scene_to_file("res://Game Maps/The Artic/Training Artic.tscn")
 		

@@ -10,20 +10,12 @@ var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Pr
 var hunter_down_attack_shower = preload("res://Character Resouces/Hunter/Projectile/Hunter Arrow Shower .tscn")
 var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.tscn")
 
-var goku_nuetral_attack_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_nuetral_attack.tscn")
-var goku_side_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_side_attack_start.tscn")
-var goku_side_finish_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_side_attack_finish.tscn")
-var goku_down_bottom_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_down_attack_bottom.tscn")
-var goku_down_top_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_down_attack_top.tscn")
-var goku_down_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxes/goku_down_attack_start.tscn")
+
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
-@onready var smoke_position = $"Scale Player/Jump Smoke"
+@onready var smoke_position = $"Jump Smoke"
 @onready var counter_position = $"Counter Position"
-@onready var super_energy = $"Super Energy"
-@onready var deplete_energy = $"Deplete Energy"
-@onready var health = $Health
-@onready var block_timer = $"Block Timer"
+@onready var block_timer = $"Refresh Block"
 @onready var dash_smoke_position = $"Scale Player/Dash Smoke Position"
 @onready var hunter_super_side_attack_position = $"Scale Player/Hunter Super Side Attack Position"
 @onready var hunter_side_arrow_position = $"Scale Player/Hunter Side Attack Arrow Position"
@@ -33,10 +25,6 @@ var goku_down_start_hitbox = preload("res://Character Resouces/Goku/Goku Hitboxe
 # General Archfield Fireball Position #
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 
-@onready var goku_nuetral_attack_position = $"Scale Player/Goku Nuetral Attack"
-@onready var goku_down_attack_top_position = $"Scale Player/Goku Down Attack Top"
-@onready var goku_down_attack_bottom_position = $"Scale Player/Goku Down Attack Bottom"
-@onready var goku_down_attack_start_position = $"Scale Player/Goku Down Attack Start"
 
 const Speed = 300
 const Acceleration = 50
@@ -71,57 +59,53 @@ var current_super_pts = 0
 
 enum States {
 	# Normal Mode Ststes. #
-	Normal_Idling,
-	Normal_Jumping,
-	Normal_Falling, 
-	Normal_Nuetral_Attack_Start,
-	Normal_Nuetral_Attack_Finish,
-	Nornmal_Side_Attack_Start,
-	Normal_Side_Attack_Finish,
-	Normal_Down_Attack, 
-	Normal_Up_Attack_Start,
-	Normal_Up_Attack_Finsh,
-	Normal_Air_Attack,
-	Normal_Air_Block, 
-	Normal_Ground_Block, 
-	Normal_Dash_Run, 
-	Normal_Death, 
-	Normal_Hurt,
+	Idling,
+	Jumping,
+	Landing,
+	Falling,
 	
-	# Activate or Deactivare Super when meter reaches full. #
-	Activate_Super, 
-	Deactivate_Super, 
+	Air_Projectile,
+	Ground_Projectile,
 	
-	Respawn,
-	# Super Mode Transformations States. #
-	Super_Idling, 
-	Super_Run, 
-	Super_Jump, 
-	Super_Fall, 
-	Super_Nuetral_Attack_Starter,
-	Super_Nuetral_Attack_Finisher,
-	Super_Side_Attack_Starter,
-	Super_Side_Attack_Finisher,
-	Super_Down_Attack_Starter,
-	Super_Down_Attack_Finisher, 
-	Super_Up_Attack_Starter,
-	Super_Up_Attack_Finisher,
-	Super_Air_Attack
+	Nuetral_Attack_Start,
+	Nuetral_Attack_Finish,
+	Nuetral_Air,
+	# Nuetral is a heavy input that lift the player up.
+	Nuetral_Recovery,
+	
+	Side_Heavy,
+	Side_Light_Start,
+	Side_Light_Finish,
+	Side_Air,
+	Side_Air_Heavy,
+	
+	Down_Light,
+	Down_Heavy,
+	Down_Air,
+	Down_Air_Heavy,
+	
+	Up_Light,
+	Up_Heavy,
+	Up_Air,
+	Up_Air_Heavy,
+	
+	Air_Block, 
+	Ground_Block, 
+	Dash_Run, 
+	Death, 
+	Hurt,
+	Respawn
 	}
 # Default State when entering the scene tree. #
-var Select = States.Normal_Idling
+var Select = States.Idling
 
 # Check if nomad nuetral Attack or Up Attack starter hitbox detected the opponent to perfrom follow up attacks
 func _transition_nomad_nuetral_attack_finisher():
 	if nomad_nuetral_attack_hit == true:
-		Select = States.Normal_Nuetral_Attack_Finish
+		Select = States.Nuetral_Attack_Finish
 
 func _reset_nomad_nuetral_attack():
 	nomad_nuetral_attack_hit = false	
-
-func  _transition_nomad_up_attack_finisher():
-	if nomad_up_attack_hit == true:
-		Select = States.Normal_Up_Attack_Finsh
 
 	
 func _reset_nomad_up_attack():
@@ -129,20 +113,13 @@ func _reset_nomad_up_attack():
 
 # Reset to idle and fall state after attacks 
 func _idle_state_():
-	Select = States.Normal_Idling
+	Select = States.Idling
 	Animate.play("Normal - Idle")
 	
 func _fall_state_():
-	Select = States.Normal_Falling
+	Select = States.Falling
 	Animate.play("Fall")
 
-func _super_idle_state():
-	Select = States.Super_Idling
-	Animate.play("Super - Idle")
-
-func _super_fall_state():
-	Select = States.Super_Fall
-	Animate.play("Super - Fall")
 	
 # Between 2 and 5 frames player can perform a dodge roll
 func _can_jump():
@@ -153,20 +130,20 @@ func _reset_jump():
 
 # Perform attacks within 2-3 frames of the air block. #
 func _counter_nuetral_attack():
-	if Input.is_action_pressed(controls.input_attack):
-		Select = States.Normal_Nuetral_Attack_Start
+	if Input.is_action_pressed(controls.light):
+		Select = States.Nuetral_Attack_Start
 func _counter_side_attack():
-	if Input.is_action_pressed(controls.input_left) or Input.is_action_pressed(controls.input_right):
-		if Input.is_action_pressed(controls.input_attack):
-			Select = States.Nornmal_Side_Attack_Start
+	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
+		if Input.is_action_pressed(controls.light):
+			Select = States.Side_Light_Start
 func counter_down_attack():
-	if Input.is_action_pressed(controls.input_down):
-		if Input.is_action_pressed(controls.input_attack):
-			Select = States.Normal_Down_Attack
+	if Input.is_action_pressed(controls.down):
+		if Input.is_action_pressed(controls.light):
+			Select = States.Down_Light
 func _counter_up_attack():
-	if Input.is_action_pressed(controls.input_up):
-		if Input.is_action_pressed(controls.input_attack):
-			Select = States.Normal_Up_Attack_Start
+	if Input.is_action_pressed(controls.up):
+		if Input.is_action_pressed(controls.light):
+			Select = States.Up_Light
 			
 # Reset Defend directional change at end of animation
 func _reset_turn_around():
@@ -174,12 +151,12 @@ func _reset_turn_around():
 	can_change_dir = false
 func turn_around():
 	if can_change_dir ==  false:
-		if Input.is_action_just_pressed(controls.input_right):
+		if Input.is_action_just_pressed(controls.right):
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 			CharacterList.main_player_facing_left = false
 			can_change_dir = true
-		elif Input.is_action_just_pressed(controls.input_left):
+		elif Input.is_action_just_pressed(controls.left):
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 			CharacterList.main_player_facing_left = true
@@ -187,7 +164,7 @@ func turn_around():
 			
 # Active at first frame
 func drop_down():
-	if Input.is_action_pressed(controls.input_down):
+	if Input.is_action_pressed(controls.down):
 		velocity.y += 100
 		set_collision_mask_value(3, false)
 	else:
@@ -280,7 +257,7 @@ func hunter_down_attack():
 # Check if hit at 3rd frame to swith to side attack finish.
 func _transition_goku_side_attack_finisher():
 		if CharacterList.goku_side_start_transition == true:
-			Select = States.Normal_Side_Attack_Finish
+			Select = States.Side_Light_Finish
 			print("side attack hits")
 		
 func _reset_goku_side_attack():
@@ -289,244 +266,134 @@ func _reset_goku_side_attack():
 func _reset_nomad_side_attack():
 	CharacterList.goku_side_start_transition = false
 
-func _goku_nuetral():
-	var instance = goku_nuetral_attack_hitbox.instantiate()
-	instance.global_position = goku_nuetral_attack_position.global_position
-	get_tree().get_root().add_child(instance)
-	
-func goku_side_start_():
-	var instance = goku_side_start_hitbox.instantiate()
-	instance.global_position = goku_nuetral_attack_position.global_position
-	get_tree().get_root().add_child(instance)
-
-func goku_side_finish():
-	var instance = goku_side_finish_hitbox.instantiate()
-	instance.global_position = goku_nuetral_attack_position.global_position
-	get_tree().get_root().add_child(instance)
-
-func _goku_down_top():
-	var instance = goku_down_top_hitbox.instantiate()
-	instance.global_position = goku_down_attack_top_position.global_position
-	get_tree().get_root().add_child(instance)
-	
-func goku_down_bottom():
-	var instance = goku_down_bottom_hitbox.instantiate()
-	instance.global_position = goku_down_attack_bottom_position.global_position
-	get_tree().get_root().add_child(instance)
-	
-func goku_down_start():
-	var instance = goku_down_start_hitbox.instantiate()
-	instance.global_position = goku_down_attack_start_position.global_position
-	get_tree().get_root().add_child(instance)
 func _ready():
 	pass
 func _physics_process(delta):
 	print(jump_count)
-	if current_super_pts < 0:
-		Select = States.Deactivate_Super
-	super_energy.value = current_super_pts
 	move_and_slide()
 	match Select:
-		States.Activate_Super:
-			Animate.play("Activate Super")
-			velocity.x = 0
-			velocity.y = 0
-			deplete_energy.start()
-		States.Deactivate_Super:
-			Animate.play("Deactivate Super")
-			velocity.x = 0
-			velocity.y = 0
-			deplete_energy.stop()
-			current_super_pts = 0
-		States.Normal_Idling:
+		States.Idling:
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
 				get_tree().create_timer(10).timeout
 				
-				Select = States.Normal_Falling
+				Select = States.Falling
 				Animate.play("Normal - Fall")
 			velocity.y += Gravity
-			if Input.is_action_pressed(controls.input_left):
+			if Input.is_action_pressed(controls.left):
 				velocity.x = max(velocity.x -Acceleration, -Speed)
 				Animate.play("Normal - Run")
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.main_player_facing_left = true
 				if velocity.x != 0:
-					if Input.is_action_just_pressed(controls.input_dash):
-						Select = States.Normal_Dash_Run
+					if Input.is_action_just_pressed(controls.dash):
+						Select = States.Dash_Run
 						velocity.x = -Roll_Speed
 						set_collision_mask_value(2, false)
 				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nornmal_Side_Attack_Start
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Side_Light_Start
 					
-			elif Input.is_action_pressed(controls.input_right):
+			elif Input.is_action_pressed(controls.right):
 				velocity.x = min(velocity.x + Acceleration, Speed)
 				Animate.play("Normal - Run")
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.main_player_facing_left = false
 				if velocity.x != 0:
-					if Input.is_action_just_pressed(controls.input_dash):
-						Select = States.Normal_Dash_Run
+					if Input.is_action_just_pressed(controls.dash):
+						Select = States.Dash_Run
 						velocity.x = Roll_Speed
 						set_collision_mask_value(2, false)
 						
 				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Nornmal_Side_Attack_Start
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Side_Light_Start
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.5)
 				Animate.play("Normal - Idle")
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Normal_Nuetral_Attack_Start
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Nuetral_Attack_Start
 					
-				if Input.is_action_just_pressed(controls.input_dash) and block_active == false:
-					Select = States.Normal_Ground_Block
+				if Input.is_action_just_pressed(controls.dash) and block_active == false:
+					Select = States.Ground_Block
 					block_active = true
-					
-				if Input.is_action_just_pressed(controls.input_transform):
-					Select = States.Activate_Super
 				
-			if Input.is_action_pressed(controls.input_down):
+				# New Mechanic for projectile throw	
+				if Input.is_action_just_pressed(controls.heavy):
+					pass
 				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Normal_Down_Attack
+			if Input.is_action_pressed(controls.down):
+				
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Down_Light
 			
 				await  get_tree().create_timer(0.2).timeout
-				if Input.is_action_pressed(controls.input_down):
+				if Input.is_action_pressed(controls.down):
 					set_collision_mask_value(3, false)
 					
-			if Input.is_action_pressed(controls.input_up):
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Normal_Up_Attack_Start
+			if Input.is_action_pressed(controls.up):
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Up_Light
 					
-			if Input.is_action_just_pressed(controls.input_jump) and jump_count > 0:
-				Select = States.Normal_Jumping
+			if Input.is_action_just_pressed(controls.jump):
+				Select = States.Jumping
 				jump_count -= 1
-		States.Super_Idling:
-			set_collision_mask_value(3, true)
-			if !is_on_floor():
-				Select = States.Super_Fall
-			velocity.y += Gravity
-			if Input.is_action_pressed(controls.input_left):
-				velocity.x = max(velocity.x -Acceleration, -Speed)
-				Animate.play("Super - Run")
-				Sprite.flip_h = true
-				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.main_player_facing_left = true
-				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Super_Side_Attack_Starter
-					
-			elif Input.is_action_pressed(controls.input_right):
-				velocity.x = min(velocity.x + Acceleration, Speed)
-				Animate.play("Super - Run")
-				Sprite.flip_h = false
-				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.main_player_facing_left = false
-				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Super_Side_Attack_Starter
-			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.3)
-				Animate.play("Super - Idle")
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Super_Nuetral_Attack_Starter
-					
-			if Input.is_action_pressed(controls.input_down):
-				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Super_Down_Attack_Starter
-			
-				await  get_tree().create_timer(0.2).timeout
-				if Input.is_action_pressed(controls.input_down):
-					set_collision_mask_value(3, false)
-					
-			if Input.is_action_pressed(controls.input_up):
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Super_Up_Attack_Starter
-				
-			if jump_count > 0:	
-				if Input.is_action_just_pressed(controls.input_jump) and is_on_floor():
-					Select = States.Super_Jump
-					jump_count -= 1
-		States.Normal_Jumping:
+				print("jump")
+		States.Jumping:
 			set_collision_mask_value(3, false)
 			velocity.y += Gravity
 			if is_on_floor():
 				Animate.play("Normal - Jump")
 				velocity.y -= Jump_Height
 			if velocity.y > 0:
-				Select = States.Normal_Falling
+				Select = States.Falling
 				set_collision_mask_value(3, true)
 				
-			if Input.is_action_just_pressed(controls.input_jump) and jump_count > 0:
+			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				jump_count -= 1
 				velocity.y -= 300
 				Animate.play("Normal - Jump")
-			if Input.is_action_pressed(controls.input_left):
+			if Input.is_action_pressed(controls.left):
 				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.main_player_facing_left = true
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Normal_Air_Attack
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Side_Air
 					
-			elif Input.is_action_pressed(controls.input_right):
+			elif Input.is_action_pressed(controls.right):
 				velocity.x = min(velocity.x + Acceleration, Air_Speed)
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.main_player_facing_left = false
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Normal_Air_Attack
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Side_Air
+					
 					
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.01)
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Normal_Air_Attack
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Nuetral_Air
 					
-			if Input.is_action_just_pressed(controls.input_dash) and block_active == false:
-				Select = States.Normal_Air_Block
+			if Input.is_action_pressed(controls.down):
+				if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Down_Air_Heavy
+				
+					
+			if Input.is_action_just_pressed(controls.dash) and block_active == false:
+				Select = States.Air_Block
 				block_active = true
-		States.Super_Jump:
-			set_collision_mask_value(3, false)
-			velocity.y += Gravity
-			if is_on_floor():
-				Animate.play("Super - Jump")
-				velocity.y -= Jump_Height
-			if velocity.y > 0:
-				Select = States.Super_Fall
 				set_collision_mask_value(3, true)
 			
-			if Input.is_action_pressed(controls.input_left):
-				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
-				Sprite.flip_h = true
-				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.main_player_facing_left = true
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Super_Air_Attack
-					
-			elif Input.is_action_pressed(controls.input_right):
-				velocity.x = min(velocity.x + Acceleration, Air_Speed)
-				Sprite.flip_h = false
-				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.main_player_facing_left = false
-				
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Super_Air_Attack
-			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.01)
-				if Input.is_action_just_pressed(controls.input_attack):
-					Select = States.Super_Air_Attack
-		States.Normal_Falling:
-			if Input.is_action_pressed(controls.input_left):
+		States.Falling:
+			if Input.is_action_pressed(controls.left):
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.main_player_facing_left = true
 				velocity.x = max(velocity.x - Acceleration, -Fall_Speed)
-			elif Input.is_action_pressed(controls.input_right):
+			elif Input.is_action_pressed(controls.right):
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
@@ -535,77 +402,47 @@ func _physics_process(delta):
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.05)
 			
-			if Input.is_action_just_pressed(controls.input_dash) and block_active == false:
-				Select = States.Normal_Air_Block
+			if Input.is_action_just_pressed(controls.dash) and block_active == false:
+				Select = States.Air_Block
 				block_active = true
 
 			if !is_on_floor():
 				Animate.play("Normal - Fall")
 				velocity.y += Gravity
 			else:
-				Select = States.Normal_Idling
+				Select = States.Idling
 				Animate.play("Normal - Idle")
 				jump_count = 3
-		States.Super_Fall:
-			if Input.is_action_pressed(controls.input_left):
-				Sprite.flip_h = true
-				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				velocity.x = max(velocity.x - Acceleration, -Fall_Speed)
-				CharacterList.main_player_facing_left = true
-			elif Input.is_action_pressed(controls.input_right):
-				Sprite.flip_h = false
-				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
-				CharacterList.main_player_facing_left = false
-				
-			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.05)
-			
-
-			if !is_on_floor():
-				Animate.play("Super - Fall")
-				velocity.y += Gravity
-			else:
-				Select = States.Super_Idling
-				Animate.play("Super - Idle")
 		
-		States.Normal_Nuetral_Attack_Start:
+		States.Nuetral_Attack_Start:
 			velocity.x = 0
 			velocity.y = 0
 			Animate.play("Normal - Nuetral Attack Starter")
 		
-		States.Super_Nuetral_Attack_Starter:
-			velocity.x = 0
-			velocity.y = 0
-			Animate.play("Super - Nuetral Attack")
-		
-		States.Normal_Nuetral_Attack_Finish:
+		States.Nuetral_Attack_Finish:
 			Animate.play("Normal - Nuetral Attack Finisher")
 			velocity.x = 0
 			velocity.y = 0
-		States.Nornmal_Side_Attack_Start:
+		States.Side_Light_Start:
 			velocity.x = 0
 			velocity.y = 0
 			Animate.play("Normal - Side Attack Starter")
 		
-		States.Super_Side_Attack_Starter:
-			velocity.x = 0
-			velocity.y = 0
-			Animate.play("Super - Side Attack Starter")
-		States.Normal_Side_Attack_Finish:
+		States.Side_Light_Finish:
 			velocity.x = 0
 			velocity.y = 0
 			Animate.play("Normal - Side Attack Finisher")
-		States.Normal_Down_Attack:
+		States.Down_Light:
 			velocity.y = 0
 			velocity.x = 0
 			Animate.play("Normal - Down Attack")
-		
-		States.Super_Down_Attack_Starter:
-			velocity.x = 0
+		States.Down_Air:
+			pass
+		States.Down_Air_Heavy:
+			Animate.play("Down Air Heavy")
+			velocity.x = lerp(velocity.x , 0.0, 0.08)
 			velocity.y = 0
-			Animate.play("Super - Down Attack")
-		States.Normal_Up_Attack_Start:
+		States.Up_Light:
 			# At frame 1 start up sakura. #
 			if sakura_ulight_active == true:
 				velocity.y = -200
@@ -614,32 +451,19 @@ func _physics_process(delta):
 				velocity.y = 0
 			velocity.x = 0
 			Animate.play("Normal - Up Attack Starter")
-		States.Normal_Up_Attack_Finsh:
-			velocity.x = 0
-			velocity.y = 0
-			Animate.play("Up Light Finisher")
-		States.Super_Up_Attack_Starter:
-			velocity.x = 0
-			velocity.y = 0
-			Animate.play("Super - Up Attack")
-		States.Normal_Air_Attack:
+		States.Nuetral_Air:
 			velocity.x = lerp(velocity.x , 0.0, 0.08)
 			velocity.y = 10
 			Animate.play("Normal - Air Attack")
 		
-		States.Super_Air_Attack:
-			velocity.x = lerp(velocity.x , 0.01, 0.06)
-			velocity.y = 0
-			Animate.play("Super - Air Attack")
-			
-		States.Normal_Ground_Block:
+		States.Ground_Block:
 			#  Activate turn around at the start of the state. #
 			turn_around()
 			Animate.play("Normal - Ground Block")
 			velocity.y = 0
 			velocity.x = 0
 			block_timer.start()
-		States.Normal_Air_Block:
+		States.Air_Block:
 			#  Activate turn around at the start of the state. #
 			turn_around()
 			Animate.play("Normal - Air Block")
@@ -648,35 +472,35 @@ func _physics_process(delta):
 			block_timer.start()
 			# Activate counter smoke to be called during an attack.
 			can_counter = true
-		States.Normal_Dash_Run:
+		States.Dash_Run:
 			if can_jump == true:
-				if Input.is_action_just_pressed(controls.input_jump):
-					Select = States.Normal_Jumping
+				if Input.is_action_just_pressed(controls.jump):
+					Select = States.Jumping
 			velocity.x = lerp(velocity.x , 0.0, 0.05)
 			velocity.y += Gravity
 			Animate.play("Normal - Dodge Dash")
 			
 			if block_timer.time_left == 0:
-				if Input.is_action_just_pressed(controls.input_dash):
-					Select = States.Normal_Ground_Block
+				if Input.is_action_just_pressed(controls.dash):
+					Select = States.Ground_Block
 			
 			if !is_on_floor():
-				Select = States.Normal_Falling
+				Select = States.Falling
 				
 			if CharacterList.main_player_facing_left == true:
-				if Input.is_action_just_pressed(controls.input_right):
-					Select = States.Normal_Idling
+				if Input.is_action_just_pressed(controls.right):
+					Select = States.Idling
 					velocity.x = 0
 					
 			else:
-				if Input.is_action_just_pressed(controls.input_left):
-					Select = States.Normal_Idling
+				if Input.is_action_just_pressed(controls.left):
+					Select = States.Idling
 					velocity.x = 0
 					
-		States.Normal_Death:
+		States.Death:
 			Animate.play("Normal - Death")
 			
-		States.Normal_Hurt:
+		States.Hurt:
 			Animate.play("Normal - Hurt")
 		
 		States.Respawn:
@@ -684,7 +508,7 @@ func _physics_process(delta):
 			velocity.x = 0
 			velocity.y = 0
 func _on_hurtbox_area_entered(area):
-	Select = States.Normal_Hurt
+	Select = States.Hurt
 
 func _on_deplete_energy_timeout():
 	current_super_pts -= add_super_pts	

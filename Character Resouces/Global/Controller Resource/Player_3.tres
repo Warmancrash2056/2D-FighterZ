@@ -5,11 +5,12 @@
 [resource]
 script = ExtResource("1_2pk2w")
 Player_Index = 2
-input_right = "Player3_Right"
-input_left = "Player3_Left"
-input_up = "Player3_Up"
-input_down = "Player3_Down"
-input_attack = "Player3_Attack"
-input_jump = "Player3_Jump"
-input_dash = "Player3_Dash"
-input_transform = "Player3_Transform"
+right = "Player3_Right"
+left = "Player3_Left"
+up = "Player3_Up"
+down = "Player3_Down"
+light = "Player3_Light"
+jump = "Player3_Jump"
+dash = "Player3_Dash"
+heavy = "Player3_Heavy"
+throw = "Player3_Throw"

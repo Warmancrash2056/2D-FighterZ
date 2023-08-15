@@ -5,6 +5,20 @@ var get_player_1
 var get_player_2
 var get_main_player
 
+var health = 800
+var lives = 2
+
+var goku_selected = false
+var general_selected = false
+var hunter_selected = false
+var nomad_selected = false 
+var sakura_selected = false
+var atlantis_selected = false
+var blacksmith = false
+
+
+# Display Icon 
+var icon 
 var check_player_1_is_called = false
 var check_player_2_is_called = false
 var check_main_is_called = false

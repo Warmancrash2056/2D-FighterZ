@@ -15,26 +15,9 @@ script = ExtResource("1_xsqsc")
 metadata/_edit_vertical_guides_ = [344.0]
 metadata/_edit_horizontal_guides_ = [312.0]
 
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(-17, -32)
-collision_layer = 4
-collision_mask = 0
-
-[node name="ColorRect4" type="ColorRect" parent="Platform"]
-offset_left = 536.0
-offset_top = 280.0
-offset_right = 744.0
-offset_bottom = 296.0
-color = Color(0, 0, 0, 1)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform"]
-polygon = PackedVector2Array(536, 280, 744, 280, 744, 296, 536, 296)
-one_way_collision = true
-one_way_collision_margin = 128.0
-
 [node name="Camera2D" parent="." instance=ExtResource("4_l55e5")]
 position = Vector2(543, 264)
-zoom = Vector2(1.25, 1.25)
+zoom = Vector2(0.8, 0.8)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("2_fpuu4")]
 position = Vector2(421, 251)
@@ -80,5 +63,21 @@ position = Vector2(351, 464)
 
 [node name="Main Player Position" parent="." instance=ExtResource("5_di4pr")]
 position = Vector2(519, 136)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(487, 248)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_right = 224.0
+offset_bottom = 24.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-112, 16)
+polygon = PackedVector2Array(112, -16, 336, -16, 336, 8, 112, 8)
+one_way_collision = true
+one_way_collision_margin = 10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

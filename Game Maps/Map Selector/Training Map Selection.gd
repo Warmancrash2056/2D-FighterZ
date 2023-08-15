@@ -54,6 +54,6 @@ func _process(delta):
 				Artic.visible = false
 				Galvin.visible = true
 			
-			if Input.is_action_just_pressed(player_1_controller.input_jump) or Input.is_action_just_pressed(player_2_controller.input_jump) or Input.is_action_just_pressed(main_player_controller.jump):
+			if Input.is_action_just_pressed(player_1_controller.jump) or Input.is_action_just_pressed(player_2_controller.jump) or Input.is_action_just_pressed(main_player_controller.jump):
 				get_tree().change_scene_to_file("res://Game Maps/The Artic/Training Artic.tscn")
 		

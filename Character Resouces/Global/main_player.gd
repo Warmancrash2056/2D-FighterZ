@@ -1,4 +1,6 @@
 extends CharacterBody2D
+
+# Get character Resources
 var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
@@ -25,14 +27,22 @@ var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectil
 # General Archfield Fireball Position #
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 
+var goku_selected = false
+var general_selected = false
+var nomad_selected = false
+var sakura_selected = false
+var hunter_selected = false
+var atlantis_selected = false
+var henry_selected = false
 
-const Speed = 300
-const Acceleration = 50
-const Air_Speed = 125
-const Fall_Speed = 100
-const Roll_Speed = 600
-const Jump_Height = 400
-const Gravity = 15
+
+var Speed = 0
+var Acceleration = 50
+var Air_Speed = 0
+var Fall_Speed = 0
+var Roll_Speed = 600
+var Jump_Height = 1000
+var Gravity = 15
 
 var can_sakura_ulight_smoke = false
 var can_jump_smoke = false
@@ -96,6 +106,28 @@ enum States {
 	Hurt,
 	Respawn
 	}
+	
+func _goku_stats():
+	CharacterList.goku_selected = true
+	goku_selected = true
+	Speed = 350
+	Air_Speed = 150
+	Fall_Speed = 100
+	
+func _hunter_stats():
+	hunter_selected = true
+	Speed = 350
+	Air_Speed = 350
+	Fall_Speed = 150
+	
+func _general_stats():
+	nomad_selected = true
+	Speed = 125
+	Air_Speed = 250
+	Fall_Speed = 175
+	
+	
+	
 # Default State when entering the scene tree. #
 var Select = States.Idling
 
@@ -266,6 +298,8 @@ func _reset_goku_side_attack():
 func _reset_nomad_side_attack():
 	CharacterList.goku_side_start_transition = false
 
+func _process(delta):
+	pass
 func _ready():
 	pass
 func _physics_process(delta):
@@ -319,13 +353,19 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.dash) and block_active == false:
 					Select = States.Ground_Block
 					block_active = true
+					
+				if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Up_Light
 				
 				# New Mechanic for projectile throw	
-				if Input.is_action_just_pressed(controls.heavy):
+				if Input.is_action_just_pressed(controls.throw):
 					pass
 				
 			if Input.is_action_pressed(controls.down):
 				
+				if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Down_Heavy
+					
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Down_Light
 			
@@ -333,8 +373,7 @@ func _physics_process(delta):
 				if Input.is_action_pressed(controls.down):
 					set_collision_mask_value(3, false)
 					
-			if Input.is_action_pressed(controls.up):
-				if Input.is_action_just_pressed(controls.light):
+				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Up_Light
 					
 			if Input.is_action_just_pressed(controls.jump):
@@ -342,18 +381,17 @@ func _physics_process(delta):
 				jump_count -= 1
 				print("jump")
 		States.Jumping:
-			set_collision_mask_value(3, false)
 			velocity.y += Gravity
 			if is_on_floor():
 				Animate.play("Normal - Jump")
 				velocity.y -= Jump_Height
-			if velocity.y > 0:
+			if velocity.y > 200:
 				Select = States.Falling
 				set_collision_mask_value(3, true)
 				
 			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				jump_count -= 1
-				velocity.y -= 300
+				velocity.y -= 200
 				Animate.play("Normal - Jump")
 			if Input.is_action_pressed(controls.left):
 				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
@@ -373,7 +411,7 @@ func _physics_process(delta):
 					
 					
 			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.01)
+				velocity.x = lerp(velocity.x, 0.0, 0.05)
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Nuetral_Air
 					
@@ -386,6 +424,7 @@ func _physics_process(delta):
 				Select = States.Air_Block
 				block_active = true
 				set_collision_mask_value(3, true)
+			
 			
 		States.Falling:
 			if Input.is_action_pressed(controls.left):
@@ -405,6 +444,11 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
 				Select = States.Air_Block
 				block_active = true
+			
+			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
+				jump_count -= 1
+				velocity.y -= Jump_Height
+				Animate.play("Normal - Jump")
 
 			if !is_on_floor():
 				Animate.play("Normal - Fall")
@@ -433,6 +477,8 @@ func _physics_process(delta):
 			velocity.y = 0
 			Animate.play("Normal - Side Attack Finisher")
 		States.Down_Light:
+			pass
+		States.Down_Heavy:
 			velocity.y = 0
 			velocity.x = 0
 			Animate.play("Normal - Down Attack")
@@ -476,7 +522,7 @@ func _physics_process(delta):
 			if can_jump == true:
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
-			velocity.x = lerp(velocity.x , 0.0, 0.05)
+			velocity.x = lerp(velocity.x , 0.0, 0.1)
 			velocity.y += Gravity
 			Animate.play("Normal - Dodge Dash")
 			
@@ -507,6 +553,9 @@ func _physics_process(delta):
 			Animate.play("Respawn")
 			velocity.x = 0
 			velocity.y = 0
+			
+			await get_tree().create_timer(1).timeout
+			velocity.y += Gravity
 func _on_hurtbox_area_entered(area):
 	Select = States.Hurt
 
@@ -514,14 +563,14 @@ func _on_deplete_energy_timeout():
 	current_super_pts -= add_super_pts	
 
 
-func _on_block_timer_timeout():
-	block_active = false
-
-
-
-
 func _on_area_2d_area_entered(area):
+	CharacterList.health -= 10
 	if area.is_in_group("Off Stage - Galvin"):
 		position = CharacterList.galvin_player_respawn
-		Select = States.Respawn
+		Select = States.Respawn	
 		$Area2D/Respawn.play("Invisibilty")
+		print('respawn')
+
+
+func _on_refresh_block_timeout():
+		block_active = false

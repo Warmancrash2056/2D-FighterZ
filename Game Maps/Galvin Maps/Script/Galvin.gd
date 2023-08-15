@@ -51,5 +51,3 @@ func _spawn_main_player():
 	main_player_instance.global_position = main_player_position.global_position
 
 
-func _on_area_2d_area_entered(area):
-	pass

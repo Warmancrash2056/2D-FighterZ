@@ -12,7 +12,7 @@ var main_player_spawn = preload("res://Game Maps/Player Spawn Scripts/Main Playe
 @onready var exit_prompt_exit = $"Exit Prompt/Exit Game"
 
 func _ready():
-	Audio._galvin_map_play()
+	Audio._artic_map_play()
 	
 	if CharacterList.check_player_1_is_called == true:
 		_spawn_player_1()

@@ -41,8 +41,8 @@ var Acceleration = 50
 var Air_Speed = 0
 var Fall_Speed = 0
 var Roll_Speed = 600
-var Jump_Height = 1000
-var Gravity = 15
+var Jump_Height = 600
+var Gravity = 25
 
 var can_sakura_ulight_smoke = false
 var can_jump_smoke = false
@@ -80,6 +80,7 @@ enum States {
 	Nuetral_Attack_Start,
 	Nuetral_Attack_Finish,
 	Nuetral_Air,
+	Nuetral_Heavy,
 	# Nuetral is a heavy input that lift the player up.
 	Nuetral_Recovery,
 	
@@ -94,13 +95,10 @@ enum States {
 	Down_Air,
 	Down_Air_Heavy,
 	
-	Up_Light,
-	Up_Heavy,
-	Up_Air,
-	Up_Air_Heavy,
 	
 	Air_Block, 
 	Ground_Block, 
+	
 	Dash_Run, 
 	Death, 
 	Hurt,
@@ -164,18 +162,31 @@ func _reset_jump():
 func _counter_nuetral_attack():
 	if Input.is_action_pressed(controls.light):
 		Select = States.Nuetral_Attack_Start
+
+func _counter_nuetral_heavy():
+	if Input.is_action_pressed(controls.heavy):
+		Select = States.Nuetral_Heavy
 func _counter_side_attack():
 	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
 		if Input.is_action_pressed(controls.light):
 			Select = States.Side_Light_Start
-func counter_down_attack():
+func _counter_side_heavy():
+	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
+		if Input.is_action_pressed(controls.light):
+			Select = States.Side_Heavy
+			
+func counter_dowm_light():
 	if Input.is_action_pressed(controls.down):
-		if Input.is_action_pressed(controls.light):
+		if Input.is_action_pressed(controls.heavy):
+			Select = States.Down_Heavy
+func counter_down_heavy():
+	if Input.is_action_pressed(controls.down):
+		if Input.is_action_pressed(controls.heavy):
 			Select = States.Down_Light
-func _counter_up_attack():
+func _counter_up_heavy():
 	if Input.is_action_pressed(controls.up):
-		if Input.is_action_pressed(controls.light):
-			Select = States.Up_Light
+		if Input.is_action_pressed(controls.heavy):
+			Select = States.Nuetral_Heavy
 			
 # Reset Defend directional change at end of animation
 func _reset_turn_around():
@@ -303,7 +314,7 @@ func _process(delta):
 func _ready():
 	pass
 func _physics_process(delta):
-	print(jump_count)
+	#print(jump_count)
 	move_and_slide()
 	match Select:
 		States.Idling:
@@ -350,12 +361,14 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Nuetral_Attack_Start
 					
+				if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Nuetral_Heavy
 				if Input.is_action_just_pressed(controls.dash) and block_active == false:
 					Select = States.Ground_Block
 					block_active = true
 					
 				if Input.is_action_just_pressed(controls.heavy):
-					Select = States.Up_Light
+					Select = States.Nuetral_Heavy
 				
 				# New Mechanic for projectile throw	
 				if Input.is_action_just_pressed(controls.throw):
@@ -373,26 +386,27 @@ func _physics_process(delta):
 				if Input.is_action_pressed(controls.down):
 					set_collision_mask_value(3, false)
 					
-				if Input.is_action_just_pressed(controls.heavy):
-					Select = States.Up_Light
 					
-			if Input.is_action_just_pressed(controls.jump):
+			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				Select = States.Jumping
 				jump_count -= 1
-				print("jump")
+				_activate_jump_smoke()
 		States.Jumping:
 			velocity.y += Gravity
 			if is_on_floor():
 				Animate.play("Normal - Jump")
-				velocity.y -= Jump_Height
-			if velocity.y > 200:
+				velocity.y = -Jump_Height 
+			if velocity.y > 400:
 				Select = States.Falling
+				print(velocity)
 				set_collision_mask_value(3, true)
+			if jump_count > 0:
+				if Input.is_action_just_pressed(controls.jump):
+					jump_count -= 1
+					velocity.y = -Jump_Height
+					Animate.play("Normal - Jump")
+					_activate_jump_smoke()
 				
-			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
-				jump_count -= 1
-				velocity.y -= 200
-				Animate.play("Normal - Jump")
 			if Input.is_action_pressed(controls.left):
 				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
 				Sprite.flip_h = true
@@ -440,15 +454,17 @@ func _physics_process(delta):
 				
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.05)
+				
+			if jump_count > 0:
+				if Input.is_action_just_pressed(controls.jump):
+					jump_count -= 1
+					velocity.y = -Jump_Height
+					Animate.play("Normal - Jump")
+					_activate_jump_smoke()
 			
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
 				Select = States.Air_Block
 				block_active = true
-			
-			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
-				jump_count -= 1
-				velocity.y -= Jump_Height
-				Animate.play("Normal - Jump")
 
 			if !is_on_floor():
 				Animate.play("Normal - Fall")
@@ -457,16 +473,7 @@ func _physics_process(delta):
 				Select = States.Idling
 				Animate.play("Normal - Idle")
 				jump_count = 3
-		
-		States.Nuetral_Attack_Start:
-			velocity.x = 0
-			velocity.y = 0
-			Animate.play("Normal - Nuetral Attack Starter")
-		
-		States.Nuetral_Attack_Finish:
-			Animate.play("Normal - Nuetral Attack Finisher")
-			velocity.x = 0
-			velocity.y = 0
+				
 		States.Side_Light_Start:
 			velocity.x = 0
 			velocity.y = 0
@@ -488,7 +495,16 @@ func _physics_process(delta):
 			Animate.play("Down Air Heavy")
 			velocity.x = lerp(velocity.x , 0.0, 0.08)
 			velocity.y = 0
-		States.Up_Light:
+		States.Nuetral_Attack_Start:
+			velocity.x = 0
+			velocity.y = 0
+			Animate.play("Normal - Nuetral Attack Starter")
+		
+		States.Nuetral_Attack_Finish:
+			Animate.play("Normal - Nuetral Attack Finisher")
+			velocity.x = 0
+			velocity.y = 0
+		States.Nuetral_Heavy:
 			# At frame 1 start up sakura. #
 			if sakura_ulight_active == true:
 				velocity.y = -200

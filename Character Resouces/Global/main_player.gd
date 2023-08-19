@@ -27,6 +27,9 @@ var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectil
 # General Archfield Fireball Position #
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 
+# Used to detect if there is a wall.
+@onready var right_wall_detection = $Right
+@onready var left_wall_detection = $Left
 var goku_selected = false
 var general_selected = false
 var nomad_selected = false
@@ -102,7 +105,8 @@ enum States {
 	Dash_Run, 
 	Death, 
 	Hurt,
-	Respawn
+	Respawn,
+	WallIdle
 	}
 	
 func _goku_stats():
@@ -205,13 +209,6 @@ func turn_around():
 			CharacterList.main_player_facing_left = true
 			can_change_dir = true
 			
-# Active at first frame
-func drop_down():
-	if Input.is_action_pressed(controls.down):
-		velocity.y += 100
-		set_collision_mask_value(3, false)
-	else:
-		set_collision_mask_value(3, true)
 func _general_archfield_freball():
 	var instance_fireball = general_nuetral_attack_fireball.instantiate()
 	instance_fireball.global_position = general_arcfield_fireball_position.global_position
@@ -318,6 +315,8 @@ func _physics_process(delta):
 	move_and_slide()
 	match Select:
 		States.Idling:
+			if left_wall_detection.is_colliding() == true or right_wall_detection.is_colliding() == true:
+				print("On Wall touching")
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
 				get_tree().create_timer(10).timeout
@@ -392,11 +391,18 @@ func _physics_process(delta):
 				jump_count -= 1
 				_activate_jump_smoke()
 		States.Jumping:
+			if Input.is_action_pressed(controls.down):
+				velocity.y += 40
+				set_collision_mask_value(3, false)
+			else:
+				set_collision_mask_value(3, true)
+			if left_wall_detection.is_colliding() == true or right_wall_detection.is_colliding() == true:
+				print("On Wall touching")
 			velocity.y += Gravity
+			Animate.play("Normal - Jump")
 			if is_on_floor():
-				Animate.play("Normal - Jump")
 				velocity.y = -Jump_Height 
-			if velocity.y > 400:
+			if velocity.y > 0:
 				Select = States.Falling
 				print(velocity)
 				set_collision_mask_value(3, true)
@@ -439,8 +445,16 @@ func _physics_process(delta):
 				block_active = true
 				set_collision_mask_value(3, true)
 			
-			
 		States.Falling:
+			if Input.is_action_pressed(controls.down):
+				velocity.y += 20
+				set_collision_mask_value(3, false)
+			else:
+				set_collision_mask_value(3, true)
+			Animate.play("Normal - Fall")
+			if left_wall_detection.is_colliding() == true or right_wall_detection.is_colliding() == true:
+				print("On Wall touching")
+				Select = States.WallIdle
 			if Input.is_action_pressed(controls.left):
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -459,7 +473,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.jump):
 					jump_count -= 1
 					velocity.y = -Jump_Height
-					Animate.play("Normal - Jump")
+					Select = States.Jumping
 					_activate_jump_smoke()
 			
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
@@ -467,7 +481,6 @@ func _physics_process(delta):
 				block_active = true
 
 			if !is_on_floor():
-				Animate.play("Normal - Fall")
 				velocity.y += Gravity
 			else:
 				Select = States.Idling
@@ -569,8 +582,25 @@ func _physics_process(delta):
 			Animate.play("Respawn")
 			velocity.x = 0
 			velocity.y = 0
+		States.WallIdle:
+			jump_count = 3
+			Animate.play("WallIdle")
+			velocity.y = 1
+			velocity.x = 0
 			
-			await get_tree().create_timer(1).timeout
+			if right_wall_detection.is_colliding() == true:
+				if Input.is_action_just_pressed(controls.jump):
+					Select = States.Jumping
+					velocity.x = 100
+					velocity.y = -Jump_Height
+					print("On Right Side")
+					
+			elif left_wall_detection.is_colliding() == true:
+				if Input.is_action_just_pressed(controls.jump):
+					Select = States.Jumping
+					velocity.x = -100
+					velocity.y = -Jump_Height
+					print("On Left Side")
 			velocity.y += Gravity
 func _on_hurtbox_area_entered(area):
 	Select = States.Hurt

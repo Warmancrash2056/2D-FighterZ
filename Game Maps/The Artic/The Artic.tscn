@@ -2274,9 +2274,11 @@ zoom = Vector2(0.8, 0.8)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(64, 80)
+collision_layer = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-64, -80)
+polygon = PackedVector2Array(-608, 96, -320, 96, -328, 112, -600, 112)
 
 [node name="Exit Prompt" parent="." instance=ExtResource("9_n72gs")]
 

@@ -42,7 +42,7 @@ func _process(delta):
 	if return_game.button_pressed == true:
 		exit_prompt.visible = false
 		
-	if Input.is_action_just_pressed(player_1_controller.input_jump) or Input.is_action_just_pressed(player_2_controller.input_jump) or Input.is_action_just_pressed(main_player_controller.input_jump):
+	if Input.is_action_just_pressed(player_1_controller.jump) or Input.is_action_just_pressed(player_2_controller.jump) or Input.is_action_just_pressed(main_player_controller.jump):
 		get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
 		
 	

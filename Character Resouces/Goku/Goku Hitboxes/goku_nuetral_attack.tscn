@@ -1,6 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw5gankokb2by"]
+[gd_scene load_steps=3 format=3 uid="uid://dvai5c6kha0jb"]
 
-[ext_resource type="Script" path="res://Character Resouces/Goku/Goku Hitboxes/goku_nuetral_attack.gd" id="1_6g31h"]
+[sub_resource type="GDScript" id="GDScript_pfe2c"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	await get_tree().create_timer(0.1).timeout
+	queue_free()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_area_entered(area):
+	CharacterList.goku_side_start_transition = true
+	print(\"Goku side attack hit\")
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7v6kp"]
 radius = 5.5
@@ -8,7 +26,7 @@ radius = 5.5
 [node name="Goku Nuetral Attack" type="Area2D" groups=["Goku Nuetral Attack"]]
 collision_layer = 32
 collision_mask = 16
-script = ExtResource("1_6g31h")
+script = SubResource("GDScript_pfe2c")
 
 [node name="Nuetral Attack" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7v6kp")

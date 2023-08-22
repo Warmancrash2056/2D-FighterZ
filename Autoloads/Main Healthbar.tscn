@@ -9,14 +9,25 @@
 script = ExtResource("1_m6dee")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-modulate = Color(0, 0.635294, 0, 1)
+modulate = Color(0, 0.620035, 0, 1)
 offset_left = 29.0
 offset_top = 5.0
 offset_right = 109.0
 offset_bottom = 32.0
 theme = SubResource("Theme_7x3m1")
 max_value = 800.0
+value = 800.0
 show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_crrcb")
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+modulate = Color(0, 0.709804, 0.607843, 1)
+z_index = -1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 48.0
+value = 100.0
+show_percentage = false

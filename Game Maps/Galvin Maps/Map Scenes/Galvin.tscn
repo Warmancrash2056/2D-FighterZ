@@ -1,15 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=23 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
 [ext_resource type="Texture2D" uid="uid://b07grplvo2wco" path="res://Game Maps/Galvin Maps/Galvin Assets/background 1.png" id="3_qrqqu"]
 [ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="4_8pavo"]
 [ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/Galvin Maps/Galvin Assets/background 3.png" id="5_37ogg"]
+[ext_resource type="PackedScene" uid="uid://cwpiiesuek7ha" path="res://camera_2d.tscn" id="6_8t1xv"]
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="6_kexdy"]
 [ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="6_umm62"]
 [ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_evgpo"]
 [ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://Game Start/exit_prompt.tscn" id="9_us2oq"]
-[ext_resource type="PackedScene" uid="uid://dmxqaa14mv0iu" path="res://Autoloads/Main Healthbar.tscn" id="10_gqdvt"]
+[ext_resource type="PackedScene" uid="uid://dmxqaa14mv0iu" path="res://Autoloads/Main Healthbar.tscn" id="10_b1uo1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
 texture = ExtResource("6_umm62")
@@ -5744,7 +5745,7 @@ texture = ExtResource("2_uq8es")
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcey8"]
-size = Vector2(1696, 277)
+size = Vector2(1728, 277)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sier"]
 size = Vector2(881.5, 1284)
@@ -5772,34 +5773,32 @@ position = Vector2(32, -152)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -150)
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_qrqqu")
 offset = Vector2(16.5, 0)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(0, -150)
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("4_8pavo")
 offset = Vector2(16.5, 0)
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(0, -150)
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("5_37ogg")
 offset = Vector2(16.5, 0)
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(0, -150)
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_kexdy")
 offset = Vector2(16.5, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-z_index = 7
-position = Vector2(0, -104)
-zoom = Vector2(0.75, 0.75)
+[node name="Camera2D" parent="." instance=ExtResource("6_8t1xv")]
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-15.999, 0)
 tile_set = SubResource("TileSet_e4l1i")
 format = 2
 layer_0/name = "Floor"
@@ -5884,6 +5883,7 @@ layer_11/z_index = 1
 layer_11/tile_data = PackedInt32Array(-196601, 851971, 58, -131065, 851971, 59, -65529, 851971, 60, 7, 851971, 61, 65543, 851971, 62, -196600, 917507, 58, -131064, 917507, 59, -65528, 917507, 60, 8, 917507, 61, 65544, 917507, 62, -196599, 983043, 58, -131063, 983043, 59, -65527, 983043, 60, 9, 983043, 61, 65545, 983043, 62, -196598, 1048579, 58, -131062, 1048579, 59, -65526, 1048579, 60, 10, 1048579, 61, 65546, 1048579, 62, -196597, 1114115, 58, -131061, 1114115, 59, -65525, 1114115, 60, 11, 1114115, 61, 65547, 1114115, 62, -196596, 1179651, 58, -131060, 1179651, 59, -65524, 1179651, 60, 12, 1179651, 61, 65548, 1179651, 62, -196595, 1245187, 58, -131059, 1245187, 59, -65523, 1245187, 60, 13, 1245187, 61, 65549, 1245187, 62, -196594, 1310723, 58, -131058, 1310723, 59, -65522, 1310723, 60, 14, 1310723, 61, 65550, 1310723, 62, -196593, 1376259, 58, -131057, 1376259, 59, -65521, 1376259, 60, 15, 1376259, 61, 65551, 1376259, 62, -131056, 1441795, 59, -65520, 1441795, 60, 16, 1441795, 61, -196591, 851971, 58, -131055, 851971, 59, -65519, 851971, 60, 17, 851971, 61, 65553, 851971, 62, -196590, 917507, 58, -131054, 917507, 59, -65518, 917507, 60, 18, 917507, 61, 65554, 917507, 62, -196589, 983043, 58, -131053, 983043, 59, -65517, 983043, 60, 19, 983043, 61, 65555, 983043, 62, -196588, 1048579, 58, -131052, 1048579, 59, -65516, 1048579, 60, 20, 1048579, 61, 65556, 1048579, 62, -196587, 1114115, 58, -131051, 1114115, 59, -65515, 1114115, 60, 21, 1114115, 61, 65557, 1114115, 62, 65558, 1179651, 62, 65559, 1245187, 62)
 
 [node name="TileMap2" type="TileMap" parent="."]
+position = Vector2(-15.999, 0)
 rotation = 1.5708
 tile_set = SubResource("TileSet_tqbgv")
 format = 2
@@ -5893,7 +5893,7 @@ layer_0/tile_data = PackedInt32Array(589826, 65536, 12, 655362, 65536, 13, 72089
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 z_index = 5
-position = Vector2(0, 8)
+position = Vector2(-16, 8)
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -5902,6 +5902,7 @@ polygon = PackedVector2Array(360, 8, 360, 8, 384, 40, 176, 40, -304, 40, -280, 8
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 z_index = 5
+position = Vector2(-16, 0)
 collision_layer = 8
 collision_mask = 0
 
@@ -5910,6 +5911,7 @@ polygon = PackedVector2Array(-320, 48, -320, 312, -288, 312, -288, 48)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 z_index = 5
+position = Vector2(-16, 0)
 collision_layer = 8
 collision_mask = 0
 
@@ -5921,7 +5923,7 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(24, 784)
+position = Vector2(32, 472)
 shape = SubResource("RectangleShape2D_rcey8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
@@ -5944,5 +5946,10 @@ collision_mask = 16
 position = Vector2(-64, -32)
 shape = SubResource("RectangleShape2D_ipdot")
 
-[node name="Healthbar" parent="." instance=ExtResource("10_gqdvt")]
-position = Vector2(656, -512)
+[node name="Healthbar" parent="." instance=ExtResource("10_b1uo1")]
+position = Vector2(648, -512)
+
+[node name="ProgressBar2" parent="Healthbar" index="2"]
+z_index = 0
+
+[editable path="Healthbar"]

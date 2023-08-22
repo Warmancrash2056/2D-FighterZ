@@ -390,6 +390,7 @@ func _physics_process(delta):
 				Select = States.Jumping
 				jump_count -= 1
 				_activate_jump_smoke()
+				$"Character Jump Sound".play()
 		States.Jumping:
 			if Input.is_action_pressed(controls.down):
 				velocity.y += 40
@@ -402,7 +403,7 @@ func _physics_process(delta):
 			Animate.play("Normal - Jump")
 			if is_on_floor():
 				velocity.y = -Jump_Height 
-			if velocity.y > 0:
+			if velocity.y > 100:
 				Select = States.Falling
 				print(velocity)
 				set_collision_mask_value(3, true)
@@ -412,7 +413,7 @@ func _physics_process(delta):
 					velocity.y = -Jump_Height
 					Animate.play("Normal - Jump")
 					_activate_jump_smoke()
-				
+					$"Character Jump Sound".play()
 			if Input.is_action_pressed(controls.left):
 				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
 				Sprite.flip_h = true
@@ -505,7 +506,7 @@ func _physics_process(delta):
 		States.Down_Air:
 			pass
 		States.Down_Air_Heavy:
-			Animate.play("Down Air Heavy")
+			Animate.play("Normal - Down Air Heavy")
 			velocity.x = lerp(velocity.x , 0.0, 0.08)
 			velocity.y = 0
 		States.Nuetral_Attack_Start:
@@ -579,12 +580,12 @@ func _physics_process(delta):
 			Animate.play("Normal - Hurt")
 		
 		States.Respawn:
-			Animate.play("Respawn")
+			Animate.play("Normal - Respawn")
 			velocity.x = 0
 			velocity.y = 0
 		States.WallIdle:
 			jump_count = 3
-			Animate.play("WallIdle")
+			Animate.play("Normal - WallIdle")
 			velocity.y = 1
 			velocity.x = 0
 			

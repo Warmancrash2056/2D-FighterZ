@@ -2402,7 +2402,6 @@ position = Vector2(-13.5, 9)
 [node name="Down Air Heavy Start" type="Area2D" parent="Scale Player"]
 
 [node name="Air Start Down" type="CollisionShape2D" parent="Scale Player/Down Air Heavy Start"]
-visible = false
 position = Vector2(4.5, -7)
 shape = SubResource("CircleShape2D_0wt6c")
 disabled = true
@@ -2410,27 +2409,24 @@ disabled = true
 [node name="Down Air Heavy Finish" type="Area2D" parent="Scale Player"]
 
 [node name="Air Finish Down" type="CollisionShape2D" parent="Scale Player/Down Air Heavy Finish"]
-visible = false
 position = Vector2(3, -5.5)
 shape = SubResource("CircleShape2D_qb6ne")
 disabled = true
 
-[node name="Area2D2" type="Area2D" parent="Scale Player"]
+[node name="Nuetral Air" type="Area2D" parent="Scale Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D2"]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Nuetral Air"]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(-18.5, 3.5)
+position = Vector2(-19.5, -12.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pjkur")
 disabled = true
 
 [node name="Area2D" type="Area2D" parent="Scale Player"]
-position = Vector2(-18.5, 3.5)
+position = Vector2(-20.5, -11)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D"]
-visible = false
 modulate = Color(0, 1, 0, 1)
 position = Vector2(-1.50004, -10.5)
 shape = SubResource("CapsuleShape2D_ufmp6")
@@ -2439,9 +2435,8 @@ disabled = true
 [node name="Area2D3" type="Area2D" parent="Scale Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D3"]
-visible = false
 modulate = Color(0, 0.596078, 0.717647, 1)
-position = Vector2(17, 3)
+position = Vector2(4, -14)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vl3fl")
 disabled = true
@@ -2449,21 +2444,19 @@ disabled = true
 [node name="Area2D4" type="Area2D" parent="Scale Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D4"]
-visible = false
-position = Vector2(68.5, -9.5)
+position = Vector2(18, -12.5)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4gutl")
 
 [node name="Area2D5" type="Area2D" parent="Scale Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D5"]
-visible = false
 position = Vector2(50, 2.5)
 shape = SubResource("CapsuleShape2D_d5adm")
 
 [node name="Area2D6" type="Area2D" parent="Scale Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D6"]
-visible = false
 position = Vector2(67.5, 7.5)
 shape = SubResource("CircleShape2D_p8t13")
 
@@ -2485,7 +2478,6 @@ shape = SubResource("CapsuleShape2D_0tq1g")
 [node name="Area2D9" type="Area2D" parent="Scale Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D9"]
-visible = false
 position = Vector2(14, -7.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_h6n4q")
@@ -2493,7 +2485,6 @@ shape = SubResource("CapsuleShape2D_h6n4q")
 [node name="Area2D10" type="Area2D" parent="Scale Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D10"]
-visible = false
 position = Vector2(27.5, -8.5)
 shape = SubResource("CircleShape2D_cvotp")
 

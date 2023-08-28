@@ -30,11 +30,11 @@ func _ready():
 	sakura.play("Idle")
 	exit_prompt.visible = false
 
-func _process(delta):
-	if Input.is_action_just_pressed("exit") and exit_prompt.visible == false:
-		exit_prompt.visible = true
-	elif Input.is_action_just_pressed("exit") and exit_prompt.visible == true:
+func _physics_process(delta):
+	if Input.is_action_just_pressed("exit") and exit_prompt.visible == true:
 		exit_prompt.visible = false
+	elif Input.is_action_just_pressed("exit") and exit_prompt.visible == false:
+		exit_prompt.visible = true
 		
 	if exit_game.button_pressed == true:
 		get_tree().quit()

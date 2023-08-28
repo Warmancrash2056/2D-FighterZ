@@ -30,7 +30,7 @@ func _ready():
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
 	
-	if Input.is_action_just_pressed(player_1_controller.input_right) or Input.is_action_just_pressed(player_2_controller.input_right) or Input.is_action_just_pressed(main_player_controller.input_right):
+	if Input.is_action_just_pressed(player_1_controller.right) or Input.is_action_just_pressed(player_2_controller.right) or Input.is_action_just_pressed(main_player_controller.right):
 		currentSelected += 1
 		currentColumnSpot += 1
 		# If the cursor goes past the total amount of columns reset to the first item in the column and go 1 row down
@@ -49,7 +49,7 @@ func _process(delta):
 			currentSelected = 0
 		else:
 			position.x += portraitOffset.x
-	elif Input.is_action_just_pressed(player_1_controller.input_left) or Input.is_action_just_pressed(player_2_controller.input_left) or Input.is_action_just_pressed(main_player_controller.input_left):
+	elif Input.is_action_just_pressed(player_1_controller.left) or Input.is_action_just_pressed(player_2_controller.left) or Input.is_action_just_pressed(main_player_controller.left):
 		currentSelected -= 1
 		currentColumnSpot -= 1
 		# If the cursor goes past the 0 amount on a column position reset to the first item in the column and go 1 row up

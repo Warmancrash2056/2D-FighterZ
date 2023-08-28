@@ -13,3 +13,6 @@ class_name InputSys
 @export var dash ="Player1_Dash"
 @export var heavy = "Player1_Heavy"
 @export var throw = "Player1_Throw"
+
+# Set to escape or right menu button on controller.
+@export var menu = "menu_all_player"

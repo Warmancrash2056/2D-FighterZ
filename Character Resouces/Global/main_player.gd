@@ -321,12 +321,12 @@ func _physics_process(delta):
 			if !is_on_floor():
 				get_tree().create_timer(10).timeout
 				
-				Select = States.Falling
-				Animate.play("Normal - Fall")
+				Select = States.Jumping
+				Animate.play("Fall")
 			velocity.y += Gravity
 			if Input.is_action_pressed(controls.left):
 				velocity.x = max(velocity.x -Acceleration, -Speed)
-				Animate.play("Normal - Run")
+				Animate.play("Run")
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.main_player_facing_left = true
@@ -341,7 +341,7 @@ func _physics_process(delta):
 					
 			elif Input.is_action_pressed(controls.right):
 				velocity.x = min(velocity.x + Acceleration, Speed)
-				Animate.play("Normal - Run")
+				Animate.play("Run")
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.main_player_facing_left = false
@@ -354,9 +354,12 @@ func _physics_process(delta):
 				
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Light_Start
+				
+				if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Side_Heavy
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.5)
-				Animate.play("Normal - Idle")
+				Animate.play("Idle")
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Nuetral_Attack_Start
 					
@@ -400,7 +403,7 @@ func _physics_process(delta):
 			if left_wall_detection.is_colliding() == true or right_wall_detection.is_colliding() == true:
 				print("On Wall touching")
 			velocity.y += Gravity
-			Animate.play("Normal - Jump")
+			Animate.play("Jump")
 			if is_on_floor():
 				velocity.y = -Jump_Height 
 			if velocity.y > 100:
@@ -452,7 +455,7 @@ func _physics_process(delta):
 				set_collision_mask_value(3, false)
 			else:
 				set_collision_mask_value(3, true)
-			Animate.play("Normal - Fall")
+			Animate.play("Fall")
 			if left_wall_detection.is_colliding() == true or right_wall_detection.is_colliding() == true:
 				print("On Wall touching")
 				Select = States.WallIdle
@@ -485,18 +488,18 @@ func _physics_process(delta):
 				velocity.y += Gravity
 			else:
 				Select = States.Idling
-				Animate.play("Normal - Idle")
+				Animate.play("Idle")
 				jump_count = 3
 				
 		States.Side_Light_Start:
 			velocity.x = 0
 			velocity.y = 0
-			Animate.play("Normal - Side Attack Starter")
+			Animate.play("Side Light")
 		
-		States.Side_Light_Finish:
+		States.Side_Heavy:
+			Animate.play("Side Heavy")
 			velocity.x = 0
 			velocity.y = 0
-			Animate.play("Normal - Side Attack Finisher")
 		States.Down_Light:
 			pass
 		States.Down_Heavy:
@@ -512,12 +515,8 @@ func _physics_process(delta):
 		States.Nuetral_Attack_Start:
 			velocity.x = 0
 			velocity.y = 0
-			Animate.play("Normal - Nuetral Attack Starter")
+			Animate.play("Nuetral Light")
 		
-		States.Nuetral_Attack_Finish:
-			Animate.play("Normal - Nuetral Attack Finisher")
-			velocity.x = 0
-			velocity.y = 0
 		States.Nuetral_Heavy:
 			# At frame 1 start up sakura. #
 			if sakura_ulight_active == true:
@@ -530,19 +529,19 @@ func _physics_process(delta):
 		States.Nuetral_Air:
 			velocity.x = lerp(velocity.x , 0.0, 0.08)
 			velocity.y = 10
-			Animate.play("Normal - Air Attack")
+			Animate.play("Nuetral Air")
 		
 		States.Ground_Block:
 			#  Activate turn around at the start of the state. #
 			turn_around()
-			Animate.play("Normal - Ground Block")
+			Animate.play("Ground Block")
 			velocity.y = 0
 			velocity.x = 0
 			block_timer.start()
 		States.Air_Block:
 			#  Activate turn around at the start of the state. #
 			turn_around()
-			Animate.play("Normal - Air Block")
+			Animate.play("Air Block")
 			velocity.x = 0
 			velocity.y = 0
 			block_timer.start()
@@ -554,7 +553,7 @@ func _physics_process(delta):
 					Select = States.Jumping
 			velocity.x = lerp(velocity.x , 0.0, 0.1)
 			velocity.y += Gravity
-			Animate.play("Normal - Dodge Dash")
+			Animate.play("Dash")
 			
 			if block_timer.time_left == 0:
 				if Input.is_action_just_pressed(controls.dash):
@@ -572,10 +571,6 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.left):
 					Select = States.Idling
 					velocity.x = 0
-					
-		States.Death:
-			Animate.play("Normal - Death")
-			
 		States.Hurt:
 			Animate.play("Normal - Hurt")
 		
@@ -585,23 +580,32 @@ func _physics_process(delta):
 			velocity.y = 0
 		States.WallIdle:
 			jump_count = 3
-			Animate.play("Normal - WallIdle")
+			Animate.play("Wall")
 			velocity.y = 1
 			velocity.x = 0
 			
 			if right_wall_detection.is_colliding() == true:
+				velocity.x = -500
+				Sprite.flip_h = false
+				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
 					velocity.x = 100
 					velocity.y = -Jump_Height
 					print("On Right Side")
 					
+					
 			elif left_wall_detection.is_colliding() == true:
+				Sprite.flip_h = false
+				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
 					velocity.x = -100
 					velocity.y = -Jump_Height
 					print("On Left Side")
+					
+			else:
+				Select = States.Falling
 			velocity.y += Gravity
 func _on_hurtbox_area_entered(area):
 	Select = States.Hurt

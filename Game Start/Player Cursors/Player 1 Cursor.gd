@@ -30,8 +30,8 @@ func _ready():
 		characters.append(nameOfCharacter)
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
-	print(currentSelected)
-	if(Input.is_action_just_pressed(Controls.input_right)):
+	#print("Character 1: ", currentSelected)
+	if(Input.is_action_just_pressed(Controls.right)):
 		currentSelected += 1
 		currentColumnSpot += 1
 		# If the cursor goes past the total amount of columns reset to the first item in the column and go 1 row down
@@ -51,7 +51,7 @@ func _process(delta):
 			currentSelected = 0
 		else:
 			position.x += portraitOffset.x
-	elif(Input.is_action_just_pressed(Controls.input_left)):
+	elif(Input.is_action_just_pressed(Controls.left)):
 		currentSelected -= 1
 		currentColumnSpot -= 1
 		# If the cursor goes past the 0 amount on a column position reset to the first item in the column and go 1 row up
@@ -72,7 +72,7 @@ func _process(delta):
 		else:
 			position.x -= portraitOffset.x
 	
-	if Input.is_action_just_pressed(Controls.input_jump):
+	if Input.is_action_just_pressed(Controls.jump):
 		Player1Ready = true
 		if CharacterList.get_player_1 == null:
 			CharacterList.get_player_1

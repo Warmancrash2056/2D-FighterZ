@@ -8,7 +8,8 @@ extends Sprite2D
 @onready var goku_aniamtion = $"../Player 2 Goku"
 
 @onready var player_2_tag = $"../Player 2 Name"
-@export var Controls: Resource 
+
+var controller: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
 # Object Array
 var characters = []          # Array to store all the characters the player can select
 
@@ -32,8 +33,8 @@ func _ready():
 	
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
-	
-	if(Input.is_action_just_pressed(Controls.input_right)):
+	#print("Character 2:",currentSelected )
+	if Input.is_action_just_pressed(controller.right):
 		currentSelected += 1
 		currentColumnSpot += 1
 		# If the cursor goes past the total amount of columns reset to the first item in the column and go 1 row down
@@ -52,7 +53,7 @@ func _process(delta):
 			currentSelected = 0
 		else:
 			position.x += portraitOffset.x
-	elif(Input.is_action_just_pressed(Controls.input_left)):
+	elif(Input.is_action_just_pressed(controller.left)):
 		currentSelected -= 1
 		currentColumnSpot -= 1
 		# If the cursor goes past the 0 amount on a column position reset to the first item in the column and go 1 row up
@@ -73,7 +74,7 @@ func _process(delta):
 		else:
 			position.x -= portraitOffset.x
 	
-	if Input.is_action_just_pressed(Controls.input_jump):
+	if Input.is_action_just_pressed(controller.jump):
 		Player2Ready = true
 		if CharacterList.get_player_2 == null:
 			CharacterList.get_player_2
@@ -85,7 +86,8 @@ func _process(delta):
 
 
 
-func _on_player_2_general_pyrus_animation_looped():
+
+func _on_player_2_general_archfield_animation_looped():
 	general_archfield_animation.play("Idle")
 
 
@@ -106,14 +108,16 @@ func _on_player_2_atlantis_animation_looped():
 
 func _on_player_2_sakura_animation_looped():
 	sakura_animation.play("Idle")
-func _on_player_2_general_pyrus_select_area_entered(area):
+	
+func _on_player_2_general_archfield_select_area_entered(area):
 	if area:
 		general_archfield_animation.play("Ready")
 		general_archfield_animation.visible = true
 		player_2_tag.set_text(str("General Archfield"))
 		player_2_tag.position.x = 736
+		print("general")
 
-func _on_player_2_general_pyrus_select_area_exited(area):
+func _on_player_2_general_archfield_select_area_exited(area):
 	if area:
 		general_archfield_animation.stop()
 		general_archfield_animation.frame = 0
@@ -179,3 +183,4 @@ func _on_player_2_atlantis_select_area_exited(area):
 		atlantis_animation.stop()
 		atlantis_animation.frame = 0
 		atlantis_animation.visible = false
+

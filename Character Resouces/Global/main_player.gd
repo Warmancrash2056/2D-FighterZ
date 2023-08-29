@@ -572,10 +572,10 @@ func _physics_process(delta):
 					Select = States.Idling
 					velocity.x = 0
 		States.Hurt:
-			Animate.play("Normal - Hurt")
+			Animate.play("Ground Hurt")
 		
 		States.Respawn:
-			Animate.play("Normal - Respawn")
+			Animate.play("Respawn")
 			velocity.x = 0
 			velocity.y = 0
 		States.WallIdle:

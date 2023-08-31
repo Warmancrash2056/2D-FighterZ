@@ -585,23 +585,25 @@ func _physics_process(delta):
 			velocity.x = 0
 			
 			if right_wall_detection.is_colliding() == true:
-				Sprite.flip_h = true
+				velocity.x = -500
+				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
-					velocity.x = -200
+					velocity.x = 100
 					velocity.y = -Jump_Height
-					_activate_jump_smoke()
-					$"Character Jump Sound".play()
+					print("On Right Side")
+					
+					
 			elif left_wall_detection.is_colliding() == true:
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
-					velocity.x = 200
+					velocity.x = -100
 					velocity.y = -Jump_Height
-					_activate_jump_smoke()
-					$"Character Jump Sound".play()
+					print("On Left Side")
+					
 			else:
 				Select = States.Falling
 			velocity.y += Gravity

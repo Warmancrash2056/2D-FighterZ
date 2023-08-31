@@ -73,7 +73,7 @@ func _process(delta):
 		else:
 			position.x -= portraitOffset.x
 	
-	if Input.is_action_just_pressed(Controls.jump):
+	if Input.is_action_just_pressed(Controls.throw):
 		Player1Ready = true
 		if CharacterList.get_main_player == null:
 			CharacterList.get_main_player

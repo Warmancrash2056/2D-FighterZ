@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjemajieed7c3"]
+[gd_scene load_steps=2 format=3 uid="uid://bqckt62vdpw8f"]
 
-[ext_resource type="Script" path="res://Game Maps/Player Spawn Scripts/Player 1 Spawner.gd" id="1_whnds"]
+[sub_resource type="GDScript" id="GDScript_gy2w8"]
+script/source = "extends Node2D
+var player_1_spawn = CharacterList.get_player_1 .instantiate()
+
+func _ready():
+	SpawnChosen()
+
+func SpawnChosen():
+	
+	call_deferred(\"add_child\", player_1_spawn)
+	player_1_spawn.set_script(CharacterList.get_player_1_script)
+"
 
 [node name="Player 1 Spawn" type="Marker2D"]
-script = ExtResource("1_whnds")
+script = SubResource("GDScript_gy2w8")

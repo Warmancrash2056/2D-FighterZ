@@ -9,9 +9,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Player1.Player1Ready == true:
-		$"Prompt Name".set_text(str("   Game Ready"))
+		$"Prompt Name".set_text(str("    Game Ready"))
 		if Input.is_action_just_pressed(main_controller.jump):
-			get_tree().change_scene_to_file("res://Game Maps/Map Selector/Map Selection.tscn")
+			get_tree().change_scene_to_file("res://Game Maps/Training/Training Map Selection.tscn")
 	else:
 		$"Prompt Name".set_text(str("Select Characters"))
 	if Input.is_action_just_pressed("exit"):

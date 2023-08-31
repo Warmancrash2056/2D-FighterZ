@@ -67,17 +67,3 @@ func _on_online_play_pressed():
 func _on_mars_studio_pressed():
 	get_tree().change_scene_to_file("res://About Studio.tscn")
 	
-func _process(delta):
-	# Get joystick input values
-	var joystick_x = Input.get_action_strength("Player3_Left", "player")
-	var joystick_y = Input.get_action_strength("joy_axis_vertical")
-
-	# Calculate cursor movement based on joystick input
-	var cursor_speed = 10
-	var cursor_movement = Vector2(joystick_x, joystick_y) * cursor_speed * delta
-
-	# Move the mouse cursor
-	var mouse_pos = get_global_mouse_position()
-	mouse_pos = cursor_movement
-	
-	print()

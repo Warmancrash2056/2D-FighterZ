@@ -13,16 +13,9 @@ var main_player_spawn = preload("res://Game Maps/Player Spawn Scripts/Main Playe
 
 func _ready():
 	Audio._galvin_map_play()
-	
-	if CharacterList.check_player_1_is_called == true:
-		_spawn_player_1()
-		
-	if CharacterList.check_player_2_is_called == true:
-		_spawn_player_2()
-		
-	if CharacterList.check_main_is_called == true:
-		_spawn_main_player()
-
+	_spawn_player_1()
+	_spawn_player_2()
+	_spawn_main_player()
 func _process(delta):
 	if Input.is_action_just_pressed("exit") and exit_prompt.visible == false:
 		exit_prompt.visible = true
@@ -37,17 +30,25 @@ func _process(delta):
 		exit_prompt.visible = false
 func _spawn_player_1():
 	var player_1_instance = player_1_spawn.instantiate()
-	get_parent().add_child(player_1_instance)
-	player_1_instance.global_position = player_1_position.global_position
-	
+	if CharacterList.check_player_1_is_called == true:
+		get_parent().add_child(player_1_instance)
+		player_1_instance.global_position = player_1_position.global_position
+	else:
+		player_1_instance.queue_free()
 func _spawn_player_2():
 	var player_2_instance = player_2_spawn.instantiate()
-	get_parent().add_child(player_2_instance)
-	player_2_instance.global_position = player_2_position.global_position
+	if CharacterList.check_player_2_is_called == true:
+		get_parent().add_child(player_2_instance)
+		player_2_instance.global_position = player_2_position.global_position
+	else:
+		player_2_instance.queue_free()
 	
 func _spawn_main_player():
 	var main_player_instance = main_player_spawn.instantiate()
-	add_child(main_player_instance)
-	main_player_instance.global_position = main_player_position.global_position
+	if CharacterList.check_main_is_called == true:
+		add_child(main_player_instance)
+		main_player_instance.global_position = main_player_position.global_position
+	else:
+		main_player_instance.queue_free()
 
 

@@ -10,6 +10,7 @@ func _ready():
 func _process(delta):
 	if Player1.Player1Ready == true:
 		$"Prompt Name".set_text(str("    Game Ready"))
+
 		if Input.is_action_just_pressed(main_controller.jump):
 			get_tree().change_scene_to_file("res://Game Maps/Training/Training Map Selection.tscn")
 	else:

@@ -54,7 +54,7 @@ func _on_about_characters_pressed():
 	get_tree().change_scene_to_file("res://Game Start/Aboou Character/About Characters.tscn")
 
 func _on_training_room_pressed():
-	get_tree().change_scene_to_file("res://Game Start/Local Play/Training Character Selection.tscn")
+	get_tree().change_scene_to_file("")
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://Game Keys.tscn")
@@ -66,4 +66,3 @@ func _on_online_play_pressed():
 
 func _on_mars_studio_pressed():
 	get_tree().change_scene_to_file("res://About Studio.tscn")
-	

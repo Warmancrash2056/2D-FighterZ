@@ -131,7 +131,7 @@ func _general_stats():
 	
 	
 # Default State when entering the scene tree. #
-var Select = States.Idling
+var Select = States.Respawn
 
 # Check if nomad nuetral Attack or Up Attack starter hitbox detected the opponent to perfrom follow up attacks
 func _transition_nomad_nuetral_attack_finisher():
@@ -148,7 +148,7 @@ func _reset_nomad_up_attack():
 # Reset to idle and fall state after attacks 
 func _idle_state_():
 	Select = States.Idling
-	Animate.play("Normal - Idle")
+	Animate.play("Idle")
 	
 func _fall_state_():
 	Select = States.Falling
@@ -311,10 +311,11 @@ func _process(delta):
 func _ready():
 	pass
 func _physics_process(delta):
-	#print(jump_count)
+	print(jump_count)
 	move_and_slide()
 	match Select:
 		States.Idling:
+			jump_count = 3
 			if left_wall_detection.is_colliding() == true or right_wall_detection.is_colliding() == true:
 				print("On Wall touching")
 			set_collision_mask_value(3, true)
@@ -394,27 +395,28 @@ func _physics_process(delta):
 				jump_count -= 1
 				_activate_jump_smoke()
 				$"Character Jump Sound".play()
+				velocity.y = -Jump_Height 
 		States.Jumping:
 			if Input.is_action_pressed(controls.down):
 				velocity.y += 40
 				set_collision_mask_value(3, false)
 			else:
 				set_collision_mask_value(3, true)
-			if left_wall_detection.is_colliding() == true or right_wall_detection.is_colliding() == true:
-				print("On Wall touching")
+			
+			if is_on_wall():
+				if left_wall_detection.is_colliding() == true or right_wall_detection.is_colliding() == true:
+					print("On Wall touching")
+					Select = States.WallIdle
 			velocity.y += Gravity
 			Animate.play("Jump")
 			if is_on_floor():
-				velocity.y = -Jump_Height 
-			if velocity.y > 100:
-				Select = States.Falling
-				print(velocity)
+				Select = States.Idling
 				set_collision_mask_value(3, true)
 			if jump_count > 0:
 				if Input.is_action_just_pressed(controls.jump):
 					jump_count -= 1
 					velocity.y = -Jump_Height
-					Animate.play("Normal - Jump")
+					Animate.play("Jump")
 					_activate_jump_smoke()
 					$"Character Jump Sound".play()
 			if Input.is_action_pressed(controls.left):
@@ -500,16 +502,23 @@ func _physics_process(delta):
 			Animate.play("Side Heavy")
 			velocity.x = 0
 			velocity.y = 0
+			
+		States.Side_Air:
+			Animate.play("Side Air")
+			velocity.x = lerp(velocity.x , 0.0, 0.05)
+			velocity.y = 1
 		States.Down_Light:
-			pass
+			Animate.play("Down Light")
+			velocity = Vector2.ZERO
+			
 		States.Down_Heavy:
 			velocity.y = 0
 			velocity.x = 0
-			Animate.play("Normal - Down Attack")
+			Animate.play("Down Light")
 		States.Down_Air:
 			pass
 		States.Down_Air_Heavy:
-			Animate.play("Normal - Down Air Heavy")
+			Animate.play("Down Air Heavy")
 			velocity.x = lerp(velocity.x , 0.0, 0.08)
 			velocity.y = 0
 		States.Nuetral_Attack_Start:
@@ -525,9 +534,9 @@ func _physics_process(delta):
 			else:
 				velocity.y = 0
 			velocity.x = 0
-			Animate.play("Normal - Up Attack Starter")
+			Animate.play("Nuetral Heavy")
 		States.Nuetral_Air:
-			velocity.x = lerp(velocity.x , 0.0, 0.08)
+			velocity.x = lerp(velocity.x , 0.0, 0.05)
 			velocity.y = 10
 			Animate.play("Nuetral Air")
 		
@@ -551,7 +560,8 @@ func _physics_process(delta):
 			if can_jump == true:
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
-			velocity.x = lerp(velocity.x , 0.0, 0.1)
+					velocity.y = -Jump_Height
+			velocity.x = lerp(velocity.x , 0.0, 0.01)
 			velocity.y += Gravity
 			Animate.play("Dash")
 			
@@ -572,10 +582,10 @@ func _physics_process(delta):
 					Select = States.Idling
 					velocity.x = 0
 		States.Hurt:
-			Animate.play("Normal - Hurt")
+			Animate.play("Hurt")
 		
 		States.Respawn:
-			Animate.play("Normal - Respawn")
+			Animate.play("Respawn")
 			velocity.x = 0
 			velocity.y = 0
 		States.WallIdle:
@@ -585,14 +595,14 @@ func _physics_process(delta):
 			velocity.x = 0
 			
 			if right_wall_detection.is_colliding() == true:
-				velocity.x = -500
-				Sprite.flip_h = false
+				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
-					velocity.x = 100
+					velocity.x = -400
 					velocity.y = -Jump_Height
 					print("On Right Side")
+					velocity.y = -Jump_Height
 					
 					
 			elif left_wall_detection.is_colliding() == true:
@@ -600,12 +610,10 @@ func _physics_process(delta):
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
-					velocity.x = -100
+					velocity.x = 400
 					velocity.y = -Jump_Height
 					print("On Left Side")
-					
-			else:
-				Select = States.Falling
+					velocity.y = -Jump_Height
 			velocity.y += Gravity
 func _on_hurtbox_area_entered(area):
 	Select = States.Hurt

@@ -43,6 +43,7 @@ z_index = 5
 scale = Vector2(1.3, 1)
 sprite_frames = SubResource("SpriteFrames_1c4gd")
 animation = &"Smoke"
+frame_progress = 0.640448
 script = ExtResource("9_gpk86")
 
 [connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

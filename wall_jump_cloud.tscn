@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=3 uid="uid://jqksv28nm0sn"]
+
+[ext_resource type="Texture2D" uid="uid://bk4sjs58yfe3y" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)1.png" id="1_vprmb"]
+[ext_resource type="Texture2D" uid="uid://hwhwr0c0bcuu" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)2.png" id="2_p5jho"]
+[ext_resource type="Texture2D" uid="uid://dm4wxbp7vrqr1" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)3.png" id="3_uuh8u"]
+[ext_resource type="Texture2D" uid="uid://bj4xsq3iog3mq" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)4.png" id="4_sqgwy"]
+[ext_resource type="Texture2D" uid="uid://ljrgxl2nuemr" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)5.png" id="5_g4sgy"]
+[ext_resource type="Texture2D" uid="uid://b6bdvf5uo4h5g" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)6.png" id="6_emxop"]
+[ext_resource type="Texture2D" uid="uid://bv0gtog0yfevr" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)7.png" id="7_4vply"]
+[ext_resource type="Script" path="res://Character Resouces/jump_smoke.gd" id="8_16o64"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sev5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vprmb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p5jho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uuh8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sqgwy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g4sgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_emxop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4vply")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Wall Jump Cloud" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_sev5d")
+frame_progress = 0.475387
+script = ExtResource("8_16o64")

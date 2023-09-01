@@ -80,16 +80,14 @@ enum States {
 	Air_Projectile,
 	Ground_Projectile,
 	
-	Nuetral_Attack_Start,
-	Nuetral_Attack_Finish,
+	Nuetral_Light,
 	Nuetral_Air,
 	Nuetral_Heavy,
 	# Nuetral is a heavy input that lift the player up.
 	Nuetral_Recovery,
 	
 	Side_Heavy,
-	Side_Light_Start,
-	Side_Light_Finish,
+	Side_Light,
 	Side_Air,
 	Side_Air_Heavy,
 	
@@ -133,11 +131,6 @@ func _general_stats():
 # Default State when entering the scene tree. #
 var Select = States.Respawn
 
-# Check if nomad nuetral Attack or Up Attack starter hitbox detected the opponent to perfrom follow up attacks
-func _transition_nomad_nuetral_attack_finisher():
-	if nomad_nuetral_attack_hit == true:
-		Select = States.Nuetral_Attack_Finish
-
 func _reset_nomad_nuetral_attack():
 	nomad_nuetral_attack_hit = false	
 
@@ -163,17 +156,19 @@ func _reset_jump():
 	can_jump = false
 
 # Perform attacks within 2-3 frames of the air block. #
-func _counter_nuetral_attack():
+func _counter_nuetral_light():
 	if Input.is_action_pressed(controls.light):
-		Select = States.Nuetral_Attack_Start
+		Select = States.Nuetral_Light
 
 func _counter_nuetral_heavy():
 	if Input.is_action_pressed(controls.heavy):
 		Select = States.Nuetral_Heavy
-func _counter_side_attack():
+		
+func _counter_side_light():
 	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
 		if Input.is_action_pressed(controls.light):
-			Select = States.Side_Light_Start
+			Select = States.Side_Heavy
+			print("counter side light")
 func _counter_side_heavy():
 	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
 		if Input.is_action_pressed(controls.light):
@@ -187,10 +182,6 @@ func counter_down_heavy():
 	if Input.is_action_pressed(controls.down):
 		if Input.is_action_pressed(controls.heavy):
 			Select = States.Down_Light
-func _counter_up_heavy():
-	if Input.is_action_pressed(controls.up):
-		if Input.is_action_pressed(controls.heavy):
-			Select = States.Nuetral_Heavy
 			
 # Reset Defend directional change at end of animation
 func _reset_turn_around():
@@ -294,24 +285,12 @@ func hunter_down_attack():
 		instance_shower.scale.x = -1
 	else:
 		instance_shower.scale.x = 1
-# Check if hit at 3rd frame to swith to side attack finish.
-func _transition_goku_side_attack_finisher():
-		if CharacterList.goku_side_start_transition == true:
-			Select = States.Side_Light_Finish
-			print("side attack hits")
-		
-func _reset_goku_side_attack():
-	CharacterList.goku_side_start_transition = false
-	
-func _reset_nomad_side_attack():
-	CharacterList.goku_side_start_transition = false
-
 func _process(delta):
 	pass
 func _ready():
 	pass
 func _physics_process(delta):
-	print(jump_count)
+	#print(jump_count)
 	move_and_slide()
 	match Select:
 		States.Idling:
@@ -338,7 +317,7 @@ func _physics_process(delta):
 						set_collision_mask_value(2, false)
 				
 				if Input.is_action_just_pressed(controls.light):
-					Select = States.Side_Light_Start
+					Select = States.Side_Light
 					
 			elif Input.is_action_pressed(controls.right):
 				velocity.x = min(velocity.x + Acceleration, Speed)
@@ -354,7 +333,7 @@ func _physics_process(delta):
 						
 				
 				if Input.is_action_just_pressed(controls.light):
-					Select = States.Side_Light_Start
+					Select = States.Side_Light
 				
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Side_Heavy
@@ -362,7 +341,7 @@ func _physics_process(delta):
 				velocity.x = lerp(velocity.x, 0.0, 0.5)
 				Animate.play("Idle")
 				if Input.is_action_just_pressed(controls.light):
-					Select = States.Nuetral_Attack_Start
+					Select = States.Nuetral_Light
 					
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Nuetral_Heavy
@@ -481,7 +460,7 @@ func _physics_process(delta):
 					velocity.y = -Jump_Height
 					Select = States.Jumping
 					_activate_jump_smoke()
-			
+					$"Character Jump Sound".play()
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
 				Select = States.Air_Block
 				block_active = true
@@ -493,7 +472,7 @@ func _physics_process(delta):
 				Animate.play("Idle")
 				jump_count = 3
 				
-		States.Side_Light_Start:
+		States.Side_Light:
 			velocity.x = 0
 			velocity.y = 0
 			Animate.play("Side Light")
@@ -514,14 +493,14 @@ func _physics_process(delta):
 		States.Down_Heavy:
 			velocity.y = 0
 			velocity.x = 0
-			Animate.play("Down Light")
+			Animate.play("Down Heavy")
 		States.Down_Air:
 			pass
 		States.Down_Air_Heavy:
 			Animate.play("Down Air Heavy")
 			velocity.x = lerp(velocity.x , 0.0, 0.08)
 			velocity.y = 0
-		States.Nuetral_Attack_Start:
+		States.Nuetral_Light:
 			velocity.x = 0
 			velocity.y = 0
 			Animate.play("Nuetral Light")
@@ -561,6 +540,8 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
 					velocity.y = -Jump_Height
+					_activate_jump_smoke()
+					$"Character Jump Sound".play()
 			velocity.x = lerp(velocity.x , 0.0, 0.01)
 			velocity.y += Gravity
 			Animate.play("Dash")
@@ -599,21 +580,22 @@ func _physics_process(delta):
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
-					velocity.x = -400
-					velocity.y = -Jump_Height
+					velocity.x = -200
 					print("On Right Side")
 					velocity.y = -Jump_Height
-					
+					_activate_jump_smoke()
+					$"Character Jump Sound".play()
 					
 			elif left_wall_detection.is_colliding() == true:
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
-					velocity.x = 400
+					velocity.x = 200
 					velocity.y = -Jump_Height
 					print("On Left Side")
-					velocity.y = -Jump_Height
+					_activate_jump_smoke()
+					$"Character Jump Sound".play()
 			velocity.y += Gravity
 func _on_hurtbox_area_entered(area):
 	Select = States.Hurt

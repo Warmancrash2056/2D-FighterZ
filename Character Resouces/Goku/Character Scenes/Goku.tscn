@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_ob1e8"]
-[ext_resource type="Texture2D" uid="uid://dkr45210et2tf" path="res://Goku Sprite.png" id="2_54fin"]
+[ext_resource type="Texture2D" uid="uid://dgq0qsnx20275" path="res://Goku Sprite.png" id="2_owj2y"]
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="8_gtluj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wt6c"]
@@ -1767,7 +1767,7 @@ position = Vector2(16, 0)
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(0, -40)
-texture = ExtResource("2_54fin")
+texture = ExtResource("2_owj2y")
 hframes = 10
 vframes = 13
 

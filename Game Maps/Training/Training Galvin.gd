@@ -15,7 +15,7 @@ func _ready():
 	Audio._galvin_map_play()
 	_spawn_player_1()
 	_spawn_player_2()
-	
+	main_player_spawn
 func _process(delta):
 	if Input.is_action_just_pressed("exit") and exit_prompt.visible == false:
 		exit_prompt.visible = true

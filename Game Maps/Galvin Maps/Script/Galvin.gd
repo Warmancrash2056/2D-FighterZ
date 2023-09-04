@@ -1,7 +1,7 @@
 extends Node2D
 
-var main_player_spawn = preload("res://Game Maps/Player Spawn Scripts/Main Player Spawn.tscn")
 
+@onready var player_1_spawn = CharacterList.get_main_player.instantiate()
 @onready var player_1_position = $"Player 1 Position"
 @onready var player_2_position = $"Player 2 Position"
 @onready var main_player_position = $"Main Player Position"
@@ -11,6 +11,11 @@ var main_player_spawn = preload("res://Game Maps/Player Spawn Scripts/Main Playe
 
 func _ready():
 	Audio._galvin_map_play()
+	player()
+func player():
+	call_deferred("add_child", player_1_spawn)
+	player_1_spawn.set_script(CharacterList.get_main_player_script)
+	
 func _process(delta):
 	if Input.is_action_just_pressed("exit") and exit_prompt.visible == false:
 		exit_prompt.visible = true

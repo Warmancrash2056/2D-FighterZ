@@ -71,6 +71,10 @@ var current_super_pts = 0
 @export var Health: int
 @export var Super_Pts: int
 
+enum direction{
+	facing_left,
+	facing_right
+}
 enum States {
 	# Normal Mode Ststes. #
 	Idling,
@@ -132,7 +136,7 @@ func _general_stats():
 	
 # Default State when entering the scene tree. #
 var Select = States.Respawn
-
+var current_direction = direction.facing_left
 func _reset_nomad_nuetral_attack():
 	nomad_nuetral_attack_hit = false	
 
@@ -214,18 +218,6 @@ func _general_archfield_freball():
 		
 		instance_fireball.scale.x = 1
 		
-func hunter_spear_throw():
-	var instance_spear = hunter_super_side_attack_spear.instantiate()
-	instance_spear.global_position = hunter_super_side_attack_position.global_position
-	get_tree().get_root().add_child(instance_spear)
-	
-	if CharacterList.main_player_facing_left == true:
-		instance_spear.velocity.x = -700
-		instance_spear.scale.x = -1
-	else:
-		instance_spear.velocity.x = 700
-		instance_spear.scale.x = 1
-		
 func can_sakura_ulight():
 	sakura_ulight_active = true
 func _reset_sakura_ulight():
@@ -287,15 +279,14 @@ func hunter_down_attack():
 		instance_shower.scale.x = -1
 	else:
 		instance_shower.scale.x = 1
-func _process(delta):
-	if is_on_floor():
-		jump_count = 3
-func _ready():
-	pass
+		
+			
 func _physics_process(delta):
 	move_and_slide()
 	match Select:
 		States.Idling:
+			#print(jump_count)
+			jump_count = 3
 			set_collision_mask_value(3, true)
 			if velocity.y > 200:
 				Select = States.Jumping
@@ -488,7 +479,7 @@ func _physics_process(delta):
 		States.Side_Light:
 			velocity.x = lerp(velocity.x, 0.0, 0.3)
 			velocity.y = 0
-			Animate.play("Side Light")
+			Animate.play("Side Light Start")
 		
 		States.Side_Heavy:
 			Animate.play("Side Heavy")

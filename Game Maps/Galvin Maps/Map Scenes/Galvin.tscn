@@ -5762,15 +5762,6 @@ size = Vector2(41, 101)
 [node name="Galvin Road" type="Node2D"]
 script = ExtResource("1_cxki7")
 
-[node name="Player 1 Position" type="Marker2D" parent="."]
-position = Vector2(-112, -152)
-
-[node name="Player 2 Position" type="Marker2D" parent="."]
-position = Vector2(136, -104)
-
-[node name="Main Player Position" type="Marker2D" parent="."]
-position = Vector2(32, -152)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -150)
 scale = Vector2(2.5, 2.5)

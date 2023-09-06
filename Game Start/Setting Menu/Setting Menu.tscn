@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://xoddx118tc6u"]
 
-[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/Background.tscn" id="1_c5mro"]
+[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/Background.tscn" id="1_dk4mg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y0qt7"]
 
@@ -13,8 +13,7 @@ script/source = "extends Control
 @onready var volume_up = $\"Volume Up\"
 @onready var pause_sound = $\"Pause Button\"
 
-var is_paused
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var is_paused: bool
 func _process(delta):
 	if is_paused == true:
 		Audio.stream_paused = true
@@ -26,13 +25,7 @@ func _process(delta):
 	# Default Audio volume is 5/ 50%
 	$ProgressBar.value = Audio.volume_db
 	
-	if Input.is_action_just_pressed(\"Player1_Left\"):
-		Audio.volume_db -= 1
-		
-		
-	if Input.is_action_just_pressed(\"Player1_Right\"):
-		Audio.volume_db += 1
-		
+func _pause_toggle():
 	if pause_sound.button_pressed == true:
 		is_paused = true
 	
@@ -48,6 +41,8 @@ func _on_volume_down_pressed():
 
 func _on_volume_up_pressed():
 	Audio.volume_db += 1
+
+
 "
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hggfm"]
@@ -107,7 +102,7 @@ offset_right = 412.0
 offset_bottom = 72.0
 scale = Vector2(3, 3)
 
-[node name="Background" parent="." instance=ExtResource("1_c5mro")]
+[node name="Background" parent="." instance=ExtResource("1_dk4mg")]
 layout_mode = 1
 offset_left = -256.0
 offset_top = -128.0
@@ -122,4 +117,5 @@ metadata/_edit_group_ = true
 
 [connection signal="pressed" from="Volume Down" to="." method="_on_volume_down_pressed"]
 [connection signal="pressed" from="Volume Up" to="." method="_on_volume_up_pressed"]
-[connection signal="pressed" from="Pause Button" to="." method="_on_check_button_pressed"]
+[connection signal="button_down" from="Pause Button" to="." method="_on_pause_button_button_down"]
+[connection signal="button_up" from="Pause Button" to="." method="_on_pause_button_button_up"]

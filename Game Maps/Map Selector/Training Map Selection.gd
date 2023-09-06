@@ -1,5 +1,5 @@
 extends Node2D
-
+# Training Map
 var player_1_controller: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 var player_2_controller: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
 var main_player_controller: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")

@@ -11,14 +11,8 @@ func SpawnChosen():
 	
 	call_deferred(\"add_child\", player_1_spawn)
 	player_1_spawn.set_script(CharacterList.get_main_player_script)
-
-func _process(delta):
 "
 
 [node name="Main Player Spawn" type="Marker2D"]
 script = SubResource("GDScript_gy2w8")
 metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0

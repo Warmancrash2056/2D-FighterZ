@@ -2,7 +2,7 @@
 
 [sub_resource type="GDScript" id="GDScript_gy2w8"]
 script/source = "extends Node2D
-var player_1_spawn = CharacterList.get_player_1 .instantiate()
+@onready var player_1_spawn = CharacterList.get_player_1 .instantiate()
 
 func _ready():
 	SpawnChosen()

@@ -1,7 +1,6 @@
-[gd_scene load_steps=58 format=3 uid="uid://bys0ptudnouiw"]
+[gd_scene load_steps=57 format=3 uid="uid://bys0ptudnouiw"]
 
 [ext_resource type="Texture2D" uid="uid://bwjnt30m56qyb" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_1.png" id="1_rejmr"]
-[ext_resource type="Script" path="res://Game Start/Character Idle.gd" id="1_ywqsc"]
 [ext_resource type="Texture2D" uid="uid://y1eglm80iyq7" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_2.png" id="2_l5plp"]
 [ext_resource type="Texture2D" uid="uid://byw4tlqhshaet" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_3.png" id="3_dvu3o"]
 [ext_resource type="Texture2D" uid="uid://ey5tm37at5ak" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_4.png" id="4_2sqyp"]
@@ -251,7 +250,6 @@ animations = [{
 }]
 
 [node name="Character Pose" type="Node2D"]
-script = ExtResource("1_ywqsc")
 
 [node name="General Archfield" type="AnimatedSprite2D" parent="."]
 z_index = -1

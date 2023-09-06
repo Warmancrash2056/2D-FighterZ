@@ -2,15 +2,15 @@
 
 [sub_resource type="GDScript" id="GDScript_gy2w8"]
 script/source = "extends Node2D
-@onready var player_1_spawn = CharacterList.get_main_player.instantiate()
+@onready var main_player = CharacterList.get_main_player.instantiate()
 
 func _ready():
 	SpawnChosen()
 
 func SpawnChosen():
 	
-	call_deferred(\"add_child\", player_1_spawn)
-	player_1_spawn.set_script(CharacterList.get_main_player_script)
+	call_deferred(\"add_child\", main_player)
+	main_player.set_script(CharacterList.get_main_player_script)
 "
 
 [node name="Main Player Spawn" type="Marker2D"]

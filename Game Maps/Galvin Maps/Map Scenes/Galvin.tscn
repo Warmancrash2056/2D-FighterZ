@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=25 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_evgpo"]
 [ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://Game Start/exit_prompt.tscn" id="9_us2oq"]
 [ext_resource type="PackedScene" uid="uid://dmxqaa14mv0iu" path="res://Autoloads/Main Healthbar.tscn" id="10_b1uo1"]
+[ext_resource type="PackedScene" uid="uid://djsgf28ytfjui" path="res://Game Maps/Player Spawn Scripts/player_2_spawn.tscn" id="12_n46ja"]
+[ext_resource type="PackedScene" uid="uid://bqckt62vdpw8f" path="res://Game Maps/Player Spawn Scripts/player_1_spawn.tscn" id="13_gtl3w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
 texture = ExtResource("6_umm62")
@@ -5762,6 +5764,15 @@ size = Vector2(41, 101)
 [node name="Galvin Road" type="Node2D"]
 script = ExtResource("1_cxki7")
 
+[node name="Player 1 Position" type="Marker2D" parent="."]
+position = Vector2(-112, -152)
+
+[node name="Player 2 Position" type="Marker2D" parent="."]
+position = Vector2(136, -104)
+
+[node name="Main Player Position" type="Marker2D" parent="."]
+position = Vector2(32, -152)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -150)
 scale = Vector2(2.5, 2.5)
@@ -5946,5 +5957,11 @@ position = Vector2(648, -512)
 
 [node name="ProgressBar2" parent="Healthbar" index="2"]
 z_index = 0
+
+[node name="Player 2 Spawn" parent="." instance=ExtResource("12_n46ja")]
+position = Vector2(-128, -192)
+
+[node name="Player 1 Spawn" parent="." instance=ExtResource("13_gtl3w")]
+position = Vector2(192, -192)
 
 [editable path="Healthbar"]

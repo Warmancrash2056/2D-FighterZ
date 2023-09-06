@@ -1,5 +1,5 @@
 extends Node2D
-# Local Map Selection
+# Local Map Select #
 var player_1_controller: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 var player_2_controller: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
 var main_player_controller: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
@@ -21,7 +21,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("exit"):
 		CharacterList.get_main_player = null
-		get_tree().change_scene_to_file("res://Game Start/Local Play/Training Character Selection.tscn")
+		get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
 	match MapCall:
 		Map.Galvin:
 			MapName.set_text(str("Galvin"))
@@ -38,8 +38,7 @@ func _process(delta):
 				Artic.visible = true
 				
 			if Input.is_action_just_pressed(player_1_controller.jump) or Input.is_action_just_pressed(player_2_controller.jump) or Input.is_action_just_pressed(main_player_controller.jump):
-				get_tree().change_scene_to_file("galvin")
-				
+				get_tree().change_scene_to_file("res://Game Maps/Galvin Maps/Map Scenes/Galvin.tscn")
 		Map.Artic:
 			MapName.set_text(str("The Artic"))
 			Artic.visible = true

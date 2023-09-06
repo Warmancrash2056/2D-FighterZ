@@ -30,7 +30,6 @@ var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectil
 # Used to detect if there is a wall.
 @onready var right_wall_detection = $Right
 @onready var left_wall_detection = $Left
-
 var goku_selected = false
 var general_selected = false
 var nomad_selected = false
@@ -71,10 +70,6 @@ var current_super_pts = 0
 @export var Health: int
 @export var Super_Pts: int
 
-enum direction{
-	facing_left,
-	facing_right
-}
 enum States {
 	# Normal Mode Ststes. #
 	Idling,
@@ -109,8 +104,8 @@ enum States {
 	Death, 
 	Hurt,
 	Respawn,
-	Right_WallIdle,
-	Left_Wallidle
+	Left_Wall,
+	Right_Wall
 	}
 	
 func _goku_stats():
@@ -136,7 +131,7 @@ func _general_stats():
 	
 # Default State when entering the scene tree. #
 var Select = States.Respawn
-var current_direction = direction.facing_left
+
 func _reset_nomad_nuetral_attack():
 	nomad_nuetral_attack_hit = false	
 
@@ -218,6 +213,18 @@ func _general_archfield_freball():
 		
 		instance_fireball.scale.x = 1
 		
+func hunter_spear_throw():
+	var instance_spear = hunter_super_side_attack_spear.instantiate()
+	instance_spear.global_position = hunter_super_side_attack_position.global_position
+	get_tree().get_root().add_child(instance_spear)
+	
+	if CharacterList.main_player_facing_left == true:
+		instance_spear.velocity.x = -700
+		instance_spear.scale.x = -1
+	else:
+		instance_spear.velocity.x = 700
+		instance_spear.scale.x = 1
+		
 func can_sakura_ulight():
 	sakura_ulight_active = true
 func _reset_sakura_ulight():
@@ -226,7 +233,8 @@ func _activate_sakura_ulight_smoke():
 	var instance_sakura_jump = sakura_ulight_smoke.instantiate()
 	instance_sakura_jump.global_position = smoke_position.global_position
 	get_tree().get_root().add_child(instance_sakura_jump)
-	
+
+
 # Activates jump and counter smoke at first frame of jumps and directional attacks.
 func _activate_jump_smoke():
 	var instance_smoke_jump = jump_smoke.instantiate()
@@ -279,14 +287,15 @@ func hunter_down_attack():
 		instance_shower.scale.x = -1
 	else:
 		instance_shower.scale.x = 1
-		
-			
+func _process(delta):
+	if is_on_floor():
+		jump_count = 3
+func _ready():
+	pass
 func _physics_process(delta):
 	move_and_slide()
 	match Select:
 		States.Idling:
-			#print(jump_count)
-			jump_count = 3
 			set_collision_mask_value(3, true)
 			if velocity.y > 200:
 				Select = States.Jumping
@@ -339,9 +348,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.dash) and block_active == false:
 					Select = States.Ground_Block
 					block_active = true
-					
-				if Input.is_action_just_pressed(controls.heavy):
-					Select = States.Nuetral_Heavy
+				
 				
 				# New Mechanic for projectile throw	
 				if Input.is_action_just_pressed(controls.throw):
@@ -372,18 +379,18 @@ func _physics_process(delta):
 			
 			
 			if Input.is_action_pressed(controls.down):
-				velocity.y += 5
+				velocity.y += 40
 				set_collision_mask_value(3, false)
 			else:
 				set_collision_mask_value(3, true)
 				
-			# Check if player is on wall to engage or disengage from wall when ray cast touches.
 			if is_on_wall():
-				if right_wall_detection.is_colliding() == true:
-					Select = States.Right_WallIdle
-					
-				elif left_wall_detection.is_colliding() == true:
-					Select = States.Left_Wallidle
+				if left_wall_detection.is_colliding():
+					Select = States.Left_Wall
+				else:
+					if right_wall_detection.is_colliding():
+						Select = States.Right_Wall
+		
 		
 			if is_on_floor():
 				Select = States.Idling
@@ -430,18 +437,18 @@ func _physics_process(delta):
 				set_collision_mask_value(3, true)
 			
 		States.Falling:
+			Animate.play("Fall")
 			if Input.is_action_pressed(controls.down):
-				velocity.y += 10
+				velocity.y += 20
 				set_collision_mask_value(3, false)
 			else:
 				set_collision_mask_value(3, true)
-			Animate.play("Fall")
 			if is_on_wall():
-				if right_wall_detection.is_colliding() == true:
-					Select = States.Right_WallIdle
-					
-				elif left_wall_detection.is_colliding() == true:
-					Select = States.Left_Wallidle
+				if left_wall_detection.is_colliding():
+					Select = States.Left_Wall
+				else:
+					if right_wall_detection.is_colliding():
+						Select = States.Right_Wall
 			if Input.is_action_pressed(controls.left):
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -456,8 +463,6 @@ func _physics_process(delta):
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.05)
 				
-				if Input.is_action_just_pressed(controls.throw):
-					Select = States.Air_Projectile
 			if jump_count > 0:
 				if Input.is_action_just_pressed(controls.jump):
 					jump_count -= 1
@@ -479,7 +484,7 @@ func _physics_process(delta):
 		States.Side_Light:
 			velocity.x = lerp(velocity.x, 0.0, 0.3)
 			velocity.y = 0
-			Animate.play("Side Light Start")
+			Animate.play("Side Light")
 		
 		States.Side_Heavy:
 			Animate.play("Side Heavy")
@@ -536,7 +541,7 @@ func _physics_process(delta):
 			#  Activate turn around at the start of the state. #
 			turn_around()
 			Animate.play("Air Block")
-			velocity.x = 0
+			velocity.x = lerp(velocity.x, 0.0, 0.05)
 			velocity.y = 0
 			block_timer.start()
 			# Activate counter smoke to be called during an attack.
@@ -575,41 +580,40 @@ func _physics_process(delta):
 			Animate.play("Respawn")
 			velocity.x = 0
 			velocity.y = 0
-		States.Left_Wallidle:
-			Sprite.flip_h = false
-			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+		States.Right_Wall:
 			jump_count = 3
 			Animate.play("Wall")
 			velocity.y = 1
 			velocity.x = 0
+			Sprite.flip_h = true
+			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+			if Input.is_action_pressed(controls.left):
+				if Input.is_action_just_pressed(controls.jump):
+					velocity.x = -200
+					Select = States.Jumping
+					velocity.y = -Jump_Height
+					_activate_jump_smoke()
+					$"Character Jump Sound".play()
+		States.Left_Wall:
+			jump_count = 3
+			Animate.play("Wall")
+			velocity.y = 1
+			velocity.x = 0
+			Sprite.flip_h = false
+			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 			
 			if Input.is_action_pressed(controls.right):
 				if Input.is_action_just_pressed(controls.jump):
-					velocity.x = 100
 					Select = States.Jumping
-					print("On Right Side")
-					velocity.y = -400
+					velocity.x = 200
+					velocity.y = -Jump_Height
+					print("On Left Side")
 					_activate_jump_smoke()
 					$"Character Jump Sound".play()
-		States.Right_WallIdle:
-			Sprite.flip_h = true
-			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			jump_count = 3
-			Animate.play("Wall")
-			velocity.y = 1
-			velocity.x = 0
-			
-			if Input.is_action_pressed(controls.left):
-				if Input.is_action_just_pressed(controls.jump):
-					velocity.x = -100
-					Select = States.Jumping
-					print("On Right Side")
-					velocity.y = -400
-					_activate_jump_smoke()
-					$"Character Jump Sound".play()
+			velocity.y += Gravity
 		States.Air_Projectile:
 			Animate.play("Air Projectile")
-			velocity.x = lerp(velocity.x, 0.0, 0.05)
+			velocity.x = lerp(velocity.x , 0.0, 0.05)
 			velocity.y = 0
 		
 		States.Ground_Projectile:
@@ -618,9 +622,6 @@ func _physics_process(delta):
 			velocity.y = 0
 func _on_hurtbox_area_entered(area):
 	Select = States.Hurt
-
-func _on_deplete_energy_timeout():
-	current_super_pts -= add_super_pts	
 
 
 func _on_area_2d_area_entered(area):

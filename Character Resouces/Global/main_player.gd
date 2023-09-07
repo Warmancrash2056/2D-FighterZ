@@ -484,7 +484,7 @@ func _physics_process(delta):
 		States.Side_Light:
 			velocity.x = lerp(velocity.x, 0.0, 0.3)
 			velocity.y = 0
-			Animate.play("Side Light")
+			Animate.play("Side Light Start")
 		
 		States.Side_Heavy:
 			Animate.play("Side Heavy")

@@ -34,11 +34,15 @@ animations = [{
 "texture": ExtResource("7_4vply")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Smoke",
 "speed": 5.0
 }]
 
 [node name="Wall Jump Cloud" type="AnimatedSprite2D"]
+rotation = 1.5708
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_sev5d")
-frame_progress = 0.475387
+animation = &"Smoke"
 script = ExtResource("8_16o64")
+
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

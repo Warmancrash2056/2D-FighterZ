@@ -11,11 +11,12 @@ var general_nuetral_attack_fireball = preload("res://Character Resouces/General 
 var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Projectile/projectiles_and_effects/Hunter Super Spear.tscn")
 var hunter_down_attack_shower = preload("res://Character Resouces/Hunter/Projectile/Hunter Arrow Shower .tscn")
 var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.tscn")
-
+var wall_jump_smoke = preload("res://wall_jump_cloud.tscn")
 
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $"Jump Smoke"
+@onready var wall_jump_smoke_position = $"Scale Player/Wall Jump Smoke"
 @onready var counter_position = $"Counter Position"
 @onready var block_timer = $"Refresh Block"
 @onready var dash_smoke_position = $"Scale Player/Dash Smoke Position"
@@ -126,6 +127,12 @@ func _general_stats():
 	Speed = 125
 	Air_Speed = 250
 	Fall_Speed = 175
+	
+func _sakura_stats():
+	pass
+	
+func _nomad_stats():
+	pass
 	
 	
 	
@@ -240,7 +247,10 @@ func _activate_jump_smoke():
 	var instance_smoke_jump = jump_smoke.instantiate()
 	instance_smoke_jump.global_position = smoke_position.global_position
 	get_tree().get_root().add_child(instance_smoke_jump)
-
+func _activate_wall_jump_smoke():
+	var instance_wall_jump = wall_jump_smoke.instantiate()
+	instance_wall_jump.global_position = wall_jump_smoke_position.global_position
+	get_tree().get_root().add_child(instance_wall_jump)
 func _activate_counter_smoke():
 	var instance_smoke_counter = counter_smoke.instantiate()
 	if can_counter == true:
@@ -592,7 +602,7 @@ func _physics_process(delta):
 					velocity.x = -200
 					Select = States.Jumping
 					velocity.y = -Jump_Height
-					_activate_jump_smoke()
+					_activate_wall_jump_smoke()
 					$"Character Jump Sound".play()
 		States.Left_Wall:
 			jump_count = 3
@@ -608,7 +618,7 @@ func _physics_process(delta):
 					velocity.x = 200
 					velocity.y = -Jump_Height
 					print("On Left Side")
-					_activate_jump_smoke()
+					_activate_wall_jump_smoke()
 					$"Character Jump Sound".play()
 			velocity.y += Gravity
 		States.Air_Projectile:

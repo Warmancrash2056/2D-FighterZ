@@ -52,10 +52,10 @@ animations = [{
 
 [node name="Dash Smoke" type="AnimatedSprite2D"]
 z_index = 6
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_iyuk8")
 animation = &"Dash"
-frame_progress = 0.855466
+frame_progress = 0.285505
 script = ExtResource("11_f0b02")
 
 [connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

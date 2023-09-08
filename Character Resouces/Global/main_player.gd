@@ -62,11 +62,7 @@ var block_active = false
 var attack_active = false
 
 var jump_count = 3
-# Increment super points every hit 
-var add_super_pts = 5
 
-# Current Supe pts available at the start of match 
-var current_super_pts = 0
 
 @export var Health: int
 @export var Super_Pts: int
@@ -175,7 +171,7 @@ func _counter_nuetral_heavy():
 func _counter_side_light():
 	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
 		if Input.is_action_pressed(controls.light):
-			Select = States.Side_Heavy
+			Select = States.Side_Light
 			print("counter side light")
 func _counter_side_heavy():
 	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
@@ -184,8 +180,8 @@ func _counter_side_heavy():
 			
 func counter_dowm_light():
 	if Input.is_action_pressed(controls.down):
-		if Input.is_action_pressed(controls.heavy):
-			Select = States.Down_Heavy
+		if Input.is_action_pressed(controls.light):
+			Select = States.Down_Light
 func counter_down_heavy():
 	if Input.is_action_pressed(controls.down):
 		if Input.is_action_pressed(controls.heavy):
@@ -251,11 +247,19 @@ func _activate_wall_jump_smoke():
 	var instance_wall_jump = wall_jump_smoke.instantiate()
 	instance_wall_jump.global_position = wall_jump_smoke_position.global_position
 	get_tree().get_root().add_child(instance_wall_jump)
+	
+	if CharacterList.main_player_facing_left == true:
+		instance_wall_jump.scale.y = 3
+	else:
+		instance_wall_jump.scale.y = -3
+		
 func _activate_counter_smoke():
 	var instance_smoke_counter = counter_smoke.instantiate()
 	if can_counter == true:
 		instance_smoke_counter.global_position = counter_position.global_position
 		get_tree().get_root().add_child(instance_smoke_counter)
+		
+	
 # Reset counter smoke at the frist frame of idle and fall state.
 func _reset_counter():
 	# Reset counter after if player uses an attack or not.
@@ -297,15 +301,14 @@ func hunter_down_attack():
 		instance_shower.scale.x = -1
 	else:
 		instance_shower.scale.x = 1
-func _process(delta):
-	if is_on_floor():
-		jump_count = 3
 func _ready():
 	pass
 func _physics_process(delta):
+	print(can_change_dir)
 	move_and_slide()
 	match Select:
 		States.Idling:
+			jump_count = 3
 			set_collision_mask_value(3, true)
 			if velocity.y > 200:
 				Select = States.Jumping

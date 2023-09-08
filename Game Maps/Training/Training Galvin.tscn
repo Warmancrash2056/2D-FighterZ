@@ -5746,16 +5746,16 @@ texture = ExtResource("8_y1j5t")
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcey8"]
-size = Vector2(1728, 277)
+size = Vector2(1940, 277)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sier"]
-size = Vector2(881.5, 1284)
+size = Vector2(881.5, 1394)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfu67"]
 size = Vector2(2560, 358.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8jnj"]
-size = Vector2(331, 1640)
+size = Vector2(259, 1640)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipdot"]
 size = Vector2(41, 101)
@@ -5788,7 +5788,7 @@ texture = ExtResource("5_1vo7g")
 offset = Vector2(16.5, 0)
 
 [node name="Camera2D" parent="." instance=ExtResource("6_fs4jg")]
-position = Vector2(-8, -208)
+position = Vector2(0, -168)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-15.999, 0)
@@ -5916,19 +5916,19 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(32, 472)
+position = Vector2(-40, 512)
 shape = SubResource("RectangleShape2D_rcey8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1256.75, 18)
+position = Vector2(-1400, -39)
 shape = SubResource("RectangleShape2D_1sier")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-400, -812.75)
+position = Vector2(-360, -928)
 shape = SubResource("RectangleShape2D_cfu67")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1045.5, -172)
+position = Vector2(1081.5, -172)
 shape = SubResource("RectangleShape2D_a8jnj")
 
 [node name="Area2D2" type="Area2D" parent="."]

@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://cwpiiesuek7ha"]
+[gd_scene load_steps=2 format=3 uid="uid://cwpiiesuek7ha"]
+
+[ext_resource type="Script" path="res://camera_2d.gd" id="1_yoxxl"]
 
 [node name="Camera2D" type="Camera2D"]
 z_index = 7
 position = Vector2(32, -200)
-zoom = Vector2(0.6, 0.6)
+script = ExtResource("1_yoxxl")
+debug_mode = true

@@ -1,17 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://c7wrqu80j50fa"]
+[gd_scene load_steps=23 format=3 uid="uid://c7wrqu80j50fa"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_smpps"]
 [ext_resource type="Texture2D" uid="uid://b07grplvo2wco" path="res://Game Maps/Galvin Maps/Galvin Assets/background 1.png" id="2_i1i66"]
 [ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="3_yokyq"]
 [ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/Galvin Maps/Galvin Assets/background 3.png" id="4_dq4uk"]
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="5_1vo7g"]
-[ext_resource type="PackedScene" uid="uid://cwpiiesuek7ha" path="res://camera_2d.tscn" id="6_fs4jg"]
 [ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="7_7w1eu"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="8_y1j5t"]
 [ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="9_jqke8"]
 [ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://Game Start/exit_prompt.tscn" id="10_11shr"]
+[ext_resource type="Script" path="res://Game Maps/Training/Camera2D.gd" id="11_id0ap"]
 [ext_resource type="PackedScene" uid="uid://dmxqaa14mv0iu" path="res://Autoloads/Main Healthbar.tscn" id="11_sxux3"]
-[ext_resource type="PackedScene" uid="uid://di2oxi77xuojp" path="res://Game Maps/Player Spawn Scripts/Main Player Spawn.tscn" id="12_mx0dp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
 texture = ExtResource("7_7w1eu")
@@ -5787,9 +5786,6 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("5_1vo7g")
 offset = Vector2(16.5, 0)
 
-[node name="Camera2D" parent="." instance=ExtResource("6_fs4jg")]
-position = Vector2(0, -168)
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-15.999, 0)
 tile_set = SubResource("TileSet_e4l1i")
@@ -5945,7 +5941,7 @@ position = Vector2(648, -512)
 [node name="ProgressBar2" parent="Healthbar" index="2"]
 z_index = 0
 
-[node name="Main Player Spawn" parent="." instance=ExtResource("12_mx0dp")]
-position = Vector2(0, -196)
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("11_id0ap")
 
 [editable path="Healthbar"]

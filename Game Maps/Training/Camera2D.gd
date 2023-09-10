@@ -1,15 +1,15 @@
-extends Node2D
+extends Camera2D
+
 
 @onready var player_1_spawn = CharacterList.get_main_player.instantiate()
+
 # Called when the node enters the scene treefor the first time.
+
 func _ready():
-	if CharacterList.get_main_player != null:
-		SpawnChosen()
-	else:
-		return
+	SpawnChosen()
 
 func SpawnChosen():
-	call_deferred("add_child", player_1_spawn)
+	call_deferred("add_child", player_1_spawn,)
 	
 	# if says "could not resolve script usaully means that 
 	#script is error and needs to be fixed. before running again.

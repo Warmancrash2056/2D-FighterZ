@@ -1,8 +1,5 @@
 extends Node2D
 
-var player_1_spawn = preload("res://Game Maps/Player Spawn Scripts/player_1_spawn.tscn")
-var player_2_spawn = preload("res://Game Maps/Player Spawn Scripts/player_2_spawn.tscn")
-var main_player_spawn = preload("res://Game Maps/Player Spawn Scripts/Main Player Spawn.tscn")
 
 @onready var player_1_position = $"Player 1 Position"
 @onready var player_2_position = $"Player 2 Position"
@@ -13,9 +10,6 @@ var main_player_spawn = preload("res://Game Maps/Player Spawn Scripts/Main Playe
 
 func _ready():
 	Audio._galvin_map_play()
-	_spawn_player_1()
-	_spawn_player_2()
-	main_player_spawn
 func _process(delta):
 	if Input.is_action_just_pressed("exit") and exit_prompt.visible == false:
 		exit_prompt.visible = true

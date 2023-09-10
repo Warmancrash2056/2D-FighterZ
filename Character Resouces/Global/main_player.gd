@@ -56,8 +56,8 @@ var Acceleration = 50
 var Air_Speed = 0
 var Fall_Speed = 0
 var Roll_Speed = 600
-var Jump_Height = 600
-var Gravity = 25
+var Jump_Height = 150
+var Gravity = 50
 
 var can_sakura_ulight_smoke = false
 var can_jump_smoke = false
@@ -119,9 +119,9 @@ enum States {
 func _goku_stats():
 	CharacterList.goku_selected = true
 	goku_selected = true
-	Speed = 350
-	Air_Speed = 150
-	Fall_Speed = 100
+	Speed = 400
+	Air_Speed = 300
+	Fall_Speed = 200
 
 func _general_stats():
 	nomad_selected = true
@@ -336,7 +336,7 @@ func _hunter_stats():
 func _ready():
 	pass
 func _physics_process(delta):
-	print(can_change_dir)
+	print(jump_count)
 	move_and_slide()
 	match Select:
 		States.Idling:

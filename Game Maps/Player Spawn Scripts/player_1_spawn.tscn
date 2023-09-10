@@ -4,6 +4,7 @@
 script/source = "extends Node2D
 @onready var player_1_spawn = CharacterList.get_player_1 .instantiate()
 
+var current_position: Vector2
 func _ready():
 	SpawnChosen()
 
@@ -11,7 +12,13 @@ func SpawnChosen():
 	
 	call_deferred(\"add_child\", player_1_spawn)
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
+
+	current_position = player_1_spawn.position 
+func _process(delta):
+	position = current_position
 "
 
 [node name="Player 1 Spawn" type="Marker2D"]
 script = SubResource("GDScript_gy2w8")
+
+[node name="Timer" type="Timer" parent="."]

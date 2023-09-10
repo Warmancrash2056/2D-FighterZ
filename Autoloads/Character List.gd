@@ -19,9 +19,6 @@ var blacksmith = false
 
 # Display Icon 
 var icon 
-var player_1_position: Vector2
-var player_2_position: Vector2
-var main_player
 var check_player_1_is_called = false
 var check_player_2_is_called = false
 var check_main_is_called = false
@@ -47,6 +44,3 @@ var SelectCharacters = {
 	"Goku" : preload("res://Character Resouces/Goku/Character Scenes/Goku.tscn"),
 	"Sakura" : preload("res://Character Resouces/Sakura/Character Scene/Sakura.tscn")
 }
-
-func _process(delta):
-	print(get_player_1)

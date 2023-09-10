@@ -3,10 +3,7 @@ extends Node2D
 @onready var player_1_spawn = CharacterList.get_main_player.instantiate()
 # Called when the node enters the scene treefor the first time.
 func _ready():
-	if CharacterList.get_main_player != null:
-		SpawnChosen()
-	else:
-		return
+	SpawnChosen()
 
 func SpawnChosen():
 	call_deferred("add_child", player_1_spawn)

@@ -5,10 +5,7 @@ script/source = "extends Node2D
 @onready var main_player = CharacterList.get_main_player.instantiate()
 
 func _ready():
-	if CharacterList.get_player_1 != null:
-		SpawnChosen()
-	else:
-		return
+	SpawnChosen()
 
 func SpawnChosen():
 	

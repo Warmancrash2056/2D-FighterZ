@@ -11,10 +11,6 @@ func _ready():
 func SpawnChosen():
 	call_deferred(\"add_child\", player_2_spawn)
 	player_2_spawn.set_script(CharacterList.get_player_2_script)
-
-func _physics_process(delta):
-	pass
-	#global_position = CharacterList.player_2_position
 "
 
 [node name="Player 2 Spawn" type="Marker2D"]

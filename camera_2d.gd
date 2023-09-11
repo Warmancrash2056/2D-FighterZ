@@ -8,10 +8,13 @@ extends Camera2D
 var camera_rect := Rect2()
 var viewport_rect := Rect2()
 
+@onready var health = $Healthbar
 func _ready() -> void:
 	Player_1()
 	Player_2()
+	
 func _process(delta: float) -> void:
+	health.global_position = offset
 	print(zoom)
 	viewport_rect = get_viewport_rect()
 	set_process(get_child_count() > 0)
@@ -20,11 +23,10 @@ func _process(delta: float) -> void:
 		if index == 0:
 			continue
 		camera_rect = camera_rect.expand(get_child(index).global_position)
-	
-	offset = calculate_center(camera_rect)
-	zoom = calculate_zoom(camera_rect, viewport_rect.size)
-	
+		
 
+	zoom = calculate_zoom(camera_rect, viewport_rect.size)
+	offset = calculate_center(camera_rect)
 	if debug_mode:
 		queue_redraw()
 func calculate_center(rect: Rect2) -> Vector2:
@@ -49,6 +51,7 @@ func Player_1():
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
 	
 	player_1_spawn.position = Vector2(192,-102)
+	
 func Player_2():
 	
 	call_deferred("add_child", player_2_spawn)

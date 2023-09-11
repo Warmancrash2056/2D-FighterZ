@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://x6l8fjktspw8"]
+
+[ext_resource type="Script" path="res://camera_2d.gd" id="1_e6ibr"]
+[ext_resource type="PackedScene" uid="uid://b3rv1kotqtmjy" path="res://Autoloads/Player 1 Healthbar.tscn" id="2_c4q5x"]
+
+[node name="Camera2D" type="Camera2D"]
+limit_left = -1000
+limit_top = -1000
+limit_right = 1000
+limit_bottom = 1000
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+editor_draw_limits = true
+script = ExtResource("1_e6ibr")
+
+[node name="Healthbar" parent="." instance=ExtResource("2_c4q5x")]
+position = Vector2(416, -192)
+metadata/_edit_group_ = true

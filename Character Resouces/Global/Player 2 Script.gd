@@ -336,7 +336,6 @@ func _hunter_stats():
 func _ready():
 	pass
 func _physics_process(delta):
-	print(jump_count)
 	move_and_slide()
 	match Select:
 		States.Idling:

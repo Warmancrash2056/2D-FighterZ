@@ -119,8 +119,8 @@ enum States {
 func _goku_stats():
 	CharacterList.goku_selected = true
 	goku_selected = true
-	Speed = 350
-	Air_Speed = 150
+	Speed = 300
+	Air_Speed = 200
 	Fall_Speed = 100
 
 func _general_stats():
@@ -336,7 +336,6 @@ func _hunter_stats():
 func _ready():
 	pass
 func _physics_process(delta):
-	print(jump_count)
 	move_and_slide()
 	match Select:
 		States.Idling:

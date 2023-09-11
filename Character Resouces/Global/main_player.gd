@@ -38,7 +38,8 @@ var goku_ground_projectiles = preload("res://Goku Ground Projectile.tscn")
 # Goku Projectile Position #
 
 
-
+var velocity_x : int
+var velocity_y: int 
 # Used to detect if there is a wall.
 @onready var right_wall_detection = $Right
 @onready var left_wall_detection = $Left

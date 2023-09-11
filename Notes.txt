@@ -1,0 +1,19 @@
+Setting Up Player
+ - 	Characters should have the following nodes in place to synchronize with scrip.
+	1. Marker2d For the foloowing nodes. Jump, Dash, Wall. Must be placed in the
+		 scale player root node except for jump.
+	2. Hitboxes must be named with their direction for area2d and with the type
+		 of attack in collision. All Placed in scale player.
+	
+- Script shlould have following in synchronize
+
+	1.Controls the side the character is facing and must be placed in whether direction the player is facing in idle, jump, and fall
+		- Left Side Facing. Copy if Needed!
+		 	Sprite.flip_h = true
+			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+			CharacterList.main_player_facing_left = true
+		
+		- Right Side Facing
+			Sprite.flip_h = true
+				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				CharacterList.main_player_facing_left = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=21 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -9,8 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="6_umm62"]
 [ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_evgpo"]
 [ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://Game Start/exit_prompt.tscn" id="9_us2oq"]
-[ext_resource type="PackedScene" uid="uid://dmxqaa14mv0iu" path="res://Autoloads/Main Healthbar.tscn" id="10_b1uo1"]
-[ext_resource type="PackedScene" uid="uid://x6l8fjktspw8" path="res://Game Camera.tscn" id="11_kldbf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
 texture = ExtResource("6_umm62")
@@ -5745,16 +5743,16 @@ texture = ExtResource("2_uq8es")
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcey8"]
-size = Vector2(4248, 746.5)
+size = Vector2(4248, 754.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sier"]
-size = Vector2(1336.38, 1776)
+size = Vector2(1328.38, 1776)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfu67"]
 size = Vector2(3896, 307.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8jnj"]
-size = Vector2(1488, 2124)
+size = Vector2(1472, 2124)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipdot"]
 size = Vector2(41, 101)
@@ -5912,19 +5910,19 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(76, 829.25)
+position = Vector2(76, 825.25)
 shape = SubResource("RectangleShape2D_rcey8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1372.19, 0)
+position = Vector2(-1376.19, 0)
 shape = SubResource("RectangleShape2D_1sier")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-84, -1041.62)
+position = Vector2(-85, -1042)
 shape = SubResource("RectangleShape2D_cfu67")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1456, -138)
+position = Vector2(1464, -138)
 shape = SubResource("RectangleShape2D_a8jnj")
 
 [node name="Area2D2" type="Area2D" parent="."]
@@ -5935,26 +5933,12 @@ collision_mask = 16
 position = Vector2(-64, -32)
 shape = SubResource("RectangleShape2D_ipdot")
 
-[node name="Healthbar" parent="." instance=ExtResource("10_b1uo1")]
-position = Vector2(440, -288)
-metadata/_edit_lock_ = true
-
-[node name="ProgressBar" parent="Healthbar" index="0"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ProgressBar2" parent="Healthbar" index="2"]
-z_index = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="Camera2D" parent="." instance=ExtResource("11_kldbf")]
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
 polygon = PackedVector2Array(-304, 424, 320, 424, 320, 448, -304, 448)
 
-[editable path="Healthbar"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(7, 43)
+zoom = Vector2(0.8, 0.8)

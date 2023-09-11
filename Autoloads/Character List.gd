@@ -5,6 +5,7 @@ var get_player_1 = null
 var get_player_2 = null
 var get_main_player = null
 
+var player_1_dead = false
 var health = 800
 var lives = 2
 

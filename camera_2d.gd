@@ -4,7 +4,6 @@ extends Camera2D
 
 @export_range(0.1, 1.0) var zoom_offset : float = 0.2
 @export var debug_mode : bool = false
-
 var camera_rect := Rect2()
 var viewport_rect := Rect2()
 
@@ -14,8 +13,8 @@ func _ready() -> void:
 	Player_2()
 	
 func _process(delta: float) -> void:
-	health.global_position = offset
-	print(zoom)
+	var distance = player_1_spawn.position.distance_to(player_2_spawn.position)
+	print(distance)
 	viewport_rect = get_viewport_rect()
 	set_process(get_child_count() > 0)
 	camera_rect = Rect2(get_child(0).global_position, Vector2())
@@ -24,7 +23,6 @@ func _process(delta: float) -> void:
 			continue
 		camera_rect = camera_rect.expand(get_child(index).global_position)
 		
-
 	zoom = calculate_zoom(camera_rect, viewport_rect.size)
 	offset = calculate_center(camera_rect)
 	if debug_mode:
@@ -36,8 +34,8 @@ func calculate_center(rect: Rect2) -> Vector2:
 
 func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 	var min_zoom = min(
-		min(1.5, viewport_size.x / rect.size.x - zoom_offset),
-		min(1.5, viewport_size.y / rect.size.y - zoom_offset))
+		min(1.3, viewport_size.x / rect.size.x - zoom_offset),
+		min(1.3, viewport_size.y / rect.size.y - zoom_offset))
 	return Vector2(min_zoom, min_zoom)
 
 func _draw() -> void:

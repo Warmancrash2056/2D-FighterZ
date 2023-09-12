@@ -1346,7 +1346,7 @@ tracks/15/keys = {
 
 [sub_resource type="Animation" id="Animation_fl5qb"]
 resource_name = "Hurt"
-length = 0.6
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1354,10 +1354,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [148, 149, 150, 151, 152, 153]
+"values": [148, 149, 150, 151, 152, 17, 18, 19]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -1366,11 +1366,11 @@ tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"_idle_state_"
+"method": &"_fall_state_"
 }]
 }
 tracks/2/type = "value"

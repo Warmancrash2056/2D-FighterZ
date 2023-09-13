@@ -118,9 +118,9 @@ enum States {
 func _goku_stats():
 	CharacterList.goku_selected = true
 	goku_selected = true
-	Speed = 400
-	Air_Speed = 300
-	Fall_Speed = 200
+	Speed = 300
+	Air_Speed = 150
+	Fall_Speed = 100
 
 func _general_stats():
 	nomad_selected = true
@@ -225,7 +225,7 @@ func _goku_air_projectile():
 	instance_molten_sand.global_position = goku_projectile_position.global_position
 	get_tree().get_root().add_child(instance_molten_sand)
 
-	if CharacterList.player_1_facing_left == true:
+	if CharacterList.player_2_facing_left == true:
 		instance_molten_sand.velocity.x = -700
 		instance_molten_sand.scale.x = -1
 	else:
@@ -276,7 +276,7 @@ func _activate_wall_jump_smoke():
 	instance_wall_jump.global_position = wall_jump_smoke_position.global_position
 	get_tree().get_root().add_child(instance_wall_jump)
 
-	if CharacterList.player_1_facing_left == true:
+	if CharacterList.main_player_facing_left == true:
 		instance_wall_jump.scale.y = 3
 	else:
 		instance_wall_jump.scale.y = -3
@@ -335,7 +335,7 @@ func _hunter_stats():
 func _ready():
 	pass
 func _physics_process(delta):
-	print(velocity)
+	print(CharacterList.player_2_facing_left)
 	move_and_slide()
 	match Select:
 		States.Idling:
@@ -608,7 +608,7 @@ func _physics_process(delta):
 			if velocity.y > 200:
 				Select = States.Falling
 
-			if CharacterList.player_1_facing_left == true:
+			if CharacterList.main_player_facing_left == true:
 				if Input.is_action_just_pressed(controls.right):
 					Select = States.Idling
 					velocity.x = 0

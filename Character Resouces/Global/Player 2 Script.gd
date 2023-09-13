@@ -73,6 +73,7 @@ var attack_active = false
 
 var jump_count = 3
 
+var subtract_test = 0
 
 @export var Health: int
 @export var Super_Pts: int
@@ -335,6 +336,7 @@ func _hunter_stats():
 func _ready():
 	pass
 func _physics_process(delta):
+	print(velocity)
 	print(CharacterList.player_1_facing_left)
 	move_and_slide()
 	match Select:
@@ -669,21 +671,41 @@ func _on_hurtbox_area_entered(area):
 
 
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("Side Air"):
+	if area.is_in_group("Goku | Side Air Start"):
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
-			set_velocity(Vector2(-150,0))
+			velocity.x -= 75
 		else:
-			set_velocity(Vector2(150,0))
-	if area.is_in_group("Down Light"):
+			velocity.x += 75
+	if area.is_in_group("Goku | Nuetral Air Right Side"):
 		Select = States.Hurt
-		set_velocity(Vector2(0, -150))
-	if area.is_in_group("Nuetral Light"):
+		
+		if CharacterList.player_1_facing_left == true:
+			velocity.x -= 10
+			
+		else:
+			velocity.x += 10
+		velocity.y -= 20
+		
+	if area.is_in_group("Goku | Nuetral Air Middle Side"):
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
-			set_velocity(Vector2(-150,-50))
+			velocity.x -= 10
+			
 		else:
-			set_velocity(Vector2(150,-50))
+			velocity.x += 1
+	
+	if area.is_in_group("Goku | Nuetral Air Left Side"):
+		pass
+	if area.is_in_group("Goku | Down Light"):
+		Select = States.Hurt
+		velocity.y -= 150
+	if area.is_in_group("Goku | Nuetral Light Start"):
+		Select = States.Hurt
+		if CharacterList.player_1_facing_left == true:
+			velocity.x -= 50
+		else:
+			velocity.x += 50
 	if area.is_in_group("Off Stage - Galvin"):
 		position = CharacterList.galvin_player_respawn
 		Select = States.Respawn

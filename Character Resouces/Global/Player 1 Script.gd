@@ -276,7 +276,7 @@ func _activate_wall_jump_smoke():
 	instance_wall_jump.global_position = wall_jump_smoke_position.global_position
 	get_tree().get_root().add_child(instance_wall_jump)
 
-	if CharacterList.main_player_facing_left == true:
+	if CharacterList.player_1_facing_left == true:
 		instance_wall_jump.scale.y = 3
 	else:
 		instance_wall_jump.scale.y = -3

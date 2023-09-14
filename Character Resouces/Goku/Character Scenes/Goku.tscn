@@ -33,12 +33,12 @@ height = 27.0
 radius = 4.5
 height = 22.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_en0nm"]
-radius = 4.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgphb"]
 radius = 4.0
 height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_en0nm"]
+radius = 4.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d5adm"]
 radius = 6.5
@@ -65,8 +65,9 @@ radius = 4.272
 [sub_resource type="CircleShape2D" id="CircleShape2D_drh4y"]
 radius = 4.27
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cvotp"]
-radius = 6.0208
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jsj12"]
+radius = 3.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qamvs"]
 radius = 8.0
@@ -276,6 +277,18 @@ tracks/14/keys = {
 "method": &"counter_dowm_light"
 }]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../Character:speed_scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_1w688"]
 resource_name = "Air Projectile"
@@ -330,6 +343,18 @@ tracks/3/keys = {
 "args": [],
 "method": &"_goku_air_projectile"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Character:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_gn67f"]
@@ -414,6 +439,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [7, 8, 9, 10, 11, 12]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Character:speed_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_da14b"]
@@ -589,6 +626,18 @@ tracks/13/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../Character:speed_scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_67kk3"]
 resource_name = "Down Light"
@@ -731,6 +780,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Character:speed_scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.3]
 }
 
 [sub_resource type="Animation" id="Animation_veaer"]
@@ -968,6 +1029,32 @@ tracks/18/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/19/type = "method"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("..")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_reset_side_transition"
+}]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../Character:speed_scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_id6wq"]
 resource_name = "Ground Block"
@@ -1153,6 +1240,18 @@ tracks/14/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../Character:speed_scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_yv4d3"]
@@ -1354,10 +1453,21 @@ tracks/15/keys = {
 "method": &"_goku_ground_projectile"
 }]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../Character:speed_scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_fl5qb"]
 resource_name = "Hurt"
-length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1365,10 +1475,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [148, 149, 150, 151, 152, 17, 18, 19]
+"values": [148, 149, 150, 151, 152, 17, 18, 19, 17, 18]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -1377,7 +1487,7 @@ tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -1495,38 +1605,50 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/11/path = NodePath("../Area2D/Hurtbox:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0, 1)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Area2D/Hurtbox:position")
+tracks/12/path = NodePath("../Area2D/Hurtbox:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 1)]
+"update": 1,
+"values": [true]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Area2D/Hurtbox:visible")
+tracks/13/path = NodePath("../Character:speed_scale")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_c7e8a"]
@@ -1918,6 +2040,1016 @@ tracks/31/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/32/type = "method"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("..")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_reset_side_transition"
+}]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("../Character:speed_scale")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.5, -7.5)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:shape")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_jsj12")]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:shape:radius")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:shape:height")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [19.0]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:disabled")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:rotation")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:visible")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:shape")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_jsj12")]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:shape:radius")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:shape:height")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [19.0]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:disabled")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.5, -7.5)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:rotation")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:visible")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("../Scale Player/Goku | Side Light Transitional Check/Transitional Check:shape")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_drh4y")]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("../Scale Player/Goku | Side Light Transitional Check/Transitional Check:shape:radius")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.27]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("../Scale Player/Goku | Side Light Transitional Check/Transitional Check:disabled")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("../Scale Player/Goku | Side Light Transitional Check/Transitional Check:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23.5, -6)]
+}
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("../Scale Player/Goku | Side Light Transitional Check/Transitional Check:rotation")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/53/type = "value"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("../Scale Player/Goku | Side Light Transitional Check/Transitional Check:visible")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:shape")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_l30jt")]
+}
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:shape:radius")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.272]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:disabled")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23.5, -6)]
+}
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:rotation")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:visible")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/60/type = "value"
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:shape")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_l30jt")]
+}
+tracks/61/type = "value"
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:shape:radius")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.272]
+}
+tracks/62/type = "value"
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:disabled")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:position")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23.5, -6)]
+}
+tracks/64/type = "value"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:rotation")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/65/type = "value"
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:visible")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/66/type = "value"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("../Scale Player/Goku | Side Heavy End/Extended Pillar:shape")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_lm0pa")]
+}
+tracks/67/type = "value"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("../Scale Player/Goku | Side Heavy End/Extended Pillar:shape:radius")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8.76982]
+}
+tracks/68/type = "value"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("../Scale Player/Goku | Side Heavy End/Extended Pillar:shape:height")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [51.2205]
+}
+tracks/69/type = "value"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("../Scale Player/Goku | Side Heavy End/Extended Pillar:disabled")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/70/type = "value"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("../Scale Player/Goku | Side Heavy End/Extended Pillar:position")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(44, -2.86102e-06)]
+}
+tracks/71/type = "value"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("../Scale Player/Goku | Side Heavy End/Extended Pillar:rotation")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.66148]
+}
+tracks/72/type = "value"
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/path = NodePath("../Scale Player/Goku | Side Heavy End/Extended Pillar:visible")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/73/type = "value"
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/path = NodePath("../Scale Player/Goku | Side Air Final/Finishing Kick:shape")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_uhnwd")]
+}
+tracks/74/type = "value"
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/path = NodePath("../Scale Player/Goku | Side Air Final/Finishing Kick:shape:radius")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.5]
+}
+tracks/75/type = "value"
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/path = NodePath("../Scale Player/Goku | Side Air Final/Finishing Kick:shape:height")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [13.0]
+}
+tracks/76/type = "value"
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/path = NodePath("../Scale Player/Goku | Side Air Final/Finishing Kick:disabled")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/77/type = "value"
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/path = NodePath("../Scale Player/Goku | Side Air Final/Finishing Kick:position")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.5, -10)]
+}
+tracks/78/type = "value"
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/path = NodePath("../Scale Player/Goku | Side Air Final/Finishing Kick:rotation")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/79/type = "value"
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/path = NodePath("../Scale Player/Goku | Side Air Final/Finishing Kick:visible")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/80/type = "value"
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/path = NodePath("../Scale Player/Goku | Side Light Heavy/Small Pillar:shape")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_mlyoq")]
+}
+tracks/81/type = "value"
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/path = NodePath("../Scale Player/Goku | Side Light Heavy/Small Pillar:shape:radius")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.87709]
+}
+tracks/82/type = "value"
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/path = NodePath("../Scale Player/Goku | Side Light Heavy/Small Pillar:shape:height")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [26.2488]
+}
+tracks/83/type = "value"
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/path = NodePath("../Scale Player/Goku | Side Light Heavy/Small Pillar:disabled")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/84/type = "value"
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/path = NodePath("../Scale Player/Goku | Side Light Heavy/Small Pillar:position")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 7.5)]
+}
+tracks/85/type = "value"
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/path = NodePath("../Scale Player/Goku | Side Light Heavy/Small Pillar:rotation")
+tracks/85/interp = 1
+tracks/85/loop_wrap = true
+tracks/85/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.705113]
+}
+tracks/86/type = "value"
+tracks/86/imported = false
+tracks/86/enabled = true
+tracks/86/path = NodePath("../Scale Player/Goku | Side Light Heavy/Small Pillar:visible")
+tracks/86/interp = 1
+tracks/86/loop_wrap = true
+tracks/86/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/87/type = "value"
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/path = NodePath("../Scale Player/Goku | Side Air Tracker/Opponent Positioner:shape")
+tracks/87/interp = 1
+tracks/87/loop_wrap = true
+tracks/87/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_dkrx2")]
+}
+tracks/88/type = "value"
+tracks/88/imported = false
+tracks/88/enabled = true
+tracks/88/path = NodePath("../Scale Player/Goku | Side Air Tracker/Opponent Positioner:shape:radius")
+tracks/88/interp = 1
+tracks/88/loop_wrap = true
+tracks/88/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/89/type = "value"
+tracks/89/imported = false
+tracks/89/enabled = true
+tracks/89/path = NodePath("../Scale Player/Goku | Side Air Tracker/Opponent Positioner:disabled")
+tracks/89/interp = 1
+tracks/89/loop_wrap = true
+tracks/89/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/90/type = "value"
+tracks/90/imported = false
+tracks/90/enabled = true
+tracks/90/path = NodePath("../Scale Player/Goku | Side Air Tracker/Opponent Positioner:position")
+tracks/90/interp = 1
+tracks/90/loop_wrap = true
+tracks/90/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21.5, -10)]
+}
+tracks/91/type = "value"
+tracks/91/imported = false
+tracks/91/enabled = true
+tracks/91/path = NodePath("../Scale Player/Goku | Side Air Tracker/Opponent Positioner:rotation")
+tracks/91/interp = 1
+tracks/91/loop_wrap = true
+tracks/91/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/92/type = "value"
+tracks/92/imported = false
+tracks/92/enabled = true
+tracks/92/path = NodePath("../Scale Player/Goku | Side Air Tracker/Opponent Positioner:visible")
+tracks/92/interp = 1
+tracks/92/loop_wrap = true
+tracks/92/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/93/type = "value"
+tracks/93/imported = false
+tracks/93/enabled = true
+tracks/93/path = NodePath("../Scale Player/Goku | Side Air Start/Initial Kick:shape")
+tracks/93/interp = 1
+tracks/93/loop_wrap = true
+tracks/93/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_d5adm")]
+}
+tracks/94/type = "value"
+tracks/94/imported = false
+tracks/94/enabled = true
+tracks/94/path = NodePath("../Scale Player/Goku | Side Air Start/Initial Kick:shape:radius")
+tracks/94/interp = 1
+tracks/94/loop_wrap = true
+tracks/94/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.5]
+}
+tracks/95/type = "value"
+tracks/95/imported = false
+tracks/95/enabled = true
+tracks/95/path = NodePath("../Scale Player/Goku | Side Air Start/Initial Kick:shape:height")
+tracks/95/interp = 1
+tracks/95/loop_wrap = true
+tracks/95/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [17.0]
+}
+tracks/96/type = "value"
+tracks/96/imported = false
+tracks/96/enabled = true
+tracks/96/path = NodePath("../Scale Player/Goku | Side Air Start/Initial Kick:position")
+tracks/96/interp = 1
+tracks/96/loop_wrap = true
+tracks/96/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17, -10)]
+}
+tracks/97/type = "value"
+tracks/97/imported = false
+tracks/97/enabled = true
+tracks/97/path = NodePath("../Scale Player/Goku | Side Air Start/Initial Kick:rotation")
+tracks/97/interp = 1
+tracks/97/loop_wrap = true
+tracks/97/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/98/type = "value"
+tracks/98/imported = false
+tracks/98/enabled = true
+tracks/98/path = NodePath("../Scale Player/Goku | Nuetral Light End/Fist Nuetra Light:shape")
+tracks/98/interp = 1
+tracks/98/loop_wrap = true
+tracks/98/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_en0nm")]
+}
+tracks/99/type = "value"
+tracks/99/imported = false
+tracks/99/enabled = true
+tracks/99/path = NodePath("../Scale Player/Goku | Nuetral Light End/Fist Nuetra Light:shape:radius")
+tracks/99/interp = 1
+tracks/99/loop_wrap = true
+tracks/99/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/100/type = "value"
+tracks/100/imported = false
+tracks/100/enabled = true
+tracks/100/path = NodePath("../Scale Player/Goku | Nuetral Light End/Fist Nuetra Light:disabled")
+tracks/100/interp = 1
+tracks/100/loop_wrap = true
+tracks/100/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/101/type = "value"
+tracks/101/imported = false
+tracks/101/enabled = true
+tracks/101/path = NodePath("../Scale Player/Goku | Nuetral Light End/Fist Nuetra Light:position")
+tracks/101/interp = 1
+tracks/101/loop_wrap = true
+tracks/101/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, -8)]
+}
+tracks/102/type = "value"
+tracks/102/imported = false
+tracks/102/enabled = true
+tracks/102/path = NodePath("../Scale Player/Goku | Nuetral Light End/Fist Nuetra Light:rotation")
+tracks/102/interp = 1
+tracks/102/loop_wrap = true
+tracks/102/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/103/type = "value"
+tracks/103/imported = false
+tracks/103/enabled = true
+tracks/103/path = NodePath("../Scale Player/Goku | Nuetral Light End/Fist Nuetra Light:visible")
+tracks/103/interp = 1
+tracks/103/loop_wrap = true
+tracks/103/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/104/type = "value"
+tracks/104/imported = false
+tracks/104/enabled = true
+tracks/104/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:shape")
+tracks/104/interp = 1
+tracks/104/loop_wrap = true
+tracks/104/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_pgphb")]
+}
+tracks/105/type = "value"
+tracks/105/imported = false
+tracks/105/enabled = true
+tracks/105/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:shape:radius")
+tracks/105/interp = 1
+tracks/105/loop_wrap = true
+tracks/105/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/106/type = "value"
+tracks/106/imported = false
+tracks/106/enabled = true
+tracks/106/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:shape:height")
+tracks/106/interp = 1
+tracks/106/loop_wrap = true
+tracks/106/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [16.0]
+}
+tracks/107/type = "value"
+tracks/107/imported = false
+tracks/107/enabled = true
+tracks/107/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:disabled")
+tracks/107/interp = 1
+tracks/107/loop_wrap = true
+tracks/107/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/108/type = "value"
+tracks/108/imported = false
+tracks/108/enabled = true
+tracks/108/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:position")
+tracks/108/interp = 1
+tracks/108/loop_wrap = true
+tracks/108/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, -8)]
+}
+tracks/109/type = "value"
+tracks/109/imported = false
+tracks/109/enabled = true
+tracks/109/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:rotation")
+tracks/109/interp = 1
+tracks/109/loop_wrap = true
+tracks/109/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/110/type = "value"
+tracks/110/imported = false
+tracks/110/enabled = true
+tracks/110/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:visible")
+tracks/110/interp = 1
+tracks/110/loop_wrap = true
+tracks/110/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/111/type = "value"
+tracks/111/imported = false
+tracks/111/enabled = true
+tracks/111/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Quick Jab:shape")
+tracks/111/interp = 1
+tracks/111/loop_wrap = true
+tracks/111/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_4gutl")]
+}
+tracks/112/type = "value"
+tracks/112/imported = false
+tracks/112/enabled = true
+tracks/112/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Quick Jab:shape:radius")
+tracks/112/interp = 1
+tracks/112/loop_wrap = true
+tracks/112/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.5]
+}
+tracks/113/type = "value"
+tracks/113/imported = false
+tracks/113/enabled = true
+tracks/113/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Quick Jab:shape:height")
+tracks/113/interp = 1
+tracks/113/loop_wrap = true
+tracks/113/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [22.0]
+}
+tracks/114/type = "value"
+tracks/114/imported = false
+tracks/114/enabled = true
+tracks/114/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Quick Jab:position")
+tracks/114/interp = 1
+tracks/114/loop_wrap = true
+tracks/114/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19.5, -7.5)]
+}
+tracks/115/type = "value"
+tracks/115/imported = false
+tracks/115/enabled = true
+tracks/115/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Quick Jab:rotation")
+tracks/115/interp = 1
+tracks/115/loop_wrap = true
+tracks/115/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
 
 [sub_resource type="Animation" id="Animation_f73an"]
 resource_name = "Jump"
@@ -2125,6 +3257,18 @@ tracks/16/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(11, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../Character:speed_scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_8rqie"]
@@ -2600,6 +3744,18 @@ tracks/38/keys = {
 "update": 0,
 "values": [Vector2(0, 10)]
 }
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("../Character:speed_scale")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_nfd27"]
 resource_name = "Nuetral Heavy"
@@ -2709,6 +3865,18 @@ tracks/2/keys = {
 "args": [],
 "method": &"_idle_state_"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Character:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_auvrv"]
@@ -3081,7 +4249,7 @@ tracks/29/keys = {
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:rotation")
+tracks/30/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:rotation")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
@@ -3093,7 +4261,7 @@ tracks/30/keys = {
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:position")
+tracks/31/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:position")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
@@ -3105,7 +4273,7 @@ tracks/31/keys = {
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:shape")
+tracks/32/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:shape")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
@@ -3117,7 +4285,7 @@ tracks/32/keys = {
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:disabled")
+tracks/33/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:disabled")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -3129,7 +4297,7 @@ tracks/33/keys = {
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:shape:radius")
+tracks/34/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:shape:radius")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
@@ -3141,7 +4309,7 @@ tracks/34/keys = {
 tracks/35/type = "value"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:shape:height")
+tracks/35/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:shape:height")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
@@ -3153,7 +4321,7 @@ tracks/35/keys = {
 tracks/36/type = "value"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:debug_color")
+tracks/36/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:debug_color")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
@@ -3165,7 +4333,7 @@ tracks/36/keys = {
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:visible")
+tracks/37/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:visible")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
@@ -3174,9 +4342,33 @@ tracks/37/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("../Character:speed_scale")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_l1wjg"]
 resource_name = "Nuetral Recovery"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character:speed_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_okshv"]
 length = 0.001
@@ -3687,7 +4879,7 @@ tracks/41/keys = {
 tracks/42/type = "value"
 tracks/42/imported = false
 tracks/42/enabled = true
-tracks/42/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:rotation")
+tracks/42/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:rotation")
 tracks/42/interp = 1
 tracks/42/loop_wrap = true
 tracks/42/keys = {
@@ -3699,7 +4891,7 @@ tracks/42/keys = {
 tracks/43/type = "value"
 tracks/43/imported = false
 tracks/43/enabled = true
-tracks/43/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:position")
+tracks/43/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:position")
 tracks/43/interp = 1
 tracks/43/loop_wrap = true
 tracks/43/keys = {
@@ -3711,7 +4903,7 @@ tracks/43/keys = {
 tracks/44/type = "value"
 tracks/44/imported = false
 tracks/44/enabled = true
-tracks/44/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:shape")
+tracks/44/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:shape")
 tracks/44/interp = 1
 tracks/44/loop_wrap = true
 tracks/44/keys = {
@@ -3723,7 +4915,7 @@ tracks/44/keys = {
 tracks/45/type = "value"
 tracks/45/imported = false
 tracks/45/enabled = true
-tracks/45/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:disabled")
+tracks/45/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:disabled")
 tracks/45/interp = 1
 tracks/45/loop_wrap = true
 tracks/45/keys = {
@@ -3735,7 +4927,7 @@ tracks/45/keys = {
 tracks/46/type = "value"
 tracks/46/imported = false
 tracks/46/enabled = true
-tracks/46/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:shape:radius")
+tracks/46/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:shape:radius")
 tracks/46/interp = 1
 tracks/46/loop_wrap = true
 tracks/46/keys = {
@@ -3747,7 +4939,7 @@ tracks/46/keys = {
 tracks/47/type = "value"
 tracks/47/imported = false
 tracks/47/enabled = true
-tracks/47/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:shape:height")
+tracks/47/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:shape:height")
 tracks/47/interp = 1
 tracks/47/loop_wrap = true
 tracks/47/keys = {
@@ -3759,7 +4951,7 @@ tracks/47/keys = {
 tracks/48/type = "value"
 tracks/48/imported = false
 tracks/48/enabled = true
-tracks/48/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:debug_color")
+tracks/48/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:debug_color")
 tracks/48/interp = 1
 tracks/48/loop_wrap = true
 tracks/48/keys = {
@@ -3771,7 +4963,7 @@ tracks/48/keys = {
 tracks/49/type = "value"
 tracks/49/imported = false
 tracks/49/enabled = true
-tracks/49/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/CollisionShape2D:visible")
+tracks/49/path = NodePath("../Scale Player/Goku | Nuetral Light Midle/Light Middle:visible")
 tracks/49/interp = 1
 tracks/49/loop_wrap = true
 tracks/49/keys = {
@@ -4095,7 +5287,7 @@ tracks/75/keys = {
 tracks/76/type = "value"
 tracks/76/imported = false
 tracks/76/enabled = true
-tracks/76/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:shape")
+tracks/76/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:shape")
 tracks/76/interp = 1
 tracks/76/loop_wrap = true
 tracks/76/keys = {
@@ -4107,7 +5299,7 @@ tracks/76/keys = {
 tracks/77/type = "value"
 tracks/77/imported = false
 tracks/77/enabled = true
-tracks/77/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:shape:radius")
+tracks/77/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:shape:radius")
 tracks/77/interp = 1
 tracks/77/loop_wrap = true
 tracks/77/keys = {
@@ -4119,7 +5311,7 @@ tracks/77/keys = {
 tracks/78/type = "value"
 tracks/78/imported = false
 tracks/78/enabled = true
-tracks/78/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:disabled")
+tracks/78/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:disabled")
 tracks/78/interp = 1
 tracks/78/loop_wrap = true
 tracks/78/keys = {
@@ -4131,7 +5323,7 @@ tracks/78/keys = {
 tracks/79/type = "value"
 tracks/79/imported = false
 tracks/79/enabled = true
-tracks/79/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:position")
+tracks/79/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:position")
 tracks/79/interp = 1
 tracks/79/loop_wrap = true
 tracks/79/keys = {
@@ -4143,7 +5335,7 @@ tracks/79/keys = {
 tracks/80/type = "value"
 tracks/80/imported = false
 tracks/80/enabled = true
-tracks/80/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:rotation")
+tracks/80/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:rotation")
 tracks/80/interp = 1
 tracks/80/loop_wrap = true
 tracks/80/keys = {
@@ -4155,7 +5347,7 @@ tracks/80/keys = {
 tracks/81/type = "value"
 tracks/81/imported = false
 tracks/81/enabled = true
-tracks/81/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:visible")
+tracks/81/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:visible")
 tracks/81/interp = 1
 tracks/81/loop_wrap = true
 tracks/81/keys = {
@@ -4167,7 +5359,7 @@ tracks/81/keys = {
 tracks/82/type = "value"
 tracks/82/imported = false
 tracks/82/enabled = true
-tracks/82/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:shape")
+tracks/82/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:shape")
 tracks/82/interp = 1
 tracks/82/loop_wrap = true
 tracks/82/keys = {
@@ -4179,7 +5371,7 @@ tracks/82/keys = {
 tracks/83/type = "value"
 tracks/83/imported = false
 tracks/83/enabled = true
-tracks/83/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:shape:radius")
+tracks/83/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:shape:radius")
 tracks/83/interp = 1
 tracks/83/loop_wrap = true
 tracks/83/keys = {
@@ -4191,7 +5383,7 @@ tracks/83/keys = {
 tracks/84/type = "value"
 tracks/84/imported = false
 tracks/84/enabled = true
-tracks/84/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:disabled")
+tracks/84/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:disabled")
 tracks/84/interp = 1
 tracks/84/loop_wrap = true
 tracks/84/keys = {
@@ -4203,7 +5395,7 @@ tracks/84/keys = {
 tracks/85/type = "value"
 tracks/85/imported = false
 tracks/85/enabled = true
-tracks/85/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:position")
+tracks/85/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:position")
 tracks/85/interp = 1
 tracks/85/loop_wrap = true
 tracks/85/keys = {
@@ -4215,7 +5407,7 @@ tracks/85/keys = {
 tracks/86/type = "value"
 tracks/86/imported = false
 tracks/86/enabled = true
-tracks/86/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:rotation")
+tracks/86/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:rotation")
 tracks/86/interp = 1
 tracks/86/loop_wrap = true
 tracks/86/keys = {
@@ -4227,7 +5419,7 @@ tracks/86/keys = {
 tracks/87/type = "value"
 tracks/87/imported = false
 tracks/87/enabled = true
-tracks/87/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:visible")
+tracks/87/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:visible")
 tracks/87/interp = 1
 tracks/87/loop_wrap = true
 tracks/87/keys = {
@@ -4308,6 +5500,270 @@ tracks/93/keys = {
 "update": 0,
 "values": [1.5708]
 }
+tracks/94/type = "value"
+tracks/94/imported = false
+tracks/94/enabled = true
+tracks/94/path = NodePath("../AudioStreamPlayer2D2:playing")
+tracks/94/interp = 1
+tracks/94/loop_wrap = true
+tracks/94/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/95/type = "value"
+tracks/95/imported = false
+tracks/95/enabled = true
+tracks/95/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:shape")
+tracks/95/interp = 1
+tracks/95/loop_wrap = true
+tracks/95/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_jsj12")]
+}
+tracks/96/type = "value"
+tracks/96/imported = false
+tracks/96/enabled = true
+tracks/96/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:shape:radius")
+tracks/96/interp = 1
+tracks/96/loop_wrap = true
+tracks/96/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+tracks/97/type = "value"
+tracks/97/imported = false
+tracks/97/enabled = true
+tracks/97/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:shape:height")
+tracks/97/interp = 1
+tracks/97/loop_wrap = true
+tracks/97/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [19.0]
+}
+tracks/98/type = "value"
+tracks/98/imported = false
+tracks/98/enabled = true
+tracks/98/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:disabled")
+tracks/98/interp = 1
+tracks/98/loop_wrap = true
+tracks/98/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/99/type = "value"
+tracks/99/imported = false
+tracks/99/enabled = true
+tracks/99/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:position")
+tracks/99/interp = 1
+tracks/99/loop_wrap = true
+tracks/99/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.5, -7.5)]
+}
+tracks/100/type = "value"
+tracks/100/imported = false
+tracks/100/enabled = true
+tracks/100/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:rotation")
+tracks/100/interp = 1
+tracks/100/loop_wrap = true
+tracks/100/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/101/type = "value"
+tracks/101/imported = false
+tracks/101/enabled = true
+tracks/101/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:visible")
+tracks/101/interp = 1
+tracks/101/loop_wrap = true
+tracks/101/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/102/type = "value"
+tracks/102/imported = false
+tracks/102/enabled = true
+tracks/102/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:shape")
+tracks/102/interp = 1
+tracks/102/loop_wrap = true
+tracks/102/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_jsj12")]
+}
+tracks/103/type = "value"
+tracks/103/imported = false
+tracks/103/enabled = true
+tracks/103/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:shape:radius")
+tracks/103/interp = 1
+tracks/103/loop_wrap = true
+tracks/103/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+tracks/104/type = "value"
+tracks/104/imported = false
+tracks/104/enabled = true
+tracks/104/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:shape:height")
+tracks/104/interp = 1
+tracks/104/loop_wrap = true
+tracks/104/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [19.0]
+}
+tracks/105/type = "value"
+tracks/105/imported = false
+tracks/105/enabled = true
+tracks/105/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:disabled")
+tracks/105/interp = 1
+tracks/105/loop_wrap = true
+tracks/105/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/106/type = "value"
+tracks/106/imported = false
+tracks/106/enabled = true
+tracks/106/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:position")
+tracks/106/interp = 1
+tracks/106/loop_wrap = true
+tracks/106/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.5, -7.5)]
+}
+tracks/107/type = "value"
+tracks/107/imported = false
+tracks/107/enabled = true
+tracks/107/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:rotation")
+tracks/107/interp = 1
+tracks/107/loop_wrap = true
+tracks/107/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/108/type = "value"
+tracks/108/imported = false
+tracks/108/enabled = true
+tracks/108/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:visible")
+tracks/108/interp = 1
+tracks/108/loop_wrap = true
+tracks/108/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/109/type = "value"
+tracks/109/imported = false
+tracks/109/enabled = true
+tracks/109/path = NodePath("../Character:speed_scale")
+tracks/109/interp = 1
+tracks/109/loop_wrap = true
+tracks/109/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/110/type = "value"
+tracks/110/imported = false
+tracks/110/enabled = true
+tracks/110/path = NodePath("../Scale Player/Goku | Side Air Tracker/Opponent Positioner:rotation")
+tracks/110/interp = 1
+tracks/110/loop_wrap = true
+tracks/110/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/111/type = "value"
+tracks/111/imported = false
+tracks/111/enabled = true
+tracks/111/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Quick Jab:shape")
+tracks/111/interp = 1
+tracks/111/loop_wrap = true
+tracks/111/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_4gutl")]
+}
+tracks/112/type = "value"
+tracks/112/imported = false
+tracks/112/enabled = true
+tracks/112/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Quick Jab:shape:radius")
+tracks/112/interp = 1
+tracks/112/loop_wrap = true
+tracks/112/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.5]
+}
+tracks/113/type = "value"
+tracks/113/imported = false
+tracks/113/enabled = true
+tracks/113/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Quick Jab:shape:height")
+tracks/113/interp = 1
+tracks/113/loop_wrap = true
+tracks/113/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [22.0]
+}
+tracks/114/type = "value"
+tracks/114/imported = false
+tracks/114/enabled = true
+tracks/114/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Quick Jab:position")
+tracks/114/interp = 1
+tracks/114/loop_wrap = true
+tracks/114/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19.5, -7.5)]
+}
+tracks/115/type = "value"
+tracks/115/imported = false
+tracks/115/enabled = true
+tracks/115/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Quick Jab:rotation")
+tracks/115/interp = 1
+tracks/115/loop_wrap = true
+tracks/115/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
 
 [sub_resource type="Animation" id="Animation_k874w"]
 resource_name = "Respawn"
@@ -4351,6 +5807,32 @@ tracks/2/keys = {
 "args": [],
 "method": &"_goku_stats"
 }]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_reset_side_transition"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Character:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_jyc66"]
@@ -4650,9 +6132,33 @@ tracks/20/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../Character:speed_scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_t4p6m"]
 resource_name = "Side Air Heavy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character:speed_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_e2ryg"]
 resource_name = "Side Heavy"
@@ -4851,6 +6357,18 @@ tracks/15/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../Character:speed_scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_1cdqp"]
 resource_name = "Side Light Finisher"
@@ -4866,6 +6384,212 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [90, 91, 92, 93, 94, 95, 96]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AudioStreamPlayer2D2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_jsj12")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:shape:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:shape:height")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [19.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.5, -7.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Scale Player/Goku Sde Light Finish - First Punch/First Punch:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:shape")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_jsj12")]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:shape:radius")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:shape:height")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [19.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.5, -7.5)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../Scale Player/Goku Sde Light Finish - Second Punch/First Punch:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("..")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_idle_state_"
+}]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../Character:speed_scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_t2w0d"]
@@ -4938,7 +6662,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:shape")
+tracks/5/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:shape")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -4950,7 +6674,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:shape:radius")
+tracks/6/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:shape:radius")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -4962,7 +6686,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:disabled")
+tracks/7/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -4974,7 +6698,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:position")
+tracks/8/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -4986,7 +6710,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:rotation")
+tracks/9/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -4998,7 +6722,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Scale Player/Goku | Side Start Punch - Initial Damager/Damager Collision:visible")
+tracks/10/path = NodePath("../Scale Player/Goku | Side Light Punch - Initial Damager/Damager Collision:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -5010,7 +6734,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:shape")
+tracks/11/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:shape")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -5022,7 +6746,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:shape:radius")
+tracks/12/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:shape:radius")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -5034,7 +6758,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:disabled")
+tracks/13/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:disabled")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -5046,7 +6770,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:position")
+tracks/14/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -5058,7 +6782,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:rotation")
+tracks/15/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:rotation")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -5070,7 +6794,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../Scale Player/Goku | Side Start Punch - Finial Damager/Damager Collision:visible")
+tracks/16/path = NodePath("../Scale Player/Goku | Side Light Punch - Finial Damager/Damager Collision:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -5151,6 +6875,32 @@ tracks/22/keys = {
 "update": 0,
 "values": [1.5708]
 }
+tracks/23/type = "method"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("..")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_goku_side_finish"
+}]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("../Character:speed_scale")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_kgf6n"]
 resource_name = "Wall"
@@ -5178,6 +6928,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [29, 30, 31, 32, 33, 34]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Character:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_467i5"]
@@ -5340,7 +7102,20 @@ shape = SubResource("CapsuleShape2D_4gutl")
 disabled = true
 debug_color = Color(0, 0.619608, 0.556863, 0.419608)
 
+[node name="Goku | Nuetral Light Midle" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Light Midle"]]
+collision_layer = 32
+collision_mask = 16
+
+[node name="Light Middle" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light Midle"]
+visible = false
+position = Vector2(24, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pgphb")
+debug_color = Color(0.388235, 0.6, 0.701961, 0.419608)
+
 [node name="Goku | Nuetral Light End" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Light End"]]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Fist Nuetra Light" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light End"]
 visible = false
@@ -5349,15 +7124,6 @@ rotation = 1.5708
 shape = SubResource("CircleShape2D_en0nm")
 disabled = true
 debug_color = Color(0, 0.0196078, 0.701961, 0.419608)
-
-[node name="Goku | Nuetral Light Midle" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Light Midle"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light Midle"]
-visible = false
-position = Vector2(24, -8)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_pgphb")
-debug_color = Color(0.388235, 0.6, 0.701961, 0.419608)
 
 [node name="Goku | Side Air Start" type="Area2D" parent="Scale Player" groups=["Goku | Side Air Start"]]
 collision_layer = 32
@@ -5410,11 +7176,11 @@ rotation = 0.66148
 shape = SubResource("CapsuleShape2D_lm0pa")
 disabled = true
 
-[node name="Goku | Side Start Punch - Initial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Start Punch - Damager"]]
+[node name="Goku | Side Light Punch - Initial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Start Punch - Damager"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Damager Collision" type="CollisionShape2D" parent="Scale Player/Goku | Side Start Punch - Initial Damager"]
+[node name="Damager Collision" type="CollisionShape2D" parent="Scale Player/Goku | Side Light Punch - Initial Damager"]
 visible = false
 position = Vector2(23.5, -6)
 rotation = 1.5708
@@ -5422,11 +7188,11 @@ shape = SubResource("CircleShape2D_l30jt")
 disabled = true
 debug_color = Color(0.972549, 0, 0.435294, 0.419608)
 
-[node name="Goku | Side Start Punch - Finial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Start Punch - Finial Damager"]]
+[node name="Goku | Side Light Punch - Finial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Start Punch - Finial Damager"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Damager Collision" type="CollisionShape2D" parent="Scale Player/Goku | Side Start Punch - Finial Damager"]
+[node name="Damager Collision" type="CollisionShape2D" parent="Scale Player/Goku | Side Light Punch - Finial Damager"]
 visible = false
 position = Vector2(23.5, -6)
 rotation = 1.5708
@@ -5435,6 +7201,8 @@ disabled = true
 debug_color = Color(0.333333, 0.494118, 0.980392, 0.419608)
 
 [node name="Goku | Side Light Transitional Check" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Transitional Check"]]
+collision_layer = 32
+collision_mask = 16
 
 [node name="Transitional Check" type="CollisionShape2D" parent="Scale Player/Goku | Side Light Transitional Check"]
 visible = false
@@ -5444,12 +7212,28 @@ shape = SubResource("CircleShape2D_drh4y")
 disabled = true
 debug_color = Color(0, 0.533333, 0.141176, 0.419608)
 
-[node name="Area2D10" type="Area2D" parent="Scale Player"]
+[node name="Goku Sde Light Finish - First Punch" type="Area2D" parent="Scale Player" groups=["Goku Sde Light Finish - First Punch"]]
+collision_layer = 32
+collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D10"]
+[node name="First Punch" type="CollisionShape2D" parent="Scale Player/Goku Sde Light Finish - First Punch"]
 visible = false
-position = Vector2(27.5, -8.5)
-shape = SubResource("CircleShape2D_cvotp")
+position = Vector2(18.5, -7.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jsj12")
+disabled = true
+
+[node name="Goku Sde Light Finish - Second Punch" type="Area2D" parent="Scale Player" groups=["Goku Sde Light Finish - Second Punch"]]
+collision_layer = 32
+collision_mask = 16
+
+[node name="First Punch" type="CollisionShape2D" parent="Scale Player/Goku Sde Light Finish - Second Punch"]
+visible = false
+position = Vector2(18.5, -7.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jsj12")
+disabled = true
+debug_color = Color(0.564706, 0.556863, 0, 0.419608)
 
 [node name="Marker2D" type="Marker2D" parent="Scale Player"]
 position = Vector2(16, 0)
@@ -5521,5 +7305,25 @@ stream = ExtResource("4_abu5v")
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8kf4q")
 
+[connection signal="area_entered" from="Scale Player/Goku | Down Heavy Initial" to="." method="_on_goku__down_heavy_initial_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Down Heavy Final" to="." method="_on_goku__down_heavy_final_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Down Light" to="." method="_on_goku__down_light_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Nuetral Air Left Side" to="." method="_on_goku__nuetral_air_left_side_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Nuetral Air Middle Side" to="." method="_on_goku__nuetral_air_middle_side_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Nuetral Air Right Side" to="." method="_on_goku__nuetral_air_right_side_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Nuetral Light Start" to="." method="_on_goku__nuetral_light_start_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Nuetral Light Midle" to="." method="_on_goku__nuetral_light_midle_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Nuetral Light End" to="." method="_on_goku__nuetral_light_end_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Side Air Start" to="." method="_on_goku__side_air_start_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Side Air Tracker" to="." method="_on_goku__side_air_tracker_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Side Light Heavy" to="." method="_on_goku__side_light_heavy_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Side Air Final" to="." method="_on_goku__side_air_final_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Side Heavy End" to="." method="_on_goku__side_heavy_end_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Side Light Punch - Initial Damager" to="." method="_on_goku__side_light_punch__initial_damager_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Side Light Punch - Finial Damager" to="." method="_on_goku__side_light_punch__finial_damager_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Side Light Transitional Check" to="." method="_on_goku__side_light_transitional_check_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - First Punch" to="." method="_on_goku_sde_light_finish__first_punch_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - Second Punch" to="." method="_on_goku_sde_light_finish__second_punch_area_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Refresh Block" to="." method="_on_refresh_block_timeout"]

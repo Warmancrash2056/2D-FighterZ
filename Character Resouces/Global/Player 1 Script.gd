@@ -16,10 +16,11 @@ var hunter_down_attack_shower = preload("res://Character Resouces/Hunter/Project
 var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.tscn")
 
 var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn") # Goku Projectile Position #
-
+# Goku Projectile Position #
 @onready var goku_projectile_position = $"Scale Player/Goku Projectile Position"
 var goku_air_projectile = preload("res://Goku Air Projectile.tscn")
 var goku_ground_projectiles = preload("res://Goku Ground Projectile.tscn")
+var side_registered = false
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $"Jump Smoke"
@@ -73,6 +74,7 @@ var attack_active = false
 
 var jump_count = 3
 
+var subtract_test = 0
 
 @export var Health: int
 @export var Super_Pts: int
@@ -95,6 +97,7 @@ enum States {
 
 	Side_Heavy,
 	Side_Light,
+	Side_Transition,
 	Side_Air,
 	Side_Air_Heavy,
 
@@ -211,7 +214,7 @@ func _general_archfield_freball():
 	var instance_fireball = general_nuetral_attack_fireball.instantiate()
 	instance_fireball.global_position = general_arcfield_fireball_position.global_position
 	get_tree().get_root().add_child(instance_fireball)
-	if CharacterList.player_1_facing_left == true:
+	if CharacterList.player_2_facing_left == true:
 		instance_fireball.velocity.x = -100
 		instance_fireball.scale.x = -1
 	else:
@@ -220,12 +223,20 @@ func _general_archfield_freball():
 		instance_fireball.scale.x = 1
 
 # Goku Stats
+func _goku_side_finish():
+	if side_registered == true:
+		Select = States.Side_Transition
+	else:
+		return
+	
+func _reset_side_transition():
+	side_registered = false
 func _goku_air_projectile():
 	var instance_molten_sand = goku_air_projectile.instantiate()
 	instance_molten_sand.global_position = goku_projectile_position.global_position
 	get_tree().get_root().add_child(instance_molten_sand)
 
-	if CharacterList.player_2_facing_left == true:
+	if CharacterList.player_1_facing_left == true:
 		instance_molten_sand.velocity.x = -700
 		instance_molten_sand.scale.x = -1
 	else:
@@ -300,7 +311,7 @@ func activate_hunter_side_attack():
 	var instance_hunter_arrow = hunter_side_attack_arrow.instantiate()
 	instance_hunter_arrow.global_position = hunter_side_arrow_position.global_position
 	get_tree().get_root().add_child(instance_hunter_arrow)
-	if CharacterList.player_1_facing_left == true:
+	if CharacterList.main_player_facing_left == true:
 		instance_hunter_arrow.velocity.x = -600
 		instance_hunter_arrow.scale.x = -1
 	else:
@@ -335,7 +346,6 @@ func _hunter_stats():
 func _ready():
 	pass
 func _physics_process(delta):
-	print(CharacterList.player_2_facing_left)
 	move_and_slide()
 	match Select:
 		States.Idling:
@@ -529,7 +539,10 @@ func _physics_process(delta):
 			velocity.x = lerp(velocity.x, 0.0, 0.3)
 			velocity.y = 0
 			Animate.play("Side Light Start")
-
+		States.Side_Transition:
+			velocity.x = 0
+			velocity.y = 0
+			Animate.play("Side Light Finisher")
 		States.Side_Heavy:
 			Animate.play("Side Heavy")
 			velocity.x = lerp(velocity.x, 0.0, 0.3)
@@ -664,27 +677,67 @@ func _physics_process(delta):
 			Animate.play("Ground Projectile")
 			velocity.x = 0
 			velocity.y = 0
-func _on_hurtbox_area_entered(area):
-	Select = States.Hurt
-
-
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("Side Air"):
+	if area.is_in_group("Goku | Side Air Start"):
 		Select = States.Hurt
-		if CharacterList.player_2_facing_left == true:
-			set_velocity(Vector2(-150,0))
+		if CharacterList.player_1_facing_left == true:
+			velocity.x -= 200
 		else:
-			set_velocity(Vector2(150,0))
-	if area.is_in_group("Down Light"):
+			velocity.x += 200
+	elif area.is_in_group("Goku | Nuetral Air Right Side"):
 		Select = States.Hurt
-		set_velocity(Vector2(0, -150))
-	if area.is_in_group("Nuetral Light"):
-		Select = States.Hurt
-		if CharacterList.player_2_facing_left == true:
-			set_velocity(Vector2(-150,-50))
+		
+		if  CharacterList.player_1_facing_left == true:
+			velocity.x -= 25
+			
 		else:
-			set_velocity(Vector2(150,-50))
-	if area.is_in_group("Off Stage - Galvin"):
+			velocity.x += 25
+		velocity.y -= 3
+		
+	elif area.is_in_group("Goku | Nuetral Air Middle Side"):
+		Select = States.Hurt
+		if CharacterList.player_1_facing_left == true:
+			velocity.x -= 25
+			
+		else:
+			velocity.x += 25
+		
+		velocity.y -= 150
+	
+	elif area.is_in_group("Goku | Nuetral Air Left Side"):
+		if CharacterList.player_1_facing_left == true:
+			velocity.x -= 25
+			
+		else:
+			velocity.x += 25
+		
+		velocity.y -= 150
+	elif area.is_in_group("Goku | Down Light"):
+		Select = States.Hurt
+		velocity.y -= 150
+	elif area.is_in_group("Goku | Nuetral Light Start"):
+		Select = States.Hurt
+		if CharacterList.player_1_facing_left == true:
+			velocity.x -= 0.1
+			
+		else:
+			velocity.x += 0.1
+	elif area.is_in_group("Goku | Nuetral Light Midle"):
+		Select = States.Hurt
+		
+		if CharacterList.player_1_facing_left == true:
+			velocity.x -= 100
+			
+		else:
+			velocity.x += 100
+			
+	elif area.is_in_group("Goku | Nuetral Light End"):
+		if CharacterList.player_1_facing_left == true:
+			velocity.x -= 50
+			
+		else:
+			velocity.x += 50
+	elif area.is_in_group("Off Stage - Galvin"):
 		position = CharacterList.galvin_player_respawn
 		Select = States.Respawn
 		$Area2D/Respawn.play("Invisibilty")
@@ -696,4 +749,80 @@ func _on_refresh_block_timeout():
 
 
 func _on_area_2d_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_goku__side_light_transitional_check_area_entered(area):
+	side_registered = true
+
+
+func _on_goku__side_light_punch__finial_damager_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__side_light_punch__initial_damager_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__side_heavy_end_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__side_air_final_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__side_light_heavy_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__side_air_tracker_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__side_air_start_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__nuetral_light_midle_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__nuetral_light_end_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__nuetral_light_start_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__nuetral_air_right_side_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__nuetral_air_middle_side_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__nuetral_air_left_side_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__down_light_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__down_heavy_final_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku__down_heavy_initial_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku_sde_light_finish__second_punch_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_goku_sde_light_finish__first_punch_area_entered(area):
 	pass # Replace with function body.

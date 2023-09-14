@@ -687,8 +687,7 @@ func _on_area_2d_area_entered(area):
 			velocity.x = 200
 			
 		velocity.y = 0
-		position = area
-	elif area.is_in_group("Goku | Nuetral Air Right Side"):
+	if area.is_in_group("Goku | Nuetral Air Right Side"):
 		Select = States.Hurt
 		
 		if  CharacterList.player_1_facing_left == true:
@@ -696,9 +695,9 @@ func _on_area_2d_area_entered(area):
 			
 		else:
 			velocity.x = 25
-		velocity.y = -175
+		velocity.y = -200
 		
-	elif area.is_in_group("Goku | Nuetral Air Middle Side"):
+	if area.is_in_group("Goku | Nuetral Air Middle Side"):
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
 			velocity.x = -25
@@ -708,27 +707,32 @@ func _on_area_2d_area_entered(area):
 		
 		velocity.y = -250
 	
-	elif area.is_in_group("Goku | Nuetral Air Left Side"):
+	if area.is_in_group("Goku | Nuetral Air Left Side"):
 		if CharacterList.player_1_facing_left == true:
 			velocity.x = -25
 			
 		else:
 			velocity.x = 25
 		
-		velocity.y = -175
-	elif area.is_in_group("Goku | Down Light"):
-		Select = States.Hurt
 		velocity.y = -200
-	elif area.is_in_group("Goku | Nuetral Light Middle"):
+	if area.is_in_group("Goku | Down Light"):
 		Select = States.Hurt
-		print("Goku | Nuetral Light Midle")
+		velocity.y = -150
+	
+	if area.is_in_group("Goku | Nuetral Light Start"):
+		Select = States.Hurt
+		velocity.x = 0
+		print("Goku | Nuetral Light Start")
+	if area.is_in_group("Goku | Nuetral Light Middle"):
+		Select = States.Hurt
+		print("Goku | Nuetral Light Middle")
 		if CharacterList.player_1_facing_left == true:
 			velocity.x = -100
 			
 		else:
 			velocity.x = 100
 			
-	elif area.is_in_group("Goku | Nuetral Light End"):
+	if area.is_in_group("Goku | Nuetral Light End"):
 		Select = States.Hurt
 		print("Goku | Nuetral Light End")
 		if CharacterList.player_1_facing_left == true:
@@ -736,7 +740,7 @@ func _on_area_2d_area_entered(area):
 			
 		else:
 			velocity.x = 50
-	elif area.is_in_group("Off Stage - Galvin"):
+	if area.is_in_group("Off Stage - Galvin"):
 		position = CharacterList.galvin_player_respawn
 		Select = States.Respawn
 		$Area2D/Respawn.play("Invisibilty")

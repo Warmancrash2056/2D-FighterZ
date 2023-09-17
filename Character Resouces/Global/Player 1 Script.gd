@@ -36,6 +36,7 @@ var side_registered = false
 # General Archfield Fireball Position #
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 
+var attack_reset = false
 # Goku Projectile Position #
 
 
@@ -150,14 +151,29 @@ func _reset_nomad_up_attack():
 	nomad_up_attack_hit = false
 
 # Reset to idle and fall state after attacks
+
+func _attack_reset():
+	attack_reset = false
+func quick_reset():
+	if attack_reset == true:
+		if is_on_floor():
+			Select = States.Idling
+			Animate.play("Idle")
+		else:
+			Select = States.Jumping
+			Animate.play("Jump") 
+	
+	else:
+		attack_reset = false
+		
+# Reset to idle and fall state after attacks
 func _idle_state_():
-	Select = States.Idling
-	Animate.play("Idle")
-
-func _fall_state_():
-	Select = States.Falling
-	Animate.play("Fall")
-
+	if is_on_floor():
+		Select = States.Idling
+		Animate.play("Idle")
+	else:
+		Select = States.Falling
+		Animate.play("Fall")
 
 # Between 2 and 5 frames player can perform a dodge roll
 func _can_jump():
@@ -614,22 +630,14 @@ func _physics_process(delta):
 			velocity.y += Gravity
 			Animate.play("Dash")
 
-			if block_timer.time_left == 0:
-				if Input.is_action_just_pressed(controls.dash):
-					Select = States.Ground_Block
+			if Input.is_action_just_pressed(controls.dash) and block_active == false:
+				Select = States.Ground_Block
+				block_active = true
 
 			if velocity.y > 200:
 				Select = States.Falling
 
-			if CharacterList.main_player_facing_left == true:
-				if Input.is_action_just_pressed(controls.right):
-					Select = States.Idling
-					velocity.x = 0
-
-			else:
-				if Input.is_action_just_pressed(controls.left):
-					Select = States.Idling
-					velocity.x = 0
+			
 		States.Hurt:
 			Animate.play("Hurt")
 		States.Respawn:
@@ -679,65 +687,76 @@ func _physics_process(delta):
 			velocity.y = 0
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Goku | Side Air Start"):
+		print("Goku | Side Air Start")
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 200
+			velocity.x = -200
 		else:
-			velocity.x += 200
-	elif area.is_in_group("Goku | Nuetral Air Right Side"):
+			velocity.x = 200
+			
+		velocity.y = 0
+	if area.is_in_group("Goku | Nuetral Air Right Side"):
+		print("Goku | Nuetral Air Right Side")
 		Select = States.Hurt
 		
 		if  CharacterList.player_1_facing_left == true:
-			velocity.x -= 25
+			velocity.x = -25
 			
 		else:
-			velocity.x += 25
-		velocity.y -= 3
+			velocity.x = 25
+		velocity.y = -100
 		
-	elif area.is_in_group("Goku | Nuetral Air Middle Side"):
+	if area.is_in_group("Goku | Nuetral Air Right Side"):
+		print("Goku | Nuetral Air Right Side")
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 25
+			velocity.x = -25
 			
 		else:
-			velocity.x += 25
+			velocity.x = 25
 		
-		velocity.y -= 150
+		velocity.y = -100
 	
-	elif area.is_in_group("Goku | Nuetral Air Left Side"):
+	if area.is_in_group("Goku | Nuetral Air Left Side"):
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 25
+			velocity.x = -25
 			
 		else:
-			velocity.x += 25
+			velocity.x = 25
+			
+		velocity.y = -100
+		print("Goku | Nuetral Air Left Side")
+	if area.is_in_group("Goku | Down Light"):
+		print("Goku | Down Light")
+		Select = States.Hurt
+		velocity.y = -150
+	
+	if area.is_in_group("Goku | Nuetral Light Start"):
+		Select = States.Hurt
+		velocity.x = 0
+		velocity.y = 0
+		print("Goku | Nuetral Light Start")
+	if area.is_in_group("Goku | Nuetral Light Middle"):
+		Select = States.Hurt
+		print("Goku | Nuetral Light Middle")
+		if CharacterList.player_1_facing_left == true:
+			velocity.x = -100
+			
+		else:
+			velocity.x = 100
 		
-		velocity.y -= 150
-	elif area.is_in_group("Goku | Down Light"):
+		velocity.y = -35
+	if area.is_in_group("Goku | Nuetral Light End"):
 		Select = States.Hurt
-		velocity.y -= 150
-	elif area.is_in_group("Goku | Nuetral Light Start"):
-		Select = States.Hurt
+		print("Goku | Nuetral Light End")
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 0.1
+			velocity.x = -50
 			
 		else:
-			velocity.x += 0.1
-	elif area.is_in_group("Goku | Nuetral Light Midle"):
-		Select = States.Hurt
-		
-		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 100
+			velocity.x = 50
 			
-		else:
-			velocity.x += 100
-			
-	elif area.is_in_group("Goku | Nuetral Light End"):
-		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 50
-			
-		else:
-			velocity.x += 50
-	elif area.is_in_group("Off Stage - Galvin"):
+		velocity.y = -15
+	if area.is_in_group("Off Stage - Galvin"):
 		position = CharacterList.galvin_player_respawn
 		Select = States.Respawn
 		$Area2D/Respawn.play("Invisibilty")
@@ -754,75 +773,79 @@ func _on_area_2d_body_entered(body):
 
 func _on_goku__side_light_transitional_check_area_entered(area):
 	side_registered = true
+	attack_reset = true
 
 
 func _on_goku__side_light_punch__finial_damager_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__side_light_punch__initial_damager_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__side_heavy_end_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__side_air_final_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__side_light_heavy_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__side_air_tracker_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__side_air_start_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__nuetral_light_midle_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__nuetral_light_end_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__nuetral_light_start_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__nuetral_air_right_side_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__nuetral_air_middle_side_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__nuetral_air_left_side_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__down_light_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__down_heavy_final_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku__down_heavy_initial_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku_sde_light_finish__second_punch_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
 
 
 func _on_goku_sde_light_finish__first_punch_area_entered(area):
-	pass # Replace with function body.
+	attack_reset = true
+
+
+

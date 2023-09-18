@@ -51,11 +51,11 @@ script = ExtResource("1_a0kbw")
 modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 0
-offset_left = 440.0
-offset_top = 272.0
-offset_right = 680.0
-offset_bottom = 368.0
-scale = Vector2(3, 3)
+offset_left = 144.0
+offset_top = 40.0
+offset_right = 384.0
+offset_bottom = 136.0
+scale = Vector2(10, 10)
 text = "2D FighterZ"
 fit_content = true
 
@@ -68,10 +68,10 @@ libraries = {
 modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 2
-offset_left = 240.0
-offset_top = 192.0
-offset_right = 325.0
-offset_bottom = 223.0
+offset_left = 528.0
+offset_top = 464.0
+offset_right = 613.0
+offset_bottom = 495.0
 text = "Local Play
 "
 flat = true
@@ -81,10 +81,10 @@ script = ExtResource("3_m8lw7")
 modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 2
-offset_left = 240.0
-offset_top = 224.0
-offset_right = 376.0
-offset_bottom = 255.0
+offset_left = 528.0
+offset_top = 496.0
+offset_right = 664.0
+offset_bottom = 527.0
 text = "About Character
 "
 flat = true
@@ -94,10 +94,10 @@ script = ExtResource("3_m8lw7")
 modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 2
-offset_left = 240.0
-offset_top = 256.0
-offset_right = 361.0
-offset_bottom = 287.0
+offset_left = 528.0
+offset_top = 528.0
+offset_right = 649.0
+offset_bottom = 559.0
 text = "Training Room"
 flat = true
 script = ExtResource("3_m8lw7")
@@ -105,10 +105,10 @@ script = ExtResource("3_m8lw7")
 [node name="Control Layout" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 240.0
-offset_top = 288.0
-offset_right = 359.0
-offset_bottom = 319.0
+offset_left = 528.0
+offset_top = 560.0
+offset_right = 672.0
+offset_bottom = 591.0
 text = "Controller Layout"
 flat = true
 script = ExtResource("3_m8lw7")
@@ -116,27 +116,36 @@ script = ExtResource("3_m8lw7")
 [node name="Mars Studio" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 240.0
-offset_top = 320.0
-offset_right = 341.0
-offset_bottom = 351.0
+offset_left = 528.0
+offset_top = 592.0
+offset_right = 629.0
+offset_bottom = 623.0
 text = "Mars Studio"
 flat = true
 script = ExtResource("3_m8lw7")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(552, 336)
-zoom = Vector2(1.7, 1.7)
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 616.0
+offset_right = 653.0
+offset_bottom = 647.0
+text = "Setting Menu"
+flat = true
 
 [node name="Character Pose" parent="." instance=ExtResource("2_3wm2l")]
+position = Vector2(8, -24)
 
 [node name="Exit Prompt" parent="." instance=ExtResource("4_u8wxl")]
 layout_mode = 0
 
 [node name="Background" parent="." instance=ExtResource("4_qpfyd")]
+visible = false
 layout_mode = 1
-offset_top = 88.0
-offset_bottom = 568.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1160.0
+offset_bottom = 648.0
 
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]

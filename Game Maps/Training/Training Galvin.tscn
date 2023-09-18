@@ -5789,6 +5789,7 @@ offset = Vector2(16.5, 0)
 
 [node name="Camera2D" parent="." instance=ExtResource("6_fs4jg")]
 position = Vector2(0, -168)
+zoom = Vector2(0.8, 0.8)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-15.999, 0)

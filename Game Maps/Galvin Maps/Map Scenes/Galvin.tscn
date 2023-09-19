@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=22 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="6_umm62"]
 [ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_evgpo"]
 [ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://Game Start/exit_prompt.tscn" id="9_us2oq"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="10_4hunc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
 texture = ExtResource("6_umm62")
@@ -5749,7 +5750,7 @@ size = Vector2(4248, 754.5)
 size = Vector2(1328.38, 1776)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfu67"]
-size = Vector2(3896, 307.25)
+size = Vector2(4220, 307.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8jnj"]
 size = Vector2(1472, 2124)
@@ -5910,19 +5911,19 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(76, 825.25)
+position = Vector2(70, 978)
 shape = SubResource("RectangleShape2D_rcey8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1623, 0)
+position = Vector2(-2703, -312)
 shape = SubResource("RectangleShape2D_1sier")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-52, -780)
+position = Vector2(62, -1364)
 shape = SubResource("RectangleShape2D_cfu67")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1697, -128)
+position = Vector2(2929, -152)
 shape = SubResource("RectangleShape2D_a8jnj")
 
 [node name="Area2D2" type="Area2D" parent="."]
@@ -5940,5 +5941,7 @@ collision_mask = 0
 polygon = PackedVector2Array(-304, 424, 320, 424, 320, 448, -304, 448)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(7, -90)
-zoom = Vector2(0.85, 0.85)
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("10_4hunc")
+zoom_offset = 0.2
+debug_mode = true

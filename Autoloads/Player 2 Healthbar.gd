@@ -3,13 +3,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$ProgressBar.value = CharacterList.player_1_health
+	$ProgressBar.value = CharacterList.player_2_health
 	$Sprite2D.texture = CharacterList.icon
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$ProgressBar.value = CharacterList.health
+	$ProgressBar.value = CharacterList.player_2_health
 	
 	
 	if CharacterList.goku_selected == true:

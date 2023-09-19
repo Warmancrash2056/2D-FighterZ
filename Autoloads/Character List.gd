@@ -5,8 +5,10 @@ var get_player_1 = null
 var get_player_2 = null
 var get_main_player = null
 
-var player_1_dead = false
-var health = 800
+
+var player_1_health: int
+var player_2_health: int
+var player_3_health: int
 var lives = 2
 
 var goku_selected = false

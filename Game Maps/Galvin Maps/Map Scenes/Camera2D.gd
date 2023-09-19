@@ -2,7 +2,7 @@ extends Camera2D
 @onready var player_1_spawn = CharacterList.get_player_1 .instantiate()
 @onready var player_2_spawn = CharacterList.get_player_2.instantiate()
 
-@export_range(0.1, 1.0) var zoom_offset : float = 0.1
+@export_range(0.1, 1.0) var zoom_offset : float = 0.2
 @export var debug_mode : bool = false
 var camera_rect := Rect2()
 var viewport_rect := Rect2()
@@ -12,14 +12,15 @@ func _ready() -> void:
 	Player_2()
 	
 func _process(delta: float) -> void:
-	print(zoom)
+	var distance = player_1_spawn.position.distance_to(player_2_spawn.position)
+	print(distance)
 	viewport_rect = get_viewport_rect()
-	set_process(get_child_count() >= 1)
-	camera_rect = Rect2(player_1_spawn.global_position, Vector2())
+	set_process(get_child_count() > 0)
+	camera_rect = Rect2(get_child(0).global_position, Vector2())
 	for index in range(get_child_count()):
 		if index == 0:
 			continue
-		camera_rect = camera_rect.expand(player_2_spawn.global_position)
+		camera_rect = camera_rect.expand(get_child(index).global_position)
 		
 	zoom = calculate_zoom(camera_rect, viewport_rect.size)
 	offset = calculate_center(camera_rect)

@@ -710,9 +710,9 @@ func _on_area_2d_area_entered(area):
 		Health -= 20
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 110
+			velocity.x = -250
 		else:
-			velocity.x += 110
+			velocity.x = 250
 			
 		velocity.y = 0
 		
@@ -723,40 +723,40 @@ func _on_area_2d_area_entered(area):
 		Select = States.Hurt
 		
 		if  CharacterList.player_1_facing_left == true:
-			velocity.x -= 2
+			velocity.x = -2
 			
 		else:
-			velocity.x += 2
-		velocity.y -= 120
+			velocity.x = 2
+		velocity.y = -250
 		
 	if area.is_in_group("Goku | Nuetral Air Middle Side"):
 		print("Goku | Nuetral Air Middle Side")
 		Health -= 10
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 2
+			velocity.x = -2
 			
 		else:
-			velocity.x += 2
+			velocity.x = 2
 		
-		velocity.y -= 150
+		velocity.y = -300
 	
 	if area.is_in_group("Goku | Nuetral Air Left Side"):
 		print("Goku | Nuetral Air Left Side")
 		Health -= 10
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 2
+			velocity.x = -2
 			
 		else:
-			velocity.x += 2
+			velocity.x = 2
 			
-		velocity.y -= 120
+		velocity.y = -250
 		
 	if area.is_in_group("Goku | Down Light"):
 		print("Goku | Down Light")
 		Health -= 10
 		Select = States.Hurt
-		velocity.y -= 470
+		velocity.y = -440
 	
 	if area.is_in_group("Goku | Nuetral Light Start"):
 		Select = States.Hurt
@@ -770,23 +770,18 @@ func _on_area_2d_area_entered(area):
 		Health -= 10
 		print("Goku | Nuetral Light Middle")
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 100
+			velocity.x = 400
 			
 		else:
-			velocity.x += 100
+			velocity.x = -400
 		
-		velocity.y -= 105
+		velocity.y = -300
 	if area.is_in_group("Goku | Nuetral Light End"):
 		Select = States.Hurt
 		Health -= 10
 		print("Goku | Nuetral Light End")
-		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 80
 			
-		else:
-			velocity.x += 80
-			
-		velocity.y -= 25
+		velocity.y = -200
 		
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
@@ -820,23 +815,22 @@ func _on_area_2d_area_entered(area):
 		Select = States.Hurt
 		Health -= 10		
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 160
+			velocity.x = -250
 			
 		else:
-			velocity.x += 160
+			velocity.x = 250
 			
-		velocity.y -= 70 
-		Health -= 25
+		velocity.y = -70 
 	
 	if area.is_in_group("Goku | Down Heavy Initial"):
 		Select = States.Hurt
-		velocity.y -= 300
+		velocity.y = -300
 		Health -= 10
 		
 		
 	if area.is_in_group("Goku | Down Heavy Final"):
 		Select = States.Hurt
-		velocity.y -= 99
+		velocity.y = -99
 		Health -= 10
 		
 		
@@ -845,24 +839,24 @@ func _on_area_2d_area_entered(area):
 		Health -= 10
 		
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 99
+			velocity.x = -99
 			
 		else:
-			velocity.x += 99
+			velocity.x = 99
 		
-		velocity.y -= 50
+		velocity.y = 50
 	
 	if area.is_in_group("Goku | Side Heavy End"):
 		Select = States.Hurt
 		Health -= 10
 		
 		if CharacterList.player_1_facing_left == true:
-			velocity.x -= 199
+			velocity.x = -199
 			
 		else:
-			velocity.x += 199
+			velocity.x = 199
 		
-		velocity.y -= 25
+		velocity.y = -25
 	if area.is_in_group("Off Stage - Galvin"):
 		Health = 1000
 		knockback_multiplier = 1.0

@@ -5938,6 +5938,7 @@ shape = SubResource("RectangleShape2D_ipdot")
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
+visible = false
 polygon = PackedVector2Array(-304, 424, 320, 424, 320, 448, -304, 448)
 
 [node name="Camera2D" type="Camera2D" parent="."]

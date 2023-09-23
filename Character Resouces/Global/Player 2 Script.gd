@@ -770,10 +770,10 @@ func _on_area_2d_area_entered(area):
 		Health -= 10
 		print("Goku | Nuetral Light Middle")
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = 400
+			velocity.x = -400
 			
 		else:
-			velocity.x = -400
+			velocity.x = 400
 		
 		velocity.y = -300
 	if area.is_in_group("Goku | Nuetral Light End"):
@@ -878,12 +878,9 @@ func _on_area_2d_body_entered(body):
 func _on_goku__side_light_transitional_check_area_entered(area):
 	side_registered = true
 	attack_reset = true
-	knockback_multiplier += 0.1
-
 
 func _on_goku__side_light_punch__finial_damager_area_entered(area):
 	attack_reset = true
-	knockback_multiplier += 0.1
 
 
 func _on_goku__side_light_punch__initial_damager_area_entered(area):

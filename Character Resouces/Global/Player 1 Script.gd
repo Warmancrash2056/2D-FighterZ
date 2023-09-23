@@ -217,19 +217,19 @@ func turn_around():
 		if Input.is_action_just_pressed(controls.right):
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			CharacterList.player_2_facing_left = false
+			CharacterList.player_1_facing_left = false
 			can_change_dir = true
 		elif Input.is_action_just_pressed(controls.left):
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			CharacterList.player_2_facing_left = true
+			CharacterList.player_1_facing_left = true
 			can_change_dir = true
 # General Archfield Stats.
 func _general_archfield_freball():
 	var instance_fireball = general_nuetral_attack_fireball.instantiate()
 	instance_fireball.global_position = general_arcfield_fireball_position.global_position
 	get_tree().get_root().add_child(instance_fireball)
-	if CharacterList.player_2_facing_left == true:
+	if CharacterList.player_1_facing_left == true:
 		instance_fireball.velocity.x = -100
 		instance_fireball.scale.x = -1
 	else:
@@ -239,7 +239,8 @@ func _general_archfield_freball():
 
 # Goku Stats
 func _goku_side_finish():
-	Select = States.Side_Transition
+	if side_registered == true:
+		Select = States.Side_Transition
 	
 func _reset_side_transition():
 	if side_registered == true:
@@ -249,7 +250,7 @@ func _goku_air_projectile():
 	instance_molten_sand.global_position = goku_projectile_position.global_position
 	get_tree().get_root().add_child(instance_molten_sand)
 
-	if CharacterList.player_2_facing_left == true:
+	if CharacterList.player_1_facing_left == true:
 		instance_molten_sand.velocity.x = -700
 		instance_molten_sand.scale.x = -1
 	else:
@@ -261,7 +262,7 @@ func _goku_ground_projectile():
 	instance_molten_earth.global_position = goku_projectile_position.global_position
 	get_tree().get_root().add_child(instance_molten_earth)
 
-	if CharacterList.player_2_facing_left == true:
+	if CharacterList.player_1_facing_left == true:
 		instance_molten_earth.velocity.x = -700
 		instance_molten_earth.scale.x = -1.5
 	else:
@@ -272,7 +273,7 @@ func hunter_spear_throw():
 	instance_spear.global_position = hunter_super_side_attack_position.global_position
 	get_tree().get_root().add_child(instance_spear)
 
-	if CharacterList.player_2_facing_left == true:
+	if CharacterList.player_1_facing_left == true:
 		instance_spear.velocity.x = -700
 		instance_spear.scale.x = -1.5
 	else:
@@ -300,7 +301,7 @@ func _activate_wall_jump_smoke():
 	instance_wall_jump.global_position = wall_jump_smoke_position.global_position
 	get_tree().get_root().add_child(instance_wall_jump)
 
-	if CharacterList.player_2_facing_left == true:
+	if CharacterList.player_1_facing_left == true:
 		instance_wall_jump.scale.y = 3
 	else:
 		instance_wall_jump.scale.y = -3
@@ -324,7 +325,7 @@ func activate_hunter_side_attack():
 	var instance_hunter_arrow = hunter_side_attack_arrow.instantiate()
 	instance_hunter_arrow.global_position = hunter_side_arrow_position.global_position
 	get_tree().get_root().add_child(instance_hunter_arrow)
-	if CharacterList.player_2_facing_left == true:
+	if CharacterList.player_1_facing_left == true:
 		instance_hunter_arrow.velocity.x = -600
 		instance_hunter_arrow.scale.x = -1
 	else:
@@ -335,7 +336,7 @@ func hunter_air_attack():
 	instance_arrow.global_position = hunter_air_attack_position.global_position
 	get_tree().get_root().add_child(instance_arrow)
 
-	if CharacterList.player_2_facing_left == true:
+	if CharacterList.player_1_facing_left == true:
 		instance_arrow.velocity = Vector2(-150,150)
 		instance_arrow.scale.x = -1
 	else:
@@ -347,7 +348,7 @@ func hunter_down_attack():
 	instance_shower.global_position = hunter_down_attack_position.global_position
 	get_tree().get_root().add_child(instance_shower)
 
-	if CharacterList.player_2_facing_left == true:
+	if CharacterList.player_1_facing_left == true:
 		instance_shower.scale.x = -1
 	else:
 		instance_shower.scale.x = 1
@@ -357,19 +358,19 @@ func _hunter_stats():
 	Air_Speed = 350
 	Fall_Speed = 150
 func _ready():
-	CharacterList.player_2_health = Health
+	CharacterList.player_1_health = Health
 func _process(delta):
 	$Healthbar.value = Health
-	CharacterList.player_2_health = Health
+	CharacterList.player_1_health = Health
 	
-	if CharacterList.player_2_health < 500 and CharacterList.player_2_health > 300:
+	if CharacterList.player_1_health < 500 and CharacterList.player_1_health > 300:
 		knockback_multiplier = 1.2
 		
 	else:
-		if CharacterList.player_2_health < 250:
+		if CharacterList.player_1_health < 250:
 			knockback_multiplier = 1.4
 func _physics_process(delta):
-	print(CharacterList.player_2_health , knockback_multiplier)
+	print(CharacterList.player_1_health , knockback_multiplier)
 	move_and_slide()
 	match Select:
 		States.Idling:
@@ -384,7 +385,7 @@ func _physics_process(delta):
 				Animate.play("Run")
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_2_facing_left = true
+				CharacterList.player_1_facing_left = true
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.dash):
 						Select = States.Dash_Run
@@ -402,7 +403,7 @@ func _physics_process(delta):
 				Animate.play("Run")
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_2_facing_left = false
+				CharacterList.player_1_facing_left = false
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.dash):
 						Select = States.Dash_Run
@@ -485,7 +486,7 @@ func _physics_process(delta):
 				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_2_facing_left = true
+				CharacterList.player_1_facing_left = true
 				
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Air
@@ -494,7 +495,7 @@ func _physics_process(delta):
 				velocity.x = min(velocity.x + Acceleration, Air_Speed)
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_2_facing_left = false
+				CharacterList.player_1_facing_left = false
 				
 				if Input.is_action_pressed(controls.light):
 					Select = States.Side_Air
@@ -530,13 +531,13 @@ func _physics_process(delta):
 			if Input.is_action_pressed(controls.left):
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_2_facing_left = true
+				CharacterList.player_1_facing_left = true
 				velocity.x = max(velocity.x - Acceleration, -Fall_Speed)
 			elif Input.is_action_pressed(controls.right):
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
-				CharacterList.player_2_facing_left = false
+				CharacterList.player_1_facing_left = false
 
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.05)
@@ -638,12 +639,12 @@ func _physics_process(delta):
 			velocity.y += Gravity
 			Animate.play("Dash")
 			
-			if CharacterList.player_2_facing_left == true:
+			if CharacterList.player_1_facing_left == true:
 				if Input.is_action_just_pressed(controls.right):
 					Select = States.Idling
 					velocity.x = 0
 					
-			if CharacterList.player_2_facing_left == false:
+			if CharacterList.player_1_facing_left == false:
 				if Input.is_action_just_pressed(controls.left):
 					Select = States.Idling
 					velocity.x = 0
@@ -671,7 +672,7 @@ func _physics_process(delta):
 			velocity.x = 0
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			CharacterList.player_2_facing_left = false
+			CharacterList.player_1_facing_left = false
 			if Input.is_action_pressed(controls.left):
 				if Input.is_action_just_pressed(controls.jump):
 					velocity.x = -200
@@ -686,7 +687,7 @@ func _physics_process(delta):
 			velocity.x = 0
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			CharacterList.player_2_facing_left = true
+			CharacterList.player_1_facing_left = true
 			if Input.is_action_pressed(controls.right):
 				if Input.is_action_just_pressed(controls.jump):
 					Select = States.Jumping
@@ -711,7 +712,7 @@ func _on_area_2d_area_entered(area):
 		print("Goku | Side Air Start")
 		Health -= 20
 		Select = States.Hurt
-		if CharacterList.player_1_facing_left == true:
+		if CharacterList.player_2_facing_left == true:
 			velocity.x -= 110
 		else:
 			velocity.x += 110
@@ -724,7 +725,7 @@ func _on_area_2d_area_entered(area):
 		Health -= 10
 		Select = States.Hurt
 		
-		if  CharacterList.player_1_facing_left == true:
+		if  CharacterList.player_2_facing_left == true:
 			velocity.x -= 2
 			
 		else:
@@ -735,7 +736,7 @@ func _on_area_2d_area_entered(area):
 		print("Goku | Nuetral Air Middle Side")
 		Health -= 10
 		Select = States.Hurt
-		if CharacterList.player_1_facing_left == true:
+		if CharacterList.player_2_facing_left == true:
 			velocity.x -= 2
 			
 		else:
@@ -746,7 +747,7 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("Goku | Nuetral Air Left Side"):
 		print("Goku | Nuetral Air Left Side")
 		Health -= 10
-		if CharacterList.player_1_facing_left == true:
+		if CharacterList.player_2_facing_left == true:
 			velocity.x -= 2
 			
 		else:
@@ -771,7 +772,7 @@ func _on_area_2d_area_entered(area):
 		Select = States.Hurt
 		Health -= 10
 		print("Goku | Nuetral Light Middle")
-		if CharacterList.player_1_facing_left == true:
+		if CharacterList.player_2_facing_left == true:
 			velocity.x -= 100
 			
 		else:
@@ -782,7 +783,7 @@ func _on_area_2d_area_entered(area):
 		Select = States.Hurt
 		Health -= 10
 		print("Goku | Nuetral Light End")
-		if CharacterList.player_1_facing_left == true:
+		if CharacterList.player_2_facing_left == true:
 			velocity.x -= 80
 			
 		else:
@@ -821,7 +822,7 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("Goku Sde Light Finish - Second Punch"):
 		Select = States.Hurt
 		Health -= 10		
-		if CharacterList.player_1_facing_left == true:
+		if CharacterList.player_2_facing_left == true:
 			velocity.x -= 160
 			
 		else:
@@ -846,7 +847,7 @@ func _on_area_2d_area_entered(area):
 		Select = States.Hurt
 		Health -= 10
 		
-		if CharacterList.player_1_facing_left == true:
+		if CharacterList.player_2_facing_left == true:
 			velocity.x -= 99
 			
 		else:
@@ -858,7 +859,7 @@ func _on_area_2d_area_entered(area):
 		Select = States.Hurt
 		Health -= 10
 		
-		if CharacterList.player_1_facing_left == true:
+		if CharacterList.player_2_facing_left == true:
 			velocity.x -= 199
 			
 		else:
@@ -886,12 +887,10 @@ func _on_area_2d_body_entered(body):
 func _on_goku__side_light_transitional_check_area_entered(area):
 	side_registered = true
 	attack_reset = true
-	knockback_multiplier += 0.1
 
 
 func _on_goku__side_light_punch__finial_damager_area_entered(area):
 	attack_reset = true
-	knockback_multiplier += 0.1
 
 
 func _on_goku__side_light_punch__initial_damager_area_entered(area):

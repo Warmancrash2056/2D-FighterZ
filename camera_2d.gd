@@ -2,7 +2,7 @@ extends Camera2D
 @onready var player_1_spawn = CharacterList.get_player_1 .instantiate()
 @onready var player_2_spawn = CharacterList.get_player_2.instantiate()
 
-@export_range(0.1, 1.0) var zoom_offset : float = 0.1
+@export_range(0.1, 1.0) var zoom_offset : float = 0.5
 @export var debug_mode : bool = false
 var camera_rect := Rect2()
 var viewport_rect := Rect2()
@@ -23,6 +23,13 @@ func _process(delta: float) -> void:
 		
 	zoom = calculate_zoom(camera_rect, viewport_rect.size)
 	offset = calculate_center(camera_rect)
+	
+	# Define the maximum allowed offset (adjust as needed)
+	var max_offset = Vector2(400.0, 400.0)
+	
+	# Clamp the offset to stay within the bounds
+	offset.x = clamp(offset.x, -max_offset.x, max_offset.x)
+	offset.y = clamp(offset.y, -max_offset.y, max_offset.y)
 	if debug_mode:
 		queue_redraw()
 func calculate_center(rect: Rect2) -> Vector2:
@@ -34,7 +41,11 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 	var min_zoom = min(
 		min(1.3, viewport_size.x / rect.size.x - zoom_offset),
 		min(1.3, viewport_size.y / rect.size.y - zoom_offset))
-	return Vector2(min_zoom, min_zoom)
+	
+	# Set a minimum zoom value (adjust as needed)
+	var min_zoom_value = 1.1
+	
+	return Vector2(max(min_zoom, min_zoom_value), max(min_zoom, min_zoom_value))
 
 func _draw() -> void:
 	if not debug_mode:

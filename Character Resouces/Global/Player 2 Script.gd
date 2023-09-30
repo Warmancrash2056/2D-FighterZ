@@ -194,10 +194,9 @@ func _counter_side_light():
 	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
 		if Input.is_action_pressed(controls.light):
 			Select = States.Side_Light
-			print("counter side light")
 func _counter_side_heavy():
 	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
-		if Input.is_action_pressed(controls.light):
+		if Input.is_action_pressed(controls.heavy):
 			Select = States.Side_Heavy
 
 func counter_dowm_light():
@@ -207,7 +206,7 @@ func counter_dowm_light():
 func counter_down_heavy():
 	if Input.is_action_pressed(controls.down):
 		if Input.is_action_pressed(controls.heavy):
-			Select = States.Down_Light
+			Select = States.Down_Heavy
 
 # Reset Defend directional change at end of animation
 func _reset_turn_around():
@@ -446,15 +445,15 @@ func _physics_process(delta):
 					set_collision_mask_value(3, false)
 
 
-			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
+			elif Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				Select = States.Jumping
 				jump_count -= 1
 				_activate_jump_smoke()
 				$"Character Jump Sound".play()
 				velocity.y = -Jump_Height
+				Animate.play("Jump")
 		States.Jumping:
 			velocity.y += Gravity
-			Animate.play("Jump")
 
 
 			if Input.is_action_pressed(controls.down):
@@ -558,6 +557,7 @@ func _physics_process(delta):
 				jump_count = 3
 
 		States.Side_Light:
+			Animate.speed_scale
 			velocity.x = lerp(velocity.x, 0.0, 0.3)
 			velocity.y = 0
 			Animate.play("Side Light Start")
@@ -566,7 +566,7 @@ func _physics_process(delta):
 			velocity.y = 0
 			Animate.play("Side Light Finisher")
 		States.Side_Heavy:
-			Animate.play("Side Heavy")
+			Animate.play("Side heavy")
 			velocity.x = lerp(velocity.x, 0.0, 0.3)
 			velocity.y = 0
 
@@ -576,7 +576,7 @@ func _physics_process(delta):
 			velocity.y = 1
 		States.Down_Light:
 			Animate.play("Down Light")
-			velocity.x = lerp(velocity.x, 0.0, 0.3)
+			velocity.x = lerp(velocity.x, 0.0, 0.05)
 			velocity.y = 0
 
 		States.Down_Heavy:
@@ -636,20 +636,42 @@ func _physics_process(delta):
 			velocity.y += Gravity
 			Animate.play("Dash")
 			
+			if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Side_Light
+					
+				if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Side_Heavy
+					
+			else:
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Nuetral_Light
+				
+				if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Nuetral_Heavy
+				
+				if Input.is_action_just_pressed(controls.dash) and block_active == false:
+						Select = States.Ground_Block
+						block_active = true
+						
+				if Input.is_action_pressed(controls.down):
+						if Input.is_action_just_pressed(controls.light):
+								Select = States.Down_Light
+								
+						if Input.is_action_just_pressed(controls.heavy):
+								Select = States.Down_Heavy
+					
 			if CharacterList.player_2_facing_left == true:
-				if Input.is_action_just_pressed(controls.right):
+				if Input.is_action_pressed(controls.right):
 					Select = States.Idling
 					velocity.x = 0
-					
+				
+						
+				
 			if CharacterList.player_2_facing_left == false:
-				if Input.is_action_just_pressed(controls.left):
+				if Input.is_action_pressed(controls.left):
 					Select = States.Idling
-					velocity.x = 0
-					
-			if Input.is_action_just_pressed(controls.dash) and block_active == false:
-				Select = States.Ground_Block
-				block_active = true
-
+			
 			if velocity.y > 200:
 				Select = States.Falling
 
@@ -665,7 +687,7 @@ func _physics_process(delta):
 		States.Right_Wall:
 			jump_count = 3
 			Animate.play("Wall")
-			velocity.y = 1
+			velocity.y += 10
 			velocity.x = 0
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -677,10 +699,13 @@ func _physics_process(delta):
 					velocity.y = -Jump_Height
 					_activate_wall_jump_smoke()
 					$"Character Jump Sound".play()
+					
+			if !is_on_wall():
+				Select = States.Falling
 		States.Left_Wall:
 			jump_count = 3
 			Animate.play("Wall")
-			velocity.y = 1
+			velocity.y += 10
 			velocity.x = 0
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -693,7 +718,9 @@ func _physics_process(delta):
 					print("On Left Side")
 					_activate_wall_jump_smoke()
 					$"Character Jump Sound".play()
-			velocity.y += Gravity
+					
+			if !is_on_wall():
+				Select = States.Falling
 		States.Air_Projectile:
 			Animate.play("Air Projectile")
 			velocity.x = lerp(velocity.x , 0.0, 0.05)
@@ -707,6 +734,7 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Goku | Side Air Start"):
 		print("Goku | Side Air Start")
+		Animate.speed_scale = 0.8
 		Health -= 20
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
@@ -719,6 +747,7 @@ func _on_area_2d_area_entered(area):
 		
 	if area.is_in_group("Goku | Nuetral Air Right Side"):
 		print("Goku | Nuetral Air Right Side")
+		Animate.speed_scale = 1.4
 		Health -= 10
 		Select = States.Hurt
 		
@@ -727,7 +756,7 @@ func _on_area_2d_area_entered(area):
 			
 		else:
 			velocity.x = 2
-		velocity.y = -250
+		velocity.y = -275
 		
 	if area.is_in_group("Goku | Nuetral Air Middle Side"):
 		print("Goku | Nuetral Air Middle Side")
@@ -750,13 +779,13 @@ func _on_area_2d_area_entered(area):
 		else:
 			velocity.x = 2
 			
-		velocity.y = -250
+		velocity.y = -275
 		
 	if area.is_in_group("Goku | Down Light"):
 		print("Goku | Down Light")
 		Health -= 10
 		Select = States.Hurt
-		velocity.y = -440
+		velocity.y = -420
 	
 	if area.is_in_group("Goku | Nuetral Light Start"):
 		Select = States.Hurt
@@ -785,7 +814,6 @@ func _on_area_2d_area_entered(area):
 		
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
-		Health -= 10
 		velocity.x = 0
 		velocity.y = 0
 		Health -= 50
@@ -795,42 +823,39 @@ func _on_area_2d_area_entered(area):
 		Health -= 10
 		velocity.x = 0
 		velocity.y = 0
-		Health -= 23
 		
 	if area.is_in_group("Goku | Side Light Transitional Check"):
 		Select = States.Hurt
 		Health -= 10		
 		velocity.x = 0
 		velocity.y = 0
-		Health -= 5
 		
 	if area.is_in_group("Goku Sde Light Finish - First Punch"):
 		Select = States.Hurt
 		Health -= 10		
 		velocity.x = 0
 		velocity.y = 0
-		Health -= 50
 		
 	if area.is_in_group("Goku Sde Light Finish - Second Punch"):
 		Select = States.Hurt
 		Health -= 10		
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = -250
+			velocity.x = -300
 			
 		else:
-			velocity.x = 250
+			velocity.x = 300
 			
-		velocity.y = -70 
+		velocity.y = -120
 	
 	if area.is_in_group("Goku | Down Heavy Initial"):
 		Select = States.Hurt
-		velocity.y = -300
+		velocity.y = -800
 		Health -= 10
 		
 		
 	if area.is_in_group("Goku | Down Heavy Final"):
 		Select = States.Hurt
-		velocity.y = -99
+		velocity.y = -400
 		Health -= 10
 		
 		

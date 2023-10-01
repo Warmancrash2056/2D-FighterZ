@@ -76,10 +76,7 @@ var attack_active = false
 
 var jump_count = 3
 
-var subtract_test = 0
-
-@export var Health: int = 1000
-@export var Super_Pts: int
+var Health: int
 
 enum States {
 	# Normal Mode Ststes. #
@@ -126,6 +123,7 @@ func _goku_stats():
 	Speed = 300
 	Air_Speed = 150
 	Fall_Speed = 100
+	Health = 2000
 
 func _general_stats():
 	nomad_selected = true
@@ -357,18 +355,25 @@ func _hunter_stats():
 	Fall_Speed = 150
 func _ready():
 	CharacterList.player_2_health = Health
+	Select = States.Respawn
+	knockback_multiplier = 1.0
 func _process(delta):
-	$Healthbar.value = Health
 	CharacterList.player_2_health = Health
 	
-	if CharacterList.player_2_health < 500 and CharacterList.player_2_health > 300:
+	if CharacterList.player_2_health < 700 and CharacterList.player_2_health > 400:
+		knockback_multiplier = 1.1
+		
+	elif CharacterList.player_2_health < 490 and CharacterList.player_2_health > 200 :
 		knockback_multiplier = 1.2
 		
+	elif CharacterList.player_2_health < 200:
+		knockback_multiplier = 1.3
+		
 	else:
-		if CharacterList.player_2_health < 250:
+		if CharacterList.player_2_health < 0:
 			knockback_multiplier = 1.4
+		
 func _physics_process(delta):
-	print(CharacterList.player_2_health , knockback_multiplier)
 	move_and_slide()
 	match Select:
 		States.Idling:
@@ -684,43 +689,40 @@ func _physics_process(delta):
 			Animate.play("Respawn")
 			velocity.x = 0
 			velocity.y = 0
+			knockback_multiplier = 1.0
 		States.Right_Wall:
 			jump_count = 3
 			Animate.play("Wall")
-			velocity.y += 10
+			velocity.y = 5
 			velocity.x = 0
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 			CharacterList.player_2_facing_left = false
 			if Input.is_action_pressed(controls.left):
 				if Input.is_action_just_pressed(controls.jump):
+					Animate.play("Jump")
 					velocity.x = -200
 					Select = States.Jumping
 					velocity.y = -Jump_Height
 					_activate_wall_jump_smoke()
 					$"Character Jump Sound".play()
 					
-			if !is_on_wall():
-				Select = States.Falling
 		States.Left_Wall:
 			jump_count = 3
 			Animate.play("Wall")
-			velocity.y += 10
+			velocity.y = 5
 			velocity.x = 0
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 			CharacterList.player_2_facing_left = true
 			if Input.is_action_pressed(controls.right):
 				if Input.is_action_just_pressed(controls.jump):
-					Select = States.Jumping
+					Animate.play("Jump")
 					velocity.x = 200
+					Select = States.Jumping
 					velocity.y = -Jump_Height
-					print("On Left Side")
 					_activate_wall_jump_smoke()
 					$"Character Jump Sound".play()
-					
-			if !is_on_wall():
-				Select = States.Falling
 		States.Air_Projectile:
 			Animate.play("Air Projectile")
 			velocity.x = lerp(velocity.x , 0.0, 0.05)
@@ -783,21 +785,24 @@ func _on_area_2d_area_entered(area):
 		
 	if area.is_in_group("Goku | Down Light"):
 		print("Goku | Down Light")
+		Animate.speed_scale = 1.2
 		Health -= 10
 		Select = States.Hurt
-		velocity.y = -420
+		velocity.y = -300
 	
 	if area.is_in_group("Goku | Nuetral Light Start"):
 		Select = States.Hurt
+		Animate.speed_scale = 0.7
 		Health -= 10
 		velocity.x = 0
 		velocity.y = 0
 		print("Goku | Nuetral Light Start")
 		
-	if area.is_in_group("Goku | Nuetral Light Middle"):
+	if area.is_in_group("Goku | Nuetral Light End"):
 		Select = States.Hurt
 		Health -= 10
-		print("Goku | Nuetral Light Middle")
+		Animate.speed_scale = 1.0
+		print("Goku | Nuetral Light End")
 		if CharacterList.player_1_facing_left == true:
 			velocity.x = -400
 			
@@ -805,38 +810,36 @@ func _on_area_2d_area_entered(area):
 			velocity.x = 400
 		
 		velocity.y = -300
-	if area.is_in_group("Goku | Nuetral Light End"):
-		Select = States.Hurt
-		Health -= 10
-		print("Goku | Nuetral Light End")
-			
-		velocity.y = -200
-		
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
+		Animate.speed_scale = 0
 		velocity.x = 0
 		velocity.y = 0
 		Health -= 50
 		
 	if area.is_in_group("Goku | Side Light Punch - Finial Damager"):
 		Select = States.Hurt
+		Animate.speed_scale = 0
 		Health -= 10
 		velocity.x = 0
 		velocity.y = 0
 		
 	if area.is_in_group("Goku | Side Light Transitional Check"):
 		Select = States.Hurt
+		Animate.speed_scale = 0
 		Health -= 10		
 		velocity.x = 0
 		velocity.y = 0
 		
 	if area.is_in_group("Goku Sde Light Finish - First Punch"):
 		Select = States.Hurt
+		Animate.speed_scale = 0.5
 		Health -= 10		
 		velocity.x = 0
 		velocity.y = 0
 		
 	if area.is_in_group("Goku Sde Light Finish - Second Punch"):
+		Animate.speed_scale = 0.5
 		Select = States.Hurt
 		Health -= 10		
 		if CharacterList.player_1_facing_left == true:
@@ -855,7 +858,7 @@ func _on_area_2d_area_entered(area):
 		
 	if area.is_in_group("Goku | Down Heavy Final"):
 		Select = States.Hurt
-		velocity.y = -400
+		velocity.y = -420
 		Health -= 10
 		
 		

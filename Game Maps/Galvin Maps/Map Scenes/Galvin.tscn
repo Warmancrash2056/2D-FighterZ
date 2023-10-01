@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=24 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_evgpo"]
 [ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://Game Start/exit_prompt.tscn" id="9_us2oq"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="10_4hunc"]
+[ext_resource type="PackedScene" uid="uid://b3rv1kotqtmjy" path="res://Autoloads/Player 1 Healthbar.tscn" id="11_sxxqa"]
+[ext_resource type="PackedScene" uid="uid://cyanpmw7wuxhc" path="res://Autoloads/Player 2 Healthbar.tscn" id="12_m17yr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
 texture = ExtResource("6_umm62")
@@ -5762,22 +5764,22 @@ size = Vector2(1472, 2124)
 script = ExtResource("1_cxki7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
+scale = Vector2(3, 3)
 texture = ExtResource("3_qrqqu")
 offset = Vector2(16.5, 0)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
+scale = Vector2(3, 3)
 texture = ExtResource("4_8pavo")
 offset = Vector2(16.5, 0)
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
+scale = Vector2(3, 3)
 texture = ExtResource("5_37ogg")
 offset = Vector2(16.5, 0)
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
+scale = Vector2(3, 3)
 texture = ExtResource("6_kexdy")
 offset = Vector2(16.5, 0)
 
@@ -5932,20 +5934,26 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D"]
-position = Vector2(152, 1080)
+position = Vector2(160, 1104)
 shape = SubResource("RectangleShape2D_rcey8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/Area2D"]
-position = Vector2(-1688, 64)
+position = Vector2(-1888, 72)
 shape = SubResource("RectangleShape2D_1sier")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/Area2D"]
-position = Vector2(8, -616)
+position = Vector2(88, -880)
 shape = SubResource("RectangleShape2D_cfu67")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Camera2D/Area2D"]
-position = Vector2(1760, 72)
+position = Vector2(2064, 48)
 shape = SubResource("RectangleShape2D_a8jnj")
+
+[node name="Player 1 Healthbar" parent="Camera2D" instance=ExtResource("11_sxxqa")]
+position = Vector2(832, -440)
+
+[node name="Player 2 Healthbar" parent="Camera2D" instance=ExtResource("12_m17yr")]
+position = Vector2(832, -512)
 
 [node name="TileMap3" type="TileMap" parent="."]
 format = 2

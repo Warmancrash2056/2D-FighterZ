@@ -361,7 +361,6 @@ func _hunter_stats():
 func _ready():
 	CharacterList.player_1_health = Health
 func _process(delta):
-	$Healthbar.value = Health
 	CharacterList.player_1_health = Health
 	
 	if CharacterList.player_1_health < 500 and CharacterList.player_1_health > 300:
@@ -371,7 +370,6 @@ func _process(delta):
 		if CharacterList.player_1_health < 250:
 			knockback_multiplier = 1.4
 func _physics_process(delta):
-	print(CharacterList.player_1_health , knockback_multiplier)
 	move_and_slide()
 	match Select:
 		States.Idling:
@@ -691,13 +689,14 @@ func _physics_process(delta):
 		States.Right_Wall:
 			jump_count = 3
 			Animate.play("Wall")
-			velocity.y += 10
+			velocity.y = 5
 			velocity.x = 0
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 			CharacterList.player_1_facing_left = false
 			if Input.is_action_pressed(controls.left):
 				if Input.is_action_just_pressed(controls.jump):
+					Animate.play("Jump")
 					velocity.x = -200
 					Select = States.Jumping
 					velocity.y = -Jump_Height
@@ -708,22 +707,20 @@ func _physics_process(delta):
 		States.Left_Wall:
 			jump_count = 3
 			Animate.play("Wall")
-			velocity.y += 10
+			velocity.y = 5
 			velocity.x = 0
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 			CharacterList.player_1_facing_left = true
 			if Input.is_action_pressed(controls.right):
 				if Input.is_action_just_pressed(controls.jump):
-					Select = States.Jumping
+					Animate.play("Jump")
 					velocity.x = 200
+					Select = States.Jumping
 					velocity.y = -Jump_Height
-					print("On Left Side")
 					_activate_wall_jump_smoke()
 					$"Character Jump Sound".play()
 					
-			if !is_on_wall():
-				Select = States.Falling
 		States.Air_Projectile:
 			Animate.play("Air Projectile")
 			velocity.x = lerp(velocity.x , 0.0, 0.05)

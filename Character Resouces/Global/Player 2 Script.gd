@@ -381,7 +381,7 @@ func _physics_process(delta):
 			set_collision_mask_value(3, true)
 			if velocity.y > 200:
 				Select = States.Jumping
-				Animate.play("Fall")
+				Animate.play("Jump")
 			velocity.y += Gravity
 			if Input.is_action_pressed(controls.left):
 				velocity.x = max(velocity.x -Acceleration, -Speed)
@@ -459,7 +459,7 @@ func _physics_process(delta):
 				Animate.play("Jump")
 		States.Jumping:
 			velocity.y += Gravity
-
+			Animate.play("Jump")
 
 			if Input.is_action_pressed(controls.down):
 				velocity.y += 10

@@ -58,7 +58,7 @@ var Acceleration = 50
 var Air_Speed = 0
 var Fall_Speed = 0
 var Roll_Speed = 600
-var Jump_Height = 500
+var Jump_Height = 600
 var Gravity = 25
 
 var can_sakura_ulight_smoke = false
@@ -377,7 +377,7 @@ func _physics_process(delta):
 			set_collision_mask_value(3, true)
 			if velocity.y > 200:
 				Select = States.Jumping
-				Animate.play("Fall")
+				Animate.play("Jump")
 			velocity.y += Gravity
 			if Input.is_action_pressed(controls.left):
 				velocity.x = max(velocity.x -Acceleration, -Speed)
@@ -455,7 +455,7 @@ func _physics_process(delta):
 				Animate.play("Jump")
 		States.Jumping:
 			velocity.y += Gravity
-
+			Animate.play("Jump")
 
 			if Input.is_action_pressed(controls.down):
 				velocity.y += 10
@@ -574,8 +574,8 @@ func _physics_process(delta):
 
 		States.Side_Air:
 			Animate.play("Side Air")
-			velocity.x = lerp(velocity.x , 0.0, 0.09)
-			velocity.y = 1
+			velocity.x = lerp(velocity.x , 0.0, 0.05)
+			velocity.y = lerp(velocity.y , 0.0, 0.2)
 		States.Down_Light:
 			Animate.play("Down Light")
 			velocity.x = lerp(velocity.x, 0.0, 0.3)
@@ -608,7 +608,7 @@ func _physics_process(delta):
 			Animate.play("Nuetral Heavy")
 		States.Nuetral_Air:
 			velocity.x = lerp(velocity.x , 0.0, 0.05)
-			velocity.y = 10
+			velocity.y = lerp(velocity.y , 0.0, 0.2)
 			Animate.play("Nuetral Air")
 
 		States.Ground_Block:

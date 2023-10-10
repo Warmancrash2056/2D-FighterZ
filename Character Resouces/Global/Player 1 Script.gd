@@ -470,9 +470,6 @@ func _physics_process(delta):
 				if Input.is_action_pressed(controls.light):
 					Select = States.Side_Air
 
-			if Input.is_action_pressed(controls.down):
-				if Input.is_action_just_pressed(controls.light):
-					Select = States.Down_Air
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.03)
 				if Input.is_action_just_pressed(controls.light):
@@ -481,7 +478,9 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.throw):
 					Select = States.Air_Projectile
 			
-
+			if Input.is_action_pressed(controls.down):
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Down_Air
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
 				Select = States.Air_Block
 				block_active = true

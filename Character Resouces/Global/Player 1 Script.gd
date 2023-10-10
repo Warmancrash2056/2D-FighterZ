@@ -446,7 +446,7 @@ func _physics_process(delta):
 					set_collision_mask_value(3, false)
 
 
-			elif Input.is_action_just_pressed(controls.jump) and jump_count > 0:
+			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				Select = States.Jumping
 				jump_count -= 1
 				_activate_jump_smoke()
@@ -454,11 +454,44 @@ func _physics_process(delta):
 				velocity.y = -Jump_Height
 				Animate.play("Jump")
 		States.Jumping:
+			if Input.is_action_pressed(controls.left):
+				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
+				Sprite.flip_h = true
+				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				CharacterList.player_2_facing_left = true
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Side_Air
+
+			elif Input.is_action_just_pressed(controls.right):
+				velocity.x = min(velocity.x + Acceleration, Air_Speed)
+				Sprite.flip_h = false
+				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+				CharacterList.player_2_facing_left = false
+				if Input.is_action_pressed(controls.light):
+					Select = States.Side_Air
+
+			if Input.is_action_pressed(controls.down):
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Down_Air
+			else:
+				velocity.x = lerp(velocity.x, 0.0, 0.03)
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Nuetral_Air
+
+				if Input.is_action_just_pressed(controls.throw):
+					Select = States.Air_Projectile
+			
+
+			if Input.is_action_just_pressed(controls.dash) and block_active == false:
+				Select = States.Air_Block
+				block_active = true
+				set_collision_mask_value(3, true)
+			
 			velocity.y += Gravity
 			Animate.play("Jump")
 
 			if Input.is_action_pressed(controls.down):
-				velocity.y += 10
+				velocity.y += 15
 				set_collision_mask_value(3, false)
 			else:
 				set_collision_mask_value(3, true)
@@ -481,39 +514,6 @@ func _physics_process(delta):
 					Animate.play("Jump")
 					_activate_jump_smoke()
 					$"Character Jump Sound".play()
-			if Input.is_action_pressed(controls.left):
-				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
-				Sprite.flip_h = true
-				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_1_facing_left = true
-				
-				if Input.is_action_just_pressed(controls.light):
-					Select = States.Side_Air
-
-			elif Input.is_action_pressed(controls.right):
-				velocity.x = min(velocity.x + Acceleration, Air_Speed)
-				Sprite.flip_h = false
-				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_1_facing_left = false
-				
-				if Input.is_action_pressed(controls.light):
-					Select = States.Side_Air
-
-
-			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.03)
-				if Input.is_action_just_pressed(controls.light):
-					Select = States.Nuetral_Air
-
-				if Input.is_action_just_pressed(controls.throw):
-					Select = States.Air_Projectile
-
-
-			if Input.is_action_just_pressed(controls.dash) and block_active == false:
-				Select = States.Air_Block
-				block_active = true
-				set_collision_mask_value(3, true)
-
 		States.Falling:
 			Animate.play("Fall")
 			if Input.is_action_pressed(controls.down):
@@ -586,7 +586,9 @@ func _physics_process(delta):
 			velocity.y = 0
 			Animate.play("Down Heavy")
 		States.Down_Air:
-			pass
+			velocity.x = lerp(velocity.x, 0.0, 0.06)
+			velocity.y = 5
+			Animate.play("Down Air")
 		States.Down_Air_Heavy:
 			Animate.play("Down Air Heavy")
 			velocity.x = lerp(velocity.x , 0.0, 0.08)

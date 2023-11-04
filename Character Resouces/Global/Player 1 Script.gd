@@ -462,7 +462,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Air
 
-			elif Input.is_action_just_pressed(controls.right):
+			elif Input.is_action_pressed(controls.right):
 				velocity.x = min(velocity.x + Acceleration, Air_Speed)
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))

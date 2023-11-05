@@ -752,9 +752,9 @@ func _on_area_2d_area_entered(area):
 		Health -= 20
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = -300
+			velocity.x = -500
 		else:
-			velocity.x = 300
+			velocity.x = 500
 			
 		velocity.y = 0
 		
@@ -812,15 +812,15 @@ func _on_area_2d_area_entered(area):
 		
 	if area.is_in_group("Goku | Nuetral Light End"):
 		Select = States.Hurt
-		Animate.speed_scale = 0.6
+		Animate.speed_scale = 1.0
 		Health -= 10
 		print("Goku | Nuetral Light End")
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = lerp(velocity.x, -200.0, 0.4)
+			velocity.x = lerp(velocity.x, -200.0, 0.3)
 		else:
-			velocity.x = lerp(velocity.x, 200.0, 0.4)
+			velocity.x = lerp(velocity.x, 200.0, 0.3)
 		
-		velocity.y = -200
+		velocity.y = lerp(velocity.y, -1000.0, 0.3)
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
 		Animate.speed_scale = 0

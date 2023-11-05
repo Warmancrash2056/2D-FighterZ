@@ -458,7 +458,7 @@ func _physics_process(delta):
 				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_2_facing_left = true
+				CharacterList.player_1_facing_left = true
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Air
 
@@ -466,7 +466,7 @@ func _physics_process(delta):
 				velocity.x = min(velocity.x + Acceleration, Air_Speed)
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_2_facing_left = false
+				CharacterList.player_1_facing_left = false
 				if Input.is_action_pressed(controls.light):
 					Select = States.Side_Air
 

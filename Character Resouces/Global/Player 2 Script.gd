@@ -123,7 +123,7 @@ func _goku_stats():
 	Speed = 300
 	Air_Speed = 150
 	Fall_Speed = 100
-	Health = 2000
+	Health = 1000
 
 func _general_stats():
 	nomad_selected = true
@@ -357,7 +357,11 @@ func _ready():
 	CharacterList.player_2_health = Health
 	Select = States.Respawn
 	knockback_multiplier = 1.0
+	
+func _reset_v():
+	set_velocity(Vector2.ZERO)
 func _process(delta):
+	print(velocity)
 	CharacterList.player_2_health = Health
 	
 	if CharacterList.player_2_health < 700 and CharacterList.player_2_health > 400:
@@ -748,9 +752,9 @@ func _on_area_2d_area_entered(area):
 		Health -= 20
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = -250
+			velocity.x = -300
 		else:
-			velocity.x = 250
+			velocity.x = 300
 			
 		velocity.y = 0
 		
@@ -793,14 +797,14 @@ func _on_area_2d_area_entered(area):
 		
 	if area.is_in_group("Goku | Down Light"):
 		print("Goku | Down Light")
-		Animate.speed_scale = 1.2
+		Animate.speed_scale = 0.8
 		Health -= 10
 		Select = States.Hurt
-		velocity.y = -250
+		velocity.y = -200
 	
 	if area.is_in_group("Goku | Nuetral Light Start"):
 		Select = States.Hurt
-		Animate.speed_scale = 0.7
+		Animate.speed_scale = 1.0
 		Health -= 10
 		velocity.x = 0
 		velocity.y = 0
@@ -808,16 +812,15 @@ func _on_area_2d_area_entered(area):
 		
 	if area.is_in_group("Goku | Nuetral Light End"):
 		Select = States.Hurt
+		Animate.speed_scale = 0.6
 		Health -= 10
-		Animate.speed_scale = 1.0
 		print("Goku | Nuetral Light End")
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = -400
-			
+			velocity.x = lerp(velocity.x, -200.0, 0.4)
 		else:
-			velocity.x = 400
+			velocity.x = lerp(velocity.x, 200.0, 0.4)
 		
-		velocity.y = -300
+		velocity.y = -200
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
 		Animate.speed_scale = 0
@@ -847,16 +850,16 @@ func _on_area_2d_area_entered(area):
 		velocity.y = 0
 		
 	if area.is_in_group("Goku Sde Light Finish - Second Punch"):
-		Animate.speed_scale = 0.5
+		Animate.speed_scale = 2.0
 		Select = States.Hurt
 		Health -= 10		
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = -300
+			velocity.x = -600
 			
 		else:
-			velocity.x = 300
+			velocity.x = 600
 			
-		velocity.y = -120
+		velocity.y = -25
 	
 	if area.is_in_group("Goku | Down Heavy Initial"):
 		Select = States.Hurt

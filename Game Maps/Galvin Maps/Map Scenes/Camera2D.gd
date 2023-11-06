@@ -12,7 +12,7 @@ func _ready() -> void:
 	Player_2()
 	
 func _process(delta: float) -> void:
-	print(zoom)
+	#print(zoom)
 	viewport_rect = get_viewport_rect()
 	set_process(get_child_count() > 0)
 	camera_rect = Rect2(get_child(0).global_position, Vector2())

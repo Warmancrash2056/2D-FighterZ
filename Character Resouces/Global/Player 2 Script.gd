@@ -365,17 +365,17 @@ func _process(delta):
 	CharacterList.player_2_health = Health
 	
 	if CharacterList.player_2_health < 700 and CharacterList.player_2_health > 400:
-		knockback_multiplier = 1.1
+		knockback_multiplier = 0.4
 		
 	elif CharacterList.player_2_health < 490 and CharacterList.player_2_health > 200 :
-		knockback_multiplier = 1.2
+		knockback_multiplier = 0.7
 		
 	elif CharacterList.player_2_health < 200:
-		knockback_multiplier = 1.3
+		knockback_multiplier = 1.0
 		
 	else:
 		if CharacterList.player_2_health < 0:
-			knockback_multiplier = 1.4
+			knockback_multiplier = 1.2
 		
 func _physics_process(delta):
 	move_and_slide()
@@ -690,18 +690,19 @@ func _physics_process(delta):
 
 
 		States.Hurt:
+			print(knockback_multiplier)
 			if is_on_floor():
 				Animate.play("Ground Hurt")
 			else:
 				if !is_on_floor():
 					Animate.play("Air Hurt")
-			velocity.x *= knockback_multiplier
-			velocity.y *= knockback_multiplier
+			#velocity.x *= knockback_multiplier
+			#velocity.y *= knockback_multiplier
 		States.Respawn:
 			Animate.play("Respawn")
 			velocity.x = 0
 			velocity.y = 0
-			knockback_multiplier = 1.0
+			knockback_multiplier = 0.2
 		States.Right_Wall:
 			jump_count = 3
 			Animate.play("Wall")
@@ -752,9 +753,9 @@ func _on_area_2d_area_entered(area):
 		Health -= 20
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = -500
+			velocity.x = lerp(velocity.x, -400.0, knockback_multiplier)
 		else:
-			velocity.x = 500
+			velocity.x = lerp(velocity.x, 400.0, knockback_multiplier)
 			
 		velocity.y = 0
 		
@@ -765,12 +766,7 @@ func _on_area_2d_area_entered(area):
 		Health -= 10
 		Select = States.Hurt
 		
-		if  CharacterList.player_1_facing_left == true:
-			velocity.x = -2
-			
-		else:
-			velocity.x = 2
-		velocity.y = -275
+		velocity.y = lerp(velocity.y)
 		
 	if area.is_in_group("Goku | Nuetral Air Middle Side"):
 		print("Goku | Nuetral Air Middle Side")
@@ -816,11 +812,11 @@ func _on_area_2d_area_entered(area):
 		Health -= 10
 		print("Goku | Nuetral Light End")
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = lerp(velocity.x, -200.0, 0.3)
+			velocity.x = lerp(velocity.x, -200.0, knockback_multiplier)
 		else:
-			velocity.x = lerp(velocity.x, 200.0, 0.3)
+			velocity.x = lerp(velocity.x, 200.0, knockback_multiplier)
 		
-		velocity.y = lerp(velocity.y, -1000.0, 0.3)
+		velocity.y = lerp(velocity.y, -1000.0, knockback_multiplier)
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
 		Animate.speed_scale = 0
@@ -898,7 +894,7 @@ func _on_area_2d_area_entered(area):
 		velocity.y = -25
 	if area.is_in_group("Off Stage - Galvin"):
 		Health = 1000
-		knockback_multiplier = 1.0
+		knockback_multiplier = 0.2
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position", CharacterList.galvin_player_respawn, 1.0)
 		Select = States.Respawn

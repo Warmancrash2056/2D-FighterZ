@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		queue_redraw()
 		
 	# Define the maximum allowed offset (adjust as needed)
-	var max_offset = Vector2(800.0, 800.0)
+	var max_offset = Vector2(1000.0, 1000.0)
 	
 	# Clamp the offset to stay within the bounds
 	offset.x = clamp(offset.x, -max_offset.x, max_offset.x)
@@ -43,7 +43,7 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 		min(1.3, viewport_size.y / rect.size.y - zoom_offset))
 	
 	# Set a minimum zoom value (adjust as needed)
-	var min_zoom_value = 1.1
+	var min_zoom_value = 0.9
 	
 	return Vector2(max(min_zoom, min_zoom_value), max(min_zoom, min_zoom_value))
 

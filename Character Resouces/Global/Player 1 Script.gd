@@ -496,11 +496,14 @@ func _physics_process(delta):
 				set_collision_mask_value(3, true)
 
 			if is_on_wall():
+				_activate_wall_jump_smoke()
 				if left_wall_detection.is_colliding():
 					Select = States.Left_Wall
+					_activate_wall_jump_smoke()
 				else:
 					if right_wall_detection.is_colliding():
 						Select = States.Right_Wall
+						_activate_wall_jump_smoke()
 
 
 			if is_on_floor():

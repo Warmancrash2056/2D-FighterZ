@@ -21,6 +21,7 @@ var general_nuetral_attack_fireball = preload("res://Character Resouces/General 
 var goku_air_projectile = preload("res://Goku Air Projectile.tscn")
 var goku_ground_projectiles = preload("res://Goku Ground Projectile.tscn")
 var side_registered = false
+@onready var Healthbar = $Health
 @onready var Animate: AnimationPlayer = $Character
 @onready var Sprite: Sprite2D = $Sprite
 @onready var smoke_position: Marker2D = $"Jump Smoke"
@@ -35,11 +36,14 @@ var side_registered = false
 @onready var hunter_down_attack_position = $"Scale Player/Hunter Down Attack Position"
 # General Archfield Fireball Position #
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
-
+@onready var recovery_timer = $"Recovery Timer"
+var is_recovering = false
 var attack_reset = false
 # Goku Projectile Position #
 
-var knockback_multiplier: float = 1.0
+var knockback_multiplier: float = 0.5
+var knockback_x: float
+var knockback_y: float
 
 # Used to detect if there is a wall.
 @onready var right_wall_detection = $Right
@@ -58,7 +62,7 @@ var Acceleration = 50
 var Air_Speed = 0
 var Fall_Speed = 0
 var Roll_Speed = 600
-var Jump_Height = 600
+var Jump_Height = 500
 var Gravity = 25
 
 var can_sakura_ulight_smoke = false
@@ -75,7 +79,6 @@ var block_active = false
 var attack_active = false
 
 var jump_count = 3
-
 
 var Health: int
 
@@ -360,8 +363,10 @@ func _hunter_stats():
 	Fall_Speed = 150
 func _ready():
 	CharacterList.player_1_health = Health
+	Healthbar.value = Health
 func _process(delta):
 	CharacterList.player_1_health = Health
+	Healthbar.value = Health
 	
 	if CharacterList.player_1_health < 500 and CharacterList.player_1_health > 300:
 		knockback_multiplier = 1.2
@@ -682,9 +687,15 @@ func _physics_process(delta):
 				Select = States.Falling
 
 		States.Hurt:
-			Animate.play("Hurt")
-			velocity.x *= knockback_multiplier
-			velocity.y *= knockback_multiplier
+			if is_on_floor():
+				Animate.play("Ground Hurt")
+			else:
+				if !is_on_floor():
+					Animate.play("Air Hurt")
+			velocity.x = knockback_x * knockback_multiplier
+			velocity.y= knockback_y * knockback_multiplier
+			print("Is Recovering ",recovery_timer.time_left)
+			print("Knockback Value: ", knockback_multiplier, " : Current Velocity", velocity)
 		States.Respawn:
 			Animate.play("Respawn")
 			velocity.x = 0

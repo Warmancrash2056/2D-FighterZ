@@ -21,6 +21,7 @@ var general_nuetral_attack_fireball = preload("res://Character Resouces/General 
 var goku_air_projectile = preload("res://Goku Air Projectile.tscn")
 var goku_ground_projectiles = preload("res://Goku Ground Projectile.tscn")
 var side_registered = false
+@onready var Healthbar = $Health
 @onready var Animate: AnimationPlayer = $Character
 @onready var Sprite: Sprite2D = $Sprite
 @onready var smoke_position: Marker2D = $"Jump Smoke"
@@ -78,6 +79,7 @@ var block_active = false
 var attack_active = false
 
 var jump_count = 3
+
 
 var Health: int
 
@@ -363,6 +365,7 @@ func _ready():
 	CharacterList.player_2_health = Health
 	Select = States.Respawn
 	knockback_multiplier = 1.0
+	Healthbar.value = Health
 	
 func _reset_v():
 	set_velocity(Vector2.ZERO)
@@ -370,19 +373,20 @@ func _reset_v():
 	knockback_y = 0
 func _process(delta):
 	CharacterList.player_2_health = Health
+	Healthbar.value = Health
 	
 	if CharacterList.player_2_health < 700 and CharacterList.player_2_health > 400:
-		knockback_multiplier = 0.9
+		knockback_multiplier = 1.0
 		
 	elif CharacterList.player_2_health < 490 and CharacterList.player_2_health > 200 :
-		knockback_multiplier = 1.2
+		knockback_multiplier = 1.3
 		
 	elif CharacterList.player_2_health < 200:
-		knockback_multiplier = 1.4
+		knockback_multiplier = 1.6
 		
 	else:
 		if CharacterList.player_2_health < 0:
-			knockback_multiplier = 1.7
+			knockback_multiplier = 1.9
 		
 func _physics_process(delta):
 	move_and_slide()
@@ -406,8 +410,8 @@ func _physics_process(delta):
 						velocity.x = -Roll_Speed
 						set_collision_mask_value(2, false)
 
-				#if Input.is_action_just_pressed(controls.light):
-					#Select = States.Side_Light
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Side_Light
 
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Side_Heavy
@@ -682,14 +686,14 @@ func _physics_process(delta):
 								Select = States.Down_Heavy
 					
 			if CharacterList.player_2_facing_left == true:
-				if Input.is_action_pressed(controls.right):
+				if Input.is_action_just_pressed(controls.right):
 					Select = States.Idling
 					velocity.x = 0
 				
 						
 				
 			if CharacterList.player_2_facing_left == false:
-				if Input.is_action_pressed(controls.left):
+				if Input.is_action_just_pressed(controls.left):
 					Select = States.Idling
 			
 			if velocity.y > 200:
@@ -711,7 +715,7 @@ func _physics_process(delta):
 		States.Respawn:
 			Animate.play("Respawn")
 			Health = 1000
-			knockback_multiplier = 0.5
+			knockback_multiplier = 0.7
 			velocity.x = 0
 			velocity.y = 0
 		States.Right_Wall:
@@ -773,30 +777,30 @@ func _on_area_2d_area_entered(area):
 		
 	if area.is_in_group("Goku | Nuetral Air Right Side"):
 		print("Goku | Nuetral Air Right Side")
-		is_recovering = true
+		_recovery_start()
 		recovery_timer.wait_time = 0.5
 		Health -= 10
 		Select = States.Hurt
 		knockback_x = 0
-		knockback_y = -300
+		knockback_y = -400
 		
 	if area.is_in_group("Goku | Nuetral Air Middle Side"):
 		print("Goku | Nuetral Air Middle Side")
-		is_recovering = true
+		_recovery_start()
 		recovery_timer.wait_time = 0.5
 		Health -= 10
 		Select = States.Hurt
 		knockback_x = 0
-		knockback_y = -300
+		knockback_y = -400
 	
 	if area.is_in_group("Goku | Nuetral Air Left Side"):
 		print("Goku | Nuetral Air Left Side")
-		is_recovering = true
+		_recovery_start()
 		recovery_timer.wait_time = 0.5
 		Health -= 10
 		Select = States.Hurt
 		knockback_x = 0
-		knockback_y = -300
+		knockback_y = -400
 		
 	if area.is_in_group("Goku | Down Light"):
 		print("Goku | Down Light")
@@ -842,7 +846,7 @@ func _on_area_2d_area_entered(area):
 		Select = States.Hurt
 		Health -= 10
 		knockback_x = 0
-		knockback_y
+		knockback_y = 0
 		
 		
 	if area.is_in_group("Goku Sde Light Finish - First Punch"):
@@ -851,13 +855,15 @@ func _on_area_2d_area_entered(area):
 		Select = States.Hurt
 		Animate.speed_scale = 0.5
 		Health -= 30	
+		knockback_x = 0
+		knockback_y = 0
 		
 	if area.is_in_group("Goku Sde Light Finish - Second Punch"):
 		_recovery_start()
 		Select = States.Hurt
 		Health -= 20
 		print("Goku | Nuetral Light End")
-		recovery_timer.wait_time = 0.25
+		recovery_timer.wait_time = 0.35
 		if CharacterList.player_1_facing_left == true:
 			knockback_x = -1000
 		else:
@@ -867,39 +873,46 @@ func _on_area_2d_area_entered(area):
 	
 	if area.is_in_group("Goku | Down Heavy Initial"):
 		Select = States.Hurt
-		velocity.y = -800
+		_recovery_start()
+		recovery_timer.wait_time = 0.5
+		knockback_x = 0
+		knockback_y -= 450
 		Health -= 10
 		
 		
 	if area.is_in_group("Goku | Down Heavy Final"):
 		Select = States.Hurt
-		velocity.y = -420
+		_recovery_start()
+		recovery_timer.wait_time = 0.28
+		knockback_x = 0
+		knockback_y -= 450
 		Health -= 10
-		
 		
 	if area.is_in_group("Goku | Side Heavy Start"):
+		recovery_timer.wait_time = 0.8
+		_recovery_start()
 		Select = States.Hurt
 		Health -= 10
-		
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = -99
+			knockback_x -= 500
 			
 		else:
-			velocity.x = 99
+			knockback_x += 500
 		
-		velocity.y = 50
+		knockback_y = -600
 	
 	if area.is_in_group("Goku | Side Heavy End"):
+		recovery_timer.wait_time = 0.8
+		_recovery_start()
 		Select = States.Hurt
 		Health -= 10
-		
 		if CharacterList.player_1_facing_left == true:
-			velocity.x = -199
+			knockback_x -= 500
 			
 		else:
-			velocity.x = 199
+			knockback_x += 500
 		
-		velocity.y = -25
+		knockback_y = -600
 	if area.is_in_group("Off Stage - Galvin"):
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position", CharacterList.galvin_player_respawn, 1.0)

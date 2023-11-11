@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cwpiiesuek7ha"]
 
-[ext_resource type="Script" path="res://camera_2d.gd" id="1_vtl5q"]
+[ext_resource type="Script" path="res://Game Maps/Galvin Maps/Map Scenes/Camera2D.gd" id="1_8sgt1"]
 
 [node name="Camera2D" type="Camera2D"]
-z_index = 7
-position = Vector2(32, -200)
-zoom = Vector2(0.6, 0.6)
-script = ExtResource("1_vtl5q")
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("1_8sgt1")
+zoom_offset = 0.2

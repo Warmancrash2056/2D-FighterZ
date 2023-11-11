@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="6_umm62"]
 [ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_evgpo"]
 [ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://Game Start/exit_prompt.tscn" id="9_us2oq"]
-[ext_resource type="Script" path="res://Game Maps/Galvin Maps/Map Scenes/Camera2D.gd" id="10_kttyk"]
+[ext_resource type="PackedScene" uid="uid://cwpiiesuek7ha" path="res://camera_2d.tscn" id="10_ocy76"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
 texture = ExtResource("6_umm62")
@@ -5927,10 +5927,7 @@ collision_mask = 0
 visible = false
 polygon = PackedVector2Array(-304, 424, 320, 424, 320, 448, -304, 448)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
-script = ExtResource("10_kttyk")
-zoom_offset = 0.2
+[node name="Camera2D" parent="." instance=ExtResource("10_ocy76")]
 
 [node name="Area2D" type="Area2D" parent="." groups=["Off Stage - Galvin"]]
 scale = Vector2(1.3, 1.3)

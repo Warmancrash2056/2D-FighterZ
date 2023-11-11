@@ -370,16 +370,17 @@ func _process(delta):
 		if CharacterList.player_1_health < 250:
 			knockback_multiplier = 1.4
 func _physics_process(delta):
+	var move_vec = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
 	move_and_slide()
 	match Select:
 		States.Idling:
 			jump_count = 3
 			set_collision_mask_value(3, true)
-			if velocity.y > 200:
+			if !is_on_floor():
 				Select = States.Jumping
 				Animate.play("Jump")
 			velocity.y += Gravity
-			if Input.is_action_pressed(controls.left):
+			if move_vec < 0:
 				velocity.x = max(velocity.x -Acceleration, -Speed)
 				Animate.play("Run")
 				Sprite.flip_h = true
@@ -397,7 +398,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Side_Heavy
 
-			elif Input.is_action_pressed(controls.right):
+			elif move_vec > 0:
 				velocity.x = min(velocity.x + Acceleration, Speed)
 				Animate.play("Run")
 				Sprite.flip_h = false
@@ -416,7 +417,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Side_Heavy
 			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.3)
+				velocity.x = lerp(velocity.x, 0.0, 0.2)
 				Animate.play("Idle")
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Nuetral_Light
@@ -454,7 +455,7 @@ func _physics_process(delta):
 				velocity.y = -Jump_Height
 				Animate.play("Jump")
 		States.Jumping:
-			if Input.is_action_pressed(controls.left):
+			if move_vec < 0:
 				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -462,7 +463,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Air
 
-			elif Input.is_action_pressed(controls.right):
+			elif move_vec > 0:
 				velocity.x = min(velocity.x + Acceleration, Air_Speed)
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -526,12 +527,12 @@ func _physics_process(delta):
 				else:
 					if right_wall_detection.is_colliding():
 						Select = States.Right_Wall
-			if Input.is_action_pressed(controls.left):
+			if move_vec < 0:
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.player_1_facing_left = true
 				velocity.x = max(velocity.x - Acceleration, -Fall_Speed)
-			elif Input.is_action_pressed(controls.right):
+			elif move_vec > 0:
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
@@ -666,15 +667,16 @@ func _physics_process(delta):
 								Select = States.Down_Heavy
 
 			if CharacterList.player_1_facing_left == true:
-				if Input.is_action_pressed(controls.right):
+				if Input.is_action_just_pressed(controls.right):
 					Select = States.Idling
 					velocity.x = 0
 				
 						
 				
 			if CharacterList.player_1_facing_left == false:
-				if Input.is_action_pressed(controls.left):
+				if Input.is_action_just_pressed(controls.left):
 					Select = States.Idling
+					velocity.x = 0
 			
 			if velocity.y > 200:
 				Select = States.Falling
@@ -687,6 +689,12 @@ func _physics_process(delta):
 			Animate.play("Respawn")
 			velocity.x = 0
 			velocity.y = 0
+		States.Respawn:
+			Animate.play("Respawn")
+			Health = 1000
+			knockback_multiplier = 0.5
+			velocity.x = 0
+			velocity.y = 0
 		States.Right_Wall:
 			jump_count = 3
 			Animate.play("Wall")
@@ -694,7 +702,7 @@ func _physics_process(delta):
 			velocity.x = 0
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			CharacterList.player_1_facing_left = false
+			CharacterList.player_2_facing_left = false
 			if Input.is_action_pressed(controls.left):
 				if Input.is_action_just_pressed(controls.jump):
 					Animate.play("Jump")
@@ -704,7 +712,6 @@ func _physics_process(delta):
 					_activate_wall_jump_smoke()
 					$"Character Jump Sound".play()
 					
-					
 		States.Left_Wall:
 			jump_count = 3
 			Animate.play("Wall")
@@ -712,7 +719,7 @@ func _physics_process(delta):
 			velocity.x = 0
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			CharacterList.player_1_facing_left = true
+			CharacterList.player_2_facing_left = true
 			if Input.is_action_pressed(controls.right):
 				if Input.is_action_just_pressed(controls.jump):
 					Animate.play("Jump")

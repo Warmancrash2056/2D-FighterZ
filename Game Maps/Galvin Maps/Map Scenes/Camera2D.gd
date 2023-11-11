@@ -39,11 +39,11 @@ func calculate_center(rect: Rect2) -> Vector2:
 
 func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 	var min_zoom = min(
-		min(1.3, viewport_size.x / rect.size.x - zoom_offset),
-		min(1.3, viewport_size.y / rect.size.y - zoom_offset))
+		min(1.4, viewport_size.x / rect.size.x - zoom_offset),
+		min(1.4, viewport_size.y / rect.size.y - zoom_offset))
 	
 	# Set a minimum zoom value (adjust as needed)
-	var min_zoom_value = 0.9
+	var min_zoom_value = 1.1
 	
 	return Vector2(max(min_zoom, min_zoom_value), max(min_zoom, min_zoom_value))
 

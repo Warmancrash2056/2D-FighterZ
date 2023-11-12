@@ -721,7 +721,7 @@ func _physics_process(delta):
 		States.Right_Wall:
 			jump_count = 3
 			Animate.play("Wall")
-			velocity.y = 5
+			velocity.y = 15
 			velocity.x = 0
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -735,10 +735,12 @@ func _physics_process(delta):
 					_activate_wall_jump_smoke()
 					$"Character Jump Sound".play()
 					
+			if !right_wall_detection.is_colliding():
+				Select = States.Jumping
 		States.Left_Wall:
 			jump_count = 3
 			Animate.play("Wall")
-			velocity.y = 5
+			velocity.y = 15
 			velocity.x = 0
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
@@ -751,6 +753,9 @@ func _physics_process(delta):
 					velocity.y = -Jump_Height
 					_activate_wall_jump_smoke()
 					$"Character Jump Sound".play()
+					
+			if !left_wall_detection.is_colliding():
+				Select = States.Jumping
 		States.Air_Projectile:
 			Animate.play("Air Projectile")
 			velocity.x = lerp(velocity.x , 0.0, 0.05)

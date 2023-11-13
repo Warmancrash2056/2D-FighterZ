@@ -439,7 +439,16 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.throw):
 					Select = States.Ground_Projectile
 
-			if Input.is_action_pressed(controls.down):
+
+
+			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
+				Select = States.Jumping
+				jump_count -= 1
+				_activate_jump_smoke()
+				$"Character Jump Sound".play()
+				velocity.y = -Jump_Height
+				Animate.play("Jump")
+			elif Input.is_action_pressed(controls.down):
 
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Down_Heavy
@@ -452,13 +461,6 @@ func _physics_process(delta):
 					set_collision_mask_value(3, false)
 
 
-			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
-				Select = States.Jumping
-				jump_count -= 1
-				_activate_jump_smoke()
-				$"Character Jump Sound".play()
-				velocity.y = -Jump_Height
-				Animate.play("Jump")
 		States.Jumping:
 			if move_vec < 0:
 				velocity.x = max(velocity.x - Acceleration, -Air_Speed)

@@ -769,13 +769,14 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Goku | Side Air Start"):
 		print("Goku | Side Air Start")
-		Animate.speed_scale = 0.8
+		_recovery_start()
+		Animate.speed_scale = 0.6
 		Health -= 20
 		Select = States.Hurt
 		if CharacterList.player_1_facing_left == true:
-			knockback_x = -500
+			knockback_x = -750
 		else:
-			knockback_x = 500
+			knockback_x = 750
 			
 			
 		knockback_y = 0

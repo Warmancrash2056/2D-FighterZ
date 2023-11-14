@@ -13,8 +13,8 @@ extends Node2D
 var distance_vec: float
 func _ready():
 	Audio._galvin_map_play()
-	Player_1()
-	Player_2()
+	#Player_1()
+	#Player_2()
 func Player_1():
 	
 	call_deferred("add_child", player_1_spawn)

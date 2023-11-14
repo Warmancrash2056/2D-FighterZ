@@ -10079,6 +10079,7 @@ texture_progress = ExtResource("7_ncrtx")
 [node name="Knockback Cloud" type="Marker2D" parent="."]
 
 [node name="Recovery Timer" type="Timer" parent="."]
+wait_time = 0.001
 one_shot = true
 
 [connection signal="area_entered" from="Scale Player/Goku | Nuetral Light Start" to="." method="_on_goku__nuetral_light_start_area_entered"]

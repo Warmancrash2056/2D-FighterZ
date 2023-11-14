@@ -70,10 +70,10 @@ func calculate_center(rect: Rect2) -> Vector2:
 
 func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 	var min_zoom = min(
-		min(0.8, viewport_size.x / rect.size.x - zoom_offset),
-		min(0.8, viewport_size.y / rect.size.y - zoom_offset)
+		min(1.0, viewport_size.x / rect.size.x - zoom_offset),
+		min(1.0, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 0.6), max(min_zoom, 0.6))
+	return Vector2(max(min_zoom, 0.8), max(min_zoom, 0.8))
 
 func calculate_zoom_factor(distance: float) -> float:
 	# Calculate the zoom factor based on the distance between players

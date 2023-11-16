@@ -3,15 +3,15 @@ extends Camera2D
 @onready var player_1_spawn = CharacterList.get_player_1.instantiate()
 @onready var player_2_spawn = CharacterList.get_player_2.instantiate()
 
-@export_range(0.1, 1.0) var zoom_offset : float = 0.8
+@export_range(0.1, 1.0) var zoom_offset : float = 1.0
 @export var debug_mode : bool = false
 var camera_rect := Rect2()
 var viewport_rect := Rect2()
 
 const MAX_OFFSET_X = 500.0
 const MIN_OFFSET_X = -500.0
-const MAX_ZOOM_DISTANCE = 500.0
-const CAMERA_MOVE_THRESHOLD = 400.0
+const MAX_ZOOM_DISTANCE = 700.0
+const CAMERA_MOVE_THRESHOLD = 150.0
 
 func _ready() -> void:
 	# Set player properties directly
@@ -70,10 +70,10 @@ func calculate_center(rect: Rect2) -> Vector2:
 
 func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 	var min_zoom = min(
-		min(1.0, viewport_size.x / rect.size.x - zoom_offset),
-		min(1.0, viewport_size.y / rect.size.y - zoom_offset)
+		min(1.7, viewport_size.x / rect.size.x - zoom_offset),
+		min(1.7, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 0.8), max(min_zoom, 0.8))
+	return Vector2(max(min_zoom, 1.0), max(min_zoom, 1.0))
 
 func calculate_zoom_factor(distance: float) -> float:
 	# Calculate the zoom factor based on the distance between players

@@ -1,8 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwpiiesuek7ha"]
+[gd_scene load_steps=4 format=3 uid="uid://cwpiiesuek7ha"]
 
-[ext_resource type="Script" path="res://Game Maps/Galvin Maps/Map Scenes/Camera2D.gd" id="1_8sgt1"]
+[ext_resource type="Script" path="res://cam.gd" id="1_xbui6"]
+[ext_resource type="PackedScene" uid="uid://b3rv1kotqtmjy" path="res://Autoloads/Player 1 Healthbar.tscn" id="2_b7dww"]
+[ext_resource type="PackedScene" uid="uid://cyanpmw7wuxhc" path="res://Autoloads/Player 2 Healthbar.tscn" id="3_yromx"]
 
 [node name="Camera2D" type="Camera2D"]
-zoom = Vector2(1.5, 1.5)
-script = ExtResource("1_8sgt1")
-zoom_offset = 0.2
+zoom = Vector2(2, 2)
+script = ExtResource("1_xbui6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.279
+anchor_top = -0.187
+anchor_right = 1.118
+anchor_bottom = 0.812
+offset_left = 456.0
+offset_top = -328.0
+offset_right = 456.0
+offset_bottom = -327.936
+grow_horizontal = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="Player 1 Healthbar" parent="MarginContainer" instance=ExtResource("2_b7dww")]
+position = Vector2(39, 17)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player 2 Healthbar" parent="MarginContainer" instance=ExtResource("3_yromx")]
+position = Vector2(39, 49)
+scale = Vector2(0.5, 0.5)

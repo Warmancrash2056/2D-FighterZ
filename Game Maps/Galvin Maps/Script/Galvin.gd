@@ -44,12 +44,12 @@ func update_camera() -> void:
 	camera.zoom = calculate_zoom(camera_rect, viewport_rect.size)
 	
 	# Calculate distance between players
-	var player1_position = player_1_spawn.position
-	var player2_position = player_2_spawn.position
+	var player1_position = player_1_spawn.global_position
+	var player2_position = player_2_spawn.global_position
 	var distance = player1_position.distance_to(player2_position)
 	
 	# Move the camera only when players are far away
-	print(camera.zoom)
+	#print(camera.position)
 	if distance > CAMERA_MOVE_THRESHOLD:
 		camera.global_position = lerp(camera.global_position,calculate_center(camera_rect),0.1)
 		
@@ -61,8 +61,8 @@ func update_camera() -> void:
 		queue_redraw()
 
 	# Clamp the offset to stay within the bounds
-	camera.global_position.x = clamp(camera.global_position.x, MIN_OFFSET_X, MAX_OFFSET_X)
-	camera.global_position.y = clamp(camera.global_position.y, -MAX_OFFSET_X, MAX_OFFSET_X)
+	#camera.global_position.x = clamp(camera.global_position.x, MIN_OFFSET_X, MAX_OFFSET_X)
+	#camera.global_position.y = clamp(camera.global_position.y, -MAX_OFFSET_X, MAX_OFFSET_X)
 
 func calculate_center(rect: Rect2) -> Vector2:
 	return Vector2(
@@ -75,7 +75,7 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 		min(1.7, viewport_size.x / rect.size.x - zoom_offset),
 		min(1.7, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 1.0), max(min_zoom, 1.0))
+	return Vector2(max(min_zoom, 0.95), max(min_zoom, 0.95))
 
 func calculate_zoom_factor(distance: float) -> float:
 	# Calculate the zoom factor based on the distance between players

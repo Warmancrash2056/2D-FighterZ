@@ -12,6 +12,12 @@ func _process(delta):
 	if zoom <= Vector2(1.7,1.7):
 		status_bar.position = Vector2(216,-192)
 		
+	if zoom <= Vector2(1.65,1.65):
+		status_bar.position = Vector2(229,-196)
+		
+	if zoom <= Vector2(1.5,1.5):
+		status_bar.position = Vector2(256,-216)
+		
 	if zoom <= Vector2(1.45,1.45):
 		status_bar.position = Vector2(280,-224)
 	

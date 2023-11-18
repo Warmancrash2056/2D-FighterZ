@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=21 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -5743,9 +5743,6 @@ texture = ExtResource("2_uq8es")
 [sub_resource type="TileSet" id="TileSet_tqbgv"]
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipdot"]
-size = Vector2(41, 101)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcey8"]
 size = Vector2(4248, 754.5)
 
@@ -5768,26 +5765,30 @@ offset_right = 784.0
 offset_bottom = 328.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-43, 0)
-scale = Vector2(4, 4)
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("3_qrqqu")
 offset = Vector2(16.5, 0)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-43, 0)
-scale = Vector2(4, 4)
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("4_8pavo")
 offset = Vector2(16.5, 0)
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-43, 0)
-scale = Vector2(4, 4)
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("5_37ogg")
 offset = Vector2(16.5, 0)
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-43, 0)
-scale = Vector2(4, 4)
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("6_kexdy")
 offset = Vector2(16.5, 0)
 
@@ -5911,15 +5912,6 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
 polygon = PackedVector2Array(368, 48, 368, 448, 336, 448, 336, 48)
 
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(-0.999023, -96)
-collision_layer = 32
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-64, -32)
-shape = SubResource("RectangleShape2D_ipdot")
-
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2(-0.999023, -96)
 collision_mask = 0
@@ -5930,8 +5922,17 @@ polygon = PackedVector2Array(-304, 424, 320, 424, 320, 448, -304, 448)
 
 [node name="Camera2D" parent="." instance=ExtResource("10_ocy76")]
 z_index = 20
-position = Vector2(0, -328)
-zoom = Vector2(0.8, 0.8)
+zoom = Vector2(0.95, 0.95)
+limit_left = -639
+limit_top = -400
+limit_right = 639
+limit_bottom = 400
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["Off Stage - Galvin"]]
 scale = Vector2(1.3, 1.3)
@@ -5939,17 +5940,17 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(6.15385, 1218.46)
+position = Vector2(18.4615, 720)
 shape = SubResource("RectangleShape2D_rcey8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2055.38, 55.3846)
+position = Vector2(-1200, 92.3077)
 shape = SubResource("RectangleShape2D_1sier")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(61.5385, -990.769)
+position = Vector2(92.3077, -498.462)
 shape = SubResource("RectangleShape2D_cfu67")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2178.46, 116.923)
+position = Vector2(1280, 172.308)
 shape = SubResource("RectangleShape2D_a8jnj")

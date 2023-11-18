@@ -363,10 +363,8 @@ func _hunter_stats():
 	Fall_Speed = 150
 func _ready():
 	CharacterList.player_1_health = Health
-	Healthbar.value = Health
 func _process(delta):
 	CharacterList.player_1_health = Health
-	Healthbar.value = Health
 	
 	if CharacterList.player_1_health < 500 and CharacterList.player_1_health > 300:
 		knockback_multiplier = 1.2
@@ -548,13 +546,13 @@ func _physics_process(delta):
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.05)
 
-			if jump_count > 0:
-				if Input.is_action_just_pressed(controls.jump):
-					jump_count -= 1
-					velocity.y = -Jump_Height
-					Select = States.Jumping
-					_activate_jump_smoke()
-					$"Character Jump Sound".play()
+				if jump_count > 0:
+					if Input.is_action_just_pressed(controls.jump):
+						jump_count -= 1
+						velocity.y = -Jump_Height
+						Select = States.Jumping
+						_activate_jump_smoke()
+						$"Character Jump Sound".play()
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
 				Select = States.Air_Block
 				block_active = true
@@ -637,12 +635,14 @@ func _physics_process(delta):
 			# Activate counter smoke to be called during an attack.
 			can_counter = true
 		States.Dash_Run:
-			if can_jump == true:
-				if Input.is_action_just_pressed(controls.jump):
-					Select = States.Jumping
-					velocity.y = -Jump_Height
-					_activate_jump_smoke()
-					$"Character Jump Sound".play()
+			jump_count = 2
+			if can_jump == true and jump_count > 0:
+					if Input.is_action_just_pressed(controls.jump):
+						jump_count -= 1
+						velocity.y = -Jump_Height
+						Select = States.Jumping
+						_activate_jump_smoke()
+						$"Character Jump Sound".play()
 			velocity.x = lerp(velocity.x , 0.0, 0.01)
 			velocity.y += Gravity
 			Animate.play("Dash")

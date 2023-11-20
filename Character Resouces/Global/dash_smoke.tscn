@@ -1,49 +1,73 @@
 [gd_scene load_steps=13 format=3 uid="uid://dlehafcpnrehc"]
 
-[ext_resource type="Texture2D" uid="uid://cb3k7qsejj4vq" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 6/Separated Frames/Smoke VFX 6 (32X16)1.png" id="1_okea6"]
-[ext_resource type="Texture2D" uid="uid://tic18goon16f" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 6/Separated Frames/Smoke VFX 6 (32X16)2.png" id="2_6pt2r"]
-[ext_resource type="Texture2D" uid="uid://bqyqupoydtiir" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 6/Separated Frames/Smoke VFX 6 (32X16)3.png" id="3_vhbb3"]
-[ext_resource type="Texture2D" uid="uid://brj7ianvcirj1" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 6/Separated Frames/Smoke VFX 6 (32X16)4.png" id="4_qqr1c"]
-[ext_resource type="Texture2D" uid="uid://2veapgmajc5r" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 6/Separated Frames/Smoke VFX 6 (32X16)5.png" id="5_s30bg"]
-[ext_resource type="Texture2D" uid="uid://cxnk75g6mhy80" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 6/Separated Frames/Smoke VFX 6 (32X16)6.png" id="6_hhq8r"]
-[ext_resource type="Texture2D" uid="uid://6fhswkvrx061" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 6/Separated Frames/Smoke VFX 6 (32X16)7.png" id="7_f87ge"]
-[ext_resource type="Texture2D" uid="uid://ws51773w2gsx" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 6/Separated Frames/Smoke VFX 6 (32X16)8.png" id="8_k6bdx"]
-[ext_resource type="Texture2D" uid="uid://qjqgcrjwlg4t" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 6/Separated Frames/Smoke VFX 6 (32X16)9.png" id="9_h4dbc"]
-[ext_resource type="Texture2D" uid="uid://c3sdjn32n1rve" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 6/Separated Frames/Smoke VFX 6 (32X16)10.png" id="10_7w54v"]
-[ext_resource type="Script" path="res://Character Resouces/Global/dash_smoke.gd" id="11_f0b02"]
+[ext_resource type="Texture2D" uid="uid://c5k6yefsm1kjp" path="res://Character Resouces/Global/Dash Resources/Dash/SmokeNDust P03 VFX 1.png" id="1_kgxs7"]
+[ext_resource type="Script" path="res://Character Resouces/Global/Dash Resources/dash_smoke.gd" id="2_3dkhr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vmgi"]
+atlas = ExtResource("1_kgxs7")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7yig"]
+atlas = ExtResource("1_kgxs7")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxrng"]
+atlas = ExtResource("1_kgxs7")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvytj"]
+atlas = ExtResource("1_kgxs7")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x8qg"]
+atlas = ExtResource("1_kgxs7")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0oq7"]
+atlas = ExtResource("1_kgxs7")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3qn7"]
+atlas = ExtResource("1_kgxs7")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y227e"]
+atlas = ExtResource("1_kgxs7")
+region = Rect2(560, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ljft"]
+atlas = ExtResource("1_kgxs7")
+region = Rect2(640, 0, 80, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iyuk8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_okea6")
+"texture": SubResource("AtlasTexture_6vmgi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_6pt2r")
+"texture": SubResource("AtlasTexture_l7yig")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_vhbb3")
+"texture": SubResource("AtlasTexture_fxrng")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_qqr1c")
+"texture": SubResource("AtlasTexture_jvytj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_s30bg")
+"texture": SubResource("AtlasTexture_8x8qg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_hhq8r")
+"texture": SubResource("AtlasTexture_c0oq7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_f87ge")
+"texture": SubResource("AtlasTexture_w3qn7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_k6bdx")
+"texture": SubResource("AtlasTexture_y227e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_h4dbc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_7w54v")
+"texture": SubResource("AtlasTexture_2ljft")
 }],
 "loop": true,
 "name": &"Dash",
@@ -52,10 +76,9 @@ animations = [{
 
 [node name="Dash Smoke" type="AnimatedSprite2D"]
 z_index = 6
-scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_iyuk8")
 animation = &"Dash"
-frame_progress = 0.285505
-script = ExtResource("11_f0b02")
+frame_progress = 0.137977
+script = ExtResource("2_3dkhr")
 
 [connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

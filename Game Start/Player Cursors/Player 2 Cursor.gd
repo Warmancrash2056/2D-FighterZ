@@ -81,6 +81,8 @@ func _process(delta):
 			CharacterList.get_player_2 = CharacterList.SelectCharacters[characters[currentSelected].name]
 			# Set active in map spawner
 			CharacterList.check_player_2_is_called = true
+			portraitOffset.x = 0
+			
 			
 	
 

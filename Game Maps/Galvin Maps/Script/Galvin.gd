@@ -3,13 +3,13 @@ extends Node2D
 @onready var player_1_spawn = CharacterList.get_player_1.instantiate()
 @onready var player_2_spawn = CharacterList.get_player_2.instantiate()
 
-@export var zoom_offset : float = 1.0
+@export_range(0.1, 1.5) var zoom_offset : float = 0.5
 @export var debug_mode : bool = false
 var camera_rect := Rect2()
 var viewport_rect := Rect2()
 
-const MAX_OFFSET_X = 1000.0
-const MIN_OFFSET_X = -1000.0
+const MAX_OFFSET_X = 800.0
+const MIN_OFFSET_X = -800.0
 const MAX_ZOOM_DISTANCE = 700.0
 const CAMERA_MOVE_THRESHOLD = 70.0
 
@@ -17,11 +17,11 @@ func _ready() -> void:
 	# Set player properties directly
 	call_deferred("add_child", player_1_spawn)
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
-	player_1_spawn.position = Vector2(192, -102)
+	player_1_spawn.position = Vector2(192, -328)
 
 	call_deferred("add_child", player_2_spawn)
 	player_2_spawn.set_script(CharacterList.get_player_2_script)
-	player_2_spawn.position = Vector2(-192, -102)
+	player_2_spawn.position = Vector2(-192, -328)
 
 	setup_camera()
 	GameAuido._galvin_map_play()
@@ -75,7 +75,7 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 		min(1.7, viewport_size.x / rect.size.x - zoom_offset),
 		min(1.7, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 0.95), max(min_zoom, 0.95))
+	return Vector2(max(min_zoom, 0.8), max(min_zoom, 0.8))
 
 func calculate_zoom_factor(distance: float) -> float:
 	# Calculate the zoom factor based on the distance between players

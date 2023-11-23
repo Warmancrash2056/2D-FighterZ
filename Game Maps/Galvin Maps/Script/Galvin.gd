@@ -10,6 +10,7 @@ var viewport_rect := Rect2()
 
 const MAX_OFFSET_X = 800.0
 const MIN_OFFSET_X = -800.0
+
 const MAX_ZOOM_DISTANCE = 700.0
 const CAMERA_MOVE_THRESHOLD = 70.0
 

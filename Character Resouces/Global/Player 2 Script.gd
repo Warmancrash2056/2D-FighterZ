@@ -365,7 +365,13 @@ func _ready():
 	CharacterList.player_2_health = Health
 	Select = States.Respawn
 	recovery_timer.start()
-	
+
+func _bounce():
+	if is_on_wall():
+		knockback_x *= -1
+		
+	elif is_on_ceiling():
+		knockback_y *= -1
 	
 func _reset_v():
 	set_velocity(Vector2.ZERO)
@@ -700,6 +706,7 @@ func _physics_process(delta):
 
 
 		States.Hurt:
+			_bounce()
 			if is_on_floor():
 				Animate.play("Ground Hurt")
 			else:

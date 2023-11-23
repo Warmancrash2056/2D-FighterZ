@@ -5,7 +5,7 @@ var get_player_1 = null
 var get_player_2 = null
 var get_main_player = null
 
-
+var goku_neutral_heavy_positioner = Vector2()
 var player_1_health: int
 var player_2_health: int
 var player_3_health: int
@@ -32,6 +32,7 @@ var main_player_facing_left = false
 
 var goku_side_start_transition = false
 var disable_mini_platform = false
+
 # Reminder that if script is not erroing and cannot register script. 
 # Usually means that script has an error.
 var get_player_1_script = preload("res://Character Resouces/Global/Player 1 Script.gd")

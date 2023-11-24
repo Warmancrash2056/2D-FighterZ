@@ -1,5 +1,10 @@
 extends MarginContainer
 
+@onready var Music_Slider: HSlider = $"TabContainer/Game/Music Slider"
+@onready var Master_Slider: HSlider = $"TabContainer/Game/Master Volume Slider"
+@onready var SFX_Slider: HSlider = $"TabContainer/Game/SFX Slider"
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,32 +19,34 @@ func _process(delta):
 
 
 func _on_master_volume_slider_value_changed(value):
-	pass # Replace with function body.
+	AudioServer.set_bus_volume_db(0, value)
 
 
 func _on_sfx_slider_value_changed(value):
-	pass # Replace with function body.
+	AudioServer.set_bus_volume_db(1, value)
 
 
 func _on_music_slider_value_changed(value):
-	pass # Replace with function body.
+	AudioServer.set_bus_volume_db(2, value)
 
 
 func _on_v__sync_enabler_toggled(button_pressed):
-	pass # Replace with function body.
+	pass
 
 
 func _on_option_button_item_selected(index):
 	if index == 0:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		print("windowed")
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MINIMIZED)
 	if index == 1:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		
 	if index == 2:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 		
 	if index == 3:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	
+	if index == 4:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		
 		

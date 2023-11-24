@@ -6173,7 +6173,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/4/path = NodePath("../Side Light First Punch:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -6973,7 +6973,7 @@ tracks/33/keys = {
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/34/path = NodePath("../Side Light First Punch:playing")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
@@ -7513,7 +7513,7 @@ tracks/78/keys = {
 tracks/79/type = "value"
 tracks/79/imported = false
 tracks/79/enabled = true
-tracks/79/path = NodePath("../AudioStreamPlayer2D2:playing")
+tracks/79/path = NodePath("../Side Light Second Punch:playing")
 tracks/79/interp = 1
 tracks/79/loop_wrap = true
 tracks/79/keys = {
@@ -9165,7 +9165,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../AudioStreamPlayer2D2:playing")
+tracks/1/path = NodePath("../Side Light Second Punch:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -9439,7 +9439,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/4/path = NodePath("../Side Light First Punch:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -10151,11 +10151,13 @@ position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_awoy1")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Side Light First Punch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_abu5v")
+bus = &"SFX"
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+[node name="Side Light Second Punch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8kf4q")
+bus = &"SFX"
 
 [node name="Knockback Cloud" type="Marker2D" parent="."]
 

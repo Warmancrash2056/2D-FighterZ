@@ -47,6 +47,8 @@ offset_bottom = 217.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
+max_value = 1.0
+step = 0.01
 
 [node name="Sound Effect Volume" type="RichTextLabel" parent="TabContainer/Game"]
 layout_mode = 2
@@ -78,6 +80,8 @@ offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
+max_value = 1.0
+step = 0.01
 
 [node name="Music Volume" type="RichTextLabel" parent="TabContainer/Game"]
 layout_mode = 1
@@ -111,6 +115,8 @@ offset_bottom = -7.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
+max_value = 1.0
+step = 0.01
 
 [node name="V - Sync Enabler" type="CheckButton" parent="TabContainer/Game"]
 layout_mode = 0

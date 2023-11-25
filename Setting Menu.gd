@@ -13,21 +13,22 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	if Input.is_action_just_pressed("exit"):
 		self.visible = !self.visible
 
 
 
 func _on_master_volume_slider_value_changed(value):
-	AudioServer.set_bus_volume_db(0, value)
+	AudioServer.set_bus_volume_db(0, linear_to_db(value))
 
 
 func _on_sfx_slider_value_changed(value):
-	AudioServer.set_bus_volume_db(1, value)
+	AudioServer.set_bus_volume_db(1, linear_to_db(value))
 
 
 func _on_music_slider_value_changed(value):
-	AudioServer.set_bus_volume_db(2, value)
+	AudioServer.set_bus_volume_db(2, linear_to_db(value))
 
 
 func _on_v__sync_enabler_toggled(button_pressed):

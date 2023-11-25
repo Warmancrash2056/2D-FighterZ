@@ -8,4 +8,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	CharacterList.goku_neutral_heavy_positioner = global_position
+	CharacterList.goku_neutral_heavy_grab_position = global_position

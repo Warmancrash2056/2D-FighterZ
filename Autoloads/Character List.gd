@@ -19,6 +19,7 @@ var sakura_selected = false
 var atlantis_selected = false
 var blacksmith = false
 
+var goku_neutral_heavy_grab_position = Vector2()
 
 # Display Icon 
 var icon 

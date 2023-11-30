@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgi3g7e8imrsb"]
+[gd_scene load_steps=7 format=3 uid="uid://cgi3g7e8imrsb"]
 
 [ext_resource type="Script" path="res://Game Start/Studio Logo/Logo.gd" id="1_7ib3g"]
 [ext_resource type="Texture2D" uid="uid://lnvfuge6bvix" path="res://Game Start/Studio Logo/Logo Animation.png" id="2_i4aou"]
+[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="3_lplx4"]
 
 [sub_resource type="Animation" id="Animation_twgi5"]
 length = 0.001
@@ -90,11 +91,12 @@ texture = ExtResource("2_i4aou")
 hframes = 50
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Node2D"]
-offset_left = -150.0
-offset_top = 270.0
-offset_right = 140.0
-offset_bottom = 372.0
+offset_left = -119.0
+offset_top = 265.0
+offset_right = 171.0
+offset_bottom = 367.0
 scale = Vector2(2, 2)
+theme_override_fonts/normal_font = ExtResource("3_lplx4")
 text = "Mars Gaming Studio"
 fit_content = true
 

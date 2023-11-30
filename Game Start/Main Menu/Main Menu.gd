@@ -28,20 +28,8 @@ func _ready():
 	nomad.play("Idle")
 	atlantis.play("Idle")
 	sakura.play("Idle")
-	exit_prompt.visible = false
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("exit") and exit_prompt.visible == true:
-		exit_prompt.visible = false
-	elif Input.is_action_just_pressed("exit") and exit_prompt.visible == false:
-		exit_prompt.visible = true
-		
-	if exit_game.button_pressed == true:
-		get_tree().quit()
-		
-	if return_game.button_pressed == true:
-		exit_prompt.visible = false
-		
 	if Input.is_action_just_pressed(player_1_controller.jump) or Input.is_action_just_pressed(player_2_controller.jump) or Input.is_action_just_pressed(main_player_controller.jump):
 		get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
 		

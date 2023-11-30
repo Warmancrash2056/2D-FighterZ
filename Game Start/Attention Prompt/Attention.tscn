@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://kod764tufq60"]
+[gd_scene load_steps=4 format=3 uid="uid://kod764tufq60"]
 
 [ext_resource type="Script" path="res://Game Start/Attention Prompt/Attention.gd" id="1_sx4js"]
 [ext_resource type="Texture2D" uid="uid://donts0dqgc2k2" path="res://Game Start/Attention Prompt/XOne.png" id="2_7ajm6"]
+[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="3_wld0y"]
 
 [node name="Attention" type="Node2D"]
 script = ExtResource("1_sx4js")
@@ -36,9 +37,10 @@ zoom = Vector2(5, 5)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 360.0
-offset_top = 370.0
+offset_top = 354.0
 offset_right = 560.0
-offset_bottom = 410.0
+offset_bottom = 394.0
+theme_override_fonts/normal_font = ExtResource("3_wld0y")
 text = "Best Played on Controller "
 fit_content = true
 

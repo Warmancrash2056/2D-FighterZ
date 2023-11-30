@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=3 uid="uid://c2kuts083ajp3"]
+[gd_scene load_steps=163 format=3 uid="uid://c2kuts083ajp3"]
 
 [ext_resource type="Script" path="res://Game Start/Local Play/Local Play.gd" id="1_w8mfd"]
 [ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/Background.tscn" id="2_fwe2m"]
@@ -131,6 +131,7 @@
 [ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_8.png" id="129_785mv"]
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_9.png" id="130_bsukf"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_10.png" id="131_7qe0s"]
+[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="131_pwnav"]
 [ext_resource type="Script" path="res://Game Start/Local Play/Prompt Animate.gd" id="134_lcku6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwqe8"]
@@ -1408,6 +1409,7 @@ offset_left = 328.0
 offset_top = 297.0
 offset_right = 469.0
 offset_bottom = 337.0
+theme_override_fonts/normal_font = ExtResource("131_pwnav")
 fit_content = true
 
 [node name="Player 2 Name" type="RichTextLabel" parent="."]
@@ -1417,16 +1419,18 @@ offset_left = 768.0
 offset_top = 297.0
 offset_right = 924.0
 offset_bottom = 320.0
+theme_override_fonts/normal_font = ExtResource("131_pwnav")
 fit_content = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Local Play Title" type="RichTextLabel" parent="."]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 456.0
+offset_left = 457.0
 offset_top = -80.0
-offset_right = 536.0
+offset_right = 537.0
 offset_bottom = -56.0
 scale = Vector2(3, 3)
+theme_override_fonts/normal_font = ExtResource("131_pwnav")
 text = "Local Play"
 fit_content = true
 
@@ -1449,6 +1453,7 @@ offset_top = 152.0
 offset_right = 590.0
 offset_bottom = 204.0
 scale = Vector2(1.8, 1.8)
+theme_override_fonts/normal_font = ExtResource("131_pwnav")
 text = "Select Characters "
 fit_content = true
 
@@ -1489,8 +1494,8 @@ script = ExtResource("134_lcku6")
 [connection signal="animation_looped" from="Player 1 Nomad" to="Player 1 Cursor" method="_on_player_1_nomad_animation_looped"]
 [connection signal="animation_looped" from="Player 1 Atlantis" to="Player 1 Cursor" method="_on_player_1_atlantis_animation_looped"]
 [connection signal="animation_looped" from="Player 1 Sakura" to="Player 1 Cursor" method="_on_player_1_nai_animation_looped"]
-[connection signal="animation_looped" from="Player 2 General Archfield" to="Player 2 Cursor" method="_on_player_2_general_archfield_animation_looped"]
 [connection signal="animation_looped" from="Player 2 General Archfield" to="Player 2 Cursor" method="_on_player_2_general_pyrus_animation_looped"]
+[connection signal="animation_looped" from="Player 2 General Archfield" to="Player 2 Cursor" method="_on_player_2_general_archfield_animation_looped"]
 [connection signal="animation_looped" from="Player 2 Goku" to="Player 2 Cursor" method="_on_player_2_goku_animation_looped"]
 [connection signal="animation_looped" from="Player 2 Hunter" to="Player 2 Cursor" method="_on_player_2_hunter_animation_looped"]
 [connection signal="animation_looped" from="Player 2 Nomad" to="Player 2 Cursor" method="_on_player_2_nomad_animation_looped"]

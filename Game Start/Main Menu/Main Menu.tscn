@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://di5auhdx6t7vg"]
 
 [ext_resource type="Script" path="res://Game Start/Main Menu/Main Menu.gd" id="1_a0kbw"]
-[ext_resource type="PackedScene" uid="uid://bys0ptudnouiw" path="res://Game Start/Character Idle.tscn" id="2_3wm2l"]
+[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="2_n77w0"]
 [ext_resource type="Script" path="res://Game Start/Main Menu/Local Play.gd" id="3_m8lw7"]
 [ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/Background.tscn" id="4_qpfyd"]
-[ext_resource type="PackedScene" uid="uid://rasoy20rgw2q" path="res://Game Start/exit_prompt.tscn" id="4_u8wxl"]
+[ext_resource type="PackedScene" uid="uid://bys0ptudnouiw" path="res://Game Start/Character Idle.tscn" id="4_u8wxl"]
 
 [sub_resource type="Animation" id="Animation_bi3ch"]
 length = 0.001
@@ -44,18 +44,31 @@ _data = {
 
 [node name="Start Game" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_a0kbw")
 
 [node name="Title Name" type="RichTextLabel" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = -1
-layout_mode = 0
-offset_left = 144.0
-offset_top = 40.0
-offset_right = 384.0
-offset_bottom = 136.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.167
+anchor_right = 0.847
+anchor_bottom = 0.222
+offset_left = -0.384018
+offset_right = -704.744
+offset_bottom = -128.856
+grow_horizontal = 2
 scale = Vector2(10, 10)
+theme_override_fonts/normal_font = ExtResource("2_n77w0")
+theme_override_fonts/bold_font = ExtResource("2_n77w0")
+theme_override_fonts/italics_font = ExtResource("2_n77w0")
+theme_override_fonts/bold_italics_font = ExtResource("2_n77w0")
+theme_override_fonts/mono_font = ExtResource("2_n77w0")
 text = "2D FighterZ"
 fit_content = true
 
@@ -67,11 +80,18 @@ libraries = {
 [node name="Local Play" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = -1
-layout_mode = 2
-offset_left = 136.0
-offset_top = 280.0
-offset_right = 221.0
-offset_bottom = 311.0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.296
+anchor_right = 0.229
+anchor_bottom = 0.39
+offset_top = -7.808
+offset_right = -175.808
+offset_bottom = -45.72
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
 text = "Local Play
 "
 flat = true
@@ -81,10 +101,16 @@ script = ExtResource("3_m8lw7")
 modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 2
-offset_left = 136.0
-offset_top = 312.0
-offset_right = 272.0
-offset_bottom = 343.0
+anchor_left = 0.16
+anchor_top = 0.395
+anchor_right = 0.48
+anchor_bottom = 0.494
+offset_left = -184.32
+offset_top = -23.96
+offset_right = -429.96
+offset_bottom = -65.112
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
 text = "About Character
 "
 flat = true
@@ -94,51 +120,57 @@ script = ExtResource("3_m8lw7")
 modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 2
-offset_left = 136.0
-offset_top = 344.0
-offset_right = 257.0
-offset_bottom = 375.0
+offset_top = 280.0
+offset_right = 98.0
+offset_bottom = 303.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
 text = "Training Room"
 flat = true
 script = ExtResource("3_m8lw7")
 
 [node name="Control Layout" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 136.0
-offset_top = 376.0
-offset_right = 280.0
-offset_bottom = 407.0
+layout_mode = 2
+offset_top = 328.0
+offset_right = 138.0
+offset_bottom = 351.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
 text = "Controller Layout"
 flat = true
 script = ExtResource("3_m8lw7")
 
 [node name="Mars Studio" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 136.0
-offset_top = 408.0
-offset_right = 237.0
-offset_bottom = 439.0
+layout_mode = 2
+offset_top = 376.0
+offset_right = 87.0
+offset_bottom = 399.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
 text = "Mars Studio"
 flat = true
 script = ExtResource("3_m8lw7")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 128.0
-offset_top = 440.0
-offset_right = 253.0
-offset_bottom = 471.0
+layout_mode = 2
+anchor_top = 0.679
+anchor_right = 0.243
+anchor_bottom = 0.785
+offset_top = -15.992
+offset_right = -185.936
+offset_bottom = -61.68
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
 text = "Setting Menu"
 flat = true
 
-[node name="Character Pose" parent="." instance=ExtResource("2_3wm2l")]
-position = Vector2(8, -24)
-
-[node name="Exit Prompt" parent="." instance=ExtResource("4_u8wxl")]
-layout_mode = 0
+[node name="Character Pose" parent="." instance=ExtResource("4_u8wxl")]
+z_index = -1
+position = Vector2(-184, -128)
+scale = Vector2(1.5, 1.5)
 
 [node name="Background" parent="." instance=ExtResource("4_qpfyd")]
 layout_mode = 1
@@ -146,6 +178,13 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 1160.0
 offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 40.0
+offset_right = 184.0
+offset_bottom = 80.0
 
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]

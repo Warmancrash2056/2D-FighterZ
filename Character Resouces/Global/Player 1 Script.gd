@@ -518,6 +518,7 @@ func _physics_process(delta):
 				Select = States.Air_Block
 				block_active = true
 				set_collision_mask_value(3, true)
+				velocity = Vector2.ZERO
 			
 			velocity.y += Gravity
 			Animate.play("Jump")
@@ -581,6 +582,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
 				Select = States.Air_Block
 				block_active = true
+				velocity = Vector2.ZERO
 
 			if !is_on_floor():
 				velocity.y += Gravity
@@ -651,11 +653,22 @@ func _physics_process(delta):
 			velocity.x = 0
 			block_timer.start()
 		States.Air_Block:
+			var move_x = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
+			var move_y = Input.get_action_strength(controls.down) - Input.get_action_strength(controls.up)
+			
+			velocity.normalized()
+			if move_x != 0:
+				velocity.x = move_toward(velocity.x, move_x * 200, 50)
+				
+			
+			if move_y != 0:
+				velocity.y = move_toward(velocity.y, move_y * 200, 50)
+				
 			#  Activate turn around at the start of the state. #
 			turn_around()
 			Animate.play("Air Block")
-			velocity.x = 0
-			velocity.y = 0
+			velocity.x = lerp(velocity.x, 0.0, 0.05)
+			velocity.y = lerp(velocity.y, 0.0, 0.05)
 			block_timer.start()
 			# Activate counter smoke to be called during an attack.
 			can_counter = true

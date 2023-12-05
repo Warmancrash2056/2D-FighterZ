@@ -1,5 +1,5 @@
 extends Node2D
-@onready var camera = $Camera2D
+@onready var camera = $"Local Camera"
 @onready var player_1_spawn = CharacterList.get_player_1.instantiate()
 @onready var player_2_spawn = CharacterList.get_player_2.instantiate()
 

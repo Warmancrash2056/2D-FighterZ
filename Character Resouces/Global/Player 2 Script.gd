@@ -378,6 +378,9 @@ func _bounce():
 		
 	elif is_on_ceiling():
 		knockback_y *= -1
+		
+	if is_on_floor():
+		knockback_y *= -1
 	
 func _reset_v():
 	velocity.x = lerp(velocity.x, 0.0, 0.8)
@@ -421,7 +424,7 @@ func _physics_process(delta):
 						Select = States.Dash_Run
 						velocity.x = -Roll_Speed
 						set_collision_mask_value(2, false)
-
+						
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Light
 
@@ -439,6 +442,7 @@ func _physics_process(delta):
 						Select = States.Dash_Run
 						velocity.x = Roll_Speed
 						set_collision_mask_value(2, false)
+						
 
 
 				if Input.is_action_just_pressed(controls.light):
@@ -458,6 +462,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.dash) and block_active == false:
 					Select = States.Ground_Block
 					block_active = true
+					
 
 
 				# New Mechanic for projectile throw
@@ -518,6 +523,7 @@ func _physics_process(delta):
 				Select = States.Air_Block
 				block_active = true
 				set_collision_mask_value(3, true)
+				set_velocity(Vector2.ZERO)
 			
 			velocity.y += Gravity
 			Animate.play("Jump")
@@ -581,6 +587,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
 				Select = States.Air_Block
 				block_active = true
+				set_velocity(Vector2.ZERO)
 
 			if !is_on_floor():
 				velocity.y += Gravity
@@ -716,6 +723,7 @@ func _physics_process(delta):
 		States.Hurt:
 			_bounce()
 			if is_on_floor():
+				velocity.y += Gravity
 				Animate.play("Ground Hurt")
 			else:
 				if !is_on_floor():

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://di5auhdx6t7vg"]
+[gd_scene load_steps=10 format=3 uid="uid://di5auhdx6t7vg"]
 
 [ext_resource type="Script" path="res://Game Start/Main Menu/Main Menu.gd" id="1_a0kbw"]
 [ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="2_n77w0"]
 [ext_resource type="Script" path="res://Game Start/Main Menu/Local Play.gd" id="3_m8lw7"]
 [ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/Background.tscn" id="4_qpfyd"]
 [ext_resource type="PackedScene" uid="uid://bys0ptudnouiw" path="res://Game Start/Character Idle.tscn" id="4_u8wxl"]
+[ext_resource type="PackedScene" uid="uid://c44n0gxwdlna2" path="res://Setting Menu.tscn" id="6_dfkci"]
 
 [sub_resource type="Animation" id="Animation_bi3ch"]
 length = 0.001
@@ -185,6 +186,11 @@ offset_left = 144.0
 offset_top = 40.0
 offset_right = 184.0
 offset_bottom = 80.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="MarginContainer2" parent="Camera2D" instance=ExtResource("6_dfkci")]
 
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]

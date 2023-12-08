@@ -1,17 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=20 format=3 uid="uid://dchiion53rph5"]
 
-[ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
-[ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
-[ext_resource type="Texture2D" uid="uid://b07grplvo2wco" path="res://Game Maps/Galvin Maps/Galvin Assets/background 1.png" id="3_qrqqu"]
-[ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="4_8pavo"]
-[ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/Galvin Maps/Galvin Assets/background 3.png" id="5_37ogg"]
-[ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="6_kexdy"]
-[ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="6_umm62"]
-[ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_evgpo"]
-[ext_resource type="PackedScene" uid="uid://bkqtqaahh05qw" path="res://Local Camera.tscn" id="9_m0frr"]
+[ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_gk5pf"]
+[ext_resource type="Texture2D" uid="uid://b07grplvo2wco" path="res://Game Maps/Galvin Maps/Galvin Assets/background 1.png" id="2_j0vf6"]
+[ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="3_4wb25"]
+[ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/Galvin Maps/Galvin Assets/background 3.png" id="4_r1oxr"]
+[ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="5_vup70"]
+[ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="6_oxc6j"]
+[ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="7_r0qoh"]
+[ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_f8j4c"]
+[ext_resource type="PackedScene" uid="uid://b40laxtu368k2" path="res://Local Camera.tscn" id="9_kt34r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
-texture = ExtResource("6_umm62")
+texture = ExtResource("6_oxc6j")
 9:1/0 = 0
 10:1/0 = 0
 11:1/0 = 0
@@ -1704,7 +1704,7 @@ texture = ExtResource("6_umm62")
 28:62/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3tvhq"]
-texture = ExtResource("2_uq8es")
+texture = ExtResource("7_r0qoh")
 32:0/0 = 0
 34:0/0 = 0
 35:0/0 = 0
@@ -2791,7 +2791,7 @@ texture = ExtResource("2_uq8es")
 62:62/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0uwea"]
-texture = ExtResource("8_evgpo")
+texture = ExtResource("8_f8j4c")
 31:1/0 = 0
 34:1/0 = 0
 35:1/0 = 0
@@ -4653,7 +4653,7 @@ sources/4 = SubResource("TileSetAtlasSource_3tvhq")
 sources/5 = SubResource("TileSetAtlasSource_0uwea")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2a6p"]
-texture = ExtResource("2_uq8es")
+texture = ExtResource("7_r0qoh")
 32:0/0 = 0
 34:0/0 = 0
 35:0/0 = 0
@@ -5743,7 +5743,7 @@ texture = ExtResource("2_uq8es")
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcey8"]
-size = Vector2(4248, 752.635)
+size = Vector2(4248, 739.394)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sier"]
 size = Vector2(1339.89, 1776)
@@ -5755,26 +5755,25 @@ size = Vector2(4220, 307.25)
 size = Vector2(1472.62, 2124)
 
 [node name="Galvin Road" type="Node2D"]
-script = ExtResource("1_cxki7")
+script = ExtResource("1_gk5pf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
-texture = ExtResource("3_qrqqu")
+scale = Vector2(4, 4)
+texture = ExtResource("2_j0vf6")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
-texture = ExtResource("4_8pavo")
+scale = Vector2(4, 4)
+texture = ExtResource("3_4wb25")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
-texture = ExtResource("5_37ogg")
+scale = Vector2(4, 4)
+texture = ExtResource("4_r1oxr")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
-texture = ExtResource("6_kexdy")
+scale = Vector2(4, 4)
+texture = ExtResource("5_vup70")
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(0, -70)
 tile_set = SubResource("TileSet_e4l1i")
 format = 2
 layer_0/name = "Floor"
@@ -5803,14 +5802,12 @@ layer_11/z_index = 1
 layer_11/tile_data = PackedInt32Array(-196601, 851971, 58, -131065, 851971, 59, -65529, 851971, 60, 7, 851971, 61, 65543, 851971, 62, -196600, 917507, 58, -131064, 917507, 59, -65528, 917507, 60, 8, 917507, 61, 65544, 917507, 62, -196599, 983043, 58, -131063, 983043, 59, -65527, 983043, 60, 9, 983043, 61, 65545, 983043, 62, -196598, 1048579, 58, -131062, 1048579, 59, -65526, 1048579, 60, 10, 1048579, 61, 65546, 1048579, 62, -196597, 1114115, 58, -131061, 1114115, 59, -65525, 1114115, 60, 11, 1114115, 61, 65547, 1114115, 62, -196596, 1179651, 58, -131060, 1179651, 59, -65524, 1179651, 60, 12, 1179651, 61, 65548, 1179651, 62, -196595, 1245187, 58, -131059, 1245187, 59, -65523, 1245187, 60, 13, 1245187, 61, 65549, 1245187, 62, -196594, 1310723, 58, -131058, 1310723, 59, -65522, 1310723, 60, 14, 1310723, 61, 65550, 1310723, 62, -196593, 1376259, 58, -131057, 1376259, 59, -65521, 1376259, 60, 15, 1376259, 61, 65551, 1376259, 62, -131056, 1441795, 59, -65520, 1441795, 60, 16, 1441795, 61, -196591, 851971, 58, -131055, 851971, 59, -65519, 851971, 60, 17, 851971, 61, 65553, 851971, 62, -196590, 917507, 58, -131054, 917507, 59, -65518, 917507, 60, 18, 917507, 61, 65554, 917507, 62, -196589, 983043, 58, -131053, 983043, 59, -65517, 983043, 60, 19, 983043, 61, 65555, 983043, 62, -196588, 1048579, 58, -131052, 1048579, 59, -65516, 1048579, 60, 20, 1048579, 61, 65556, 1048579, 62, -196587, 1114115, 58, -131051, 1114115, 59, -65515, 1114115, 60, 21, 1114115, 61, 65557, 1114115, 62, 65558, 1179651, 62, 65559, 1245187, 62)
 
 [node name="TileMap2" type="TileMap" parent="."]
-position = Vector2(0, -70)
 rotation = -1.5708
 tile_set = SubResource("TileSet_tqbgv")
 format = 2
 layer_0/tile_data = PackedInt32Array(983010, 1835008, 12, 1048546, 1835008, 13, 1114082, 1835008, 14, 1179618, 1835008, 15, 1245154, 1835008, 16, 1310690, 1835008, 17, 1376226, 1835008, 18, 1441762, 1835008, 19, 1507298, 1835008, 20, 983011, 1900544, 12, 1048547, 1900544, 13, 1114083, 1900544, 14, 1179619, 1900544, 15, 1245155, 1900544, 16, 1310691, 1900544, 17, 1376227, 1900544, 18, 1441763, 1900544, 19, 1507299, 1900544, 20, 393186, 1835008, 12, 458722, 1835008, 13, 524258, 1835008, 14, 589794, 1835008, 15, 655330, 1835008, 16, 720866, 1835008, 17, 786402, 1835008, 18, 851938, 1835008, 19, 917474, 1835008, 20, 393187, 1900544, 12, 458723, 1900544, 13, 524259, 1900544, 14, 589795, 1900544, 15, 655331, 1900544, 16, 720867, 1900544, 17, 786403, 1900544, 18, 851939, 1900544, 19, 917475, 1900544, 20, -196638, 1835008, 12, -131102, 1835008, 13, -65566, 1835008, 14, -30, 1835008, 15, 65506, 1835008, 16, 131042, 1835008, 17, 196578, 1835008, 18, 262114, 1835008, 19, 327650, 1835008, 20, -196637, 1900544, 12, -131101, 1900544, 13, -65565, 1900544, 14, -29, 1900544, 15, 65507, 1900544, 16, 131043, 1900544, 17, 196579, 1900544, 18, 262115, 1900544, 19, 327651, 1900544, 20, -1048606, 1835008, 15, -983070, 1835008, 16, -917534, 1835008, 17, -851998, 1835008, 18, -786462, 1835008, 19, -720926, 1835008, 20, -655390, 1835008, 14, -589854, 1835008, 15, -524318, 1835008, 16, -1048605, 1900544, 15, -983069, 1900544, 16, -917533, 1900544, 17, -851997, 1900544, 18, -786461, 1900544, 19, -720925, 1900544, 20, -655389, 1900544, 14, -589853, 1900544, 15, -524317, 1900544, 16, -458782, 1835008, 17, -393246, 1835008, 18, -327710, 1835008, 19, -262174, 1835008, 20, -458781, 1900544, 17, -393245, 1900544, 18, -327709, 1900544, 19, -262173, 1900544, 20, -1245214, 1835008, 12, -1179678, 1835008, 13, -1114142, 1835008, 14, -1245213, 1900544, 12, -1179677, 1900544, 13, -1114141, 1900544, 14)
 
 [node name="TileMap4" type="TileMap" parent="."]
-position = Vector2(0, -70)
 rotation = 1.5708
 tile_set = SubResource("TileSet_tqbgv")
 format = 2
@@ -5818,40 +5815,43 @@ layer_0/tile_data = PackedInt32Array(589826, 65536, 12, 655362, 65536, 13, 72089
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 z_index = 5
-position = Vector2(0, -70)
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-40, 6)
-polygon = PackedVector2Array(408, 8, 408, 40, 176, 40, -280, 40, -280, 8)
+position = Vector2(-16, 8)
+polygon = PackedVector2Array(386, 5, 384, 40, 176, 40, -304, 40, -304, 4)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+z_index = 5
+position = Vector2(0, 416)
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5"]
+position = Vector2(-16, 8)
+polygon = PackedVector2Array(352, 8, 352, 40, 176, 40, -272, 40, -272, 8)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 z_index = 5
-position = Vector2(0, -70)
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(0, -2)
-polygon = PackedVector2Array(-320, 48, -320, 448, -288, 448, -288, 48)
+polygon = PackedVector2Array(-320, 48, -320, 464, -288, 464, -288, 48)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 z_index = 5
-position = Vector2(0, -70)
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
-position = Vector2(0, -10)
-polygon = PackedVector2Array(368, 56, 368, 448, 336, 448, 336, 56)
+polygon = PackedVector2Array(368, 48, 368, 448, 336, 448, 336, 48)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(0, -70)
+position = Vector2(-0.999023, -96)
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
 visible = false
-position = Vector2(0, -70)
 polygon = PackedVector2Array(-304, 424, 320, 424, 320, 448, -304, 448)
 
 [node name="Area2D" type="Area2D" parent="." groups=["Off Stage - Galvin"]]
@@ -5860,28 +5860,23 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(6.15385, 916.923)
+position = Vector2(0, 1107.69)
 shape = SubResource("RectangleShape2D_rcey8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1649.23, 4.76837e-07)
+position = Vector2(-1975.38, -24.6154)
 shape = SubResource("RectangleShape2D_1sier")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -646.154)
+position = Vector2(-36.9231, -892.308)
 shape = SubResource("RectangleShape2D_cfu67")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1716.92, 1.90735e-06)
+position = Vector2(2055.38, -86.1538)
 shape = SubResource("RectangleShape2D_a8jnj")
 
-[node name="Local Camera" parent="." instance=ExtResource("9_m0frr")]
-zoom = Vector2(1.3, 1.3)
-limit_left = -768
-limit_top = -576
-limit_right = 768
-limit_bottom = 576
-editor_draw_limits = true
-editor_draw_drag_margin = true
+[node name="Local Camera" parent="." instance=ExtResource("9_kt34r")]
+limit_top = -752
+limit_bottom = 752
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

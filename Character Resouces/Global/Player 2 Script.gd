@@ -869,6 +869,14 @@ func _on_area_2d_area_entered(area):
 		knockback_x = 0
 		knockback_y = -400
 		
+	if area.is_in_group("Goku | Down Air"):
+		print("Goku | Down Air")
+		recovery_timer.start(0.4)
+		Select = States.Hurt
+		Health -= 10
+		print("Goku | Nuetral Light End")
+		knockback_y = 400
+		
 	if area.is_in_group("Goku | Down Light"):
 		print("Goku | Down Light")
 		recovery_timer.start(0.4)

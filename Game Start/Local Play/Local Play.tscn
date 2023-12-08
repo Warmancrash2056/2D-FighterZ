@@ -1458,10 +1458,10 @@ text = "Select Characters "
 fit_content = true
 
 [node name="Prompt Animate" type="AnimationPlayer" parent="Prompt Name"]
-speed_scale = 0.1
 libraries = {
 "": SubResource("AnimationLibrary_7laxo")
 }
+speed_scale = 0.1
 script = ExtResource("134_lcku6")
 
 [connection signal="area_entered" from="Player 1 General Archfield Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]

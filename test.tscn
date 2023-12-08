@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Icon/Goku.png" id="1_fchxh"]
 [ext_resource type="Texture2D" uid="uid://dmlncg1j2ngtd" path="res://Character Resouces/Goku/Icon/ground_elemental.png" id="2_vhqr7"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_c8545"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_14bib"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Node2D" type="Node2D"]
@@ -18,7 +18,7 @@ position = Vector2(1100, 351)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2647, 257)
 scale = Vector2(0.853516, 0.592773)
-texture = SubResource("ViewportTexture_c8545")
+texture = SubResource("ViewportTexture_14bib")
 
 [node name="GroundElemental" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(-212.629, 87.9116)

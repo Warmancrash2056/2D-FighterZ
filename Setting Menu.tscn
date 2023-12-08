@@ -1,20 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c44n0gxwdlna2"]
+[gd_scene load_steps=5 format=3 uid="uid://c44n0gxwdlna2"]
 
 [ext_resource type="Script" path="res://Setting Menu.gd" id="1_27b7f"]
 [ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="2_xcrs0"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_fpb1v"]
-thickness = 10
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_1od04"]
-thickness = 10
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_x85ss"]
-thickness = 10
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mw1nq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wftmb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vcntd"]
 
@@ -64,9 +51,9 @@ tab_alignment = 1
 texture_filter = 1
 layout_mode = 2
 offset_left = 8.0
-offset_top = 177.0
+offset_top = 113.0
 offset_right = 112.0
-offset_bottom = 193.0
+offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/shadow_offset_x = 4
@@ -82,16 +69,16 @@ text = "Master Volume
 fit_content = true
 
 [node name="Master Volume Slider" type="HSlider" parent="TabContainer/Game"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 offset_left = 8.0
-offset_top = 193.0
-offset_right = 448.0
-offset_bottom = 209.0
+offset_top = 129.0
+offset_right = 520.0
+offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
-theme_override_styles/slider = SubResource("StyleBoxLine_fpb1v")
 max_value = 1.0
 step = 0.01
 
@@ -103,9 +90,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -328.0
-offset_top = 36.5
+offset_top = -27.5
 offset_right = -148.0
-offset_bottom = 82.5
+offset_bottom = 18.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_xcrs0")
@@ -115,6 +102,7 @@ text = "Sound Effects Volume
 fit_content = true
 
 [node name="SFX Slider" type="HSlider" parent="TabContainer/Game"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 anchor_left = 0.5
@@ -122,13 +110,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -328.0
-offset_top = 52.5
-offset_right = 112.0
-offset_bottom = 68.5
+offset_top = -11.5
+offset_right = 184.0
+offset_bottom = 4.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
-theme_override_styles/slider = SubResource("StyleBoxLine_1od04")
 max_value = 1.0
 step = 0.01
 
@@ -141,9 +128,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -328.0
-offset_top = -47.5
+offset_top = -111.5
 offset_right = -216.0
-offset_bottom = -17.5
+offset_bottom = -81.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_xcrs0")
@@ -158,6 +145,7 @@ text = "Music Volume
 fit_content = true
 
 [node name="Music Slider" type="HSlider" parent="TabContainer/Game"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -166,15 +154,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -328.0
-offset_top = -31.5
-offset_right = 112.0
-offset_bottom = -15.5
+offset_top = -95.5
+offset_right = 184.0
+offset_bottom = -79.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
-theme_override_styles/slider = SubResource("StyleBoxLine_x85ss")
-theme_override_styles/grabber_area = SubResource("StyleBoxTexture_mw1nq")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_wftmb")
 max_value = 1.0
 step = 0.01
 

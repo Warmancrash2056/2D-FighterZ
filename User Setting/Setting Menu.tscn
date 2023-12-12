@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c44n0gxwdlna2"]
+[gd_scene load_steps=6 format=3 uid="uid://c44n0gxwdlna2"]
 
-[ext_resource type="Script" path="res://Setting Menu.gd" id="1_27b7f"]
-[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="2_xcrs0"]
+[ext_resource type="Script" path="res://User Setting/Setting Menu.gd" id="1_3gyh6"]
+[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="2_hpbea"]
+[ext_resource type="Script" path="res://User Setting/OptionButton.gd" id="3_q0omt"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vcntd"]
 
@@ -19,7 +20,7 @@ offset_right = 336.0
 offset_bottom = 196.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_27b7f")
+script = ExtResource("1_3gyh6")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 2
@@ -29,7 +30,7 @@ theme_override_colors/font_unselected_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/drop_mark_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_xcrs0")
+theme_override_fonts/font = ExtResource("2_hpbea")
 tab_alignment = 1
 all_tabs_in_front = true
 drag_to_rearrange_enabled = true
@@ -44,7 +45,7 @@ theme_override_colors/font_unselected_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/drop_mark_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_xcrs0")
+theme_override_fonts/font = ExtResource("2_hpbea")
 tab_alignment = 1
 
 [node name="Master Volume" type="RichTextLabel" parent="TabContainer/Game"]
@@ -58,11 +59,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/line_separation = 0
-theme_override_fonts/normal_font = ExtResource("2_xcrs0")
-theme_override_fonts/bold_font = ExtResource("2_xcrs0")
-theme_override_fonts/italics_font = ExtResource("2_xcrs0")
-theme_override_fonts/bold_italics_font = ExtResource("2_xcrs0")
-theme_override_fonts/mono_font = ExtResource("2_xcrs0")
+theme_override_fonts/normal_font = ExtResource("2_hpbea")
+theme_override_fonts/bold_font = ExtResource("2_hpbea")
+theme_override_fonts/italics_font = ExtResource("2_hpbea")
+theme_override_fonts/bold_italics_font = ExtResource("2_hpbea")
+theme_override_fonts/mono_font = ExtResource("2_hpbea")
 bbcode_enabled = true
 text = "Master Volume
 "
@@ -95,7 +96,7 @@ offset_right = -148.0
 offset_bottom = 18.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("2_xcrs0")
+theme_override_fonts/normal_font = ExtResource("2_hpbea")
 text = "Sound Effects Volume
  
 "
@@ -133,11 +134,11 @@ offset_right = -216.0
 offset_bottom = -81.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("2_xcrs0")
-theme_override_fonts/bold_font = ExtResource("2_xcrs0")
-theme_override_fonts/italics_font = ExtResource("2_xcrs0")
-theme_override_fonts/bold_italics_font = ExtResource("2_xcrs0")
-theme_override_fonts/mono_font = ExtResource("2_xcrs0")
+theme_override_fonts/normal_font = ExtResource("2_hpbea")
+theme_override_fonts/bold_font = ExtResource("2_hpbea")
+theme_override_fonts/italics_font = ExtResource("2_hpbea")
+theme_override_fonts/bold_italics_font = ExtResource("2_hpbea")
+theme_override_fonts/mono_font = ExtResource("2_hpbea")
 bbcode_enabled = true
 text = "Music Volume
 
@@ -179,11 +180,12 @@ theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_xcrs0")
+theme_override_fonts/font = ExtResource("2_hpbea")
 text = "V-Sync Enabler"
 flat = true
 
 [node name="OptionButton" type="OptionButton" parent="TabContainer/Game"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
@@ -201,32 +203,31 @@ theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_xcrs0")
-item_count = 5
-popup/item_0/text = "Minimized"
+theme_override_fonts/font = ExtResource("2_hpbea")
+item_count = 4
+popup/item_0/text = "Windowed"
 popup/item_0/id = 0
-popup/item_1/text = "Windowed"
+popup/item_1/text = "Maximized"
 popup/item_1/id = 1
-popup/item_2/text = "Maximized"
+popup/item_2/text = "Fullscreen"
 popup/item_2/id = 2
-popup/item_3/text = "Fullscreen"
+popup/item_3/text = "Exclusive Fullscreen"
 popup/item_3/id = 3
-popup/item_4/text = "Exclusive Fullscreen"
-popup/item_4/id = 4
+script = ExtResource("3_q0omt")
 
 [node name="Keyboard" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_xcrs0")
+theme_override_fonts/font = ExtResource("2_hpbea")
 tab_alignment = 1
 
 [node name="Controller" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_xcrs0")
+theme_override_fonts/font = ExtResource("2_hpbea")
 
-[connection signal="value_changed" from="TabContainer/Game/Master Volume Slider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Game/Master Volume Slider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/Game/Master Volume Slider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Game/SFX Slider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Game/Music Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="toggled" from="TabContainer/Game/V - Sync Enabler" to="." method="_on_v__sync_enabler_toggled"]

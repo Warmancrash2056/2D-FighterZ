@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bwldo5okthbx"]
 
-[ext_resource type="Texture2D" uid="uid://drjlnxy6db6aj" path="res://Character Resouces/Goku/Spritesheet/Davaughncjames Projectiles (1)-Sheet.png" id="1_wchbm"]
-[ext_resource type="Script" path="res://Goku Air Projectile.gd" id="1_y16a8"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Goku Air Projectile.gd" id="1_g8efp"]
+[ext_resource type="Texture2D" uid="uid://drjlnxy6db6aj" path="res://Character Resouces/Goku/Spritesheet/Davaughncjames Projectiles (1)-Sheet.png" id="2_2i1oh"]
 
 [sub_resource type="Animation" id="Animation_a5swo"]
 resource_name = "Hit"
@@ -251,10 +251,10 @@ z_index = 10
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 collision_mask = 31
-script = ExtResource("1_y16a8")
+script = ExtResource("1_g8efp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_wchbm")
+texture = ExtResource("2_2i1oh")
 hframes = 18
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -92,7 +92,7 @@ text = "Mars Gaming Studio Presents.
 fit_content = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 0.1
 libraries = {
 "": SubResource("AnimationLibrary_nx6pn")
 }
-speed_scale = 0.1

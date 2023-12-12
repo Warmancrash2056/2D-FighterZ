@@ -12,7 +12,7 @@ config_version=5
 
 config/name="2D FighterZ"
 run/main_scene="res://Game Start/Attention Prompt/Attention.tscn"
-config/features=PackedStringArray("4.2")
+config/features=PackedStringArray("4.1")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Character Resouces/Nomad/wind_elemental.png"
 
@@ -20,11 +20,11 @@ config/icon="res://Character Resouces/Nomad/wind_elemental.png"
 
 CharacterList="*res://Autoloads/Character List.gd"
 GameAuido="*res://Autoloads/Game Audio.tscn"
+UserSettingConfig="*res://Save/UserSettingConfig.gd"
+Startup="*res://Startup.gd"
 
 [display]
 
-window/size/always_on_top=true
-window/size/extend_to_title=true
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 window/handheld/orientation=6
@@ -286,6 +286,7 @@ Player3_Up={
 2d_physics/layer_6="Hitbox"
 2d_physics/layer_7="Player 1 Marker"
 2d_physics/layer_8="Player 2 Marker"
+2d_physics/layer_9="Player"
 
 [mono]
 

@@ -3,7 +3,7 @@ extends MarginContainer
 @onready var Music_Slider = %"Music Slider"
 @onready var Master_Slider = %"Master Volume Slider"
 @onready var SFX_Slider = %"SFX Slider"
-
+@onready var Window_Mode = %OptionButton
 var user_config: UserConfigurations
 
 
@@ -11,6 +11,8 @@ var user_config: UserConfigurations
 func _ready():
 	visible = false
 	user_config = UserConfigurations.load_or_create()
+	if Window_Mode:
+		Window_Mode.select(user_config.window_mode)
 	if Music_Slider:
 		Music_Slider.value = user_config.Music_Audio_Level
 
@@ -70,18 +72,20 @@ func _on_v__sync_enabler_toggled(button_pressed):
 
 
 func _on_option_button_item_selected(index):
+	if user_config:
+		user_config.window_mode = index
+		user_config.save()
 	if index == 0:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MINIMIZED)
-	if index == 1:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		
-	if index == 2:
+	if index == 1:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 		
-	if index == 3:
+	if index == 2:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	
-	if index == 4:
+		
+	if index == 3:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	
+	
 		
 		

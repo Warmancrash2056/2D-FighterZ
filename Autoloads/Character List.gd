@@ -21,6 +21,8 @@ var blacksmith = false
 
 var goku_neutral_heavy_grab_position = Vector2()
 
+var player_1_position: Vector2
+var player_2_position: Vector2
 # Display Icon 
 var icon 
 var check_player_1_is_called = false

@@ -3,7 +3,7 @@ class_name UserConfigurations extends Resource
 @export_range(0.0, 1.0, .01) var Music_Audio_Level: float = 1.0
 @export_range(0.0, 1.0, .01) var Sfx_Audio_Level: float = 1.0
 @export_range(0.0, 1.0, .01) var Master_Audio_Level: float = 1.0
-
+@export var window_mode: int = 1
 func save() -> void:
 	ResourceSaver.save(self, "user://user_prefs.tres")
 	

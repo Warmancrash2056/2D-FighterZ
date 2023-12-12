@@ -8,7 +8,7 @@ var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sa
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
 var dash_smoke = preload("res://Character Resouces/Global/dash_smoke.tscn")
-var wall_jump_smoke = preload("res://wall_jump_cloud.tscn")
+var wall_jump_smoke = preload("res://Autoloads/wall_jump_cloud.tscn")
 
 var hunter_side_attack_arrow = preload( "res://Character Resouces/Hunter/Projectile/Hunter Side Attack Arrow.tscn")
 var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Projectile/projectiles_and_effects/Hunter Super Spear.tscn")
@@ -18,8 +18,8 @@ var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectil
 var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn") # Goku Projectile Position #
 
 @onready var goku_projectile_position = $"Scale Player/Goku Projectile Position"
-var goku_air_projectile = preload("res://Goku Air Projectile.tscn")
-var goku_ground_projectiles = preload("res://Goku Ground Projectile.tscn")
+var goku_air_projectile = preload("res://Character Resouces/Goku/Goku Air Projectile.tscn")
+var goku_ground_projectiles = preload("res://Character Resouces/Goku/Goku Ground Projectile.tscn")
 @onready var Animate = $Character
 @onready var Sprite = $Sprite
 @onready var smoke_position = $"Jump Smoke"

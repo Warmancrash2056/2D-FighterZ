@@ -960,8 +960,9 @@ func _on_area_2d_area_entered(area):
 		
 		knockback_y = -600
 	if area.is_in_group("Off Stage - Galvin"):
+		await get_tree().create_timer(0.2).timeout
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", CharacterList.galvin_player_respawn, 1.0)
+		tween.tween_property(self, "global_position", CharacterList.galvin_player_respawn, 1.5)
 		Select = States.Respawn
 		$Area2D/Respawn.play("Invisibilty")
 		print('respawn')

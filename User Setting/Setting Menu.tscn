@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c44n0gxwdlna2"]
+[gd_scene load_steps=5 format=3 uid="uid://c44n0gxwdlna2"]
 
 [ext_resource type="Script" path="res://User Setting/Setting Menu.gd" id="1_3gyh6"]
 [ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="2_hpbea"]
-[ext_resource type="Script" path="res://User Setting/OptionButton.gd" id="3_q0omt"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vcntd"]
 
@@ -213,7 +212,6 @@ popup/item_2/text = "Fullscreen"
 popup/item_2/id = 2
 popup/item_3/text = "Exclusive Fullscreen"
 popup/item_3/id = 3
-script = ExtResource("3_q0omt")
 
 [node name="Keyboard" type="TabBar" parent="TabContainer"]
 visible = false
@@ -226,8 +224,8 @@ visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hpbea")
 
-[connection signal="value_changed" from="TabContainer/Game/Master Volume Slider" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Game/Master Volume Slider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/Game/Master Volume Slider" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Game/SFX Slider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Game/Music Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="toggled" from="TabContainer/Game/V - Sync Enabler" to="." method="_on_v__sync_enabler_toggled"]

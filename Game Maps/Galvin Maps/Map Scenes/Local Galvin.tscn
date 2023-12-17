@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dchiion53rph5"]
+[gd_scene load_steps=23 format=3 uid="uid://dty4l343h4ib"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_gk5pf"]
 [ext_resource type="Texture2D" uid="uid://b07grplvo2wco" path="res://Game Maps/Galvin Maps/Galvin Assets/background 1.png" id="2_j0vf6"]
@@ -5761,6 +5761,7 @@ radius = 88.3629
 
 [node name="Galvin Road" type="Node2D"]
 script = ExtResource("1_gk5pf")
+debug_mode = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)

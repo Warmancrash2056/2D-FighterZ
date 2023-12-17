@@ -161,8 +161,8 @@ func quick_reset():
 	follow_goku_neutral_heavy = false
 	if attack_reset == true:
 		if !is_on_floor():
-			Select = States.Falling
-			Animate.play("Fall")
+			Select = States.Jumping
+			Animate.play("Jump")
 		else:
 			Select = States.Idling
 			Animate.play("Idle") 

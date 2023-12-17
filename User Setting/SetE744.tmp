@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c44n0gxwdlna2"]
+[gd_scene load_steps=6 format=3 uid="uid://c44n0gxwdlna2"]
 
 [ext_resource type="Script" path="res://User Setting/Setting Menu.gd" id="1_3gyh6"]
 [ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="2_hpbea"]
+[ext_resource type="Script" path="res://User Setting/Master Volume Slider.gd" id="3_rbr4j"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vcntd"]
 
@@ -9,11 +10,9 @@
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -81,15 +80,21 @@ fit_content = true
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
-offset_left = 8.0
-offset_top = 129.0
-offset_right = 520.0
-offset_bottom = 145.0
+anchor_left = 0.012
+anchor_top = 0.35
+anchor_right = 0.774
+anchor_bottom = 0.393
+offset_left = -0.0640001
+offset_top = -0.150009
+offset_right = -0.128052
+offset_bottom = -0.0169983
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 max_value = 1.0
 step = 0.01
+script = ExtResource("3_rbr4j")
+bus_id = "Master"
 
 [node name="Sound Effect Volume" type="RichTextLabel" parent="MarginContainer/TabContainer/Game"]
 texture_filter = 1
@@ -114,19 +119,21 @@ fit_content = true
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -328.0
-offset_top = -11.5
-offset_right = 184.0
-offset_bottom = 4.5
+anchor_left = 0.012
+anchor_top = 0.469
+anchor_right = 0.774
+anchor_bottom = 0.512
+offset_left = -0.0640001
+offset_top = -0.0610046
+offset_right = -0.128052
+offset_bottom = 0.071991
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 max_value = 1.0
 step = 0.01
+script = ExtResource("3_rbr4j")
+bus_id = "SFX"
 
 [node name="Music Volume" type="RichTextLabel" parent="MarginContainer/TabContainer/Game"]
 texture_filter = 1
@@ -157,20 +164,22 @@ fit_content = true
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -328.0
-offset_top = -95.5
-offset_right = 184.0
-offset_bottom = -79.5
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.241
+anchor_right = 0.774
+anchor_bottom = 0.285
+offset_left = -0.0640001
+offset_top = 0.0709991
+offset_right = -0.128052
+offset_bottom = -0.165009
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 max_value = 1.0
 step = 0.01
+script = ExtResource("3_rbr4j")
+bus_id = "Music"
 
 [node name="V - Sync Enabler" type="CheckButton" parent="MarginContainer/TabContainer/Game"]
 material = SubResource("CanvasItemMaterial_vcntd")
@@ -192,7 +201,7 @@ theme_override_fonts/font = ExtResource("2_hpbea")
 text = "V-Sync Enabler"
 flat = true
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/TabContainer/Game"]
+[node name="Window Options" type="OptionButton" parent="MarginContainer/TabContainer/Game"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -222,18 +231,6 @@ popup/item_2/id = 2
 popup/item_3/text = "Exclusive Fullscreen"
 popup/item_3/id = 3
 
-[node name="Fps Enabler" type="CheckBox" parent="MarginContainer/TabContainer/Game"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.068
-anchor_right = 0.159
-anchor_bottom = 0.133
-offset_top = -0.092001
-offset_right = 0.151993
-offset_bottom = -0.0769997
-theme_override_fonts/font = ExtResource("2_hpbea")
-text = "Display Fps"
-
 [node name="Keyboard" type="TabBar" parent="MarginContainer/TabContainer"]
 visible = false
 layout_mode = 2
@@ -245,19 +242,17 @@ visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hpbea")
 
-[node name="Fps Display" type="RichTextLabel" parent="."]
+[node name="Display Fps" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 69.0
-offset_bottom = 16.0
-scale = Vector2(1.5, 1.5)
-theme_override_fonts/normal_font = ExtResource("2_hpbea")
-fit_content = true
+layout_mode = 2
+offset_left = 8.0
+offset_right = 680.0
+offset_bottom = 392.0
+text = "60"
 
 [connection signal="value_changed" from="MarginContainer/TabContainer/Game/Master Volume Slider" to="MarginContainer" method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/TabContainer/Game/Master Volume Slider" to="MarginContainer" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/TabContainer/Game/SFX Slider" to="MarginContainer" method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/TabContainer/Game/Music Slider" to="MarginContainer" method="_on_music_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/TabContainer/Game/V - Sync Enabler" to="MarginContainer" method="_on_v__sync_enabler_toggled"]
-[connection signal="item_selected" from="MarginContainer/TabContainer/Game/OptionButton" to="MarginContainer" method="_on_option_button_item_selected"]
-[connection signal="toggled" from="MarginContainer/TabContainer/Game/Fps Enabler" to="MarginContainer" method="_on_check_box_button_pressed"]
+[connection signal="item_selected" from="MarginContainer/TabContainer/Game/Window Options" to="MarginContainer" method="_on_option_button_item_selected"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=163 format=3 uid="uid://c2kuts083ajp3"]
+[gd_scene load_steps=164 format=3 uid="uid://c2kuts083ajp3"]
 
 [ext_resource type="Script" path="res://Game Start/Local Play/Local Play.gd" id="1_w8mfd"]
 [ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/Background.tscn" id="2_fwe2m"]
@@ -131,6 +131,7 @@
 [ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_8.png" id="129_785mv"]
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_9.png" id="130_bsukf"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_10.png" id="131_7qe0s"]
+[ext_resource type="PackedScene" uid="uid://c44n0gxwdlna2" path="res://User Setting/Setting Menu.tscn" id="131_j6jix"]
 [ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="131_pwnav"]
 [ext_resource type="Script" path="res://Game Start/Local Play/Prompt Animate.gd" id="134_lcku6"]
 
@@ -1402,6 +1403,10 @@ animation = &"Idle"
 position = Vector2(584, 144)
 zoom = Vector2(1.5, 1.5)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Control" parent="Camera2D/CanvasLayer" instance=ExtResource("131_j6jix")]
+
 [node name="Player 1 Name" type="RichTextLabel" parent="."]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
@@ -1458,10 +1463,10 @@ text = "Select Characters "
 fit_content = true
 
 [node name="Prompt Animate" type="AnimationPlayer" parent="Prompt Name"]
-speed_scale = 0.1
 libraries = {
 "": SubResource("AnimationLibrary_7laxo")
 }
+speed_scale = 0.1
 script = ExtResource("134_lcku6")
 
 [connection signal="area_entered" from="Player 1 General Archfield Select" to="Player 1 Cursor" method="_on_player_1_general_pyrus_select_area_entered"]

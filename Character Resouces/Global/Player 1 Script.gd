@@ -23,6 +23,7 @@ var goku_air_projectile = preload("res://Character Resouces/Goku/Goku Air Projec
 var goku_ground_projectiles = preload("res://Character Resouces/Goku/Goku Ground Projectile.tscn")
 var side_registered = false
 @onready var Animate: AnimationPlayer = $Character
+@onready var Invisibilty = $Respawn
 @onready var Sprite: Sprite2D = $Sprite
 @onready var smoke_position: Marker2D = $"Jump Smoke"
 @onready var wall_jump_smoke_position = $"Scale Player/Wall Jump Smoke"
@@ -378,12 +379,25 @@ func _bounce():
 		
 	elif is_on_ceiling():
 		knockback_y *= -1
-	
+
 func _reset_v():
 	velocity.x = lerp(velocity.x, 0.0, 0.8)
 	velocity.y = lerp(velocity.y, 0.0, 0.8)
 	knockback_x = 0
 	knockback_y = 0
+	
+func _activate_invisibility():
+	Invisibilty.play("Invisibilty")
+func _dodge_move():
+	var move_x = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
+	var move_y = Input.get_action_strength(controls.down) - Input.get_action_strength(controls.up)
+			
+	if move_x != 0:
+		velocity.x = move_toward(velocity.x, move_x * 50, 10)
+	
+		
+	if move_y != 0:
+		velocity.y = move_toward(velocity.y, move_y * 50, 10)
 func _process(delta):
 	CharacterList.player_1_health = Health
 	
@@ -399,6 +413,8 @@ func _process(delta):
 	else:
 		if CharacterList.player_1_health < 0:
 			knockback_multiplier = 1.9
+			
+	
 func _physics_process(delta):
 	var move_vec = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
 	move_and_slide()
@@ -419,7 +435,6 @@ func _physics_process(delta):
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.dash):
 						Select = States.Dash_Run
-						velocity.x = -Roll_Speed
 						set_collision_mask_value(2, false)
 
 				if Input.is_action_just_pressed(controls.light):
@@ -437,7 +452,6 @@ func _physics_process(delta):
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.dash):
 						Select = States.Dash_Run
-						velocity.x = Roll_Speed
 						set_collision_mask_value(2, false)
 
 
@@ -518,8 +532,7 @@ func _physics_process(delta):
 				Select = States.Air_Block
 				block_active = true
 				set_collision_mask_value(3, true)
-				velocity = Vector2.ZERO
-			
+	
 			velocity.y += Gravity
 			Animate.play("Jump")
 
@@ -653,26 +666,21 @@ func _physics_process(delta):
 			velocity.x = 0
 			block_timer.start()
 		States.Air_Block:
-			var move_x = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
-			var move_y = Input.get_action_strength(controls.down) - Input.get_action_strength(controls.up)
-			
-			velocity.normalized()
-			if move_x != 0:
-				velocity.x = move_toward(velocity.x, move_x * 200, 50)
-				
-			
-			if move_y != 0:
-				velocity.y = move_toward(velocity.y, move_y * 200, 50)
-				
+			set_velocity(Vector2.ZERO)
 			#  Activate turn around at the start of the state. #
 			turn_around()
 			Animate.play("Air Block")
-			velocity.x = lerp(velocity.x, 0.0, 0.05)
-			velocity.y = lerp(velocity.y, 0.0, 0.05)
 			block_timer.start()
 			# Activate counter smoke to be called during an attack.
 			can_counter = true
 		States.Dash_Run:
+			if Input.is_action_pressed(controls.dash):
+				velocity.x = move_toward(velocity.x, move_vec * Roll_Speed, Acceleration )
+				
+			else:
+				if Input.is_action_just_released(controls.dash):
+					Select = States.Idling
+					velocity.x = move_toward(velocity.x, move_vec * 0, Acceleration )
 			if jump_count > 0:
 				if Input.is_action_just_pressed(controls.jump):
 					jump_count -= 1
@@ -680,7 +688,6 @@ func _physics_process(delta):
 					Select = States.Jumping
 					_activate_jump_smoke()
 					$"Character Jump Sound".play()
-			velocity.x = lerp(velocity.x , 0.0, 0.02)
 			velocity.y += Gravity
 			Animate.play("Dash")
 			
@@ -883,27 +890,27 @@ func _on_area_2d_area_entered(area):
 		knockback_y = -350
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
-		recovery_timer.start(0.2)
+		recovery_timer.start(0.35)
 		knockback_x = 0
 		knockback_y = 0
 		Health -= 50
 		
 	if area.is_in_group("Goku | Side Light Punch - Finial Damager"):
 		Select = States.Hurt
-		recovery_timer.start(0.2)
+		recovery_timer.start(0.35)
 		Health -= 25
 		knockback_x = 0
 		knockback_y = 0
 		
 	if area.is_in_group("Goku | Side Light Transitional Check"):
-		recovery_timer.start(0.2)
+		recovery_timer.start(0.35)
 		Select = States.Hurt
 		knockback_x = 0
 		knockback_y = 0
 		
 		
 	if area.is_in_group("Goku Sde Light Finish - First Punch"):
-		recovery_timer.start(0.2)
+		recovery_timer.start(0.35)
 		Select = States.Hurt
 		Health -= 20	
 		knockback_x = 0
@@ -964,8 +971,6 @@ func _on_area_2d_area_entered(area):
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position", CharacterList.galvin_player_respawn, 1.5)
 		Select = States.Respawn
-		$Area2D/Respawn.play("Invisibilty")
-		print('respawn')
 
 
 

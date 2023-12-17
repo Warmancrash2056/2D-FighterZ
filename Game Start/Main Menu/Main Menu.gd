@@ -10,16 +10,12 @@ var main_player_controller = preload("res://Character Resouces/Global/Controller
 @onready var atlantis = $"Character Pose/Atlantis"
 @onready var hunter = $"Character Pose/Hunter"
 
-@onready var setting_menu = $"Setting Menu"
 @onready var controller_layout = $"Control Layout"
 @onready var LocalPlay = $"Local Play"
 @onready var AboutCharacters = $"About Characters"
 @onready var TrainingRoom = $"Training Room"
 @onready var online_play = $"Online Play"
 @onready var mars_studio = $"Mars Studio"
-@onready var exit_prompt = $"Exit Prompt"
-@onready var exit_game = $"Exit Prompt/Exit Game"
-@onready var return_game = $"Exit Prompt/Return To Game"
 
 func _ready():
 	general_archfield.play("Idle")

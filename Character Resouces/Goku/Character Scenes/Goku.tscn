@@ -1,10 +1,11 @@
-[gd_scene load_steps=56 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=57 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player 2 Script.gd" id="1_cihxy"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="2_50hod"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Rock Grab.gd" id="2_dnphb"]
 [ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Goku/Sound Effects/First Punch.wav" id="4_abu5v"]
 [ext_resource type="AudioStream" uid="uid://r5tlbrig47nu" path="res://Character Resouces/Goku/Sound Effects/Second Punch.wav" id="5_8kf4q"]
+[ext_resource type="Texture2D" uid="uid://cj3wx0nbythks" path="res://Chevron-Arrow-Down.png" id="7_pqra7"]
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="8_gtluj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gutl"]
@@ -9297,6 +9298,12 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_3wvkn")
 }
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0.447059)
+position = Vector2(0, -25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_pqra7")
 
 [connection signal="area_entered" from="Scale Player/Goku | Nuetral Light Start" to="." method="_on_goku__nuetral_light_start_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku | Nuetral Light End" to="." method="_on_goku__nuetral_light_midle_area_entered"]

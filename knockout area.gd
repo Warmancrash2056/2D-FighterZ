@@ -3,8 +3,7 @@ extends Area2D
 var players_in_area = [] # List to keep track of players inside the area
 
 func _ready():
-	connect("body_entered", self, "_on_body_entered")
-	connect("body_exited", self, "_on_body_exited")
+	pass
 
 func _process(delta):
 	for player in players_in_area:
@@ -18,8 +17,3 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body in players_in_area:
 		players_in_area.erase(body) # Remove the player from the list
-
-	
-
-
-		

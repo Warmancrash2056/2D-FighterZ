@@ -3,25 +3,11 @@ class_name Player2 extends CharacterBody2D
 var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
 
 
-# Get character Resources
-var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
-
+# General Character Resources available to all characters.
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
 var dash_smoke = preload("res://Character Resouces/Global/dash_smoke.tscn")
 var wall_jump_smoke = preload("res://Autoloads/wall_jump_cloud.tscn")
-
-var hunter_side_attack_arrow = preload( "res://Character Resouces/Hunter/Projectile/Hunter Side Attack Arrow.tscn")
-var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Projectile/projectiles_and_effects/Hunter Super Spear.tscn")
-var hunter_down_attack_shower = preload("res://Character Resouces/Hunter/Projectile/Hunter Arrow Shower .tscn")
-var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.tscn")
-
-var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn") # Goku Projectile Position #
-# Goku Projectile Position #
-@onready var goku_projectile_position = $"Scale Player/Goku Projectile Position"
-var goku_air_projectile = preload("res://Character Resouces/Goku/Goku Air Projectile.tscn")
-var goku_ground_projectiles = preload("res://Character Resouces/Goku/Goku Ground Projectile.tscn")
-var side_registered = false
 @onready var Animate: AnimationPlayer = $Character
 @onready var Invisibilty = $Respawn
 @onready var Sprite: Sprite2D = $Sprite
@@ -30,18 +16,34 @@ var side_registered = false
 @onready var counter_position = $"Counter Position"
 @onready var block_timer = $"Refresh Block"
 @onready var dash_smoke_position = $"Scale Player/Dash Smoke Position"
-@onready var hunter_super_side_attack_position = $"Scale Player/Hunter Super Side Attack Position"
-@onready var hunter_side_arrow_position = $"Scale Player/Hunter Side Attack Arrow Position"
-@onready var hunter_super_nuetral_position = $"Scale Player/Hunter Super Nuetral Attack Position"
-@onready var hunter_air_attack_position = $"Scale Player/Hunter Air Attack Position"
-@onready var hunter_down_attack_position = $"Scale Player/Hunter Down Attack Position"
-# General Archfield Fireball Position #
-@onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 @onready var recovery_timer = $"Recovery Timer"
-var follow_goku_neutral_heavy = false
+var side_registered = false
 var attack_reset = false
+# Exclusive Section for character Resources
+# General Archfield Resources
+@onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
+var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn") 
+
+# Goku Resouces
+@onready var goku_projectile_position = $"Scale Player/Goku Projectile Position"
+var goku_air_projectile = preload("res://Character Resouces/Goku/Goku Air Projectile.tscn")
+var goku_ground_projectiles = preload("res://Character Resouces/Goku/Goku Ground Projectile.tscn")
+var follow_goku_neutral_heavy = false
+
+# Sakura Resources
+
+# Princess Atlantis
+
+# Todo Resources 
+
+# Uncle Joe
+
+
+
+
 # Goku Projectile Position #
 
+# Character Knockback Values. Multiplier always begins at 50% starting rate with maximum output
 var knockback_multiplier: float = 0.5
 var knockback_x: float
 var knockback_y: float
@@ -82,7 +84,7 @@ var attack_active = false
 var jump_count = 3
 
 
-var Health: int
+var Health: int = 2000
 
 enum States {
 	# Normal Mode Ststes. #
@@ -129,7 +131,6 @@ func _goku_stats():
 	Acceleration = 270
 	CharacterList.goku_selected = true
 	goku_selected = true
-	Health = 1000
 	
 func _general_stats():
 	nomad_selected = true
@@ -274,28 +275,6 @@ func _goku_ground_projectile():
 	else:
 		instance_molten_earth.velocity.x = 700
 		instance_molten_earth.scale.x = 1.5
-func hunter_spear_throw():
-	var instance_spear = hunter_super_side_attack_spear.instantiate()
-	instance_spear.global_position = hunter_super_side_attack_position.global_position
-	get_tree().get_root().add_child(instance_spear)
-
-	if CharacterList.player_2_facing_left == true:
-		instance_spear.velocity.x = -700
-		instance_spear.scale.x = -1.5
-	else:
-		instance_spear.velocity.x = 700
-		instance_spear.scale.x = 1.5
-
-# Sakura Nuetral Heavy Shuriken Star #
-func _activate_sakura_nheavy(): # inside the nuetral heavy state set data for action specific to character.
-	sakura_ulight_active = true
-func _reset_sakura_nheavy(): # Deactivate once action finished
-	sakura_ulight_active = false
-func _activate_sakura_nheavy_smoke():
-	var instance_sakura_jump = sakura_ulight_smoke.instantiate()
-	instance_sakura_jump.global_position = smoke_position.global_position
-	get_tree().get_root().add_child(instance_sakura_jump)
-
 
 # Activates cloud effects at first frame of action.
 func _activate_jump_smoke():
@@ -330,38 +309,6 @@ func _activate_dash_smoke():
 		instance_dash_smoke.scale.x = -1
 	else:
 		instance_dash_smoke.scale.x = 1
-# Hunter Stats
-func activate_hunter_side_attack():
-	var instance_hunter_arrow = hunter_side_attack_arrow.instantiate()
-	instance_hunter_arrow.global_position = hunter_side_arrow_position.global_position
-	get_tree().get_root().add_child(instance_hunter_arrow)
-	if CharacterList.player_2_facing_left == true:
-		instance_hunter_arrow.velocity.x = -600
-		instance_hunter_arrow.scale.x = -1
-	else:
-		instance_hunter_arrow.velocity.x = 600
-		instance_hunter_arrow.scale.x = 1
-func hunter_air_attack():
-	var instance_arrow = hunter_air_attack_arrow.instantiate()
-	instance_arrow.global_position = hunter_air_attack_position.global_position
-	get_tree().get_root().add_child(instance_arrow)
-
-	if CharacterList.player_2_facing_left == true:
-		instance_arrow.velocity = Vector2(-150,150)
-		instance_arrow.scale.x = -1
-	else:
-		instance_arrow.velocity = Vector2(150,150)
-		instance_arrow.scale.x = 1
-
-func hunter_down_attack():
-	var instance_shower = hunter_down_attack_shower.instantiate()
-	instance_shower.global_position = hunter_down_attack_position.global_position
-	get_tree().get_root().add_child(instance_shower)
-
-	if CharacterList.player_2_facing_left == true:
-		instance_shower.scale.x = -1
-	else:
-		instance_shower.scale.x = 1
 func _hunter_stats():
 	hunter_selected = true
 	Speed = 350
@@ -375,13 +322,13 @@ func _ready():
 
 func _bounce():
 	if is_on_wall():
-		knockback_x *= -1
+		knockback_x *= -1.5
 		
 	elif is_on_ceiling():
-		knockback_y *= -1
+		knockback_y *= -1.5
 		
 	if is_on_floor():
-		knockback_y *= -1
+		knockback_y *= -1.5
 	
 func _reset_v():
 	velocity.x = lerp(velocity.x, 0.0, 0.8)
@@ -402,18 +349,26 @@ func _dodge_move():
 func _process(delta):
 	CharacterList.player_2_health = Health
 	
-	if CharacterList.player_2_health < 700 and CharacterList.player_2_health > 400:
-		knockback_multiplier = 1.0
+	if Health < 1800 and Health > 1500:
+		knockback_multiplier = 0.7
 		
-	elif CharacterList.player_2_health < 490 and CharacterList.player_2_health> 200 :
-		knockback_multiplier = 1.3
+	if Health < 1500 and Health > 1000:
+		knockback_multiplier = 1.2
 		
-	elif CharacterList.player_2_health < 200:
-		knockback_multiplier = 1.6
+	if Health < 700 and Health > 400:
+		knockback_multiplier = 1.5
 		
-	else:
-		if CharacterList.player_1_health < 0:
-			knockback_multiplier = 1.9
+	if Health < 490 and Health > 200 :
+		knockback_multiplier = 1.8
+		
+	if Health < 200:
+		knockback_multiplier = 2.3
+		
+	if Health < 100:
+			knockback_multiplier = 2.7
+			
+	if Health < 0:
+		knockback_multiplier = 3.5
 func _physics_process(delta):
 	var move_vec = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
 	move_and_slide()
@@ -744,8 +699,8 @@ func _physics_process(delta):
 			else:
 				if !is_on_floor():
 					Animate.play("Air Hurt")
-			velocity.x = move_toward(velocity.x, knockback_x * knockback_multiplier, Acceleration)
-			velocity.y= move_toward(velocity.y, knockback_y * knockback_multiplier, Acceleration)
+			velocity.x = move_toward(velocity.x, knockback_x * knockback_multiplier, 100)
+			velocity.y = move_toward(velocity.y, knockback_y * knockback_multiplier, 100)
 			print("Is Recovering ",recovery_timer.time_left)
 			print("Knockback Value: ", knockback_multiplier, " : Current Velocity", velocity)
 			
@@ -754,7 +709,7 @@ func _physics_process(delta):
 		States.Respawn:
 			follow_goku_neutral_heavy = false
 			Animate.play("Respawn")
-			Health = 1000
+			Health = 2000
 			knockback_multiplier = 0.5
 			velocity.x = 0
 			velocity.y = 0
@@ -907,11 +862,11 @@ func _on_area_2d_area_entered(area):
 		Health -= 10
 		print("Goku | Nuetral Light End")
 		if CharacterList.player_1_facing_left == true:
-			knockback_x = -350
+			knockback_x = -100
 		else:
-			knockback_x = 350
+			knockback_x = 100
 		
-		knockback_y = -350
+		knockback_y = -100
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
 		recovery_timer.start(0.35)
@@ -946,26 +901,26 @@ func _on_area_2d_area_entered(area):
 		Health -= 25
 		print("Goku | Second Punch")
 		if CharacterList.player_1_facing_left == true:
-			knockback_x = -800
+			knockback_x = -700
 		else:
-			knockback_x = 800
+			knockback_x = 700
 		
 		knockback_y = 0
 	
 	if area.is_in_group("Goku | Down Heavy Initial"):
-		recovery_timer.start(0.3)
+		recovery_timer.start(0.14)
 		Select = States.Hurt
 		knockback_x = 0
-		knockback_y -= 450
-		Health -= 10
+		knockback_y -= 350
+		Health -= 40
 		
 		
 	if area.is_in_group("Goku | Down Heavy Final"):
-		recovery_timer.start(0.3)
+		recovery_timer.start(0.28)
 		Select = States.Hurt
 		knockback_x = 0
-		knockback_y -= 450
-		Health -= 10
+		knockback_y -= 500
+		Health -= 120
 		
 	if area.is_in_group("Goku | Side Heavy Start"):
 		recovery_timer.start(0.1)

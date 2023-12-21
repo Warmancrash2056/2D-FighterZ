@@ -16,6 +16,12 @@ const MAX_ZOOM_DISTANCE = 3000.0
 const CAMERA_MOVE_THRESHOLD = 5.0
 
 func _ready() -> void:
+	# Set Camera Limits
+	camera.limit_left = -768
+	camera.limit_top = -512
+	camera.limit_right = 768
+	camera.limit_bottom = 512
+	
 	# Set player properties directly
 	call_deferred("add_child", player_1_spawn)
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
@@ -99,7 +105,12 @@ func _draw() -> void:
 
 func setup_camera() -> void:
 	# Set initial camera properties here, if needed
-	pass
+	
+	# Set Camera Limits
+	camera.limit_left = -768
+	camera.limit_top = -512
+	camera.limit_right = 768
+	camera.limit_bottom = 512
 
 
 

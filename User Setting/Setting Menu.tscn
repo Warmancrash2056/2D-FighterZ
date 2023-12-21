@@ -197,7 +197,6 @@ theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_hpbea")
 text = "V-Sync Enabler"
-flat = true
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/TabContainer/Game"]
 unique_name_in_owner = true

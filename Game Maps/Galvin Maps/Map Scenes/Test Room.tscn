@@ -1,18 +1,19 @@
-[gd_scene load_steps=25 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=26 format=3 uid="uid://dwr3jauokvek6"]
 
-[ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
-[ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
-[ext_resource type="Texture2D" uid="uid://b07grplvo2wco" path="res://Game Maps/Galvin Maps/Galvin Assets/background 1.png" id="3_qrqqu"]
-[ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="4_8pavo"]
-[ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/Galvin Maps/Galvin Assets/background 3.png" id="5_37ogg"]
-[ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="6_kexdy"]
-[ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="6_umm62"]
-[ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_evgpo"]
-[ext_resource type="PackedScene" uid="uid://1siupmlt7cfq" path="res://knockout area.tscn" id="9_cjxaf"]
-[ext_resource type="PackedScene" uid="uid://bkqtqaahh05qw" path="res://Local Camera.tscn" id="9_m0frr"]
+[ext_resource type="Texture2D" uid="uid://b07grplvo2wco" path="res://Game Maps/Galvin Maps/Galvin Assets/background 1.png" id="2_wromj"]
+[ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="3_jyp2o"]
+[ext_resource type="Texture2D" uid="uid://bmalm0ncp1pnk" path="res://Game Maps/Galvin Maps/Galvin Assets/background 3.png" id="4_a7uja"]
+[ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="5_p0oje"]
+[ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="6_xono4"]
+[ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="7_dy5p8"]
+[ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_4beay"]
+[ext_resource type="PackedScene" uid="uid://1siupmlt7cfq" path="res://knockout area.tscn" id="9_hys4w"]
+[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="10_4i47s"]
+[ext_resource type="PackedScene" uid="uid://bkqtqaahh05qw" path="res://Local Camera.tscn" id="10_ybs4e"]
+[ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="11_4r62w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
-texture = ExtResource("6_umm62")
+texture = ExtResource("6_xono4")
 9:1/0 = 0
 10:1/0 = 0
 11:1/0 = 0
@@ -1705,7 +1706,7 @@ texture = ExtResource("6_umm62")
 28:62/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3tvhq"]
-texture = ExtResource("2_uq8es")
+texture = ExtResource("7_dy5p8")
 32:0/0 = 0
 34:0/0 = 0
 35:0/0 = 0
@@ -2792,7 +2793,7 @@ texture = ExtResource("2_uq8es")
 62:62/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0uwea"]
-texture = ExtResource("8_evgpo")
+texture = ExtResource("8_4beay")
 31:1/0 = 0
 34:1/0 = 0
 35:1/0 = 0
@@ -4654,7 +4655,7 @@ sources/4 = SubResource("TileSetAtlasSource_3tvhq")
 sources/5 = SubResource("TileSetAtlasSource_0uwea")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2a6p"]
-texture = ExtResource("2_uq8es")
+texture = ExtResource("7_dy5p8")
 32:0/0 = 0
 34:0/0 = 0
 35:0/0 = 0
@@ -5768,28 +5769,26 @@ size = Vector2(192, 1032)
 size = Vector2(192, 200)
 
 [node name="Galvin Road" type="Node2D"]
-script = ExtResource("1_cxki7")
-debug_mode = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-5.10216e-05, 6.29425e-05)
 scale = Vector2(4, 4)
-texture = ExtResource("3_qrqqu")
+texture = ExtResource("2_wromj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(4, -1.71661e-05)
 scale = Vector2(4, 4)
-texture = ExtResource("4_8pavo")
+texture = ExtResource("3_jyp2o")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(4.57764e-05, -1.71661e-05)
 scale = Vector2(4, 4)
-texture = ExtResource("5_37ogg")
+texture = ExtResource("4_a7uja")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(4.57764e-05, -4.00001)
 scale = Vector2(4, 4)
-texture = ExtResource("6_kexdy")
+texture = ExtResource("5_p0oje")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, -70)
@@ -5872,9 +5871,10 @@ visible = false
 position = Vector2(0, -70)
 polygon = PackedVector2Array(-304, 424, 320, 424, 320, 448, -304, 448)
 
-[node name="Area2D" parent="." instance=ExtResource("9_cjxaf")]
+[node name="Area2D" parent="." instance=ExtResource("9_hys4w")]
 
-[node name="Local Camera" parent="." instance=ExtResource("9_m0frr")]
+[node name="Local Camera" parent="." instance=ExtResource("10_ybs4e")]
+position = Vector2(8, -160)
 limit_left = -768
 limit_top = -512
 limit_right = 768
@@ -5919,3 +5919,7 @@ shape = SubResource("RectangleShape2D_maetl")
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(-864, 612)
 shape = SubResource("RectangleShape2D_apkgc")
+
+[node name="Goku" parent="." instance=ExtResource("10_4i47s")]
+position = Vector2(32, -168)
+script = ExtResource("11_4r62w")

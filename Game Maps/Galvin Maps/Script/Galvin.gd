@@ -82,7 +82,7 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 		min(1.2, viewport_size.x / rect.size.x - zoom_offset),
 		min(1.2, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 0.7), max(min_zoom, 0.7))
+	return Vector2(max(min_zoom, 0.6), max(min_zoom, 0.6))
 
 func calculate_zoom_factor(distance: float) -> float:
 	# Calculate the zoom factor based on the distance between players

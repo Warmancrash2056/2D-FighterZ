@@ -15,3 +15,9 @@ func _ready():
 			
 		if user_config.window_mode == 3:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		
+		if user_config.v_Sync_enable == true:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+			
+		if user_config.v_Sync_enable == false:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)

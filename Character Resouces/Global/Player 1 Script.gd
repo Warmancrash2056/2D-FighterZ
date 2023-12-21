@@ -59,7 +59,7 @@ var henry_selected = false
 
 
 var Speed = 350
-var Acceleration: int
+var Acceleration: = 50
 var Air_Speed = 200
 var Fall_Speed = 150
 var Roll_Speed = 600

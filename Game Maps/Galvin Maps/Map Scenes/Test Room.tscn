@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dwr3jauokvek6"]
+[gd_scene load_steps=25 format=3 uid="uid://dwr3jauokvek6"]
 
 [ext_resource type="Texture2D" uid="uid://b07grplvo2wco" path="res://Game Maps/Galvin Maps/Galvin Assets/background 1.png" id="2_wromj"]
 [ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="3_jyp2o"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://1siupmlt7cfq" path="res://knockout area.tscn" id="9_hys4w"]
 [ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="10_4i47s"]
 [ext_resource type="PackedScene" uid="uid://bkqtqaahh05qw" path="res://Local Camera.tscn" id="10_ybs4e"]
-[ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="11_4r62w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
 texture = ExtResource("6_xono4")
@@ -5922,4 +5921,3 @@ shape = SubResource("RectangleShape2D_apkgc")
 
 [node name="Goku" parent="." instance=ExtResource("10_4i47s")]
 position = Vector2(32, -168)
-script = ExtResource("11_4r62w")

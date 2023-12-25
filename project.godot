@@ -18,6 +18,7 @@ config/icon="res://Character Resouces/Nomad/wind_elemental.png"
 
 [autoload]
 
+Mainloop="*res://Mainloop.gd"
 CharacterList="*res://Autoloads/Character List.gd"
 GameAuido="*res://Autoloads/Game Audio.tscn"
 UserSettingConfig="*res://Save/UserSettingConfig.gd"
@@ -291,6 +292,8 @@ Player3_Up={
 2d_physics/layer_8="Player 2 Marker"
 2d_physics/layer_9="Player"
 2d_physics/layer_10="Off Screen"
+2d_physics/layer_11="Player 1 Hitbox"
+2d_physics/layer_12="Player 2 Hitbox"
 
 [mono]
 

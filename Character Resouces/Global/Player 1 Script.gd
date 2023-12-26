@@ -1,20 +1,12 @@
-class_name Player1 extends CharacterBody2D
+extends CharacterBody2D
 
 # Get character Resources
 var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
-
-# Get character Resources
-var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
 
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
 var dash_smoke = preload("res://Character Resouces/Global/dash_smoke.tscn")
 var wall_jump_smoke = preload("res://Autoloads/wall_jump_cloud.tscn")
-
-var hunter_side_attack_arrow = preload( "res://Character Resouces/Hunter/Projectile/Hunter Side Attack Arrow.tscn")
-var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Projectile/projectiles_and_effects/Hunter Super Spear.tscn")
-var hunter_down_attack_shower = preload("res://Character Resouces/Hunter/Projectile/Hunter Arrow Shower .tscn")
-var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.tscn")
 
 var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn") # Goku Projectile Position #
 # Goku Projectile Position #
@@ -22,19 +14,19 @@ var general_nuetral_attack_fireball = preload("res://Character Resouces/General 
 var goku_air_projectile = preload("res://Character Resouces/Goku/Goku Air Projectile.tscn")
 var goku_ground_projectiles = preload("res://Character Resouces/Goku/Goku Ground Projectile.tscn")
 var side_registered = false
-@onready var Animate: AnimationPlayer = $Character
+
+# Global player nodes.
+@onready var Animate = $Character
 @onready var Invisibilty = $Respawn
-@onready var Sprite: Sprite2D = $Sprite
-@onready var smoke_position: Marker2D = $"Jump Smoke"
+@onready var Sprite = $Sprite
+@onready var smoke_position = $"Jump Smoke"
 @onready var wall_jump_smoke_position = $"Scale Player/Wall Jump Smoke"
 @onready var counter_position = $"Counter Position"
 @onready var block_timer = $"Refresh Block"
 @onready var dash_smoke_position = $"Scale Player/Dash Smoke Position"
-@onready var hunter_super_side_attack_position = $"Scale Player/Hunter Super Side Attack Position"
-@onready var hunter_side_arrow_position = $"Scale Player/Hunter Side Attack Arrow Position"
-@onready var hunter_super_nuetral_position = $"Scale Player/Hunter Super Nuetral Attack Position"
-@onready var hunter_air_attack_position = $"Scale Player/Hunter Air Attack Position"
-@onready var hunter_down_attack_position = $"Scale Player/Hunter Down Attack Position"
+@onready var right_wall_detection = $Right
+@onready var left_wall_detection = $Left
+
 # General Archfield Fireball Position #
 @onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
 @onready var recovery_timer = $"Recovery Timer"
@@ -46,9 +38,6 @@ var knockback_multiplier: float = 0.5
 var knockback_x: float
 var knockback_y: float
 
-# Used to detect if there is a wall.
-@onready var right_wall_detection = $Right
-@onready var left_wall_detection = $Left
 var goku_selected = false
 var general_selected = false
 var nomad_selected = false
@@ -57,32 +46,27 @@ var hunter_selected = false
 var atlantis_selected = false
 var henry_selected = false
 
+var direction = Vector2()
+const Speed: float = 250
+const Acceleration: float = 25.0
+const Decceleration: float = 50.0
+const Dash_Acceleration: float = 300.0
+const Dash_Decceleration: float = 50.0
+const Dash_Speed: float = 550.0
+const Jump_Height: float = 500
+const Gravity: float = 20
+var jump_count: int = 3
 
-var Speed = 350
-var Acceleration: = 50
-var Air_Speed = 200
-var Fall_Speed = 150
-var Roll_Speed = 600
-var Jump_Height = 500
-var Gravity = 20
-
-var can_sakura_ulight_smoke = false
 var can_jump_smoke = false
-var sakura_ulight_active = false
-var can_change_dir = false
 
-var nomad_nuetral_attack_hit = false
-var nomad_up_attack_hit = false
-
-var can_jump = false
+# Check if player can countewr. reset in idle and jump and fall animations.
 var can_counter = false
+# Check if player can block rreset in idle, jump, and fall
 var block_active = false
-var attack_active = false
-
-var jump_count = 3
 
 
-var Health: int
+
+var Health: float = 1000
 
 enum States {
 	# Normal Mode Ststes. #
@@ -126,16 +110,11 @@ enum States {
 
 
 func _goku_stats():
-	Acceleration = 270
 	CharacterList.goku_selected = true
 	goku_selected = true
-	Health = 1000
 	
 func _general_stats():
 	nomad_selected = true
-	Speed = 125
-	Air_Speed = 250
-	Fall_Speed = 175
 
 func _sakura_stats():
 	pass
@@ -148,16 +127,10 @@ func _nomad_stats():
 # Default State when entering the scene tree. #
 var Select = States.Respawn
 
-func _reset_nomad_nuetral_attack():
-	nomad_nuetral_attack_hit = false
-
-
-func _reset_nomad_up_attack():
-	nomad_up_attack_hit = false
-
+# Quickly return back to idle or jump state if sucessfully lannds an attack.
 func _attack_reset():
 	attack_reset = false
-func quick_reset():
+func quick_reset(): # Attack Sucessful #
 	follow_goku_neutral_heavy = false
 	if attack_reset == true:
 		if !is_on_floor():
@@ -170,8 +143,7 @@ func quick_reset():
 	else:
 		attack_reset = false
 		
-# Reset to idle and fall state after attacks
-func _idle_state_():
+func _idle_state_(): # Normal Reset if unsucessful.`
 	follow_goku_neutral_heavy = false
 	if !is_on_floor():
 		Select = States.Falling
@@ -180,12 +152,7 @@ func _idle_state_():
 		Select = States.Idling
 		Animate.play("Idle")
 
-# Between 2 and 5 frames player can perform a dodge roll
-func _can_jump():
-	can_jump = true
 
-func _reset_jump():
-	can_jump = false
 
 # Perform attacks within 5-10 frames of the air block. #
 func _counter_nuetral_light():
@@ -215,21 +182,6 @@ func counter_down_heavy():
 			Select = States.Down_Heavy
 
 
-# Reset Defend directional change at end of animation
-func _reset_turn_around():
-	can_change_dir = false
-func turn_around():
-	if can_change_dir ==  false:
-		if Input.is_action_just_pressed(controls.right):
-			Sprite.flip_h = false
-			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			CharacterList.player_1_facing_left = false
-			can_change_dir = true
-		elif Input.is_action_just_pressed(controls.left):
-			Sprite.flip_h = true
-			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			CharacterList.player_1_facing_left = true
-			can_change_dir = true
 # General Archfield Stats.
 func _general_archfield_freball():
 	var instance_fireball = general_nuetral_attack_fireball.instantiate()
@@ -274,28 +226,6 @@ func _goku_ground_projectile():
 	else:
 		instance_molten_earth.velocity.x = 700
 		instance_molten_earth.scale.x = 1.5
-func hunter_spear_throw():
-	var instance_spear = hunter_super_side_attack_spear.instantiate()
-	instance_spear.global_position = hunter_super_side_attack_position.global_position
-	get_tree().get_root().add_child(instance_spear)
-
-	if CharacterList.player_1_facing_left == true:
-		instance_spear.velocity.x = -700
-		instance_spear.scale.x = -1.5
-	else:
-		instance_spear.velocity.x = 700
-		instance_spear.scale.x = 1.5
-
-# Sakura Nuetral Heavy Shuriken Star #
-func _activate_sakura_nheavy(): # inside the nuetral heavy state set data for action specific to character.
-	sakura_ulight_active = true
-func _reset_sakura_nheavy(): # Deactivate once action finished
-	sakura_ulight_active = false
-func _activate_sakura_nheavy_smoke():
-	var instance_sakura_jump = sakura_ulight_smoke.instantiate()
-	instance_sakura_jump.global_position = smoke_position.global_position
-	get_tree().get_root().add_child(instance_sakura_jump)
-
 
 # Activates cloud effects at first frame of action.
 func _activate_jump_smoke():
@@ -331,54 +261,56 @@ func _activate_dash_smoke():
 	else:
 		instance_dash_smoke.scale.x = 1
 # Hunter Stats
-func activate_hunter_side_attack():
-	var instance_hunter_arrow = hunter_side_attack_arrow.instantiate()
-	instance_hunter_arrow.global_position = hunter_side_arrow_position.global_position
-	get_tree().get_root().add_child(instance_hunter_arrow)
-	if CharacterList.player_1_facing_left == true:
-		instance_hunter_arrow.velocity.x = -600
-		instance_hunter_arrow.scale.x = -1
-	else:
-		instance_hunter_arrow.velocity.x = 600
-		instance_hunter_arrow.scale.x = 1
-func hunter_air_attack():
-	var instance_arrow = hunter_air_attack_arrow.instantiate()
-	instance_arrow.global_position = hunter_air_attack_position.global_position
-	get_tree().get_root().add_child(instance_arrow)
-
-	if CharacterList.player_1_facing_left == true:
-		instance_arrow.velocity = Vector2(-150,150)
-		instance_arrow.scale.x = -1
-	else:
-		instance_arrow.velocity = Vector2(150,150)
-		instance_arrow.scale.x = 1
-
-func hunter_down_attack():
-	var instance_shower = hunter_down_attack_shower.instantiate()
-	instance_shower.global_position = hunter_down_attack_position.global_position
-	get_tree().get_root().add_child(instance_shower)
-
-	if CharacterList.player_1_facing_left == true:
-		instance_shower.scale.x = -1
-	else:
-		instance_shower.scale.x = 1
-func _hunter_stats():
 	hunter_selected = true
-	Speed = 350
-	Air_Speed = 350
-	Fall_Speed = 150
-	
+func _attack_dir():
+		if direction.x != 0:
+			if Input.is_action_just_pressed(controls.light):
+				Select = States.Side_Light
+
+		if Input.is_action_just_pressed(controls.heavy):
+			Select = States.Side_Heavy
+		if direction.x == 0:
+			if Input.is_action_just_pressed(controls.light):
+				Select = States.Nuetral_Light
+
+			if Input.is_action_just_pressed(controls.heavy):
+				Select = States.Nuetral_Heavy
+func change_dir():
+	if direction.x < 0:
+		Sprite.flip_h = true
+		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+		CharacterList.player_1_facing_left = true
+		
+	elif direction.x > 0:
+		Sprite.flip_h = false
+		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+		CharacterList.player_1_facing_left = false
+func _on_wall():
+	if is_on_wall():
+		if left_wall_detection.is_colliding():
+					Select = States.Left_Wall
+		else:
+			if right_wall_detection.is_colliding():
+				Select = States.Right_Wall
+func _movment():
+	direction = Vector2(int(Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)), int(Input.get_action_strength(controls.down)))
+	if direction.x != 0:
+		velocity.x = move_toward(velocity.x, direction.x * Speed, Acceleration)
+	else:
+		velocity.x = move_toward(velocity.x, 0, Decceleration)
+		
+	if direction.y > 0:
+		velocity.y += 25
+		set_collision_mask_value(3, false)
+	else:
+		set_collision_mask_value(3, true)
 func _ready():
 	CharacterList.player_1_health = Health
 	Select = States.Respawn
 	recovery_timer.start()
 
-func _bounce():
-	if is_on_wall():
-		knockback_x *= -1
-		
-	elif is_on_ceiling():
-		knockback_y *= -1
+func _bounce(): # Bounce player a certain direction based on collide direction. #
+	pass
 
 func _reset_v():
 	velocity.x = lerp(velocity.x, 0.0, 0.8)
@@ -388,16 +320,7 @@ func _reset_v():
 	
 func _activate_invisibility():
 	Invisibilty.play("Invisibilty")
-func _dodge_move():
-	var move_x = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
-	var move_y = Input.get_action_strength(controls.down) - Input.get_action_strength(controls.up)
-			
-	if move_x != 0:
-		velocity.x = move_toward(velocity.x, move_x * 50, 10)
-	
-		
-	if move_y != 0:
-		velocity.y = move_toward(velocity.y, move_y * 50, 10)
+
 func _process(delta):
 	CharacterList.player_1_health = Health
 	
@@ -416,62 +339,28 @@ func _process(delta):
 			
 	
 func _physics_process(delta):
-	var move_vec = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
 	move_and_slide()
 	match Select:
 		States.Idling:
+			_movment()
+			_attack_dir()
+			change_dir()
 			jump_count = 3
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
 				Select = States.Jumping
 				Animate.play("Jump")
-			velocity.y += Gravity
-			if move_vec < 0:
-				velocity.x = max(velocity.x -Acceleration, -Speed)
+				
+			if direction.x != 0:
 				Animate.play("Run")
-				Sprite.flip_h = true
-				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_1_facing_left = true
-				if velocity.x != 0:
-					if Input.is_action_just_pressed(controls.dash):
-						Select = States.Dash_Run
-						set_collision_mask_value(2, false)
-
-				if Input.is_action_just_pressed(controls.light):
-					Select = States.Side_Light
-
-				if Input.is_action_just_pressed(controls.heavy):
-					Select = States.Side_Heavy
-
-			elif move_vec > 0:
-				velocity.x = min(velocity.x + Acceleration, Speed)
-				Animate.play("Run")
-				Sprite.flip_h = false
-				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_1_facing_left = false
-				if velocity.x != 0:
-					if Input.is_action_just_pressed(controls.dash):
-						Select = States.Dash_Run
-						set_collision_mask_value(2, false)
-
-
-				if Input.is_action_just_pressed(controls.light):
-					Select = States.Side_Light
-
-				if Input.is_action_just_pressed(controls.heavy):
-					Select = States.Side_Heavy
+				
 			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.2)
 				Animate.play("Idle")
-				if Input.is_action_just_pressed(controls.light):
-					Select = States.Nuetral_Light
-
-				if Input.is_action_just_pressed(controls.heavy):
-					Select = States.Nuetral_Heavy
-					
-				if Input.is_action_just_pressed(controls.dash) and block_active == false:
-					Select = States.Ground_Block
-					block_active = true
+				
+			
+			if Input.is_action_just_pressed(controls.dash) and block_active == false:
+				Select = States.Ground_Block
+				block_active = true
 
 
 				# New Mechanic for projectile throw
@@ -487,7 +376,8 @@ func _physics_process(delta):
 				$"Character Jump Sound".play()
 				velocity.y = -Jump_Height
 				Animate.play("Jump")
-			elif Input.is_action_pressed(controls.down):
+				
+			if Input.is_action_pressed(controls.down):
 
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Down_Heavy
@@ -498,27 +388,29 @@ func _physics_process(delta):
 				await  get_tree().create_timer(0.2).timeout
 				if Input.is_action_pressed(controls.down):
 					set_collision_mask_value(3, false)
-
+				
+			if velocity.x != 0:
+				if Input.is_action_just_pressed(controls.dash):
+					Select = States.Dash_Run
+					set_collision_mask_value(2, false)
+					_activate_dash_smoke()
 
 		States.Jumping:
-			if move_vec < 0:
-				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
+			_movment()
+			if direction.x < 0:
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.player_1_facing_left = true
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Air
 
-			elif move_vec > 0:
-				velocity.x = min(velocity.x + Acceleration, Air_Speed)
+			if direction.x > 0:
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.player_1_facing_left = false
 				if Input.is_action_pressed(controls.light):
 					Select = States.Side_Air
 
-			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.1)
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Nuetral_Air
 
@@ -536,11 +428,6 @@ func _physics_process(delta):
 			velocity.y += Gravity
 			Animate.play("Jump")
 
-			if Input.is_action_pressed(controls.down):
-				velocity.y += 15
-				set_collision_mask_value(3, false)
-			else:
-				set_collision_mask_value(3, true)
 
 			if is_on_wall():
 				if left_wall_detection.is_colliding():
@@ -560,35 +447,24 @@ func _physics_process(delta):
 				_activate_jump_smoke()
 				$"Character Jump Sound".play()
 		States.Falling:
+			_movment()
 			Animate.play("Fall")
-			if Input.is_action_pressed(controls.down):
-				velocity.y += 20
-				set_collision_mask_value(3, false)
-			else:
-				set_collision_mask_value(3, true)
-			if is_on_wall():
-				if left_wall_detection.is_colliding():
-					Select = States.Left_Wall
-				else:
-					if right_wall_detection.is_colliding():
-						Select = States.Right_Wall
-			if move_vec < 0:
+			if direction.x < 0:
+				velocity.x = move_toward(velocity.x, -Speed, Acceleration)
 				Sprite.flip_h = true
 				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
 				CharacterList.player_1_facing_left = true
-				velocity.x = max(velocity.x - Acceleration, -Fall_Speed)
-			elif move_vec > 0:
+			if direction.x > 0:
+				velocity.x = move_toward(velocity.x, Speed, Acceleration)
 				Sprite.flip_h = false
 				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
 				CharacterList.player_1_facing_left = false
 
-			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.1)
 
 			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				jump_count -= 1
 				velocity.y = -Jump_Height
+				Select = States.Jumping
 				Animate.play("Jump")
 				_activate_jump_smoke()
 				$"Character Jump Sound".play()
@@ -605,7 +481,7 @@ func _physics_process(delta):
 				jump_count = 3
 
 		States.Side_Light:
-			velocity.x = lerp(velocity.x, 0.0, 0.7)
+			velocity.x = lerp(velocity.x, 0.0, 0.1)
 			velocity.y = 0
 			Animate.play("Side Light Start")
 		States.Side_Transition:
@@ -614,20 +490,20 @@ func _physics_process(delta):
 			Animate.play("Side Light Finisher")
 		States.Side_Heavy:
 			Animate.play("Side Heavy")
-			velocity.x = lerp(velocity.x, 0.0, 0.8)
+			velocity.x = lerp(velocity.x, 0.0, 0.1)
 			velocity.y = 0
 
 		States.Side_Air:
 			Animate.play("Side Air")
-			velocity.x = lerp(velocity.x , 0.0, 0.1)
+			velocity.x = lerp(velocity.x , 0.0, 0.06)
 			velocity.y = 0
 		States.Down_Light:
 			Animate.play("Down Light")
-			velocity.x = lerp(velocity.x, 0.0, 0.9)
+			velocity.x = lerp(velocity.x, 0.0, 0.09)
 			velocity.y = 0
 
 		States.Down_Heavy:
-			velocity.x = lerp(velocity.x, 0.0, 0.6)
+			velocity.x = lerp(velocity.x, 0.0, 0.2)
 			velocity.y = 0
 			Animate.play("Down Heavy")
 		States.Down_Air:
@@ -636,53 +512,49 @@ func _physics_process(delta):
 			Animate.play("Down Air")
 		States.Down_Air_Heavy:
 			Animate.play("Down Air Heavy")
-			velocity.x = lerp(velocity.x , 0.0, 0.9)
+			velocity.x = lerp(velocity.x , 0.0, 0.1)
 			velocity.y = 0
 		States.Nuetral_Light:
-			velocity.x = lerp(velocity.x, 0.0, 0.4)
+			print(velocity.x)
+			velocity.x = lerp(velocity.x, 0.0, 0.3)
 			velocity.y = 0
 			Animate.play("Nuetral Light")
 
 		States.Nuetral_Heavy:
-			# At frame 1 start up sakura. #
-			if sakura_ulight_active == true:
-				velocity.y = -200
-				velocity.y += Gravity
-			else:
-				velocity.y = 0
 			velocity.x = lerp(velocity.x, 0.0, 0.1)
 			velocity.y = 0
 			Animate.play("Nuetral Heavy")
 		States.Nuetral_Air:
-			velocity.x = lerp(velocity.x , 0.0, 0.7)
-			velocity.y = lerp(velocity.y , 0.0, 0.2)
+			velocity.x = lerp(velocity.x , 0.0, 0.1)
+			velocity.y = lerp(velocity.y , 0.0, 0.1)
 			Animate.play("Nuetral Air")
 
 		States.Ground_Block:
-			#  Activate turn around at the start of the state. #
-			turn_around()
 			Animate.play("Ground Block")
 			velocity.y = 0
 			velocity.x = 0
 			block_timer.start()
 		States.Air_Block:
 			set_velocity(Vector2.ZERO)
-			#  Activate turn around at the start of the state. #
-			turn_around()
 			Animate.play("Air Block")
 			block_timer.start()
 			# Activate counter smoke to be called during an attack.
 			can_counter = true
 		States.Dash_Run:
+			
+			if direction.x == 0:
+				Select = States.Idling
+				velocity.x = move_toward(velocity.x, Speed, Dash_Decceleration )
 			if Input.is_action_pressed(controls.dash):
-				velocity.x = move_toward(velocity.x, move_vec * Roll_Speed, Acceleration )
+				velocity.x = move_toward(velocity.x, direction.x * Dash_Speed, Dash_Acceleration )
 				
 			else:
 				if Input.is_action_just_released(controls.dash):
 					Select = States.Idling
-					velocity.x = move_toward(velocity.x, move_vec * 0, Acceleration )
+					velocity.x = move_toward(velocity.x, Speed, Dash_Decceleration )
 			if jump_count > 0:
 				if Input.is_action_just_pressed(controls.jump):
+					velocity.x = move_toward(velocity.x, direction.x * Speed, Decceleration )
 					jump_count -= 1
 					velocity.y = -Jump_Height
 					Select = States.Jumping
@@ -692,7 +564,12 @@ func _physics_process(delta):
 			Animate.play("Dash")
 			
 			
-						
+			if Input.is_action_just_pressed(controls.light):
+					Select = States.Nuetral_Light
+					
+			if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Nuetral_Heavy
+							
 			if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Light
@@ -700,35 +577,21 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Side_Heavy
 					
-			else:
-				if Input.is_action_just_pressed(controls.light):
-					Select = States.Nuetral_Light
 				
-				if Input.is_action_just_pressed(controls.heavy):
+			if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Nuetral_Heavy
 				
-				if Input.is_action_just_pressed(controls.dash) and block_active == false:
+			if Input.is_action_just_pressed(controls.dash) and block_active == false:
 						Select = States.Ground_Block
 						block_active = true
 						
-				if Input.is_action_pressed(controls.down):
-						if Input.is_action_just_pressed(controls.light):
+			if Input.is_action_pressed(controls.down):
+				if Input.is_action_just_pressed(controls.light):
 								Select = States.Down_Light
 								
-						if Input.is_action_just_pressed(controls.heavy):
+				if Input.is_action_just_pressed(controls.heavy):
 								Select = States.Down_Heavy
 
-			if CharacterList.player_1_facing_left == true:
-				if Input.is_action_just_pressed(controls.right):
-					Select = States.Idling
-					velocity.x = 0
-				
-						
-				
-			if CharacterList.player_1_facing_left == false:
-				if Input.is_action_just_pressed(controls.left):
-					Select = States.Idling
-					velocity.x = 0
 			
 			if !is_on_floor():
 				Select = States.Jumping
@@ -803,8 +666,26 @@ func _physics_process(delta):
 			velocity.x = 0
 			velocity.y = 0
 
+
+func apply_knockback(enemy_position):
+	var direction = global_position.direction_to(enemy_position).normalized()
+	knockback_x = direction.x * -100
 func _on_area_2d_area_entered(area):
+	if area.is_in_group("Goku | Ground Projectile"):
+		recovery_timer.start(0.35)
+		Select = States.Hurt
+		apply_knockback(area.global_position)
 	
+	if area.is_in_group("Goku | Air Projectile"):
+		recovery_timer.start(0.35)
+		Select = States.Hurt
+		print("Goku | Air Projectile")
+		if CharacterList.player_1_facing_left == true:
+			knockback_x -= 400
+			
+		else:
+			knockback_x += 400
+		
 	if area.is_in_group("Goku | Neautral Heavy Positioner"):
 		follow_goku_neutral_heavy = true
 		Select = States.Hurt
@@ -815,7 +696,7 @@ func _on_area_2d_area_entered(area):
 		follow_goku_neutral_heavy = false
 		Select = States.Hurt
 		recovery_timer.start(0.4)
-		if CharacterList.player_2_facing_left == true:
+		if CharacterList.player_1_facing_left == true:
 			knockback_x = 300
 		else:
 			knockback_x = -300
@@ -829,7 +710,7 @@ func _on_area_2d_area_entered(area):
 		recovery_timer.start(0.55)
 		Health -= 20
 		Select = States.Hurt
-		if CharacterList.player_2_facing_left == true:
+		if CharacterList.player_1_facing_left == true:
 			knockback_x = -750
 		else:
 			knockback_x = 750
@@ -861,14 +742,6 @@ func _on_area_2d_area_entered(area):
 		knockback_x = 0
 		knockback_y = -400
 		
-	if area.is_in_group("Goku | Down Light"):
-		print("Goku | Down Light")
-		recovery_timer.start(0.4)
-		Select = States.Hurt
-		Health -= 10
-		print("Goku | Nuetral Light End")
-		knockback_y = -400
-	
 	if area.is_in_group("Goku | Down Air"):
 		print("Goku | Down Air")
 		recovery_timer.start(0.4)
@@ -877,17 +750,20 @@ func _on_area_2d_area_entered(area):
 		print("Goku | Nuetral Light End")
 		knockback_y = 400
 		
+	if area.is_in_group("Goku | Down Light"):
+		print("Goku | Down Light")
+		recovery_timer.start(0.4)
+		Select = States.Hurt
+		Health -= 10
+		print("Goku | Nuetral Light End")
+		knockback_y = -400
+		
 	if area.is_in_group("Goku | Nuetral Light End"):
 		recovery_timer.start(0.6)
 		Select = States.Hurt
 		Health -= 10
 		print("Goku | Nuetral Light End")
-		if CharacterList.player_2_facing_left == true:
-			knockback_x = -350
-		else:
-			knockback_x = 350
-		
-		knockback_y = -350
+		apply_knockback(area.global_position)
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
 		recovery_timer.start(0.35)
@@ -918,36 +794,36 @@ func _on_area_2d_area_entered(area):
 		
 	if area.is_in_group("Goku Sde Light Finish - Second Punch"):
 		Select = States.Hurt
-		recovery_timer.start(0.35)
+		recovery_timer.start(0.45)
 		Health -= 25
-		print("Goku | Nuetral Light End")
-		if CharacterList.player_2_facing_left == true:
-			knockback_x = -1200
+		print("Goku | Second Punch")
+		if CharacterList.player_1_facing_left == true:
+			knockback_x = -700
 		else:
-			knockback_x = 1200
+			knockback_x = 700
 		
 		knockback_y = 0
 	
 	if area.is_in_group("Goku | Down Heavy Initial"):
-		recovery_timer.start(0.3)
+		recovery_timer.start(0.14)
 		Select = States.Hurt
 		knockback_x = 0
-		knockback_y -= 450
-		Health -= 10
+		knockback_y -= 350
+		Health -= 40
 		
 		
 	if area.is_in_group("Goku | Down Heavy Final"):
-		recovery_timer.start(0.3)
+		recovery_timer.start(0.28)
 		Select = States.Hurt
 		knockback_x = 0
-		knockback_y -= 450
-		Health -= 10
+		knockback_y -= 500
+		Health -= 120
 		
 	if area.is_in_group("Goku | Side Heavy Start"):
 		recovery_timer.start(0.1)
 		Select = States.Hurt
 		Health -= 10
-		if CharacterList.player_2_facing_left == true:
+		if CharacterList.player_1_facing_left == true:
 			knockback_x -= 500
 			
 		else:
@@ -959,18 +835,21 @@ func _on_area_2d_area_entered(area):
 		recovery_timer.start(0.2)
 		Select = States.Hurt
 		Health -= 10
-		if CharacterList.player_2_facing_left == true:
+		if CharacterList.player_1_facing_left == true:
 			knockback_x -= 500
 			
 		else:
 			knockback_x += 500
 		
 		knockback_y = -600
+		
 	if area.is_in_group("Off Stage - Galvin"):
 		await get_tree().create_timer(0.2).timeout
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position", CharacterList.galvin_player_respawn, 1.5)
 		Select = States.Respawn
+
+
 
 
 

@@ -299,6 +299,11 @@ Player3_Up={
 
 project/assembly_name="2D FighterZ"
 
+[physics]
+
+common/max_physics_steps_per_frame=1
+common/physics_jitter_fix=0.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

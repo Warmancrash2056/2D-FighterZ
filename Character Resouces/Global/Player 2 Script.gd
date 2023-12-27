@@ -56,6 +56,7 @@ const Dash_Speed: float = 550.0
 const Jump_Height: float = 500
 const Gravity: float = 20
 var jump_count: int = 3
+var knock_vector = Vector2()
 
 var can_jump_smoke = false
 
@@ -597,7 +598,7 @@ func _physics_process(delta):
 				Select = States.Jumping
 
 		States.Hurt:
-			_bounce()
+			bounce_off_surface(velocity)
 			if is_on_floor():
 				Animate.play("Ground Hurt")
 			else:
@@ -605,8 +606,8 @@ func _physics_process(delta):
 					Animate.play("Air Hurt")
 			velocity.x = knockback_x * knockback_multiplier
 			velocity.y= knockback_y * knockback_multiplier
-			print("Is Recovering ",recovery_timer.time_left)
-			print("Knockback Value: ", knockback_multiplier, " : Current Velocity", velocity)
+			#print("Is Recovering ",recovery_timer.time_left)
+			#print("Knockback Value: ", knockback_multiplier, " : Current Velocity", velocity)
 			
 			if follow_goku_neutral_heavy == true:
 				global_position = CharacterList.goku_neutral_heavy_grab_position
@@ -668,10 +669,14 @@ func _physics_process(delta):
 
 
 func apply_knockback(enemy_position):
-	var direction = global_position.direction_to(enemy_position).normalized()
-	knockback_x = direction.x * -1000
-	print("Vector", enemy_position)
+	knock_vector = global_position.direction_to(enemy_position).normalized()
+	velocity.x = knock_vector.x * -knockback_x
+	print(knock_vector.x)
+# New function to handle bouncing
+func bounce_off_surface(surface_normal: Vector2):
+	knock_vector = knock_vector.bounce(surface_normal) * 100
 func _on_area_2d_area_entered(area):
+	apply_knockback(area.global_position)
 	if area.is_in_group("Goku | Ground Projectile"):
 		recovery_timer.start(0.35)
 		Select = States.Hurt
@@ -764,7 +769,11 @@ func _on_area_2d_area_entered(area):
 		Select = States.Hurt
 		Health -= 10
 		print("Goku | Nuetral Light End")
-		apply_knockback(area.global_position)
+		if knock_vector.x == -1:
+			knockback_x = -350
+			
+		else:
+			knockback_x = -350
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
 		recovery_timer.start(0.35)
@@ -798,13 +807,11 @@ func _on_area_2d_area_entered(area):
 		recovery_timer.start(0.45)
 		Health -= 25
 		print("Goku | Second Punch")
-		if CharacterList.player_1_facing_left == true:
-			knockback_x = -700
-		else:
+		if knock_vector.x == -1:
 			knockback_x = 700
-		
-		knockback_y = 0
-	
+			
+		else:
+			knockback_x = -700
 	if area.is_in_group("Goku | Down Heavy Initial"):
 		recovery_timer.start(0.14)
 		Select = States.Hurt
@@ -824,23 +831,21 @@ func _on_area_2d_area_entered(area):
 		recovery_timer.start(0.1)
 		Select = States.Hurt
 		Health -= 10
-		if CharacterList.player_1_facing_left == true:
+		if knock_vector.x == -1:
 			knockback_x -= 500
 			
 		else:
 			knockback_x += 500
-		
-		knockback_y = -600
 	
 	if area.is_in_group("Goku | Side Heavy End"):
 		recovery_timer.start(0.2)
 		Select = States.Hurt
 		Health -= 10
-		if CharacterList.player_1_facing_left == true:
-			knockback_x -= 500
+		if knock_vector.x == -1:
+			knockback_x -= 450
 			
 		else:
-			knockback_x += 500
+			knockback_x += 700
 		
 		knockback_y = -600
 		

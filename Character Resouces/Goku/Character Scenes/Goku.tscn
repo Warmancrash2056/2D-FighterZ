@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="8_gtluj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gutl"]
-radius = 3.0
-height = 18.0
+radius = 4.5
+height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_11rj4"]
 radius = 4.0
@@ -8798,6 +8798,7 @@ metadata/_edit_group_ = true
 
 [node name="Light Start" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light Start"]
 visible = false
+position = Vector2(19.5, -7.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4gutl")
 disabled = true
@@ -8810,6 +8811,7 @@ collision_mask = 16
 metadata/_edit_group_ = true
 
 [node name="Light End" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light End"]
+visible = false
 shape = SubResource("CircleShape2D_11rj4")
 disabled = true
 debug_color = Color(0.388235, 0.6, 0.701961, 0.419608)
@@ -9060,7 +9062,7 @@ position = Vector2(0, -40)
 texture = ExtResource("2_50hod")
 hframes = 10
 vframes = 18
-frame = 44
+frame = 143
 
 [node name="Character" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
@@ -9079,6 +9081,7 @@ collision_mask = 2
 [node name="Hurtbox" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_qamvs")
+disabled = true
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
 [node name="Counter Position" type="Marker2D" parent="."]

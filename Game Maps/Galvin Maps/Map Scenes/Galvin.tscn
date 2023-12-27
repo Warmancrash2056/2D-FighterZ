@@ -5837,7 +5837,7 @@ layer_0/tile_data = PackedInt32Array(589826, 65536, 12, 655362, 65536, 13, 72089
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 z_index = 5
 position = Vector2(0, -70)
-collision_mask = 0
+collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-40, 6)

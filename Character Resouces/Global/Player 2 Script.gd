@@ -263,19 +263,6 @@ func _activate_dash_smoke():
 		instance_dash_smoke.scale.x = 1
 # Hunter Stats
 	hunter_selected = true
-func _attack_dir():
-		if direction.x != 0:
-			if Input.is_action_just_pressed(controls.light):
-				Select = States.Side_Light
-
-		if Input.is_action_just_pressed(controls.heavy):
-			Select = States.Side_Heavy
-		if direction.x == 0:
-			if Input.is_action_just_pressed(controls.light):
-				Select = States.Nuetral_Light
-
-			if Input.is_action_just_pressed(controls.heavy):
-				Select = States.Nuetral_Heavy
 func change_dir():
 	if direction.x < 0:
 		Sprite.flip_h = true
@@ -294,24 +281,30 @@ func _on_wall():
 			if right_wall_detection.is_colliding():
 				Select = States.Right_Wall
 func _movment():
-	direction = Vector2(int(Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)), int(Input.get_action_strength(controls.down)))
+	direction = Vector2(int(Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)), int(Input.get_action_strength(controls.down) - Input.get_action_strength(controls.up)))
 	if direction.x != 0:
 		velocity.x = move_toward(velocity.x, direction.x * Speed, Acceleration)
 	else:
 		velocity.x = move_toward(velocity.x, 0, Decceleration)
 		
-	if direction.y > 0:
-		velocity.y += 25
-		set_collision_mask_value(3, false)
+	if direction.y == 1 and !is_on_floor():
+		if Engine.get_physics_frames() % 3 == 0:
+			
+			velocity.y += 30
+			set_collision_mask_value(3, false)
 	else:
-		set_collision_mask_value(3, true)
+			set_collision_mask_value(3, true)
+			
+			
+	if direction.y == 1 and !is_on_floor():
+		if Engine.get_physics_frames() % 60 == 0:
+				Select = States.Falling
+				print("state fALL")
 func _ready():
 	CharacterList.player_1_health = Health
 	Select = States.Respawn
 	recovery_timer.start()
 
-func _bounce(): # Bounce player a certain direction based on collide direction. #
-	pass
 
 func _reset_v():
 	velocity.x = lerp(velocity.x, 0.0, 0.8)
@@ -344,7 +337,6 @@ func _physics_process(delta):
 	match Select:
 		States.Idling:
 			_movment()
-			_attack_dir()
 			change_dir()
 			jump_count = 3
 			set_collision_mask_value(3, true)
@@ -363,12 +355,26 @@ func _physics_process(delta):
 				Select = States.Ground_Block
 				block_active = true
 
+			if direction.x != 0:
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Side_Light
 
-				# New Mechanic for projectile throw
+				if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Side_Heavy
+			if direction.x == 0:
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Nuetral_Light
+
+				if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Nuetral_Heavy
+					
+					
 				if Input.is_action_just_pressed(controls.throw):
-					Select = States.Ground_Projectile
-
-
+						Select = States.Ground_Projectile
+						
+			if direction.y == 1:
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Down_Light
 
 			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				Select = States.Jumping
@@ -377,18 +383,6 @@ func _physics_process(delta):
 				$"Character Jump Sound".play()
 				velocity.y = -Jump_Height
 				Animate.play("Jump")
-				
-			if Input.is_action_pressed(controls.down):
-
-				if Input.is_action_just_pressed(controls.heavy):
-					Select = States.Down_Heavy
-
-				if Input.is_action_just_pressed(controls.light):
-					Select = States.Down_Light
-
-				await  get_tree().create_timer(0.2).timeout
-				if Input.is_action_pressed(controls.down):
-					set_collision_mask_value(3, false)
 				
 			if velocity.x != 0:
 				if Input.is_action_just_pressed(controls.dash):
@@ -411,14 +405,20 @@ func _physics_process(delta):
 				CharacterList.player_1_facing_left = false
 				if Input.is_action_pressed(controls.light):
 					Select = States.Side_Air
-
+					
+			
+			if direction.x != 0:
+				if Input.is_action_just_pressed(controls.light):
+					Select = States.Side_Air
+					
+			if direction.x == 0:
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Nuetral_Air
 
 				if Input.is_action_just_pressed(controls.throw):
-					Select = States.Air_Projectile
-			
-			if Input.is_action_pressed(controls.down):
+						Select = States.Ground_Projectile
+						
+			if direction.y == 1:
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Down_Air
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
@@ -428,14 +428,6 @@ func _physics_process(delta):
 	
 			velocity.y += Gravity
 			Animate.play("Jump")
-
-
-			if is_on_wall():
-				if left_wall_detection.is_colliding():
-					Select = States.Left_Wall
-				else:
-					if right_wall_detection.is_colliding():
-						Select = States.Right_Wall
 
 
 			if is_on_floor():
@@ -598,7 +590,11 @@ func _physics_process(delta):
 				Select = States.Jumping
 
 		States.Hurt:
-			bounce_off_surface(velocity)
+			var collision_info = move_and_collide(velocity * delta)
+			if collision_info:
+				velocity = velocity.bounce(collision_info.get_normal()) * 10.0
+				
+			print(collision_info)
 			if is_on_floor():
 				Animate.play("Ground Hurt")
 			else:
@@ -673,8 +669,11 @@ func apply_knockback(enemy_position):
 	velocity.x = knock_vector.x * -knockback_x
 	print(knock_vector.x)
 # New function to handle bouncing
-func bounce_off_surface(surface_normal: Vector2):
-	knock_vector = knock_vector.bounce(surface_normal) * 100
+func bounce_off_surface(delta):
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		velocity.bounce(collision_info.get_normal())
+
 func _on_area_2d_area_entered(area):
 	apply_knockback(area.global_position)
 	if area.is_in_group("Goku | Ground Projectile"):

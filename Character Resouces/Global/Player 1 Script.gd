@@ -316,7 +316,6 @@ func _activate_invisibility():
 	Invisibilty.play("Invisibilty")
 
 func _process(delta):
-	print(Engine.get_frames_per_second())
 	CharacterList.player_1_health = Health
 	
 	if CharacterList.player_1_health < 700 and CharacterList.player_1_health > 400:
@@ -591,7 +590,9 @@ func _physics_process(delta):
 				Select = States.Jumping
 
 		States.Hurt:
-			bounce_off_surface(delta)
+			var collision_info = move_and_collide(velocity * delta)
+			if collision_info:
+				velocity = velocity.bounce(collision_info.get_normal())
 			if is_on_floor():
 				Animate.play("Ground Hurt")
 			else:

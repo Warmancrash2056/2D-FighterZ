@@ -1,16 +1,17 @@
-class_name CustomMainLoop
-extends MainLoop
+extends Node
 
-var time_elapsed = 0
-func _initialize():
-	print("Initialized:")
-	print("  Starting time: %s" % str(time_elapsed))
-
+var controller_connected = []
+func _ready():
+	pass
+	
 func _process(delta):
-	time_elapsed += delta
-	# Return true to end the main loop.
-	return Input.get_mouse_button_mask() != 0 || Input.is_key_pressed(KEY_ESCAPE)
+	controller_connected = Input.get_connected_joypads()
+	if controller_connected.is_empty():
+		print("No Controller Detected")
+		
+	else:
+		print("Controller Detected", controller_connected)
 
-func _finalize():
-	print("Finalized:")
-	print("  End time: %s" % str(time_elapsed))
+# Function to detect whic controller has been removed
+func _disconnected():
+	pass

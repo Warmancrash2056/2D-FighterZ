@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Get character Resources
-var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
+var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
@@ -285,7 +285,7 @@ func _on_wall():
 			if right_wall_detection.is_colliding():
 				Select = States.Right_Wall
 func _movment():
-	direction = Vector2(int(Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)), int(Input.get_action_strength(controls.down) - Input.get_action_strength(controls.up)))
+	direction = Vector2(int(Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)), int(Input.get_action_strength(controls.down)))
 	if direction.x != 0:
 		velocity.x = move_toward(velocity.x, direction.x * Speed, Acceleration)
 	else:
@@ -293,6 +293,7 @@ func _movment():
 			velocity.x = move_toward(velocity.x, 0, Decceleration)
 		else:
 			velocity.x = move_toward(velocity.x, 0, 10)
+			
 func _drop_fall():
 	if direction.y == 1 and !is_on_floor():
 		if Engine.get_physics_frames() % 6 == 0:
@@ -342,10 +343,9 @@ func _process(delta):
 
 func _physics_process(delta):
 	move_and_slide()
-	change_dir()
 	match Select:
 		States.Idling:
-			move_and_slide()
+			change_dir()
 			_movment()
 			_drop_fall()
 			jump_count = 3
@@ -401,6 +401,7 @@ func _physics_process(delta):
 					_activate_dash_smoke()
 
 		States.Jumping:
+			change_dir()
 			_movment()
 			_on_wall()
 			_drop_fall()
@@ -437,10 +438,10 @@ func _physics_process(delta):
 				_activate_jump_smoke()
 				$"Character Jump Sound".play()
 		States.Falling:
-			move_and_slide()
 			_movment()
 			_on_wall()
 			_drop_fall()
+			change_dir()
 			Animate.play("Fall")
 
 

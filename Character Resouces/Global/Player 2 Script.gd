@@ -325,19 +325,19 @@ func _activate_invisibility():
 	Invisibilty.play("Invisibilty")
 
 func _process(delta):
-	CharacterList.player_1_health = Health
+	CharacterList.player_2_health = Health
 
-	if CharacterList.player_1_health < 700 and CharacterList.player_1_health > 400:
+	if CharacterList.player_2_health < 700 and CharacterList.player_1_health > 400:
 		knockback_multiplier = 1.0
 
-	elif CharacterList.player_1_health < 490 and CharacterList.player_1_health> 200 :
+	elif CharacterList.player_2_health < 490 and CharacterList.player_1_health> 200 :
 		knockback_multiplier = 1.3
 
-	elif CharacterList.player_1_health < 200:
+	elif CharacterList.player_2_health < 200:
 		knockback_multiplier = 1.6
 
 	else:
-		if CharacterList.player_1_health < 0:
+		if CharacterList.player_2_health < 0:
 			knockback_multiplier = 1.9
 
 
@@ -663,22 +663,26 @@ func bounce_off_surface(delta):
 		knockback_y *= -1
 		print("bounce off floor")
 func _on_area_2d_area_entered(area):
+	print(area.global_position)
 	apply_knockback(area.global_position)
 	if area.is_in_group("Goku | Ground Projectile"):
 		recovery_timer.start(0.35)
 		Select = States.Hurt
-		apply_knockback(area.global_position)
+		if knock_vector.x > 0:
+			knockback_x = -150
+
+		else:
+			knockback_x = 150
 
 	if area.is_in_group("Goku | Air Projectile"):
 		recovery_timer.start(0.35)
 		Select = States.Hurt
 		print("Goku | Air Projectile")
-		if CharacterList.player_1_facing_left == true:
-			knockback_x -= 400
+		if knock_vector.x > 0:
+			knockback_x = -300
 
 		else:
-			knockback_x += 400
-
+			knockback_x = 300
 	if area.is_in_group("Goku | Neautral Heavy Positioner"):
 		follow_goku_neutral_heavy = true
 		Select = States.Hurt
@@ -689,10 +693,11 @@ func _on_area_2d_area_entered(area):
 		follow_goku_neutral_heavy = false
 		Select = States.Hurt
 		recovery_timer.start(0.4)
-		if CharacterList.player_1_facing_left == true:
-			knockback_x = 300
+		if knock_vector.x > 0:
+			knockback_x = -400
+
 		else:
-			knockback_x = -300
+			knockback_x = 400
 		if is_on_floor():
 			knockback_y = -600
 
@@ -703,10 +708,11 @@ func _on_area_2d_area_entered(area):
 		recovery_timer.start(0.55)
 		Health -= 20
 		Select = States.Hurt
-		if CharacterList.player_1_facing_left == true:
-			knockback_x = -750
+		if knock_vector.x > 0:
+			knockback_x = -700
+
 		else:
-			knockback_x = 750
+			knockback_x = 700
 
 
 		knockback_y = 0
@@ -751,7 +757,7 @@ func _on_area_2d_area_entered(area):
 		recovery_timer.start(0.4)
 		Select = States.Hurt
 		Health -= 10
-		print("Goku | Nuetral Light End")
+		print("Goku | Down Light")
 		knockback_y = -400
 
 	if area.is_in_group("Goku | Nuetral Light End"):
@@ -759,11 +765,13 @@ func _on_area_2d_area_entered(area):
 		Select = States.Hurt
 		Health -= 10
 		print("Goku | Nuetral Light End")
-		if knock_vector.x == -1:
-			knockback_x = -350
+		if knock_vector.x > 0:
+			knockback_x = -300
 
 		else:
-			knockback_x = -350
+			knockback_x = 300
+		
+		knockback_y = -200
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
 		recovery_timer.start(0.35)
@@ -797,11 +805,11 @@ func _on_area_2d_area_entered(area):
 		recovery_timer.start(0.45)
 		Health -= 25
 		print("Goku | Second Punch")
-		if knock_vector > 0:
-			knockback_x = 700
+		if knock_vector.x > 0:
+			knockback_x = -700
 
 		else:
-			knockback_x = -700
+			knockback_x = 700
 			
 	if area.is_in_group("Goku | Down Heavy Initial"):
 		recovery_timer.start(0.14)

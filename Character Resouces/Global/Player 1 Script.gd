@@ -485,7 +485,7 @@ func _physics_process(delta):
 			Animate.play("Side Light Finisher")
 		States.Side_Heavy:
 			Animate.play("Side Heavy")
-			velocity.x = lerp(velocity.x, 0.0, 0.1)
+			velocity.x = lerp(velocity.x, 0.0, 0.9)
 			velocity.y = 0
 
 		States.Side_Air:
@@ -659,8 +659,7 @@ func _physics_process(delta):
 
 func apply_knockback(enemy_position):
 	knock_vector = global_position.direction_to(enemy_position).normalized()
-	velocity.x = knock_vector.x * -knockback_x
-	print(knock_vector.x)
+	velocity.x = int(knock_vector.x * -knockback_x)
 # New function to handle bouncing
 func bounce_off_surface(delta):
 	if is_on_wall():
@@ -840,7 +839,7 @@ func _on_area_2d_area_entered(area):
 		recovery_timer.start(0.1)
 		Select = States.Hurt
 		Health -= 10
-		if knock_vector.x == -1:
+		if knock_vector.x > 1:
 			knockback_x -= 500
 
 		else:

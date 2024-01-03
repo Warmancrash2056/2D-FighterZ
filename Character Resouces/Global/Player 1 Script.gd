@@ -270,19 +270,16 @@ func _attack_gravity():
 	# Sets gravity after an attack.
 	velocity.y += 35
 	move_and_slide()
+	
 func change_dir():
-	if Sprite.flip_h == false:
-		is_facing_left = false
-		
-	else:
-		is_facing_left = true
 	if direction.x < 0:
 		Sprite.flip_h = true
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-		
+		CharacterList.player_1_facing_left == true
 	elif direction.x > 0:
 		Sprite.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+		CharacterList.player_1_facing_left == false
 func _on_wall():
 	if is_on_wall():
 		if left_wall_detection.is_colliding():
@@ -511,7 +508,7 @@ func _physics_process(delta):
 			velocity.y = 0
 		States.Nuetral_Light:
 			print(velocity.x)
-			velocity.x = lerp(velocity.x, 0.0, 0.3)
+			velocity.x = lerp(velocity.x, 0.0, 0.7)
 			velocity.y = 0
 			Animate.play("Nuetral Light")
 

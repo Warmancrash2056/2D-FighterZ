@@ -270,19 +270,16 @@ func _attack_gravity():
 	# Sets gravity after an attack.
 	velocity.y += 35
 	move_and_slide()
+	
 func change_dir():
-	if Sprite.flip_h == false:
-		is_facing_left = false
-		
-	else:
-		is_facing_left = true
 	if direction.x < 0:
 		Sprite.flip_h = true
 		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-		
+		CharacterList.player_1_facing_left == true
 	elif direction.x > 0:
 		Sprite.flip_h = false
 		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
+		CharacterList.player_1_facing_left == false
 func _on_wall():
 	if is_on_wall():
 		if left_wall_detection.is_colliding():
@@ -392,7 +389,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.throw):
 					Select = States.Ground_Projectile
 
-			if direction.y == 1:
+			if direction.y > 0:
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Down_Light
 
@@ -494,7 +491,7 @@ func _physics_process(delta):
 			velocity.y = 0
 		States.Down_Light:
 			Animate.play("Down Light")
-			velocity.x = lerp(velocity.x, 0.0, 0.09)
+			velocity.x = lerp(velocity.x, 0.0, 0.8)
 			velocity.y = 0
 
 		States.Down_Heavy:
@@ -511,7 +508,7 @@ func _physics_process(delta):
 			velocity.y = 0
 		States.Nuetral_Light:
 			print(velocity.x)
-			velocity.x = lerp(velocity.x, 0.0, 0.3)
+			velocity.x = lerp(velocity.x, 0.0, 0.7)
 			velocity.y = 0
 			Animate.play("Nuetral Light")
 
@@ -520,7 +517,7 @@ func _physics_process(delta):
 			velocity.y = 0
 			Animate.play("Nuetral Heavy")
 		States.Nuetral_Air:
-			velocity.x = lerp(velocity.x , 0.0, 0.09)
+			velocity.x = lerp(velocity.x , 0.0, 0.1)
 			velocity.y = lerp(velocity.y , 0.0, 0.1)
 			Animate.play("Nuetral Air")
 
@@ -659,8 +656,7 @@ func _physics_process(delta):
 
 func apply_knockback(enemy_position):
 	knock_vector = global_position.direction_to(enemy_position).normalized()
-	velocity.x = knock_vector.x * -knockback_x
-	print("Knockback ",knock_vector)
+	velocity.x = int(knock_vector.x * -knockback_x)
 # New function to handle bouncing
 func bounce_off_surface(delta):
 	if is_on_wall():
@@ -771,17 +767,8 @@ func _on_area_2d_area_entered(area):
 		print("Goku | Down Light")
 		knockback_y = -400
 
-	if area.is_in_group("Goku | Nuetral Light Start"):
-		recovery_timer.start(0.6)
-		Select = States.Hurt
-		Health -= 10
-		print("Goku | Nuetral Light End")
-		knockback_x = 550
-		
-		knockback_y = -300
-		
 	if area.is_in_group("Goku | Nuetral Light End"):
-		recovery_timer.start(0.3)
+		recovery_timer.start(0.6)
 		Select = States.Hurt
 		Health -= 10
 		print("Goku | Nuetral Light End")
@@ -791,7 +778,7 @@ func _on_area_2d_area_entered(area):
 		else:
 			knockback_x = 300
 		
-		knockback_y = -150
+		knockback_y = -200
 	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
 		Select = States.Hurt
 		recovery_timer.start(0.35)
@@ -849,7 +836,7 @@ func _on_area_2d_area_entered(area):
 		recovery_timer.start(0.1)
 		Select = States.Hurt
 		Health -= 10
-		if knock_vector.x > 0:
+		if knock_vector.x > 1:
 			knockback_x -= 500
 
 		else:
@@ -859,7 +846,7 @@ func _on_area_2d_area_entered(area):
 		recovery_timer.start(0.2)
 		Select = States.Hurt
 		Health -= 10
-		if knock_vector.x > 0:
+		if knock_vector.x == -1:
 			knockback_x -= 450
 
 		else:

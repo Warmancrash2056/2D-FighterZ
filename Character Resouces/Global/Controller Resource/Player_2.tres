@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InputSys" load_steps=2 format=3 uid="uid://clcyfwysl6fkw"]
+[gd_resource type="Resource" script_class="InputSys" load_steps=2 format=3 uid="uid://dmq0shtq0awxn"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Controller Resource/Controller.gd" id="1"]
 
@@ -7,10 +7,10 @@ script = ExtResource("1")
 Player_Index = 1
 right = "Player2_Right"
 left = "Player2_Left"
-up = "Player2_Up"
 down = "Player2_Down"
 light = "Player2_Light"
 jump = "Player2_Jump"
 dash = "Player2_Dash"
 heavy = "Player2_Heavy"
 throw = "Player2_Throw"
+menu = "menu_all_player"

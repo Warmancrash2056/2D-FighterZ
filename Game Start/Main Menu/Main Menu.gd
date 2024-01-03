@@ -2,7 +2,7 @@ extends Control
 
 var player_1_controller = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 var player_2_controller = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
-var main_player_controller = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
+
 @onready var general_archfield = $"Character Pose/General Archfield"
 @onready var goku = $"Character Pose/Goku"
 @onready var nomad = $"Character Pose/Nomad"
@@ -26,7 +26,7 @@ func _ready():
 	sakura.play("Idle")
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed(player_1_controller.jump) or Input.is_action_just_pressed(player_2_controller.jump) or Input.is_action_just_pressed(main_player_controller.jump):
+	if Input.is_action_just_pressed(player_1_controller.jump) or Input.is_action_just_pressed(player_2_controller.jump):
 		get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
 		
 	

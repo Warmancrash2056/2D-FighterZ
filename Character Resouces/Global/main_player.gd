@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Get character Resources
-var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_3.tres")
+var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")

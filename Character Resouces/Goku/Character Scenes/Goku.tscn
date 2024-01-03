@@ -9569,10 +9569,10 @@ frame = 70
 
 [node name="Character" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
+speed_scale = 1.3
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
-speed_scale = 1.3
 
 [node name="Character Jump Sound" parent="." instance=ExtResource("8_gtluj")]
 visible = false

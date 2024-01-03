@@ -299,7 +299,7 @@ func _movment():
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, Decceleration)
 		else:
-			velocity.x = move_toward(velocity.x, 0, 5)
+			velocity.x = move_toward(velocity.x, 0, 15)
 			
 func _drop_fall():
 	if direction.y > 0 and !is_on_floor():
@@ -389,7 +389,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.throw):
 					Select = States.Ground_Projectile
 
-			if direction.y == 1:
+			if direction.y > 0:
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Down_Light
 
@@ -491,7 +491,7 @@ func _physics_process(delta):
 			velocity.y = 0
 		States.Down_Light:
 			Animate.play("Down Light")
-			velocity.x = lerp(velocity.x, 0.0, 0.09)
+			velocity.x = lerp(velocity.x, 0.0, 0.8)
 			velocity.y = 0
 
 		States.Down_Heavy:
@@ -517,7 +517,7 @@ func _physics_process(delta):
 			velocity.y = 0
 			Animate.play("Nuetral Heavy")
 		States.Nuetral_Air:
-			velocity.x = lerp(velocity.x , 0.0, 0.09)
+			velocity.x = lerp(velocity.x , 0.0, 0.1)
 			velocity.y = lerp(velocity.y , 0.0, 0.1)
 			Animate.play("Nuetral Air")
 

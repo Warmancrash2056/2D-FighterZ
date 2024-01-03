@@ -12,8 +12,9 @@ config_version=5
 
 config/name="2D FighterZ"
 run/main_scene="res://Game Start/Attention Prompt/Attention.tscn"
-config/features=PackedStringArray("4.2")
+config/features=PackedStringArray("4.0")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Character Resouces/General Archfield/Character Icon/General Archfield Character Icon.png"
 config/icon="res://Character Resouces/Nomad/wind_elemental.png"
 
 [autoload]

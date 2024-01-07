@@ -59,7 +59,7 @@ height = 13.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lm0pa"]
 radius = 4.87709
-height = 27.0103
+height = 51.2205
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i4cnc"]
 radius = 6.2141
@@ -93,10 +93,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153]
+"values": [130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 142]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1110,7 +1110,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [176, 177, 178, 179, 180]
+"values": [155, 156, 157, 158, 159]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1449,7 +1449,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+"values": [18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -1506,30 +1506,42 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_gn67f"]
 resource_name = "Dash"
-length = 0.6
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("../Character:speed_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [7, 8, 9, 10, 11, 12]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Character:speed_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [169, 170, 171, 172]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 8)]
 }
 
 [sub_resource type="Animation" id="Animation_iewr3"]
@@ -1544,7 +1556,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [78, 79, 80, 81, 82, 83, 84, 71, 70, 69]
+"values": [68, 75, 76, 77, 78, 79, 80, 81, 82, 69]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -1818,7 +1830,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106]
+"values": [91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -2103,7 +2115,7 @@ tracks/25/path = NodePath("..")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -2113,7 +2125,6 @@ tracks/25/keys = {
 
 [sub_resource type="Animation" id="Animation_67kk3"]
 resource_name = "Down Light"
-length = 0.6
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2121,7 +2132,7 @@ tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -2170,10 +2181,10 @@ tracks/3/path = NodePath(".:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [64, 65, 66, 67, 68, 69]
+"values": [62, 63, 64, 65, 66, 67, 63, 62, 61]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -2278,7 +2289,7 @@ tracks/12/path = NodePath("..")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -7692,6 +7703,18 @@ tracks/31/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath(".:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 8)]
+}
 
 [sub_resource type="Animation" id="Animation_k874w"]
 resource_name = "Respawn"
@@ -9303,6 +9326,7 @@ collision_mask = 16
 metadata/_edit_group_ = true
 
 [node name="Light Start" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light Start"]
+visible = false
 position = Vector2(-4, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4gutl")
@@ -9317,6 +9341,7 @@ metadata/_edit_group_ = true
 
 [node name="Light End" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light End"]
 visible = false
+rotation = 1.5708
 shape = SubResource("CircleShape2D_11rj4")
 disabled = true
 debug_color = Color(0.388235, 0.6, 0.701961, 0.419608)
@@ -9472,7 +9497,7 @@ collision_mask = 16
 
 [node name="Small Pillar" type="CollisionShape2D" parent="Scale Player/Goku | Side Heavy Start"]
 visible = false
-position = Vector2(30, 7.5)
+position = Vector2(44, -2.86102e-06)
 rotation = 0.705113
 shape = SubResource("CapsuleShape2D_lm0pa")
 disabled = true
@@ -9561,10 +9586,11 @@ position = Vector2(23.5, -4)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 z_index = 5
-position = Vector2(0, -40)
+position = Vector2(7, 8)
 texture = ExtResource("2_50hod")
+offset = Vector2(0, -40)
 hframes = 10
-vframes = 18
+vframes = 19
 frame = 70
 
 [node name="Character" type="AnimationPlayer" parent="."]
@@ -9583,7 +9609,7 @@ collision_layer = 16
 collision_mask = 2
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 1)
+position = Vector2(0, 1.5)
 shape = SubResource("CapsuleShape2D_qamvs")
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
@@ -9610,7 +9636,7 @@ collision_mask = 8
 hit_from_inside = true
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 1.5)
 shape = SubResource("CapsuleShape2D_awoy1")
 debug_color = Color(0, 0.6, 0.701961, 0)
 

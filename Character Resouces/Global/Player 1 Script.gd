@@ -299,7 +299,7 @@ func _movment():
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, Decceleration)
 		else:
-			velocity.x = move_toward(velocity.x, 0, 15)
+			velocity.x = move_toward(velocity.x, 0, 5)
 			
 func _drop_fall():
 	if direction.y > 0 and !is_on_floor():
@@ -330,8 +330,7 @@ func _reset_v():
 
 func _activate_invisibility():
 	Invisibilty.play("Invisibilty")
-
-func _process(delta):
+func _healthbar_status():
 	CharacterList.player_2_health = Health
 
 	if CharacterList.player_2_health < 700 and CharacterList.player_1_health > 400:
@@ -346,9 +345,12 @@ func _process(delta):
 	else:
 		if CharacterList.player_2_health < 0:
 			knockback_multiplier = 1.9
+func _process(delta):
+	_healthbar_status()
 
 
 func _physics_process(delta):
+	print(block_active)
 	move_and_slide()
 	match Select:
 		States.Idling:

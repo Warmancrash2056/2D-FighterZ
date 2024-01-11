@@ -320,6 +320,7 @@ func _ready():
 	CharacterList.player_1_health = Health
 	Select = States.Respawn
 	recovery_timer.start()
+	block_active = false
 
 
 func _reset_v():
@@ -345,15 +346,20 @@ func _healthbar_status():
 	else:
 		if CharacterList.player_2_health < 0:
 			knockback_multiplier = 1.9
+			
+func _reset_block():
+	if block_active == true:
+		if Engine.get_physics_frames() % 120 == 0:
+			block_active = false
 func _process(delta):
 	_healthbar_status()
 
 
 func _physics_process(delta):
-	print(block_active)
 	move_and_slide()
 	match Select:
 		States.Idling:
+			_reset_block()
 			change_dir()
 			_movment()
 			_drop_fall()
@@ -369,17 +375,17 @@ func _physics_process(delta):
 			else:
 				Animate.play("Idle")
 
-
-			if Input.is_action_just_pressed(controls.dash) and block_active == false:
-				Select = States.Ground_Block
-				block_active = true
-
 			if direction.x != 0:
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Light
-
+				
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Side_Heavy
+					
+				if Input.is_action_just_pressed(controls.dash):
+					Select = States.Dash_Run
+					set_collision_mask_value(2, false)
+					_activate_dash_smoke()
 			if direction.x == 0:
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Nuetral_Light
@@ -390,6 +396,10 @@ func _physics_process(delta):
 
 				if Input.is_action_just_pressed(controls.throw):
 					Select = States.Ground_Projectile
+					
+				if Input.is_action_just_pressed(controls.dash) and block_active == false:
+					Select = States.Ground_Block
+					block_active = true
 
 			if direction.y > 0:
 				if Input.is_action_just_pressed(controls.light):
@@ -403,13 +413,8 @@ func _physics_process(delta):
 				velocity.y = -Jump_Height
 				Animate.play("Jump")
 
-			if velocity.x != 0:
-				if Input.is_action_just_pressed(controls.dash):
-					Select = States.Dash_Run
-					set_collision_mask_value(2, false)
-					_activate_dash_smoke()
-
 		States.Jumping:
+			_reset_block()
 			change_dir()
 			_movment()
 			_on_wall()
@@ -424,15 +429,16 @@ func _physics_process(delta):
 
 				if Input.is_action_just_pressed(controls.throw):
 					Select = States.Ground_Projectile
-
+					
+				if Input.is_action_just_pressed(controls.dash) and block_active == false:
+					Select = States.Air_Block
+					block_active = true
+					set_collision_mask_value(3, true)
+					
 			if direction.y == 1:
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Down_Air
-			if Input.is_action_just_pressed(controls.dash) and block_active == false:
-				Select = States.Air_Block
-				block_active = true
-				set_collision_mask_value(3, true)
-
+					
 			velocity.y += Gravity
 			Animate.play("Jump")
 
@@ -447,6 +453,7 @@ func _physics_process(delta):
 				_activate_jump_smoke()
 				$"Character Jump Sound".play()
 		States.Falling:
+			_reset_block()
 			_movment()
 			_on_wall()
 			_drop_fall()
@@ -526,19 +533,22 @@ func _physics_process(delta):
 		States.Ground_Block:
 			Animate.play("Ground Block")
 			velocity.y = 0
-			velocity.x = 0
-			block_timer.start()
+			velocity.x = lerp(velocity.x, 0.0, 0.05)
 		States.Air_Block:
 			set_velocity(Vector2.ZERO)
 			Animate.play("Air Block")
-			block_timer.start()
 			# Activate counter smoke to be called during an attack.
 			can_counter = true
 		States.Dash_Run:
-			
+			if velocity.x > 0:
+				Sprite.flip_h == false
+				
+			else:
+				Sprite.flip_h = true
 			if direction.x == 0:
 				Select = States.Idling
-				velocity.x = move_toward(velocity.x, 0, 300)
+				velocity.x = move_toward(velocity.x, 0, Dash_Acceleration)
+				
 			if Input.is_action_pressed(controls.dash):
 				velocity.x = move_toward(velocity.x, direction.x * Dash_Speed, Dash_Acceleration )
 
@@ -557,7 +567,10 @@ func _physics_process(delta):
 			velocity.y += Gravity
 			Animate.play("Dash")
 
-
+			if Input.is_action_just_pressed(controls.dash) and block_active == false:
+				Select = States.Ground_Block
+				block_active = true
+				velocity.x = lerp(velocity.x, 0.0, 0.2)
 			if Input.is_action_just_pressed(controls.light):
 				Select = States.Nuetral_Light
 

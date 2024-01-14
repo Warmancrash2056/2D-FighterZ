@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player2 extends CharacterBody2D
 
 # Get character Resources
 var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")

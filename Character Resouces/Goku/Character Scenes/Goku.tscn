@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=74 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player 1 Script.gd" id="1_2elxg"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="2_50hod"]
@@ -9,15 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="8_gtluj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gutl"]
-radius = 4.5
-height = 22.0
+radius = 3.0
+height = 23.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_11rj4"]
 radius = 4.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pjkur"]
-radius = 9.5
-height = 27.0
+radius = 10.5
+height = 36.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cfjw"]
 radius = 3.0
@@ -34,8 +34,8 @@ height = 40.0
 radius = 8.49991
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vl3fl"]
-radius = 10.5
-height = 27.0
+radius = 11.5
+height = 32.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tqa1m"]
 radius = 5.81649
@@ -50,8 +50,8 @@ radius = 6.5
 height = 39.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d5adm"]
-radius = 6.5
-height = 17.0
+radius = 5.49999
+height = 25.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhnwd"]
 radius = 4.5
@@ -160,7 +160,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Area2D/Hurtbox:position")
+tracks/5/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -184,7 +184,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/7/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -196,7 +196,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/8/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -208,7 +208,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/9/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -274,7 +274,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/3/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -286,7 +286,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/4/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -298,7 +298,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/5/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -310,7 +310,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Area2D/Hurtbox:position")
+tracks/6/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -434,7 +434,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/6/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -446,7 +446,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/7/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -458,7 +458,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/8/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -470,7 +470,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Area2D/Hurtbox:position")
+tracks/9/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -570,7 +570,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/7/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -582,7 +582,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/8/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -594,7 +594,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/9/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -606,7 +606,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Area2D/Hurtbox:position")
+tracks/10/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -658,7 +658,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Area2D/Hurtbox:position")
+tracks/3/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -670,7 +670,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/4/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -682,7 +682,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/5/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -694,7 +694,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/6/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1053,7 +1053,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/24/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -1065,7 +1065,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/25/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -1077,7 +1077,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/26/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -1089,7 +1089,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../Area2D/Hurtbox:position")
+tracks/27/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -1422,7 +1422,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/25/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -1434,7 +1434,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/26/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -1446,7 +1446,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../Area2D/Hurtbox:position")
+tracks/27/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -1458,7 +1458,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/28/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -1600,7 +1600,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/7/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -1612,7 +1612,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Area2D/Hurtbox:debug_color")
+tracks/8/path = NodePath("../Hurtbox Body/Hurtbox:debug_color")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1624,7 +1624,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/9/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -1636,7 +1636,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/10/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -1648,7 +1648,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Area2D/Hurtbox:position")
+tracks/11/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -1660,7 +1660,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Area2D/Hurtbox:visible")
+tracks/12/path = NodePath("../Hurtbox Body/Hurtbox:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -1760,7 +1760,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/2/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1772,7 +1772,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/3/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1784,7 +1784,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Area2D/Hurtbox:position")
+tracks/4/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1920,7 +1920,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Area2D/Hurtbox:position")
+tracks/7/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -1932,7 +1932,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/8/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1944,7 +1944,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/9/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -1956,7 +1956,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/10/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -2316,7 +2316,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:visible")
+tracks/28/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:visible")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -2448,7 +2448,7 @@ tracks/38/keys = {
 tracks/39/type = "value"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:disabled")
+tracks/39/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:disabled")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
@@ -2460,7 +2460,7 @@ tracks/39/keys = {
 tracks/40/type = "value"
 tracks/40/imported = false
 tracks/40/enabled = true
-tracks/40/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:visible")
+tracks/40/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:visible")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/keys = {
@@ -2532,7 +2532,7 @@ tracks/45/keys = {
 tracks/46/type = "value"
 tracks/46/imported = false
 tracks/46/enabled = true
-tracks/46/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/46/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/46/interp = 1
 tracks/46/loop_wrap = true
 tracks/46/keys = {
@@ -2544,7 +2544,7 @@ tracks/46/keys = {
 tracks/47/type = "value"
 tracks/47/imported = false
 tracks/47/enabled = true
-tracks/47/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/47/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/47/interp = 1
 tracks/47/loop_wrap = true
 tracks/47/keys = {
@@ -2556,7 +2556,7 @@ tracks/47/keys = {
 tracks/48/type = "value"
 tracks/48/imported = false
 tracks/48/enabled = true
-tracks/48/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/48/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/48/interp = 1
 tracks/48/loop_wrap = true
 tracks/48/keys = {
@@ -2568,7 +2568,7 @@ tracks/48/keys = {
 tracks/49/type = "value"
 tracks/49/imported = false
 tracks/49/enabled = true
-tracks/49/path = NodePath("../Area2D/Hurtbox:position")
+tracks/49/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/49/interp = 1
 tracks/49/loop_wrap = true
 tracks/49/keys = {
@@ -2700,7 +2700,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/9/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -2712,7 +2712,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/10/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -2724,7 +2724,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Area2D/Hurtbox:shape:height")
+tracks/11/path = NodePath("../Hurtbox Body/Hurtbox:shape:height")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -2736,7 +2736,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/12/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -2748,7 +2748,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Area2D/Hurtbox:position")
+tracks/13/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -2760,7 +2760,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Area2D/Hurtbox:visible")
+tracks/14/path = NodePath("../Hurtbox Body/Hurtbox:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -2824,7 +2824,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:disabled")
+tracks/1/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2836,7 +2836,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:disabled")
+tracks/2/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -3088,7 +3088,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/23/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -3100,7 +3100,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/24/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -3112,7 +3112,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/25/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -3124,7 +3124,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../Area2D/Hurtbox:position")
+tracks/26/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -3330,7 +3330,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/11/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -3342,7 +3342,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/12/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -3354,7 +3354,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/13/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -3366,7 +3366,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Area2D/Hurtbox:position")
+tracks/14/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -3408,7 +3408,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Area2D/Hurtbox:position")
+tracks/2/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -3432,7 +3432,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/4/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -3444,7 +3444,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/5/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -3456,7 +3456,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Area2D/Hurtbox:shape:height")
+tracks/6/path = NodePath("../Hurtbox Body/Hurtbox:shape:height")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -3468,7 +3468,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/7/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -3540,7 +3540,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Area2D/Hurtbox:visible")
+tracks/13/path = NodePath("../Hurtbox Body/Hurtbox:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -3576,7 +3576,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:disabled")
+tracks/16/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:disabled")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -3732,7 +3732,7 @@ tracks/28/keys = {
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:visible")
+tracks/29/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:visible")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
@@ -4442,7 +4442,7 @@ tracks/87/keys = {
 tracks/88/type = "value"
 tracks/88/imported = false
 tracks/88/enabled = true
-tracks/88/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:shape:radius")
+tracks/88/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:shape:radius")
 tracks/88/interp = 1
 tracks/88/loop_wrap = true
 tracks/88/keys = {
@@ -4454,7 +4454,7 @@ tracks/88/keys = {
 tracks/89/type = "value"
 tracks/89/imported = false
 tracks/89/enabled = true
-tracks/89/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:disabled")
+tracks/89/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:disabled")
 tracks/89/interp = 1
 tracks/89/loop_wrap = true
 tracks/89/keys = {
@@ -4466,7 +4466,7 @@ tracks/89/keys = {
 tracks/90/type = "value"
 tracks/90/imported = false
 tracks/90/enabled = true
-tracks/90/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:rotation")
+tracks/90/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:rotation")
 tracks/90/interp = 1
 tracks/90/loop_wrap = true
 tracks/90/keys = {
@@ -4478,7 +4478,7 @@ tracks/90/keys = {
 tracks/91/type = "value"
 tracks/91/imported = false
 tracks/91/enabled = true
-tracks/91/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:visible")
+tracks/91/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:visible")
 tracks/91/interp = 1
 tracks/91/loop_wrap = true
 tracks/91/keys = {
@@ -4490,7 +4490,7 @@ tracks/91/keys = {
 tracks/92/type = "value"
 tracks/92/imported = false
 tracks/92/enabled = true
-tracks/92/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:shape")
+tracks/92/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:shape")
 tracks/92/interp = 1
 tracks/92/loop_wrap = true
 tracks/92/keys = {
@@ -4502,7 +4502,7 @@ tracks/92/keys = {
 tracks/93/type = "value"
 tracks/93/imported = false
 tracks/93/enabled = true
-tracks/93/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:shape:radius")
+tracks/93/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:shape:radius")
 tracks/93/interp = 1
 tracks/93/loop_wrap = true
 tracks/93/keys = {
@@ -4514,7 +4514,7 @@ tracks/93/keys = {
 tracks/94/type = "value"
 tracks/94/imported = false
 tracks/94/enabled = true
-tracks/94/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:shape:height")
+tracks/94/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:shape:height")
 tracks/94/interp = 1
 tracks/94/loop_wrap = true
 tracks/94/keys = {
@@ -4526,7 +4526,7 @@ tracks/94/keys = {
 tracks/95/type = "value"
 tracks/95/imported = false
 tracks/95/enabled = true
-tracks/95/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:position")
+tracks/95/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:position")
 tracks/95/interp = 1
 tracks/95/loop_wrap = true
 tracks/95/keys = {
@@ -4538,7 +4538,7 @@ tracks/95/keys = {
 tracks/96/type = "value"
 tracks/96/imported = false
 tracks/96/enabled = true
-tracks/96/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:rotation")
+tracks/96/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:rotation")
 tracks/96/interp = 1
 tracks/96/loop_wrap = true
 tracks/96/keys = {
@@ -4660,7 +4660,7 @@ tracks/105/keys = {
 tracks/106/type = "value"
 tracks/106/imported = false
 tracks/106/enabled = true
-tracks/106/path = NodePath("../Area2D:collision_mask")
+tracks/106/path = NodePath("../Hurtbox Body:collision_mask")
 tracks/106/interp = 1
 tracks/106/loop_wrap = true
 tracks/106/keys = {
@@ -4794,7 +4794,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:disabled")
+tracks/6/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -4806,7 +4806,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:visible")
+tracks/7/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -4962,7 +4962,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:disabled")
+tracks/20/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:disabled")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -4974,7 +4974,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:visible")
+tracks/21/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:visible")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -5166,7 +5166,7 @@ tracks/36/keys = {
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("../Area2D:collision_mask")
+tracks/37/path = NodePath("../Hurtbox Body:collision_mask")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
@@ -5258,7 +5258,7 @@ tracks/43/keys = {
 tracks/44/type = "value"
 tracks/44/imported = false
 tracks/44/enabled = true
-tracks/44/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/44/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/44/interp = 1
 tracks/44/loop_wrap = true
 tracks/44/keys = {
@@ -5270,7 +5270,7 @@ tracks/44/keys = {
 tracks/45/type = "value"
 tracks/45/imported = false
 tracks/45/enabled = true
-tracks/45/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/45/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/45/interp = 1
 tracks/45/loop_wrap = true
 tracks/45/keys = {
@@ -5282,7 +5282,7 @@ tracks/45/keys = {
 tracks/46/type = "value"
 tracks/46/imported = false
 tracks/46/enabled = true
-tracks/46/path = NodePath("../Area2D/Hurtbox:position")
+tracks/46/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/46/interp = 1
 tracks/46/loop_wrap = true
 tracks/46/keys = {
@@ -5294,7 +5294,7 @@ tracks/46/keys = {
 tracks/47/type = "value"
 tracks/47/imported = false
 tracks/47/enabled = true
-tracks/47/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/47/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/47/interp = 1
 tracks/47/loop_wrap = true
 tracks/47/keys = {
@@ -5559,7 +5559,7 @@ tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [10.5]
+"values": [11.5]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
@@ -5571,7 +5571,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [27.0]
+"values": [36.0]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -5595,7 +5595,7 @@ tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(22, -14)]
+"values": [Vector2(16.5, -14)]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
@@ -5775,7 +5775,7 @@ tracks/33/keys = {
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/34/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
@@ -5787,7 +5787,7 @@ tracks/34/keys = {
 tracks/35/type = "value"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/35/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
@@ -5799,7 +5799,7 @@ tracks/35/keys = {
 tracks/36/type = "value"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/36/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
@@ -5811,7 +5811,7 @@ tracks/36/keys = {
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("../Area2D/Hurtbox:position")
+tracks/37/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
@@ -5950,7 +5950,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:disabled")
+tracks/7/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -5962,7 +5962,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:disabled")
+tracks/8/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -5974,7 +5974,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:visible")
+tracks/9/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -5986,7 +5986,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:visible")
+tracks/10/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -6178,7 +6178,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/26/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -6190,7 +6190,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/27/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -6202,7 +6202,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../Area2D/Hurtbox:position")
+tracks/28/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -6356,7 +6356,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:shape")
+tracks/8/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:shape")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -6368,7 +6368,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:shape:radius")
+tracks/9/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:shape:radius")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -6380,19 +6380,19 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:shape:height")
+tracks/10/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:shape:height")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [8.0]
+"values": [23.0]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:disabled")
+tracks/11/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -6404,7 +6404,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:debug_color")
+tracks/12/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:debug_color")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -6416,19 +6416,19 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:position")
+tracks/13/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4, 0)]
+"values": [Vector2(-1, 0)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:visible")
+tracks/14/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -6440,7 +6440,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:rotation")
+tracks/15/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:rotation")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -6464,7 +6464,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:shape")
+tracks/17/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:shape")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -6476,7 +6476,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:shape:radius")
+tracks/18/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:shape:radius")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -6488,7 +6488,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:disabled")
+tracks/19/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:disabled")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -6500,7 +6500,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:debug_color")
+tracks/20/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:debug_color")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -6512,7 +6512,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:position")
+tracks/21/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:position")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -6524,7 +6524,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:visible")
+tracks/22/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:visible")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -6536,7 +6536,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("../Scale Player/Goku | Nuetral Light Start:position")
+tracks/23/path = NodePath("../Scale Player/Goku | Neutral Light Start:position")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -6584,7 +6584,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/27/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -6596,7 +6596,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/28/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -6608,7 +6608,7 @@ tracks/28/keys = {
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/29/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
@@ -6620,7 +6620,7 @@ tracks/29/keys = {
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("../Area2D/Hurtbox:position")
+tracks/30/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
@@ -6838,6 +6838,93 @@ tracks/16/keys = {
 "values": [Color(0.835294, 0, 0.4, 0.419608)]
 }
 
+[sub_resource type="Animation" id="Animation_at0ix"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_4gutl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:shape:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [23.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Scale Player/Goku | Nuetral Air Right Side/Right Side Nuetral Air:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16.5, -14)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Scale Player/Goku | Nuetral Air Right Side/Right Side Nuetral Air:shape:radius")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [11.5]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Scale Player/Goku | Nuetral Air Right Side/Right Side Nuetral Air:shape:height")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [32.0]
+}
+
 [sub_resource type="Animation" id="Animation_k874w"]
 resource_name = "Respawn"
 length = 0.5
@@ -6896,7 +6983,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Area2D:collision_mask")
+tracks/4/path = NodePath("../Hurtbox Body:collision_mask")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -7245,7 +7332,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../Area2D/Hurtbox:shape")
+tracks/21/path = NodePath("../Hurtbox Body/Hurtbox:shape")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -7257,7 +7344,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../Area2D/Hurtbox:shape:radius")
+tracks/22/path = NodePath("../Hurtbox Body/Hurtbox:shape:radius")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -7269,7 +7356,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("../Area2D/Hurtbox:disabled")
+tracks/23/path = NodePath("../Hurtbox Body/Hurtbox:disabled")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -7281,7 +7368,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../Area2D/Hurtbox:position")
+tracks/24/path = NodePath("../Hurtbox Body/Hurtbox:position")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -7359,7 +7446,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Scale Player/Goku | Nuetral Light Start/Light Start:disabled")
+tracks/1/path = NodePath("../Scale Player/Goku | Neutral Light Start/Light Start:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -7371,7 +7458,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Scale Player/Goku | Nuetral Light End/Light End:disabled")
+tracks/2/path = NodePath("../Scale Player/Goku | Neutral Light End/Light End:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -8291,7 +8378,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Area2D/Hurtbox:shape:height")
+tracks/0/path = NodePath("../Hurtbox Body/Hurtbox:shape:height")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -8347,6 +8434,7 @@ _data = {
 "Nuetral Heavy": SubResource("Animation_nfd27"),
 "Nuetral Light": SubResource("Animation_auvrv"),
 "Nuetral Recovery": SubResource("Animation_l1wjg"),
+"RESET": SubResource("Animation_at0ix"),
 "Respawn": SubResource("Animation_k874w"),
 "Run": SubResource("Animation_jyc66"),
 "Side Air": SubResource("Animation_xd12r"),
@@ -8374,7 +8462,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D:collision_mask")
+tracks/1/path = NodePath("Hurtbox Body:collision_mask")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -8401,7 +8489,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D:collision_mask")
+tracks/1/path = NodePath("Hurtbox Body:collision_mask")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -8427,28 +8515,28 @@ script = ExtResource("1_2elxg")
 [node name="Scale Player" type="Node2D" parent="."]
 z_index = 1
 
-[node name="Goku | Nuetral Light Start" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Light Start"]]
+[node name="Goku | Neutral Light Start" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Light Start"]]
 z_index = 6
 position = Vector2(20, -8)
-collision_layer = 32
-collision_mask = 16
+collision_layer = 0
+collision_mask = 0
 metadata/_edit_group_ = true
 
-[node name="Light Start" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light Start"]
+[node name="Light Start" type="CollisionShape2D" parent="Scale Player/Goku | Neutral Light Start"]
 visible = false
-position = Vector2(19.5, -7.5)
+position = Vector2(-1, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4gutl")
 disabled = true
 debug_color = Color(0, 0.627451, 0.486275, 0.419608)
 
-[node name="Goku | Nuetral Light End" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Light End"]]
+[node name="Goku | Neutral Light End" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Light End"]]
 position = Vector2(28.5, -10.5)
 collision_layer = 32
 collision_mask = 16
 metadata/_edit_group_ = true
 
-[node name="Light End" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light End"]
+[node name="Light End" type="CollisionShape2D" parent="Scale Player/Goku | Neutral Light End"]
 visible = false
 rotation = 1.5708
 shape = SubResource("CircleShape2D_11rj4")
@@ -8460,11 +8548,9 @@ collision_layer = 32
 collision_mask = 16
 
 [node name="Left Side Nuetral Air" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Air Left Side"]
-visible = false
 position = Vector2(-15, -13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pjkur")
-disabled = true
 debug_color = Color(0.239216, 0.231373, 1, 0.698039)
 
 [node name="Goku | Down Air" type="Area2D" parent="Scale Player" groups=["Goku | Down Air"]]
@@ -8510,10 +8596,8 @@ collision_layer = 32
 collision_mask = 16
 
 [node name="Neutral Light Middle Side" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Air Middle Side"]
-visible = false
-position = Vector2(-11.5001, -20.5)
+position = Vector2(-4.00007, -20.5)
 shape = SubResource("CapsuleShape2D_ufmp6")
-disabled = true
 debug_color = Color(0.498039, 0.584314, 0, 0.419608)
 
 [node name="Goku | Nuetral Air Right Side" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Air Right Side"]]
@@ -8521,11 +8605,9 @@ collision_layer = 32
 collision_mask = 16
 
 [node name="Right Side Nuetral Air" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Air Right Side"]
-visible = false
-position = Vector2(22, -14)
+position = Vector2(16.5, -14)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vl3fl")
-disabled = true
 debug_color = Color(0.588235, 0.376471, 1, 0.419608)
 
 [node name="Goku | Down Light Start" type="Area2D" parent="Scale Player" groups=["Goku | Down Light"]]
@@ -8583,7 +8665,7 @@ collision_mask = 16
 [node name="Initial Kick" type="CollisionShape2D" parent="Scale Player/Goku | Side Air Start"]
 visible = false
 show_behind_parent = true
-position = Vector2(17, -10)
+position = Vector2(4, 0.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_d5adm")
 disabled = true
@@ -8597,7 +8679,6 @@ metadata/_edit_group_ = true
 
 [node name="Finishing Kick" type="CollisionShape2D" parent="Scale Player/Goku | Side Air Final"]
 visible = false
-position = Vector2(18.5, -10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uhnwd")
 disabled = true
@@ -8629,11 +8710,9 @@ collision_layer = 32
 collision_mask = 16
 
 [node name="Damager Collision" type="CollisionShape2D" parent="Scale Player/Goku | Side Light Punch - Initial Damager"]
-visible = false
 position = Vector2(23.5, -6)
 rotation = 1.5708
 shape = SubResource("CircleShape2D_l30jt")
-disabled = true
 debug_color = Color(0.972549, 0, 0.435294, 0.419608)
 
 [node name="Goku | Side Light Punch - Finial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Punch - Finial Damager"]]
@@ -8665,11 +8744,9 @@ collision_layer = 32
 collision_mask = 16
 
 [node name="First Punch" type="CollisionShape2D" parent="Scale Player/Goku Sde Light Finish - First Punch"]
-visible = false
 position = Vector2(18.5, -7.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jsj12")
-disabled = true
 
 [node name="Goku Sde Light Finish - Second Punch" type="Area2D" parent="Scale Player" groups=["Goku Sde Light Finish - Second Punch"]]
 collision_layer = 32
@@ -8732,31 +8809,31 @@ texture = ExtResource("2_50hod")
 offset = Vector2(0, -40)
 hframes = 10
 vframes = 19
-frame = 61
+frame = 106
 
 [node name="Character" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
-speed_scale = 1.5
 
 [node name="Character Jump Sound" parent="." instance=ExtResource("8_gtluj")]
 visible = false
 bus = &"SFX"
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
+[node name="Hurtbox Body" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 2
 
-[node name="Hurtbox" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 2)
+[node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox Body"]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_tx8qk")
+disabled = true
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_12r71")
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_3wu0y")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="Counter Position" type="Marker2D" parent="."]
@@ -8803,8 +8880,8 @@ position = Vector2(0, -25)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_pqra7")
 
-[connection signal="area_entered" from="Scale Player/Goku | Nuetral Light Start" to="." method="_on_goku__nuetral_light_start_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Nuetral Light End" to="." method="_on_goku__nuetral_light_midle_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Neutral Light Start" to="." method="_on_goku__nuetral_light_start_area_entered"]
+[connection signal="area_entered" from="Scale Player/Goku | Neutral Light End" to="." method="_on_goku__nuetral_light_midle_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku | Nuetral Air Left Side" to="." method="_on_goku__nuetral_air_left_side_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku | Down Air" to="." method="_on_goku__down_air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku | Neautral Heavy Shatter" to="." method="_on_goku__neautral_heavy_shatter_area_entered"]
@@ -8823,6 +8900,6 @@ texture = ExtResource("7_pqra7")
 [connection signal="area_entered" from="Scale Player/Goku | Side Light Transitional Check" to="." method="_on_goku__side_light_transitional_check_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - First Punch" to="." method="_on_goku_sde_light_finish__first_punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - Second Punch" to="." method="_on_goku_sde_light_finish__second_punch_area_entered"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Hurtbox Body" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Hurtbox Body" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Recovery Timer" to="." method="_on_recovery_timer_timeout"]

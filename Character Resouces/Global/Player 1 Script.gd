@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player1 extends CharacterBody2D
 
 # Get character Resources
 var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
@@ -16,6 +16,8 @@ var goku_ground_projectiles = preload("res://Character Resouces/Goku/Goku Ground
 var side_registered = false
 
 # Global player nodes.
+@onready var Player_Body = $Body
+@onready var Player_Hurtbox = $"Hurtbox Body"
 @onready var Animate = $Character
 @onready var Invisibilty = $Respawn
 @onready var Sprite = $Sprite
@@ -33,7 +35,14 @@ var side_registered = false
 var follow_goku_neutral_heavy = false
 var attack_reset = false
 # Goku Projectile Position #
-
+@onready var Goku_Neutral_Light_Start = $"Scale Player/Goku | Nuetral Light Start"
+@onready var Goku_Neutral_Light_End = $"Scale Player/Goku | Nuetral Light End"
+@onready var Goku_Neutral_Air_Left = $"Scale Player/Goku | Nuetral Air Left Side"
+@onready var Goku_Neutral_Air_Middle = $"Scale Player/Goku | Nuetral Air Middle Side"
+@onready var Goku_Neutral_Air_Right = $"Scale Player/Goku | Nuetral Air Right Side"
+@onready var Goku_Side_Start = $"Scale Player/Goku | Side Light Punch - Initial Damager"
+@onready var Goku_Side_Middle = $"Scale Player/Goku | Side Light Transitional Check"
+@onready var Goku_Side_End
 var knockback_multiplier: float = 0.5
 var knockback_x: float
 var knockback_y: float
@@ -321,7 +330,10 @@ func _ready():
 	Select = States.Respawn
 	recovery_timer.start()
 	block_active = false
-
+	Player_Hurtbox.set_collision_layer_value(13, true)
+	Player_Hurtbox.set_collision_mask_value(12, true)
+	Goku_Neutral_Light_Start.set_collision_layer_value(11, true)
+	
 
 func _reset_v():
 	velocity.x = lerp(velocity.x, 0.0, 0.8)

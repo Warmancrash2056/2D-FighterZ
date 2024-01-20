@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cuqf1sgy87l6k"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uin6k"]
-radius = 16.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ig4y"]
+radius = 7.0
 
 [node name="Body" type="CollisionShape2D"]
-shape = SubResource("CircleShape2D_uin6k")
-debug_color = Color(0, 0.6, 0.701961, 0)
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_2ig4y")

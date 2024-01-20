@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4gpb7tdkojbw"]
+
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Dash Smoke Position.gd" id="1_mkb23"]
+
+[node name="Dash Smoke Position" type="Marker2D"]
+position = Vector2(0, 8)
+script = ExtResource("1_mkb23")

@@ -8,22 +8,21 @@ signal FacingLeft
 signal FacingRight
 signal DashCloud
 signal WallCloud
-var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
+signal CounterCloud
+signal Player1Box
+signal FireProjectile
 
 
 var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn") # Goku Projectile Position #
 # Goku Projectile Position #
-@onready var goku_projectile_position = $"Scale Player/Goku Projectile Position"
-var goku_air_projectile = preload("res://Character Resouces/Goku/Goku Air Projectile.tscn")
+
 var goku_ground_projectiles = preload("res://Character Resouces/Goku/Goku Ground Projectile.tscn")
 var side_registered = false
 
 # Global player nodes.
-@onready var Player_Hurtbox = $"Hurtbox Body"
 @onready var Animate = $Character
 @onready var Invisibilty = $Respawn
 @onready var Sprite = $Sprite
-@onready var counter_position = $"Counter Position"
 @onready var block_timer = $"Refresh Block"
 @onready var right_wall_detection = $Right
 @onready var left_wall_detection = $Left
@@ -205,36 +204,8 @@ func _goku_side_finish():
 func _reset_side_transition():
 	if side_registered == true:
 		side_registered = false
-func _goku_air_projectile():
-	var instance_molten_sand = goku_air_projectile.instantiate()
-	instance_molten_sand.global_position = goku_projectile_position.global_position
-	get_tree().get_root().add_child(instance_molten_sand)
-
-	if CharacterList.player_1_facing_left == true:
-		instance_molten_sand.velocity.x = -700
-		instance_molten_sand.scale.x = -1
-	else:
-		instance_molten_sand.velocity.x = 700
-		instance_molten_sand.scale.x = 1
-
-func _goku_ground_projectile():
-	var instance_molten_earth = goku_ground_projectiles.instantiate()
-	instance_molten_earth.global_position = goku_projectile_position.global_position
-	get_tree().get_root().add_child(instance_molten_earth)
-
-	if CharacterList.player_1_facing_left == true:
-		instance_molten_earth.velocity.x = -700
-		instance_molten_earth.scale.x = -1.5
-	else:
-		instance_molten_earth.velocity.x = 700
-		instance_molten_earth.scale.x = 1.5
 
 
-func _activate_counter_smoke():
-	var instance_smoke_counter = counter_smoke.instantiate()
-	if can_counter == true:
-		instance_smoke_counter.global_position = counter_position.global_position
-		get_tree().get_root().add_child(instance_smoke_counter)
 # Reset counter smoke at the frist frame of idle and fall state.
 func _reset_counter():
 	can_counter = false
@@ -299,6 +270,7 @@ func _ready():
 	CharacterList.player_1_health = Health
 	Select = States.Respawn
 	block_active = false
+	emit_signal("Player1Box")
 	
 
 func _reset_v():
@@ -607,7 +579,7 @@ func _physics_process(delta):
 					velocity.x = -200
 					Select = States.Jumping
 					velocity.y = -Jump_Height
-
+					emit_signal("JumpSmoke")
 			if !right_wall_detection.is_colliding():
 				Select = States.Jumping
 		States.Left_Wall:
@@ -622,8 +594,7 @@ func _physics_process(delta):
 					velocity.x = 200
 					Select = States.Jumping
 					velocity.y = -Jump_Height
-					$"Character Jump Sound".play()
-
+					emit_signal("JumpSmoke")
 			if !left_wall_detection.is_colliding():
 				Select = States.Jumping
 

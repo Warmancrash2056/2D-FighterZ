@@ -1,11 +1,10 @@
 extends Marker2D
 
-@onready var player = $".."
 var wall_jump_smoke = preload("res://Autoloads/wall_jump_cloud.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	player.connect("WallCloud", _activate_wall_jump_smoke)
+	owner.connect("WallCloud", _activate_wall_jump_smoke)
 
 func _activate_wall_jump_smoke():
 	var instance_wall_jump = wall_jump_smoke.instantiate()

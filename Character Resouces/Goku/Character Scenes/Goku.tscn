@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=68 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player 2 Script.gd" id="1_kuqat"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="2_50hod"]
@@ -6611,43 +6611,6 @@ _data = {
 "Wall": SubResource("Animation_kgf6n")
 }
 
-[sub_resource type="Animation" id="Animation_6fnn5"]
-resource_name = "Invisibilty"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.7, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.490196), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_gq1dh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wvkn"]
-_data = {
-"Invisibilty": SubResource("Animation_6fnn5"),
-"RESET": SubResource("Animation_gq1dh")
-}
-
 [node name="Goku" type="CharacterBody2D"]
 z_index = 3
 scale = Vector2(2, 2)
@@ -6940,11 +6903,13 @@ position = Vector2(0, 2.5)
 shape = SubResource("CircleShape2D_uhln4")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
 z_index = 5
 texture = ExtResource("2_50hod")
 offset = Vector2(0, -40)
 hframes = 10
 vframes = 19
+frame = 130
 
 [node name="Character" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
@@ -6959,11 +6924,6 @@ bus = &"SFX"
 [node name="Side Light Second Punch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8kf4q")
 bus = &"SFX"
-
-[node name="Respawn" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_3wvkn")
-}
 
 [node name="Player Indicator" parent="." instance=ExtResource("13_4l3k6")]
 

@@ -1,42 +1,32 @@
-class_name Player1 extends CharacterBody2D
+class_name Player2 extends CharacterBody2D
 
 # Get character Resources
-var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
+var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
 
 signal JumpSmoke
 signal FacingLeft
 signal FacingRight
 signal DashCloud
 signal WallCloud
-var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
+signal CounterCloud
+signal Player1Box
+signal ShootProjectile
 
 
 var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn") # Goku Projectile Position #
 # Goku Projectile Position #
-@onready var goku_projectile_position = $"Scale Player/Goku Projectile Position"
-var goku_air_projectile = preload("res://Character Resouces/Goku/Goku Air Projectile.tscn")
+
 var goku_ground_projectiles = preload("res://Character Resouces/Goku/Goku Ground Projectile.tscn")
-var side_registered = false
 
 # Global player nodes.
-@onready var Player_Hurtbox = $"Hurtbox Body"
 @onready var Animate = $Character
 @onready var Invisibilty = $Respawn
 @onready var Sprite = $Sprite
-@onready var counter_position = $"Counter Position"
 @onready var block_timer = $"Refresh Block"
 @onready var right_wall_detection = $Right
 @onready var left_wall_detection = $Left
 
-# General Archfield Fireball Position #
-@onready var general_arcfield_fireball_position = $"Scale Player/Super Projectile Position"
-@onready var recovery_timer = $"Recovery Timer"
 var follow_goku_neutral_heavy = false
-var attack_reset = false
-@onready var Goku_Side_End
-var knockback_multiplier: float = 0.5
-var knockback_x: float
-var knockback_y: float
 
 var goku_selected = false
 var general_selected = false
@@ -130,20 +120,6 @@ func _nomad_stats():
 var Select = States.Respawn
 
 # Quickly return back to idle or jump state if sucessfully lannds an attack.
-func _attack_reset():
-	attack_reset = false
-func quick_reset(): # Attack Sucessful #
-	follow_goku_neutral_heavy = false
-	if attack_reset == true:
-		if !is_on_floor():
-			Select = States.Jumping
-			Animate.play("Jump")
-		else:
-			Select = States.Idling
-			Animate.play("Idle")
-
-	else:
-		attack_reset = false
 
 func _idle_state_(): # Normal Reset if unsucessful.`
 	follow_goku_neutral_heavy = false
@@ -184,57 +160,6 @@ func counter_down_heavy():
 			Select = States.Down_Heavy
 
 
-# General Archfield Stats.
-func _general_archfield_freball():
-	var instance_fireball = general_nuetral_attack_fireball.instantiate()
-	instance_fireball.global_position = general_arcfield_fireball_position.global_position
-	get_tree().get_root().add_child(instance_fireball)
-	if CharacterList.player_1_facing_left == true:
-		instance_fireball.velocity.x = -100
-		instance_fireball.scale.x = -1
-	else:
-		instance_fireball.velocity.x = 100
-
-		instance_fireball.scale.x = 1
-
-# Goku Stats
-func _goku_side_finish():
-	if side_registered == true:
-		Select = States.Side_Transition
-
-func _reset_side_transition():
-	if side_registered == true:
-		side_registered = false
-func _goku_air_projectile():
-	var instance_molten_sand = goku_air_projectile.instantiate()
-	instance_molten_sand.global_position = goku_projectile_position.global_position
-	get_tree().get_root().add_child(instance_molten_sand)
-
-	if CharacterList.player_1_facing_left == true:
-		instance_molten_sand.velocity.x = -700
-		instance_molten_sand.scale.x = -1
-	else:
-		instance_molten_sand.velocity.x = 700
-		instance_molten_sand.scale.x = 1
-
-func _goku_ground_projectile():
-	var instance_molten_earth = goku_ground_projectiles.instantiate()
-	instance_molten_earth.global_position = goku_projectile_position.global_position
-	get_tree().get_root().add_child(instance_molten_earth)
-
-	if CharacterList.player_1_facing_left == true:
-		instance_molten_earth.velocity.x = -700
-		instance_molten_earth.scale.x = -1.5
-	else:
-		instance_molten_earth.velocity.x = 700
-		instance_molten_earth.scale.x = 1.5
-
-
-func _activate_counter_smoke():
-	var instance_smoke_counter = counter_smoke.instantiate()
-	if can_counter == true:
-		instance_smoke_counter.global_position = counter_position.global_position
-		get_tree().get_root().add_child(instance_smoke_counter)
 # Reset counter smoke at the frist frame of idle and fall state.
 func _reset_counter():
 	can_counter = false
@@ -299,40 +224,13 @@ func _ready():
 	CharacterList.player_1_health = Health
 	Select = States.Respawn
 	block_active = false
+	emit_signal("Player1Box")
 	
-
-func _reset_v():
-	velocity.x = lerp(velocity.x, 0.0, 0.8)
-	velocity.y = lerp(velocity.y, 0.0, 0.8)
-	knockback_x = 0
-	knockback_y = 0
-
-func _activate_invisibility():
-	Invisibilty.play("Invisibilty")
-func _healthbar_status():
-	CharacterList.player_2_health = Health
-
-	if CharacterList.player_2_health < 700 and CharacterList.player_1_health > 400:
-		knockback_multiplier = 1.0
-
-	elif CharacterList.player_2_health < 490 and CharacterList.player_1_health> 200 :
-		knockback_multiplier = 1.3
-
-	elif CharacterList.player_2_health < 200:
-		knockback_multiplier = 1.6
-
-	else:
-		if CharacterList.player_2_health < 0:
-			knockback_multiplier = 1.9
-			
+	
 func _reset_block():
 	if block_active == true:
 		if Engine.get_physics_frames() % 120 == 0:
 			block_active = false
-func _process(delta):
-	_healthbar_status()
-
-
 func _physics_process(delta):
 	move_and_slide()
 	match Select:
@@ -582,7 +480,6 @@ func _physics_process(delta):
 			else:
 				if !is_on_floor():
 					Animate.play("Air Hurt")
-			set_velocity(Vector2(knockback_x * knockback_multiplier, knockback_y * knockback_multiplier))
 			#print("Is Recovering ",recovery_timer.time_left)
 			#print("Knockback Value: ", knockback_multiplier, " : Current Velocity", velocity)
 
@@ -592,7 +489,6 @@ func _physics_process(delta):
 			follow_goku_neutral_heavy = false
 			Animate.play("Respawn")
 			Health = 1000
-			knockback_multiplier = 0.5
 			velocity.x = 0
 			velocity.y = 0
 		States.Right_Wall:
@@ -607,7 +503,7 @@ func _physics_process(delta):
 					velocity.x = -200
 					Select = States.Jumping
 					velocity.y = -Jump_Height
-
+					emit_signal("JumpSmoke")
 			if !right_wall_detection.is_colliding():
 				Select = States.Jumping
 		States.Left_Wall:
@@ -622,8 +518,7 @@ func _physics_process(delta):
 					velocity.x = 200
 					Select = States.Jumping
 					velocity.y = -Jump_Height
-					$"Character Jump Sound".play()
-
+					emit_signal("JumpSmoke")
 			if !left_wall_detection.is_colliding():
 				Select = States.Jumping
 

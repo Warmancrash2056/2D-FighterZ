@@ -11,7 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if sprite.flip_h == false:
-		print("IS fACING rIGHT")
+		pass
 		
 	else:
 		print("Is Facing Left")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=71 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player 2 Script.gd" id="1_kuqat"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="2_50hod"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bvgm6lrd873fg" path="res://Character Resouces/Goku/Goku Air Projectile.tscn" id="6_n3nux"]
 [ext_resource type="PackedScene" uid="uid://bwldo5okthbx" path="res://Character Resouces/Goku/Goku Ground Projectile.tscn" id="7_nbto7"]
 [ext_resource type="PackedScene" uid="uid://dum0t8crida7w" path="res://wall_jump_smoke.tscn" id="9_ncjte"]
+[ext_resource type="Script" path="res://hurtbox.gd" id="10_tlmsa"]
 [ext_resource type="PackedScene" uid="uid://cuqf1sgy87l6k" path="res://body.tscn" id="10_tw5nb"]
 [ext_resource type="PackedScene" uid="uid://8fiayumkm0bf" path="res://hurtbox.tscn" id="11_ktvmd"]
 [ext_resource type="PackedScene" uid="uid://b68jujlxhnb2q" path="res://counter_position.tscn" id="12_ip2kj"]
@@ -6657,9 +6658,13 @@ script = ExtResource("1_kuqat")
 [node name="Scale Player" parent="." instance=ExtResource("2_qvbf2")]
 script = null
 
-[node name="Dash Smoke Position" parent="Scale Player" instance=ExtResource("3_xy5e1")]
+[node name="Dash Smoke Position" parent="Scale Player" node_paths=PackedStringArray("Character", "Sprite") instance=ExtResource("3_xy5e1")]
+Character = NodePath("../..")
+Sprite = NodePath("../../Sprite")
 
-[node name="Wall Jump Smoke" parent="Scale Player" instance=ExtResource("9_ncjte")]
+[node name="Wall Jump Smoke" parent="Scale Player" node_paths=PackedStringArray("Character", "Sprite") instance=ExtResource("9_ncjte")]
+Character = NodePath("../..")
+Sprite = NodePath("../../Sprite")
 
 [node name="Projectile Position" parent="Scale Player" node_paths=PackedStringArray("sprite") instance=ExtResource("5_o0hcc")]
 air_projectile = ExtResource("6_n3nux")
@@ -6927,10 +6932,11 @@ debug_color = Color(0, 1, 0, 0.419608)
 
 [node name="Hurtbox" parent="." instance=ExtResource("11_ktvmd")]
 collision_layer = 8193
+script = ExtResource("10_tlmsa")
 
 [node name="Collision Body" parent="Hurtbox" index="0"]
 z_index = 8
-position = Vector2(0, -4)
+position = Vector2(0, 2.5)
 shape = SubResource("CircleShape2D_uhln4")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -6939,7 +6945,6 @@ texture = ExtResource("2_50hod")
 offset = Vector2(0, -40)
 hframes = 10
 vframes = 19
-frame = 16
 
 [node name="Character" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
@@ -6964,7 +6969,8 @@ libraries = {
 
 [node name="Counter Position" parent="." instance=ExtResource("12_ip2kj")]
 
-[node name="Jump Smoke" parent="." instance=ExtResource("4_86c08")]
+[node name="Jump Smoke" parent="." node_paths=PackedStringArray("Character") instance=ExtResource("4_86c08")]
+Character = NodePath("..")
 
 [node name="Left" type="RayCast2D" parent="."]
 position = Vector2(0, -8)

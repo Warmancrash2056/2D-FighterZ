@@ -1,10 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706227590
+::res://::1706481041
 6025e35538ea434.png::CompressedTexture2D::7181636088904135661::1704238737::1704238737::1::::<><>::
 area_2d_2.tscn::PackedScene::5208590255444711048::1704265990::0::1::::<><>::res://Game Maps/Galvin Maps/Map Scenes/Area2D2.gd
 area_2d_4.tscn::PackedScene::2963896465091281492::1704265990::0::1::::<><>::res://Game Maps/Galvin Maps/Map Scenes/Area2D2.gd
 area_2d_5.tscn::PackedScene::1073890930057705266::1704265990::0::1::::<><>::res://Game Maps/Galvin Maps/Map Scenes/Area2D2.gd
-body.tscn::PackedScene::6209999255642115684::1706225467::0::1::::<><>::
+body.tscn::PackedScene::6209999255642115684::1706231226::0::1::::<><>::
 Camera Hud.tscn::PackedScene::446659583536243766::1704265990::0::1::::<><>::uid://cvw334dkbul16::::res://players_stats.tscn<>uid://c44n0gxwdlna2::::res://User Setting/Setting Menu.tscn
 camera_2d.tscn::PackedScene::1046547870535938435::1704265990::0::1::::<><>::
 Character Component.tscn::PackedScene::5599784436005751164::1705130298::0::1::::<><>::res://Node2D.gd<>uid://ch3sqnpg6f3yi::::res://Goku.tscn<>res://Player 1 Controller.gd<>res://State.gd<>uid://cwyii8duo366p::::res://Character Resouces/Global/Controller Resource/Player_1.tres
@@ -12,6 +12,7 @@ Character Mechanics.txt::TextFile::-1::1704839580::0::1::::<><>::
 character_body_2d.tscn::PackedScene::3152522219293601521::1704265990::0::1::::<><>::res://Player Controller.gd
 Chevron-Arrow-Down.png::CompressedTexture2D::5463721717587315834::1704265990::1704265990::1::::<><>::
 control.tscn::PackedScene::7755618763862938993::1704819844::0::1::::<><>::uid://b3rv1kotqtmjy::::res://Autoloads/Player 1 Healthbar.tscn<>uid://cyanpmw7wuxhc::::res://Autoloads/Player 2 Healthbar.tscn<>uid://c44n0gxwdlna2::::res://User Setting/Setting Menu.tscn
+counter_position.tscn::PackedScene::4630981961926955682::1706228200::0::1::::<><>::res://Character Resouces/Goku/Character Scenes/Counter Position.gd
 dash_smoke_position.tscn::PackedScene::6821618350347620620::1705968470::0::1::::<><>::res://Character Resouces/Goku/Character Scenes/Dash Smoke Position.gd
 default_bus_layout.tres::AudioBusLayout::2026510409249886750::1706018536::0::1::::<><>::
 Demo.gd::GDScript::-1::1704238737::0::1::::<>Node2D<>::
@@ -19,9 +20,9 @@ export_presets.cfg::TextFile::-1::1704320184::0::1::::<><>::
 Game Camera.tscn::PackedScene::1890214944385296353::1704265990::0::1::::<><>::
 Goku Sprite.png::CompressedTexture2D::7614972621078964578::1704238738::1704238738::1::::<><>::
 Goku.tscn::PackedScene::5323088034828264000::1705130298::0::1::::<><>::
-goku_projectile_position.tscn::PackedScene::3575699789358948608::1705488172::0::1::::<><>::res://Character Resouces/Goku/Character Scenes/Goku Projectile Position.gd
+goku_projectile_position.tscn::PackedScene::3575699789358948608::1706230918::0::1::::<><>::res://Character Resouces/Goku/Character Scenes/Goku Projectile Position.gd
 Hitbox.gd::GDScript::-1::1705130298::0::1::::<>Area2D<>::
-hurtbox.tscn::PackedScene::2327040756783080075::1706225467::0::1::::<><>::
+hurtbox.tscn::PackedScene::2327040756783080075::1706231226::0::1::::<><>::
 icon.svg::CompressedTexture2D::8692444356912728146::1704265990::1704265990::1::::<><>::
 jump_smoke.tscn::PackedScene::6402902541492611467::1705968468::0::1::::<><>::res://Character Resouces/Goku/Character Scenes/Jump Smoke.gd<>uid://bdexwo5ypwmay::::res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn
 knockout area.gd::GDScript::-1::1704265990::0::1::::<>Area2D<>::
@@ -35,6 +36,8 @@ node_2d.tscn::PackedScene::1508496829082459296::1704265990::0::1::::<><>::res://
 Player 1 Controller.gd::GDScript::-1::1705130298::0::1::::<>Node2D<>::
 Player Controller.gd::GDScript::-1::1704265990::0::1::::<>CharacterBody2D<>::
 players_stats.tscn::PackedScene::6293975000669053039::1704265990::0::1::::<><>::uid://b3rv1kotqtmjy::::res://Autoloads/Player 1 Healthbar.tscn<>uid://cyanpmw7wuxhc::::res://Autoloads/Player 2 Healthbar.tscn
+player_indicator.tscn::PackedScene::2404688800757005167::1706231071::0::1::::<><>::uid://cj3wx0nbythks::::res://Chevron-Arrow-Down.png
+projectile_position.tscn::PackedScene::5433327749298292196::1706231232::0::1::::<><>::res://Character Resouces/Goku/Character Scenes/Goku Projectile Position.gd
 scale_player.tscn::PackedScene::9140208338917327930::1705454255::0::1::::<><>::res://Character Resouces/Goku/Character Scenes/Scale Player.gd
 Startup.gd::GDScript::-1::1704265990::0::1::::<>Node<>::
 State.gd::GDScript::-1::1705130298::0::1::::<>Node<>::
@@ -270,13 +273,13 @@ sp_atk_18.png::CompressedTexture2D::7071900792413231667::1687044968::1687765448:
 Down Light Sound.wav::AudioStreamWAV::1448104776695929882::1687044968::1687765448::1::::<><>::
 Up Light Sound.wav::AudioStreamWAV::6047774352764556337::1687044968::1687765448::1::::<><>::
 ::res://Character Resouces/General Archfield/Spritesheet/::1687904636
-::res://Character Resouces/Global/::1706225324
+::res://Character Resouces/Global/::1706229754
 block_timer.tscn::PackedScene::4377363435648662019::1704819845::0::1::::<><>::
 counter.tscn::PackedScene::5134451810636157939::1693465619::0::1::::<><>::uid://c10d8cd8853sa::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)1.png<>uid://cghmuc2cp1ch8::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)2.png<>uid://ryh4yi351mjk::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)3.png<>uid://bc10wnbhik7tb::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)4.png<>uid://b2xv46nhf6rgv::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)5.png<>uid://dts3l8yr73w74::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)6.png<>uid://cogck3ve4x75b::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)7.png<>uid://bas16kqt7smf8::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)8.png<>uid://5q555qk3hjoo::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)9.png<>uid://pxiesse3skf5::::res://Character Resouces/Smoke Effect 02/Smoke VFX 10/Separated Frames/Smoke VFX 10 (32X32)10.png<>res://Character Resouces/jump_smoke.gd
 dash_smoke.tscn::PackedScene::7940022127469200056::1704265990::0::1::::<><>::uid://c5k6yefsm1kjp::::res://Character Resouces/Global/Dash Resources/Dash/SmokeNDust P03 VFX 1.png<>res://Character Resouces/Global/Dash Resources/dash_smoke.gd
 dash_smoke_position.tscn::PackedScene::8579919709157706119::1694209845::0::1::::<><>::
 Player 1 Script.gd::GDScript::-1::1705490953::0::1::::Player1<>CharacterBody2D<>::
-Player 2 Script.gd::GDScript::-1::1706225324::0::1::::Player2<>CharacterBody2D<>::
+Player 2 Script.gd::GDScript::-1::1706229754::0::1::::Player2<>CharacterBody2D<>::
 wall_jump_cloud.tscn::PackedScene::7254196915028014524::1704265990::0::1::::<><>::uid://bk4sjs58yfe3y::::res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)1.png<>uid://hwhwr0c0bcuu::::res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)2.png<>uid://dm4wxbp7vrqr1::::res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)3.png<>uid://bj4xsq3iog3mq::::res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)4.png<>uid://ljrgxl2nuemr::::res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)5.png<>uid://b6bdvf5uo4h5g::::res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)6.png<>uid://bv0gtog0yfevr::::res://Character Resouces/Smoke Effect 02/Smoke VFX 9/Separated Frames/Smoke VFX 9 (32X16)7.png<>res://Character Resouces/jump_smoke.gd
 ::res://Character Resouces/Global/Controller Resource/::1705093483
 Controller.gd::GDScript::-1::1704320438::0::1::::InputSys<>Resource<>::
@@ -373,18 +376,19 @@ sp_atk_22.png::CompressedTexture2D::304693644675238226::1687044968::1687765448::
 sp_atk_23.png::CompressedTexture2D::3285160216609446191::1687044968::1687765448::1::::<><>::
 sp_atk_24.png::CompressedTexture2D::2567335947285256515::1687044968::1687765448::1::::<><>::
 sp_atk_25.png::CompressedTexture2D::2561309076731386596::1687044968::1687765448::1::::<><>::
-::res://Character Resouces/Goku/Character Scenes/::1706225467
+::res://Character Resouces/Goku/Character Scenes/::1706231226
 Area2D.gd::GDScript::-1::1706225415::0::1::::<>Area2D<>::
+Counter Position.gd::GDScript::-1::1706228416::0::1::::<>Marker2D<>::
 Dash Smoke Position.gd::GDScript::-1::1706017047::0::1::::<>Marker2D<>::
 Goku Air Projectile.tscn::PackedScene::3571465888236291487::1704265990::0::1::::<><>::res://Character Resouces/Goku/Character Scenes/Goku Air Projectile.gd<>res://Character Resouces/Goku/Spritesheet/Goku Air & Ground Projectile Sheet.png
-Goku Projectile Position.gd::GDScript::-1::1705488166::0::1::::<>Marker2D<>::
+Goku Projectile Position.gd::GDScript::-1::1706230918::0::1::::<>Marker2D<>::
 Goku.gd::GDScript::-1::1705446814::0::1::::Player<>CharacterBody2D<>::
-Goku.tscn::PackedScene::6861411823530115352::1706225467::0::1::::<><>::res://Character Resouces/Global/Player 2 Script.gd<>uid://larmu623rlvd::::res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png<>uid://d3ht5pyb76ndi::::res://scale_player.tscn<>uid://c4gpb7tdkojbw::::res://dash_smoke_position.tscn<>uid://cxhu4tahjydj4::::res://jump_smoke.tscn<>uid://bl21gbececfew::::res://Character Resouces/Goku/Sound Effects/First Punch.wav<>uid://r5tlbrig47nu::::res://Character Resouces/Goku/Sound Effects/Second Punch.wav<>uid://bq7diuun8axsq::::res://goku_projectile_position.tscn<>res://Character Resouces/Goku/Character Scenes/Area2D.gd<>uid://cj3wx0nbythks::::res://Chevron-Arrow-Down.png<>uid://dum0t8crida7w::::res://wall_jump_smoke.tscn<>uid://cuqf1sgy87l6k::::res://body.tscn<>uid://8fiayumkm0bf::::res://hurtbox.tscn
+Goku.tscn::PackedScene::6861411823530115352::1706231226::0::1::::<><>::res://Character Resouces/Global/Player 2 Script.gd<>uid://larmu623rlvd::::res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png<>uid://d3ht5pyb76ndi::::res://scale_player.tscn<>uid://c4gpb7tdkojbw::::res://dash_smoke_position.tscn<>uid://cxhu4tahjydj4::::res://jump_smoke.tscn<>uid://bl21gbececfew::::res://Character Resouces/Goku/Sound Effects/First Punch.wav<>uid://r5tlbrig47nu::::res://Character Resouces/Goku/Sound Effects/Second Punch.wav<>uid://bq7diuun8axsq::::res://goku_projectile_position.tscn<>res://Character Resouces/Goku/Character Scenes/Area2D.gd<>uid://bvgm6lrd873fg::::res://Character Resouces/Goku/Goku Air Projectile.tscn<>uid://bwldo5okthbx::::res://Character Resouces/Goku/Goku Ground Projectile.tscn<>uid://dum0t8crida7w::::res://wall_jump_smoke.tscn<>uid://cuqf1sgy87l6k::::res://body.tscn<>uid://8fiayumkm0bf::::res://hurtbox.tscn<>uid://b68jujlxhnb2q::::res://counter_position.tscn<>uid://bai34xpabg2ad::::res://player_indicator.tscn
 Jump Smoke.gd::GDScript::-1::1706017047::0::1::::JumpCloud<>Marker2D<>::
 Neutral Light Shoulder 1.gd::GDScript::-1::1706106178::0::1::::<>Area2D<>::
 Rock Grab.gd::GDScript::-1::1704265990::0::1::::<>CollisionShape2D<>::
 Scale Player.gd::GDScript::-1::1705490953::0::1::::<>Node2D<>::
-Wall Jump Smoke.gd::GDScript::-1::1706107987::0::1::::<>Marker2D<>::
+Wall Jump Smoke.gd::GDScript::-1::1706229754::0::1::::<>Marker2D<>::
 ::res://Character Resouces/Goku/Icon/::1689628145
 Goku.png::CompressedTexture2D::165888122232890795::1687044968::1687765448::1::::<><>::
 ground_elemental.png::CompressedTexture2D::8025029578274657241::1687904198::1689628145::1::::<><>::
@@ -2577,12 +2581,12 @@ mainlevbuildA.png::CompressedTexture2D::6512500163796065244::1687044968::1687765
 mainlevbuildB.png::CompressedTexture2D::1000742354560167441::1687044968::1687765448::1::::<><>::
 ::res://Game Maps/Galvin Maps/Game Image/::1687765448
 Galvin Image.jpg::CompressedTexture2D::8160492095935935365::1687044968::1687765448::1::::<><>::
-::res://Game Maps/Galvin Maps/Map Scenes/::1706225469
+::res://Game Maps/Galvin Maps/Map Scenes/::1706231231
 Area2D2.gd::GDScript::-1::1704265990::0::1::::<>Area2D<>::
 Area2D.gd::GDScript::-1::1704265990::0::1::::<>Area2D<>::
 Camera2D.gd::GDScript::-1::1704265990::0::1::::<>Camera2D<>::
 camera.gd::GDScript::-1::1704238737::0::1::::<>Camera2D<>::
-Galvin.tscn::PackedScene::8291530304677055057::1706225469::0::1::::<><>::uid://cy1x6qx0fet3i::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png<>uid://b07grplvo2wco::::res://Game Maps/Galvin Maps/Galvin Assets/background 1.png<>uid://b32tkmdednvbw::::res://Game Maps/Galvin Maps/Galvin Assets/background 2.png<>uid://bmalm0ncp1pnk::::res://Game Maps/Galvin Maps/Galvin Assets/background 3.png<>uid://bsuwgpoe3jyis::::res://Game Maps/Galvin Maps/Galvin Assets/background 4.png<>uid://dmuoyx7cq8gk1::::res://Game Maps/Galvin Maps/Galvin Assets/decorative.png<>uid://oi1cy53obtgr::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png<>uid://1siupmlt7cfq::::res://knockout area.tscn<>uid://bkqtqaahh05qw::::res://Local Camera.tscn<>uid://c40ypkrmks8qe::::res://Character Resouces/Goku/Character Scenes/Goku.tscn
+Galvin.tscn::PackedScene::8291530304677055057::1706231231::0::1::::<><>::uid://cy1x6qx0fet3i::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png<>uid://b07grplvo2wco::::res://Game Maps/Galvin Maps/Galvin Assets/background 1.png<>uid://b32tkmdednvbw::::res://Game Maps/Galvin Maps/Galvin Assets/background 2.png<>uid://bmalm0ncp1pnk::::res://Game Maps/Galvin Maps/Galvin Assets/background 3.png<>uid://bsuwgpoe3jyis::::res://Game Maps/Galvin Maps/Galvin Assets/background 4.png<>uid://dmuoyx7cq8gk1::::res://Game Maps/Galvin Maps/Galvin Assets/decorative.png<>uid://oi1cy53obtgr::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png<>uid://1siupmlt7cfq::::res://knockout area.tscn<>uid://bkqtqaahh05qw::::res://Local Camera.tscn<>uid://c40ypkrmks8qe::::res://Character Resouces/Goku/Character Scenes/Goku.tscn
 Small Platform.gd::GDScript::-1::1690318437::0::1::::<>StaticBody2D<>::
 test area.tscn::PackedScene::2931297521572634604::1704265990::0::1::::<><>::res://Game Maps/Galvin Maps/Script/Galvin.gd<>uid://b07grplvo2wco::::res://Game Maps/Galvin Maps/Galvin Assets/background 1.png<>uid://b32tkmdednvbw::::res://Game Maps/Galvin Maps/Galvin Assets/background 2.png<>uid://bmalm0ncp1pnk::::res://Game Maps/Galvin Maps/Galvin Assets/background 3.png<>uid://bsuwgpoe3jyis::::res://Game Maps/Galvin Maps/Galvin Assets/background 4.png<>uid://dmuoyx7cq8gk1::::res://Game Maps/Galvin Maps/Galvin Assets/decorative.png<>uid://cy1x6qx0fet3i::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png<>uid://oi1cy53obtgr::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png<>uid://rasoy20rgw2q::::res://Game Start/exit_prompt.tscn<>uid://b3rv1kotqtmjy::::res://Autoloads/Player 1 Healthbar.tscn<>uid://cyanpmw7wuxhc::::res://Autoloads/Player 2 Healthbar.tscn<>uid://c40ypkrmks8qe::::res://Character Resouces/Goku/Character Scenes/Goku.tscn
 Test Room.tscn::PackedScene::8740227212424014859::1704265990::0::1::::<><>::uid://b07grplvo2wco::::res://Game Maps/Galvin Maps/Galvin Assets/background 1.png<>uid://b32tkmdednvbw::::res://Game Maps/Galvin Maps/Galvin Assets/background 2.png<>uid://bmalm0ncp1pnk::::res://Game Maps/Galvin Maps/Galvin Assets/background 3.png<>uid://bsuwgpoe3jyis::::res://Game Maps/Galvin Maps/Galvin Assets/background 4.png<>uid://dmuoyx7cq8gk1::::res://Game Maps/Galvin Maps/Galvin Assets/decorative.png<>uid://cy1x6qx0fet3i::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png<>uid://oi1cy53obtgr::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png<>uid://1siupmlt7cfq::::res://knockout area.tscn<>uid://c40ypkrmks8qe::::res://Character Resouces/Goku/Character Scenes/Goku.tscn<>uid://bkqtqaahh05qw::::res://Local Camera.tscn

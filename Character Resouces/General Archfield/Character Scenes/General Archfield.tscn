@@ -1,17 +1,18 @@
 [gd_scene load_steps=54 format=3 uid="uid://w7vgf8q3ip3t"]
 
-[ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_6u7q8"]
+[ext_resource type="Script" path="res://Character Resouces/Global/Player 1 Script.gd" id="1_6u7q8"]
 [ext_resource type="Texture2D" uid="uid://ddjkqmw4jctaq" path="res://Character Resouces/General Archfield Spritesheet.png" id="2_r0lqn"]
 [ext_resource type="AudioStream" uid="uid://cgismvmnnu166" path="res://Character Resouces/Global/melee sounds/animal melee sound.wav" id="5_k3gx6"]
 [ext_resource type="AudioStream" uid="uid://uvqcrwqnysys" path="res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav" id="6_bnpmr"]
 [ext_resource type="AudioStream" uid="uid://csft7v02oavc0" path="res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav" id="7_qyex6"]
-[ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="8_7siia"]
-[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://Character Resouces/Global/health.tscn" id="8_lfnli"]
+[ext_resource type="PackedScene" uid="uid://dlehafcpnrehc" path="res://Character Resouces/Global/dash_smoke.tscn" id="8_7siia"]
+[ext_resource type="PackedScene" uid="uid://duiga22704uhr" path="res://Character Resouces/Global/dash_smoke_position.tscn" id="8_lfnli"]
 [ext_resource type="PackedScene" uid="uid://b3mosh5sutup4" path="res://Character Resouces/Global/block_timer.tscn" id="8_pmnky"]
-[ext_resource type="PackedScene" uid="uid://bgm4l7ardrnil" path="res://Character Resouces/Global/deplete_energy.tscn" id="9_40xgv"]
-[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://Character Resouces/Global/super_energy.tscn" id="9_p6pmn"]
+[ext_resource type="PackedScene" uid="uid://cfffw24up6a7l" path="res://Character Resouces/Global/counter.tscn" id="9_40xgv"]
+[ext_resource type="PackedScene" uid="uid://dbl8tfhqj4rfw" path="res://Character Resouces/Global/wall_jump_cloud.tscn" id="9_p6pmn"]
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="9_u5mq4"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="12_uphdc"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geckk"]
 radius = 12.3077

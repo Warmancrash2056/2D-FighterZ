@@ -1,5 +1,5 @@
 extends Marker2D
-
+@export var Character: CharacterBody2D
 var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
 
 # Called when the node enters the scene tree for the first time.

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4gpb7tdkojbw"]
+
+[ext_resource type="Script" path="res://Character Resouces/Global Components/Dash Smoke Position.gd" id="1_kdd1j"]
+
+[node name="Dash Smoke Position" type="Marker2D"]
+position = Vector2(0, 8)
+script = ExtResource("1_kdd1j")

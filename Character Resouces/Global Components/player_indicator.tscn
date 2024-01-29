@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bai34xpabg2ad"]
 
-[ext_resource type="Texture2D" uid="uid://cj3wx0nbythks" path="res://Chevron-Arrow-Down.png" id="1_vi7iv"]
+[ext_resource type="Texture2D" uid="uid://cj3wx0nbythks" path="res://Chevron-Arrow-Down.png" id="1_cde0o"]
 
 [node name="Player Indicator" type="Sprite2D"]
 self_modulate = Color(0, 0, 0, 0.447059)
-position = Vector2(0, -25)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_vi7iv")
+texture = ExtResource("1_cde0o")

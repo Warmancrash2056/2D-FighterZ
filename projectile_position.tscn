@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjn7d5a8mwffw"]
-
-[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Goku Projectile Position.gd" id="1_amwse"]
-
-[node name="Projectile Position" type="Marker2D"]
-position = Vector2(32.5, 0)
-script = ExtResource("1_amwse")

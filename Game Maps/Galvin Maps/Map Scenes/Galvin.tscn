@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="6_umm62"]
 [ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_evgpo"]
 [ext_resource type="PackedScene" uid="uid://1siupmlt7cfq" path="res://knockout area.tscn" id="9_cjxaf"]
-[ext_resource type="PackedScene" uid="uid://bkqtqaahh05qw" path="res://Local Camera.tscn" id="9_m0frr"]
-[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Character Scenes/Goku.tscn" id="10_rktw5"]
+[ext_resource type="PackedScene" uid="uid://bkqtqaahh05qw" path="res://Camera Components/Local Camera.tscn" id="9_m0frr"]
+[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Goku.tscn" id="10_rktw5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
 texture = ExtResource("6_umm62")

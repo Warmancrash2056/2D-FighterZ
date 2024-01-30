@@ -1,0 +1,189 @@
+[gd_scene load_steps=10 format=3 uid="uid://di5auhdx6t7vg"]
+
+[ext_resource type="Script" path="res://Game Start Menu/Main Menu/Main Menu.gd" id="1_a0kbw"]
+[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://Fonts/ThaleahFat.ttf" id="2_n77w0"]
+[ext_resource type="Script" path="res://Game Start Menu/Main Menu/Local Play.gd" id="3_m8lw7"]
+[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start Menu/Background.tscn" id="4_qpfyd"]
+[ext_resource type="PackedScene" uid="uid://bys0ptudnouiw" path="res://Game Start Menu/Character Idle.tscn" id="4_u8wxl"]
+[ext_resource type="PackedScene" uid="uid://c44n0gxwdlna2" path="res://User Setting/Setting Menu.tscn" id="6_dfkci"]
+
+[sub_resource type="Animation" id="Animation_bi3ch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7pgsy"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.784314), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4gcx"]
+_data = {
+"RESET": SubResource("Animation_bi3ch"),
+"new_animation": SubResource("Animation_7pgsy")
+}
+
+[node name="Start Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a0kbw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Control" parent="Camera2D/CanvasLayer" instance=ExtResource("6_dfkci")]
+mouse_filter = 2
+
+[node name="Title Name" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.167
+anchor_right = 0.847
+anchor_bottom = 0.222
+offset_left = -0.384018
+offset_right = -704.744
+offset_bottom = -128.856
+grow_horizontal = 2
+scale = Vector2(10, 10)
+theme_override_fonts/normal_font = ExtResource("2_n77w0")
+theme_override_fonts/bold_font = ExtResource("2_n77w0")
+theme_override_fonts/italics_font = ExtResource("2_n77w0")
+theme_override_fonts/bold_italics_font = ExtResource("2_n77w0")
+theme_override_fonts/mono_font = ExtResource("2_n77w0")
+text = "2D FighterZ"
+fit_content = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title Name"]
+libraries = {
+"": SubResource("AnimationLibrary_x4gcx")
+}
+
+[node name="Local Play" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.296
+anchor_right = 0.229
+anchor_bottom = 0.39
+offset_left = -4.0
+offset_top = 12.192
+offset_right = -179.808
+offset_bottom = -25.72
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
+text = "Local Play
+"
+flat = true
+script = ExtResource("3_m8lw7")
+
+[node name="About Characters" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 2
+anchor_left = 0.16
+anchor_top = 0.395
+anchor_right = 0.48
+anchor_bottom = 0.494
+offset_left = -184.32
+offset_top = -23.96
+offset_right = -429.96
+offset_bottom = -65.112
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
+text = "About Character
+"
+flat = true
+script = ExtResource("3_m8lw7")
+
+[node name="Training Room" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 2
+offset_left = -2.0
+offset_top = 263.0
+offset_right = 96.0
+offset_bottom = 286.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
+text = "Training Room"
+flat = true
+script = ExtResource("3_m8lw7")
+
+[node name="Control Layout" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_top = 289.0
+offset_right = 138.0
+offset_bottom = 312.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
+text = "Controller Layout"
+flat = true
+script = ExtResource("3_m8lw7")
+
+[node name="Mars Studio" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_left = 2.0
+offset_top = 317.0
+offset_right = 89.0
+offset_bottom = 340.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_n77w0")
+text = "Mars Studio"
+flat = true
+script = ExtResource("3_m8lw7")
+
+[node name="Character Pose" parent="." instance=ExtResource("4_u8wxl")]
+z_index = -1
+position = Vector2(-184, -128)
+scale = Vector2(1.5, 1.5)
+
+[node name="Background" parent="." instance=ExtResource("4_qpfyd")]
+layout_mode = 1
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.113725, 0.537255, 1)
+
+[connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
+[connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]
+[connection signal="pressed" from="Training Room" to="." method="_on_training_room_pressed"]
+[connection signal="pressed" from="Control Layout" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Mars Studio" to="." method="_on_mars_studio_pressed"]

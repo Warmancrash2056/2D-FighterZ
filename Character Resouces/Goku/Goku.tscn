@@ -1,22 +1,23 @@
-[gd_scene load_steps=68 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=69 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player 2 Script.gd" id="1_opgx3"]
-[ext_resource type="PackedScene" uid="uid://d3ht5pyb76ndi" path="res://Character Resouces/Global Components/scale_player.tscn" id="2_1x5bx"]
-[ext_resource type="PackedScene" uid="uid://c4gpb7tdkojbw" path="res://Character Resouces/Global Components/dash_smoke_position.tscn" id="3_twibt"]
-[ext_resource type="PackedScene" path="res://wall_jump_smoke.tscn" id="4_6cf4e"]
-[ext_resource type="PackedScene" uid="uid://bq7diuun8axsq" path="res://Character Resouces/Global Components/goku_projectile_position.tscn" id="5_sedar"]
+[ext_resource type="PackedScene" uid="uid://d3ht5pyb76ndi" path="res://Character Resouces/Global Components/Scale Player/scale_player.tscn" id="2_1x5bx"]
+[ext_resource type="PackedScene" uid="uid://duiga22704uhr" path="res://Character Resouces/Global Components/Dash Cloud/dash_smoke_position.tscn" id="3_twibt"]
+[ext_resource type="PackedScene" uid="uid://dlehafcpnrehc" path="res://Character Resouces/Global Components/Cloud Resources/dash_cloud.tscn" id="4_1s0mr"]
+[ext_resource type="PackedScene" uid="uid://b32x68ug5uvgv" path="res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Position.tscn" id="4_6cf4e"]
+[ext_resource type="PackedScene" uid="uid://bj0trnwvm27x4" path="res://Character Resouces/Global Components/goku_projectile_position.tscn" id="5_sedar"]
 [ext_resource type="PackedScene" uid="uid://bvgm6lrd873fg" path="res://Character Resouces/Goku/Projectile Resources/Goku Air Projectile.tscn" id="6_gbtt2"]
 [ext_resource type="PackedScene" uid="uid://bwldo5okthbx" path="res://Character Resouces/Goku/Projectile Resources/Goku Ground Projectile.tscn" id="7_twtu1"]
-[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Hitbox Component.gd" id="8_tj3qq"]
-[ext_resource type="PackedScene" uid="uid://8fiayumkm0bf" path="res://Character Resouces/Global Components/hurtbox.tscn" id="9_cyy3h"]
-[ext_resource type="Script" path="res://Character Resouces/Global Components/hurtbox.gd" id="10_rlpqx"]
+[ext_resource type="Script" path="res://Character Resouces/Global Components/Hitbox Component.gd" id="8_tj3qq"]
+[ext_resource type="PackedScene" uid="uid://cyx5stt1ggq2b" path="res://Character Resouces/Global Components/Hurtbox/hurtbox.tscn" id="9_cyy3h"]
+[ext_resource type="Script" path="res://Character Resouces/Global Components/Hurtbox/hurtbox.gd" id="10_rlpqx"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="11_so2xu"]
 [ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Goku/Sound Effects/First Punch.wav" id="12_bl2hr"]
 [ext_resource type="AudioStream" uid="uid://r5tlbrig47nu" path="res://Character Resouces/Goku/Sound Effects/Second Punch.wav" id="13_ht28k"]
 [ext_resource type="PackedScene" uid="uid://bai34xpabg2ad" path="res://Character Resouces/Global Components/player_indicator.tscn" id="14_whygv"]
-[ext_resource type="PackedScene" uid="uid://b68jujlxhnb2q" path="res://Character Resouces/Global Components/counter_position.tscn" id="15_lhwgj"]
-[ext_resource type="PackedScene" uid="uid://cxhu4tahjydj4" path="res://Character Resouces/Global Components/jump_smoke.tscn" id="16_afjxw"]
+[ext_resource type="PackedScene" uid="uid://b68jujlxhnb2q" path="res://Character Resouces/Global Components/Counter Cloud/counter_position.tscn" id="15_lhwgj"]
 [ext_resource type="PackedScene" uid="uid://cuqf1sgy87l6k" path="res://Character Resouces/Global Components/body.tscn" id="17_glfwe"]
+[ext_resource type="PackedScene" uid="uid://cxhu4tahjydj4" path="res://Character Resouces/Global Components/Jump Cloud/jump_position.tscn" id="17_o01ah"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gckp"]
 radius = 3.5
@@ -6624,20 +6625,21 @@ script = null
 [node name="Dash Smoke Position" parent="Scale Player" node_paths=PackedStringArray("Character", "Sprite") instance=ExtResource("3_twibt")]
 Character = NodePath("../..")
 Sprite = NodePath("../../Sprite")
+dash_smoke = ExtResource("4_1s0mr")
 
 [node name="Wall Jump Smoke" parent="Scale Player" node_paths=PackedStringArray("Character", "Sprite") instance=ExtResource("4_6cf4e")]
 Character = NodePath("../..")
 Sprite = NodePath("../../Sprite")
 
-[node name="Projectile Position" parent="Scale Player" node_paths=PackedStringArray("sprite") instance=ExtResource("5_sedar")]
+[node name="Projectile Position" parent="Scale Player" node_paths=PackedStringArray("sprite", "Character") instance=ExtResource("5_sedar")]
 air_projectile = ExtResource("6_gbtt2")
 ground_projectile = ExtResource("7_twtu1")
 sprite = NodePath("../../Sprite")
+Character = NodePath("../..")
 
 [node name="Neutral Light Shoulder 1" type="Area2D" parent="Scale Player"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("8_tj3qq")
 
 [node name="Neutral light Shoulder 1" type="CollisionShape2D" parent="Scale Player/Neutral Light Shoulder 1"]
 visible = false
@@ -6655,9 +6657,10 @@ position = Vector2(6, -7)
 shape = SubResource("CircleShape2D_4eri3")
 disabled = true
 
-[node name="Neutral Light Start" type="Area2D" parent="Scale Player"]
+[node name="Neutral Light Start" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Character")]
 position = Vector2(24.5, -7.5)
 script = ExtResource("8_tj3qq")
+Character = NodePath("../..")
 
 [node name="Neutral Light Start" type="CollisionShape2D" parent="Scale Player/Neutral Light Start"]
 visible = false
@@ -6893,9 +6896,11 @@ debug_color = Color(0, 1, 0, 0.419608)
 
 [node name="Area2D4" type="Area2D" parent="Scale Player"]
 
-[node name="Hurtbox" parent="." instance=ExtResource("9_cyy3h")]
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("Character", "Sprite") instance=ExtResource("9_cyy3h")]
 collision_layer = 8193
 script = ExtResource("10_rlpqx")
+Character = NodePath("..")
+Sprite = NodePath("../Sprite")
 
 [node name="Collision Body" parent="Hurtbox" index="0"]
 z_index = 8
@@ -6929,8 +6934,8 @@ bus = &"SFX"
 
 [node name="Counter Position" parent="." instance=ExtResource("15_lhwgj")]
 
-[node name="Jump Smoke" parent="." node_paths=PackedStringArray("Character") instance=ExtResource("16_afjxw")]
-Character = NodePath("..")
+[node name="Jump Smoke" parent="." instance=ExtResource("17_o01ah")]
+Character = null
 
 [node name="Left" type="RayCast2D" parent="."]
 position = Vector2(0, -8)

@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://jqksv28nm0sn"]
+
+[ext_resource type="Texture2D" uid="uid://bk4sjs58yfe3y" path="res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)1.png" id="1_e8rgy"]
+[ext_resource type="Texture2D" uid="uid://hwhwr0c0bcuu" path="res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)2.png" id="2_ccp81"]
+[ext_resource type="Texture2D" uid="uid://dm4wxbp7vrqr1" path="res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)3.png" id="3_mqpw4"]
+[ext_resource type="Texture2D" uid="uid://bj4xsq3iog3mq" path="res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)4.png" id="4_05mf1"]
+[ext_resource type="Texture2D" uid="uid://ljrgxl2nuemr" path="res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)5.png" id="5_nqvd1"]
+[ext_resource type="Texture2D" uid="uid://b6bdvf5uo4h5g" path="res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)6.png" id="6_3gjhq"]
+[ext_resource type="Texture2D" uid="uid://bv0gtog0yfevr" path="res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)7.png" id="7_y8trm"]
+[ext_resource type="Script" path="res://Character Resouces/Global Components/Cloud Resources/Animate Cloud.gd" id="8_qx620"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sev5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e8rgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ccp81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mqpw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_05mf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nqvd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3gjhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y8trm")
+}],
+"loop": true,
+"name": &"Smoke",
+"speed": 5.0
+}]
+
+[node name="Wall Cloud" type="AnimatedSprite2D"]
+position = Vector2(24, 0)
+rotation = 1.5708
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_sev5d")
+animation = &"Smoke"
+script = ExtResource("8_qx620")
+
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

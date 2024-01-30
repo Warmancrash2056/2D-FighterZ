@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://o7egxmtclkbe" path="res://Elementals_Crystal_Mauler_Full_v1.0/animations/spritesheet/crystal_mauler_full_288x128_SpriteSheet.png" id="1_1kuc6"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="2_nq0m2"]
-[ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="3_h78p8"]
-[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://Character Resouces/Global/health.tscn" id="4_375s8"]
-[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://Character Resouces/Global/super_energy.tscn" id="5_0anwn"]
-[ext_resource type="PackedScene" uid="uid://duiga22704uhr" path="res://Character Resouces/Global/dash_smoke_position.tscn" id="6_kjeqr"]
-[ext_resource type="PackedScene" uid="uid://bgm4l7ardrnil" path="res://Character Resouces/Global/deplete_energy.tscn" id="7_elip6"]
+[ext_resource type="PackedScene" path="res://Character Resouces/Global/foot.tscn" id="3_h78p8"]
+[ext_resource type="PackedScene" path="res://Character Resouces/Global/health.tscn" id="4_375s8"]
+[ext_resource type="PackedScene" path="res://Character Resouces/Global/super_energy.tscn" id="5_0anwn"]
+[ext_resource type="PackedScene" uid="uid://c4gpb7tdkojbw" path="res://Character Resouces/Global Components/dash_smoke_position.tscn" id="6_kjeqr"]
+[ext_resource type="PackedScene" path="res://Character Resouces/Global/deplete_energy.tscn" id="7_elip6"]
 [ext_resource type="PackedScene" uid="uid://b3mosh5sutup4" path="res://Character Resouces/Global/block_timer.tscn" id="8_4skqw"]
 
 [sub_resource type="Animation" id="Animation_fjj40"]

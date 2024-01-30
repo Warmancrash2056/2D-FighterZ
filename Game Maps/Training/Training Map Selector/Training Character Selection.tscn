@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dpa5754pfc4ay" path="res://Character Resouces/Hunter/Icon/Hunter.png" id="5_hku8w"]
 [ext_resource type="Texture2D" uid="uid://dw6tyvkv0vbmr" path="res://Character Resouces/Nomad/Icon/Nomad Character Icon.png" id="6_12sxl"]
 [ext_resource type="Texture2D" uid="uid://bnmiete3u3yf8" path="res://Character Resouces/Atlantis/Icon/Princess Atlantis.png" id="7_fiuam"]
-[ext_resource type="Texture2D" uid="uid://c5tbxkeptjepb" path="res://Game Start/Player Cursors/SelectionCursorPlayer1.png" id="8_g8djx"]
-[ext_resource type="Script" path="res://Game Start/Player Cursors/Main Cursor.gd" id="9_bs0ms"]
+[ext_resource type="Texture2D" uid="uid://c5tbxkeptjepb" path="res://Game Start Menu/Player Cursors/SelectionCursorPlayer1.png" id="8_g8djx"]
+[ext_resource type="Script" path="res://Game Start Menu/Player Cursors/Main Cursor.gd" id="9_bs0ms"]
 [ext_resource type="Texture2D" uid="uid://bwjnt30m56qyb" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_1.png" id="10_qnhr2"]
 [ext_resource type="Texture2D" uid="uid://y1eglm80iyq7" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_2.png" id="11_mire8"]
 [ext_resource type="Texture2D" uid="uid://byw4tlqhshaet" path="res://Character Resouces/General Archfield/Showcase Animations/Idle/idle_3.png" id="12_5ie8g"]
@@ -128,8 +128,9 @@
 [ext_resource type="Texture2D" uid="uid://b7cpd36fopm5t" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_8.png" id="126_oaajx"]
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_9.png" id="127_4re4a"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Sakura/Animation/Up Light/06_trap_cast_10.png" id="128_r8hh1"]
-[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/Background.tscn" id="129_qxg35"]
-[ext_resource type="Script" path="res://Game Start/Local Play/Prompt Animate.gd" id="130_le6la"]
+[ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start Menu/Background.tscn" id="129_qxg35"]
+[ext_resource type="Script" path="res://Game Start Menu/Local Play/Prompt Animate.gd" id="130_le6la"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwqe8"]
 size = Vector2(25, 25)

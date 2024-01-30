@@ -1,4 +1,4 @@
-class_name Player2 extends CharacterBody2D
+class_name Player1 extends CharacterBody2D
 
 # Get character Resources
 var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
@@ -11,12 +11,6 @@ signal WallCloud
 signal CounterCloud
 signal Player1Box
 signal ShootProjectile
-
-
-var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn") # Goku Projectile Position #
-# Goku Projectile Position #
-
-var goku_ground_projectiles = preload("res://Character Resouces/Goku/Goku Ground Projectile.tscn")
 
 # Global player nodes.
 @onready var Animate = $Character

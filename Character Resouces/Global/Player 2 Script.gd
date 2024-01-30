@@ -7,16 +7,20 @@ signal JumpSmoke
 signal FacingLeft
 signal FacingRight
 signal DashCloud
+
+
+
+
+
+
+
+
+
+
 signal WallCloud
 signal CounterCloud
 signal Player1Box
 signal ShootProjectile
-
-
-var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn") # Goku Projectile Position #
-# Goku Projectile Position #
-
-var goku_ground_projectiles = preload("res://Character Resouces/Goku/Goku Ground Projectile.tscn")
 
 # Global player nodes.
 @onready var Animate = $Character

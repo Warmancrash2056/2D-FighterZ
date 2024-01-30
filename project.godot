@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="2D FighterZ"
-run/main_scene="res://Game Start/Attention Prompt/Attention.tscn"
+run/main_scene="res://Game Start Menu/Attention Prompt/Attention.tscn"
 config/features=PackedStringArray("4.2")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Character Resouces/General Archfield/Character Icon/General Archfield Character Icon.png"
@@ -21,9 +21,9 @@ config/icon="res://Character Resouces/Nomad/wind_elemental.png"
 
 Mainloop="*res://Mainloop.gd"
 CharacterList="*res://Autoloads/Character List.gd"
-GameAuido="*res://Autoloads/Game Audio.tscn"
-UserSettingConfig="*res://Save/UserSettingConfig.gd"
-Startup="*res://Autoloads/Startup.gd"
+GameAuido="*res://Autoloads/Game Music/Game Audio.tscn"
+UserSettingConfig="*res://User Setting/Save/UserSettingConfig.gd"
+Startup="*res://User Setting/Save/Startup.gd"
 
 [display]
 

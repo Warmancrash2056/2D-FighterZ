@@ -1,16 +1,17 @@
 [gd_scene load_steps=49 format=3 uid="uid://xjr8aac2s8dj"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/main_player.gd" id="1_cvyji"]
-[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://Character Resouces/Global/health.tscn" id="10_0e0np"]
-[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://Character Resouces/Global/super_energy.tscn" id="11_0havx"]
+[ext_resource type="PackedScene" path="res://Character Resouces/Global/health.tscn" id="10_0e0np"]
+[ext_resource type="PackedScene" path="res://Character Resouces/Global/super_energy.tscn" id="11_0havx"]
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="11_bysv5"]
-[ext_resource type="PackedScene" uid="uid://duiga22704uhr" path="res://Character Resouces/Global/dash_smoke_position.tscn" id="21_3328p"]
+[ext_resource type="PackedScene" uid="uid://c4gpb7tdkojbw" path="res://Character Resouces/Global Components/dash_smoke_position.tscn" id="21_3328p"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="22_3mu5l"]
 [ext_resource type="AudioStream" uid="uid://c2ldo6ed1yggw" path="res://Character Resouces/Global/melee sounds/sword sound.wav" id="24_vc57e"]
 [ext_resource type="AudioStream" uid="uid://dg23uykbeo64t" path="res://Character Resouces/Hunter/Sounds/Up Light Sound.wav" id="25_7c44d"]
 [ext_resource type="Texture2D" uid="uid://dd2rhi2iioqq8" path="res://Character Resouces/Hunter/Spritesheet/Hunter Spritesheet.png" id="27_kc285"]
 [ext_resource type="AudioStream" uid="uid://dvnbf8odfka1u" path="res://Character Resouces/Hunter/Sounds/Arrow Sound Effects.wav" id="27_rtgld"]
-[ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="28_h5me4"]
+[ext_resource type="PackedScene" path="res://Character Resouces/Global/foot.tscn" id="28_h5me4"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmvo0"]
 height = 150.0

@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bu8m47gsmcmw0" path="res://Character Resouces/Nomad/Spritesheet/wind_SpriteSheet_288x128 (1).png" id="2_yqfqb"]
 [ext_resource type="PackedScene" uid="uid://ch6l2lt2f78mn" path="res://Character Resouces/Nomad/Nomad Hitbox/nomad_nuetral_attack_starter.tscn" id="3_nvjpr"]
 [ext_resource type="PackedScene" uid="uid://c6shqgarp7um3" path="res://Character Resouces/Nomad/Nomad Hitbox/nomad_side_attack_finisher.tscn" id="4_bgk25"]
-[ext_resource type="PackedScene" uid="uid://vinflscbehb3" path="res://Character Resouces/Global/foot.tscn" id="4_n55kq"]
+[ext_resource type="PackedScene" path="res://Character Resouces/Global/foot.tscn" id="4_n55kq"]
 [ext_resource type="PackedScene" uid="uid://de3y3uvf810dx" path="res://Character Resouces/Nomad/Nomad Hitbox/nomad_down_attack.tscn" id="5_eujnc"]
-[ext_resource type="PackedScene" uid="uid://cxmroxl1y07bn" path="res://Character Resouces/Global/health.tscn" id="5_givbn"]
-[ext_resource type="PackedScene" uid="uid://6h3gp84hs6n4" path="res://Character Resouces/Global/super_energy.tscn" id="6_7rfxx"]
+[ext_resource type="PackedScene" path="res://Character Resouces/Global/health.tscn" id="5_givbn"]
+[ext_resource type="PackedScene" path="res://Character Resouces/Global/super_energy.tscn" id="6_7rfxx"]
 [ext_resource type="PackedScene" uid="uid://de2m0ft623a3m" path="res://Character Resouces/Nomad/Nomad Hitbox/nomad_air_attack.tscn" id="6_ssujm"]
 [ext_resource type="PackedScene" uid="uid://2mvd1n3pxqoi" path="res://Character Resouces/Nomad/Nomad Hitbox/nomad_up_attack.tscn" id="7_yb0ev"]
 [ext_resource type="PackedScene" uid="uid://b3pnef0ji2ka6" path="res://Character Resouces/Nomad/Nomad Hitbox/nomad_super_air_attack.tscn" id="8_mcmq3"]
@@ -15,9 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://cfqr7q4quwtj5" path="res://Character Resouces/Nomad/Nomad Hitbox/nomad_super_down_attack.tscn" id="10_hrfvt"]
 [ext_resource type="PackedScene" uid="uid://cmmp84xt21823" path="res://Character Resouces/Nomad/Nomad Hitbox/nomad_super_side_attack_starter.tscn" id="11_fa14u"]
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="13_ganvk"]
-[ext_resource type="PackedScene" uid="uid://duiga22704uhr" path="res://Character Resouces/Global/dash_smoke_position.tscn" id="13_re6qe"]
+[ext_resource type="PackedScene" uid="uid://c4gpb7tdkojbw" path="res://Character Resouces/Global Components/dash_smoke_position.tscn" id="13_re6qe"]
 [ext_resource type="PackedScene" uid="uid://b3mosh5sutup4" path="res://Character Resouces/Global/block_timer.tscn" id="16_5hayc"]
 [ext_resource type="PackedScene" uid="uid://bo5d2bj4lq3gj" path="res://Character Resouces/hurtbox.tscn" id="17_67hnw"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhg5g"]
 

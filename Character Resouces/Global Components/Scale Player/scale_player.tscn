@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3ht5pyb76ndi"]
+
+[ext_resource type="Script" path="res://Character Resouces/Global Components/Scale Player/Scale Player.gd" id="1_fd72a"]
+
+[node name="Scale Player" type="Node2D"]
+z_index = 1
+script = ExtResource("1_fd72a")

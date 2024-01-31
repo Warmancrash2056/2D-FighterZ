@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b32x68ug5uvgv"]
-
-[ext_resource type="Script" path="res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Position.gd" id="1_sqjkr"]
-
-[node name="Wall Cloud Position" type="Marker2D"]
-position = Vector2(-7, 0)
-script = ExtResource("1_sqjkr")

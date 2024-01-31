@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Icon/Goku.png" id="1_1wech"]
 [ext_resource type="Script" path="res://Autoloads/Player 1 Healthbar.gd" id="1_cqcrg"]
-[ext_resource type="Texture2D" uid="uid://8te4nfn2jivc" path="res://Character Resouces/H2.png" id="3_6qn44"]
-[ext_resource type="Texture2D" uid="uid://dmojit5h8krk" path="res://Character Resouces/h1.png" id="4_8777c"]
+[ext_resource type="Texture2D" uid="uid://8te4nfn2jivc" path="res://Camera Components/H2.png" id="3_6qn44"]
+[ext_resource type="Texture2D" uid="uid://dmojit5h8krk" path="res://Camera Components/h1.png" id="4_8777c"]
 
 [node name="Player 1 Healthbar" type="Node2D"]
 script = ExtResource("1_cqcrg")

@@ -45,8 +45,7 @@ var get_player_2_script = preload("res://Character Resouces/Global/Player 2 Scri
 var SelectCharacters = {
 	"General Archfield" : preload("res://Character Resouces/General Archfield/Character Scenes/General Archfield.tscn"),
 	"Hunter" : preload("res://Character Resouces/Hunter/Character Scene/Hunter.tscn"),
-	"Atlantis" : preload("res://Character Resouces/Atlantis/Character Scenes/Atlantis.tscn"),
 	"Nomad" : preload("res://Character Resouces/Nomad/Character Scenes/Nomad.tscn"),
-	"Goku" : preload("res://Character Resouces/Goku/Character Scenes/Goku.tscn"),
+	"Goku" : preload("res://Character Resouces/Goku/Goku.tscn"),
 	"Sakura" : preload("res://Character Resouces/Sakura/Character Scene/Sakura.tscn")
 }

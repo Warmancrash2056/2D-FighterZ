@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj0trnwvm27x4"]
-
-[ext_resource type="Script" path="res://Character Resouces/Global Components/Projectile.gd" id="1_op23q"]
-
-[node name="Projectile Position" type="Marker2D"]
-position = Vector2(32.5, 0)
-script = ExtResource("1_op23q")

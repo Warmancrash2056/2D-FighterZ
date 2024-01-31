@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://dlehafcpnrehc"]
+
+[ext_resource type="Texture2D" uid="uid://c5k6yefsm1kjp" path="res://Character Resouces/Global/Dash Resources/Dash/SmokeNDust P03 VFX 1.png" id="1_l22eo"]
+[ext_resource type="Script" path="res://Global Components/Cloud Resources/Animate Cloud.gd" id="2_2v2w4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vmgi"]
+atlas = ExtResource("1_l22eo")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7yig"]
+atlas = ExtResource("1_l22eo")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxrng"]
+atlas = ExtResource("1_l22eo")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvytj"]
+atlas = ExtResource("1_l22eo")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x8qg"]
+atlas = ExtResource("1_l22eo")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0oq7"]
+atlas = ExtResource("1_l22eo")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3qn7"]
+atlas = ExtResource("1_l22eo")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y227e"]
+atlas = ExtResource("1_l22eo")
+region = Rect2(560, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ljft"]
+atlas = ExtResource("1_l22eo")
+region = Rect2(640, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyuk8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vmgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7yig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxrng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvytj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x8qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0oq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3qn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y227e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ljft")
+}],
+"loop": true,
+"name": &"Smoke",
+"speed": 25.0
+}]
+
+[node name="Dash Cloud" type="AnimatedSprite2D"]
+z_index = 6
+sprite_frames = SubResource("SpriteFrames_iyuk8")
+animation = &"Smoke"
+script = ExtResource("2_2v2w4")
+
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

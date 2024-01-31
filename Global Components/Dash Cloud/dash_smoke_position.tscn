@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://duiga22704uhr"]
+
+[ext_resource type="Script" path="res://Global Components/Dash Cloud/Dash Smoke Position.gd" id="1_82qo4"]
+[ext_resource type="PackedScene" uid="uid://dlehafcpnrehc" path="res://Global Components/Dash Cloud/dash_cloud.tscn" id="2_ryfx3"]
+
+[node name="Dash Smoke Position" type="Marker2D"]
+position = Vector2(-0.333333, 38.8333)
+script = ExtResource("1_82qo4")
+dash_smoke = ExtResource("2_ryfx3")

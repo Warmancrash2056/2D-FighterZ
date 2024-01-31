@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxhu4tahjydj4"]
+
+[ext_resource type="Script" path="res://Global Components/Jump Cloud/Jump Position.gd" id="1_5p830"]
+[ext_resource type="PackedScene" uid="uid://bo08t0pi17rio" path="res://Global Components/Jump Cloud/jump_cloud.tscn" id="2_qxx2t"]
+[ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="3_rh1fc"]
+
+[node name="Jump Position" type="Marker2D"]
+position = Vector2(0, 10)
+script = ExtResource("1_5p830")
+Jump_Cloud = ExtResource("2_qxx2t")
+
+[node name="Character Jump Sound" parent="." instance=ExtResource("3_rh1fc")]

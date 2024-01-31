@@ -1,28 +1,30 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706655645
+::res://::1706737518
 Chevron-Arrow-Down.png::CompressedTexture2D::5463721717587315834::1704265990::1704265990::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::2026510409249886750::1706018536::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1704320184::0::1::::<><>::
 Goku Sprite.png::CompressedTexture2D::7614972621078964578::1704238738::1704238738::1::::<><>::
-::res://Autoloads/::1706625480
-Character List.gd::GDScript::-1::1704819844::0::1::::<>Node<>::
+::res://Autoloads/::1706733828
+Character List.gd::GDScript::-1::1706733828::0::1::::<>Node<>::
 Main Healthbar.gd::GDScript::-1::1704238737::0::1::::<>Node2D<>::
 Main Healthbar.tscn::PackedScene::8049980376462762768::1704238737::0::1::::<><>::uid://cmmfha48flbf::::res://Character Resouces/Goku/Icon/Goku.png<>res://Autoloads/Main Healthbar.gd
 Player 1 Healthbar.gd::GDScript::-1::1704265990::0::1::::<>Node2D<>::
-Player 1 Healthbar.tscn::PackedScene::4388124762612825714::1704819844::0::1::::<><>::uid://cmmfha48flbf::::res://Character Resouces/Goku/Icon/Goku.png<>res://Autoloads/Player 1 Healthbar.gd<>uid://8te4nfn2jivc::::res://Character Resouces/H2.png<>uid://dmojit5h8krk::::res://Character Resouces/h1.png
+Player 1 Healthbar.tscn::PackedScene::4388124762612825714::1706668753::0::1::::<><>::uid://cmmfha48flbf::::res://Character Resouces/Goku/Icon/Goku.png<>res://Autoloads/Player 1 Healthbar.gd<>uid://8te4nfn2jivc::::res://Camera Components/H2.png<>uid://dmojit5h8krk::::res://Camera Components/h1.png
 Player 2 Healthbar.gd::GDScript::-1::1704265990::0::1::::<>Node2D<>::
-Player 2 Healthbar.tscn::PackedScene::6458190388263561548::1704819844::0::1::::<><>::res://Autoloads/Player 2 Healthbar.gd<>uid://cmmfha48flbf::::res://Character Resouces/Goku/Icon/Goku.png<>uid://8te4nfn2jivc::::res://Character Resouces/H2.png<>uid://dmojit5h8krk::::res://Character Resouces/h1.png
+Player 2 Healthbar.tscn::PackedScene::6458190388263561548::1706668753::0::1::::<><>::res://Autoloads/Player 2 Healthbar.gd<>uid://cmmfha48flbf::::res://Character Resouces/Goku/Icon/Goku.png<>uid://8te4nfn2jivc::::res://Camera Components/H2.png<>uid://dmojit5h8krk::::res://Camera Components/h1.png
 ::res://Autoloads/Game Music/::1706625489
 Game Audio.gd::GDScript::-1::1704238737::0::1::::<>AudioStreamPlayer2D<>::
 Game Audio.tscn::PackedScene::4588974479685802981::1706625489::0::1::::<><>::res://Autoloads/Game Music/Game Audio.gd
-::res://Camera Components/::1706624921
+::res://Camera Components/::1706668814
 Camera Ui.tscn::PackedScene::7755618763862938993::1706624921::0::1::::<><>::uid://b3rv1kotqtmjy::::res://Autoloads/Player 1 Healthbar.tscn<>uid://cyanpmw7wuxhc::::res://Autoloads/Player 2 Healthbar.tscn<>uid://c44n0gxwdlna2::::res://User Setting/Setting Menu.tscn
+Fps Counter.gd::GDScript::-1::1687044968::0::1::::<>RichTextLabel<>::
+Fps Counter.tscn::PackedScene::5893510151584106833::1706668814::0::1::::<><>::res://Camera Components/Fps Counter.gd
+h1.png::CompressedTexture2D::236205624918500332::1704238737::1706668735::1::::<><>::
+H2.png::CompressedTexture2D::2355750364531191492::1704238737::1706668755::1::::<><>::
 Local Camera.tscn::PackedScene::3122521360031842630::1706624921::0::1::::<><>::uid://diq454tksfcxt::::res://Camera Components/Camera Ui.tscn
 players_stats.tscn::PackedScene::6293975000669053039::1706624921::0::1::::<><>::uid://b3rv1kotqtmjy::::res://Autoloads/Player 1 Healthbar.tscn<>uid://cyanpmw7wuxhc::::res://Autoloads/Player 2 Healthbar.tscn
-::res://Character Resouces/::1706654537
+::res://Character Resouces/::1706668845
 General Archfield Spritesheet.png::CompressedTexture2D::7389044390005735068::1687906280::1687906283::1::::<><>::
-h1.png::CompressedTexture2D::236205624918500332::1704238737::1704238737::1::::<><>::
-H2.png::CompressedTexture2D::2355750364531191492::1704238737::1704238737::1::::<><>::
 Smoke VFX C1.png::CompressedTexture2D::275789850997407818::1687044968::1687765448::1::::<><>::
 Smoke VFX C2.png::CompressedTexture2D::171867308881708871::1687044968::1687765448::1::::<><>::
 Smoke VFX C3.png::CompressedTexture2D::6090753529820180526::1687044968::1687765448::1::::<><>::
@@ -31,11 +33,8 @@ Smoke VFX C5.png::CompressedTexture2D::1037478839069249743::1687044968::16877654
 Smoke VFX C6.png::CompressedTexture2D::249456330628081638::1687044968::1687765448::1::::<><>::
 Smoke VFX C7.png::CompressedTexture2D::4559966852866373166::1687044968::1687765448::1::::<><>::
 Smoke VFX C8.png::CompressedTexture2D::5003378344277560261::1687044968::1687765448::1::::<><>::
-::res://Character Resouces/Atlantis/::1690138996
-Down Light End.wav::AudioStreamWAV::2356850468277462170::1687044967::1687765448::1::::<><>::
-Down Light Start.wav::AudioStreamWAV::485806076491573754::1687044967::1687765448::1::::<><>::
-Side Light.wav::AudioStreamWAV::4506601864431736198::1687044967::1687765448::1::::<><>::
-Up Light.wav::AudioStreamWAV::3414852064742968337::1687044968::1687765448::1::::<><>::
+::res://Character Resouces/Atlantis/::1706669112
+Atlantis.tscn::PackedScene::1878249896280038358::1706653300::0::1::::<><>::res://Character Resouces/Global/main_player.gd<>uid://c4gpb7tdkojbw::::res://Character Resouces/Global Components/dash_smoke_position.tscn<>uid://dpsb4r31ba6ga::::res://Character Resouces/Atlantis/Spritesheet/Atlantis Spritesheet.png<>uid://cyejc3wbe4pgc::::res://Character Resouces/Global/Jump Smoke Assets/Player Jump.wav<>uid://bmsj2n0xspnmq::::res://Character Resouces/Global/melee sounds/melee sound.wav<>uid://b5hbcr4w7bgda::::res://Character Resouces/Atlantis/Side Light.wav<>uid://g6lfjkfjemdu::::res://Character Resouces/Atlantis/Down Light Start.wav<>uid://8tw8og2yy4d7::::res://Character Resouces/Atlantis/Down Light End.wav<>res://Character Resouces/Global/foot.tscn<>uid://bo5d2bj4lq3gj::::res://Character Resouces/hurtbox.tscn
 ::res://Character Resouces/Atlantis/Animation/::1687044967
 ::res://Character Resouces/Atlantis/Animation/Down Light/::1687765448
 3_atk_17.png::CompressedTexture2D::7856456958309202475::1687044967::1687765448::1::::<><>::
@@ -135,8 +134,7 @@ sp_atk_29.png::CompressedTexture2D::5253451871708586641::1687044967::1687765448:
 sp_atk_30.png::CompressedTexture2D::3892403836214806041::1687044967::1687765448::1::::<><>::
 sp_atk_31.png::CompressedTexture2D::5162890935721199684::1687044967::1687765448::1::::<><>::
 sp_atk_32.png::CompressedTexture2D::7286053348063971757::1687044967::1687765448::1::::<><>::
-::res://Character Resouces/Atlantis/Character Scenes/::1706653300
-Atlantis.tscn::PackedScene::1878249896280038358::1706653300::0::1::::<><>::res://Character Resouces/Global/main_player.gd<>uid://c4gpb7tdkojbw::::res://Character Resouces/Global Components/dash_smoke_position.tscn<>uid://dpsb4r31ba6ga::::res://Character Resouces/Atlantis/Spritesheet/Atlantis Spritesheet.png<>uid://cyejc3wbe4pgc::::res://Character Resouces/Global/Jump Smoke Assets/Player Jump.wav<>uid://bmsj2n0xspnmq::::res://Character Resouces/Global/melee sounds/melee sound.wav<>uid://b5hbcr4w7bgda::::res://Character Resouces/Atlantis/Side Light.wav<>uid://g6lfjkfjemdu::::res://Character Resouces/Atlantis/Down Light Start.wav<>uid://8tw8og2yy4d7::::res://Character Resouces/Atlantis/Down Light End.wav<>res://Character Resouces/Global/foot.tscn<>uid://bo5d2bj4lq3gj::::res://Character Resouces/hurtbox.tscn
+::res://Character Resouces/Atlantis/Character Scenes/::1706669112
 ::res://Character Resouces/Atlantis/Icon/::1694028855
 Princess Atlantis.png::CompressedTexture2D::3324142068576908107::1687044967::1687765448::1::::<><>::
 water_elemental.png::CompressedTexture2D::225902209818334069::1694028855::1694028855::1::::<><>::
@@ -147,8 +145,8 @@ Tbh.tscn::PackedScene::421090365663164550::1706653300::0::1::::<><>::uid://o7egx
 ::res://Character Resouces/General Archfield/::1689567150
 ::res://Character Resouces/General Archfield/Character Icon/::1687765448
 General Archfield Character Icon.png::CompressedTexture2D::4694534131398237749::1687044968::1687765448::1::::<><>::
-::res://Character Resouces/General Archfield/Character Scenes/::1706654376
-General Archfield.tscn::PackedScene::1611500734138163783::1706654376::0::1::::<><>::res://Character Resouces/Global/Player 1 Script.gd<>uid://ddjkqmw4jctaq::::res://Character Resouces/General Archfield Spritesheet.png<>uid://cgismvmnnu166::::res://Character Resouces/Global/melee sounds/animal melee sound.wav<>uid://uvqcrwqnysys::::res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav<>uid://csft7v02oavc0::::res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav<>uid://dlehafcpnrehc::::res://Character Resouces/Global Components/Cloud Resources/dash_cloud.tscn<>uid://duiga22704uhr::::res://Character Resouces/Global Components/dash_smoke_position.tscn<>uid://b3mosh5sutup4::::res://Character Resouces/Global/block_timer.tscn<>uid://cfffw24up6a7l::::res://Character Resouces/Global Components/Counter Cloud/counter.tscn<>uid://dbl8tfhqj4rfw::::res://Character Resouces/Global/wall_jump_cloud.tscn<>uid://bdexwo5ypwmay::::res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn<>uid://bo5d2bj4lq3gj::::res://Character Resouces/hurtbox.tscn
+::res://Character Resouces/General Archfield/Character Scenes/::1706669840
+General Archfield.tscn::PackedScene::1611500734138163783::1706669840::0::1::::<><>::res://Character Resouces/Global/Player 1 Script.gd<>uid://ddjkqmw4jctaq::::res://Character Resouces/General Archfield Spritesheet.png<>uid://cgismvmnnu166::::res://Character Resouces/Global/melee sounds/animal melee sound.wav<>uid://uvqcrwqnysys::::res://Character Resouces/General Archfield/Sound Effects/Down Light Sound.wav<>uid://csft7v02oavc0::::res://Character Resouces/General Archfield/Sound Effects/Up Light Sound.wav<>uid://dlehafcpnrehc::::res://Global Components/Dash Cloud/dash_cloud.tscn<>uid://duiga22704uhr::::res://Global Components/Dash Cloud/dash_smoke_position.tscn<>uid://b3mosh5sutup4::::res://Character Resouces/Global/block_timer.tscn<>uid://cfffw24up6a7l::::res://Global Components/Counter Cloud/counter.tscn<>uid://dbl8tfhqj4rfw::::res://Character Resouces/Global/wall_jump_cloud.tscn<>uid://bdexwo5ypwmay::::res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn<>res://Character Resouces/hurtbox.tscn
 ::res://Character Resouces/General Archfield/Projectile/::1690182549
 CharacterBody2D.gd::GDScript::-1::1689571201::0::1::::<>CharacterBody2D<>::
 General Archfield Side Attack Projectile Spritesheet (1x8).png::CompressedTexture2D::2283082753034761804::1689567150::1689567181::1::::<><>::
@@ -234,11 +232,11 @@ sp_atk_18.png::CompressedTexture2D::7071900792413231667::1687044968::1687765448:
 Down Light Sound.wav::AudioStreamWAV::1448104776695929882::1687044968::1687765448::1::::<><>::
 Up Light Sound.wav::AudioStreamWAV::6047774352764556337::1687044968::1687765448::1::::<><>::
 ::res://Character Resouces/General Archfield/Spritesheet/::1687904636
-::res://Character Resouces/Global/::1706655384
+::res://Character Resouces/Global/::1706733989
 block_timer.tscn::PackedScene::4377363435648662019::1704819845::0::1::::<><>::
 Player 1 Script.gd::GDScript::-1::1706627832::0::1::::Player1<>CharacterBody2D<>::
-Player 2 Script.gd::GDScript::-1::1706651219::0::1::::Player2<>CharacterBody2D<>::
-wall_jump_cloud.tscn::PackedScene::7254196915028014524::1706655384::0::1::::<><>::uid://bk4sjs58yfe3y::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)1.png<>uid://hwhwr0c0bcuu::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)2.png<>uid://dm4wxbp7vrqr1::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)3.png<>uid://bj4xsq3iog3mq::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)4.png<>uid://ljrgxl2nuemr::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)5.png<>uid://b6bdvf5uo4h5g::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)6.png<>uid://bv0gtog0yfevr::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)7.png<>res://Character Resouces/Global Components/Jump Cloud/Jump Position.gd
+Player 2 Script.gd::GDScript::-1::1706733989::0::1::::Player2<>CharacterBody2D<>::
+wall_jump_cloud.tscn::PackedScene::7254196915028014524::1706668845::0::1::::<><>::uid://bk4sjs58yfe3y::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)1.png<>uid://hwhwr0c0bcuu::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)2.png<>uid://dm4wxbp7vrqr1::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)3.png<>uid://bj4xsq3iog3mq::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)4.png<>uid://ljrgxl2nuemr::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)5.png<>uid://b6bdvf5uo4h5g::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)6.png<>uid://bv0gtog0yfevr::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)7.png<>res://Global Components/Jump Cloud/Jump Position.gd
 ::res://Character Resouces/Global/Controller Resource/::1706627162
 Controller.gd::GDScript::-1::1704320438::0::1::::InputSys<>Resource<>::
 Player_1.tres::Resource/Resource::6367042754647242665::1704819696::0::1::::<><>::res://Character Resouces/Global/Controller Resource/Controller.gd
@@ -258,66 +256,9 @@ Player Jump.wav::AudioStreamWAV::6466182654929365714::1689567150::1689567183::1:
 animal melee sound.wav::AudioStreamWAV::5211604908780385845::1687044968::1687765448::1::::<><>::
 melee sound.wav::AudioStreamWAV::3266440998786232084::1687044968::1687765448::1::::<><>::
 sword sound.wav::AudioStreamWAV::6690857087575775546::1687044968::1687765448::1::::<><>::
-::res://Character Resouces/Global Components/::1706656525
-body.tscn::PackedScene::6209999255642115684::1706654190::0::1::::<><>::
-Dash Smoke Position.gd::GDScript::-1::1706651957::0::1::::<>Marker2D<>::
-dash_smoke_position.tscn::PackedScene::8579919709157706119::1694209845::0::1::::<><>::
-goku_projectile_position.tscn::PackedScene::3070914419406360931::1706654014::0::1::::<><>::res://Character Resouces/Global Components/Projectile.gd
-Hitbox Component.gd::GDScript::-1::1706624921::0::1::::<>Area2D<>::
-player_indicator.tscn::PackedScene::2404688800757005167::1706624921::0::1::::<><>::uid://cj3wx0nbythks::::res://Chevron-Arrow-Down.png
-Projectile.gd::GDScript::-1::1706624921::0::1::::<>Marker2D<>::
-projectile_position.tscn::PackedScene::5424278110808630589::1706627901::0::1::::<><>::res://Character Resouces/Goku/Character Scenes/Goku Projectile Position.gd
-::res://Character Resouces/Global Components/Cloud Resources/::1706655405
-Animate Cloud.gd::GDScript::-1::1706653888::0::1::::<>AnimatedSprite2D<>::
-dash_cloud.tscn::PackedScene::7940022127469200056::1706654011::0::1::::<><>::uid://c5k6yefsm1kjp::::res://Character Resouces/Global/Dash Resources/Dash/SmokeNDust P03 VFX 1.png<>res://Character Resouces/Global Components/Cloud Resources/Animate Cloud.gd
-::res://Character Resouces/Global Components/Counter Cloud/::1706654512
-Counter Position.gd::GDScript::-1::1706654190::0::1::::<>Marker2D<>::
-counter.tscn::PackedScene::5134451810636157939::1706654512::0::1::::<><>::uid://c10d8cd8853sa::::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)1.png<>uid://cghmuc2cp1ch8::::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)2.png<>uid://ryh4yi351mjk::::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)3.png<>uid://bc10wnbhik7tb::::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)4.png<>uid://b2xv46nhf6rgv::::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)5.png<>uid://dts3l8yr73w74::::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)6.png<>uid://cogck3ve4x75b::::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)7.png<>uid://bas16kqt7smf8::::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)8.png<>uid://5q555qk3hjoo::::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)9.png<>uid://pxiesse3skf5::::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)10.png<>res://Character Resouces/Global Components/Cloud Resources/Animate Cloud.gd
-counter_position.tscn::PackedScene::4630981961926955682::1706654391::0::1::::<><>::res://Character Resouces/Global Components/Counter Cloud/Counter Position.gd
-::res://Character Resouces/Global Components/Counter Cloud/Counter Animations/::1706654515
-Smoke VFX 10 (32X32)1.png::CompressedTexture2D::6649601939229493172::1687044968::1706654515::1::::<><>::
-Smoke VFX 10 (32X32)2.png::CompressedTexture2D::5209189540152470231::1687044968::1706654515::1::::<><>::
-Smoke VFX 10 (32X32)3.png::CompressedTexture2D::1243233489148749212::1687044968::1706654515::1::::<><>::
-Smoke VFX 10 (32X32)4.png::CompressedTexture2D::2582030089537314935::1687044968::1706654515::1::::<><>::
-Smoke VFX 10 (32X32)5.png::CompressedTexture2D::4330328643766967821::1687044968::1706654515::1::::<><>::
-Smoke VFX 10 (32X32)6.png::CompressedTexture2D::8531730370467562037::1687044968::1706654515::1::::<><>::
-Smoke VFX 10 (32X32)7.png::CompressedTexture2D::5768012240083730245::1687044968::1706654515::1::::<><>::
-Smoke VFX 10 (32X32)8.png::CompressedTexture2D::2425214035546286315::1687044968::1706654515::1::::<><>::
-Smoke VFX 10 (32X32)9.png::CompressedTexture2D::2140572037715501382::1687044968::1706654515::1::::<><>::
-Smoke VFX 10 (32X32)10.png::CompressedTexture2D::1100807195478272320::1687044968::1706654515::1::::<><>::
-::res://Character Resouces/Global Components/Dash Cloud/::1706656525
-::res://Character Resouces/Global Components/Hurtbox/::1706654111
-hurtbox.gd::GDScript::-1::1706624921::0::1::::<>Area2D<>::
-hurtbox.tscn::PackedScene::6506708985600167143::1706627899::0::1::::<><>::
-::res://Character Resouces/Global Components/Jump Cloud/::1706655658
-Jump Position.gd::GDScript::-1::1706655141::0::1::::Jump<>Marker2D<>::
-jump_cloud.tscn::PackedScene::3422712865977860802::1706655658::0::1::::<><>::uid://7u6lkg55hnv6::::res://Character Resouces/Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)1.png<>uid://cd7ee0hqpi1tf::::res://Character Resouces/Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)2.png<>uid://d14llquikkfkm::::res://Character Resouces/Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)3.png<>uid://branhkmm0jdv8::::res://Character Resouces/Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)4.png<>uid://d2pyfv1atwr6j::::res://Character Resouces/Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)5.png<>uid://fxjia53csui6::::res://Character Resouces/Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)6.png<>uid://dfa2ducw4uwyx::::res://Character Resouces/Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)7.png<>res://Character Resouces/Global Components/Jump Cloud/Jump Position.gd
-jump_position.tscn::PackedScene::6402902541492611467::1706655384::0::1::::<><>::res://Character Resouces/Global Components/Jump Cloud/Jump Position.gd<>uid://bdexwo5ypwmay::::res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn
-::res://Character Resouces/Global Components/Jump Cloud/Jump Cloud Animations/::1706655647
-Smoke VFX 2 (48X16)1.png::CompressedTexture2D::2289232957912717685::1687044968::1706655647::1::::<><>::
-Smoke VFX 2 (48X16)2.png::CompressedTexture2D::5049719322221639011::1687044968::1706655647::1::::<><>::
-Smoke VFX 2 (48X16)3.png::CompressedTexture2D::9044727342836200164::1687044968::1706655647::1::::<><>::
-Smoke VFX 2 (48X16)4.png::CompressedTexture2D::3580433391353095759::1687044968::1706655647::1::::<><>::
-Smoke VFX 2 (48X16)5.png::CompressedTexture2D::9086793775594537419::1687044968::1706655647::1::::<><>::
-Smoke VFX 2 (48X16)6.png::CompressedTexture2D::398985693439402031::1687044968::1706655647::1::::<><>::
-Smoke VFX 2 (48X16)7.png::CompressedTexture2D::7511852040051631439::1687044968::1706655647::1::::<><>::
-::res://Character Resouces/Global Components/Scale Player/::1706654667
-Scale Player.gd::GDScript::-1::1706629689::0::1::::<>Node2D<>::
-scale_player.tscn::PackedScene::9140208338917327930::1706654667::0::1::::<><>::res://Character Resouces/Global Components/Scale Player/Scale Player.gd
-::res://Character Resouces/Global Components/Wall Cloud/::1706655231
-Wall Cloud Position.gd::GDScript::-1::1706655021::0::1::::<>Marker2D<>::
-Wall Cloud Position.tscn::PackedScene::4408900119842458485::1706655021::0::1::::<><>::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Position.gd
-wall_cloud.tscn::PackedScene::665370097242515429::1706655231::0::1::::<><>::uid://bk4sjs58yfe3y::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)1.png<>uid://hwhwr0c0bcuu::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)2.png<>uid://dm4wxbp7vrqr1::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)3.png<>uid://bj4xsq3iog3mq::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)4.png<>uid://ljrgxl2nuemr::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)5.png<>uid://b6bdvf5uo4h5g::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)6.png<>uid://bv0gtog0yfevr::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)7.png<>res://Character Resouces/Global Components/Cloud Resources/Animate Cloud.gd
-::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Animation/::1706655234
-Smoke VFX 9 (32X16)1.png::CompressedTexture2D::3149286046252177064::1687044968::1706655234::1::::<><>::
-Smoke VFX 9 (32X16)2.png::CompressedTexture2D::537203454112199132::1687044968::1706655234::1::::<><>::
-Smoke VFX 9 (32X16)3.png::CompressedTexture2D::8062772053882200372::1687044968::1706655234::1::::<><>::
-Smoke VFX 9 (32X16)4.png::CompressedTexture2D::3079416750437629480::1687044968::1706655234::1::::<><>::
-Smoke VFX 9 (32X16)5.png::CompressedTexture2D::791700809720175305::1687044968::1706655234::1::::<><>::
-Smoke VFX 9 (32X16)6.png::CompressedTexture2D::4564559176765916262::1687044968::1706655234::1::::<><>::
-Smoke VFX 9 (32X16)7.png::CompressedTexture2D::3912394821747955379::1687044968::1706655234::1::::<><>::
-::res://Character Resouces/Goku/::1706655384
-Goku.tscn::PackedScene::6861411823530115352::1706655384::0::1::::<><>::res://Character Resouces/Global/Player 2 Script.gd<>uid://d3ht5pyb76ndi::::res://Character Resouces/Global Components/Scale Player/scale_player.tscn<>uid://duiga22704uhr::::res://Character Resouces/Global Components/dash_smoke_position.tscn<>uid://dlehafcpnrehc::::res://Character Resouces/Global Components/Cloud Resources/dash_cloud.tscn<>uid://b32x68ug5uvgv::::res://Character Resouces/Global Components/Wall Cloud/Wall Cloud Position.tscn<>uid://bj0trnwvm27x4::::res://Character Resouces/Global Components/goku_projectile_position.tscn<>uid://bvgm6lrd873fg::::res://Character Resouces/Goku/Projectile Resources/Goku Air Projectile.tscn<>uid://bwldo5okthbx::::res://Character Resouces/Goku/Projectile Resources/Goku Ground Projectile.tscn<>res://Character Resouces/Global Components/Hitbox Component.gd<>uid://cyx5stt1ggq2b::::res://Character Resouces/Global Components/Hurtbox/hurtbox.tscn<>res://Character Resouces/Global Components/Hurtbox/hurtbox.gd<>uid://larmu623rlvd::::res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png<>uid://bl21gbececfew::::res://Character Resouces/Goku/Sound Effects/First Punch.wav<>uid://r5tlbrig47nu::::res://Character Resouces/Goku/Sound Effects/Second Punch.wav<>uid://bai34xpabg2ad::::res://Character Resouces/Global Components/player_indicator.tscn<>uid://b68jujlxhnb2q::::res://Character Resouces/Global Components/Counter Cloud/counter_position.tscn<>uid://cuqf1sgy87l6k::::res://Character Resouces/Global Components/body.tscn<>uid://cxhu4tahjydj4::::res://Character Resouces/Global Components/Jump Cloud/jump_position.tscn
+::res://Character Resouces/Goku/::1706734209
+Goku.tscn::PackedScene::6861411823530115352::1706734209::0::1::::<><>::res://Character Resouces/Global/Player 2 Script.gd<>uid://d3ht5pyb76ndi::::res://Global Components/Scale Player/scale_player.tscn<>uid://duiga22704uhr::::res://Global Components/Dash Cloud/dash_smoke_position.tscn<>uid://b32x68ug5uvgv::::res://Global Components/Wall Cloud/Wall Cloud Position.tscn<>uid://bj0trnwvm27x4::::res://Global Components/goku_projectile_position.tscn<>uid://bvgm6lrd873fg::::res://Character Resouces/Goku/Projectile Resources/Goku Air Projectile.tscn<>uid://bwldo5okthbx::::res://Character Resouces/Goku/Projectile Resources/Goku Ground Projectile.tscn<>res://Global Components/Hitbox Component.gd<>uid://cyx5stt1ggq2b::::res://Global Components/Hurtbox/hurtbox.tscn<>res://Global Components/Hurtbox/hurtbox.gd<>uid://larmu623rlvd::::res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png<>uid://bl21gbececfew::::res://Character Resouces/Goku/Sound Effects/First Punch.wav<>uid://r5tlbrig47nu::::res://Character Resouces/Goku/Sound Effects/Second Punch.wav<>uid://bai34xpabg2ad::::res://Global Components/player_indicator.tscn<>uid://b68jujlxhnb2q::::res://Global Components/Counter Cloud/counter_position.tscn<>uid://cuqf1sgy87l6k::::res://Global Components/body.tscn<>uid://cxhu4tahjydj4::::res://Global Components/Jump Cloud/jump_position.tscn<>res://Character Resouces/Goku/Stats.gd
+Stats.gd::GDScript::-1::1706734209::0::1::::<>Node<>::
 ::res://Character Resouces/Goku/Animations/::1693244201
 ::res://Character Resouces/Goku/Animations/Air Attack/::1687765448
 air_atk_1.png::CompressedTexture2D::1974224745557209074::1687044968::1687765448::1::::<><>::
@@ -389,9 +330,8 @@ sp_atk_22.png::CompressedTexture2D::304693644675238226::1687044968::1687765448::
 sp_atk_23.png::CompressedTexture2D::3285160216609446191::1687044968::1687765448::1::::<><>::
 sp_atk_24.png::CompressedTexture2D::2567335947285256515::1687044968::1687765448::1::::<><>::
 sp_atk_25.png::CompressedTexture2D::2561309076731386596::1687044968::1687765448::1::::<><>::
-::res://Character Resouces/Goku/Character Scenes/::1706655196
+::res://Character Resouces/Goku/Character Scenes/::1706669212
 Goku Air Projectile.tscn::PackedScene::3571465888236291487::1706624921::0::1::::<><>::res://Character Resouces/Goku/Projectile Resources/Goku Air Projectile.gd<>uid://larmu623rlvd::::res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png
-Goku.tscn::PackedScene::1220112289988477481::1706655196::0::1::::<><>::res://Character Resouces/Global/Player 2 Script.gd<>uid://larmu623rlvd::::res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png<>res://scale_player.tscn<>res://dash_smoke_position.tscn<>uid://cycxxwto0vxyj::::res://Character Resouces/Global Components/jump_smoke.tscn<>uid://bl21gbececfew::::res://Character Resouces/Goku/Sound Effects/First Punch.wav<>uid://r5tlbrig47nu::::res://Character Resouces/Goku/Sound Effects/Second Punch.wav<>uid://jqksv28nm0sn::::res://Character Resouces/Global Components/Wall Cloud/wall_cloud.tscn<>res://goku_projectile_position.tscn<>res://Character Resouces/Goku/Character Scenes/Area2D.gd<>res://Character Resouces/Goku/Goku Air Projectile.tscn<>res://Character Resouces/Goku/Goku Ground Projectile.tscn<>res://Character Resouces/Global Components/wall_jump_smoke.tscn<>res://hurtbox.gd<>res://body.tscn<>res://Character Resouces/Global Components/hurtbox.tscn<>res://counter_position.tscn<>res://player_indicator.tscn
 Jump Smoke.gd::GDScript::-1::1706627772::0::1::::<>Marker2D<>::
 Rock Grab.gd::GDScript::-1::1704265990::0::1::::<>CollisionShape2D<>::
 Wall Position.gd::GDScript::-1::1706627415::0::1::::<>Marker2D<>::
@@ -2549,9 +2489,7 @@ Goku-Sheet.png::CompressedTexture2D::2461271140603472227::1705130298::1706625368
 ::res://Final Game/User Setting/::1704313196
 ::res://Fonts/::1706625251
 ThaleahFat.ttf::FontFile::3239168839028257199::1704265990::1706625251::1::::<><>::
-::res://Game Maps/::1704238737
-Fps Counter.gd::GDScript::-1::1687044968::0::1::::<>RichTextLabel<>::
-Fps Counter.tscn::PackedScene::5893510151584106833::1687044968::0::1::::<><>::res://Game Maps/Fps Counter.gd
+::res://Game Maps/::1706668814
 ::res://Game Maps/Galvin Maps/::1687044968
 ::res://Game Maps/Galvin Maps/Galvin Assets/::1687765448
 background 1.png::CompressedTexture2D::4207597329043845570::1687044968::1687765448::1::::<><>::
@@ -2616,9 +2554,9 @@ enemy_health_bar_foreground_000.png::CompressedTexture2D::2427658607778211383::1
 mainlevbuild1.png::CompressedTexture2D::6139119702529320472::1687044968::1687765448::1::::<><>::
 mainlevbuild2.png::CompressedTexture2D::1059636469858208194::1687044968::1687765448::1::::<><>::
 ::res://Game Maps/The Artic/Map Assets/PSD/::1687044968
-::res://Game Maps/Training/::1706652396
+::res://Game Maps/Training/::1706733991
 Training Galvin.gd::GDScript::-1::1704238737::0::1::::<>Node2D<>::
-Training Galvin.tscn::PackedScene::7065362538566731118::1706652396::0::1::::<><>::uid://b07grplvo2wco::::res://Game Maps/Galvin Maps/Galvin Assets/background 1.png<>uid://b32tkmdednvbw::::res://Game Maps/Galvin Maps/Galvin Assets/background 2.png<>uid://bmalm0ncp1pnk::::res://Game Maps/Galvin Maps/Galvin Assets/background 3.png<>uid://bsuwgpoe3jyis::::res://Game Maps/Galvin Maps/Galvin Assets/background 4.png<>uid://dmuoyx7cq8gk1::::res://Game Maps/Galvin Maps/Galvin Assets/decorative.png<>uid://cy1x6qx0fet3i::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png<>uid://oi1cy53obtgr::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png<>uid://c40ypkrmks8qe::::res://Character Resouces/Goku/Goku.tscn
+Training Galvin.tscn::PackedScene::7065362538566731118::1706733991::0::1::::<><>::uid://b07grplvo2wco::::res://Game Maps/Galvin Maps/Galvin Assets/background 1.png<>uid://b32tkmdednvbw::::res://Game Maps/Galvin Maps/Galvin Assets/background 2.png<>uid://bmalm0ncp1pnk::::res://Game Maps/Galvin Maps/Galvin Assets/background 3.png<>uid://bsuwgpoe3jyis::::res://Game Maps/Galvin Maps/Galvin Assets/background 4.png<>uid://dmuoyx7cq8gk1::::res://Game Maps/Galvin Maps/Galvin Assets/decorative.png<>uid://cy1x6qx0fet3i::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png<>uid://oi1cy53obtgr::::res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png<>uid://c40ypkrmks8qe::::res://Character Resouces/Goku/Goku.tscn
 Training Map Selection.gd::GDScript::-1::1704238737::0::1::::<>Node2D<>::
 Training Map Selection.tscn::PackedScene::1571987534481031372::1706625681::0::1::::<><>::res://Game Maps/Training/Training Map Selection.gd<>uid://dojad3d7kkql6::::res://Game Maps/Galvin Maps/Game Image/Galvin Image.jpg<>uid://55jtgk7w1o2x::::res://Game Maps/The Artic/The Artic Image.png<>uid://dxt3p4j6tq4np::::res://Game Start Menu/Background.tscn
 ::res://Game Maps/Training/Training Map Selector/::1706625681
@@ -2666,6 +2604,65 @@ Logo Animation.png::CompressedTexture2D::800199236597814899::1687044969::1706625
 Logo.gd::GDScript::-1::1704265990::0::1::::<>Node2D<>::
 Logo.tscn::PackedScene::5212201930244738857::1706625681::0::1::::<><>::res://Game Start Menu/Studio Logo/Logo.gd<>uid://lnvfuge6bvix::::res://Game Start Menu/Studio Logo/Logo Animation.png<>uid://bmfcvw8qxy8b0::::res://Fonts/ThaleahFat.ttf
 Opening.tscn::PackedScene::895189539413255198::1702392676::0::1::::<><>::
+::res://Global Components/::1706670298
+body.tscn::PackedScene::6209999255642115684::1706654190::0::1::::<><>::
+goku_projectile_position.tscn::PackedScene::3070914419406360931::1706668845::0::1::::<><>::res://Global Components/Projectile.gd
+Hitbox Component.gd::GDScript::-1::1706624921::0::1::::<>Area2D<>::
+player_indicator.tscn::PackedScene::2404688800757005167::1706624921::0::1::::<><>::uid://cj3wx0nbythks::::res://Chevron-Arrow-Down.png
+Projectile.gd::GDScript::-1::1706624921::0::1::::<>Marker2D<>::
+projectile_position.tscn::PackedScene::5424278110808630589::1706627901::0::1::::<><>::res://Character Resouces/Goku/Character Scenes/Goku Projectile Position.gd
+stats_info.tscn::PackedScene::8709212506310355407::1706670237::0::1::::<><>::res://Character Resouces/Goku/Stats.gd
+::res://Global Components/Cloud Resources/::1706669840
+Animate Cloud.gd::GDScript::-1::1706653888::0::1::::<>AnimatedSprite2D<>::
+::res://Global Components/Counter Cloud/::1706669534
+Counter Position.gd::GDScript::-1::1706654190::0::1::::<>Marker2D<>::
+counter.tscn::PackedScene::5134451810636157939::1706668845::0::1::::<><>::uid://c10d8cd8853sa::::res://Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)1.png<>uid://cghmuc2cp1ch8::::res://Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)2.png<>uid://ryh4yi351mjk::::res://Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)3.png<>uid://bc10wnbhik7tb::::res://Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)4.png<>uid://b2xv46nhf6rgv::::res://Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)5.png<>uid://dts3l8yr73w74::::res://Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)6.png<>uid://cogck3ve4x75b::::res://Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)7.png<>uid://bas16kqt7smf8::::res://Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)8.png<>uid://5q555qk3hjoo::::res://Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)9.png<>uid://pxiesse3skf5::::res://Global Components/Counter Cloud/Counter Animations/Smoke VFX 10 (32X32)10.png<>res://Global Components/Cloud Resources/Animate Cloud.gd
+counter_position.tscn::PackedScene::4630981961926955682::1706669534::0::1::::<><>::res://Global Components/Counter Cloud/Counter Position.gd<>uid://cfffw24up6a7l::::res://Global Components/Counter Cloud/counter.tscn
+::res://Global Components/Counter Cloud/Counter Animations/::1706668849
+Smoke VFX 10 (32X32)1.png::CompressedTexture2D::6649601939229493172::1687044968::1706668849::1::::<><>::
+Smoke VFX 10 (32X32)2.png::CompressedTexture2D::5209189540152470231::1687044968::1706668849::1::::<><>::
+Smoke VFX 10 (32X32)3.png::CompressedTexture2D::1243233489148749212::1687044968::1706668849::1::::<><>::
+Smoke VFX 10 (32X32)4.png::CompressedTexture2D::2582030089537314935::1687044968::1706668849::1::::<><>::
+Smoke VFX 10 (32X32)5.png::CompressedTexture2D::4330328643766967821::1687044968::1706668849::1::::<><>::
+Smoke VFX 10 (32X32)6.png::CompressedTexture2D::8531730370467562037::1687044968::1706668849::1::::<><>::
+Smoke VFX 10 (32X32)7.png::CompressedTexture2D::5768012240083730245::1687044968::1706668849::1::::<><>::
+Smoke VFX 10 (32X32)8.png::CompressedTexture2D::2425214035546286315::1687044968::1706668849::1::::<><>::
+Smoke VFX 10 (32X32)9.png::CompressedTexture2D::2140572037715501382::1687044968::1706668849::1::::<><>::
+Smoke VFX 10 (32X32)10.png::CompressedTexture2D::1100807195478272320::1687044968::1706668849::1::::<><>::
+::res://Global Components/Dash Cloud/::1706733989
+Dash Smoke Position.gd::GDScript::-1::1706651957::0::1::::<>Marker2D<>::
+dash_cloud.tscn::PackedScene::7940022127469200056::1706668845::0::1::::<><>::uid://c5k6yefsm1kjp::::res://Character Resouces/Global/Dash Resources/Dash/SmokeNDust P03 VFX 1.png<>res://Global Components/Cloud Resources/Animate Cloud.gd
+dash_smoke_position.tscn::PackedScene::8579919709157706119::1706733989::0::1::::<><>::res://Global Components/Dash Cloud/Dash Smoke Position.gd<>uid://dlehafcpnrehc::::res://Global Components/Dash Cloud/dash_cloud.tscn
+::res://Global Components/Hurtbox/::1706654111
+hurtbox.gd::GDScript::-1::1706624921::0::1::::<>Area2D<>::
+hurtbox.tscn::PackedScene::6506708985600167143::1706627899::0::1::::<><>::
+::res://Global Components/Jump Cloud/::1706733989
+Jump Position.gd::GDScript::-1::1706655141::0::1::::Jump<>Marker2D<>::
+jump_cloud.tscn::PackedScene::3422712865977860802::1706668845::0::1::::<><>::uid://7u6lkg55hnv6::::res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)1.png<>uid://cd7ee0hqpi1tf::::res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)2.png<>uid://d14llquikkfkm::::res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)3.png<>uid://branhkmm0jdv8::::res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)4.png<>uid://d2pyfv1atwr6j::::res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)5.png<>uid://fxjia53csui6::::res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)6.png<>uid://dfa2ducw4uwyx::::res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)7.png<>res://Global Components/Jump Cloud/Jump Position.gd
+jump_position.tscn::PackedScene::6402902541492611467::1706733989::0::1::::<><>::res://Global Components/Jump Cloud/Jump Position.gd<>uid://bo08t0pi17rio::::res://Global Components/Jump Cloud/jump_cloud.tscn<>uid://bdexwo5ypwmay::::res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn
+::res://Global Components/Jump Cloud/Jump Cloud Animations/::1706668849
+Smoke VFX 2 (48X16)1.png::CompressedTexture2D::2289232957912717685::1687044968::1706668849::1::::<><>::
+Smoke VFX 2 (48X16)2.png::CompressedTexture2D::5049719322221639011::1687044968::1706668849::1::::<><>::
+Smoke VFX 2 (48X16)3.png::CompressedTexture2D::9044727342836200164::1687044968::1706668849::1::::<><>::
+Smoke VFX 2 (48X16)4.png::CompressedTexture2D::3580433391353095759::1687044968::1706668849::1::::<><>::
+Smoke VFX 2 (48X16)5.png::CompressedTexture2D::9086793775594537419::1687044968::1706668849::1::::<><>::
+Smoke VFX 2 (48X16)6.png::CompressedTexture2D::398985693439402031::1687044968::1706668849::1::::<><>::
+Smoke VFX 2 (48X16)7.png::CompressedTexture2D::7511852040051631439::1687044968::1706668849::1::::<><>::
+::res://Global Components/Scale Player/::1706668845
+Scale Player.gd::GDScript::-1::1706629689::0::1::::<>Node2D<>::
+scale_player.tscn::PackedScene::9140208338917327930::1706668845::0::1::::<><>::res://Global Components/Scale Player/Scale Player.gd
+::res://Global Components/Wall Cloud/::1706669268
+Wall Cloud Position.gd::GDScript::-1::1706655021::0::1::::<>Marker2D<>::
+Wall Cloud Position.tscn::PackedScene::4408900119842458485::1706669268::0::1::::<><>::res://Global Components/Wall Cloud/Wall Cloud Position.gd<>uid://jqksv28nm0sn::::res://Global Components/Wall Cloud/wall_cloud.tscn
+wall_cloud.tscn::PackedScene::665370097242515429::1706668845::0::1::::<><>::uid://bk4sjs58yfe3y::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)1.png<>uid://hwhwr0c0bcuu::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)2.png<>uid://dm4wxbp7vrqr1::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)3.png<>uid://bj4xsq3iog3mq::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)4.png<>uid://ljrgxl2nuemr::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)5.png<>uid://b6bdvf5uo4h5g::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)6.png<>uid://bv0gtog0yfevr::::res://Global Components/Wall Cloud/Wall Cloud Animation/Smoke VFX 9 (32X16)7.png<>res://Global Components/Cloud Resources/Animate Cloud.gd
+::res://Global Components/Wall Cloud/Wall Cloud Animation/::1706668849
+Smoke VFX 9 (32X16)1.png::CompressedTexture2D::3149286046252177064::1687044968::1706668849::1::::<><>::
+Smoke VFX 9 (32X16)2.png::CompressedTexture2D::537203454112199132::1687044968::1706668849::1::::<><>::
+Smoke VFX 9 (32X16)3.png::CompressedTexture2D::8062772053882200372::1687044968::1706668849::1::::<><>::
+Smoke VFX 9 (32X16)4.png::CompressedTexture2D::3079416750437629480::1687044968::1706668849::1::::<><>::
+Smoke VFX 9 (32X16)5.png::CompressedTexture2D::791700809720175305::1687044968::1706668849::1::::<><>::
+Smoke VFX 9 (32X16)6.png::CompressedTexture2D::4564559176765916262::1687044968::1706668849::1::::<><>::
+Smoke VFX 9 (32X16)7.png::CompressedTexture2D::3912394821747955379::1687044968::1706668849::1::::<><>::
 ::res://User Setting/::1706654576
 Master Volume Slider.gd::GDScript::-1::1704265990::0::1::::<>HSlider<>::
 OptionButton.gd::GDScript::-1::1704265990::0::1::::<>OptionButton<>::

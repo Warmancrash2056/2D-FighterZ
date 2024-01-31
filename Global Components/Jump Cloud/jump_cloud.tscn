@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://bo08t0pi17rio"]
+
+[ext_resource type="Texture2D" uid="uid://7u6lkg55hnv6" path="res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)1.png" id="1_8gjjg"]
+[ext_resource type="Texture2D" uid="uid://cd7ee0hqpi1tf" path="res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)2.png" id="2_bquhd"]
+[ext_resource type="Texture2D" uid="uid://d14llquikkfkm" path="res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)3.png" id="3_apl41"]
+[ext_resource type="Texture2D" uid="uid://branhkmm0jdv8" path="res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)4.png" id="4_drv2l"]
+[ext_resource type="Texture2D" uid="uid://d2pyfv1atwr6j" path="res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)5.png" id="5_gt1ll"]
+[ext_resource type="Texture2D" uid="uid://fxjia53csui6" path="res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)6.png" id="6_x0whe"]
+[ext_resource type="Texture2D" uid="uid://dfa2ducw4uwyx" path="res://Global Components/Jump Cloud/Jump Cloud Animations/Smoke VFX 2 (48X16)7.png" id="7_w3311"]
+[ext_resource type="Script" path="res://Global Components/Cloud Resources/Animate Cloud.gd" id="8_di3o1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c4gd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8gjjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bquhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_apl41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_drv2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gt1ll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x0whe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w3311")
+}],
+"loop": true,
+"name": &"Smoke",
+"speed": 6.0
+}]
+
+[node name="Jump Cloud" type="AnimatedSprite2D"]
+z_index = 5
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_1c4gd")
+animation = &"Smoke"
+frame_progress = 0.680519
+script = ExtResource("8_di3o1")
+
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

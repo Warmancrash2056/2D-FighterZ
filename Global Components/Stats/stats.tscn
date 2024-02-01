@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://57ykmebsxtl1"]
+
+[ext_resource type="Script" path="res://Global Components/Stats/Stats.gd" id="1_f7hui"]
+
+[node name="Stats" type="Node"]
+script = ExtResource("1_f7hui")
+Speed = 250
+Acceleration = 20
+Decceleration = 40
+Health = 1000
+Defense = 0.3

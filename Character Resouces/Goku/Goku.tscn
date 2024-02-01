@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://d3ht5pyb76ndi" path="res://Global Components/Scale Player/scale_player.tscn" id="2_1x5bx"]
 [ext_resource type="PackedScene" uid="uid://duiga22704uhr" path="res://Global Components/Dash Cloud/dash_smoke_position.tscn" id="3_twibt"]
 [ext_resource type="PackedScene" uid="uid://b32x68ug5uvgv" path="res://Global Components/Wall Cloud/Wall Cloud Position.tscn" id="4_6cf4e"]
-[ext_resource type="PackedScene" uid="uid://bj0trnwvm27x4" path="res://Global Components/goku_projectile_position.tscn" id="5_sedar"]
+[ext_resource type="PackedScene" uid="uid://cjjtckug5x086" path="res://Global Components/Projectile/projectile_position.tscn" id="5_sedar"]
 [ext_resource type="PackedScene" uid="uid://bvgm6lrd873fg" path="res://Character Resouces/Goku/Projectile Resources/Goku Air Projectile.tscn" id="6_gbtt2"]
 [ext_resource type="PackedScene" uid="uid://bwldo5okthbx" path="res://Character Resouces/Goku/Projectile Resources/Goku Ground Projectile.tscn" id="7_twtu1"]
-[ext_resource type="Script" path="res://Global Components/Hitbox Component.gd" id="8_tj3qq"]
+[ext_resource type="Script" path="res://Global Components/Scripts/Hitbox Component.gd" id="8_tj3qq"]
 [ext_resource type="PackedScene" uid="uid://cyx5stt1ggq2b" path="res://Global Components/Hurtbox/hurtbox.tscn" id="9_cyy3h"]
 [ext_resource type="Script" path="res://Global Components/Hurtbox/hurtbox.gd" id="10_rlpqx"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="11_so2xu"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b68jujlxhnb2q" path="res://Global Components/Counter Cloud/counter_position.tscn" id="15_lhwgj"]
 [ext_resource type="PackedScene" uid="uid://cuqf1sgy87l6k" path="res://Global Components/body.tscn" id="17_glfwe"]
 [ext_resource type="PackedScene" uid="uid://cxhu4tahjydj4" path="res://Global Components/Jump Cloud/jump_position.tscn" id="17_o01ah"]
-[ext_resource type="Script" path="res://Character Resouces/Goku/Stats.gd" id="18_k2l27"]
+[ext_resource type="Script" path="res://Global Components/Stats/Stats.gd" id="18_k2l27"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gckp"]
 radius = 3.5

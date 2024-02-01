@@ -1,9 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b32x68ug5uvgv"]
+[gd_scene load_steps=2 format=3 uid="uid://b32x68ug5uvgv"]
 
-[ext_resource type="Script" path="res://Global Components/Wall Cloud/Wall Cloud Position.gd" id="1_sqjkr"]
-[ext_resource type="PackedScene" uid="uid://jqksv28nm0sn" path="res://Global Components/Wall Cloud/wall_cloud.tscn" id="2_tmn78"]
+[ext_resource type="Script" path="res://Global Components/Wall Cloud/Wall Position.gd" id="1_pommk"]
 
 [node name="Wall Cloud Position" type="Marker2D"]
 position = Vector2(-7, 0)
-script = ExtResource("1_sqjkr")
-Wall_Cloud = ExtResource("2_tmn78")
+script = ExtResource("1_pommk")

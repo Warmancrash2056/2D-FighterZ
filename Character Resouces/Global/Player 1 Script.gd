@@ -1,7 +1,7 @@
 class_name Player1 extends CharacterBody2D
 
 # Get character Resources
-var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
+var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 
 signal JumpSmoke
 signal FacingLeft
@@ -19,7 +19,7 @@ signal ShootProjectile
 @onready var block_timer = $"Refresh Block"
 @onready var right_wall_detection = $Right
 @onready var left_wall_detection = $Left
-
+@export var Stat: Node
 var follow_goku_neutral_heavy = false
 
 var goku_selected = false
@@ -31,16 +31,6 @@ var atlantis_selected = false
 var henry_selected = false
 
 var direction = Vector2() # Get the vector input to determine character movement.
-var knock_vector = Vector2() # normalize the global_position of attack to determine knockback direction
-var is_facing_left: bool = false
-const Speed: float = 250
-const Acceleration: float = 25.0
-const Decceleration: float = 50.0
-const Dash_Acceleration: float = 400.0
-const Dash_Decceleration: float = 200.0
-const Dash_Speed: float = 550.0
-const Jump_Height: float = 500
-const Gravity: float = 20
 var jump_count: int = 3
 
 var can_jump_smoke = false
@@ -168,15 +158,6 @@ func _attack_gravity():
 	velocity.y += 35
 	move_and_slide()
 	
-func change_dir():
-	if direction.x < 0:
-		Sprite.flip_h = true
-		$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-		CharacterList.player_1_facing_left == true
-	elif direction.x > 0:
-		Sprite.flip_h = false
-		$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-		CharacterList.player_1_facing_left == false
 func _on_wall():
 	if is_on_wall():
 		if left_wall_detection.is_colliding():
@@ -190,13 +171,14 @@ func _movment():
 	direction = Vector2(float(Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)), float(Input.get_action_strength(controls.down)))
 	direction.normalized()
 	if direction.x > 0:
-		velocity.x = max(velocity.x, Speed, Acceleration)
-		
+		velocity.x = max(velocity.x, Stat.Speed, Stat.Acceleration)
+		emit_signal("FacingRight")
 	elif direction.x < 0:
-		velocity.x = min(velocity.x , -Speed, Acceleration)
+		velocity.x = min(velocity.x , -Stat.Speed, Stat.Acceleration)
+		emit_signal("FacingLeft")
 	else:
 		if is_on_floor():
-			velocity.x = move_toward(velocity.x, 0, Decceleration)
+			velocity.x = move_toward(velocity.x, 0, Stat.Decceleration)
 		else:
 			velocity.x = move_toward(velocity.x, 0, 20)
 			
@@ -230,7 +212,6 @@ func _physics_process(delta):
 	match Select:
 		States.Idling:
 			_reset_block()
-			change_dir()
 			_movment()
 			_drop_fall()
 			jump_count = 3
@@ -274,17 +255,20 @@ func _physics_process(delta):
 			if direction.y > 0:
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Down_Light
-
+					
+				if Input.is_action_just_pressed(controls.heavy):
+					Select = States.Down_Heavy
+					
+					
 			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				emit_signal("JumpSmoke")
 				Select = States.Jumping
 				jump_count -= 1
-				velocity.y = -Jump_Height
+				velocity.y = Stat.Jump_Height
 				Animate.play("Jump")
 
 		States.Jumping:
 			_reset_block()
-			change_dir()
 			_movment()
 			_on_wall()
 			_drop_fall()
@@ -308,7 +292,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Down_Air
 					
-			velocity.y += Gravity
+			velocity.y += Stat.Gravity
 			Animate.play("Jump")
 
 
@@ -318,21 +302,20 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				emit_signal("JumpSmoke")
 				jump_count -= 1
-				velocity.y = -Jump_Height
+				velocity.y = Stat.Gravity
 				Animate.play("Jump")
 		States.Falling:
 			_reset_block()
 			_movment()
 			_on_wall()
 			_drop_fall()
-			change_dir()
 			Animate.play("Fall")
 
 
 			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				emit_signal("JumpSmoke")
 				jump_count -= 1
-				velocity.y = -Jump_Height
+				velocity.y = Stat.Jump_Height
 				Select = States.Jumping
 				Animate.play("Jump")
 				
@@ -342,7 +325,7 @@ func _physics_process(delta):
 				velocity = Vector2.ZERO
 
 			if !is_on_floor():
-				velocity.y += Gravity
+				velocity.y += Stat.Gravity
 			else:
 				Select = States.Idling
 				Animate.play("Idle")
@@ -414,22 +397,21 @@ func _physics_process(delta):
 				Sprite.flip_h = true
 			if direction.x == 0:
 				Select = States.Idling
-				velocity.x = move_toward(velocity.x, 0, Dash_Acceleration)
+				velocity.x = move_toward(velocity.x, 0, Stat.Dash_Acceleration)
 				
 			if Input.is_action_pressed(controls.dash):
-				velocity.x = move_toward(velocity.x, direction.x * Dash_Speed, Dash_Acceleration )
+				if direction.x > 0:
+					velocity.x = move_toward(velocity.x, Stat.Dash_Speed, 	Stat.Dash_Acceleration )
 
 			else:
 				if Input.is_action_just_released(controls.dash) or direction.x == 0:
 					Select = States.Idling
-					velocity.x = move_toward(velocity.x, Speed, Dash_Decceleration )
+					velocity.x = move_toward(velocity.x, Stat.Speed, Stat.Dash_Decceleration )
 			if jump_count > 0:
 				if Input.is_action_just_pressed(controls.jump):
-					velocity.x = move_toward(velocity.x, direction.x * Speed, Decceleration )
 					jump_count -= 1
-					velocity.y = -Jump_Height
+					velocity.y = Stat.Jump_Height
 					Select = States.Jumping
-			velocity.y += Gravity
 			Animate.play("Dash")
 
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
@@ -496,7 +478,7 @@ func _physics_process(delta):
 					Animate.play("Jump")
 					velocity.x = -200
 					Select = States.Jumping
-					velocity.y = -Jump_Height
+					velocity.y = Stat.Jump_Height
 					emit_signal("JumpSmoke")
 			if !right_wall_detection.is_colliding():
 				Select = States.Jumping
@@ -511,7 +493,7 @@ func _physics_process(delta):
 					Animate.play("Jump")
 					velocity.x = 200
 					Select = States.Jumping
-					velocity.y = -Jump_Height
+					velocity.y = 	Stat.Jump_Height
 					emit_signal("JumpSmoke")
 			if !left_wall_detection.is_colliding():
 				Select = States.Jumping
@@ -525,3 +507,7 @@ func _physics_process(delta):
 			Animate.play("Ground Projectile")
 			velocity.x = 0
 			velocity.y = 0
+
+
+func _on_hurtbox_area_entered(area):
+	Select = States.Hurt

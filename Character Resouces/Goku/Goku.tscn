@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bwldo5okthbx" path="res://Character Resouces/Goku/Projectile Resources/Goku Ground Projectile.tscn" id="7_twtu1"]
 [ext_resource type="Script" path="res://Global Components/Scripts/Hitbox Component.gd" id="8_tj3qq"]
 [ext_resource type="PackedScene" uid="uid://cyx5stt1ggq2b" path="res://Global Components/Hurtbox/hurtbox.tscn" id="9_cyy3h"]
-[ext_resource type="Script" path="res://Global Components/Hurtbox/hurtbox.gd" id="10_rlpqx"]
+[ext_resource type="Script" path="res://Global Components/Hurtbox/Hurtbox Component.gd" id="10_bnwuk"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="11_so2xu"]
 [ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Goku/Sound Effects/First Punch.wav" id="12_bl2hr"]
 [ext_resource type="AudioStream" uid="uid://r5tlbrig47nu" path="res://Character Resouces/Goku/Sound Effects/Second Punch.wav" id="13_ht28k"]
@@ -6638,9 +6638,11 @@ ground_projectile = ExtResource("7_twtu1")
 sprite = NodePath("../../Sprite")
 Character = NodePath("../..")
 
-[node name="Neutral Light Shoulder 1" type="Area2D" parent="Scale Player"]
+[node name="Neutral Light Shoulder 1" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Character")]
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("8_tj3qq")
+Character = NodePath("../..")
 
 [node name="Neutral light Shoulder 1" type="CollisionShape2D" parent="Scale Player/Neutral Light Shoulder 1"]
 visible = false
@@ -6649,7 +6651,9 @@ position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_5gckp")
 disabled = true
 
-[node name="Neutral Light Shoulder 2" type="Area2D" parent="Scale Player"]
+[node name="Neutral Light Shoulder 2" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Character")]
+script = ExtResource("8_tj3qq")
+Character = NodePath("../..")
 
 [node name="Neutral Light Shoulder 2" type="CollisionShape2D" parent="Scale Player/Neutral Light Shoulder 2"]
 visible = false
@@ -6671,7 +6675,9 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_d4rm5")
 disabled = true
 
-[node name="Neutral Light End" type="Area2D" parent="Scale Player"]
+[node name="Neutral Light End" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Character")]
+script = ExtResource("8_tj3qq")
+Character = NodePath("../..")
 
 [node name="Neutral Light End" type="CollisionShape2D" parent="Scale Player/Neutral Light End"]
 visible = false
@@ -6897,11 +6903,11 @@ debug_color = Color(0, 1, 0, 0.419608)
 
 [node name="Area2D4" type="Area2D" parent="Scale Player"]
 
-[node name="Hurtbox" parent="." node_paths=PackedStringArray("Character", "Sprite") instance=ExtResource("9_cyy3h")]
-collision_layer = 8193
-script = ExtResource("10_rlpqx")
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("Character") instance=ExtResource("9_cyy3h")]
+collision_layer = 8192
+collision_mask = 0
+script = ExtResource("10_bnwuk")
 Character = NodePath("..")
-Sprite = NodePath("../Sprite")
 
 [node name="Collision Body" parent="Hurtbox" index="0"]
 z_index = 8
@@ -6960,9 +6966,18 @@ shape = SubResource("CapsuleShape2D_2ig4y")
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("18_k2l27")
 Speed = 250
+Air_Speed = 125
+Dash_Speed = 500
 Acceleration = 20
 Decceleration = 40
 Health = 1000
 Defense = 0.3
+Gravity = 25
+Jump_Height = -550
+Fast_Fall = 180
+Dash_AccelerationL = 40
+Dash_Decelleration = 80
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="Hurtbox"]

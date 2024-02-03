@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cumgqf8euvx5i"]
+
+[ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Goku.tscn" id="1_gldgu"]
+[ext_resource type="Script" path="res://Character Resouces/Global/Player 1 Script.gd" id="2_dtus1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3go"]
+size = Vector2(1301.12, 249)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(549, 620)
+shape = SubResource("RectangleShape2D_qr3go")
+
+[node name="Goku" parent="." instance=ExtResource("1_gldgu")]
+position = Vector2(129, 367)
+script = ExtResource("2_dtus1")
+
+[node name="Goku2" parent="." instance=ExtResource("1_gldgu")]
+position = Vector2(549, 620)

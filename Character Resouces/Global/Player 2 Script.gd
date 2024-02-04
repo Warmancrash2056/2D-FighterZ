@@ -201,7 +201,7 @@ func _ready():
 	CharacterList.player_1_health = Health
 	Select = States.Respawn
 	block_active = false
-	emit_signal("Player2Box")
+	emit_signal("Player2Box"																			)
 	
 	
 func _reset_block():

@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var Character: CharacterBody2D
-
+@export var Stat: Node
 
 func _ready():
 	Character.connect("Player1Box", _player1_layer)

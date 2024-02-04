@@ -9,8 +9,6 @@ func _process(delta):
 func scale_left():
 	scale.x = -1
 	Sprite.flip_h = true
-	print("Left")
 func scale_right():
 	scale.x = 1
 	Sprite.flip_h = false
-	print("Right")

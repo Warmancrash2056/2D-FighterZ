@@ -19,7 +19,7 @@ signal ShootProjectile
 @onready var block_timer = $"Refresh Block"
 @onready var right_wall_detection = $Right
 @onready var left_wall_detection = $Left
-@export var Stat: Node
+@onready var Stat = $Stats
 var follow_goku_neutral_heavy = false
 
 var goku_selected = false
@@ -511,3 +511,4 @@ func _physics_process(delta):
 
 func _on_hurtbox_area_entered(area):
 	Select = States.Hurt
+	print("Is Hurting")

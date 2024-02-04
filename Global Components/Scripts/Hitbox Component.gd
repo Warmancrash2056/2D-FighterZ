@@ -1,6 +1,9 @@
 extends Area2D
 
 @export var Character: CharacterBody2D
+@export var Stat: Node
+
+@export var Damage: int
 @export var Knockback_X: int 
 @export var Knockback_Y: int
 # Called when the node enters the scene tree for the first time.

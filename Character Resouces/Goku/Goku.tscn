@@ -6534,6 +6534,9 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("8_tj3qq")
 Character = NodePath("../..")
+Damage = 60
+Knockback_X = 30
+Knockback_Y = -10
 
 [node name="Neutral light Shoulder 1" type="CollisionShape2D" parent="Scale Player/Neutral Light Shoulder 1"]
 visible = false
@@ -6545,6 +6548,8 @@ disabled = true
 [node name="Neutral Light Shoulder 2" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Character")]
 script = ExtResource("8_tj3qq")
 Character = NodePath("../..")
+Knockback_X = 30
+Knockback_Y = -10
 
 [node name="Neutral Light Shoulder 2" type="CollisionShape2D" parent="Scale Player/Neutral Light Shoulder 2"]
 visible = false
@@ -6557,6 +6562,8 @@ disabled = true
 position = Vector2(24.5, -7.5)
 script = ExtResource("8_tj3qq")
 Character = NodePath("../..")
+Knockback_X = 150
+Knockback_Y = -50
 
 [node name="Neutral Light Start" type="CollisionShape2D" parent="Scale Player/Neutral Light Start"]
 visible = false
@@ -6569,6 +6576,8 @@ disabled = true
 [node name="Neutral Light End" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Character")]
 script = ExtResource("8_tj3qq")
 Character = NodePath("../..")
+Knockback_X = 100
+Knockback_Y = -30
 
 [node name="Neutral Light End" type="CollisionShape2D" parent="Scale Player/Neutral Light End"]
 visible = false
@@ -6869,5 +6878,6 @@ Dash_AccelerationL = 40
 Dash_Decelleration = 80
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
 
 [editable path="Hurtbox"]

@@ -12,3 +12,5 @@ extends Node
 @export var Fast_Fall: int
 @export var Dash_AccelerationL: int
 @export var Dash_Decelleration: int
+
+var Knockback: Vector2

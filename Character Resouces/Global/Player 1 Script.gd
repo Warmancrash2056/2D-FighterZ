@@ -512,3 +512,4 @@ func _physics_process(delta):
 func _on_hurtbox_area_entered(area):
 	Select = States.Hurt
 	print("Is Hurting")
+

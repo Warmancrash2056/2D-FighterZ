@@ -10,9 +10,16 @@ func _ready():
 func _player1_layer():
 	set_collision_layer_value(13, true)
 	set_collision_mask_value(12, true)
-	print_debug(collision_layer)
 	
 func _player2_layer():
 	set_collision_layer_value(14, true)
 	set_collision_mask_value(11, true)
-	print(collision_layer)
+	
+	
+func _on_area_entered(area):
+	var damage = area.Damage
+	var knockback_x = area.Knockback_X
+	var knockback_y = area.Knockback_Y
+	print(knockback_x, knockback_y, damage)
+
+	Character.velocity = Vector2(knockback_x, knockback_y)

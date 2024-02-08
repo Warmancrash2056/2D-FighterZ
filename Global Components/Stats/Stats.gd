@@ -1,16 +1,36 @@
-extends Node
+class_name Stat extends Node
 
-@export var Speed: int
-@export var Air_Speed: int
-@export var Dash_Speed: int
-@export var Acceleration: int
-@export var Decceleration: int
-@export var Health: int
-@export var Defense: float
-@export var Gravity: int
+@export var Character: CharacterBody2D
+
+@export var Speed:int = 350
+@export var Acceleration:int = 40
+@export var Decceleration: int = 30
+@export var Speed_Rating: float 
+
+@export var Health: int = 1000
+@export var Defense_Rating: float
+
+@export var Gravity:int = 30
 @export var Jump_Height: int
 @export var Fast_Fall: int
-@export var Dash_AccelerationL: int
-@export var Dash_Decelleration: int
+@export var Jump_Count: int = 3
 
-var Knockback: Vector2
+@export var Block_Active: bool = false
+@export var Attack_Reset: bool = false
+
+var Dash_Active: bool = false
+func _physics_process(delta):
+	print_debug(Speed)
+	_speed_scaling()
+	defense_scaling()
+	Character.connect("DashCloud",_dash_Scaling)
+	if Engine.get_physics_frames() % 120 == 0:
+		Block_Active = false
+	
+func _speed_scaling():
+	Speed * Speed_Rating
+func defense_scaling():
+	Character.velocity * Defense_Rating
+
+func _dash_Scaling():
+	Speed * 

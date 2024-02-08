@@ -4,8 +4,12 @@ extends Area2D
 @export var Stat: Node
 
 @export var Damage: int
+@export var Recovery_Frames: int
 @export var Knockback_X: int 
 @export var Knockback_Y: int
+
+var attack_reset = false
+signal Attack_Connected
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -20,3 +24,11 @@ func _player2_hitbox():
 	set_collision_layer_value(12, true)
 	set_collision_mask_value(13, true)
 	print_debug("Player 2 ",collision_layer," | ", collision_mask)
+
+
+func _on_area_entered(area):
+	emit_signal("Attack_Connected",)
+
+
+func _on_attack_connected():
+	Stat.Attack_Reset = true

@@ -1,7 +1,7 @@
-class_name Player2 extends CharacterBody2D
+class_name Goku extends CharacterBody2D
 
 # Get character Resources
-var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_2.tres")
+@export var controls: Node 
 
 signal JumpSmoke
 signal FacingLeft
@@ -14,36 +14,14 @@ signal Player2Box
 signal ShootProjectile
 
 # Global player nodes.
-@onready var Animate = $Character
-@onready var Invisibilty = $Respawn
-@onready var Sprite = $Sprite
-@onready var block_timer = $"Refresh Block"
-@onready var right_wall_detection = $Right
-@onready var left_wall_detection = $Left
-@onready var Stat = $Stats
-var follow_goku_neutral_heavy = false
-
-var goku_selected = false
-var general_selected = false
-var nomad_selected = false
-var sakura_selected = false
-var hunter_selected = false
-var atlantis_selected = false
-var henry_selected = false
+@export var Animate: AnimationPlayer
+@export var Sprite: Sprite2D
+@onready var right_wall_detection: RayCast2D
+@onready var left_wall_detection: RayCast2D
+@export var Stat: Node
+@export var Hurtbox: Area2D
 
 var direction = Vector2() # Get the vector input to determine character movement.
-var jump_count: int = 3
-
-var can_jump_smoke = false
-
-# Check if player can countewr. reset in idle and jump and fall animations.
-var can_counter = false
-# Check if player can block rreset in idle, jump, and fall
-var block_active = false
-
-
-
-var Health: float = 1000
 
 enum States {
 	# Normal Mode Ststes. #
@@ -84,30 +62,12 @@ enum States {
 	Right_Wall
 	}
 
-
-
-func _goku_stats():
-	CharacterList.goku_selected = true
-	goku_selected = true
-
-func _general_stats():
-	nomad_selected = true
-
-func _sakura_stats():
-	pass
-
-func _nomad_stats():
-	pass
-
-
-
 # Default State when entering the scene tree. #
 var Select = States.Respawn
 
 # Quickly return back to idle or jump state if sucessfully lannds an attack.
 
-func _idle_state_(): # Normal Reset if unsucessful.`
-	follow_goku_neutral_heavy = false
+func _idle_state_(): # Normal Reset if unsucessful.
 	if !is_on_floor():
 		Select = States.Falling
 		Animate.play("Fall")
@@ -115,6 +75,15 @@ func _idle_state_(): # Normal Reset if unsucessful.`
 		Select = States.Idling
 		Animate.play("Idle")
 
+func quick_reset(): # Normal Reset if unsucessful.
+	if Stat.Attack_Reset == true:
+		Stat.Active_Reset = false
+		if !is_on_floor():
+			Select = States.Falling
+			Animate.play("Fall")
+		else:
+			Select = States.Idling
+			Animate.play("Idle")
 
 
 # Perform attacks within 5-10 frames of the air block. #
@@ -143,22 +112,7 @@ func counter_down_heavy():
 	if Input.is_action_pressed(controls.down):
 		if Input.is_action_pressed(controls.heavy):
 			Select = States.Down_Heavy
-
-
-# Reset counter smoke at the frist frame of idle and fall state.
-func _reset_counter():
-	can_counter = false
-
-
-# Hunter Stats
-	hunter_selected = true
-	
-	
-func _attack_gravity():
-	# Sets gravity after an attack.
-	velocity.y += 35
-	move_and_slide()
-	
+			
 func _on_wall():
 	if is_on_wall():
 		if left_wall_detection.is_colliding():
@@ -169,7 +123,7 @@ func _on_wall():
 				Select = States.Right_Wall
 				emit_signal("WallCloud")
 func _movment():
-	direction = Vector2(float(Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)), float(Input.get_action_strength(controls.down)))
+	direction = Vector2(float(Input.get_action_strength(controls.Controls.right) - Input.get_action_strength(controls.Controls.left)), float(Input.get_action_strength(controls.Controls.down)))
 	direction.normalized()
 	if direction.x > 0:
 		velocity.x = max(velocity.x, Stat.Speed, Stat.Acceleration)
@@ -198,24 +152,17 @@ func _drop_fall():
 			Select = States.Falling
 			velocity.y += 45
 func _ready():
-	CharacterList.player_1_health = Health
 	Select = States.Respawn
-	block_active = false
-	emit_signal("Player2Box"																			)
-	
-	
-func _reset_block():
-	if block_active == true:
-		if Engine.get_physics_frames() % 120 == 0:
-			block_active = false
+
+func _process(delta):
+	pass
 func _physics_process(delta):
 	move_and_slide()
 	match Select:
 		States.Idling:
-			_reset_block()
 			_movment()
 			_drop_fall()
-			jump_count = 3
+			Stat.Jump_Count = 3
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
 				Select = States.Jumping
@@ -228,69 +175,66 @@ func _physics_process(delta):
 				Animate.play("Idle")
 
 			if direction.x != 0:
-				if Input.is_action_just_pressed(controls.light):
+				if Input.is_action_just_pressed(controls.Controls.light):
 					Select = States.Side_Light
 				
-				if Input.is_action_just_pressed(controls.heavy):
+				if Input.is_action_just_pressed(controls.Controls.heavy):
 					Select = States.Side_Heavy
 					
-				if Input.is_action_just_pressed(controls.dash):
+				if Input.is_action_just_pressed(controls.Controls.dash):
 					emit_signal("DashCloud")
 					Select = States.Dash_Run
 					set_collision_mask_value(2, false)
 			if direction.x == 0:
-				if Input.is_action_just_pressed(controls.light):
+				if Input.is_action_just_pressed(controls.Controls.light):
 					Select = States.Nuetral_Light
 
-				if Input.is_action_just_pressed(controls.heavy):
+				if Input.is_action_just_pressed(controls.Controls.heavy):
 					Select = States.Nuetral_Heavy
 
 
-				if Input.is_action_just_pressed(controls.throw):
+				if Input.is_action_just_pressed(controls.Controls.throw):
 					Select = States.Ground_Projectile
 					
-				if Input.is_action_just_pressed(controls.dash) and block_active == false:
+				if Input.is_action_just_pressed(controls.Controls.dash) and Stat.Block_Active == false:
 					Select = States.Ground_Block
-					block_active = true
 
 			if direction.y > 0:
-				if Input.is_action_just_pressed(controls.light):
+				if Input.is_action_just_pressed(controls.Controls.light):
 					Select = States.Down_Light
 					
-				if Input.is_action_just_pressed(controls.heavy):
+				if Input.is_action_just_pressed(controls.Controls.heavy):
 					Select = States.Down_Heavy
 					
 					
-			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
+			if Input.is_action_just_pressed(controls.Controls.jump) and Stat.Jump_Count > 0:
 				emit_signal("JumpSmoke")
 				Select = States.Jumping
-				jump_count -= 1
+				Stat.Jump_Count -= 1
 				velocity.y = Stat.Jump_Height
 				Animate.play("Jump")
 
 		States.Jumping:
-			_reset_block()
 			_movment()
 			_on_wall()
 			_drop_fall()
 			if direction.x != 0:
-				if Input.is_action_just_pressed(controls.light):
+				if Input.is_action_just_pressed(controls.Controls.light):
 					Select = States.Side_Air
 
 			if direction.x == 0:
-				if Input.is_action_just_pressed(controls.light):
+				if Input.is_action_just_pressed(controls.Controls.light):
 					Select = States.Nuetral_Air
 
-				if Input.is_action_just_pressed(controls.throw):
+				if Input.is_action_just_pressed(controls.Controls.throw):
 					Select = States.Ground_Projectile
 					
-				if Input.is_action_just_pressed(controls.dash) and block_active == false:
+				if Input.is_action_just_pressed(controls.Controls.dash) and Stat.Block_Active == false:
 					Select = States.Air_Block
-					block_active = true
 					set_collision_mask_value(3, true)
 					
 			if direction.y == 1:
-				if Input.is_action_just_pressed(controls.light):
+				if Input.is_action_just_pressed(controls.Controls.light):
 					Select = States.Down_Air
 					
 			velocity.y += Stat.Gravity
@@ -300,29 +244,28 @@ func _physics_process(delta):
 			if is_on_floor():
 				Select = States.Idling
 				set_collision_mask_value(3, true)
-			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
+				
+			if Input.is_action_just_pressed(controls.Controls.jump) and Stat.Jump_Count > 0:
 				emit_signal("JumpSmoke")
-				jump_count -= 1
-				velocity.y = Stat.Gravity
+				Stat.Jump_Count -= 1
+				velocity.y = Stat.Jump_Height
 				Animate.play("Jump")
 		States.Falling:
-			_reset_block()
 			_movment()
 			_on_wall()
 			_drop_fall()
 			Animate.play("Fall")
 
 
-			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
+			if Input.is_action_just_pressed(controls.Controls.jump) and Stat.Jump_Count > 0:
 				emit_signal("JumpSmoke")
-				jump_count -= 1
+				Stat.Jump_Count -= 1
 				velocity.y = Stat.Jump_Height
 				Select = States.Jumping
 				Animate.play("Jump")
 				
-			if Input.is_action_just_pressed(controls.dash) and block_active == false:
+			if Input.is_action_just_pressed(controls.Controls.dash) and Stat.Block_Active == false:
 				Select = States.Air_Block
-				block_active = true
 				velocity = Vector2.ZERO
 
 			if !is_on_floor():
@@ -330,7 +273,7 @@ func _physics_process(delta):
 			else:
 				Select = States.Idling
 				Animate.play("Idle")
-				jump_count = 3
+				Stat.Jump_Count = 3
 
 		States.Side_Light:
 			velocity.x = lerp(velocity.x, 0.0, 0.2)
@@ -389,8 +332,8 @@ func _physics_process(delta):
 			set_velocity(Vector2.ZERO)
 			Animate.play("Air Block")
 			# Activate counter smoke to be called during an attack.
-			can_counter = true
 		States.Dash_Run:
+			Stat.Dash_Active = true
 			if velocity.x > 0:
 				Sprite.flip_h == false
 				
@@ -398,53 +341,55 @@ func _physics_process(delta):
 				Sprite.flip_h = true
 			if direction.x == 0:
 				Select = States.Idling
-				velocity.x = move_toward(velocity.x, 0, Stat.Dash_Acceleration)
+				velocity.x = move_toward(velocity.x, 0, Stat.Acceleration)
 				
-			if Input.is_action_pressed(controls.dash):
+			if Input.is_action_pressed(controls.Controls.dash):
 				if direction.x > 0:
-					velocity.x = move_toward(velocity.x, Stat.Dash_Speed, 	Stat.Dash_Acceleration )
+					velocity.x = move_toward(velocity.x, Stat.Speed, Stat.Acceleration )
 
 			else:
-				if Input.is_action_just_released(controls.dash) or direction.x == 0:
+				if Input.is_action_just_released(controls.Controls.dash) or direction.x == 0:
 					Select = States.Idling
-					velocity.x = move_toward(velocity.x, Stat.Speed, Stat.Dash_Decceleration )
-			if jump_count > 0:
-				if Input.is_action_just_pressed(controls.jump):
-					jump_count -= 1
+					velocity.x = move_toward(velocity.x, Stat.Speed, Stat.Decceleration)
+					Stat.Dash_Active = false
+					
+			if Stat.Jump_Count > 0:
+				if Input.is_action_just_pressed(controls.Controls.jump):
+					Stat.Jump_Count -= 1
 					velocity.y = Stat.Jump_Height
 					Select = States.Jumping
+					Stat.Dash_Active = false
 			Animate.play("Dash")
 
-			if Input.is_action_just_pressed(controls.dash) and block_active == false:
+			if Input.is_action_just_pressed(controls.Controls.dash) and Stat.Block_Active == false:
 				Select = States.Ground_Block
-				block_active = true
+				Stat.Block_Active = true
 				velocity.x = lerp(velocity.x, 0.0, 0.2)
-			if Input.is_action_just_pressed(controls.light):
+			if Input.is_action_just_pressed(controls.Controls.light):
 				Select = States.Nuetral_Light
 
-			if Input.is_action_just_pressed(controls.heavy):
+			if Input.is_action_just_pressed(controls.Controls.heavy):
 				Select = States.Nuetral_Heavy
 
-			if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
-				if Input.is_action_just_pressed(controls.light):
+			if Input.is_action_pressed(controls.Controls.left) or Input.is_action_pressed(controls.Controls.right):
+				if Input.is_action_just_pressed(controls.Controls.light):
 					Select = States.Side_Light
 
-				if Input.is_action_just_pressed(controls.heavy):
+				if Input.is_action_just_pressed(controls.Controls.heavy):
 					Select = States.Side_Heavy
 
 
-			if Input.is_action_just_pressed(controls.heavy):
+			if Input.is_action_just_pressed(controls.Controls.heavy):
 				Select = States.Nuetral_Heavy
 
-			if Input.is_action_just_pressed(controls.dash) and block_active == false:
+			if Input.is_action_just_pressed(controls.Controls.dash) and Stat.Block_Active == false:
 				Select = States.Ground_Block
-				block_active = true
 
-			if Input.is_action_pressed(controls.down):
-				if Input.is_action_just_pressed(controls.light):
+			if Input.is_action_pressed(controls.Controls.down):
+				if Input.is_action_just_pressed(controls.Controls.light):
 					Select = States.Down_Light
 
-				if Input.is_action_just_pressed(controls.heavy):
+				if Input.is_action_just_pressed(controls.Controls.heavy):
 					Select = States.Down_Heavy
 
 
@@ -457,19 +402,12 @@ func _physics_process(delta):
 			else:
 				if !is_on_floor():
 					Animate.play("Air Hurt")
-			#print("Is Recovering ",recovery_timer.time_left)
-			#print("Knockback Value: ", knockback_multiplier, " : Current Velocity", velocity)
-
-			if follow_goku_neutral_heavy == true:
-				global_position = CharacterList.goku_neutral_heavy_grab_position
 		States.Respawn:
-			follow_goku_neutral_heavy = false
 			Animate.play("Respawn")
-			Health = 1000
 			velocity.x = 0
 			velocity.y = 0
 		States.Right_Wall:
-			jump_count = 3
+			Stat.Jump_Count = 3
 			Animate.play("Wall")
 			velocity.y = 35
 			velocity.x = 0
@@ -484,7 +422,7 @@ func _physics_process(delta):
 			if !right_wall_detection.is_colliding():
 				Select = States.Jumping
 		States.Left_Wall:
-			jump_count = 3
+			Stat.Jump_Count = 3
 			Animate.play("Wall")
 			Sprite.flip_h = false
 			velocity.y = 35

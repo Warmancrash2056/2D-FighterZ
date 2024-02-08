@@ -38,8 +38,6 @@ var disable_mini_platform = false
 
 # Reminder that if script is not erroing and cannot register script. 
 # Usually means that script has an error.
-var get_player_1_script = preload("res://Character Resouces/Global/Player 1 Script.gd")
-var get_player_2_script = preload("res://Character Resouces/Global/Player 2 Script.gd")
 
 # Get character resouces to be called in character selection menu
 var SelectCharacters = {

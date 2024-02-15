@@ -1,4 +1,4 @@
-class_name Character extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export var Controller: Node
 @export var Animator: AnimationPlayer
@@ -12,19 +12,16 @@ class_name Character extends CharacterBody2D
 @export var Defense_Rating: float
 @export var Attack_Rating: float
 
-@export var Gravity:int = 30
+@export var Gravity:int = 15
 @export var Jump_Height: int = 600
 @export var Fast_Fall: int = 150
 @export var Jump_Count: int = 3
 
-var direction: int = 0
-signal FacingLeft
-signal FacingRight
+
 signal JumpCloud
 signal DashCloud
 signal WallCloud
 signal CounterCloud
-signal BlockFade
 
 func _ready():
 	Speed *= Speed_Rating
@@ -33,31 +30,47 @@ func _physics_process(delta):
 	
 	if !is_on_floor():
 		velocity.y += Gravity
-func _process(delta):
-	Animator.connect("IsMoving", _moving)
-	Animator.connect("IsStopping", _stopping)
-	Animator.connect("IsJumping", _jumping)
-	Animator.connect("IsDashing", _dashing)
-	Animator.connect("IsAttacking", _attacking)
-	Animator.connect("IsKnockBack", knocked)
-	
-func _moving():
-	var dir: int = Controller.direction.x
-	velocity.x = move_toward(velocity.x , dir * Speed, Acceleration) 
 
-func _stopping():
+func _on_hurtbox_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_character_on_ground():
+	Jump_Count = 3
+
+
+func _on_character_is_stopping():
 	velocity.x = move_toward(velocity.x , 0, Decceleration)
 
-func _jumping():
-	velocity.y = move_toward(velocity.y , Jump_Height, Acceleration)
-	
-func _fast_falling():
-	pass	
-func _dashing():
-	pass
-func _attacking():
-	pass
-	
-func knocked():
-	pass
-	
+
+func _on_character_is_moving():
+	var dir: int = Controller.direction.x
+	velocity.x = move_toward(velocity.x , dir * Speed, Acceleration) 
+	print_debug(velocity.x)
+
+
+
+
+
+func _on_character_is_dashing():
+	pass # Replace with function body.
+
+
+func _on_character_is_jumping():
+	if Jump_Count > 0:
+		if Controller.jump == true:
+			emit_signal("JumpCloud")
+			Jump_Count -= 	1
+			velocity.y = -Jump_Height
+			Controller.jump = false
+
+
+func _on_character_is_throwing():
+	pass # Replace with function body.
+
+
+func _on_character_is_attacking(vector, friction):
+		print(Controller.can_action)
+		Controller.can_action = false
+		velocity = vector
+		velocity = lerp(velocity, 0.0, friction)

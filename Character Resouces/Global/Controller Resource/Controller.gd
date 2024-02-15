@@ -14,4 +14,4 @@ class_name InputSys
 @export var throw = "Player1_Throw"
 
 # Set to escape or right menu button on controller.
-@export var menu = "menu_all_player"
+@export var menu = "Player1_Menu"

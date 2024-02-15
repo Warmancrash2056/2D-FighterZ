@@ -1,10 +1,12 @@
 extends Node
 
+# Test to see if i can add the resource during instancing. #
 @export var Controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 @export var Scale_Player: Node2D
 
 signal FacingLeft
 signal FacingRight
+signal Player1Box
 var direction: Vector2
 var left: bool = false
 var right: bool = false
@@ -18,7 +20,6 @@ var dash: bool = false
 var can_input: bool = false
 var start_move: bool = false
 var can_action: bool = false
-signal Player1Box
 
 func _process(delta):
 	start_movmeent()
@@ -44,7 +45,6 @@ func start_movmeent():
 		if Input.is_action_just_pressed(Controls.heavy):
 			heavy = true
 func change_dir():
-	print(start_move)
 	if Input.is_action_pressed(Controls.left):
 		emit_signal("FacingLeft")
 		if Engine.get_process_frames() % 30 == 0:

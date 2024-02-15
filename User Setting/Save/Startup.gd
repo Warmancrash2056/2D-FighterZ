@@ -1,5 +1,5 @@
 extends Node
-
+# Set the user setting at the beggining of game. #
 var user_config: UserConfigurations
 func _ready():
 	user_config = UserConfigurations.load_or_create()

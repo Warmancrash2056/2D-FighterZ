@@ -1,0 +1,243 @@
+[gd_scene load_steps=32 format=3 uid="uid://cybw7a102gtwr"]
+
+[ext_resource type="Script" path="res://Character Resouces/Goku/Player 1 Controller.gd" id="1_m2fyt"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character.gd" id="2_c06d4"]
+[ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="3_dip34"]
+[ext_resource type="Script" path="res://Global Components/Scale Player/Scale Player.gd" id="4_bh22k"]
+[ext_resource type="Script" path="res://Global Components/Projectile/Projectile.gd" id="5_x0att"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhbqi"]
+
+[sub_resource type="Animation" id="Animation_4tst7"]
+resource_name = "Air Block"
+
+[sub_resource type="Animation" id="Animation_vcxmv"]
+resource_name = "Air Hurt"
+
+[sub_resource type="Animation" id="Animation_gkt7y"]
+resource_name = "Air Throw"
+length = 1.30001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [19, 20, 21, 22, 23, 24, 25, 26, 27, 19, 18, 17, 16]
+}
+
+[sub_resource type="Animation" id="Animation_vskxx"]
+resource_name = "Dashing"
+length = 0.40001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [168, 169, 170, 171]
+}
+
+[sub_resource type="Animation" id="Animation_cqyku"]
+resource_name = "Down Air"
+length = 0.80001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [75, 76, 77, 78, 79, 80, 81]
+}
+
+[sub_resource type="Animation" id="Animation_lidhh"]
+resource_name = "Down Heavy"
+
+[sub_resource type="Animation" id="Animation_winlc"]
+resource_name = "Down Light"
+
+[sub_resource type="Animation" id="Animation_sjacp"]
+resource_name = "Down Recovery"
+
+[sub_resource type="Animation" id="Animation_rfab8"]
+resource_name = "Falling"
+length = 0.30001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [16, 17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_g1us3"]
+resource_name = "Ground Block"
+
+[sub_resource type="Animation" id="Animation_fci6r"]
+resource_name = "Ground Hurt"
+
+[sub_resource type="Animation" id="Animation_5wrg6"]
+resource_name = "Ground Throw"
+
+[sub_resource type="Animation" id="Animation_xfp7i"]
+resource_name = "Jumping"
+length = 0.30001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_ccsss"]
+resource_name = "Neutral Air"
+
+[sub_resource type="Animation" id="Animation_j4wym"]
+resource_name = "Neutral Heavy"
+
+[sub_resource type="Animation" id="Animation_id6go"]
+resource_name = "Neutral Light"
+
+[sub_resource type="Animation" id="Animation_v40cd"]
+resource_name = "Neutral Recovery"
+
+[sub_resource type="Animation" id="Animation_651aw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_m6so1"]
+resource_name = "Respawn"
+
+[sub_resource type="Animation" id="Animation_iuc20"]
+resource_name = "Running"
+length = 0.80001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_70vef"]
+resource_name = "Side Air"
+
+[sub_resource type="Animation" id="Animation_ivtgt"]
+resource_name = "Side Heavy"
+
+[sub_resource type="Animation" id="Animation_8w236"]
+resource_name = "Side Light"
+
+[sub_resource type="Animation" id="Animation_piv6e"]
+resource_name = "Standing"
+length = 0.50001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_whnyc"]
+_data = {
+"Air Block": SubResource("Animation_4tst7"),
+"Air Hurt": SubResource("Animation_vcxmv"),
+"Air Throw": SubResource("Animation_gkt7y"),
+"Dashing": SubResource("Animation_vskxx"),
+"Down Air": SubResource("Animation_cqyku"),
+"Down Heavy": SubResource("Animation_lidhh"),
+"Down Light": SubResource("Animation_winlc"),
+"Down Recovery": SubResource("Animation_sjacp"),
+"Falling": SubResource("Animation_rfab8"),
+"Ground Block": SubResource("Animation_g1us3"),
+"Ground Hurt": SubResource("Animation_fci6r"),
+"Ground Throw": SubResource("Animation_5wrg6"),
+"Jumping": SubResource("Animation_xfp7i"),
+"Neutral Air": SubResource("Animation_ccsss"),
+"Neutral Heavy": SubResource("Animation_j4wym"),
+"Neutral Light": SubResource("Animation_id6go"),
+"Neutral Recovery": SubResource("Animation_v40cd"),
+"RESET": SubResource("Animation_651aw"),
+"Respawn": SubResource("Animation_m6so1"),
+"Running": SubResource("Animation_iuc20"),
+"Side Air": SubResource("Animation_70vef"),
+"Side Heavy": SubResource("Animation_ivtgt"),
+"Side Light": SubResource("Animation_8w236"),
+"Standing": SubResource("Animation_piv6e")
+}
+
+[node name="Controller" type="Node2D"]
+script = ExtResource("1_m2fyt")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_c06d4")
+
+[node name="Character Sprite" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_dip34")
+hframes = 10
+vframes = 19
+
+[node name="Scaler" type="Node2D" parent="CharacterBody2D"]
+script = ExtResource("4_bh22k")
+
+[node name="Dash Position" type="Marker2D" parent="CharacterBody2D/Scaler"]
+
+[node name="Projectile Position" type="Marker2D" parent="CharacterBody2D/Scaler"]
+script = ExtResource("5_x0att")
+
+[node name="Left Wall Detector" type="RayCast2D" parent="CharacterBody2D"]
+
+[node name="Right Wall Detector" type="RayCast2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_lhbqi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_whnyc")
+}

@@ -8,7 +8,8 @@ signal IsMoving
 signal OnGround
 signal IsDashing
 signal IsStopping
-signal IsAttacking(vector: Vector2, friction: float)
+signal IsAttacking
+signal IsResetting
 signal IsJumping
 signal IsThrowing
 enum {
@@ -63,12 +64,12 @@ func _physics_process(delta: float):
 					emit_signal("IsAttacking")
 					state = Down_Light
 					Controller.heavy = false
-			if Controller.light == true:
+			elif Controller.light == true:
 				emit_signal("IsAttacking")
 				state = Neutral_Light
 				Controller.light = false
 				
-			if Controller.heavy == true:
+			elif Controller.heavy == true:
 				emit_signal("IsAttacking")
 				state = Neutral_Heavy
 				Controller.heavy = false
@@ -87,7 +88,7 @@ func _physics_process(delta: float):
 				state = Jump
 			
 		Running:
-			emit_signal("IsMoving")
+			IsMoving.emit()
 			play("Run")
 			
 			if Controller.direction.x == 0:
@@ -178,6 +179,7 @@ func _physics_process(delta: float):
 				if Controller.light == true:
 					emit_signal("IsAttacking")
 					state = Side_Air
+					Controller.light = false
 					
 			else:
 				emit_signal("IsStopping")
@@ -236,41 +238,14 @@ func _physics_process(delta: float):
 				state = Jump
 				
 			if Controller.direction.x != 0:
-				emit_signal("IsMoving")
-				
-				if Controller.light == true:
-					emit_signal("IsAttacking")
-					state = Side_Air
+				emit_signal("IsMoving") 
 					
 			else:
 				emit_signal("IsStopping")
-				
-				if Controller.light == true:
-					emit_signal("IsAttacking")
-					state = Neutral_Air
-					Controller.light = false
-					
-				if Controller.heavy == true:
-					emit_signal("IsAttacking")
-					state = Neutral_Recovery
-					Controller.heavy = false
-				
-				
-			if Controller.direction.y != 0:
-				
-				if Controller.light == true:
-					emit_signal("IsAttacking")
-					state = Down_Air
-					Controller.light = false
 
-					
-				if Controller.heavy == true:
-					emit_signal("IsAttacking")
-					state = Dowm_Recovery
-					Controller.heavy = false
+	
 				
 			if Controller.throw == true:
-				emit_signal("IsAttacking")
 				state = Throw
 				Controller.throw = false
 			
@@ -315,7 +290,7 @@ func _physics_process(delta: float):
 			
 		Side_Light:
 			IsAttacking.emit()
-			play("Side Light Start")
+			play("Side Light")
 		
 		Side_Heavy:
 			play("Side Heavy")
@@ -340,9 +315,12 @@ func _physics_process(delta: float):
 func _reset_state():
 	Attack_Friction = 0.0
 	Attack_Vector = Vector2.ZERO
-	Controller.can_action = true
 	if Character.is_on_floor():
 		state = Idle
+		IsResetting.emit()
 		
 	if !Character.is_on_floor():
 		state = Fall
+		IsResetting.emit()
+
+

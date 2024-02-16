@@ -10,8 +10,12 @@ config_version=5
 
 [application]
 
-config/name="fighyterz"
+config/name="2D FighterZ"
+config/description="2D FighterZ is a 2d pixel art platform fighter. Play as 6 different characters alll with unique abilities and skills"
+run/main_scene="res://Game Maps/Training/Training Galvin.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/image="res://Character Resouces/Hunter/Icon/Hunter.png"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -19,6 +23,12 @@ config/icon="res://icon.svg"
 CharacterList="*res://Autoloads/Character List.gd"
 GameAudio="*res://Autoloads/Game Music/Game Audio.tscn"
 Startup="*res://User Setting/Save/Startup.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+window/handheld/orientation=6
 
 [input]
 
@@ -121,3 +131,19 @@ Player2_Jump={
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Floor"
+2d_physics/layer_2="Wall"
+2d_physics/layer_3="Knock Area"
+2d_physics/layer_4="Platform"
+2d_physics/layer_5="Projectile"
+2d_physics/layer_6="Player 1 Hurtbox"
+2d_physics/layer_7="Player 1 Hitbox"
+2d_physics/layer_8="Player 2 Hurtbox"
+2d_physics/layer_9="Player 2 Hitbox"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

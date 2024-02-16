@@ -23,6 +23,7 @@ signal DashCloud
 signal WallCloud
 signal CounterCloud
 
+
 func _ready():
 	Speed *= Speed_Rating
 func _physics_process(delta):
@@ -46,7 +47,6 @@ func _on_character_is_stopping():
 func _on_character_is_moving():
 	var dir: int = Controller.direction.x
 	velocity.x = move_toward(velocity.x , dir * Speed, Acceleration) 
-	print_debug(velocity.x)
 
 
 
@@ -60,7 +60,7 @@ func _on_character_is_jumping():
 	if Jump_Count > 0:
 		if Controller.jump == true:
 			emit_signal("JumpCloud")
-			Jump_Count -= 	1
+			Jump_Count -= 1
 			velocity.y = -Jump_Height
 			Controller.jump = false
 
@@ -68,9 +68,3 @@ func _on_character_is_jumping():
 func _on_character_is_throwing():
 	pass # Replace with function body.
 
-
-func _on_character_is_attacking(vector, friction):
-		print(Controller.can_action)
-		Controller.can_action = false
-		velocity = vector
-		velocity = lerp(velocity, 0.0, friction)

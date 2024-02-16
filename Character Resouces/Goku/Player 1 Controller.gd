@@ -20,15 +20,18 @@ var dash: bool = false
 var can_input: bool = false
 var start_move: bool = false
 var can_action: bool = false
+var can_turn: bool = false
 
 func _process(delta):
+	print(can_action)
 	start_movmeent()
 	change_dir()
 	direction.normalized()
 func start_movmeent():
+	direction.y = Input.get_action_strength(Controls.down)
 	if start_move == true:
-		direction = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left), Input.get_action_strength(Controls.down))
-		
+		direction.x = Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left)
+	
 	if can_action == true:
 		if Input.is_action_just_pressed(Controls.jump):
 			jump = true
@@ -44,23 +47,35 @@ func start_movmeent():
 			
 		if Input.is_action_just_pressed(Controls.heavy):
 			heavy = true
+			
+
 func change_dir():
-	if Input.is_action_pressed(Controls.left):
-		emit_signal("FacingLeft")
-		if Engine.get_process_frames() % 30 == 0:
-			start_move = true
+	if can_turn == true:
+		if Input.is_action_pressed(Controls.left):
+			emit_signal("FacingLeft")
+			if Engine.get_process_frames() % 3 == 0:
+				start_move = true
+				
+		else:
+			if Input.is_action_just_released(Controls.left):
+				start_move = false
+				
+		if Input.is_action_pressed(Controls.right):
+			emit_signal("FacingRight")
+			if Engine.get_process_frames() % 3 == 0:
+				start_move = true
 			
-	else:
-		if Input.is_action_just_released(Controls.left):
-			start_move = false
-			
-	if Input.is_action_pressed(Controls.right):
-		emit_signal("FacingRight")
-		if Engine.get_process_frames() % 30 == 0:
-			start_move = true
+		else:
+			if Input.is_action_just_released(Controls.right):
+				start_move = false
 		
-	else:
-		if Input.is_action_just_released(Controls.right):
-			start_move = false
-		
-	
+func _on_character_is_attacking():
+	can_action = false
+	can_turn = false
+
+
+func _on_character_is_resetting():
+	can_action = true
+	can_turn = true
+
+

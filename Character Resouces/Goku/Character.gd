@@ -2,12 +2,25 @@ class_name Aniamtor extends AnimationPlayer
 
 @export var Controller: Node
 @export var Character: CharacterBody2D
-@export var Attack_Vector: Vector2
-@export var Attack_Friction: float = 0.0
+@export var Scaler: Node
+var Attack_Vector: Vector2
+@export var Nlight: Vector2
+@export var NHeavy: Vector2
+@export var NAir: Vector2
+@export var NRecovery: Vector2
+@export var Slight: Vector2
+@export var SHeavy: Vector2
+@export var SAir: Vector2
+@export var Dlight: Vector2
+@export var DHeavy: Vector2
+@export var DAir: Vector2
+@export var DRecovery: Vector2
+
 signal IsMoving
 signal OnGround
 signal IsDashing
 signal IsStopping
+signal AttackMoving(Vector)
 signal IsAttacking
 signal IsResetting
 signal IsJumping
@@ -296,6 +309,8 @@ func _physics_process(delta: float):
 			play("Side Heavy")
 			
 		Side_Air:
+			Attack_Vector = SAir
+			AttackMoving.emit()
 			play("Side Air")
 			
 		Down_Light:
@@ -313,7 +328,6 @@ func _physics_process(delta: float):
 		#play("Side Finish")
 
 func _reset_state():
-	Attack_Friction = 0.0
 	Attack_Vector = Vector2.ZERO
 	if Character.is_on_floor():
 		state = Idle
@@ -324,3 +338,7 @@ func _reset_state():
 		IsResetting.emit()
 
 
+func _attack_movement():
+	print(Character.velocity)
+	Character.velocity.x = Scaler.direction * Attack_Vector.x
+	Character.velocity.y = Attack_Vector.y 

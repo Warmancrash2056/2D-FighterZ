@@ -22,8 +22,7 @@ var start_move: bool = false
 var can_action: bool = false
 var can_turn: bool = false
 
-func _process(delta):
-	print(can_action)
+func _process(delta): 
 	start_movmeent()
 	change_dir()
 	direction.normalized()

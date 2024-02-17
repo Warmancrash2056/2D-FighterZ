@@ -13679,6 +13679,37 @@ tracks/23/keys = {
 "method": &"_reset_state"
 }]
 }
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("..")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/25/type = "method"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("../Character")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_attack_movement"
+}, {
+"args": [],
+"method": &"_attack_movement"
+}, {
+"args": [],
+"method": &"_attack_movement"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_1cdqp"]
 resource_name = "Side Finish"
@@ -15094,7 +15125,7 @@ hframes = 10
 vframes = 19
 frame = 68
 
-[node name="Character" type="AnimationPlayer" parent="Character" node_paths=PackedStringArray("Controller", "Character")]
+[node name="Character" type="AnimationPlayer" parent="Character" node_paths=PackedStringArray("Controller", "Character", "Scaler")]
 root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
@@ -15103,6 +15134,8 @@ speed_scale = 1.3
 script = ExtResource("15_uw8xh")
 Controller = NodePath("../..")
 Character = NodePath("..")
+Scaler = NodePath("../Scale Player")
+SAir = Vector2(200, 0)
 
 [node name="Side Light First Punch" type="AudioStreamPlayer2D" parent="Character"]
 stream = ExtResource("12_bl2hr")
@@ -15148,6 +15181,8 @@ shape = SubResource("CapsuleShape2D_2ig4y")
 [connection signal="area_entered" from="Character/Scale Player/Neutral Light End" to="Character/Scale Player/Neutral Light End" method="_on_area_entered"]
 [connection signal="area_entered" from="Character/Hurtbox" to="Character" method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="Character/Hurtbox" to="Character/Hurtbox" method="_on_area_entered"]
+[connection signal="AttackMoving" from="Character/Character" to="Character" method="_on_character_attack_moving"]
+[connection signal="AttackMoving" from="Character/Character" to="Character/Scale Player" method="_on_character_attack_moving"]
 [connection signal="IsAttacking" from="Character/Character" to="." method="_on_character_is_attacking"]
 [connection signal="IsDashing" from="Character/Character" to="Character" method="_on_character_is_dashing"]
 [connection signal="IsJumping" from="Character/Character" to="Character" method="_on_character_is_jumping"]

@@ -28,7 +28,6 @@ func _ready():
 	Speed *= Speed_Rating
 func _physics_process(delta):
 	move_and_slide()
-	
 	if !is_on_floor():
 		velocity.y += Gravity
 
@@ -68,3 +67,6 @@ func _on_character_is_jumping():
 func _on_character_is_throwing():
 	pass # Replace with function body.
 
+
+func _on_character_attack_moving(Vector):
+	print(Vector)

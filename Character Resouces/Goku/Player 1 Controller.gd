@@ -23,13 +23,10 @@ var can_action: bool = false
 var can_turn: bool = false
 
 func _process(delta): 
-	start_movmeent()
 	change_dir()
 	direction.normalized()
-func start_movmeent():
-	direction.y = Input.get_action_strength(Controls.down)
-	if start_move == true:
-		direction.x = Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left)
+	direction = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),
+	Input.get_action_strength(Controls.down))
 	
 	if can_action == true:
 		if Input.is_action_just_pressed(Controls.jump):

@@ -57,11 +57,10 @@ func _on_character_is_dashing():
 
 func _on_character_is_jumping():
 	if Jump_Count > 0:
-		if Controller.jump == true:
-			emit_signal("JumpCloud")
-			Jump_Count -= 1
-			velocity.y = -Jump_Height
-			Controller.jump = false
+		emit_signal("JumpCloud")
+		Jump_Count -= 1
+		velocity.y = -Jump_Height
+		Controller.jump = false
 
 
 func _on_character_is_throwing():

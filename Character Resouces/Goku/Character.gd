@@ -53,10 +53,7 @@ var state = Respawn
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
-	pass
-	
-func _physics_process(delta: float):
+func _process(delta: float):
 	match state:
 		Idle:
 			emit_signal("IsStopping")
@@ -67,38 +64,28 @@ func _physics_process(delta: float):
 			if Controller.direction.x != 0:
 				if Engine.get_process_frames() % 2 == 0:
 					state = Running
-			if Controller.direction.y != 0:
-				if Controller.light == true:
+			if Controller.direction.y == 1:
+				if Input.is_action_just_pressed(Controller.Controls.light):
 					emit_signal("IsAttacking")
 					state = Down_Light
-					Controller.light = false
 					
-				if Controller.heavy == true:
+				if Input.is_action_just_pressed(Controller.Controls.heavy):
 					emit_signal("IsAttacking")
-					state = Down_Light
-					Controller.heavy = false
-			elif Controller.light == true:
-				emit_signal("IsAttacking")
-				state = Neutral_Light
-				Controller.light = false
+					state = Down_Heavy
+			elif Input.is_action_just_pressed(Controller.Controls.light):
+					emit_signal("IsAttacking")
+					state = Neutral_Light
 				
-			elif Controller.heavy == true:
-				emit_signal("IsAttacking")
-				state = Neutral_Heavy
-				Controller.heavy = false
+			elif Input.is_action_just_pressed(Controller.Controls.heavy):
+					emit_signal("IsAttacking")
+					state = Neutral_Heavy
 				
-			if Controller.throw == true:
-				emit_signal("IsAttacking")
-				state = Throw
-				Controller.throw = false
+			if Input.is_action_just_pressed(Controller.Controls.dash):
+					state = Dash
 				
-			if Controller.dash == true:
-				emit_signal("IsStopping")
-				state = Block
-				Controller.dash = false
-				
-			if Controller.jump == true:
-				state = Jump
+			if Input.is_action_just_pressed(Controller.Controls.jump):
+					state = Jump
+					IsJumping.emit()
 			
 		Running:
 			IsMoving.emit()
@@ -107,41 +94,31 @@ func _physics_process(delta: float):
 			if Controller.direction.x == 0:
 				state = Idle
 				
-			if Controller.direction.y != 0:
-				if Controller.light == true:
+			if !Character.is_on_floor():
+				state = Fall
+				
+			if Controller.direction.y == 1:
+					if Input.is_action_just_pressed(Controller.Controls.light):
+						emit_signal("IsAttacking")
+						state = Down_Light
+						
+					if Input.is_action_just_pressed(Controller.Controls.heavy):
+						emit_signal("IsAttacking")
+						state = Down_Heavy
+			elif Input.is_action_just_pressed(Controller.Controls.light):
 					emit_signal("IsAttacking")
-					state = Down_Light
-					Controller.light = false
-					
-				if Controller.heavy == true:
+					state = Side_Light
+				
+			elif Input.is_action_just_pressed(Controller.Controls.heavy):
 					emit_signal("IsAttacking")
-					state = Down_Light
-					Controller.heavy = false
-					
-			if Controller.light == true:
-				emit_signal("IsAttacking")
-				state = Side_Light
-				Controller.light = false
+					state = Side_Heavy
 				
-			if Controller.heavy == true:
-				emit_signal("IsAttacking")
-				state = Side_Heavy
-				Controller.heavy = false
+			if Input.is_action_just_pressed(Controller.Controls.dash):
+					state = Dash
 				
-			if Controller.throw == true:
-				emit_signal("IsAttacking")
-				state = Throw
-				Controller.throw = false
-			
-			if Controller.dash == true:
-				emit_signal("IsDashing")
-				state = Dash
-				Controller.dash = false
-				
-			
-			if Controller.jump == true:
-				state = Jump
-				
+			if Input.is_action_just_pressed(Controller.Controls.jump):
+					state = Jump
+					IsJumping.emit()
 		Dash:
 			play("Dash")
 			
@@ -178,14 +155,59 @@ func _physics_process(delta: float):
 				
 			if Controller.jump == true:
 				state = Jump
+				IsJumping.emit()
 		Jump:
 			play("Jump")
-			IsJumping.emit()
 			
-			if Character.velocity.y > 0:
-				state = Fall
 				
+			if Controller.direction.y == 1:
+					if Input.is_action_just_pressed(Controller.Controls.light):
+						emit_signal("IsAttacking")
+						state = Down_Air
+						
+					if Input.is_action_just_pressed(Controller.Controls.heavy):
+						emit_signal("IsAttacking")
+						state = Dowm_Recovery
+						
+			if Controller.direction.x != 0:
+				IsMoving.emit()
 				
+				if Input.is_action_just_pressed(Controller.Controls.light):
+						emit_signal("IsAttacking")
+						state = Down_Air
+			elif Input.is_action_just_pressed(Controller.Controls.light):
+					emit_signal("IsAttacking")
+					state = Side_Light
+				
+			elif Input.is_action_just_pressed(Controller.Controls.heavy):
+					emit_signal("IsAttacking")
+					state = Side_Heavy
+				
+			if Input.is_action_just_pressed(Controller.Controls.dash):
+					state = Dash
+				
+			if Input.is_action_just_pressed(Controller.Controls.jump):
+					state = Jump
+					IsJumping.emit()
+			if Character.is_on_floor():
+				state = Idle
+				emit_signal("OnGround")
+				Controller.jump = false
+		Fall:
+			play("Fall")
+			
+			if Controller.direction.y != 0:
+				
+				if Controller.light == true:
+					emit_signal("IsAttacking")
+					state = Down_Air
+					Controller.light = false
+
+					
+				if Controller.heavy == true:
+					emit_signal("IsAttacking")
+					state = Dowm_Recovery
+					Controller.heavy = false
 			if Controller.direction.x != 0:
 				emit_signal("IsMoving")
 				
@@ -208,19 +230,6 @@ func _physics_process(delta: float):
 					Controller.heavy = false
 				
 				
-			if Controller.direction.y != 0:
-				
-				if Controller.light == true:
-					emit_signal("IsAttacking")
-					state = Down_Air
-					Controller.light = false
-
-					
-				if Controller.heavy == true:
-					emit_signal("IsAttacking")
-					state = Dowm_Recovery
-					Controller.heavy = false
-				
 			if Controller.throw == true:
 				emit_signal("IsAttacking")
 				state = Throw
@@ -235,37 +244,9 @@ func _physics_process(delta: float):
 			if Controller.jump == true:
 				state = Jump
 			
-			if Character.Jump_Count <= 0:
-				if Character.is_on_floor():
-					state = Idle
-					emit_signal("OnGround")
-					Controller.jump = false
-		Fall:
-			play("Fall")
-			
 			if Character.is_on_floor():
 				state = Idle
 				emit_signal("OnGround")
-				Controller.jump = false
-			if Controller.jump == true:
-				state = Jump
-				
-			if Controller.direction.x != 0:
-				emit_signal("IsMoving") 
-					
-			else:
-				emit_signal("IsStopping")
-
-	
-				
-			if Controller.throw == true:
-				state = Throw
-				Controller.throw = false
-			
-			if Controller.dash == true:
-				emit_signal("IsDashing")
-				state = Block
-				Controller.dash = false
 				
 		Block:
 			if Character.is_on_floor():
@@ -286,40 +267,45 @@ func _physics_process(delta: float):
 				play("Air Projectile")
 				
 		Neutral_Light:
-			IsAttacking.emit()
 			play("Neutral Light")
 			
 		Neutral_Heavy:
-			IsAttacking.emit()
 			play("Neutral Heavy")
 			
 		Neutral_Air:
-			IsAttacking.emit()
+			Attack_Vector = NAir
 			play("Neutral Air")
 			
 		Neutral_Recovery:
-			IsAttacking.emit()
+			Attack_Vector = NRecovery
 			play("Neutral Recovery")
 			
 		Side_Light:
-			IsAttacking.emit()
+			Attack_Vector = Slight
 			play("Side Light")
 		
 		Side_Heavy:
+			Attack_Vector = SHeavy
 			play("Side Heavy")
 			
 		Side_Air:
 			Attack_Vector = SAir
-			AttackMoving.emit()
 			play("Side Air")
 			
 		Down_Light:
+			Attack_Vector = Dlight
 			play("Down Light")
 			
 		Down_Heavy:
+			Attack_Vector = DHeavy
 			play("Down Heavy")
+		
+		Down_Air:
+			Attack_Vector = DAir
+			play("Down Air")
 			
 		Dowm_Recovery:
+			Attack_Vector = DRecovery
 			play("Down Recovery")
 			
 
@@ -327,7 +313,14 @@ func _physics_process(delta: float):
 	#if side_transition == true:
 		#play("Side Finish")
 
-func _reset_state():
+
+func _attack_movement():
+	print(Character.velocity)
+	Character.velocity.x = Scaler.direction * Attack_Vector.x
+	Character.velocity.y = Attack_Vector.y 
+
+
+func idle_reset():
 	Attack_Vector = Vector2.ZERO
 	if Character.is_on_floor():
 		state = Idle
@@ -336,9 +329,3 @@ func _reset_state():
 	if !Character.is_on_floor():
 		state = Fall
 		IsResetting.emit()
-
-
-func _attack_movement():
-	print(Character.velocity)
-	Character.velocity.x = Scaler.direction * Attack_Vector.x
-	Character.velocity.y = Attack_Vector.y 

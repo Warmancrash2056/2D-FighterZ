@@ -60,7 +60,7 @@ func _process(delta: float):
 			play("Idle")
 			
 			if !Character.is_on_floor():
-				state = Fall
+				state = Jump
 			if Controller.direction.x != 0:
 				if Engine.get_process_frames() % 2 == 0:
 					state = Running
@@ -159,7 +159,8 @@ func _process(delta: float):
 		Jump:
 			play("Jump")
 			
-				
+			if Character.velocity.y > 0:
+				state = Fall
 			if Controller.direction.y == 1:
 					if Input.is_action_just_pressed(Controller.Controls.light):
 						emit_signal("IsAttacking")
@@ -187,8 +188,8 @@ func _process(delta: float):
 					state = Block
 				
 			if Input.is_action_just_pressed(Controller.Controls.jump):
-					state = Jump
-					IsJumping.emit()
+				play("Jump")
+				IsJumping.emit()
 					
 			if Character.is_on_floor():
 				state = Idle

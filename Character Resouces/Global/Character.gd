@@ -45,7 +45,11 @@ func _on_character_is_stopping():
 
 func _on_character_is_moving():
 	var dir: int = Controller.direction.x
-	velocity.x = move_toward(velocity.x , dir * Speed, Acceleration) 
+	if dir == 1:
+		velocity.x = move_toward(velocity.x , Speed, Acceleration) 
+		
+	else:
+		velocity.x = move_toward(velocity.x , -Speed, Acceleration) 
 
 
 func _on_character_is_dashing():

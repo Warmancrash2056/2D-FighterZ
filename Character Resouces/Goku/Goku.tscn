@@ -14228,7 +14228,7 @@ Controller = NodePath("../..")
 
 [node name="Collision Body" parent="Character/Hurtbox" index="0"]
 z_index = 8
-position = Vector2(0, -8)
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_uhln4")
 disabled = true
 
@@ -14238,7 +14238,7 @@ texture = ExtResource("11_so2xu")
 offset = Vector2(0, -40)
 hframes = 10
 vframes = 19
-frame = 69
+frame = 130
 
 [node name="Character" type="AnimationPlayer" parent="Character" node_paths=PackedStringArray("Controller", "Character", "Scaler")]
 root_node = NodePath("../Sprite")
@@ -14251,7 +14251,7 @@ Controller = NodePath("../..")
 Character = NodePath("..")
 Scaler = NodePath("../Scale Player")
 Slight = Vector2(10, 0)
-SAir = Vector2(80, 0)
+SAir = Vector2(60, 0)
 DRecovery = Vector2(0, 100)
 
 [node name="Side Light First Punch" type="AudioStreamPlayer2D" parent="Character"]
@@ -14260,7 +14260,6 @@ DRecovery = Vector2(0, 100)
 stream = ExtResource("13_ht28k")
 
 [node name="Counter Position" parent="Character" node_paths=PackedStringArray("Character") instance=ExtResource("15_lhwgj")]
-position = Vector2(0, 13)
 Character = NodePath("..")
 
 [node name="Jump Smoke" parent="Character" node_paths=PackedStringArray("Character") instance=ExtResource("17_o01ah")]
@@ -14281,7 +14280,7 @@ hit_from_inside = true
 
 [node name="Body" parent="Character" instance=ExtResource("17_glfwe")]
 z_index = 6
-position = Vector2(0, -8)
+position = Vector2(0, 2.5)
 shape = SubResource("CapsuleShape2D_2ig4y")
 
 [connection signal="FacingLeft" from="." to="Character/Scale Player" method="_on_controller_facing_left"]

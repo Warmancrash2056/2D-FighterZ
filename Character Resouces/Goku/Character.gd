@@ -85,7 +85,7 @@ func _process(delta: float):
 				
 			if Input.is_action_just_pressed(Controller.Controls.jump):
 					state = Jump
-					IsJumping.emit()
+					IsJumping.emit() 
 			
 		Running:
 			IsMoving.emit()
@@ -169,26 +169,27 @@ func _process(delta: float):
 						emit_signal("IsAttacking")
 						state = Dowm_Recovery
 						
-			if Controller.direction.x != 0:
+			elif Controller.direction.x != 0:
 				IsMoving.emit()
 				
 				if Input.is_action_just_pressed(Controller.Controls.light):
 						emit_signal("IsAttacking")
-						state = Down_Air
-			elif Input.is_action_just_pressed(Controller.Controls.light):
-					emit_signal("IsAttacking")
-					state = Side_Light
+						state = Side_Air
+			
+			else:
+				IsStopping.emit()
 				
-			elif Input.is_action_just_pressed(Controller.Controls.heavy):
+				if Input.is_action_just_pressed(Controller.Controls.light):
 					emit_signal("IsAttacking")
-					state = Side_Heavy
+					state = Neutral_Air
 				
 			if Input.is_action_just_pressed(Controller.Controls.dash):
-					state = Dash
+					state = Block
 				
 			if Input.is_action_just_pressed(Controller.Controls.jump):
 					state = Jump
 					IsJumping.emit()
+					
 			if Character.is_on_floor():
 				state = Idle
 				emit_signal("OnGround")
@@ -196,58 +197,40 @@ func _process(delta: float):
 		Fall:
 			play("Fall")
 			
-			if Controller.direction.y != 0:
+			if Controller.direction.y == 1:
+					if Input.is_action_just_pressed(Controller.Controls.light):
+						emit_signal("IsAttacking")
+						state = Down_Air
+						
+					if Input.is_action_just_pressed(Controller.Controls.heavy):
+						emit_signal("IsAttacking")
+						state = Dowm_Recovery
+						
+			elif Controller.direction.x != 0:
+				IsMoving.emit()
 				
-				if Controller.light == true:
-					emit_signal("IsAttacking")
-					state = Down_Air
-					Controller.light = false
-
-					
-				if Controller.heavy == true:
-					emit_signal("IsAttacking")
-					state = Dowm_Recovery
-					Controller.heavy = false
-			if Controller.direction.x != 0:
-				emit_signal("IsMoving")
-				
-				if Controller.light == true:
-					emit_signal("IsAttacking")
-					state = Side_Air
-					Controller.light = false
-					
+				if Input.is_action_just_pressed(Controller.Controls.light):
+						emit_signal("IsAttacking")
+						state = Side_Air
+			
 			else:
-				emit_signal("IsStopping")
+				IsStopping.emit()
 				
-				if Controller.light == true:
+				if Input.is_action_just_pressed(Controller.Controls.light):
 					emit_signal("IsAttacking")
 					state = Neutral_Air
-					Controller.light = false
+				
+			if Input.is_action_just_pressed(Controller.Controls.dash):
+					state = Block
+				
+			if Input.is_action_just_pressed(Controller.Controls.jump):
+					state = Jump
+					IsJumping.emit()
 					
-				if Controller.heavy == true:
-					emit_signal("IsAttacking")
-					state = Neutral_Recovery
-					Controller.heavy = false
-				
-				
-			if Controller.throw == true:
-				emit_signal("IsAttacking")
-				state = Throw
-				Controller.throw = false
-			
-			if Controller.dash == true:
-				emit_signal("IsDashing")
-				state = Block
-				Controller.dash = false
-				
-			
-			if Controller.jump == true:
-				state = Jump
-			
 			if Character.is_on_floor():
 				state = Idle
 				emit_signal("OnGround")
-				
+				Controller.jump = false
 		Block:
 			if Character.is_on_floor():
 				play("Ground Block")

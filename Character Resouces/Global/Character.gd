@@ -48,9 +48,6 @@ func _on_character_is_moving():
 	velocity.x = move_toward(velocity.x , dir * Speed, Acceleration) 
 
 
-
-
-
 func _on_character_is_dashing():
 	pass # Replace with function body.
 
@@ -60,7 +57,6 @@ func _on_character_is_jumping():
 		emit_signal("JumpCloud")
 		Jump_Count -= 1
 		velocity.y = -Jump_Height
-		Controller.jump = false
 
 
 func _on_character_is_throwing():

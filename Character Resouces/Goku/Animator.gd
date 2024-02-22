@@ -20,7 +20,7 @@ var movement_dir: Vector2
 
 var input_buffer = []
 var max_buffer_limit = 3
-var buffer_time = 0.3
+var buffer_time = 0.2
 var can_input = true
 var can_jump = true
 var can_dash = true
@@ -123,17 +123,36 @@ func _process_combinations():
 				
 				else:
 					state = Side_Air
-					
+			
+			if first_input.facing == -1 and first_input.value == "left" and second_input.type == "attack" and second_input.value == "heavy":
+				if first_input.onground == true:
+						state = Side_Heavy
+				
 			if first_input.facing == 1 and first_input.value == "right" and second_input.type == "attack" and second_input.value == "light":
 				if first_input.onground == true:
 					state = Side_Light
 				
 				else:
 					state = Side_Air
+			
+			if first_input.facing == 1 and first_input.value == "right" and second_input.type == "attack" and second_input.value == "heavy":
+					if first_input.onground == true:
+						state = Side_Heavy
+				
+			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
+				if first_input.onground == true:
+					state = Down_Light
+				
+				else:
+					state = Down_Air
 					
-				
-				
-				
+			
+			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
+				if first_input.onground == true:
+					state = Down_Heavy
+					
+				else:
+					state = Dowm_Recovery
 		if first_input.type == "direction" and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
 				if second_input.onground == true:
 					state = Neutral_Light

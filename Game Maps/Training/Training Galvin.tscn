@@ -5876,3 +5876,6 @@ shape = SubResource("RectangleShape2D_ipdot")
 [node name="Goku" parent="." instance=ExtResource("10_jaio8")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[editable path="Goku"]
+[editable path="Goku/Character/Hurtbox"]

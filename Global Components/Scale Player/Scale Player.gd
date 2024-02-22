@@ -5,17 +5,9 @@ extends Node2D
 
 var direction = 1
 
-func _on_controller_facing_left():
+func _on_character_facing_left():
 	scale.x = -1
-	Sprite.flip_h = true
-	direction = -1
 
 
-func _on_controller_facing_right():
+func _on_character_facing_right():
 	scale.x = 1
-	Sprite.flip_h = false
-	direction = 1
-
-
-func _on_character_attack_moving():
-	pass # Replace with function body.

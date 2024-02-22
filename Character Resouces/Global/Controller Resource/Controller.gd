@@ -6,6 +6,7 @@ class_name InputSys
 # List of player inputs.
 @export var right = "Player1_Right"
 @export var left = "Player1_Left"
+@export var up = "Player1_Up"
 @export var down = "Player1_Down"
 @export var light = "Player1_Light"
 @export var jump = "Player1_Jump"

@@ -74,8 +74,8 @@ func _process_input():
 			add_to_buffer({"type": "direction", "value": "down", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
 			
 			
-		#if Input.is_action_pressed(Controller.Controls.up):
-			#add_to_buffer({"type": "direction", "value": "up", "timestamp": Time.get_ticks_msec()})
+		if Input.is_action_pressed(Controller.Controls.up):
+			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
 		if Input.is_action_just_pressed(Controller.Controls.jump):
 			add_to_buffer({"type": "move", "value": "jump", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
 			IsJumping.emit()

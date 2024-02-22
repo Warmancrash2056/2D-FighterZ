@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1708568725
+::res://::1708591441
 animation_player.tscn::PackedScene::6663633300039810198::1707869937::0::1::::<><>::
 controller.gd::GDScript::-1::1707873753::0::1::::<>Node2D<>::
-controller.tscn::PackedScene::6460830953035998025::1708568891::0::1::::<><>::res://Character Resouces/Goku/Player 1 Controller.gd<>res://Character Resouces/Goku/Character.gd<>uid://larmu623rlvd::::res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png<>res://Global Components/Scale Player/Scale Player.gd<>res://Global Components/Projectile/Projectile.gd
+controller.tscn::PackedScene::6460830953035998025::1708568891::0::1::::<><>::res://Character Resouces/Goku/Player 1 Controller.gd<>res://Character Resouces/Goku/Animator.gd<>uid://larmu623rlvd::::res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png<>res://Global Components/Scale Player/Scale Player.gd<>res://Global Components/Projectile/Projectile.gd
 icon.svg::CompressedTexture2D::4368309039610008210::1707869905::1707869912::1::::<><>::
 ::res://Autoloads/::1707903490
 Character List.gd::GDScript::-1::1707903490::0::1::::<>Node<>::
@@ -255,11 +255,11 @@ Player Jump.wav::AudioStreamWAV::6466182654929365714::1707903493::1707903493::1:
 animal melee sound.wav::AudioStreamWAV::5211604908780385845::1707903493::1707903493::1::::<><>::
 melee sound.wav::AudioStreamWAV::3266440998786232084::1707903493::1707903493::1::::<><>::
 sword sound.wav::AudioStreamWAV::6690857087575775546::1707903493::1707903493::1::::<><>::
-::res://Character Resouces/Goku/::1708568803
+::res://Character Resouces/Goku/::1708568898
 Animation.gd::GDScript::-1::1707872566::0::1::::<>AnimationPlayer<>::
-Character.gd::GDScript::-1::1708568803::0::1::::Aniamtor<>AnimationPlayer<>::
+Animator.gd::GDScript::-1::1708568803::0::1::::Aniamtor<>AnimationPlayer<>::
 Controller.gd::GDScript::-1::1707903494::0::1::::<>Node<>::
-Goku.tscn::PackedScene::6861411823530115352::1708568891::0::1::::<><>::res://Character Resouces/Goku/Player 1 Controller.gd<>uid://d3ht5pyb76ndi::::res://Global Components/Scale Player/scale_player.tscn<>res://Character Resouces/Global/Character.gd<>uid://duiga22704uhr::::res://Global Components/Dash Cloud/dash_smoke_position.tscn<>uid://b32x68ug5uvgv::::res://Global Components/Wall Cloud/Wall Cloud Position.tscn<>uid://cjjtckug5x086::::res://Global Components/Projectile/projectile_position.tscn<>uid://bvgm6lrd873fg::::res://Character Resouces/Goku/Projectile Resources/Goku Air Projectile.tscn<>uid://bwldo5okthbx::::res://Character Resouces/Goku/Projectile Resources/Goku Ground Projectile.tscn<>res://Global Components/Scripts/Hitbox Component.gd<>uid://cyx5stt1ggq2b::::res://Global Components/Hurtbox/hurtbox.tscn<>res://Global Components/Hurtbox/Hurtbox Component.gd<>uid://larmu623rlvd::::res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png<>uid://r5tlbrig47nu::::res://Character Resouces/Goku/Sound Effects/Second Punch.wav<>res://Character Resouces/Goku/Sprite.gd<>uid://bai34xpabg2ad::::res://Global Components/player_indicator.tscn<>uid://b68jujlxhnb2q::::res://Global Components/Counter Cloud/counter_position.tscn<>res://Character Resouces/Goku/Character.gd<>uid://cuqf1sgy87l6k::::res://Global Components/body.tscn<>uid://cxhu4tahjydj4::::res://Global Components/Jump Cloud/jump_position.tscn
+Goku.tscn::PackedScene::6861411823530115352::1708568898::0::1::::<><>::res://Character Resouces/Goku/Player 1 Controller.gd<>uid://d3ht5pyb76ndi::::res://Global Components/Scale Player/scale_player.tscn<>res://Character Resouces/Global/Character.gd<>uid://duiga22704uhr::::res://Global Components/Dash Cloud/dash_smoke_position.tscn<>uid://b32x68ug5uvgv::::res://Global Components/Wall Cloud/Wall Cloud Position.tscn<>uid://cjjtckug5x086::::res://Global Components/Projectile/projectile_position.tscn<>uid://bvgm6lrd873fg::::res://Character Resouces/Goku/Projectile Resources/Goku Air Projectile.tscn<>uid://bwldo5okthbx::::res://Character Resouces/Goku/Projectile Resources/Goku Ground Projectile.tscn<>res://Global Components/Scripts/Hitbox Component.gd<>uid://cyx5stt1ggq2b::::res://Global Components/Hurtbox/hurtbox.tscn<>res://Global Components/Hurtbox/Hurtbox Component.gd<>uid://larmu623rlvd::::res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png<>uid://r5tlbrig47nu::::res://Character Resouces/Goku/Sound Effects/Second Punch.wav<>res://Character Resouces/Goku/Sprite.gd<>uid://bai34xpabg2ad::::res://Global Components/player_indicator.tscn<>uid://b68jujlxhnb2q::::res://Global Components/Counter Cloud/counter_position.tscn<>res://Character Resouces/Goku/Animator.gd<>uid://cuqf1sgy87l6k::::res://Global Components/body.tscn<>uid://cxhu4tahjydj4::::res://Global Components/Jump Cloud/jump_position.tscn
 Player 1 Controller.gd::GDScript::-1::1708560395::0::1::::<>Node<>::
 Sprite.gd::GDScript::-1::1708560903::0::1::::<>Sprite2D<>::
 ::res://Character Resouces/Goku/Animations/::1707872566

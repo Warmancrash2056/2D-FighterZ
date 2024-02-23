@@ -20,8 +20,8 @@ var movement_dir: Vector2
 
 var input_buffer = []
 var max_buffer_limit = 3
-var buffer_time = 0.2
-var can_input = true
+var buffer_time = 0.1
+var can_direct = true
 var can_jump = true
 var can_dash = true
 var can_attack = true
@@ -63,34 +63,37 @@ enum {
 
 var state = Respawn
 func _process_input():
+	if can_direct:
 		if Input.is_action_pressed(Controller.Controls.left):
-			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
-			FacingLeft.emit()
+			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
 		if Input.is_action_pressed(Controller.Controls.right):
-			add_to_buffer({"type": "direction", "value": "right", "onground": Character.is_on_floor(), "facing":movement_dir.x ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "direction", "value": "right", "onground": Character.is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
 			FacingRight.emit()
 			
 		if Input.is_action_pressed(Controller.Controls.down):
-			add_to_buffer({"type": "direction", "value": "down", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "direction", "value": "down", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			
-			
+	
 		if Input.is_action_pressed(Controller.Controls.up):
-			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
-		if Input.is_action_just_pressed(Controller.Controls.jump):
-			add_to_buffer({"type": "move", "value": "jump", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
-			IsJumping.emit()
-				
-		if Input.is_action_just_pressed(Controller.Controls.dash):
-			add_to_buffer({"type": "move", "value": "dash", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "direction", "value": "up", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			
+	if can_jump:
+		if Input.is_action_just_pressed(Controller.Controls.jump):
+			add_to_buffer({"type": "move", "value": "jump", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			IsJumping.emit()
+	
+	if can_dash:	
+		if Input.is_action_just_pressed(Controller.Controls.dash):
+			add_to_buffer({"type": "move", "value": "dash", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+	if can_attack:	
 		if Input.is_action_just_pressed(Controller.Controls.throw):
-			add_to_buffer({"type": "attack", "value": "throw", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "attack", "value": "throw", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			IsAttacking.emit()
 		if Input.is_action_just_pressed(Controller.Controls.light):
-			add_to_buffer({"type": "attack", "value": "light", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "attack", "value": "light", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			IsAttacking.emit()
 		if Input.is_action_just_pressed(Controller.Controls.heavy):
-				add_to_buffer({"type": "attack", "value": "heavy", "onground": Character.is_on_floor(), "facing": movement_dir.x ,"timestamp": Time.get_ticks_msec()})
+				add_to_buffer({"type": "attack", "value": "heavy", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			
 		
 
@@ -112,7 +115,6 @@ func clear_inputs():
 	input_buffer = new_input_buffer
 	
 func _process_combinations():
-	print(state)
 	for i in range(len(input_buffer) - 1):
 		var first_input = input_buffer[i]
 		var second_input = input_buffer[i + 1]
@@ -161,13 +163,16 @@ func _process_combinations():
 					state = Neutral_Air
 		
 func _process_immediate_action():
-	print(input_buffer)
 	for input_action in input_buffer:
 		match input_action.type:
 			"move":
 				if input_action.value == "jump":
 					state = Jump
 					
+			"direction":
+				if input_action.value == "left" and Sprite.flip_h == false:
+					state
+			
 func _process(delta):
 	movement_dir = Vector2(Input.get_action_strength(Controller.Controls.right) - Input.get_action_strength(Controller.Controls.left),0)
 	movement_dir.normalized()
@@ -185,6 +190,15 @@ func _physics_process(delta):
 			if movement_dir.x != 0:
 				if Engine.get_physics_frames() % 6 == 0:
 					state = Running
+					
+			if Input.is_action_just_pressed(Controller.Controls.light):
+				#state = Neutral_Light
+				IsAttacking.emit()
+				
+			elif Input.is_action_just_pressed(Controller.Controls.heavy):
+				state = Neutral_Heavy
+				IsAttacking.emit()
+			
 		Turning:
 			pass
 			
@@ -206,6 +220,16 @@ func _physics_process(delta):
 			if Character.is_on_floor():
 				state = Idle
 				emit_signal("OnGround")
+				
+								
+			if Input.is_action_just_pressed(Controller.Controls.light):
+				state = Neutral_Air
+				IsAttacking.emit()
+				
+			elif Input.is_action_just_pressed(Controller.Controls.heavy):
+				state = Neutral_Recovery
+				IsAttacking.emit()
+				
 		Fall:
 			play("Fall")
 			

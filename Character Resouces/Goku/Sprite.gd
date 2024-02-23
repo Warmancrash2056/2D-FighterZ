@@ -8,8 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(flip_h)
-
+	pass
 
 func _on_character_facing_left():
 	flip_h = true

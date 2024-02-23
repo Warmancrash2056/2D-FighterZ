@@ -62,7 +62,7 @@ func _on_character_is_throwing():
 
 
 func _on_character_attack_moving(Vector):
-	velocity.x += Vector.x
+	velocity.x = Vector.x
 	velocity.y = Vector.y
 
 

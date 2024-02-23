@@ -4,8 +4,15 @@ class_name Aniamtor extends AnimationPlayer
 @export var Character: CharacterBody2D
 @export var Scaler: Node
 @export var Sprite: Sprite2D
-var Attack_Vector: Vector2
+
+# Get directions of player
 var movement_dir: Vector2
+var direction: int 
+
+var Attack_Vector: Vector2
+var start_movement = false
+@export var Throw_Ground: Vector2
+@export var Throw_Air: Vector2
 @export var Nlight: Vector2
 @export var NHeavy: Vector2
 @export var NAir: Vector2
@@ -66,9 +73,11 @@ func _process_input():
 	if can_direct:
 		if Input.is_action_pressed(Controller.Controls.left):
 			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
+			direction = -1
 		if Input.is_action_pressed(Controller.Controls.right):
 			add_to_buffer({"type": "direction", "value": "right", "onground": Character.is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
 			FacingRight.emit()
+			direction = 1
 			
 		if Input.is_action_pressed(Controller.Controls.down):
 			add_to_buffer({"type": "direction", "value": "down", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
@@ -168,10 +177,20 @@ func _process_immediate_action():
 			"move":
 				if input_action.value == "jump":
 					state = Jump
-					
+				
+				if input_action.value == "dash" and input_action.facing == 0:
+					state = Block
 			"direction":
 				if input_action.value == "left" and Sprite.flip_h == false:
-					state
+					state = Turning
+					
+				if input_action.value == "right" and Sprite.flip_h == true:
+					state = Turning
+					
+			"attack":
+				if input_action.value == "throw" and input_action.facing == 0:
+					state = Throw
+				
 			
 func _process(delta):
 	movement_dir = Vector2(Input.get_action_strength(Controller.Controls.right) - Input.get_action_strength(Controller.Controls.left),0)
@@ -200,7 +219,13 @@ func _physics_process(delta):
 				IsAttacking.emit()
 			
 		Turning:
-			pass
+			if direction == 1:
+				FacingRight.emit()
+				state = Idle # change to turn animation 
+				
+			if direction == -1:
+				FacingLeft.emit()
+				state = Idle
 			
 		Running:
 			IsMoving.emit(movement_dir)
@@ -254,11 +279,17 @@ func _physics_process(delta):
 			play("Respawn")
 			
 		Throw:
+			
+			if start_movement == true:
+				_attack_movement()
+				
 			if Character.is_on_floor():
 				play("Ground Projectile")
+				Attack_Vector = Throw_Ground
 				
 			else:
 				play("Air Projectile")
+				Attack_Vector = Throw_Air
 				
 		Neutral_Light:
 			play("Neutral Light")
@@ -327,10 +358,16 @@ func idle_reset():
 		IsResetting.emit()
 		play("Fall")
 
-
+func start_attack_movment():
+	start_movement = true
+	
+func stop_attack_movment():
+	start_movement = false
 func _on_is_attacking():
 	can_jump = false
+	can_direct = false
 
 
 func _on_is_resetting():
 	can_jump = true
+	can_direct = true

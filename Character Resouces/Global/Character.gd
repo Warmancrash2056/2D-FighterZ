@@ -62,9 +62,10 @@ func _on_character_is_throwing():
 
 
 func _on_character_attack_moving(Vector):
-	velocity.x = Vector.x
-	velocity.y = Vector.y
-
+	velocity.x += Vector.x
+	velocity.y = lerp(velocity.y , 0.0, 0.2)
+	velocity.x = lerp(velocity.x , 0.0, 0.3)
+	
 
 
 

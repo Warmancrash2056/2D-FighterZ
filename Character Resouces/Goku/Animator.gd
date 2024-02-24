@@ -27,7 +27,7 @@ var start_movement = false
 
 var input_buffer = []
 var max_buffer_limit = 3
-var buffer_time = 0.1
+var buffer_time = 0.2
 var can_direct = true
 var can_jump = true
 var can_dash = true
@@ -70,6 +70,7 @@ enum {
 
 var state = Respawn
 func _process_input():
+	print(can_attack, can_direct, can_jump)
 	if can_direct:
 		if Input.is_action_pressed(Controller.Controls.left):
 			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
@@ -86,25 +87,24 @@ func _process_input():
 		if Input.is_action_pressed(Controller.Controls.up):
 			add_to_buffer({"type": "direction", "value": "up", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			
-	if can_jump:
+	if can_jump == true:
 		if Input.is_action_just_pressed(Controller.Controls.jump):
 			add_to_buffer({"type": "move", "value": "jump", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			IsJumping.emit()
 	
-	if can_dash:	
+	if can_dash == true:	
 		if Input.is_action_just_pressed(Controller.Controls.dash):
 			add_to_buffer({"type": "move", "value": "dash", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-	if can_attack:	
+	if can_attack == true:	
 		if Input.is_action_just_pressed(Controller.Controls.throw):
 			add_to_buffer({"type": "attack", "value": "throw", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			IsAttacking.emit()
-		if Input.is_action_just_pressed(Controller.Controls.light):
+		elif Input.is_action_just_pressed(Controller.Controls.light):
 			add_to_buffer({"type": "attack", "value": "light", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			IsAttacking.emit()
-		if Input.is_action_just_pressed(Controller.Controls.heavy):
-				add_to_buffer({"type": "attack", "value": "heavy", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+		elif Input.is_action_just_pressed(Controller.Controls.heavy):
+			add_to_buffer({"type": "attack", "value": "heavy", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			
-		
+
+
 
 func add_to_buffer(input_action):
 	input_buffer.append(input_action)
@@ -203,11 +203,13 @@ func _physics_process(delta):
 	
 	match state:
 		Idle:
+			if !Character.is_on_floor():
+				state = Jump
 			emit_signal("IsStopping")
 			play("Idle")
 			
 			if movement_dir.x != 0:
-				if Engine.get_physics_frames() % 6 == 0:
+				if Engine.get_physics_frames() % 2 == 0:
 					state = Running
 					
 			if Input.is_action_just_pressed(Controller.Controls.light):
@@ -292,44 +294,68 @@ func _physics_process(delta):
 				Attack_Vector = Throw_Air
 				
 		Neutral_Light:
+			Attack_Vector = Nlight
+			if start_movement == true:
+				_attack_movement()
 			play("Neutral Light")
 			
 		Neutral_Heavy:
+			Attack_Vector = NHeavy
+			if start_movement == true:
+				_attack_movement()
 			play("Neutral Heavy")
 			
 		Neutral_Air:
 			Attack_Vector = NAir
+			if start_movement == true:
+				_attack_movement()
 			play("Neutral Air")
 			
 		Neutral_Recovery:
+			if start_movement == true:
+				_attack_movement()
 			Attack_Vector = NRecovery
 			play("Neutral Recovery")
 			
 		Side_Light:
+			if start_movement == true:
+				_attack_movement()
 			Attack_Vector = Slight
 			play("Side Light")
 		
 		Side_Heavy:
+			if start_movement == true:
+				_attack_movement()
 			Attack_Vector = SHeavy
 			play("Side Heavy")
 			
 		Side_Air:
+			if start_movement == true:
+				_attack_movement()
 			Attack_Vector = SAir
 			play("Side Air")
 			
 		Down_Light:
+			if start_movement == true:
+				_attack_movement()
 			Attack_Vector = Dlight
 			play("Down Light")
 			
 		Down_Heavy:
+			if start_movement == true:
+				_attack_movement()
 			Attack_Vector = DHeavy
 			play("Down Heavy")
 		
 		Down_Air:
+			if start_movement == true:
+				_attack_movement()
 			Attack_Vector = DAir
 			play("Down Air")
 			
 		Dowm_Recovery:
+			if start_movement == true:
+				_attack_movement()
 			Attack_Vector = DRecovery
 			play("Down Recovery")
 			
@@ -366,8 +392,12 @@ func stop_attack_movment():
 func _on_is_attacking():
 	can_jump = false
 	can_direct = false
+	can_attack = false
 
-
+func attack_active():
+	IsAttacking.emit()
+	
 func _on_is_resetting():
 	can_jump = true
 	can_direct = true
+	can_attack = true

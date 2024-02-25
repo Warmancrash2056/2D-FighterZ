@@ -13,3 +13,7 @@ func _on_character_facing_left():
 func _on_character_facing_right():
 	scale.x = 1
 	direction = 1
+
+
+func _on_character_attack_friction():
+	pass # Replace with function body.

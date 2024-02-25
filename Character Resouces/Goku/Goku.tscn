@@ -93,15 +93,12 @@ height = 65.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsdxj"]
 radius = 6.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kuh84"]
-radius = 15.0333
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhln4"]
+radius = 14.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ig4y"]
 radius = 7.0
 height = 29.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_uhln4"]
-radius = 15.0333
 
 [sub_resource type="Animation" id="Animation_h1784"]
 resource_name = "Air Block"
@@ -3821,6 +3818,9 @@ tracks/70/keys = {
 "values": [false]
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kuh84"]
+radius = 14.5
+
 [sub_resource type="Animation" id="Animation_iewr3"]
 resource_name = "Down Air"
 length = 0.8
@@ -4866,6 +4866,31 @@ tracks/85/keys = {
 "method": &"start_attack_movment"
 }]
 }
+tracks/86/type = "method"
+tracks/86/imported = false
+tracks/86/enabled = true
+tracks/86/path = NodePath("../..")
+tracks/86/interp = 1
+tracks/86/loop_wrap = true
+tracks/86/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/87/type = "method"
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/path = NodePath("../Character")
+tracks/87/interp = 1
+tracks/87/loop_wrap = true
+tracks/87/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_active"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_da14b"]
 resource_name = "Down Heavy"
@@ -5851,6 +5876,20 @@ tracks/79/keys = {
 "values": [{
 "args": [],
 "method": &"stop_attack_movment"
+}]
+}
+tracks/80/type = "method"
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/path = NodePath("../Character")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_active"
 }]
 }
 
@@ -7054,6 +7093,20 @@ tracks/97/keys = {
 "method": &"stop_attack_movment"
 }]
 }
+tracks/98/type = "method"
+tracks/98/imported = false
+tracks/98/enabled = true
+tracks/98/path = NodePath("../Character")
+tracks/98/interp = 1
+tracks/98/loop_wrap = true
+tracks/98/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_active"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_r04xc"]
 resource_name = "Down Recovery"
@@ -8058,6 +8111,20 @@ tracks/82/keys = {
 "method": &"start_attack_movment"
 }]
 }
+tracks/83/type = "method"
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/path = NodePath("../Character")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_active"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_s0cnm"]
 resource_name = "Down Recovery Destroy"
@@ -8988,6 +9055,20 @@ tracks/76/keys = {
 "method": &"start_attack_movment"
 }]
 }
+tracks/77/type = "method"
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/path = NodePath("../Character")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_active"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_vdwsl"]
 resource_name = "Down Recovery Final"
@@ -9231,6 +9312,20 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [14.5]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../Character")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_attack_deactive"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_id6wq"]
@@ -10579,6 +10674,20 @@ tracks/13/keys = {
 "method": &"stop_attack_movment"
 }]
 }
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../Character")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_active"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_c7e8a"]
 resource_name = "Idle"
@@ -10855,6 +10964,20 @@ tracks/21/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/22/type = "method"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../Character")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_attack_deactive"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_f73an"]
 resource_name = "Jump"
@@ -11049,6 +11172,17 @@ tracks/14/keys = {
 "update": 0,
 "values": [14.5]
 }
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../Character")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_8rqie"]
 resource_name = "Neutral Air"
@@ -11202,7 +11336,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:debug_color")
+tracks/12/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:debug_color")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -11214,19 +11348,19 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:position")
+tracks/13/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-2, -13)]
+"values": [Vector2(-1.5, -7.5)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:disabled")
+tracks/14/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:disabled")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -11238,7 +11372,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:shape")
+tracks/15/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:shape")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -11250,7 +11384,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:shape:radius")
+tracks/16/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:shape:radius")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -11262,7 +11396,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:shape:height")
+tracks/17/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:shape:height")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -11274,7 +11408,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:rotation")
+tracks/18/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:rotation")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -11286,7 +11420,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:visible")
+tracks/19/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:visible")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -11298,7 +11432,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:debug_color")
+tracks/20/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:debug_color")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -11310,7 +11444,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:shape")
+tracks/21/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:shape")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -11322,7 +11456,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:shape:radius")
+tracks/22/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:shape:radius")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -11334,7 +11468,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:shape:height")
+tracks/23/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:shape:height")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -11346,7 +11480,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:disabled")
+tracks/24/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:disabled")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -11358,19 +11492,19 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:position")
+tracks/25/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:position")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.5, -13.5)]
+"values": [Vector2(1.5, -8.5)]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:rotation")
+tracks/26/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:rotation")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -11382,7 +11516,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:visible")
+tracks/27/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:visible")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -11394,7 +11528,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:shape")
+tracks/28/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:shape")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -11406,7 +11540,7 @@ tracks/28/keys = {
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:disabled")
+tracks/29/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:disabled")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
@@ -11418,19 +11552,19 @@ tracks/29/keys = {
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:shape:radius")
+tracks/30/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:shape:radius")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [6.0]
+"values": [4.03113]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:debug_color")
+tracks/31/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:debug_color")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
@@ -11442,19 +11576,19 @@ tracks/31/keys = {
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:position")
+tracks/32/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:position")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(19.5, -15)]
+"values": [Vector2(20.5, -12)]
 }
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:visible")
+tracks/33/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:visible")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -12640,17 +12774,11 @@ tracks/38/path = NodePath("../Character")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
-"times": PackedFloat32Array(0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"_attack_movement"
-}, {
-"args": [],
-"method": &"_attack_movement"
-}, {
-"args": [],
-"method": &"_attack_movement"
+"method": &"idle_reset"
 }]
 }
 tracks/39/type = "method"
@@ -12660,11 +12788,14 @@ tracks/39/path = NodePath("../Character")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
-"times": PackedFloat32Array(0.7),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"idle_reset"
+"method": &"start_attack_movment"
+}, {
+"args": [],
+"method": &"stop_attack_movment"
 }]
 }
 
@@ -12745,7 +12876,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:debug_color")
+tracks/6/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:debug_color")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -12757,7 +12888,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:position")
+tracks/7/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -12769,7 +12900,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:disabled")
+tracks/8/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -12781,7 +12912,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:shape")
+tracks/9/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:shape")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -12793,7 +12924,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:shape:radius")
+tracks/10/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:shape:radius")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -12805,7 +12936,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:shape:height")
+tracks/11/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:shape:height")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -12817,7 +12948,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:rotation")
+tracks/12/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:rotation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -12829,7 +12960,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Scale Player/Neautral Air Left/CollisionShape2D:visible")
+tracks/13/path = NodePath("../Scale Player/Neautral Air First/CollisionShape2D:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -12841,7 +12972,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:debug_color")
+tracks/14/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:debug_color")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -12853,7 +12984,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:shape")
+tracks/15/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:shape")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -12865,7 +12996,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:shape:radius")
+tracks/16/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:shape:radius")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -12877,7 +13008,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:shape:height")
+tracks/17/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:shape:height")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -12889,7 +13020,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:disabled")
+tracks/18/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:disabled")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -12901,7 +13032,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:position")
+tracks/19/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:position")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -12913,7 +13044,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:rotation")
+tracks/20/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:rotation")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -12925,7 +13056,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../Scale Player/Area2D2/CollisionShape2D:visible")
+tracks/21/path = NodePath("../Scale Player/Neautral Air Second/CollisionShape2D:visible")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -12937,7 +13068,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:shape")
+tracks/22/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:shape")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -12949,7 +13080,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:disabled")
+tracks/23/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:disabled")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -12961,7 +13092,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:shape:radius")
+tracks/24/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:shape:radius")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -12973,7 +13104,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:debug_color")
+tracks/25/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:debug_color")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -12985,7 +13116,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:position")
+tracks/26/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:position")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -12997,7 +13128,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../Scale Player/Area2D3/CollisionShape2D:visible")
+tracks/27/path = NodePath("../Scale Player/Neautral Air Third/CollisionShape2D:visible")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -13183,6 +13314,20 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 2.5)]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Character")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_attack_deactive"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_xd12r"]
@@ -13896,7 +14041,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0]
+"values": [1.3]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -14731,8 +14876,8 @@ Decceleration = 60
 Speed_Rating = 0.7
 Defense_Rating = 0.3
 Attack_Rating = 0.7
-Gravity = 15
-Jump_Height = 500
+Gravity = 20
+Jump_Height = 600
 
 [node name="Scale Player" parent="Character" node_paths=PackedStringArray("Controller", "Sprite") instance=ExtResource("2_1x5bx")]
 Controller = NodePath("../..")
@@ -15030,9 +15175,9 @@ shape = SubResource("CircleShape2D_07w1a")
 disabled = true
 debug_color = Color(0, 1, 0, 0.419608)
 
-[node name="Neautral Air Left" type="Area2D" parent="Character/Scale Player"]
+[node name="Neautral Air First" type="Area2D" parent="Character/Scale Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Scale Player/Neautral Air Left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Scale Player/Neautral Air First"]
 visible = false
 position = Vector2(-2, -13)
 rotation = 1.5708
@@ -15051,9 +15196,9 @@ debug_color = Color(1, 0, 0, 0.419608)
 [node name="Player Indicator" parent="Character/Scale Player" instance=ExtResource("14_whygv")]
 position = Vector2(0, -23.5)
 
-[node name="Area2D2" type="Area2D" parent="Character/Scale Player"]
+[node name="Neautral Air Second" type="Area2D" parent="Character/Scale Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Scale Player/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Scale Player/Neautral Air Second"]
 visible = false
 position = Vector2(1.5, -13.5)
 rotation = 1.5708
@@ -15061,9 +15206,9 @@ shape = SubResource("CapsuleShape2D_msjnd")
 disabled = true
 debug_color = Color(0, 0, 0.701961, 0.419608)
 
-[node name="Area2D3" type="Area2D" parent="Character/Scale Player"]
+[node name="Neautral Air Third" type="Area2D" parent="Character/Scale Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Scale Player/Area2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Scale Player/Neautral Air Third"]
 visible = false
 position = Vector2(19.5, -15)
 shape = SubResource("CircleShape2D_xsdxj")
@@ -15079,7 +15224,7 @@ Controller = NodePath("../..")
 [node name="Collision Body" parent="Character/Hurtbox" index="0"]
 z_index = 8
 position = Vector2(0, 0)
-shape = SubResource("CircleShape2D_kuh84")
+shape = SubResource("CircleShape2D_uhln4")
 disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="Character"]
@@ -15088,7 +15233,7 @@ texture = ExtResource("11_so2xu")
 offset = Vector2(0, -30)
 hframes = 10
 vframes = 19
-frame = 40
+frame = 112
 script = ExtResource("14_toog6")
 
 [node name="Character" type="AnimationPlayer" parent="Character" node_paths=PackedStringArray("Controller", "Character", "Scaler", "Sprite")]
@@ -15102,9 +15247,9 @@ Character = NodePath("..")
 Scaler = NodePath("../Scale Player")
 Sprite = NodePath("../Sprite")
 NAir = Vector2(0, 10)
+NRecovery = Vector2(2, -250)
 Slight = Vector2(3, 0)
-SAir = Vector2(0.5, 0)
-DRecovery = Vector2(0, 100)
+DRecovery = Vector2(0, 200)
 
 [node name="Side Light First Punch" type="AudioStreamPlayer2D" parent="Character"]
 stream = ExtResource("16_5wnfo")
@@ -15113,7 +15258,6 @@ stream = ExtResource("16_5wnfo")
 stream = ExtResource("13_ht28k")
 
 [node name="Counter Position" parent="Character" node_paths=PackedStringArray("Character") instance=ExtResource("15_lhwgj")]
-position = Vector2(0, 13)
 Character = NodePath("..")
 
 [node name="Jump Smoke" parent="Character" node_paths=PackedStringArray("Character") instance=ExtResource("17_o01ah")]
@@ -15148,6 +15292,7 @@ shape = SubResource("CapsuleShape2D_2ig4y")
 [connection signal="area_entered" from="Character/Scale Player/Neutral Light End" to="Character/Scale Player/Neutral Light End" method="_on_area_entered"]
 [connection signal="area_entered" from="Character/Hurtbox" to="Character" method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="Character/Hurtbox" to="Character/Hurtbox" method="_on_area_entered"]
+[connection signal="AttackFriction" from="Character/Character" to="Character" method="_on_character_attack_friction"]
 [connection signal="AttackMoving" from="Character/Character" to="Character" method="_on_character_attack_moving"]
 [connection signal="AttackMoving" from="Character/Character" to="Character/Scale Player" method="_on_character_attack_moving"]
 [connection signal="FacingLeft" from="Character/Character" to="Character/Scale Player" method="_on_character_facing_left"]

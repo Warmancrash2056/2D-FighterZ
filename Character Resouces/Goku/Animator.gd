@@ -27,7 +27,7 @@ var start_movement = false
 
 var input_buffer = []
 var max_buffer_limit = 3
-var buffer_time = 0.2
+var buffer_time = 0.1
 var can_direct = true
 var can_jump = true
 var can_dash = true
@@ -40,6 +40,7 @@ signal OnGround
 signal IsDashing
 signal IsStopping
 signal AttackMoving(Vector)
+signal AttackFriction(Friction)
 signal IsAttacking
 signal IsResetting
 signal IsJumping
@@ -98,9 +99,9 @@ func _process_input():
 	if can_attack == true:	
 		if Input.is_action_just_pressed(Controller.Controls.throw):
 			add_to_buffer({"type": "attack", "value": "throw", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-		elif Input.is_action_just_pressed(Controller.Controls.light):
+		if Input.is_action_just_pressed(Controller.Controls.light):
 			add_to_buffer({"type": "attack", "value": "light", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-		elif Input.is_action_just_pressed(Controller.Controls.heavy):
+		if Input.is_action_just_pressed(Controller.Controls.heavy):
 			add_to_buffer({"type": "attack", "value": "heavy", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			
 
@@ -190,8 +191,7 @@ func _process_immediate_action():
 			"attack":
 				if input_action.value == "throw" and input_action.facing == 0:
 					state = Throw
-				
-			
+					
 func _process(delta):
 	movement_dir = Vector2(Input.get_action_strength(Controller.Controls.right) - Input.get_action_strength(Controller.Controls.left),0)
 	movement_dir.normalized()
@@ -213,7 +213,7 @@ func _physics_process(delta):
 					state = Running
 					
 			if Input.is_action_just_pressed(Controller.Controls.light):
-				#state = Neutral_Light
+				state = Neutral_Light
 				IsAttacking.emit()
 				
 			elif Input.is_action_just_pressed(Controller.Controls.heavy):
@@ -253,7 +253,7 @@ func _physics_process(delta):
 				state = Neutral_Air
 				IsAttacking.emit()
 				
-			elif Input.is_action_just_pressed(Controller.Controls.heavy):
+			if Input.is_action_just_pressed(Controller.Controls.heavy):
 				state = Neutral_Recovery
 				IsAttacking.emit()
 				
@@ -297,12 +297,14 @@ func _physics_process(delta):
 			Attack_Vector = Nlight
 			if start_movement == true:
 				_attack_movement()
+				AttackFriction.emit(0.7)
 			play("Neutral Light")
 			
 		Neutral_Heavy:
 			Attack_Vector = NHeavy
 			if start_movement == true:
 				_attack_movement()
+				AttackFriction.emit(0.1)
 			play("Neutral Heavy")
 			
 		Neutral_Air:
@@ -320,18 +322,22 @@ func _physics_process(delta):
 		Side_Light:
 			if start_movement == true:
 				_attack_movement()
+				AttackFriction.emit(0.2)
 			Attack_Vector = Slight
 			play("Side Light")
 		
 		Side_Heavy:
 			if start_movement == true:
 				_attack_movement()
+				AttackFriction.emit(0.5)
+				
 			Attack_Vector = SHeavy
 			play("Side Heavy")
 			
 		Side_Air:
 			if start_movement == true:
 				_attack_movement()
+				AttackFriction.emit(0.2)
 			Attack_Vector = SAir
 			play("Side Air")
 			
@@ -369,7 +375,8 @@ func _attack_movement():
 	Attack_Vector.x *= Scaler.direction
 	AttackMoving.emit(Attack_Vector)
 	
-	
+func _attack_friction():
+	AttackFriction.emit(0.2)
 
 
 func idle_reset():
@@ -396,6 +403,9 @@ func _on_is_attacking():
 
 func attack_active():
 	IsAttacking.emit()
+	
+func _attack_deactive():
+	IsResetting.emit()
 	
 func _on_is_resetting():
 	can_jump = true

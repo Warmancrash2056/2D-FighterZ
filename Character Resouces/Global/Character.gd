@@ -63,17 +63,14 @@ func _on_character_is_throwing():
 
 func _on_character_attack_moving(Vector):
 	velocity.x += Vector.x
+	velocity.y = Vector.y 
 	velocity.y = lerp(velocity.y , 0.0, 0.2)
-	velocity.x = lerp(velocity.x , 0.0, 0.3)
+	velocity.x = lerp(velocity.x , 0.0, 0.01)
 	
 
-
-
-func _on_character_is_attacking():
-	pass
-
-func _on_character_is_resetting():
-	pass
+func _on_character_attack_friction(Friction):
+	velocity.x = lerp(velocity.x , 0.0, Friction)
+	
 
 
 func _on_character_is_moving(vector):
@@ -85,4 +82,5 @@ func _on_character_is_moving(vector):
 			
 		else:
 			velocity.x = move_toward(velocity.x , -Speed, Acceleration) 
+
 

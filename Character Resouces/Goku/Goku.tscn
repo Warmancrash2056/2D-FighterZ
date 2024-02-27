@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=76 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Goku/Player 1 Controller.gd" id="1_10o6h"]
 [ext_resource type="PackedScene" uid="uid://d3ht5pyb76ndi" path="res://Global Components/Scale Player/scale_player.tscn" id="2_1x5bx"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Goku/Sound Effects/First Punch.wav" id="16_5wnfo"]
 [ext_resource type="PackedScene" uid="uid://cuqf1sgy87l6k" path="res://Global Components/body.tscn" id="17_glfwe"]
 [ext_resource type="PackedScene" uid="uid://cxhu4tahjydj4" path="res://Global Components/Jump Cloud/jump_position.tscn" id="17_o01ah"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Block Timer.gd" id="21_5t3u5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gckp"]
 radius = 3.5
@@ -93,12 +94,15 @@ height = 65.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsdxj"]
 radius = 6.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uhln4"]
-radius = 14.5
+[sub_resource type="CircleShape2D" id="CircleShape2D_kuh84"]
+radius = 12.0416
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ig4y"]
 radius = 7.0
 height = 29.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhln4"]
+radius = 14.5
 
 [sub_resource type="Animation" id="Animation_h1784"]
 resource_name = "Air Block"
@@ -1084,6 +1088,23 @@ tracks/80/keys = {
 "values": [{
 "args": [],
 "method": &"attack_active"
+}]
+}
+tracks/81/type = "method"
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/path = NodePath("../Character")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_start_attack_friction"
+}, {
+"args": [],
+"method": &"_stop_attack_friction"
 }]
 }
 
@@ -2961,6 +2982,20 @@ tracks/78/keys = {
 "method": &"stop_attack_movment"
 }]
 }
+tracks/79/type = "method"
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/path = NodePath("../Character")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_throw_attack"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_gn67f"]
 resource_name = "Dash"
@@ -3817,9 +3852,20 @@ tracks/70/keys = {
 "update": 1,
 "values": [false]
 }
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kuh84"]
-radius = 14.5
+tracks/71/type = "method"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("../Character")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_attack_deactive"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_iewr3"]
 resource_name = "Down Air"
@@ -4845,12 +4891,9 @@ tracks/84/path = NodePath("../Character")
 tracks/84/interp = 1
 tracks/84/loop_wrap = true
 tracks/84/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"stop_attack_movment"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/85/type = "method"
 tracks/85/imported = false
@@ -4859,11 +4902,14 @@ tracks/85/path = NodePath("../Character")
 tracks/85/interp = 1
 tracks/85/loop_wrap = true
 tracks/85/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"start_attack_movment"
+}, {
+"args": [],
+"method": &"stop_attack_movment"
 }]
 }
 tracks/86/type = "method"
@@ -5854,12 +5900,9 @@ tracks/78/path = NodePath("../Character")
 tracks/78/interp = 1
 tracks/78/loop_wrap = true
 tracks/78/keys = {
-"times": PackedFloat32Array(0.1, 1.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"start_attack_movment"
-}, {
 "args": [],
 "method": &"idle_reset"
 }]
@@ -5871,9 +5914,12 @@ tracks/79/path = NodePath("../Character")
 tracks/79/interp = 1
 tracks/79/loop_wrap = true
 tracks/79/keys = {
-"times": PackedFloat32Array(0.9),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.3, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"start_attack_movment"
+}, {
 "args": [],
 "method": &"stop_attack_movment"
 }]
@@ -5890,6 +5936,23 @@ tracks/80/keys = {
 "values": [{
 "args": [],
 "method": &"attack_active"
+}]
+}
+tracks/81/type = "method"
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/path = NodePath("../Character")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_start_attack_friction"
+}, {
+"args": [],
+"method": &"_stop_attack_friction"
 }]
 }
 
@@ -7072,11 +7135,14 @@ tracks/96/path = NodePath("../Character")
 tracks/96/interp = 1
 tracks/96/loop_wrap = true
 tracks/96/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"start_attack_movment"
+}, {
+"args": [],
+"method": &"stop_attack_movment"
 }]
 }
 tracks/97/type = "method"
@@ -7086,11 +7152,14 @@ tracks/97/path = NodePath("../Character")
 tracks/97/interp = 1
 tracks/97/loop_wrap = true
 tracks/97/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"stop_attack_movment"
+"method": &"_start_attack_friction"
+}, {
+"args": [],
+"method": &"_stop_attack_friction"
 }]
 }
 tracks/98/type = "method"
@@ -14038,10 +14107,10 @@ tracks/2/path = NodePath("../Character:speed_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.3]
+"values": [1.7, 1.2]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -15194,7 +15263,7 @@ disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Player Indicator" parent="Character/Scale Player" instance=ExtResource("14_whygv")]
-position = Vector2(0, -23.5)
+position = Vector2(-7, -14.5)
 
 [node name="Neautral Air Second" type="Area2D" parent="Character/Scale Player"]
 
@@ -15224,8 +15293,7 @@ Controller = NodePath("../..")
 [node name="Collision Body" parent="Character/Hurtbox" index="0"]
 z_index = 8
 position = Vector2(0, 0)
-shape = SubResource("CircleShape2D_uhln4")
-disabled = true
+shape = SubResource("CircleShape2D_kuh84")
 
 [node name="Sprite" type="Sprite2D" parent="Character"]
 z_index = 5
@@ -15233,7 +15301,7 @@ texture = ExtResource("11_so2xu")
 offset = Vector2(0, -30)
 hframes = 10
 vframes = 19
-frame = 112
+frame = 175
 script = ExtResource("14_toog6")
 
 [node name="Character" type="AnimationPlayer" parent="Character" node_paths=PackedStringArray("Controller", "Character", "Scaler", "Sprite")]
@@ -15280,6 +15348,10 @@ hit_from_inside = true
 z_index = 6
 position = Vector2(0, 2.5)
 shape = SubResource("CapsuleShape2D_2ig4y")
+
+[node name="Block Timer" type="Timer" parent="."]
+wait_time = 2.0
+script = ExtResource("21_5t3u5")
 
 [connection signal="CounterCloud" from="Character" to="Character/Counter Position" method="_on_character_counter_cloud"]
 [connection signal="DashCloud" from="Character" to="Character/Scale Player/Dash Smoke Position" method="_on_character_dash_cloud"]

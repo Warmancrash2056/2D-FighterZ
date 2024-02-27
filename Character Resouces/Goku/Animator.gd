@@ -10,7 +10,9 @@ var movement_dir: Vector2
 var direction: int 
 
 var Attack_Vector: Vector2
+var Attack_Friction = 0.1
 var start_movement = false
+var start_friction = false
 @export var Throw_Ground: Vector2
 @export var Throw_Air: Vector2
 @export var Nlight: Vector2
@@ -45,6 +47,7 @@ signal IsAttacking
 signal IsResetting
 signal IsJumping
 signal IsThrowing
+
 enum {
 	Idle,
 	Turning,
@@ -71,7 +74,6 @@ enum {
 
 var state = Respawn
 func _process_input():
-	print(can_attack, can_direct, can_jump)
 	if can_direct:
 		if Input.is_action_pressed(Controller.Controls.left):
 			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
@@ -124,42 +126,41 @@ func clear_inputs():
 			
 	input_buffer = new_input_buffer
 	
+func _input_debugger():
+	if input_buffer.size() > 1 :
+		print_debug(input_buffer)
+
 func _process_combinations():
 	for i in range(len(input_buffer) - 1):
 		var first_input = input_buffer[i]
 		var second_input = input_buffer[i + 1]
 		if first_input.type == "direction":
-			if first_input.facing == -1 and first_input.value == "left" and second_input.type == "attack" and second_input.value == "light":
-				if first_input.onground == true:
-					state = Side_Light
-				
-				else:
-					state = Side_Air
+			if first_input.facing == -1 and first_input.value == "left" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == true:
+				state = Side_Light
 			
-			if first_input.facing == -1 and first_input.value == "left" and second_input.type == "attack" and second_input.value == "heavy":
-				if first_input.onground == true:
-						state = Side_Heavy
-				
-			if first_input.facing == 1 and first_input.value == "right" and second_input.type == "attack" and second_input.value == "light":
-				if first_input.onground == true:
-					state = Side_Light
-				
-				else:
-					state = Side_Air
+			if first_input.facing == -1 and first_input.value == "left" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == false:
+				state = Side_Air
+		
+			if first_input.facing == -1 and first_input.value == "left" and second_input.type == "attack" and second_input.value == "heavy" and second_input.onground == true:
+				state = Side_Heavy
 			
-			if first_input.facing == 1 and first_input.value == "right" and second_input.type == "attack" and second_input.value == "heavy":
-					if first_input.onground == true:
-						state = Side_Heavy
+			if first_input.facing == 1 and first_input.value == "right" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == true:
+				state = Side_Light
+			
+			if first_input.facing == 1 and first_input.value == "right" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == false:
+				state = Side_Air
+			
+			if first_input.facing == 1 and first_input.value == "right" and second_input.type == "attack" and second_input.value == "heavy" and second_input.onground == true:
+				state = Side_Heavy
 				
-			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
-				if first_input.onground == true:
-					state = Down_Light
+			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == true:
+				state = Down_Light
 				
-				else:
-					state = Down_Air
+			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == false:
+				state = Down_Air
 					
 			
-			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
+			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy" and second_input.onground == true:
 				if first_input.onground == true:
 					state = Down_Heavy
 					
@@ -195,12 +196,13 @@ func _process_immediate_action():
 func _process(delta):
 	movement_dir = Vector2(Input.get_action_strength(Controller.Controls.right) - Input.get_action_strength(Controller.Controls.left),0)
 	movement_dir.normalized()
-func _physics_process(delta):
 	_process_input()
 	_process_combinations()
 	_process_immediate_action()
-	clear_inputs()		
-	
+	clear_inputs()	
+	_input_debugger()
+	_attack_movment_controller()
+func _physics_process(delta):	
 	match state:
 		Idle:
 			if !Character.is_on_floor():
@@ -281,9 +283,6 @@ func _physics_process(delta):
 			play("Respawn")
 			
 		Throw:
-			
-			if start_movement == true:
-				_attack_movement()
 				
 			if Character.is_on_floor():
 				play("Ground Projectile")
@@ -295,77 +294,56 @@ func _physics_process(delta):
 				
 		Neutral_Light:
 			Attack_Vector = Nlight
-			if start_movement == true:
-				_attack_movement()
-				AttackFriction.emit(0.7)
 			play("Neutral Light")
 			
 		Neutral_Heavy:
 			Attack_Vector = NHeavy
-			if start_movement == true:
-				_attack_movement()
-				AttackFriction.emit(0.1)
 			play("Neutral Heavy")
 			
 		Neutral_Air:
 			Attack_Vector = NAir
-			if start_movement == true:
-				_attack_movement()
 			play("Neutral Air")
 			
 		Neutral_Recovery:
-			if start_movement == true:
-				_attack_movement()
 			Attack_Vector = NRecovery
 			play("Neutral Recovery")
 			
 		Side_Light:
-			if start_movement == true:
-				_attack_movement()
-				AttackFriction.emit(0.2)
 			Attack_Vector = Slight
 			play("Side Light")
 		
 		Side_Heavy:
-			if start_movement == true:
-				_attack_movement()
-				AttackFriction.emit(0.5)
+			AttackFriction.emit(0.9)
 				
 			Attack_Vector = SHeavy
 			play("Side Heavy")
 			
 		Side_Air:
-			if start_movement == true:
-				_attack_movement()
-				AttackFriction.emit(0.2)
 			Attack_Vector = SAir
 			play("Side Air")
 			
 		Down_Light:
-			if start_movement == true:
-				_attack_movement()
 			Attack_Vector = Dlight
 			play("Down Light")
 			
 		Down_Heavy:
-			if start_movement == true:
-				_attack_movement()
 			Attack_Vector = DHeavy
 			play("Down Heavy")
 		
 		Down_Air:
-			if start_movement == true:
-				_attack_movement()
 			Attack_Vector = DAir
 			play("Down Air")
 			
 		Dowm_Recovery:
-			if start_movement == true:
-				_attack_movement()
 			Attack_Vector = DRecovery
 			play("Down Recovery")
 			
-
+func _attack_movment_controller():
+	if start_movement == true:
+		_attack_movement()
+		
+	if start_friction == true:
+		_attack_friction()
 #func _side_transition():
 	#if side_transition == true:
 		#play("Side Finish")
@@ -376,7 +354,7 @@ func _attack_movement():
 	AttackMoving.emit(Attack_Vector)
 	
 func _attack_friction():
-	AttackFriction.emit(0.2)
+	AttackFriction.emit(Attack_Friction)
 
 
 func idle_reset():
@@ -396,17 +374,26 @@ func start_attack_movment():
 	
 func stop_attack_movment():
 	start_movement = false
+	
+func _start_attack_friction():
+	start_friction = true
+	
+func _stop_attack_friction():
+	start_friction = false
+	
 func _on_is_attacking():
 	can_jump = false
 	can_direct = false
 	can_attack = false
-
+	
 func attack_active():
 	IsAttacking.emit()
 	
 func _attack_deactive():
 	IsResetting.emit()
 	
+func _throw_attack():
+	IsThrowing.emit()
 func _on_is_resetting():
 	can_jump = true
 	can_direct = true

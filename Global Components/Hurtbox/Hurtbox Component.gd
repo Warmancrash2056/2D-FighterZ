@@ -5,12 +5,12 @@ extends Area2D
 
 func _ready():
 	Character.connect("Player2Box", _player2_layer)
-		
+
 func _player2_layer():
 	set_collision_layer_value(14, true)
 	set_collision_mask_value(11, true)
-	
-	
+
+
 func _on_area_entered(area):
 	var damage = area.Damage
 	var knockback_x = area.Knockback_X

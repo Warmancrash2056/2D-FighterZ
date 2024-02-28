@@ -4,11 +4,11 @@ extends CharacterBody2D
 
 func _ready():
 	animate.play("Shoot")
-	
+
 
 func _delete():
 	queue_free()
-	
+
 func _process(delta):
 	move_and_slide()
 

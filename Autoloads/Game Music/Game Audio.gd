@@ -16,15 +16,15 @@ func _process(delta):
 func _main_menu_play():
 	stream = Main_Menu_Audio
 	play()
-	
+
 func _galvin_map_play():
 	stream = Galvin_Map_Audio
 	play()
-	
+
 func _artic_map_play():
 	stream = Artic_Map_Audio
 	play()
-	
+
 func _character_select_play():
 	stream = Character_Selection_Audio
 	play()

@@ -14,7 +14,7 @@ var can_move: bool = false
 
 func _process(delta):
 	pass
-	
+
 func _movement():
 	if can_move == true:
 		pass

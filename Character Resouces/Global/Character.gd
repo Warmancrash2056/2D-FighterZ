@@ -7,7 +7,7 @@ class_name Player extends CharacterBody2D
 @export var Speed:int = 150
 @export var Acceleration:int = 10
 @export var Decceleration:int = 25
-@export var Speed_Rating: float 
+@export var Speed_Rating: float
 
 @export var Health:int
 @export var Defense_Rating:float
@@ -26,9 +26,9 @@ signal CounterCloud
 
 
 func _ready():
-	
+
 	Speed *= Speed_Rating
-	
+
 func _physics_process(delta):
 	move_and_slide()
 	if is_attacking == false:
@@ -66,22 +66,22 @@ func _on_character_is_throwing():
 
 
 func _on_character_attack_moving(Vector):
-	#velocity.x += Vector.x *= Scaler.direction 
-	velocity.y = Vector.y 
+	#velocity.x += Vector.x *= Scaler.direction
+	velocity.y = Vector.y
 
 func _on_character_attack_friction(Friction):
 	velocity.x = lerp(velocity.x , 0.0, Friction)
-	
+
 
 
 func _on_character_is_moving(vector):
 	var dir: int = vector.x
-	
+
 	if Engine.get_physics_frames() % 5 == 0:
 		if dir == 1:
-			velocity.x = move_toward(velocity.x , Speed, Acceleration) 
-			
+			velocity.x = move_toward(velocity.x , Speed, Acceleration)
+
 		else:
-			velocity.x = move_toward(velocity.x , -Speed, Acceleration) 
+			velocity.x = move_toward(velocity.x , -Speed, Acceleration)
 
 

@@ -16,7 +16,7 @@ func _process(delta):
 	if Cursor1.Player1Ready == true and Cursor2.Player2Ready == true:
 		Prompt.set_text(str("Characters Ready"))
 		move_to_map_select = true
-	
+
 		if Input.is_action_just_pressed(player_1_controller.jump) or Input.is_action_just_pressed(player_2_controller.jump):
 			get_tree().change_scene_to_file("res://Game Maps/Map Selector/Map Selection.tscn")
 	if Input.is_action_just_pressed("exit"):
@@ -24,7 +24,7 @@ func _process(delta):
 		GameAuido._main_menu_play()
 		Cursor1.Player1Ready = false
 		Cursor2.Player2Ready = false
-		
+
 
 
 

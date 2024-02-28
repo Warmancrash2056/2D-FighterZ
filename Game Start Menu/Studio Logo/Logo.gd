@@ -6,5 +6,5 @@ func _ready():
 	Animate.play("Start")
 
 func _on_animation_player_animation_finished(anim_name):
-	get_tree().change_scene_to_file("res://Game Start/Main Menu/Main Menu.tscn")
-	GameAuido._main_menu_play()
+	get_tree().change_scene_to_file("res://Game Start Menu/Main Menu/Main Menu.tscn")
+	GameAudio._main_menu_play()

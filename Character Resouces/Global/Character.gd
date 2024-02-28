@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 @export var Controller: Node
 @export var Animator: AnimationPlayer
+@export var Scaler: Node2D
 
 @export var Speed:int = 150
 @export var Acceleration:int = 10
@@ -25,7 +26,9 @@ signal CounterCloud
 
 
 func _ready():
+	
 	Speed *= Speed_Rating
+	
 func _physics_process(delta):
 	move_and_slide()
 	if is_attacking == false:
@@ -51,9 +54,10 @@ func _on_character_is_dashing():
 
 
 func _on_character_is_jumping():
-	Jump_Count -= 1
+	print(Jump_Count)
 	if Jump_Count > 0:
-		emit_signal("JumpCloud")
+		Jump_Count -= 1
+		JumpCloud.emit()
 		velocity.y = -Jump_Height
 
 
@@ -62,11 +66,8 @@ func _on_character_is_throwing():
 
 
 func _on_character_attack_moving(Vector):
-	velocity.x += Vector.x
+	#velocity.x += Vector.x *= Scaler.direction 
 	velocity.y = Vector.y 
-	velocity.y = lerp(velocity.y , 0.0, 0.2)
-	velocity.x = lerp(velocity.x , 0.0, 0.01)
-	
 
 func _on_character_attack_friction(Friction):
 	velocity.x = lerp(velocity.x , 0.0, Friction)

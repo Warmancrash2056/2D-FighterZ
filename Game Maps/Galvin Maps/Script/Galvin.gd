@@ -26,13 +26,14 @@ func _ready() -> void:
 	call_deferred("add_child", player_1_spawn)
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
 	player_1_spawn.position = Vector2(192, -328)
+	player_1_spawn
 
 	call_deferred("add_child", player_2_spawn)
 	player_2_spawn.set_script(CharacterList.get_player_2_script)
 	player_2_spawn.position = Vector2(-192, -328)
 
 	setup_camera()
-	GameAuido._galvin_map_play()
+	GameAudio._galvin_map_play()
 
 func _process(delta: float) -> void:
 	set_process(get_child_count() > 0)

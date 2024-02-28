@@ -1,6 +1,6 @@
 extends AudioStreamPlayer2D
 
-var Main_Menu_Audio = load("res://Game Music/Ludum Dare 38 - Track 2.wav")
+var Main_Menu_Audio = load("res://Game Music/Main Menu.wav")
 var Galvin_Map_Audio = load("res://Game Music/Galvin.wav")
 var Artic_Map_Audio = load("res://Game Music/The Artic.wav")
 var Character_Selection_Audio = load("res://Game Music/Ludum Dare 38 - Track 3.wav")

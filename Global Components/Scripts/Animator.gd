@@ -108,13 +108,12 @@ func _process_input():
 			
 
 
-
-func add_to_buffer(input_action):
+func add_to_buffer(input_action: Dictionary) -> void:
 	input_buffer.append(input_action)
 	
 	# Keep the buffer size within the buffer size of 3.
 	if len(input_buffer) > max_buffer_limit:
-		input_buffer.pop_at(0) # Remove the oldest input.
+		input_buffer.pop_front() # Remove the oldest input.
 
 func clear_inputs():
 	var current_time = Time.get_ticks_msec()
@@ -128,7 +127,7 @@ func clear_inputs():
 	
 func _input_debugger():
 	if input_buffer.size() > 1 :
-		print_debug(input_buffer)
+		pass
 
 func _process_combinations():
 	for i in range(len(input_buffer) - 1):
@@ -159,13 +158,13 @@ func _process_combinations():
 			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == false:
 				state = Down_Air
 					
-			
 			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy" and second_input.onground == true:
 				if first_input.onground == true:
 					state = Down_Heavy
 					
 				else:
 					state = Dowm_Recovery
+					
 		if first_input.type == "direction" and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
 				if second_input.onground == true:
 					state = Neutral_Light
@@ -180,8 +179,10 @@ func _process_immediate_action():
 				if input_action.value == "jump":
 					state = Jump
 				
-				if input_action.value == "dash" and input_action.facing == 0:
-					state = Block
+				if state == Idle:
+					if input_action.value == "dash" and input_action.facing == 0:
+						state = Block
+					
 			"direction":
 				if input_action.value == "left" and Sprite.flip_h == false:
 					state = Turning
@@ -192,7 +193,7 @@ func _process_immediate_action():
 			"attack":
 				if input_action.value == "throw" and input_action.facing == 0:
 					state = Throw
-					
+				
 func _process(delta):
 	movement_dir = Vector2(Input.get_action_strength(Controller.Controls.right) - Input.get_action_strength(Controller.Controls.left),0)
 	movement_dir.normalized()
@@ -218,9 +219,10 @@ func _physics_process(delta):
 				state = Neutral_Light
 				IsAttacking.emit()
 				
-			elif Input.is_action_just_pressed(Controller.Controls.heavy):
+			if Input.is_action_just_pressed(Controller.Controls.heavy):
 				state = Neutral_Heavy
 				IsAttacking.emit()
+				
 			
 		Turning:
 			if direction == 1:
@@ -237,8 +239,14 @@ func _physics_process(delta):
 			
 			if movement_dir.x == 0:
 				state = Idle
+				
+			if Input.is_action_just_pressed(Controller.Controls.dash):
+				state = Dash
 		Dash:
 			play("Dash")
+			
+			if movement_dir.x == 0:
+				state = Idle
 		Jump:
 			play("Jump")
 			if movement_dir.x != 0:
@@ -246,9 +254,10 @@ func _physics_process(delta):
 				
 			else:
 				IsStopping.emit()
+				
 			if Character.is_on_floor():
 				state = Idle
-				emit_signal("OnGround")
+				OnGround.emit()
 				
 								
 			if Input.is_action_just_pressed(Controller.Controls.light):
@@ -270,7 +279,7 @@ func _physics_process(delta):
 				
 			if Character.is_on_floor():
 				state = Idle
-				emit_signal("OnGround")
+				OnGround.emit()
 		Block:
 			if Character.is_on_floor():
 				play("Ground Block")
@@ -350,8 +359,8 @@ func _attack_movment_controller():
 
 
 func _attack_movement():
-	Attack_Vector.x *= Scaler.direction
 	AttackMoving.emit(Attack_Vector)
+	print(Scaler.direction)
 	
 func _attack_friction():
 	AttackFriction.emit(Attack_Friction)

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InputSys" load_steps=2 format=3 uid="uid://dj8dmbvkg2hfy"]
+
+[ext_resource type="Script" path="res://Character Resouces/Global/Controller Resource/Controller.gd" id="1_1bcee"]
+
+[resource]
+script = ExtResource("1_1bcee")
+Player_Index = 0
+right = "Player4_Right"
+left = "Player4_Left"
+up = "Player4_Up"
+down = "Player4_Down"
+light = "Player4_Light"
+jump = "Player4_Jump"
+dash = "Player4_Dash"
+heavy = "Player4_Heavy"
+throw = "Player4_Throw"
+menu = "Player4_Menu"

@@ -78,9 +78,10 @@ var state = Respawn
 func _physics_process(delta):
 	match state:
 		Idle:
-			
+
 			if Controller.movement_dir.x != 0:
 				state = Running
+
 			if !Character.is_on_floor():
 				state = Jump
 			play("Idle")
@@ -91,10 +92,10 @@ func _physics_process(delta):
 		Running:
 			IsMoving.emit(Controller.direction)
 			play("Run")
-			
+
 			if Controller.movement_dir.x == 0:
 				state = Idle
-			
+
 		Dash:
 			play("Dash")
 		Jump:
@@ -236,4 +237,8 @@ func _on_is_resetting():
 	Controller.can_jump = true
 	Controller.can_direct = true
 	Controller.can_attack = true
+
+
+
+func _on_block_timer_timeout() -> void:
 

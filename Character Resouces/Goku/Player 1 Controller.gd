@@ -5,11 +5,10 @@ signal Player1Box
 # Test to see if i can add the resource during instancing. #
 @export var Controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 @onready var Character: CharacterBody2D = $Character
-@onready var Animator: AnimationPlayer = $Character/Animator
+@onready var Animator: AnimationPlayer = $Character/Character
 @onready var Sprite: Sprite2D = $Character/Sprite
 
 var direction = 1
-signal Animate(state)
 
 var movement_dir: Vector2
 var input_buffer = []
@@ -46,13 +45,17 @@ enum {
 var state = Respawn
 func _ready():
 	Player1Box.emit()
-
-# Get anaimtion state.
-func _ready_animation_state(get_animation_state):
-	print("attack")
-	Animate.emit(get_animation_state)
-	state = get_animation_state  #Set animation in controller.
-
+	
+func _process(delta: float) -> void:
+	print(input_buffer)
+	movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
+	movement_dir.normalized()
+	_process_input()
+	_process_immediate_action()
+	clear_inputs()
+	_input_debugger()
+	_process_combinations()
+	
 func _process_input():
 	if can_direct:
 		if Input.is_action_pressed(Controls.left):
@@ -112,7 +115,7 @@ func _input_debugger():
 	if input_buffer.size() > 1 :
 		pass
 
-func _physics_process(delta: float) -> void:
+func _process_combinations():
 	for i in range(len(input_buffer) - 1):
 		var first_input = input_buffer[i]
 		var second_input = input_buffer[i + 1]
@@ -166,9 +169,7 @@ func _process_immediate_action():
 	for input_action in input_buffer:
 		match input_action.type:
 			"move":
-				if input_action.value == "jump":
-					state = Jump
-
+				
 				if state == Idle:
 					if input_action.value == "dash" and input_action.facing == 0:
 						state = Block
@@ -188,14 +189,4 @@ func _process_immediate_action():
 					if input_action.value == "light" and input_action.onground == true:
 						Animator.state = Neutral_Light
 
-func _process(delta: float) -> void:
-	print(input_buffer)
-	movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
-	movement_dir.normalized()
-	_process_input()
-	_process_immediate_action()
-	clear_inputs()
-	_input_debugger()
-
-
-
+		

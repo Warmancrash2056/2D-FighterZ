@@ -75,13 +75,9 @@ func _on_character_attack_friction(Friction):
 
 
 func _on_character_is_moving(vector):
-	var dir: int = vector.x
-
+	vector = Controller.direction
 	if Engine.get_physics_frames() % 5 == 0:
-		if dir == 1:
-			velocity.x = move_toward(velocity.x , Speed, Acceleration)
+		velocity.x = move_toward(velocity.x , vector * Speed, Acceleration)
 
-		else:
-			velocity.x = move_toward(velocity.x , -Speed, Acceleration)
 
 

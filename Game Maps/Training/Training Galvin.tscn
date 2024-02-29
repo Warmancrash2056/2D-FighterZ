@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c7wrqu80j50fa"]
+[gd_scene load_steps=20 format=3 uid="uid://c7wrqu80j50fa"]
 
 [ext_resource type="Texture2D" uid="uid://b07grplvo2wco" path="res://Game Maps/Galvin Maps/Galvin Assets/background 1.png" id="2_i1i66"]
 [ext_resource type="Texture2D" uid="uid://b32tkmdednvbw" path="res://Game Maps/Galvin Maps/Galvin Assets/background 2.png" id="3_yokyq"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bsuwgpoe3jyis" path="res://Game Maps/Galvin Maps/Galvin Assets/background 4.png" id="5_1vo7g"]
 [ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="7_7w1eu"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="8_y1j5t"]
-[ext_resource type="Resource" uid="uid://cwyii8duo366p" path="res://Character Resouces/Global/Controller Resource/Player_1.tres" id="9_4wurb"]
 [ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="9_jqke8"]
 [ext_resource type="PackedScene" uid="uid://c40ypkrmks8qe" path="res://Character Resouces/Goku/Goku.tscn" id="10_jaio8"]
 
@@ -5878,4 +5877,3 @@ shape = SubResource("RectangleShape2D_ipdot")
 
 [node name="Controller" parent="." instance=ExtResource("10_jaio8")]
 position = Vector2(0, -140)
-Controls = ExtResource("9_4wurb")

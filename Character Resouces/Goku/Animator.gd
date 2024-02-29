@@ -35,17 +35,17 @@ var can_jump = true
 var can_dash = true
 var can_attack = true
 
+signal IsMoving(Vector: Vector2)
+signal IsResetting
+signal IsStopping
+signal IsJumping
+signal IsAttacking
 signal FacingLeft
 signal FacingRight
-signal IsMoving(vector)
 signal OnGround
 signal IsDashing
-signal IsStopping
 signal AttackMoving(Vector)
 signal AttackFriction(Friction)
-signal IsAttacking
-signal IsResetting
-signal IsJumping
 signal IsThrowing
 
 enum {
@@ -76,20 +76,25 @@ var state = Respawn
 
 
 func _physics_process(delta):
-	Controller.state = state
 	match state:
 		Idle:
+			
+			if Controller.movement_dir.x != 0:
+				state = Running
 			if !Character.is_on_floor():
 				state = Jump
-			emit_signal("IsStopping")
 			play("Idle")
-
+			IsStopping.emit()
 		Turning:
 			pass
 
 		Running:
-			IsMoving.emit(movement_dir)
+			IsMoving.emit(Controller.direction)
 			play("Run")
+			
+			if Controller.movement_dir.x == 0:
+				state = Idle
+			
 		Dash:
 			play("Dash")
 		Jump:
@@ -214,11 +219,12 @@ func _start_attack_friction():
 
 func _stop_attack_friction():
 	start_friction = false
-
+func _throw_attack():
+	IsThrowing.emit()
 func _on_is_attacking():
-	can_jump = false
-	can_direct = false
-	can_attack = false
+	Controller.can_jump = false
+	Controller.can_direct = false
+	Controller.can_attack = false
 
 func attack_active():
 	IsAttacking.emit()
@@ -226,14 +232,8 @@ func attack_active():
 func _attack_deactive():
 	IsResetting.emit()
 
-func _throw_attack():
-	IsThrowing.emit()
 func _on_is_resetting():
-	can_jump = true
-	can_direct = true
-	can_attack = true
-
-
-func _on_controller_animate(state):
-	state = state
+	Controller.can_jump = true
+	Controller.can_direct = true
+	Controller.can_attack = true
 

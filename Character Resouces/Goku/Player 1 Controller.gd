@@ -18,19 +18,14 @@ var can_direct = true
 var can_jump = true
 var can_dash = true
 var can_attack = true
-var can_block = true
 enum {
 	Idle,
 	Turning,
 	Running,
-	Fast_Run,
-	Forward_Dash,
-	Backward_Dash,
-	Initial_Jump,
+	Dash,
 	Jump,
 	Fall,
-	Ground_Block,
-	Air_Block,
+	Block,
 	Neutral_Light,
 	Neutral_Heavy,
 	Neutral_Air,
@@ -50,7 +45,7 @@ enum {
 var state = Respawn
 func _ready():
 	Player1Box.emit()
-
+	
 func _process(delta: float) -> void:
 	print(input_buffer)
 	movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
@@ -60,7 +55,7 @@ func _process(delta: float) -> void:
 	clear_inputs()
 	_input_debugger()
 	_process_combinations()
-
+	
 func _process_input():
 	if can_direct:
 		if Input.is_action_pressed(Controls.left):
@@ -169,42 +164,15 @@ func _process_combinations():
 
 			if first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy" and second_input.onground == false:
 				Animator.state = Neutral_Recovery
-func _process_quick_dash_combinations():
-	for i in range(len(input_buffer) - 1):
-		var first_input = input_buffer[i]
-		var second_input = input_buffer[i + 1]
-
-		if Animator.state == Idle:
-			if Sprite.flip_h == false: # If player is facing right but want to dash backwards
-				if first_input.type == "direction" and first_input.value == "left" and second_input.type == "move" and second_input.type == "dash":
-					Animator.state = Backward_Dash
-
-			if Sprite.flip_h == false:
-				if first_input.type == "direction" and first_input.value == "right" and second_input.type == "move" and second_input.type == "dash":
-					Animator.state = Forward_Dash
-
-			if Sprite.flip_h == true: # If player is facing left but
-				if first_input.type == "direction" and first_input.value == "right" and second_input.type == "move" and second_input.type == "dash":
-					Animator.state = Backward_Dash
-
-			if Sprite.flip_h == true:
-				if first_input.type == "direction" and first_input.value == "left" and second_input.type == "move" and second_input.type == "dash":
-					Animator.state = Forward_Dash
-
-
 
 func _process_immediate_action():
 	for input_action in input_buffer:
 		match input_action.type:
 			"move":
-
-				if Animator.state == Idle:
-					if input_action.value == "dash" and input_action.facing == 0 and input_action.onground == true:
-						Animator.state = Ground_Block
-
-				if Animator.state == Jump or Animator.state == Fall:
-					if input_action.value == "dash" and input_action.facing == 0 and input_action.onground == false:
-						Animator.state = Air_Block
+				
+				if state == Idle:
+					if input_action.value == "dash" and input_action.facing == 0:
+						state = Block
 
 			"direction":
 				if input_action.value == "left" and Sprite.flip_h == false:
@@ -221,4 +189,4 @@ func _process_immediate_action():
 					if input_action.value == "light" and input_action.onground == true:
 						Animator.state = Neutral_Light
 
-
+		

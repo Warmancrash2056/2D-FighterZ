@@ -35,9 +35,7 @@ var can_jump = true
 var can_dash = true
 var can_attack = true
 
-signal IsMoving(Vector: Vector2)
 signal IsResetting
-signal IsStopping
 signal IsJumping
 signal IsAttacking
 signal FacingLeft
@@ -53,8 +51,7 @@ enum {
 	Turning,
 	Running,
 	Dash,
-	Jump,
-	Fall,
+	Air,
 	Block,
 	Neutral_Light,
 	Neutral_Heavy,
@@ -76,46 +73,35 @@ var state = Respawn
 
 
 func _physics_process(delta):
+	_attack_movment_controller()
 	match state:
 		Idle:
+			if Character.velocity.x != 0:
+				play("Run")
+				
+			else:
+				play("Idle")
+				
+				
 			
-			if Controller.movement_dir.x != 0:
-				state = Running
 			if !Character.is_on_floor():
-				state = Jump
-			play("Idle")
-			IsStopping.emit()
+				state = Air
 		Turning:
 			pass
 
-		Running:
-			IsMoving.emit(Controller.direction)
-			play("Run")
-			
-			if Controller.movement_dir.x == 0:
-				state = Idle
-			
 		Dash:
 			play("Dash")
-		Jump:
-			play("Jump")
-
-			if Character.is_on_floor():
-				state = Idle
-				emit_signal("OnGround")
-
-		Fall:
-			play("Fall")
-
-			if Character.is_on_floor():
-				state = Idle
-				emit_signal("OnGround")
-		Block:
-			if Character.is_on_floor():
-				play("Ground Block")
-
+		Air:
+			if Character.velocity.y > 0:
+				play("Fall")
+				
 			else:
-				play("Air Block")
+				play("Jump")
+
+			if Character.is_on_floor():
+				state = Idle
+				OnGround.emit()
+
 
 
 		Respawn:
@@ -150,7 +136,7 @@ func _physics_process(delta):
 		Side_Light:
 			Attack_Vector = Slight
 			play("Side Light")
-
+			
 		Side_Heavy:
 			AttackFriction.emit(0.9)
 
@@ -189,8 +175,10 @@ func _attack_movment_controller():
 
 
 func _attack_movement():
-	Attack_Vector.x *= Scaler.direction
-	AttackMoving.emit(Attack_Vector)
+	if Sprite.flip_h == true:
+		AttackMoving.emit(-Attack_Vector.x)
+	else:
+		AttackMoving.emit(Attack_Vector.x)
 
 func _attack_friction():
 	AttackFriction.emit(Attack_Friction)
@@ -198,13 +186,14 @@ func _attack_friction():
 
 func idle_reset():
 	Attack_Vector = Vector2.ZERO
-	can_jump = true
+	if Character.is_on_floor():
+		OnGround.emit()
 	if Character.is_on_floor():
 		state = Idle
 		IsResetting.emit()
 		play("Idle")
 	if !Character.is_on_floor():
-		state = Fall
+		state = Air
 		IsResetting.emit()
 		play("Fall")
 
@@ -221,6 +210,15 @@ func _stop_attack_friction():
 	start_friction = false
 func _throw_attack():
 	IsThrowing.emit()
+	
+func _stop_player_movement():
+	Character.velocity.x = move_toward(Character.velocity.x , 0 , 100)
+	Controller.can_move = false
+	
+func _start_player_movement():
+	Controller.can_move = true
+	
+
 func _on_is_attacking():
 	Controller.can_jump = false
 	Controller.can_direct = false

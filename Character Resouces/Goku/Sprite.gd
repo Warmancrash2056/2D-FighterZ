@@ -16,3 +16,11 @@ func _on_character_facing_left():
 
 func _on_character_facing_right():
 	flip_h = false
+
+
+func _on_controller_facing_left():
+	flip_h = true
+
+
+func _on_controller_facing_right():
+	flip_h = false

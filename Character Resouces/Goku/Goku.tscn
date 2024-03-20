@@ -14463,6 +14463,57 @@ tracks/31/keys = {
 "method": &"attack_active"
 }]
 }
+tracks/32/type = "method"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("../Character")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start_attack_movment"
+}, {
+"args": [],
+"method": &"stop_attack_movment"
+}]
+}
+tracks/33/type = "method"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("../Character")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_start_attack_friction"
+}, {
+"args": [],
+"method": &"_stop_attack_friction"
+}]
+}
+tracks/34/type = "method"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("../Character")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0.3, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_stop_player_movement"
+}, {
+"args": [],
+"method": &"_start_player_movement"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_t2w0d"]
 resource_name = "Side Light"
@@ -14728,27 +14779,27 @@ tracks/20/keys = {
 tracks/21/type = "method"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../Character")
+tracks/21/path = NodePath("../Hurtbox/AnimationPlayer")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"start_attack_movment"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/22/type = "method"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../Hurtbox/AnimationPlayer")
+tracks/22/path = NodePath("../Character")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"idle_reset"
+}]
 }
 tracks/23/type = "method"
 tracks/23/imported = false
@@ -14757,11 +14808,11 @@ tracks/23/path = NodePath("../Character")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"idle_reset"
+"method": &"attack_active"
 }]
 }
 tracks/24/type = "method"
@@ -14771,38 +14822,61 @@ tracks/24/path = NodePath("../Character")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"attack_active"
+"method": &"_stop_player_movement"
+}, {
+"args": [],
+"method": &"_start_player_movement"
 }]
 }
-tracks/25/type = "method"
+tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../Character")
+tracks/25/path = NodePath("../Side Light First Punch:playing")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"stop_attack_movment"
-}]
-}
-tracks/26/type = "value"
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/path = NodePath("../Side Light First Punch:playing")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/26/type = "method"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("../Character")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start_attack_movment"
+}, {
+"args": [],
+"method": &"stop_attack_movment"
+}]
+}
+tracks/27/type = "method"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("../Character")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_start_attack_friction"
+}, {
+"args": [],
+"method": &"_stop_attack_friction"
+}]
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hlnua"]
@@ -14931,7 +15005,7 @@ _data = {
 [node name="Controller" type="Node2D"]
 script = ExtResource("1_10o6h")
 
-[node name="Character" type="CharacterBody2D" parent="." node_paths=PackedStringArray("Controller", "Animator")]
+[node name="Character" type="CharacterBody2D" parent="." node_paths=PackedStringArray("Controller", "Animator", "Sprite", "Scaler")]
 z_index = 3
 scale = Vector2(2, 2)
 collision_layer = 256
@@ -14939,6 +15013,8 @@ collision_mask = 15
 script = ExtResource("2_oe6f1")
 Controller = NodePath("..")
 Animator = NodePath("Character")
+Sprite = NodePath("Sprite")
+Scaler = NodePath("Scale Player")
 Speed = 300
 Acceleration = 100
 Decceleration = 60
@@ -15302,7 +15378,7 @@ texture = ExtResource("11_so2xu")
 offset = Vector2(0, -30)
 hframes = 10
 vframes = 19
-frame = 130
+frame = 68
 script = ExtResource("14_toog6")
 
 [node name="Character" type="AnimationPlayer" parent="Character" node_paths=PackedStringArray("Controller", "Character", "Scaler", "Sprite")]
@@ -15354,6 +15430,13 @@ shape = SubResource("CapsuleShape2D_2ig4y")
 wait_time = 2.0
 script = ExtResource("21_5t3u5")
 
+[connection signal="FacingLeft" from="." to="Character/Scale Player" method="_on_controller_facing_left"]
+[connection signal="FacingLeft" from="." to="Character/Sprite" method="_on_controller_facing_left"]
+[connection signal="FacingRight" from="." to="Character/Scale Player" method="_on_controller_facing_right"]
+[connection signal="FacingRight" from="." to="Character/Sprite" method="_on_controller_facing_right"]
+[connection signal="IsJumping" from="." to="Character" method="_on_controller_is_jumping"]
+[connection signal="IsMoving" from="." to="Character" method="_on_controller_is_moving"]
+[connection signal="IsStopping" from="." to="Character" method="_on_controller_is_stopping"]
 [connection signal="CounterCloud" from="Character" to="Character/Counter Position" method="_on_character_counter_cloud"]
 [connection signal="DashCloud" from="Character" to="Character/Scale Player/Dash Smoke Position" method="_on_character_dash_cloud"]
 [connection signal="JumpCloud" from="Character" to="Character/Jump Smoke" method="_on_character_jump_cloud"]
@@ -15376,10 +15459,8 @@ script = ExtResource("21_5t3u5")
 [connection signal="IsAttacking" from="Character/Character" to="Character/Character" method="_on_is_attacking"]
 [connection signal="IsDashing" from="Character/Character" to="Character" method="_on_character_is_dashing"]
 [connection signal="IsJumping" from="Character/Character" to="Character" method="_on_character_is_jumping"]
-[connection signal="IsMoving" from="Character/Character" to="Character" method="_on_character_is_moving"]
 [connection signal="IsResetting" from="Character/Character" to="Character" method="_on_character_is_resetting"]
 [connection signal="IsResetting" from="Character/Character" to="Character/Character" method="_on_is_resetting"]
-[connection signal="IsStopping" from="Character/Character" to="Character" method="_on_character_is_stopping"]
 [connection signal="IsThrowing" from="Character/Character" to="Character/Scale Player/Projectile Position" method="_on_character_is_throwing"]
 [connection signal="OnGround" from="Character/Character" to="Character" method="_on_character_on_ground"]
 [connection signal="animation_finished" from="Character/Character" to="Character/Character" method="_on_animation_finished"]

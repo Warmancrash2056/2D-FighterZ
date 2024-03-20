@@ -1,7 +1,11 @@
 extends Node2D
 
 signal Player1Box
-
+signal FacingLeft
+signal FacingRight
+signal IsJumping
+signal IsMoving(Vector)
+signal IsStopping
 # Test to see if i can add the resource during instancing. #
 @export var Controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
 @onready var Character: CharacterBody2D = $Character
@@ -14,6 +18,7 @@ var movement_dir: Vector2
 var input_buffer = []
 var max_buffer_limit = 3
 var buffer_time = 0.3
+var can_move = true
 var can_direct = true
 var can_jump = true
 var can_dash = true
@@ -23,8 +28,7 @@ enum {
 	Turning,
 	Running,
 	Dash,
-	Jump,
-	Fall,
+	Air,
 	Block,
 	Neutral_Light,
 	Neutral_Heavy,
@@ -42,29 +46,50 @@ enum {
 	Respawn
 }
 
+
 var state = Respawn
 func _ready():
 	Player1Box.emit()
-	
-func _process(delta: float) -> void:
-	print(input_buffer)
-	movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
+func _physics_process(delta):
 	movement_dir.normalized()
+	if can_move == true:
+		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
+		
+		if movement_dir.x != 0:
+			IsMoving.emit(movement_dir.x)
+				
+		else:
+			IsStopping.emit()
+func _process(delta: float) -> void:
 	_process_input()
+	_process_attack_input()
+	_process_dash_input()
+	_process_jump_input()
 	_process_immediate_action()
 	clear_inputs()
 	_input_debugger()
 	_process_combinations()
-	
+func _get_movement():
+	if can_move == true:
+		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
+		movement_dir.normalized()
+		
+		if movement_dir.x != 0 and Engine.get_process_frames() % 6 == 0:
+			IsMoving.emit(movement_dir.x)
+			
+		else:
+			IsStopping.emit()
 func _process_input():
 	if can_direct:
 		if Input.is_action_pressed(Controls.left):
 			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
 			direction = -1
+			FacingLeft.emit()
 
 		if Input.is_action_pressed(Controls.right):
 			add_to_buffer({"type": "direction", "value": "right", "onground": Character.is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
 			direction = 1
+			FacingRight.emit()
 
 		if Input.is_action_pressed(Controls.down):
 			add_to_buffer({"type": "direction", "value": "down", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
@@ -72,15 +97,17 @@ func _process_input():
 
 		if Input.is_action_pressed(Controls.up):
 			add_to_buffer({"type": "direction", "value": "up", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-
+func _process_jump_input():
 	if can_jump == true:
 		if Input.is_action_just_pressed(Controls.jump):
 			add_to_buffer({"type": "move", "value": "jump", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-
+			IsJumping.emit()
+			
+func _process_dash_input():
 	if can_dash == true:
 		if Input.is_action_just_pressed(Controls.dash):
 			add_to_buffer({"type": "move", "value": "dash", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-
+func _process_attack_input():
 	if can_attack == true:
 		if Input.is_action_just_pressed(Controls.throw):
 			add_to_buffer({"type": "attack", "value": "throw", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
@@ -176,10 +203,10 @@ func _process_immediate_action():
 
 			"direction":
 				if input_action.value == "left" and Sprite.flip_h == false:
-					state = Turning
+					pass
 
 				if input_action.value == "right" and Sprite.flip_h == true:
-					state = Turning
+					pass
 
 			"attack":
 				if input_action.value == "throw" and input_action.facing == 0:
@@ -188,5 +215,15 @@ func _process_immediate_action():
 				if Animator.state == Idle:
 					if input_action.value == "light" and input_action.onground == true:
 						Animator.state = Neutral_Light
+						
+					if input_action.value == "light" and input_action.onground == true:
+						Animator.state = Neutral_Heavy
+						
+				if Animator.state == Air:
+					if input_action.value == "light" and input_action.onground == false:
+						Animator.state = Neutral_Air
+						
+					
+					
 
 		

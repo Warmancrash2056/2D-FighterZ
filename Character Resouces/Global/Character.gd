@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 @export var Controller: Node
 @export var Animator: AnimationPlayer
+@export var Sprite: Sprite2D
 @export var Scaler: Node2D
 
 @export var Speed:int = 150
@@ -66,18 +67,31 @@ func _on_character_is_throwing():
 
 
 func _on_character_attack_moving(Vector):
-	#velocity.x += Vector.x *= Scaler.direction
-	velocity.y = Vector.y
+	velocity.x = Vector.x
 
 func _on_character_attack_friction(Friction):
 	velocity.x = lerp(velocity.x , 0.0, Friction)
 
 
 
-func _on_character_is_moving(vector):
-	vector = Controller.direction
-	if Engine.get_physics_frames() % 5 == 0:
-		velocity.x = move_toward(velocity.x , vector * Speed, Acceleration)
 
 
+
+func _on_controller_is_jumping():
+	print(Jump_Count)
+	if Jump_Count > 0:
+		Jump_Count -= 1
+		JumpCloud.emit()
+		velocity.y = -Jump_Height
+
+
+func _on_controller_is_stopping():
+	velocity.x = move_toward(velocity.x , 0, Decceleration)
+
+
+
+
+func _on_controller_is_moving(Vector):
+	if Engine.get_physics_frames() % 10 == 0:
+		velocity.x = move_toward(velocity.x , Vector * Speed, Acceleration)
 

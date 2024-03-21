@@ -14868,7 +14868,7 @@ tracks/27/path = NodePath("../Character")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -15378,7 +15378,7 @@ texture = ExtResource("11_so2xu")
 offset = Vector2(0, -30)
 hframes = 10
 vframes = 19
-frame = 68
+frame = 101
 script = ExtResource("14_toog6")
 
 [node name="Character" type="AnimationPlayer" parent="Character" node_paths=PackedStringArray("Controller", "Character", "Scaler", "Sprite")]
@@ -15393,7 +15393,7 @@ Scaler = NodePath("../Scale Player")
 Sprite = NodePath("../Sprite")
 NAir = Vector2(0, 10)
 NRecovery = Vector2(2, -250)
-Slight = Vector2(3, 0)
+Slight = Vector2(1000, 0)
 DRecovery = Vector2(0, 200)
 
 [node name="Side Light First Punch" type="AudioStreamPlayer2D" parent="Character"]
@@ -15449,8 +15449,7 @@ script = ExtResource("21_5t3u5")
 [connection signal="area_entered" from="Character/Hurtbox" to="Character" method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="Character/Hurtbox" to="Character/Hurtbox" method="_on_area_entered"]
 [connection signal="AttackFriction" from="Character/Character" to="Character" method="_on_character_attack_friction"]
-[connection signal="AttackMoving" from="Character/Character" to="Character" method="_on_character_attack_moving"]
-[connection signal="AttackMoving" from="Character/Character" to="Character/Scale Player" method="_on_character_attack_moving"]
+[connection signal="AttackMovingX" from="Character/Character" to="Character" method="_on_character_attack_moving_x"]
 [connection signal="FacingLeft" from="Character/Character" to="Character/Scale Player" method="_on_character_facing_left"]
 [connection signal="FacingLeft" from="Character/Character" to="Character/Sprite" method="_on_character_facing_left"]
 [connection signal="FacingRight" from="Character/Character" to="Character/Scale Player" method="_on_character_facing_right"]

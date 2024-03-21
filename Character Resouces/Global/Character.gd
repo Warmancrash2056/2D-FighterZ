@@ -31,6 +31,7 @@ func _ready():
 	Speed *= Speed_Rating
 
 func _physics_process(delta):
+	print(velocity.x)
 	move_and_slide()
 	if is_attacking == false:
 		if !is_on_floor():
@@ -48,8 +49,6 @@ func _on_character_on_ground():
 func _on_character_is_stopping():
 	velocity.x = move_toward(velocity.x , 0, Decceleration)
 
-
-
 func _on_character_is_dashing():
 	pass # Replace with function body.
 
@@ -66,15 +65,8 @@ func _on_character_is_throwing():
 	pass # Replace with function body.
 
 
-func _on_character_attack_moving(Vector):
-	velocity.x = Vector.x
-
 func _on_character_attack_friction(Friction):
 	velocity.x = lerp(velocity.x , 0.0, Friction)
-
-
-
-
 
 
 func _on_controller_is_jumping():
@@ -95,3 +87,8 @@ func _on_controller_is_moving(Vector):
 	if Engine.get_physics_frames() % 10 == 0:
 		velocity.x = move_toward(velocity.x , Vector * Speed, Acceleration)
 
+
+
+
+func _on_character_attack_moving_x(Vector: Variant) -> void:
+	velocity.x = move_toward(velocity.x, Sprite.direction * Vector.x, 50)

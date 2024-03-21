@@ -42,7 +42,7 @@ signal FacingLeft
 signal FacingRight
 signal OnGround
 signal IsDashing
-signal AttackMoving(Vector)
+signal AttackMovingX(Vector)
 signal AttackFriction(Friction)
 signal IsThrowing
 
@@ -78,12 +78,12 @@ func _physics_process(delta):
 		Idle:
 			if Character.velocity.x != 0:
 				play("Run")
-				
+
 			else:
 				play("Idle")
-				
-				
-			
+
+
+
 			if !Character.is_on_floor():
 				state = Air
 		Turning:
@@ -94,7 +94,7 @@ func _physics_process(delta):
 		Air:
 			if Character.velocity.y > 0:
 				play("Fall")
-				
+
 			else:
 				play("Jump")
 
@@ -136,9 +136,8 @@ func _physics_process(delta):
 		Side_Light:
 			Attack_Vector = Slight
 			play("Side Light")
-			
+
 		Side_Heavy:
-			AttackFriction.emit(0.9)
 
 			Attack_Vector = SHeavy
 			play("Side Heavy")
@@ -175,10 +174,7 @@ func _attack_movment_controller():
 
 
 func _attack_movement():
-	if Sprite.flip_h == true:
-		AttackMoving.emit(-Attack_Vector.x)
-	else:
-		AttackMoving.emit(Attack_Vector.x)
+	AttackMovingX.emit(Attack_Vector)
 
 func _attack_friction():
 	AttackFriction.emit(Attack_Friction)
@@ -210,14 +206,14 @@ func _stop_attack_friction():
 	start_friction = false
 func _throw_attack():
 	IsThrowing.emit()
-	
+
 func _stop_player_movement():
 	Character.velocity.x = move_toward(Character.velocity.x , 0 , 100)
 	Controller.can_move = false
-	
+
 func _start_player_movement():
 	Controller.can_move = true
-	
+
 
 func _on_is_attacking():
 	Controller.can_jump = false

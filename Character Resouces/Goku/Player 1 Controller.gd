@@ -54,10 +54,10 @@ func _physics_process(delta):
 	movement_dir.normalized()
 	if can_move == true:
 		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
-		
+
 		if movement_dir.x != 0:
 			IsMoving.emit(movement_dir.x)
-				
+
 		else:
 			IsStopping.emit()
 func _process(delta: float) -> void:
@@ -73,10 +73,10 @@ func _get_movement():
 	if can_move == true:
 		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
 		movement_dir.normalized()
-		
+
 		if movement_dir.x != 0 and Engine.get_process_frames() % 6 == 0:
 			IsMoving.emit(movement_dir.x)
-			
+
 		else:
 			IsStopping.emit()
 func _process_input():
@@ -102,7 +102,7 @@ func _process_jump_input():
 		if Input.is_action_just_pressed(Controls.jump):
 			add_to_buffer({"type": "move", "value": "jump", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			IsJumping.emit()
-			
+
 func _process_dash_input():
 	if can_dash == true:
 		if Input.is_action_just_pressed(Controls.dash):
@@ -196,7 +196,7 @@ func _process_immediate_action():
 	for input_action in input_buffer:
 		match input_action.type:
 			"move":
-				
+
 				if state == Idle:
 					if input_action.value == "dash" and input_action.facing == 0:
 						state = Block
@@ -215,15 +215,13 @@ func _process_immediate_action():
 				if Animator.state == Idle:
 					if input_action.value == "light" and input_action.onground == true:
 						Animator.state = Neutral_Light
-						
+
 					if input_action.value == "light" and input_action.onground == true:
 						Animator.state = Neutral_Heavy
-						
+
 				if Animator.state == Air:
 					if input_action.value == "light" and input_action.onground == false:
 						Animator.state = Neutral_Air
-						
-					
-					
 
-		
+
+

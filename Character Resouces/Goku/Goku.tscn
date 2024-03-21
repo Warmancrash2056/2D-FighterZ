@@ -13700,23 +13700,6 @@ tracks/24/path = NodePath("../Character")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
-"times": PackedFloat32Array(0.3, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"start_attack_movment"
-}, {
-"args": [],
-"method": &"stop_attack_movment"
-}]
-}
-tracks/25/type = "method"
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/path = NodePath("../Character")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -14851,7 +14834,7 @@ tracks/26/path = NodePath("../Character")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -14868,7 +14851,7 @@ tracks/27/path = NodePath("../Character")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -15174,10 +15157,8 @@ disabled = true
 [node name="Side Light Begin" type="Area2D" parent="Character/Scale Player"]
 
 [node name="Side Light Begin" type="CollisionShape2D" parent="Character/Scale Player/Side Light Begin"]
-visible = false
 position = Vector2(23.5, -6.5)
 shape = SubResource("CircleShape2D_114hp")
-disabled = true
 debug_color = Color(0, 1, 0, 0.419608)
 
 [node name="Side Light Transition" type="Area2D" parent="Character/Scale Player"]
@@ -15378,7 +15359,7 @@ texture = ExtResource("11_so2xu")
 offset = Vector2(0, -30)
 hframes = 10
 vframes = 19
-frame = 101
+frame = 68
 script = ExtResource("14_toog6")
 
 [node name="Character" type="AnimationPlayer" parent="Character" node_paths=PackedStringArray("Controller", "Character", "Scaler", "Sprite")]
@@ -15393,7 +15374,8 @@ Scaler = NodePath("../Scale Player")
 Sprite = NodePath("../Sprite")
 NAir = Vector2(0, 10)
 NRecovery = Vector2(2, -250)
-Slight = Vector2(1000, 0)
+Slight = Vector2(3, 0)
+SAir = Vector2(25, 0)
 DRecovery = Vector2(0, 200)
 
 [node name="Side Light First Punch" type="AudioStreamPlayer2D" parent="Character"]

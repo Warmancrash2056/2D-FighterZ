@@ -64,7 +64,8 @@ enum {
 	Down_Heavy,
 	Down_Air,
 	Dowm_Recovery,
-	Throw,
+	Ground_Throw
+	Air_Throw,
 	Hurt,
 	Respawn
 }

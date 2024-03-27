@@ -10,10 +10,10 @@ func _ready():
 func _process(delta):
 	if flip_h == false:
 		direction = 1
-		
+
 	else:
 		direction = -1
-		
+
 
 func _on_character_facing_left():
 	flip_h = true

@@ -27,7 +27,7 @@ signal CounterCloud
 
 
 func _ready():
-
+	print(velocity.x)
 	Speed *= Speed_Rating
 
 func _physics_process(delta):
@@ -42,7 +42,6 @@ func _on_hurtbox_area_entered(area):
 
 
 func _on_character_on_ground():
-	print(Jump_Count)
 	Jump_Count = 3
 
 
@@ -54,7 +53,6 @@ func _on_character_is_dashing():
 
 
 func _on_character_is_jumping():
-	print(Jump_Count)
 	if Jump_Count > 0:
 		Jump_Count -= 1
 		JumpCloud.emit()
@@ -70,7 +68,6 @@ func _on_character_attack_friction(Friction):
 
 
 func _on_controller_is_jumping():
-	print(Jump_Count)
 	if Jump_Count > 0:
 		Jump_Count -= 1
 		JumpCloud.emit()
@@ -84,10 +81,14 @@ func _on_controller_is_stopping():
 
 
 func _on_controller_is_moving(Vector):
-	if Engine.get_physics_frames() % 10 == 0:
-		velocity.x = move_toward(velocity.x , Vector * Speed, Acceleration)
+	if Vector == 1:
+			velocity.x = move_toward(velocity.x , Speed, Acceleration)
 
+	else:
+			velocity.x = move_toward(velocity.x , -Speed, Acceleration)
 
+func _check_ground():
+	var air_scaling
 
 
 func _on_character_attack_moving_x(Vector: Variant) -> void:

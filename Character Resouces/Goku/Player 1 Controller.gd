@@ -107,6 +107,7 @@ func _process_dash_input():
 	if can_dash == true:
 		if Input.is_action_just_pressed(Controls.dash):
 			add_to_buffer({"type": "move", "value": "dash", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+
 func _process_attack_input():
 	if can_attack == true:
 		if Input.is_action_just_pressed(Controls.throw):
@@ -216,7 +217,7 @@ func _process_immediate_action():
 					if input_action.value == "light" and input_action.onground == true:
 						Animator.state = Neutral_Light
 
-					if input_action.value == "light" and input_action.onground == true:
+					if input_action.value == "heavy" and input_action.onground == true:
 						Animator.state = Neutral_Heavy
 
 				if Animator.state == Air:

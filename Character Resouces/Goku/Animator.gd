@@ -11,8 +11,11 @@ var direction: int
 
 var Attack_Vector: Vector2
 var Attack_Friction = 0.1
-var start_movement = false
+var enable_y_movement = false
+var enable_x_movement = false
 var start_friction = false
+
+const Block = Vector2.ZERO
 @export var Throw_Ground: Vector2
 @export var Throw_Air: Vector2
 @export var Nlight: Vector2
@@ -43,6 +46,7 @@ signal FacingRight
 signal OnGround
 signal IsDashing
 signal AttackMovingX(Vector)
+signal AttackMovingY(Vector)
 signal AttackFriction(Friction)
 signal IsThrowing
 
@@ -52,7 +56,8 @@ enum {
 	Running,
 	Dash,
 	Air,
-	Block,
+	Ground_Block,
+	Air_Block,
 	Neutral_Light,
 	Neutral_Heavy,
 	Neutral_Air,
@@ -64,7 +69,7 @@ enum {
 	Down_Heavy,
 	Down_Air,
 	Dowm_Recovery,
-	Ground_Throw
+	Ground_Throw,
 	Air_Throw,
 	Hurt,
 	Respawn
@@ -103,21 +108,24 @@ func _physics_process(delta):
 				state = Idle
 				OnGround.emit()
 
-
-
 		Respawn:
 			play("Respawn")
 
-		Throw:
+		Ground_Throw:
+			play("Ground Projectile")
+			Attack_Vector = Throw_Ground
 
-			if Character.is_on_floor():
-				play("Ground Projectile")
-				Attack_Vector = Throw_Ground
+		Air_Throw:
+			play("Air Projectile")
+			Attack_Vector = Throw_Air
 
-			else:
-				play("Air Projectile")
-				Attack_Vector = Throw_Air
+		Ground_Block:
+			Attack_Vector = Block
+			play("Ground Block")
 
+		Air_Block:
+			Attack_Vector = Block
+			play("Air Block")
 		Neutral_Light:
 			Attack_Vector = Nlight
 			play("Neutral Light")
@@ -164,22 +172,16 @@ func _physics_process(delta):
 			play("Down Recovery")
 
 func _attack_movment_controller():
-	if start_movement == true:
-		_attack_movement()
-
+	if enable_x_movement == true:
+		AttackMovingX.emit(Attack_Vector.x)
+	if enable_y_movement == true:
+		AttackMovingY.emit(Attack_Vector.y)
 	if start_friction == true:
-		_attack_friction()
+		AttackFriction.emit(Attack_Friction)
+
 #func _side_transition():
 	#if side_transition == true:
 		#play("Side Finish")
-
-
-func _attack_movement():
-	AttackMovingX.emit(Attack_Vector)
-
-func _attack_friction():
-	AttackFriction.emit(Attack_Friction)
-
 
 func idle_reset():
 	Attack_Vector = Vector2.ZERO
@@ -194,11 +196,16 @@ func idle_reset():
 		IsResetting.emit()
 		play("Fall")
 
+func enable_vertical_attack_movement():
+	enable_y_movement = true
+
+func disable_vertical_attack_movement():
+	enable_y_movement = false
 func start_attack_movment():
-	start_movement = true
+	enable_x_movement = true
 
 func stop_attack_movment():
-	start_movement = false
+	enable_x_movement = false
 
 func _start_attack_friction():
 	start_friction = true

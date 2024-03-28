@@ -37,6 +37,14 @@ func _physics_process(delta):
 		if !is_on_floor():
 			velocity.y += Gravity
 
+		else:
+			velocity.y = 0
+
+func _disable_gravity() -> void:
+	is_attacking = true
+
+func enable_gravity():
+	is_attacking = false
 func _on_hurtbox_area_entered(area):
 	pass # Replace with function body.
 
@@ -91,5 +99,11 @@ func _check_ground():
 	var air_scaling
 
 
+
+
 func _on_character_attack_moving_x(Vector: Variant) -> void:
-	velocity.x = move_toward(velocity.x, Sprite.direction * Vector.x, 50)
+	velocity.x = move_toward(velocity.x, Sprite.direction * Vector, 50)
+
+
+func _on_character_attack_moving_y(Vector: Variant) -> void:
+	velocity.y = Vector

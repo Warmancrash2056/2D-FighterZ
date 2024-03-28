@@ -17,19 +17,23 @@ var direction = 1
 var movement_dir: Vector2
 var input_buffer = []
 var max_buffer_limit = 3
-var buffer_time = 0.3
+var buffer_time = 0.1
+
+
 var can_move = true
 var can_direct = true
 var can_jump = true
 var can_dash = true
 var can_attack = true
+var can_block = true
 enum {
 	Idle,
 	Turning,
 	Running,
 	Dash,
 	Air,
-	Block,
+	Ground_Block,
+	Air_Block,
 	Neutral_Light,
 	Neutral_Heavy,
 	Neutral_Air,
@@ -41,10 +45,12 @@ enum {
 	Down_Heavy,
 	Down_Air,
 	Dowm_Recovery,
-	Throw,
+	Ground_Throw,
+	Air_Throw,
 	Hurt,
 	Respawn
 }
+
 
 
 var state = Respawn
@@ -63,9 +69,11 @@ func _physics_process(delta):
 func _process(delta: float) -> void:
 	_process_input()
 	_process_attack_input()
+	_process_block_input()
 	_process_dash_input()
 	_process_jump_input()
 	_process_immediate_action()
+	_process_single_size_inputs()
 	clear_inputs()
 	_input_debugger()
 	_process_combinations()
@@ -108,6 +116,10 @@ func _process_dash_input():
 		if Input.is_action_just_pressed(Controls.dash):
 			add_to_buffer({"type": "move", "value": "dash", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
+func _process_block_input():
+	if can_block == true:
+		if Input.is_action_just_pressed(Controls.block):
+			add_to_buffer({"type": "move", "value": "block", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 func _process_attack_input():
 	if can_attack == true:
 		if Input.is_action_just_pressed(Controls.throw):
@@ -193,14 +205,17 @@ func _process_combinations():
 			if first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy" and second_input.onground == false:
 				Animator.state = Neutral_Recovery
 
+# Change states based on input not requiring combination.
 func _process_immediate_action():
 	for input_action in input_buffer:
 		match input_action.type:
 			"move":
+				if input_action.value == "block" and input_action.onground == true:
+					Animator.state = Ground_Block
 
-				if state == Idle:
-					if input_action.value == "dash" and input_action.facing == 0:
-						state = Block
+				if input_action.value == "block" and input_action.onground == false:
+					Animator.state = Air_Block
+
 
 			"direction":
 				if input_action.value == "left" and Sprite.flip_h == false:
@@ -210,18 +225,27 @@ func _process_immediate_action():
 					pass
 
 			"attack":
-				if input_action.value == "throw" and input_action.facing == 0:
-					state = Throw
+				if input_action.value == "throw" and input_action.onground == true:
+					Animator.state = Ground_Throw
 
-				if Animator.state == Idle:
+				if input_action.value == "throw" and input_action.onground == false:
+					Animator.state = Air_Throw
+
+# Process actions that require a size of 1 input buffer
+func _process_single_size_inputs() -> void:
+	for input_action in input_buffer:
+		match input_action.type:
+			"attack":
+				if input_buffer.size() < 2:
 					if input_action.value == "light" and input_action.onground == true:
 						Animator.state = Neutral_Light
 
 					if input_action.value == "heavy" and input_action.onground == true:
 						Animator.state = Neutral_Heavy
 
-				if Animator.state == Air:
 					if input_action.value == "light" and input_action.onground == false:
 						Animator.state = Neutral_Air
 
+					if input_action.value == "heavy" and input_action.onground == false:
+						Animator.state = Neutral_Recovery
 

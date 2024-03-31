@@ -17,7 +17,7 @@ var currentSelected = 0      # Spot of the cursor within the characters[]
 var currentColumnSpot = 0    # Spot of the cursor based on the column
 var currentRowSpot = 0       # Spot of the cursor based on the row
 
-@export var amountOfRows: int = 2      # The total amount of rows the character select is able to show 
+@export var amountOfRows: int = 2      # The total amount of rows the character select is able to show
 @export var portraitOffset: Vector2    # The distance between the portraits
 
 # Call parent node to get the character selection
@@ -28,7 +28,7 @@ func _ready():
 # Get all of the characters stored within the group "Player 1" and place them in the Array characters
 	for nameOfCharacter in get_tree().get_nodes_in_group("Player1"):
 		characters.append(nameOfCharacter)
-	
+
 # This whole _process(delta) function is used to allow scrolling through all the characters
 func _process(delta):
 	print(currentSelected)
@@ -42,11 +42,11 @@ func _process(delta):
 			print(characters)
 			currentColumnSpot = 0
 			currentRowSpot += 1
-		# If the cursor goes past the total amount of columns and amount of characters, reset to the first item in the whole roster 
+		# If the cursor goes past the total amount of columns and amount of characters, reset to the first item in the whole roster
 		elif(currentColumnSpot > gridContainer.columns - 1 && currentSelected > characters.size() - 1):
 			position.x -= (currentColumnSpot - 1) * portraitOffset.x
 			position.y -= currentRowSpot * portraitOffset.y
-			
+
 			currentColumnSpot = 0
 			currentRowSpot = 0
 			currentSelected = 0
@@ -59,20 +59,20 @@ func _process(delta):
 		if(currentColumnSpot < 0 && currentSelected > 0):
 			position.x += (gridContainer.columns - 1) * portraitOffset.x
 			position.y -= (amountOfRows - 1) * portraitOffset.y
-			
+
 			currentColumnSpot = gridContainer.columns - 1
 			currentRowSpot -= 1
-		# If the cursor goes past the 0 amount on a column position and 0 amount of characters, reset to the last item in the whole roster 
+		# If the cursor goes past the 0 amount on a column position and 0 amount of characters, reset to the last item in the whole roster
 		elif (currentColumnSpot < 0 && currentSelected < 0):
 			position.x += (gridContainer.columns - 1) * portraitOffset.x
 			position.y += (amountOfRows - 1) * portraitOffset.y
-			
+
 			currentColumnSpot = gridContainer.columns - 1
 			currentRowSpot = amountOfRows - 1
 			currentSelected = characters.size() - 1
 		else:
 			position.x -= portraitOffset.x
-	
+
 	if Input.is_action_just_pressed(Controls.throw):
 		Player1Ready = true
 		if CharacterList.get_main_player == null:
@@ -81,7 +81,7 @@ func _process(delta):
 			# when character selected map spawn will be active for player 1.
 			CharacterList.check_main_is_called = true
 			portraitOffset.x = 0
-	
+
 	if Input.is_action_just_pressed(Controls.dash):
 		Player1Ready = false
 		if CharacterList.get_main_player != null:
@@ -185,7 +185,7 @@ func _on_player_1_goku_select_area_entered(area):
 		GokuAnimation.visible = true
 		player_1_tag.set_text(str("Goku"))
 		player_1_tag.position.x = 332
-		
+
 
 func _on_player_1_goku_select_area_exited(area):
 	if area:

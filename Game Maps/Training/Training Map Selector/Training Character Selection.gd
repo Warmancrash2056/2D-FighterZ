@@ -20,7 +20,7 @@ func _process(delta):
 		Audio._main_menu_play()
 		Player1.Player1Ready = false
 		CharacterList.get_main_player = null
-		
+
 
 
 

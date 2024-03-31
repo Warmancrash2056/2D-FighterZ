@@ -1,6 +1,6 @@
 extends Node2D
 
-#Biography Section 
+#Biography Section
 @onready var GeneralArchfieldDescription = $"General Archfield Description"
 @onready var GokuDescription = $"Goku Description"
 @onready var NomadDescription = $"Nomad Description"
@@ -93,20 +93,20 @@ func _on_general_archfield_detector_area_entered(area):
 		GeneralArchfieldDescription.visible = true
 		GeneralArchfieldAnimation.play("Idle")
 		GeneralArchfieldAnimation.visible = true
-		
+
 		# Turn on buttons and make them visible. #
 		GeneralArchfieldNlightButton.visible = true
 		GeneralArchfieldNlightButton.disabled = false
-		
+
 		GeneralArchfieldSlightButton.visible = true
 		GeneralArchfieldSlightButton.disabled = false
-		
+
 		GeneralArchfieldDlightButton.visible = true
 		GeneralArchfieldDlightButton.disabled = false
-		
+
 		GeneralArchFieldUlightButton.visible = true
 		GeneralArchFieldUlightButton.disabled = false
-		
+
 		GeneralArchfieldNairButton.visible = true
 		GeneralArchfieldNairButton.disabled = false
 
@@ -117,21 +117,21 @@ func _on_general_archfield_detector_area_exited(area):
 		GeneralArchfieldAnimation.visible = false
 		GeneralArchfieldAnimation.stop()
 		GeneralArchfieldAnimation.frame = 0
-		
-		
+
+
 		# Turn on buttons and make them visible. #
 		GeneralArchfieldNlightButton.visible = false
 		GeneralArchfieldNlightButton.disabled = true
-		
+
 		GeneralArchfieldSlightButton.visible = false
 		GeneralArchfieldSlightButton.disabled = true
-		
+
 		GeneralArchfieldDlightButton.visible = false
 		GeneralArchfieldDlightButton.disabled = true
-		
+
 		GeneralArchFieldUlightButton.visible = false
 		GeneralArchFieldUlightButton.disabled = true
-		
+
 		GeneralArchfieldNairButton.visible = false
 		GeneralArchfieldNairButton.disabled = true
 
@@ -156,51 +156,51 @@ func _on_goku_ulight_pressed():
 
 func _on_goku_nair_pressed():
 	GokuAnimation.play("Nair")
-	
+
 func _on_goku_detector_area_entered(area):
 	GokuDescription.visible = true
 	GokuAnimation.visible = true
 	GokuAnimation.play("Idle")
-	
+
 	GokuNlightButton.disabled = false
 	GokuNlightButton.visible = true
-	
+
 	GokuSlightButton.disabled = false
 	GokuSlightButton.visible = true
-	
+
 	GokuDlightButton.disabled = false
 	GokuDlightButton.visible = true
-	
+
 	GokuUlightButton.disabled = false
 	GokuUlightButton.visible = true
-	
+
 	GokuNairButton.disabled = false
 	GokuNairButton.visible = true
-	
+
 func _on_goku_detector_area_exited(area):
 	GokuDescription.visible = false
 	GokuAnimation.visible = false
 	GokuAnimation.frame = 0
 	GokuAnimation.stop()
-	
+
 	GokuNlightButton.disabled = true
 	GokuNlightButton.visible = false
-	
+
 	GokuSlightButton.disabled = true
 	GokuSlightButton.visible = false
-	
+
 	GokuDlightButton.disabled = true
 	GokuDlightButton.visible = false
-	
+
 	GokuUlightButton.disabled = true
 	GokuUlightButton.visible = false
-	
+
 	GokuNairButton.disabled = true
 	GokuNairButton.visible = false
-	
+
 func _on_princess_atlantis_animation_animation_looped():
 	PrincessAtlantisAnimation.play("Idle")
-	
+
 func _on_princess_atlantis_nlight_pressed():
 	PrincessAtlantisAnimation.play("Nlight")
 
@@ -222,25 +222,25 @@ func _on_princess_atlantis_nair_pressed():
 func _on_princess_atlantis_detector_area_entered(area):
 	PrincessAtlantisAnimation.play("Idle")
 	PrincessAtlantisAnimation.visible = true
-	
+
 	PrincessAtlantisDescription.visible = true
-	
+
 	PrincessAtlantisNlightButton.disabled = false
 	PrincessAtlantisNlightButton.visible = true
-	
+
 	PrincessAtlantisSlightButton.disabled = false
 	PrincessAtlantisSlightButton.visible = true
-	
+
 	PrincessAtlantisDlightButton.disabled = false
 	PrincessAtlantisDlightButton.visible = true
-	
+
 	PrincessAtlantisUlightButton.disabled = false
 	PrincessAtlantisUlightButton.visible = true
-	
+
 	PrincessAtlantisNairButton.disabled = false
 	PrincessAtlantisNairButton.visible = true
-	
-	
+
+
 
 
 func _on_princess_atlantis_detector_area_exited(area):
@@ -248,21 +248,21 @@ func _on_princess_atlantis_detector_area_exited(area):
 	PrincessAtlantisAnimation.stop()
 	PrincessAtlantisAnimation.frame = 0
 	PrincessAtlantisDescription.visible = false
-	
-	
-	
+
+
+
 	PrincessAtlantisNlightButton.disabled = true
 	PrincessAtlantisNlightButton.visible = false
-	
+
 	PrincessAtlantisSlightButton.disabled = true
 	PrincessAtlantisSlightButton.visible = false
-	
+
 	PrincessAtlantisDlightButton.disabled = true
 	PrincessAtlantisDlightButton.visible = false
-	
+
 	PrincessAtlantisUlightButton.disabled = true
 	PrincessAtlantisUlightButton.visible = false
-	
+
 	PrincessAtlantisNairButton.disabled = true
 	PrincessAtlantisNairButton.visible = false
 
@@ -271,19 +271,19 @@ func _on_hunter_detector_area_entered(area):
 	HunterAnimation.visible = true
 	HunterAnimation.play("Idle")
 	HunterDescription.visible = true
-	
+
 	HunterNlightButton.disabled = false
 	HunterNlightButton.visible = true
-	
+
 	HunterSlightButton.disabled = false
 	HunterSlightButton.visible = true
-	
+
 	HunterDlightButton.disabled = false
 	HunterDlightButton.visible = true
-	
+
 	HunterUlightButton.disabled = false
 	HunterUlightButton.visible = true
-	
+
 	HunterNairButton.disabled = false
 	HunterNairButton.visible = true
 func _on_hunter_detector_area_exited(area):
@@ -291,26 +291,26 @@ func _on_hunter_detector_area_exited(area):
 	HunterAnimation.frame = 0
 	HunterAnimation.stop()
 	HunterDescription.visible = false
-	
+
 	HunterNlightButton.disabled = true
 	HunterNlightButton.visible = false
-	
+
 	HunterSlightButton.disabled = true
 	HunterSlightButton.visible = false
-	
+
 	HunterDlightButton.disabled = true
 	HunterDlightButton.visible = false
-	
+
 	HunterUlightButton.disabled = true
 	HunterUlightButton.visible = false
-	
+
 	HunterNairButton.disabled = true
 	HunterNairButton.visible = false
 
 
 func _on_hunter_animation_animation_looped():
 	HunterAnimation.play("Idle")
-	
+
 func _on_hunter_nlight_pressed():
 	HunterAnimation.play("Nlight")
 
@@ -332,7 +332,7 @@ func _on_hunter_nair_pressed():
 
 func _on_nomad_animation_animation_looped():
 	NomadAnimation.play("Idle")
-	
+
 func _on_nomad_detector_area_entered(area):
 	NomadAnimation.play("Idle")
 	NomadAnimation.visible = true
@@ -343,34 +343,34 @@ func _on_nomad_detector_area_entered(area):
 
 	NomadSlightButton.disabled = false
 	NomadSlightButton.visible = true
-	
+
 	NomadDlightButton.disabled = false
 	NomadDlightButton.visible = true
-	
+
 	NomadUlightButton.disabled = false
 	NomadUlightButton.visible = true
-	
+
 	NomadNairButton.disabled = false
 	NomadNairButton.visible = true
-	
+
 func _on_nomad_detector_area_exited(area):
 	NomadAnimation.stop()
 	NomadAnimation.frame = 0
 	NomadDescription.visible = false
 	NomadAnimation.visible = false
-	
+
 	NomadNlightButton.disabled = true
 	NomadNlightButton.visible = false
-	
+
 	NomadSlightButton.disabled = true
 	NomadSlightButton.visible = false
-	
+
 	NomadDlightButton.disabled = true
 	NomadDlightButton.visible = false
-	
+
 	NomadUlightButton.disabled = true
 	NomadUlightButton.visible = false
-	
+
 	NomadNairButton.disabled = true
 	NomadNairButton.visible = false
 
@@ -393,25 +393,25 @@ func _on_nomad_slight_pressed():
 
 func _on_nomad_nlight_pressed():
 	NomadAnimation.play("Nlight")
-	
+
 func _on_nia_detector_area_entered(area):
 	if area:
 		NiaAnimation.play("Idle")
 		NiaAnimation.visible = true
 		NiaDescription.visible = true
-		
+
 		NiaNlightButton.disabled = false
 		NiaNlightButton.visible = true
-		
+
 		NiaSlightButton.disabled = false
 		NiaSlightButton.visible = true
-		
+
 		NiaDlightButton.disabled = false
 		NiaDlightButton.visible = true
-		
+
 		NiaUlightButton.disabled = false
 		NiaUlightButton.visible = true
-		
+
 		NiaNairButton.disabled = false
 		NiaNairButton.visible = true
 
@@ -424,23 +424,23 @@ func _on_nia_detector_area_exited(area):
 		NiaDescription.visible = false
 		NiaNlightButton.disabled = true
 		NiaNlightButton.visible = false
-		
+
 		NiaSlightButton.disabled = true
 		NiaSlightButton.visible = false
-		
+
 		NiaDlightButton.disabled = true
 		NiaDlightButton.visible = false
-		
+
 		NiaUlightButton.disabled = true
 		NiaUlightButton.visible = false
-		
+
 		NiaNairButton.disabled = true
 		NiaNairButton.visible = false
 
 
 func _on_nia_animation_animation_looped():
 	NiaAnimation.play("Idle")
-	
+
 func _on_nia_nlight_pressed():
 	NiaAnimation.play("Nlight")
 

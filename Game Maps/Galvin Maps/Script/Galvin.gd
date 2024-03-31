@@ -22,7 +22,7 @@ func _ready() -> void:
 	player_1_spawn.position = Vector2(192, -328)
 
 	call_deferred("add_child", player_2_spawn)
-	player_2_spawn.set_script(CharacterList.get_player_2_script)
+	player_2_spawn.set_script(CharacterList.get_player_1_script)
 	player_2_spawn.position = Vector2(-192, -328)
 
 	setup_camera()
@@ -49,21 +49,21 @@ func calculate_camera_rect() -> void:
 
 func update_camera() -> void:
 	camera.zoom = calculate_zoom(camera_rect, viewport_rect.size)
-	
+
 	# Calculate distance between players
 	var player1_position = player_1_spawn.global_position
 	var player2_position = player_2_spawn.global_position
 	var distance = player1_position.distance_to(player2_position)
-	
+
 	# Move the camera only when players are far away
 	#print(camera.position)
 	if distance > CAMERA_MOVE_THRESHOLD:
 		camera.global_position = lerp(camera.global_position,calculate_center(camera_rect),0.1)
-		
-	
+
+
 	# Adjust zoom based on distance between players
 	camera.zoom *= calculate_zoom_factor(distance)
-	
+
 	if debug_mode:
 		queue_redraw()
 

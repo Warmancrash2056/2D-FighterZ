@@ -9,16 +9,16 @@ extends Node2D
 @onready var exit_prompt_exit = $"Exit Prompt/Exit Game"
 
 func _ready():
-	Audio._galvin_map_play()
+	GameAuido._galvin_map_play()
 func _process(delta):
 	if Input.is_action_just_pressed("exit") and exit_prompt.visible == false:
 		exit_prompt.visible = true
 	elif Input.is_action_just_pressed("exit") and exit_prompt.visible == true:
 		exit_prompt.visible = false
-		
+
 	if exit_prompt_exit.button_pressed == true:
 		get_tree().change_scene_to_file("res://Game Start/Local Play/Training Character Selection.tscn")
-		Audio._main_menu_play()
+		GameAuido._main_menu_play()
 		CharacterList.get_main_player = null
 	if exit_prompt_return.button_pressed == true:
 		exit_prompt.visible = false

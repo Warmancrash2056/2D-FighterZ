@@ -14,7 +14,7 @@ var lives = 2
 var goku_selected = false
 var general_selected = false
 var hunter_selected = false
-var nomad_selected = false 
+var nomad_selected = false
 var sakura_selected = false
 var atlantis_selected = false
 var blacksmith = false
@@ -23,8 +23,8 @@ var goku_neutral_heavy_grab_position = Vector2()
 
 var player_1_position: Vector2
 var player_2_position: Vector2
-# Display Icon 
-var icon 
+# Display Icon
+var icon
 var check_player_1_is_called = false
 var check_player_2_is_called = false
 var check_main_is_called = false
@@ -36,7 +36,7 @@ var main_player_facing_left = false
 var goku_side_start_transition = false
 var disable_mini_platform = false
 
-# Reminder that if script is not erroing and cannot register script. 
+# Reminder that if script is not erroing and cannot register script.
 # Usually means that script has an error.
 var get_player_1_script = preload("res://Character Resouces/Global/Player 1 Script.gd")
 var get_player_2_script = preload("res://Character Resouces/Global/Player 2 Script.gd")

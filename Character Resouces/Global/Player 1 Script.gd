@@ -1,10 +1,6 @@
-class_name Player1 extends CharacterBody2D
+extends CharacterBody2D
 
-# Get character Resources
-var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
-
-# Get character Resources
-var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
+var controls: Resource
 
 var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
 var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")

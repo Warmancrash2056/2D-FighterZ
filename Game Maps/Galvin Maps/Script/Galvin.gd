@@ -18,10 +18,12 @@ const CAMERA_MOVE_THRESHOLD = 5.0
 func _ready() -> void:
 	# Set player properties directly
 	call_deferred("add_child", player_1_spawn)
+	player_1_spawn.controls = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
 	player_1_spawn.position = Vector2(192, -328)
 
 	call_deferred("add_child", player_2_spawn)
+	player_2_spawn.controls = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
 	player_2_spawn.set_script(CharacterList.get_player_1_script)
 	player_2_spawn.position = Vector2(-192, -328)
 

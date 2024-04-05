@@ -12,8 +12,8 @@ var camera_reset = false
 const MAX_OFFSET_X = 800.0
 const MIN_OFFSET_X = -800.0
 
-const MAX_ZOOM_DISTANCE = 3000.0
-const CAMERA_MOVE_THRESHOLD = 5.0
+const MAX_ZOOM_DISTANCE = 1000.0
+const CAMERA_MOVE_THRESHOLD = 50.0
 
 func _ready() -> void:
 	# Set player properties directly
@@ -70,8 +70,8 @@ func update_camera() -> void:
 		queue_redraw()
 
 	# Clamp the offset to stay within the bounds
-	#camera.global_position.x = clamp(camera.global_position.x, MIN_OFFSET_X, MAX_OFFSET_X)
-	#camera.global_position.y = clamp(camera.global_position.y, -MAX_OFFSET_X, MAX_OFFSET_X)
+	camera.global_position.x = clamp(camera.global_position.x, MIN_OFFSET_X, MAX_OFFSET_X)
+	camera.global_position.y = clamp(camera.global_position.y, -MAX_OFFSET_X, MAX_OFFSET_X)
 
 func calculate_center(rect: Rect2) -> Vector2:
 	return Vector2(
@@ -88,7 +88,7 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 
 func calculate_zoom_factor(distance: float) -> float:
 	# Calculate the zoom factor based on the distance between players
-	var zoom_factor = 0.9 - distance / MAX_ZOOM_DISTANCE
+	var zoom_factor = 1.3 - distance / MAX_ZOOM_DISTANCE
 
 	# Clamp the zoom factor to be at least 1.0
 	return max(zoom_factor, 0.9)

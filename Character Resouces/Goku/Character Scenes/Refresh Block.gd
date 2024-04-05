@@ -1,8 +1,6 @@
-extends Marker2D
+extends Timer
 
-@export var Jump_Cloud: Resource
-@export var Character: Resource
-@export var Jump_Spund: AudioStreamPlayer2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

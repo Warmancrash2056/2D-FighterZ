@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3rv1kotqtmjy"]
+[gd_scene load_steps=4 format=3 uid="uid://b3rv1kotqtmjy"]
 
-[ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Icon/Goku.png" id="1_1wech"]
 [ext_resource type="Script" path="res://Autoloads/Player 1 Healthbar.gd" id="1_cqcrg"]
 [ext_resource type="Texture2D" uid="uid://8te4nfn2jivc" path="res://Character Resouces/H2.png" id="3_6qn44"]
 [ext_resource type="Texture2D" uid="uid://dmojit5h8krk" path="res://Character Resouces/h1.png" id="4_8777c"]
@@ -25,4 +24,4 @@ offset_bottom = 32.0
 color = Color(0, 0, 0, 0.219608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1wech")
+position = Vector2(0, 1)

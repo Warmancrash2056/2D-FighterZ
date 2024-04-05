@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=17 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -5743,30 +5743,6 @@ texture = ExtResource("2_uq8es")
 [sub_resource type="TileSet" id="TileSet_tqbgv"]
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlpmx"]
-size = Vector2(192, 1028)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa85i"]
-size = Vector2(192, 208)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7o2x"]
-size = Vector2(1536, 208)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1aod"]
-size = Vector2(193, 209)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixyi5"]
-size = Vector2(1536, 200)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fodf1"]
-size = Vector2(192, 200)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_maetl"]
-size = Vector2(192, 1032)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_apkgc"]
-size = Vector2(192, 200)
-
 [node name="Galvin Road" type="Node2D"]
 script = ExtResource("1_cxki7")
 debug_mode = true
@@ -5874,11 +5850,24 @@ polygon = PackedVector2Array(-304, 424, 320, 424, 320, 448, -304, 448)
 
 [node name="Area2D" parent="." instance=ExtResource("9_cjxaf")]
 
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 867.692)
+
+[node name="CollisionShape2D2" parent="Area2D" index="1"]
+position = Vector2(-1360, 0)
+
+[node name="CollisionShape2D3" parent="Area2D" index="2"]
+position = Vector2(0, -646.154)
+
+[node name="CollisionShape2D4" parent="Area2D" index="3"]
+position = Vector2(1458.46, 0)
+
 [node name="Local Camera" parent="." instance=ExtResource("9_m0frr")]
 limit_left = -768
 limit_top = -512
 limit_right = 768
 limit_bottom = 512
+position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = 1.0
@@ -5886,36 +5875,4 @@ drag_bottom_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Area2D2" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-864, -2)
-shape = SubResource("RectangleShape2D_wlpmx")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-864, -616)
-shape = SubResource("RectangleShape2D_xa85i")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(0, -616)
-shape = SubResource("RectangleShape2D_e7o2x")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(863.5, -616.5)
-shape = SubResource("RectangleShape2D_t1aod")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(0, 612)
-shape = SubResource("RectangleShape2D_ixyi5")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(864, 612)
-shape = SubResource("RectangleShape2D_fodf1")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(864, 4)
-shape = SubResource("RectangleShape2D_maetl")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-864, 612)
-shape = SubResource("RectangleShape2D_apkgc")
+[editable path="Area2D"]

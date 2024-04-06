@@ -13,6 +13,6 @@ func _on_controller_on_wall() -> void:
 	get_tree().get_root().add_child(instance_wall_cloud)
 
 	if Sprite.flip_h == true:
-		instance_wall_cloud.scale.y = 2
-	else:
 		instance_wall_cloud.scale.y = -2
+	else:
+		instance_wall_cloud.scale.y = 2

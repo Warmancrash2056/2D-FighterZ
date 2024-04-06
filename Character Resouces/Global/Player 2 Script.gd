@@ -11,9 +11,13 @@ signal FacingRight
 var side_registered = false
 @onready var Animate: AnimationPlayer = $Character
 @onready var Sprite: Sprite2D = $Sprite
-@onready var player_icon = $'Player Icon'
-@export var Block_Timer: Timer
-@export var Recovery_Time: Timer
+@onready var player_icon: Node2D = $'Player Icon'
+@onready var Stats: Node = $'Player Stats'
+@onready var floor_detector = $'Floor Detector'
+@onready var Block_Timer: Timer = $'Refresh Block'
+@onready var Recovery_Time: Timer = $'Recovery Timer'
+@onready var right_wall_detection = $Right
+@onready var left_wall_detection = $Left
 var follow_goku_neutral_heavy = false
 var attack_reset = false
 # Goku Projectile Position #
@@ -22,24 +26,8 @@ var knockback_multiplier: float = 0.5
 var knockback_x: float
 var knockback_y: float
 
-# Used to detect if there is a wall.
-@onready var right_wall_detection = $Right
-@onready var left_wall_detection = $Left
-var goku_selected = false
-var general_selected = false
-var nomad_selected = false
-var sakura_selected = false
-var hunter_selected = false
-var atlantis_selected = false
-var henry_selected = false
-
+var is_attacking = false
 var move_vec: Vector2
-@export var Speed_Rating: float
-@export var Speed: int = 300
-var Acceleration: int = 50
-var Fall_Speed = 150
-var Jump_Height = 500
-var Gravity = 20
 
 var sakura_ulight_active = false
 var can_change_dir = false
@@ -48,11 +36,12 @@ var can_jump = false
 var can_counter = false
 var block_active = false
 var attack_active = false
+var can_move = true
 
 var jump_count = 3
 
 
-var Health: int
+var Health: int = 1000
 
 enum States {
 	# Normal Mode Ststes. #
@@ -160,12 +149,13 @@ func counter_down_heavy():
 func _reset_turn_around():
 	can_change_dir = false
 func turn_around():
-	if can_change_dir ==  false:
-		if Input.is_action_just_pressed(controls.right):
-			FacingRight.emit()
+	if Input.is_action_pressed(controls.right):
+		FacingRight.emit()
+		CharacterList.player_1_facing_left = false
 
-		elif Input.is_action_just_pressed(controls.left):
-			FacingLeft.emit()
+	elif Input.is_action_pressed(controls.left):
+		FacingLeft.emit()
+		CharacterList.player_1_facing_left = true
 # Goku Stats
 func _goku_side_finish():
 	if side_registered == true:
@@ -180,8 +170,8 @@ func _reset_counter():
 	can_counter = false
 
 func _ready():
-	CharacterList.player_1_icon = player_icon.Icon
-	CharacterList.player_1_health = Health
+	CharacterList.player_2_icon = player_icon.Icon
+	CharacterList.player_2_health = Health
 	Select = States.Respawn
 
 func _bounce():
@@ -198,74 +188,94 @@ func _reset_v():
 	knockback_y = 0
 
 func _process(delta):
-	CharacterList.player_1_health = Health
+	CharacterList.player_2_health = Health
 
-	if CharacterList.player_1_health < 700 and CharacterList.player_1_health > 400:
+	if CharacterList.player_2_health < 700 and CharacterList.player_2_health > 400:
 		knockback_multiplier = 1.0
 
-	elif CharacterList.player_1_health < 490 and CharacterList.player_1_health> 200 :
+	elif CharacterList.player_2_health < 490 and CharacterList.player_2_health> 200 :
 		knockback_multiplier = 1.3
 
-	elif CharacterList.player_1_health < 200:
+	elif CharacterList.player_2_health < 200:
 		knockback_multiplier = 1.6
 
 	else:
-		if CharacterList.player_1_health < 0:
+		if CharacterList.player_2_health < 0:
 			knockback_multiplier = 1.9
 
-func _get_movement():
+func _attack_active():
+	is_attacking = true
+
+func _attack_disabled():
+	is_attacking = false
+
+func _movement_enabled():
+	can_move = true
+
+func _movement_disabled():
+	can_move = false
+
+func _ground_movement():
+	var air_rating : float = Stats.Speed_Rating + 0.1
+	var attack_rating: float = 0.1
+	var new_speed: int = Stats.Speed_Rating * Stats.Max_Speed
+
 	move_vec = Vector2(Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left),
 	Input.get_action_strength(controls.up) - Input.get_action_strength(controls.down))
 
+	if !is_on_floor() and !is_attacking == true:
+		new_speed = air_rating * Stats.Max_Speed
+
+	if is_attacking == true:
+		new_speed = attack_rating * Stats.Max_Speed
 	move_vec.normalized()
 
-	if move_vec.x != 0:
-		velocity.x = move_toward(velocity.x , move_vec.x * Speed, Acceleration)
+	if can_move == true:
+		if move_vec.x != 0:
+			velocity.x = move_toward(velocity.x , move_vec.x * new_speed, Stats.Acceleration)
+
+		else:
+			velocity.x = move_toward(velocity.x , 0, Stats.Decelleration)
+
+
+func _dash_mpvement():
+	var new_rating: float = Stats.Speed_Rating + 0.35
+	var new_speed: int = new_rating * Stats.Max_Speed
+
+	if Sprite.flip_h == true:
+		velocity.x = move_toward(velocity.x , -new_speed, Stats.Acceleration)
 
 	else:
-		velocity.x = move_toward(velocity.x , 0, Acceleration)
-
+		velocity.x = move_toward(velocity.x , new_speed, Stats.Acceleration)
 
 func _physics_process(delta):
+	if !is_on_floor() and is_attacking == false:
+		velocity.y += Stats.Gravity
 	move_and_slide()
 	match Select:
 		States.Idling:
+			turn_around()
+			_ground_movement()
 			jump_count = 3
 			set_collision_mask_value(3, true)
-			if !is_on_floor():
-				Select = States.Jumping
-				Animate.play("Jump")
-			velocity.y += Gravity
-			if move_vec.x < 0:
-				Animate.play("Run")
-				if velocity.x != 0:
-					if Input.is_action_just_pressed(controls.dash):
-						Select = States.Dash_Run
-						set_collision_mask_value(2, false)
-
+			if move_vec.x != 0:
+				if is_on_floor():
+					Animate.play("Run")
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Light
 
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Side_Heavy
 
-			elif move_vec.x > 0:
-				velocity.x = min(velocity.x + Acceleration, Speed)
-				Animate.play("Run")
 				if velocity.x != 0:
 					if Input.is_action_just_pressed(controls.dash):
 						Select = States.Dash_Run
 						set_collision_mask_value(2, false)
 
-
-				if Input.is_action_just_pressed(controls.light):
-					Select = States.Side_Light
-
-				if Input.is_action_just_pressed(controls.heavy):
-					Select = States.Side_Heavy
 
 			else:
-				Animate.play("Idle")
+				if is_on_floor():
+					Animate.play("Idle")
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Nuetral_Light
 
@@ -287,7 +297,7 @@ func _physics_process(delta):
 				Select = States.Jumping
 				jump_count -= 1
 				IsJumping.emit()
-				velocity.y = -Jump_Height
+				velocity.y = -Stats.Jump_Height
 				Animate.play("Jump")
 
 			elif Input.is_action_pressed(controls.down):
@@ -302,8 +312,11 @@ func _physics_process(delta):
 				if Input.is_action_pressed(controls.down):
 					set_collision_mask_value(3, false)
 
-
+			if !floor_detector.is_colliding() and !is_on_floor():
+				Select = States.Jumping
 		States.Jumping:
+			_ground_movement()
+			turn_around()
 			if move_vec.x != 0:
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Air
@@ -324,7 +337,6 @@ func _physics_process(delta):
 				block_active = true
 				set_collision_mask_value(3, true)
 
-			velocity.y += Gravity
 			if velocity.y > 0:
 				Animate.play("Fall")
 
@@ -345,15 +357,16 @@ func _physics_process(delta):
 						Select = States.Right_Wall
 
 
-			if is_on_floor():
+
+			if floor_detector.is_colliding() and is_on_floor():
 				Select = States.Idling
+				Animate.play("Idle")
 				set_collision_mask_value(3, true)
 
 
 			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				jump_count -= 1
-				velocity.y = -Jump_Height
-				Animate.play("Jump")
+				velocity.y = -Stats.Jump_Height
 				IsJumping.emit()
 
 		States.Side_Light:
@@ -396,18 +409,12 @@ func _physics_process(delta):
 			Animate.play("Nuetral Light")
 
 		States.Nuetral_Heavy:
-			# At frame 1 start up sakura. #
-			if sakura_ulight_active == true:
-				velocity.y = -200
-				velocity.y += Gravity
-			else:
-				velocity.y = 0
 			velocity.x = lerp(velocity.x, 0.0, 0.1)
 			velocity.y = 0
 			Animate.play("Nuetral Heavy")
 		States.Nuetral_Air:
-			velocity.x = lerp(velocity.x , 0.0, 0.7)
-			velocity.y = lerp(velocity.y , 0.0, 0.2)
+			#velocity.x = lerp(velocity.x , 0.0, 0.7)
+			#velocity.y = lerp(velocity.y , 0.0, 0.2)
 			Animate.play("Nuetral Air")
 
 		States.Ground_Block:
@@ -428,19 +435,18 @@ func _physics_process(delta):
 
 		States.Dash_Run:
 			if Input.is_action_pressed(controls.dash):
-				pass
+				_dash_mpvement()
 
 			else:
 				if Input.is_action_just_released(controls.dash):
 					Select = States.Idling
-					velocity.x = move_toward(velocity.x, 0, Acceleration )
+					velocity.x = move_toward(velocity.x, 0, Stats.Acceleration )
 			if jump_count > 0:
 				if Input.is_action_just_pressed(controls.jump):
 					jump_count -= 1
-					velocity.y = -Jump_Height
+					velocity.y = -Stats.Jump_Height
 					Select = States.Jumping
 					IsJumping.emit()
-			velocity.y += Gravity
 			Animate.play("Dash")
 
 
@@ -511,13 +517,13 @@ func _physics_process(delta):
 			Animate.play("Wall")
 			velocity.y = 35
 			velocity.x = 0
-			FacingRight.emit()
+			FacingLeft.emit()
 			if Input.is_action_pressed(controls.left):
 				if Input.is_action_just_pressed(controls.jump):
 					Animate.play("Jump")
 					velocity.x = -200
 					Select = States.Jumping
-					velocity.y = -Jump_Height
+					velocity.y = -Stats.Jump_Height
 					OnWall.emit()
 
 			if !right_wall_detection.is_colliding():
@@ -527,13 +533,13 @@ func _physics_process(delta):
 			Animate.play("Wall")
 			velocity.y = 35
 			velocity.x = 0
-			FacingLeft.emit()
+			FacingRight.emit()
 			if Input.is_action_pressed(controls.right):
 				if Input.is_action_just_pressed(controls.jump):
 					Animate.play("Jump")
 					velocity.x = 200
 					Select = States.Jumping
-					velocity.y = -Jump_Height
+					velocity.y = -Stats.Jump_Height
 					OnWall.emit()
 
 			if !left_wall_detection.is_colliding():

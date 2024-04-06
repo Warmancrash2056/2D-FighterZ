@@ -5817,7 +5817,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-40, 6)
-polygon = PackedVector2Array(408, 8, 408, 40, 176, 40, -280, 40, -280, 8)
+polygon = PackedVector2Array(400, 8, 408, 8, 408, 40, 176, 40, -280, 40, -280, 24, -280, 8, -272, 8)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 z_index = 5

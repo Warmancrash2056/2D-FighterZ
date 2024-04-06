@@ -14,8 +14,8 @@ var side_registered = false
 @onready var player_icon: Node2D = $'Player Icon'
 @onready var Stats: Node = $'Player Stats'
 @onready var floor_detector = $'Floor Detector'
-@export var Block_Timer: Timer
-@export var Recovery_Time: Timer
+@onready var Block_Timer: Timer = $'Refresh Block'
+@onready var Recovery_Time: Timer = $'Recovery Timer'
 @onready var right_wall_detection = $Right
 @onready var left_wall_detection = $Left
 var follow_goku_neutral_heavy = false
@@ -36,11 +36,12 @@ var can_jump = false
 var can_counter = false
 var block_active = false
 var attack_active = false
+var can_move = true
 
 var jump_count = 3
 
 
-var Health: int
+var Health: int = 1000
 
 enum States {
 	# Normal Mode Ststes. #
@@ -202,38 +203,50 @@ func _process(delta):
 		if CharacterList.player_1_health < 0:
 			knockback_multiplier = 1.9
 
+func _attack_active():
+	is_attacking = true
+
+func _attack_disabled():
+	is_attacking = false
+
+func _movement_enabled():
+	can_move = true
+
+func _movement_disabled():
+	can_move = false
+
 func _ground_movement():
+	var air_rating : float = Stats.Speed_Rating + 0.1
+	var attack_rating: float = 0.1
 	var new_speed: int = Stats.Speed_Rating * Stats.Max_Speed
-	#print(new_speed)
+
 	move_vec = Vector2(Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left),
 	Input.get_action_strength(controls.up) - Input.get_action_strength(controls.down))
 
+	if !is_on_floor() and !is_attacking == true:
+		new_speed = air_rating * Stats.Max_Speed
+
+	if is_attacking == true:
+		new_speed = attack_rating * Stats.Max_Speed
 	move_vec.normalized()
 
-	if move_vec.x != 0:
-		velocity.x = move_toward(velocity.x , move_vec.x * new_speed, Stats.Acceleration)
+	if can_move == true:
+		if move_vec.x != 0:
+			velocity.x = move_toward(velocity.x , move_vec.x * new_speed, Stats.Acceleration)
+
+		else:
+			velocity.x = move_toward(velocity.x , 0, Stats.Decelleration)
+
+
+func _dash_mpvement():
+	var new_rating: float = Stats.Speed_Rating + 0.35
+	var new_speed: int = new_rating * Stats.Max_Speed
+
+	if Sprite.flip_h == true:
+		velocity.x = move_toward(velocity.x , -new_speed, Stats.Acceleration)
 
 	else:
-		velocity.x = move_toward(velocity.x , 0, Stats.Decelleration)
-
-func _air_movement():
-	var new_rating: float = Stats.Speed_Rating + 0.1
-	var new_air_speed: int = Stats.Max_Speed * new_rating
-
-	print(new_air_speed)
-	move_vec = Vector2(Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left),
-	Input.get_action_strength(controls.up) - Input.get_action_strength(controls.down))
-
-	move_vec.normalized()
-
-	if move_vec.x != 0:
-		velocity.x = move_toward(velocity.x , move_vec.x * new_air_speed, Stats.Acceleration)
-
-	else:
-		velocity.x = move_toward(velocity.x , 0, 20)
-
-
-
+		velocity.x = move_toward(velocity.x , new_speed, Stats.Acceleration)
 
 func _physics_process(delta):
 	if !is_on_floor() and is_attacking == false:
@@ -301,9 +314,8 @@ func _physics_process(delta):
 
 			if !floor_detector.is_colliding() and !is_on_floor():
 				Select = States.Jumping
-				Animate.play("Jump")
 		States.Jumping:
-			_air_movement()
+			_ground_movement()
 			turn_around()
 			if move_vec.x != 0:
 				if Input.is_action_just_pressed(controls.light):
@@ -355,7 +367,6 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				jump_count -= 1
 				velocity.y = -Stats.Jump_Height
-				Animate.play("Jump")
 				IsJumping.emit()
 
 		States.Side_Light:
@@ -402,8 +413,8 @@ func _physics_process(delta):
 			velocity.y = 0
 			Animate.play("Nuetral Heavy")
 		States.Nuetral_Air:
-			velocity.x = lerp(velocity.x , 0.0, 0.7)
-			velocity.y = lerp(velocity.y , 0.0, 0.2)
+			#velocity.x = lerp(velocity.x , 0.0, 0.7)
+			#velocity.y = lerp(velocity.y , 0.0, 0.2)
 			Animate.play("Nuetral Air")
 
 		States.Ground_Block:
@@ -423,10 +434,8 @@ func _physics_process(delta):
 			can_counter = true
 
 		States.Dash_Run:
-			var new_rating = Stats.Speed_Rating + 0.3
-			var new_speed = new_rating * Stats.Max_Speed
 			if Input.is_action_pressed(controls.dash):
-				pass
+				_dash_mpvement()
 
 			else:
 				if Input.is_action_just_released(controls.dash):

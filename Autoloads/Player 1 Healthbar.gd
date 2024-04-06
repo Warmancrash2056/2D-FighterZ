@@ -9,6 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(CharacterList.player_1_health)
 	$TextureProgressBar.value = CharacterList.player_1_health
 	$Sprite2D.texture = CharacterList.player_1_icon
 

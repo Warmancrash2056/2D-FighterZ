@@ -8710,15 +8710,6 @@ shape = SubResource("CapsuleShape2D_n05g5")
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="AttackMovementX" from="." to="Character" method="_on_controller_attack_movement_x"]
-[connection signal="AttackMovementY" from="." to="Character" method="_on_controller_attack_movement_y"]
-[connection signal="FacingLeft" from="." to="Scale Player" method="_on_controller_facing_left"]
-[connection signal="FacingLeft" from="." to="Sprite" method="_on_controller_facing_left"]
-[connection signal="FacingRight" from="." to="Scale Player" method="_on_controller_facing_right"]
-[connection signal="FacingRight" from="." to="Sprite" method="_on_controller_facing_right"]
-[connection signal="IsDashing" from="." to="Scale Player/Dash Smoke Position" method="_on_controller_is_dashing"]
-[connection signal="IsJumping" from="." to="Jump Smoke" method="_on_controller_is_jumping"]
-[connection signal="OnWall" from="." to="Scale Player/Wall Cloud Position" method="_on_controller_on_wall"]
 [connection signal="area_entered" from="Scale Player/Goku | Nuetral Light Start" to="." method="_on_goku__nuetral_light_start_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku | Nuetral Light End" to="." method="_on_goku__nuetral_light_midle_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku | Nuetral Air Left Side" to="." method="_on_goku__nuetral_air_left_side_area_entered"]

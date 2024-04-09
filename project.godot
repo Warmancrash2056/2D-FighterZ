@@ -284,15 +284,16 @@ Player3_Up={
 
 [layer_names]
 
-2d_physics/layer_1="Floor"
+2d_physics/layer_1="Floor # Set the floor player can move on. #"
 2d_physics/layer_2="Off Stage"
-2d_physics/layer_3="Platform"
+2d_physics/layer_3="Platform # Player lands on a soft stage. #"
 2d_physics/layer_4="Wall"
-2d_physics/layer_5="Hurtbox"
-2d_physics/layer_6="Hitbox"
-2d_physics/layer_7="Player 1 Marker"
-2d_physics/layer_8="Player 2 Marker"
-2d_physics/layer_9="Player"
+2d_physics/layer_5="Player 1 Hitbox"
+2d_physics/layer_6="Player 2 Hitbox"
+2d_physics/layer_7="Player 1 Marker # Set the marker in character select. #"
+2d_physics/layer_8="Player 2 Marker # Set the marker in character select. #"
+2d_physics/layer_9="Player 1 Hurtbox"
+2d_physics/layer_10="Player 2 Hurtbox"
 
 [mono]
 

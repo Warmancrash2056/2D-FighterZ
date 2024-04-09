@@ -1,7 +1,7 @@
-[gd_scene load_steps=75 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=78 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player Controller.gd" id="1_3m7q3"]
-[ext_resource type="Script" path="res://Character Resouces/Global/Player 1 Script.gd" id="1_kut0j"]
+[ext_resource type="Script" path="res://Character Resouces/Global/Player 1 Script.gd" id="1_62pfr"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="2_50hod"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Rock Grab.gd" id="2_dnphb"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Scale Player.gd" id="2_hdr0l"]
@@ -21,9 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://bo08t0pi17rio" path="res://Character Resouces/Jump Cloud.tscn" id="9_h1w8q"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Sprite.gd" id="12_ui1va"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Counter Position.gd" id="13_4xamy"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Animator.gd" id="14_eahg2"]
 [ext_resource type="PackedScene" uid="uid://cfffw24up6a7l" path="res://Character Resouces/Global/counter.tscn" id="14_wu8u2"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Hurtbox.gd" id="15_gajt0"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Refresh Block.gd" id="16_5u4a0"]
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Icon/Goku.png" id="21_dnxr2"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Recovery Timer.gd" id="22_ggqu3"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player Stats.gd" id="24_8qm85"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gutl"]
@@ -69,7 +72,7 @@ radius = 6.5
 height = 39.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d5adm"]
-radius = 6.5
+radius = 5.5
 height = 17.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhnwd"]
@@ -2949,6 +2952,20 @@ tracks/46/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/47/type = "method"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("..")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_attack_disabled"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_id6wq"]
 resource_name = "Ground Block"
@@ -5429,6 +5446,20 @@ tracks/47/keys = {
 "method": &"_reset_side_transition"
 }]
 }
+tracks/48/type = "method"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("..")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_attack_disabled"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_8rqie"]
 resource_name = "Nuetral Air"
@@ -7092,6 +7123,40 @@ tracks/25/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/26/type = "method"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("..")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_attack_active"
+}, {
+"args": [],
+"method": &"_attack_disabled"
+}]
+}
+tracks/27/type = "method"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("..")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_y_attack_movement"
+}, {
+"args": [],
+"method": &"_y_attack_movement"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_e2ryg"]
 resource_name = "Side Heavy"
@@ -8026,6 +8091,57 @@ tracks/26/keys = {
 "update": 0,
 "values": [Vector2(0, 17)]
 }
+tracks/27/type = "method"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("..")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_x_attack_movement"
+}, {
+"args": [],
+"method": &"_x_attack_movement"
+}]
+}
+tracks/28/type = "method"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("..")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_y_attack_movement"
+}, {
+"args": [],
+"method": &"_y_attack_movement"
+}, {
+"args": [],
+"method": &"_y_attack_movement"
+}]
+}
+tracks/29/type = "method"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("..")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_attack_active"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_kgf6n"]
 resource_name = "Wall"
@@ -8157,8 +8273,9 @@ _data = {
 "RESET": SubResource("Animation_gq1dh")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4qd57"]
-radius = 4.5
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n05g5"]
+radius = 8.0
+height = 32.0
 
 [node name="Controller" type="CharacterBody2D"]
 z_index = 3
@@ -8168,18 +8285,19 @@ collision_mask = 15
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 0.174533
-script = ExtResource("1_kut0j")
+script = ExtResource("1_62pfr")
 
 [node name="Scale Player" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource("2_hdr0l")
 
-[node name="Goku | Nuetral Light Start" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Light Start"]]
+[node name="Goku | Nuetral Light Start" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Nuetral Light Start"]]
 z_index = 6
 position = Vector2(20, -8)
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("3_vttb8")
+Sprite = NodePath("../../Sprite")
 Damage = 15
 Stun_Time = 15
 Knockback_X = 20
@@ -8194,11 +8312,12 @@ shape = SubResource("CapsuleShape2D_4gutl")
 disabled = true
 debug_color = Color(0, 0.627451, 0.486275, 0.419608)
 
-[node name="Goku | Nuetral Light End" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Light End"]]
+[node name="Goku | Nuetral Light End" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Nuetral Light End"]]
 position = Vector2(24, -8)
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("3_vttb8")
+Sprite = NodePath("../../Sprite")
 Damage = 40
 Stun_Time = 15
 Knockback_X = 10
@@ -8213,10 +8332,11 @@ shape = SubResource("CapsuleShape2D_pgphb")
 disabled = true
 debug_color = Color(0.388235, 0.6, 0.701961, 0.419608)
 
-[node name="Goku | Nuetral Air Left Side" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Air Left Side"]]
+[node name="Goku | Nuetral Air Left Side" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Nuetral Air Left Side"]]
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("3_vttb8")
+Sprite = NodePath("../../Sprite")
 
 [node name="Left Side Nuetral Air" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Air Left Side"]
 visible = false
@@ -8287,9 +8407,12 @@ shape = SubResource("CapsuleShape2D_vl3fl")
 disabled = true
 debug_color = Color(0.588235, 0.376471, 1, 0.419608)
 
-[node name="Goku | Down Light Start" type="Area2D" parent="Scale Player" groups=["Goku | Down Light"]]
+[node name="Goku | Down Light Start" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Down Light"]]
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("3_vttb8")
+Sprite = NodePath("../../Sprite")
+Damage = 50
 
 [node name="Starting Kick" type="CollisionShape2D" parent="Scale Player/Goku | Down Light Start"]
 visible = false
@@ -8342,7 +8465,6 @@ metadata/_edit_group_ = true
 
 [node name="Initial Kick" type="CollisionShape2D" parent="Scale Player/Goku | Side Air Start"]
 visible = false
-position = Vector2(17, -10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_d5adm")
 disabled = true
@@ -8356,7 +8478,6 @@ metadata/_edit_group_ = true
 
 [node name="Finishing Kick" type="CollisionShape2D" parent="Scale Player/Goku | Side Air Final"]
 visible = false
-position = Vector2(18.5, -10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uhnwd")
 disabled = true
@@ -8473,6 +8594,7 @@ position = Vector2(0, -40)
 texture = ExtResource("2_50hod")
 hframes = 10
 vframes = 18
+frame = 143
 script = ExtResource("12_ui1va")
 
 [node name="Character" type="AnimationPlayer" parent="."]
@@ -8480,6 +8602,7 @@ root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
+script = ExtResource("14_eahg2")
 
 [node name="Character Jump Sound" parent="." instance=ExtResource("8_gtluj")]
 visible = false
@@ -8488,15 +8611,17 @@ bus = &"SFX"
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 2
+script = ExtResource("15_gajt0")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Area2D"]
 z_index = 10
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_qamvs")
+disabled = true
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
 [node name="Counter Position" type="Marker2D" parent="." node_paths=PackedStringArray("Character")]
-position = Vector2(0, 13)
+position = Vector2(0, 17)
 script = ExtResource("13_4xamy")
 Counter_Cloud = ExtResource("14_wu8u2")
 Character = NodePath("..")
@@ -8540,6 +8665,7 @@ bus = &"SFX"
 [node name="Recovery Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+script = ExtResource("22_ggqu3")
 
 [node name="Respawn" type="AnimationPlayer" parent="."]
 libraries = {
@@ -8572,12 +8698,20 @@ Defense_Rating = 0.3
 Health = 1000.0
 Attack_Rating = 50
 Stamina_Rating = 0.3
+SLight = Vector2(5, 0)
+SAir = Vector2(5, 0)
+NRecovery = Vector2(0, -150)
+Drecovey = Vector2(0, 50)
 
 [node name="Body" type="CollisionShape2D" parent="."]
 z_index = 10
-position = Vector2(0, 12.5)
-shape = SubResource("CircleShape2D_4qd57")
+position = Vector2(0, 1.5)
+shape = SubResource("CapsuleShape2D_n05g5")
 
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="AttackMovementX" from="." to="Character" method="_on_controller_attack_movement_x"]
+[connection signal="AttackMovementY" from="." to="Character" method="_on_controller_attack_movement_y"]
 [connection signal="FacingLeft" from="." to="Scale Player" method="_on_controller_facing_left"]
 [connection signal="FacingLeft" from="." to="Sprite" method="_on_controller_facing_left"]
 [connection signal="FacingRight" from="." to="Scale Player" method="_on_controller_facing_right"]
@@ -8606,6 +8740,8 @@ shape = SubResource("CircleShape2D_4qd57")
 [connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - First Punch" to="." method="_on_goku_sde_light_finish__first_punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - Second Punch" to="." method="_on_goku_sde_light_finish__second_punch_area_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Refresh Block" to="." method="_on_refresh_block_timeout"]
 [connection signal="timeout" from="Recovery Timer" to="." method="_on_recovery_timer_timeout"]
+[connection signal="timeout" from="Recovery Timer" to="Recovery Timer" method="_on_timeout"]

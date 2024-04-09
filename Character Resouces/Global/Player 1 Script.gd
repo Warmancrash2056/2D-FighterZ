@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 var controls: Resource
+signal Player1Box
 signal IsJumping
 signal OnWall
 signal IsDashing
 signal FacingLeft
 signal FacingRight
-
+signal AttackMovementX(Vector: Vector2)
+signal AttackMovementY(Vector: Vector2)
 # Goku Projectile Position #
 var side_registered = false
 @onready var Animate: AnimationPlayer = $Character
@@ -25,7 +27,8 @@ var attack_reset = false
 var knockback_multiplier: float = 0.5
 var knockback_x: float
 var knockback_y: float
-
+var attack_movement: Vector2
+var attack_y_movement: int
 var is_attacking = false
 var move_vec: Vector2
 
@@ -121,28 +124,38 @@ func _reset_jump():
 func _counter_nuetral_light():
 	if Input.is_action_pressed(controls.light):
 		Select = States.Nuetral_Light
+		can_counter = true
+		is_attacking = true
 
 func _counter_nuetral_heavy():
 	if Input.is_action_pressed(controls.heavy):
 		Select = States.Nuetral_Heavy
-
+		can_counter = true
+		is_attacking = true
 func _counter_side_light():
 	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
 		if Input.is_action_pressed(controls.light):
 			Select = States.Side_Light
+			can_counter = true
+			is_attacking = true
 func _counter_side_heavy():
 	if Input.is_action_pressed(controls.left) or Input.is_action_pressed(controls.right):
 		if Input.is_action_pressed(controls.heavy):
 			Select = States.Side_Heavy
-
+			can_counter = true
+			is_attacking = true
 func counter_dowm_light():
 	if Input.is_action_pressed(controls.down):
 		if Input.is_action_pressed(controls.light):
 			Select = States.Down_Light
+			can_counter = true
+			is_attacking = true
 func counter_down_heavy():
 	if Input.is_action_pressed(controls.down):
 		if Input.is_action_pressed(controls.heavy):
 			Select = States.Down_Heavy
+			can_counter = true
+			is_attacking = true
 
 
 # Reset Defend directional change at end of animation
@@ -170,6 +183,7 @@ func _reset_counter():
 	can_counter = false
 
 func _ready():
+	Player1Box.emit()
 	CharacterList.player_1_icon = player_icon.Icon
 	CharacterList.player_1_health = Health
 	Select = States.Respawn
@@ -203,6 +217,14 @@ func _process(delta):
 		if CharacterList.player_1_health < 0:
 			knockback_multiplier = 1.9
 
+func _attack_movment_enabled_x():
+	AttackMovementX.emit(attack_movement.x)
+
+func _attack_movement_enabled_y():
+	AttackMovementY.emit(attack_movement.y)
+
+func _y_attack_movement():
+	velocity.y = attack_y_movement
 func _attack_active():
 	is_attacking = true
 
@@ -231,7 +253,7 @@ func _ground_movement():
 	move_vec.normalized()
 
 	if can_move == true:
-		if move_vec.x != 0:
+		if move_vec.x != 0: #and Engine.get_physics_frames() % 5 == 0:
 			velocity.x = move_toward(velocity.x , move_vec.x * new_speed, Stats.Acceleration)
 
 		else:
@@ -370,8 +392,7 @@ func _physics_process(delta):
 				IsJumping.emit()
 
 		States.Side_Light:
-			velocity.x = lerp(velocity.x, 0.0, 0.7)
-			velocity.y = 0
+			attack_movement = Stats.SLight
 			Animate.play("Side Light Start")
 		States.Side_Transition:
 			velocity.x = 0
@@ -384,8 +405,8 @@ func _physics_process(delta):
 
 		States.Side_Air:
 			Animate.play("Side Air")
-			velocity.x = lerp(velocity.x , 0.0, 0.1)
-			velocity.y = 0
+			attack_movement = Stats.SAir
+			attack_y_movement = Stats.SAir.y
 		States.Down_Light:
 			Animate.play("Down Light")
 			velocity.x = lerp(velocity.x, 0.0, 0.9)
@@ -718,11 +739,14 @@ func _on_area_2d_area_entered(area):
 			knockback_x += 500
 
 		knockback_y = -600
+
+	'''
 	if area.is_in_group("Off Stage - Galvin"):
 		await get_tree().create_timer(0.2).timeout
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position", CharacterList.galvin_player_respawn, 1.5)
 		Select = States.Respawn
+	'''
 
 
 

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var controls: Resource
+signal Player2Box
 signal IsJumping
 signal OnWall
 signal IsDashing
@@ -41,7 +42,7 @@ var can_move = true
 var jump_count = 3
 
 
-var Health: int = 1000
+var Health: int = 500
 
 enum States {
 	# Normal Mode Ststes. #

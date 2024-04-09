@@ -16,6 +16,7 @@ extends Node
 @export var Nlight: Vector2
 @export var NHeavy: Vector2
 @export var SLight: Vector2
+@export var SAir: Vector2
 @export var SHeavy: Vector2
 @export var DLight: Vector2
 @export var DHeavy: Vector2

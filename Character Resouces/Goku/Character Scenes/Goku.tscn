@@ -1,7 +1,8 @@
-[gd_scene load_steps=78 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=79 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player Controller.gd" id="1_3m7q3"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player 1 Script.gd" id="1_62pfr"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Input Controller.gd" id="1_i8igc"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="2_50hod"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Rock Grab.gd" id="2_dnphb"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Scale Player.gd" id="2_hdr0l"]
@@ -1019,7 +1020,7 @@ tracks/62/keys = {
 tracks/63/type = "value"
 tracks/63/imported = false
 tracks/63/enabled = true
-tracks/63/path = NodePath("../Character:speed_scale")
+tracks/63/path = NodePath("../Animator:speed_scale")
 tracks/63/interp = 1
 tracks/63/loop_wrap = true
 tracks/63/keys = {
@@ -1450,7 +1451,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Character:speed_scale")
+tracks/4/path = NodePath("../Animator:speed_scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1551,7 +1552,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Character:speed_scale")
+tracks/5/path = NodePath("../Animator:speed_scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1740,7 +1741,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Character:speed_scale")
+tracks/14/path = NodePath("../Animator:speed_scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -1902,7 +1903,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Character:speed_scale")
+tracks/11/path = NodePath("../Animator:speed_scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -2185,7 +2186,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Character:speed_scale")
+tracks/11/path = NodePath("../Animator:speed_scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -2569,7 +2570,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../Character:speed_scale")
+tracks/15/path = NodePath("../Animator:speed_scale")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -3083,7 +3084,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../Character:speed_scale")
+tracks/9/path = NodePath("../Animator:speed_scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -3562,7 +3563,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Character:speed_scale")
+tracks/10/path = NodePath("../Animator:speed_scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -3586,7 +3587,7 @@ tracks/11/keys = {
 tracks/12/type = "method"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Character")
+tracks/12/path = NodePath("../Animator")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -3955,7 +3956,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../Character:speed_scale")
+tracks/28/path = NodePath("../Animator:speed_scale")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -4983,7 +4984,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Character:speed_scale")
+tracks/10/path = NodePath("../Animator:speed_scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -5865,7 +5866,7 @@ tracks/32/keys = {
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("../Character:speed_scale")
+tracks/33/path = NodePath("../Animator:speed_scale")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -5980,7 +5981,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Character:speed_scale")
+tracks/3/path = NodePath("../Animator:speed_scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -6326,7 +6327,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Character:speed_scale")
+tracks/5/path = NodePath("../Animator:speed_scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -6631,7 +6632,7 @@ resource_name = "Nuetral Recovery"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Character:speed_scale")
+tracks/0/path = NodePath("../Animator:speed_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -6728,7 +6729,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Character:speed_scale")
+tracks/4/path = NodePath("../Animator:speed_scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -6782,7 +6783,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Character:speed_scale")
+tracks/1/path = NodePath("../Animator:speed_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -6836,7 +6837,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Character:speed_scale")
+tracks/2/path = NodePath("../Animator:speed_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -7724,7 +7725,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../Character:speed_scale")
+tracks/17/path = NodePath("../Animator:speed_scale")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -8058,7 +8059,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../Character:speed_scale")
+tracks/24/path = NodePath("../Animator:speed_scale")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -8173,7 +8174,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Character:speed_scale")
+tracks/2/path = NodePath("../Animator:speed_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -8277,7 +8278,13 @@ _data = {
 radius = 8.0
 height = 32.0
 
-[node name="Controller" type="CharacterBody2D"]
+[node name="Input Controller" type="Node2D" node_paths=PackedStringArray("Character", "Animator", "Sprite")]
+script = ExtResource("1_i8igc")
+Character = NodePath("Movement Controller")
+Animator = NodePath("Movement Controller/Animator")
+Sprite = NodePath("Movement Controller/Sprite")
+
+[node name="Movement Controller" type="CharacterBody2D" parent="." node_paths=PackedStringArray("Controller", "Animator", "Sprite", "Scaler")]
 z_index = 3
 scale = Vector2(2, 2)
 collision_layer = 256
@@ -8286,12 +8293,16 @@ floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 0.174533
 script = ExtResource("1_62pfr")
+Controller = NodePath("..")
+Animator = NodePath("Animator")
+Sprite = NodePath("Sprite")
+Scaler = NodePath("Scale Player")
 
-[node name="Scale Player" type="Node2D" parent="."]
+[node name="Scale Player" type="Node2D" parent="Movement Controller"]
 z_index = 1
 script = ExtResource("2_hdr0l")
 
-[node name="Goku | Nuetral Light Start" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Nuetral Light Start"]]
+[node name="Goku | Nuetral Light Start" type="Area2D" parent="Movement Controller/Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Nuetral Light Start"]]
 z_index = 6
 position = Vector2(20, -8)
 collision_layer = 32
@@ -8304,7 +8315,7 @@ Knockback_X = 20
 Knockback_Y = 120
 metadata/_edit_group_ = true
 
-[node name="Light Start" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light Start"]
+[node name="Light Start" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Nuetral Light Start"]
 visible = false
 position = Vector2(19.5, -7.5)
 rotation = 1.5708
@@ -8312,7 +8323,7 @@ shape = SubResource("CapsuleShape2D_4gutl")
 disabled = true
 debug_color = Color(0, 0.627451, 0.486275, 0.419608)
 
-[node name="Goku | Nuetral Light End" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Nuetral Light End"]]
+[node name="Goku | Nuetral Light End" type="Area2D" parent="Movement Controller/Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Nuetral Light End"]]
 position = Vector2(24, -8)
 collision_layer = 32
 collision_mask = 16
@@ -8324,7 +8335,7 @@ Knockback_X = 10
 Knockback_Y = 60
 metadata/_edit_group_ = true
 
-[node name="Light End" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light End"]
+[node name="Light End" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Nuetral Light End"]
 visible = false
 position = Vector2(0, -2)
 rotation = 1.5708
@@ -8332,13 +8343,13 @@ shape = SubResource("CapsuleShape2D_pgphb")
 disabled = true
 debug_color = Color(0.388235, 0.6, 0.701961, 0.419608)
 
-[node name="Goku | Nuetral Air Left Side" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Nuetral Air Left Side"]]
+[node name="Goku | Nuetral Air Left Side" type="Area2D" parent="Movement Controller/Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Nuetral Air Left Side"]]
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("3_vttb8")
 Sprite = NodePath("../../Sprite")
 
-[node name="Left Side Nuetral Air" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Air Left Side"]
+[node name="Left Side Nuetral Air" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Nuetral Air Left Side"]
 visible = false
 position = Vector2(-20.5, -12.5)
 rotation = 1.5708
@@ -8346,11 +8357,11 @@ shape = SubResource("CapsuleShape2D_pjkur")
 disabled = true
 debug_color = Color(0.239216, 0.231373, 1, 0.698039)
 
-[node name="Goku | Down Air" type="Area2D" parent="Scale Player" groups=["Goku | Down Air"]]
+[node name="Goku | Down Air" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Down Air"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Axe Kick" type="CollisionShape2D" parent="Scale Player/Goku | Down Air"]
+[node name="Axe Kick" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Down Air"]
 visible = false
 position = Vector2(15.5, -13)
 rotation = 1.5708
@@ -8358,11 +8369,11 @@ shape = SubResource("CapsuleShape2D_6cfjw")
 disabled = true
 debug_color = Color(0.521569, 0.572549, 0.027451, 0.419608)
 
-[node name="Goku | Neautral Heavy Positioner" type="Area2D" parent="Scale Player" groups=["Goku | Neautral Heavy Positioner"]]
+[node name="Goku | Neautral Heavy Positioner" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Neautral Heavy Positioner"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Rock Grab" type="CollisionShape2D" parent="Scale Player/Goku | Neautral Heavy Positioner"]
+[node name="Rock Grab" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Neautral Heavy Positioner"]
 visible = false
 position = Vector2(31.5, -24.5)
 shape = SubResource("CircleShape2D_adp42")
@@ -8370,11 +8381,11 @@ disabled = true
 debug_color = Color(0.709804, 0.486275, 0, 0.419608)
 script = ExtResource("2_dnphb")
 
-[node name="Goku | Neautral Heavy Shatter" type="Area2D" parent="Scale Player" groups=["Goku | Neautral Heavy Shatter"]]
+[node name="Goku | Neautral Heavy Shatter" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Neautral Heavy Shatter"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Rock Smash" type="CollisionShape2D" parent="Scale Player/Goku | Neautral Heavy Shatter"]
+[node name="Rock Smash" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Neautral Heavy Shatter"]
 visible = false
 position = Vector2(-60, 17)
 rotation = 1.5708
@@ -8382,24 +8393,24 @@ shape = SubResource("CapsuleShape2D_www3h")
 disabled = true
 debug_color = Color(0.788235, 0.160784, 0.964706, 0.419608)
 
-[node name="Goku | Nuetral Air Middle Side" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Air Middle Side"]]
+[node name="Goku | Nuetral Air Middle Side" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Nuetral Air Middle Side"]]
 position = Vector2(-20.5, -11)
 rotation = 1.5708
 collision_layer = 32
 collision_mask = 16
 
-[node name="Neutral Light Middle Side" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Air Middle Side"]
+[node name="Neutral Light Middle Side" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Nuetral Air Middle Side"]
 visible = false
 position = Vector2(-15, -20.5)
 shape = SubResource("CapsuleShape2D_ufmp6")
 disabled = true
 debug_color = Color(0.498039, 0.584314, 0, 0.419608)
 
-[node name="Goku | Nuetral Air Right Side" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Air Right Side"]]
+[node name="Goku | Nuetral Air Right Side" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Nuetral Air Right Side"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Right Side Nuetral Air" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Air Right Side"]
+[node name="Right Side Nuetral Air" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Nuetral Air Right Side"]
 visible = false
 position = Vector2(22, -14)
 rotation = 1.5708
@@ -8407,14 +8418,14 @@ shape = SubResource("CapsuleShape2D_vl3fl")
 disabled = true
 debug_color = Color(0.588235, 0.376471, 1, 0.419608)
 
-[node name="Goku | Down Light Start" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Down Light"]]
+[node name="Goku | Down Light Start" type="Area2D" parent="Movement Controller/Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Down Light"]]
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("3_vttb8")
 Sprite = NodePath("../../Sprite")
 Damage = 50
 
-[node name="Starting Kick" type="CollisionShape2D" parent="Scale Player/Goku | Down Light Start"]
+[node name="Starting Kick" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Down Light Start"]
 visible = false
 position = Vector2(15.5, -10.5)
 rotation = 0.959931
@@ -8422,11 +8433,11 @@ shape = SubResource("CapsuleShape2D_tqa1m")
 disabled = true
 debug_color = Color(0, 0.643137, 0.317647, 0.419608)
 
-[node name="Goku | Down Light Final" type="Area2D" parent="Scale Player" groups=["Goku | Down Light Final"]]
+[node name="Goku | Down Light Final" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Down Light Final"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Final Kick" type="CollisionShape2D" parent="Scale Player/Goku | Down Light Final"]
+[node name="Final Kick" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Down Light Final"]
 visible = false
 position = Vector2(15.5, -10.5)
 rotation = 0.959931
@@ -8434,22 +8445,22 @@ shape = SubResource("CapsuleShape2D_tqa1m")
 disabled = true
 debug_color = Color(1, 0.0196078, 0, 0.419608)
 
-[node name="Goku | Down Heavy Initial" type="Area2D" parent="Scale Player" groups=["Goku | Down Heavy Initial"]]
+[node name="Goku | Down Heavy Initial" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Down Heavy Initial"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Small Pillar" type="CollisionShape2D" parent="Scale Player/Goku | Down Heavy Initial"]
+[node name="Small Pillar" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Down Heavy Initial"]
 visible = false
 position = Vector2(28, 5)
 shape = SubResource("CapsuleShape2D_emolw")
 disabled = true
 debug_color = Color(0.556863, 0.34902, 0.972549, 0.419608)
 
-[node name="Goku | Down Heavy Final" type="Area2D" parent="Scale Player" groups=["Goku | Down Heavy Final"]]
+[node name="Goku | Down Heavy Final" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Down Heavy Final"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Large Pillar" type="CollisionShape2D" parent="Scale Player/Goku | Down Heavy Final"]
+[node name="Large Pillar" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Down Heavy Final"]
 visible = false
 z_index = 3
 position = Vector2(28, -2.5)
@@ -8457,60 +8468,60 @@ shape = SubResource("CapsuleShape2D_okev4")
 disabled = true
 debug_color = Color(0.937255, 0.12549, 0, 0.419608)
 
-[node name="Goku | Side Air Start" type="Area2D" parent="Scale Player" groups=["Goku | Side Air Start"]]
+[node name="Goku | Side Air Start" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Side Air Start"]]
 position = Vector2(17.5, -9.5)
 collision_layer = 32
 collision_mask = 16
 metadata/_edit_group_ = true
 
-[node name="Initial Kick" type="CollisionShape2D" parent="Scale Player/Goku | Side Air Start"]
+[node name="Initial Kick" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Side Air Start"]
 visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_d5adm")
 disabled = true
 debug_color = Color(1, 0, 0.141176, 0.419608)
 
-[node name="Goku | Side Air Final" type="Area2D" parent="Scale Player" groups=["Goku | Side Air Final"]]
+[node name="Goku | Side Air Final" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Side Air Final"]]
 position = Vector2(18, -9.5)
 collision_layer = 16
 collision_mask = 32
 metadata/_edit_group_ = true
 
-[node name="Finishing Kick" type="CollisionShape2D" parent="Scale Player/Goku | Side Air Final"]
+[node name="Finishing Kick" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Side Air Final"]
 visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uhnwd")
 disabled = true
 debug_color = Color(0.901961, 0.235294, 0.513726, 0.419608)
 
-[node name="Goku | Side Heavy Start" type="Area2D" parent="Scale Player" groups=["Goku | Side Heavy End"]]
+[node name="Goku | Side Heavy Start" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Side Heavy End"]]
 position = Vector2(1.5, 0)
 collision_layer = 32
 collision_mask = 16
 
-[node name="Small Pillar" type="CollisionShape2D" parent="Scale Player/Goku | Side Heavy Start"]
+[node name="Small Pillar" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Side Heavy Start"]
 visible = false
 position = Vector2(44, -2.86102e-06)
 rotation = 1.36659
 shape = SubResource("CapsuleShape2D_lm0pa")
 disabled = true
 
-[node name="Goku | Side Heavy End" type="Area2D" parent="Scale Player" groups=["Goku | Side Heavy End"]]
+[node name="Goku | Side Heavy End" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Side Heavy End"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Extended Pillar" type="CollisionShape2D" parent="Scale Player/Goku | Side Heavy End"]
+[node name="Extended Pillar" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Side Heavy End"]
 visible = false
 position = Vector2(43.5, -0.499999)
 rotation = 0.785398
 shape = SubResource("CapsuleShape2D_i4cnc")
 disabled = true
 
-[node name="Goku | Side Light Punch - Initial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Punch - Initial Damager"]]
+[node name="Goku | Side Light Punch - Initial Damager" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Side Light Punch - Initial Damager"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Damager Collision" type="CollisionShape2D" parent="Scale Player/Goku | Side Light Punch - Initial Damager"]
+[node name="Damager Collision" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Side Light Punch - Initial Damager"]
 visible = false
 position = Vector2(23.5, -6)
 rotation = 1.5708
@@ -8518,11 +8529,11 @@ shape = SubResource("CircleShape2D_l30jt")
 disabled = true
 debug_color = Color(0.972549, 0, 0.435294, 0.419608)
 
-[node name="Goku | Side Light Punch - Finial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Punch - Finial Damager"]]
+[node name="Goku | Side Light Punch - Finial Damager" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Side Light Punch - Finial Damager"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Damager Collision" type="CollisionShape2D" parent="Scale Player/Goku | Side Light Punch - Finial Damager"]
+[node name="Damager Collision" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Side Light Punch - Finial Damager"]
 visible = false
 position = Vector2(23.5, -6)
 rotation = 1.5708
@@ -8530,11 +8541,11 @@ shape = SubResource("CircleShape2D_l30jt")
 disabled = true
 debug_color = Color(0.145098, 0.258824, 0.890196, 0.419608)
 
-[node name="Goku | Side Light Transitional Check" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Transitional Check"]]
+[node name="Goku | Side Light Transitional Check" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku | Side Light Transitional Check"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="Transitional Check" type="CollisionShape2D" parent="Scale Player/Goku | Side Light Transitional Check"]
+[node name="Transitional Check" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku | Side Light Transitional Check"]
 visible = false
 position = Vector2(23.5, -6)
 rotation = 1.5708
@@ -8542,22 +8553,22 @@ shape = SubResource("CircleShape2D_drh4y")
 disabled = true
 debug_color = Color(0, 0.533333, 0.141176, 0.419608)
 
-[node name="Goku Sde Light Finish - First Punch" type="Area2D" parent="Scale Player" groups=["Goku Sde Light Finish - First Punch"]]
+[node name="Goku Sde Light Finish - First Punch" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku Sde Light Finish - First Punch"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="First Punch" type="CollisionShape2D" parent="Scale Player/Goku Sde Light Finish - First Punch"]
+[node name="First Punch" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku Sde Light Finish - First Punch"]
 visible = false
 position = Vector2(18.5, -7.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jsj12")
 disabled = true
 
-[node name="Goku Sde Light Finish - Second Punch" type="Area2D" parent="Scale Player" groups=["Goku Sde Light Finish - Second Punch"]]
+[node name="Goku Sde Light Finish - Second Punch" type="Area2D" parent="Movement Controller/Scale Player" groups=["Goku Sde Light Finish - Second Punch"]]
 collision_layer = 32
 collision_mask = 16
 
-[node name="First Punch" type="CollisionShape2D" parent="Scale Player/Goku Sde Light Finish - Second Punch"]
+[node name="First Punch" type="CollisionShape2D" parent="Movement Controller/Scale Player/Goku Sde Light Finish - Second Punch"]
 visible = false
 position = Vector2(18.5, -7.5)
 rotation = 1.5708
@@ -8565,79 +8576,79 @@ shape = SubResource("CapsuleShape2D_jsj12")
 disabled = true
 debug_color = Color(0.564706, 0.556863, 0, 0.419608)
 
-[node name="Marker2D" type="Marker2D" parent="Scale Player"]
+[node name="Marker2D" type="Marker2D" parent="Movement Controller/Scale Player"]
 position = Vector2(16, 0)
 
-[node name="Wall Cloud Position" type="Marker2D" parent="Scale Player" node_paths=PackedStringArray("Sprite", "Wall_Sound")]
+[node name="Wall Cloud Position" type="Marker2D" parent="Movement Controller/Scale Player" node_paths=PackedStringArray("Sprite", "Wall_Sound")]
 position = Vector2(2.5, 0)
 script = ExtResource("3_mosi8")
 Wall_Cloud = ExtResource("4_a6fhw")
 Sprite = NodePath("../../Sprite")
 Wall_Sound = NodePath("../../Character Jump Sound")
 
-[node name="Dash Smoke Position" type="Marker2D" parent="Scale Player" node_paths=PackedStringArray("Sprite")]
+[node name="Dash Smoke Position" type="Marker2D" parent="Movement Controller/Scale Player" node_paths=PackedStringArray("Sprite")]
 position = Vector2(0, 8)
 script = ExtResource("4_02krm")
 Dash_Cloud = ExtResource("6_s666i")
 Sprite = NodePath("../../Sprite")
 
-[node name="Projectile Position" type="Marker2D" parent="Scale Player" node_paths=PackedStringArray("Sprite")]
+[node name="Projectile Position" type="Marker2D" parent="Movement Controller/Scale Player" node_paths=PackedStringArray("Sprite")]
 position = Vector2(23.5, -4)
 script = ExtResource("3_p3wbd")
 Air_Projectle = ExtResource("4_yumjb")
 Ground_Projectile = ExtResource("5_t4xsf")
 Sprite = NodePath("../../Sprite")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="Movement Controller"]
 z_index = 5
 position = Vector2(0, -40)
 texture = ExtResource("2_50hod")
 hframes = 10
-vframes = 18
+vframes = 19
 frame = 143
 script = ExtResource("12_ui1va")
 
-[node name="Character" type="AnimationPlayer" parent="."]
+[node name="Animator" type="AnimationPlayer" parent="Movement Controller"]
 root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
 script = ExtResource("14_eahg2")
 
-[node name="Character Jump Sound" parent="." instance=ExtResource("8_gtluj")]
+[node name="Character Jump Sound" parent="Movement Controller" instance=ExtResource("8_gtluj")]
 visible = false
 bus = &"SFX"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Movement Controller"]
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("15_gajt0")
 
-[node name="Hurtbox" type="CollisionShape2D" parent="Area2D"]
+[node name="Hurtbox" type="CollisionShape2D" parent="Movement Controller/Area2D"]
 z_index = 10
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_qamvs")
 disabled = true
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
-[node name="Counter Position" type="Marker2D" parent="." node_paths=PackedStringArray("Character")]
+[node name="Counter Position" type="Marker2D" parent="Movement Controller" node_paths=PackedStringArray("Character")]
 position = Vector2(0, 17)
 script = ExtResource("13_4xamy")
 Counter_Cloud = ExtResource("14_wu8u2")
 Character = NodePath("..")
 
-[node name="Jump Smoke" type="Marker2D" parent="." node_paths=PackedStringArray("Character", "Jump_Sound")]
+[node name="Jump Smoke" type="Marker2D" parent="Movement Controller" node_paths=PackedStringArray("Character", "Jump_Sound")]
 position = Vector2(0, 10)
 script = ExtResource("8_e77jj")
 Jump_Cloud = ExtResource("9_h1w8q")
 Character = NodePath("..")
 Jump_Sound = NodePath("../Character Jump Sound")
 
-[node name="Refresh Block" type="Timer" parent="."]
+[node name="Refresh Block" type="Timer" parent="Movement Controller"]
 wait_time = 2.0
 script = ExtResource("16_5u4a0")
 
-[node name="Left" type="RayCast2D" parent="."]
+[node name="Left" type="RayCast2D" parent="Movement Controller"]
 z_index = 10
 position = Vector2(0, -8)
 exclude_parent = false
@@ -8645,48 +8656,48 @@ target_position = Vector2(-11, 0)
 collision_mask = 8
 hit_from_inside = true
 
-[node name="Right" type="RayCast2D" parent="."]
+[node name="Right" type="RayCast2D" parent="Movement Controller"]
 z_index = 10
 position = Vector2(0, -8)
 target_position = Vector2(11, 0)
 collision_mask = 8
 hit_from_inside = true
 
-[node name="Side Light First Punch" type="AudioStreamPlayer2D" parent="."]
+[node name="Side Light First Punch" type="AudioStreamPlayer2D" parent="Movement Controller"]
 stream = ExtResource("4_abu5v")
 bus = &"SFX"
 
-[node name="Side Light Second Punch" type="AudioStreamPlayer2D" parent="."]
+[node name="Side Light Second Punch" type="AudioStreamPlayer2D" parent="Movement Controller"]
 stream = ExtResource("5_8kf4q")
 bus = &"SFX"
 
-[node name="Knockback Cloud" type="Marker2D" parent="."]
+[node name="Knockback Cloud" type="Marker2D" parent="Movement Controller"]
 
-[node name="Recovery Timer" type="Timer" parent="."]
+[node name="Recovery Timer" type="Timer" parent="Movement Controller"]
 one_shot = true
 autostart = true
 script = ExtResource("22_ggqu3")
 
-[node name="Respawn" type="AnimationPlayer" parent="."]
+[node name="Respawn" type="AnimationPlayer" parent="Movement Controller"]
 libraries = {
 "": SubResource("AnimationLibrary_3wvkn")
 }
 
-[node name="Player Indicator" type="Sprite2D" parent="."]
+[node name="Player Indicator" type="Sprite2D" parent="Movement Controller"]
 self_modulate = Color(0, 0, 0, 0.447059)
 position = Vector2(0, -25)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_pqra7")
 
-[node name="Player Icon" type="Node2D" parent="."]
+[node name="Player Icon" type="Node2D" parent="Movement Controller"]
 script = ExtResource("1_3m7q3")
 Icon = ExtResource("21_dnxr2")
 
-[node name="Floor Detector" type="RayCast2D" parent="."]
+[node name="Floor Detector" type="RayCast2D" parent="Movement Controller"]
 position = Vector2(0, 17)
 target_position = Vector2(0, 2)
 
-[node name="Player Stats" type="Node" parent="."]
+[node name="Player Stats" type="Node" parent="Movement Controller"]
 script = ExtResource("24_8qm85")
 Speed_Rating = 0.3
 Max_Speed = 550
@@ -8703,36 +8714,39 @@ SAir = Vector2(5, 0)
 NRecovery = Vector2(0, -150)
 Drecovey = Vector2(0, 50)
 
-[node name="Body" type="CollisionShape2D" parent="."]
+[node name="Body" type="CollisionShape2D" parent="Movement Controller"]
 z_index = 10
 position = Vector2(0, 1.5)
 shape = SubResource("CapsuleShape2D_n05g5")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="Movement Controller"]
 
-[connection signal="area_entered" from="Scale Player/Goku | Nuetral Light Start" to="." method="_on_goku__nuetral_light_start_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Nuetral Light End" to="." method="_on_goku__nuetral_light_midle_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Nuetral Air Left Side" to="." method="_on_goku__nuetral_air_left_side_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Down Air" to="." method="_on_goku__down_air_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Neautral Heavy Shatter" to="." method="_on_goku__neautral_heavy_shatter_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Nuetral Air Middle Side" to="." method="_on_goku__nuetral_air_middle_side_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Nuetral Air Right Side" to="." method="_on_goku__nuetral_air_right_side_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Down Light Start" to="." method="_on_goku__down_light_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Down Light Final" to="." method="_on_goku__down_light_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Down Heavy Initial" to="." method="_on_goku__down_heavy_initial_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Down Heavy Final" to="." method="_on_goku__down_heavy_final_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Side Air Start" to="." method="_on_goku__side_air_start_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Side Air Final" to="." method="_on_goku__side_air_final_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Side Heavy Start" to="." method="_on_goku__side_heavy_end_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Side Heavy End" to="." method="_on_goku__side_heavy_end_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Side Light Punch - Initial Damager" to="." method="_on_goku__side_light_punch__initial_damager_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Side Light Punch - Finial Damager" to="." method="_on_goku__side_light_punch__finial_damager_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku | Side Light Transitional Check" to="." method="_on_goku__side_light_transitional_check_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - First Punch" to="." method="_on_goku_sde_light_finish__first_punch_area_entered"]
-[connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - Second Punch" to="." method="_on_goku_sde_light_finish__second_punch_area_entered"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="timeout" from="Refresh Block" to="." method="_on_refresh_block_timeout"]
-[connection signal="timeout" from="Recovery Timer" to="." method="_on_recovery_timer_timeout"]
-[connection signal="timeout" from="Recovery Timer" to="Recovery Timer" method="_on_timeout"]
+[connection signal="IsJumping" from="." to="Movement Controller" method="_on_input_controller_is_jumping"]
+[connection signal="IsMoving" from="." to="Movement Controller" method="_on_input_controller_is_moving"]
+[connection signal="IsStopping" from="." to="Movement Controller" method="_on_input_controller_is_stopping"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Nuetral Light Start" to="Movement Controller" method="_on_goku__nuetral_light_start_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Nuetral Light End" to="Movement Controller" method="_on_goku__nuetral_light_midle_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Nuetral Air Left Side" to="Movement Controller" method="_on_goku__nuetral_air_left_side_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Down Air" to="Movement Controller" method="_on_goku__down_air_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Neautral Heavy Shatter" to="Movement Controller" method="_on_goku__neautral_heavy_shatter_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Nuetral Air Middle Side" to="Movement Controller" method="_on_goku__nuetral_air_middle_side_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Nuetral Air Right Side" to="Movement Controller" method="_on_goku__nuetral_air_right_side_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Down Light Start" to="Movement Controller" method="_on_goku__down_light_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Down Light Final" to="Movement Controller" method="_on_goku__down_light_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Down Heavy Initial" to="Movement Controller" method="_on_goku__down_heavy_initial_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Down Heavy Final" to="Movement Controller" method="_on_goku__down_heavy_final_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Side Air Start" to="Movement Controller" method="_on_goku__side_air_start_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Side Air Final" to="Movement Controller" method="_on_goku__side_air_final_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Side Heavy Start" to="Movement Controller" method="_on_goku__side_heavy_end_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Side Heavy End" to="Movement Controller" method="_on_goku__side_heavy_end_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Side Light Punch - Initial Damager" to="Movement Controller" method="_on_goku__side_light_punch__initial_damager_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Side Light Punch - Finial Damager" to="Movement Controller" method="_on_goku__side_light_punch__finial_damager_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku | Side Light Transitional Check" to="Movement Controller" method="_on_goku__side_light_transitional_check_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku Sde Light Finish - First Punch" to="Movement Controller" method="_on_goku_sde_light_finish__first_punch_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Scale Player/Goku Sde Light Finish - Second Punch" to="Movement Controller" method="_on_goku_sde_light_finish__second_punch_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Area2D" to="Movement Controller" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Movement Controller/Area2D" to="Movement Controller/Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Movement Controller/Area2D" to="Movement Controller" method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Movement Controller/Refresh Block" to="Movement Controller" method="_on_refresh_block_timeout"]
+[connection signal="timeout" from="Movement Controller/Recovery Timer" to="Movement Controller" method="_on_recovery_timer_timeout"]
+[connection signal="timeout" from="Movement Controller/Recovery Timer" to="Movement Controller/Recovery Timer" method="_on_timeout"]

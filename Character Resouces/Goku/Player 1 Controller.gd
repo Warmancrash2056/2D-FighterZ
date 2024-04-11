@@ -71,7 +71,6 @@ func _process(delta: float) -> void:
 	_process_attack_input()
 	_process_block_input()
 	_process_dash_input()
-	_process_jump_input()
 	_process_immediate_action()
 	_process_single_size_inputs()
 	clear_inputs()
@@ -105,9 +104,9 @@ func _process_input():
 
 		if Input.is_action_pressed(Controls.up):
 			add_to_buffer({"type": "direction", "value": "up", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-func _process_jump_input():
-	if can_jump == true:
-		if Input.is_action_just_pressed(Controls.jump):
+
+
+		if Input.is_action_just_pressed(Controls.jump) and can_attack == true:
 			add_to_buffer({"type": "move", "value": "jump", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			IsJumping.emit()
 
@@ -169,10 +168,10 @@ func _process_combinations():
 			if first_input.facing == -1 and first_input.value == "left" and second_input.type == "attack" and second_input.value == "heavy" and second_input.onground == true:
 				Animator.state = Side_Heavy
 
-			if first_input.facing == 1 and first_input.value == "right" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == true:
+			if Animator.state == Idle and first_input.value == "right" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == true:
 				Animator.state = Side_Light
 
-			if first_input.facing == 1 and first_input.value == "right" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == false:
+			if Animator.state == Air and first_input.value == "right" and second_input.type == "attack" and second_input.value == "light" and second_input.onground == false:
 				Animator.state = Side_Air
 
 			if first_input.facing == 1 and first_input.value == "right" and second_input.type == "attack" and second_input.value == "heavy" and second_input.onground == true:

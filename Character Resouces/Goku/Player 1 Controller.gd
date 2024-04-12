@@ -57,16 +57,7 @@ var state = Respawn
 func _ready():
 	Player1Box.emit()
 func _physics_process(delta):
-	movement_dir.normalized()
-	if can_move == true:
-		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
-
-		if movement_dir.x != 0:
-			IsMoving.emit(movement_dir.x)
-
-		else:
-			IsStopping.emit()
-func _process(delta: float) -> void:
+	_get_movement()
 	_process_input()
 	_process_attack_input()
 	_process_block_input()
@@ -81,7 +72,7 @@ func _get_movement():
 		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
 		movement_dir.normalized()
 
-		if movement_dir.x != 0 and Engine.get_process_frames() % 6 == 0:
+		if movement_dir.x != 0:
 			IsMoving.emit(movement_dir.x)
 
 		else:
@@ -106,9 +97,10 @@ func _process_input():
 			add_to_buffer({"type": "direction", "value": "up", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 
-		if Input.is_action_just_pressed(Controls.jump) and can_attack == true:
+		if Input.is_action_just_pressed(Controls.jump):
 			add_to_buffer({"type": "move", "value": "jump", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			IsJumping.emit()
+			if can_attack == true:
+				IsJumping.emit()
 
 func _process_dash_input():
 	if can_dash == true:

@@ -10,7 +10,7 @@ var movement_dir: Vector2
 var direction: int
 
 var Attack_Vector: Vector2
-var Attack_Friction = 0.1
+var Attack_Friction = 0.8
 var enable_y_movement = false
 var enable_x_movement = false
 var start_friction = false
@@ -224,6 +224,7 @@ func _start_player_movement():
 
 
 func _on_is_attacking():
+	Controller.can_move = false
 	Controller.can_jump = false
 	Controller.can_direct = false
 	Controller.can_attack = false
@@ -235,6 +236,7 @@ func _attack_deactive():
 	IsResetting.emit()
 
 func _on_is_resetting():
+	Controller.can_move = true
 	Controller.can_jump = true
 	Controller.can_direct = true
 	Controller.can_attack = true

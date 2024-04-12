@@ -1,4 +1,4 @@
-class_name Player1Setting extends Node2D
+class_name Player2Setting extends Node2D
 
 signal Player1Box
 # Get the player controller node
@@ -6,8 +6,8 @@ signal Player1Box
 @onready var Movement_Controller: CharacterBody2D = $Controller/Character
 
 func _ready() -> void:
-	CharacterList.player_1_health = Movement_Controller.Health
-
+	CharacterList.player_2_health = Movement_Controller.Health
+	char
 
 func _physics_process(delta: float) -> void:
 	pass

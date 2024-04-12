@@ -7,7 +7,7 @@ signal IsJumping
 signal IsMoving(Vector)
 signal IsStopping
 # Test to see if i can add the resource during instancing. #
-@export var Controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
+@export var Input_Map: Node2D
 @onready var Character: CharacterBody2D = $Character
 @onready var Animator: AnimationPlayer = $Character/Character
 @onready var Sprite: Sprite2D = $Character/Sprite
@@ -69,7 +69,7 @@ func _physics_process(delta):
 	_process_combinations()
 func _get_movement():
 	if can_move == true:
-		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
+		movement_dir = Vector2(Input.get_action_strength(Input_Map.Controler.right) - Input.get_action_strength(Input_Map.Controler.left),0)
 		movement_dir.normalized()
 
 		if movement_dir.x != 0:
@@ -79,47 +79,47 @@ func _get_movement():
 			IsStopping.emit()
 func _process_input():
 	if can_direct:
-		if Input.is_action_pressed(Controls.left):
+		if Input.is_action_pressed(Input_Map.Controler.left):
 			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
 			direction = -1
 			FacingLeft.emit()
 
-		if Input.is_action_pressed(Controls.right):
+		if Input.is_action_pressed(Input_Map.Controler.right):
 			add_to_buffer({"type": "direction", "value": "right", "onground": Character.is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
 			direction = 1
 			FacingRight.emit()
 
-		if Input.is_action_pressed(Controls.down):
+		if Input.is_action_pressed(Input_Map.Controler.down):
 			add_to_buffer({"type": "direction", "value": "down", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 
-		if Input.is_action_pressed(Controls.up):
+		if Input.is_action_pressed(Input_Map.Controler.up):
 			add_to_buffer({"type": "direction", "value": "up", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 
-		if Input.is_action_just_pressed(Controls.jump):
+		if Input.is_action_just_pressed(Input_Map.Controler.jump):
 			add_to_buffer({"type": "move", "value": "jump", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			if can_attack == true:
 				IsJumping.emit()
 
 func _process_dash_input():
 	if can_dash == true:
-		if Input.is_action_just_pressed(Controls.dash):
+		if Input.is_action_just_pressed(Input_Map.Controler.dash):
 			add_to_buffer({"type": "move", "value": "dash", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 func _process_block_input():
 	if can_block == true:
-		if Input.is_action_just_pressed(Controls.block):
+		if Input.is_action_just_pressed(Input_Map.Controler.block):
 			add_to_buffer({"type": "move", "value": "block", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 func _process_attack_input():
 	if can_attack == true:
-		if Input.is_action_just_pressed(Controls.throw):
+		if Input.is_action_just_pressed(Input_Map.Controler.throw):
 			add_to_buffer({"type": "attack", "value": "throw", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
-		if Input.is_action_just_pressed(Controls.light):
+		if Input.is_action_just_pressed(Input_Map.Controler.light):
 			add_to_buffer({"type": "attack", "value": "light", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
-		if Input.is_action_just_pressed(Controls.heavy):
+		if Input.is_action_just_pressed(Input_Map.Controler.heavy):
 			add_to_buffer({"type": "attack", "value": "heavy", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 

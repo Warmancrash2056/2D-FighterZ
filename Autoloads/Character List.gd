@@ -9,7 +9,7 @@ var goku_neutral_heavy_positioner = Vector2()
 var player_1_health: int
 var player_2_health: int
 var player_3_health: int
-var lives = 2
+var lives = 3
 
 var goku_selected = false
 var general_selected = false
@@ -36,6 +36,8 @@ var main_player_facing_left = false
 var goku_side_start_transition = false
 var disable_mini_platform = false
 
+var player_1_icon: Texture
+var player_2_icon: Texture
 # Reminder that if script is not erroing and cannot register script.
 # Usually means that script has an error.
 

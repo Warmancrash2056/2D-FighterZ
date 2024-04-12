@@ -23,3 +23,7 @@ func _on_area_entered(area):
 func _on_controller_player_1_box():
 	set_collision_layer_value(13, true)
 	set_collision_mask_value(12, true)
+
+
+func _on_player_identifier_player_1_box() -> void:
+	pass # Replace with function body.

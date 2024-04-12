@@ -73,6 +73,7 @@ func _on_character_is_throwing():
 
 func _on_character_attack_friction(Friction):
 	velocity.x = lerp(velocity.x , 0.0, Friction)
+	velocity.y = lerp(velocity.y , 0.0, Friction)
 
 
 func _on_controller_is_jumping():

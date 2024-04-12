@@ -13,13 +13,8 @@ signal Attack_Connected
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	Controller.connect("Player1Box", _player1_hitbox)
 	Controller.connect("Player2Box", _player2_hitbox)
 
-func _player1_hitbox():
-	set_collision_layer_value(11, true)
-	set_collision_mask_value(14, true)
-	print_debug("Player 1 ",collision_layer," | ", collision_mask)
 func _player2_hitbox():
 	set_collision_layer_value(12, true)
 	set_collision_mask_value(13, true)
@@ -29,3 +24,9 @@ func _player2_hitbox():
 func _on_area_entered(area):
 	emit_signal("Attack_Connected",)
 
+
+
+func _on_player_identifier_player_1_box() -> void:
+	set_collision_layer_value(11, true)
+	set_collision_mask_value(14, true)
+	print_debug("Player 1 ",collision_layer," | ", collision_mask)

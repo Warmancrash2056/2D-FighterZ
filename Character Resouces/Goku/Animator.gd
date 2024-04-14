@@ -215,6 +215,7 @@ func _stop_attack_friction():
 func _throw_attack():
 	IsThrowing.emit()
 
+# Disable and enable player movement player movement at keyframe
 func _stop_player_movement():
 	Character.velocity.x = move_toward(Character.velocity.x , 0 , 100)
 	Controller.can_move = false
@@ -222,9 +223,8 @@ func _stop_player_movement():
 func _start_player_movement():
 	Controller.can_move = true
 
-
+# At first frame disable or enable player actions.
 func _on_is_attacking():
-	Controller.can_move = false
 	Controller.can_jump = false
 	Controller.can_direct = false
 	Controller.can_attack = false
@@ -236,7 +236,6 @@ func _attack_deactive():
 	IsResetting.emit()
 
 func _on_is_resetting():
-	Controller.can_move = true
 	Controller.can_jump = true
 	Controller.can_direct = true
 	Controller.can_attack = true

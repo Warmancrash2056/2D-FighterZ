@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InputSys" load_steps=2 format=3 uid="uid://ct6sm8m26yiy0"]
+[gd_resource type="Resource" script_class="InputSys" load_steps=2 format=3 uid="uid://fflpu46gv6gc"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Controller Resource/Controller.gd" id="1_lovt2"]
 
@@ -11,6 +11,7 @@ up = "Player3_Up"
 down = "Player3_Down"
 light = "Player3_Light"
 jump = "Player3_Jump"
+block = "Player1_Block"
 dash = "Player3_Dash"
 heavy = "Player3_Heavy"
 throw = "Player3_Throw"

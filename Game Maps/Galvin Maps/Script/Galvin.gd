@@ -21,7 +21,7 @@ func _ready() -> void:
 	camera.limit_top = -512
 	camera.limit_right = 768
 	camera.limit_bottom = 512
-	
+
 	# Set player properties directly
 	call_deferred("add_child", player_1_spawn)
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
@@ -56,21 +56,21 @@ func calculate_camera_rect() -> void:
 
 func update_camera() -> void:
 	camera.zoom = calculate_zoom(camera_rect, viewport_rect.size)
-	
+
 	# Calculate distance between players
 	var player1_position = player_1_spawn.global_position
 	var player2_position = player_2_spawn.global_position
 	var distance = player1_position.distance_to(player2_position)
-	
+
 	# Move the camera only when players are far away
 	#print(camera.position)
 	if distance > CAMERA_MOVE_THRESHOLD:
 		camera.global_position = lerp(camera.global_position,calculate_center(camera_rect),0.1)
-		
-	
+
+
 	# Adjust zoom based on distance between players
 	camera.zoom *= calculate_zoom_factor(distance)
-	
+
 	if debug_mode:
 		queue_redraw()
 
@@ -106,7 +106,7 @@ func _draw() -> void:
 
 func setup_camera() -> void:
 	# Set initial camera properties here, if needed
-	
+
 	# Set Camera Limits
 	camera.limit_left = -768
 	camera.limit_top = -512

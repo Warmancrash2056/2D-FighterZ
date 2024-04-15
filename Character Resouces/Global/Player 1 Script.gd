@@ -1,71 +1,124 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
-enum {
-	# Normal Mode Ststes. #
-	Idling,
-	Jumping,
-	Landing,
-
-	Air_Projectile,
-	Ground_Projectile,
-
-	Nuetral_Light,
-	Nuetral_Air,
-	Nuetral_Heavy,
-	# Nuetral is a heavy input that lift the player up.
-	Nuetral_Recovery,
-
-	Side_Heavy,
-	Side_Light,
-	Side_Transition,
-	Side_Air,
-	Side_Air_Heavy,
-
-	Down_Light,
-	Down_Heavy,
-	Down_Air,
-	Down_Air_Heavy,
-
-
-	Air_Block,
-	Ground_Block,
-
-	Dash_Run,
-	Death,
-	Hurt,
-	Respawn,
-	Left_Wall,
-	Right_Wall
-	}
-var states = Respawn
-@export var Controller: Resource
+@export var Controller: Node
 @export var Animator: AnimationPlayer
+@export var Sprite: Sprite2D
+@export var Scaler: Node2D
+
+@export var Speed:int = 150
+@export var Acceleration:int = 10
+@export var Decceleration:int = 25
+@export var Speed_Rating: float
+
+@export var Health:int
+@export var Defense_Rating:float
+@export var Attack_Rating:float
+
+@export var Gravity:int = 10
+@export var Jump_Height:int = 350
+@export var Fast_Fall:int
+@export var Jump_Count:int = 3
+
+var is_attacking = false
 signal JumpCloud
 signal DashCloud
 signal WallCloud
+signal CounterCloud
 
-var can_move: bool = true
-var Vector: Vector2 = Vector2.ZERO
-var input_buffer = []
-var buffer_timer: float = 0.2
-@export var Stat_Controller: Node
-func _physics_process(delta: float) -> void:
-	var run_speed
-	Vector = Vector2(Input.get_action_strength(Controller.left) - Input.get_action_strength(Controller.right), 0).normalized()
 
-	if Vector.x != 0 and can_move == true:
-			velocity.x = move_toward(velocity.x, run_speed * Vector.x, Stat_Controller.Acceleration)
+func _ready():
+	print(velocity.x)
+	Speed *= Speed_Rating
 
-	if Animator.state == Idling:
-		run_speed = Stat_Controller.Max_Speed * Stat_Controller.Speed_Rating
+func _physics_process(delta):
+	print(velocity.x)
+	move_and_slide()
+	if is_attacking == false:
+		if !is_on_floor():
+			velocity.y += Gravity
 
-	if Animator.state == Jumping:
-		var jump_rating: float = Stat_Controller.Speed_Rating + 0.15
-		run_speed = Stat_Controller.Max_Speed * jump_rating
+		else:
+			velocity.y = 0
 
-	if Animator.state == Dash_Run:
-		var dash_rating: float = Stat_Controller.Speeed_Rating + 0.4
-		run_speed = Stat_Controller.Max_Speed * dash_rating
+func _disable_gravity() -> void:
+	is_attacking = true
 
-func add_to_buffer(input_action):
-	input
+func enable_gravity():
+	is_attacking = false
+func _on_hurtbox_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_character_on_ground():
+	Jump_Count = 3
+
+
+func _on_character_is_stopping():
+	velocity.x = move_toward(velocity.x , 0, Decceleration)
+
+func _on_character_is_dashing():
+	pass # Replace with function body.
+
+
+func _on_character_is_jumping():
+	if Jump_Count > 0:
+		Jump_Count -= 1
+		JumpCloud.emit()
+		velocity.y = -Jump_Height
+
+
+func _on_character_is_throwing():
+	pass # Replace with function body.
+
+
+func _on_character_attack_friction(Friction):
+	velocity.x = lerp(velocity.x , 0.0, Friction)
+
+
+func _on_controller_is_jumping():
+	if Jump_Count > 0:
+		Jump_Count -= 1
+		JumpCloud.emit()
+		velocity.y = -Jump_Height
+
+
+func _on_controller_is_stopping():
+	velocity.x = move_toward(velocity.x , 0, Decceleration)
+
+
+
+
+func _on_controller_is_moving(Vector):
+	if Vector == 1:
+			velocity.x = move_toward(velocity.x , Speed, Acceleration)
+
+	else:
+			velocity.x = move_toward(velocity.x , -Speed, Acceleration)
+
+func _check_ground():
+	var air_scaling
+
+
+
+
+func _on_character_attack_moving_x(Vector: Variant) -> void:
+	velocity.x = move_toward(velocity.x, Sprite.direction * Vector, 50)
+
+
+func _on_character_attack_moving_y(Vector: Variant) -> void:
+	velocity.y = Vector
+
+func _on_input_controller_is_moving(Vector: Variant) -> void:
+	if Vector == 1:
+			velocity.x = move_toward(velocity.x , Speed, Acceleration)
+
+	else:
+			velocity.x = move_toward(velocity.x , -Speed, Acceleration)
+
+
+func _on_input_controller_is_stopping() -> void:
+	pass # Replace with function body.
+
+
+func _on_input_controller_is_jumping() -> void:
+	pass # Replace with function body.

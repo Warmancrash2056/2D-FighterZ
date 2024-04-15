@@ -40,11 +40,13 @@ enum {
 	Left_Wall,
 	Right_Wall
 	}
-var state = Respawn
+var states = Respawn
 
 var input_buffer = []
 var buffer_time: float = 0.2
 
+func _process(delta: float) -> void:
+	if Input.is_action_pressed()
 func _on_controller_attack_movement_x(Vector: Vector2) -> void:
 	if Sprite.flip_h == true:
 		Character.velocity.x = -Vector.x

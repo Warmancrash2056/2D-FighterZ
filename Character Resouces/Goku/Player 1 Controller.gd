@@ -11,7 +11,7 @@ signal IsStopping
 @onready var Character: CharacterBody2D = $Character
 @onready var Animator: AnimationPlayer = $Character/Character
 @onready var Sprite: Sprite2D = $Character/Sprite
-
+@export var Wall_Detector: RayCast2D
 var direction = 1
 
 var movement_dir: Vector2
@@ -32,6 +32,7 @@ enum {
 	Running,
 	Dash,
 	Air,
+	Wall,
 	Ground_Block,
 	Air_Block,
 	Neutral_Light,
@@ -52,12 +53,12 @@ enum {
 }
 
 
-
 var state = Respawn
-func _ready():
-	Player1Box.emit()
+
 func _physics_process(delta):
 	_get_movement()
+	_detect_wall()
+	_turn_around()
 	_process_input()
 	_process_attack_input()
 	_process_block_input()
@@ -77,17 +78,30 @@ func _get_movement():
 
 		else:
 			IsStopping.emit()
+
+func _detect_wall():
+	if Wall_Detector.is_colliding() and Character.is_on_wall():
+		print("On wall")
+
+
+func _turn_around():
+	if Input.is_action_pressed(Input_Map.Controler.left) and Sprite.flip_h == false:
+		if Engine.get_physics_frames() % 5 == 0:
+			FacingLeft.emit()
+
+
+	if Input.is_action_pressed(Input_Map.Controler.right) and Sprite.flip_h == true:
+		if Engine.get_physics_frames() % 5 == 0:
+			FacingRight.emit()
 func _process_input():
 	if can_direct:
 		if Input.is_action_pressed(Input_Map.Controler.left):
 			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
 			direction = -1
-			FacingLeft.emit()
 
 		if Input.is_action_pressed(Input_Map.Controler.right):
 			add_to_buffer({"type": "direction", "value": "right", "onground": Character.is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
 			direction = 1
-			FacingRight.emit()
 
 		if Input.is_action_pressed(Input_Map.Controler.down):
 			add_to_buffer({"type": "direction", "value": "down", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})

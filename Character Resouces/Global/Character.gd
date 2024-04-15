@@ -90,10 +90,11 @@ func _on_controller_is_stopping():
 
 
 func _on_controller_is_moving(Vector):
-	if Vector == 1:
+	if Engine.get_physics_frames() % 6 == 0:
+		if Vector == 1:
 			velocity.x = move_toward(velocity.x , Speed, Acceleration)
 
-	else:
+		else:
 			velocity.x = move_toward(velocity.x , -Speed, Acceleration)
 
 func _check_ground():

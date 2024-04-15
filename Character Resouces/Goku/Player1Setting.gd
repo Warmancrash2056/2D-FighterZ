@@ -7,6 +7,7 @@ signal Player1Box # Set the hitbox and hurtbox of player.
 @onready var Player_Indicator = $'Controller/Character/Scale Player/Player Indicator'
 @onready var display_player_icon: Node = $'Player Icon'
 
+# Assign the player input map when they enter the stage.
 var Controler: Resource = preload("res://Character Resouces/Global/Controller Resource/Keyboard_WASD.tres")
 
 

@@ -1,17 +1,15 @@
-extends Node2D
+extends CharacterBody2D
 
 signal Player1Box
 signal FacingLeft
 signal FacingRight
-signal IsJumping
-signal IsMoving(Vector)
-signal IsStopping
+signal JumpCloud
 # Test to see if i can add the resource during instancing. #
-@export var Controls: Resource
-@export var Character: CharacterBody2D
-@export var Animator: AnimationPlayer
-@export var Sprite: Sprite2D
-
+var Controls: Resource = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
+@onready var Player_Stats: Node = $'Player Stats'
+@onready var Animator: AnimationPlayer = $Animator
+@onready var Sprite: Sprite2D = $Sprite
+@onready var Wall_Detector: RayCast2D = $'Wall Detector'
 var direction = 1
 
 var movement_dir: Vector2
@@ -31,6 +29,7 @@ enum {
 	Turning,
 	Running,
 	Dash,
+	Wall,
 	Air,
 	Ground_Block,
 	Air_Block,
@@ -48,6 +47,7 @@ enum {
 	Ground_Throw,
 	Air_Throw,
 	Hurt,
+	Recover,
 	Respawn
 }
 
@@ -56,17 +56,12 @@ enum {
 var state = Respawn
 func _ready():
 	Player1Box.emit()
-func _physics_process(delta):
-	movement_dir.normalized()
-	if can_move == true:
-		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
 
-		if movement_dir.x != 0:
-			IsMoving.emit(movement_dir.x)
-
-		else:
-			IsStopping.emit()
+func _physics_process(delta: float) -> void:
+	_get_movement()
+	move_and_slide()
 func _process(delta: float) -> void:
+	on_wall()
 	_process_input()
 	_process_attack_input()
 	_process_block_input()
@@ -78,58 +73,76 @@ func _process(delta: float) -> void:
 	_input_debugger()
 	_process_combinations()
 func _get_movement():
+	var new_speed
+	var air_rating: float = Player_Stats.Speed_Rating + 0.1
+
+	if is_on_floor():
+		new_speed = Player_Stats.Max_Speed * Player_Stats.Speed_Rating
+
+	else:
+		new_speed = air_rating * Player_Stats.Max_Speed
 	if can_move == true:
 		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
 		movement_dir.normalized()
 
-		if movement_dir.x != 0 and Engine.get_process_frames() % 6 == 0:
-			IsMoving.emit(movement_dir.x)
+		if movement_dir.x != 0:
+			velocity.x = move_toward(velocity.x, movement_dir.x * new_speed, Player_Stats.Acceleration)
 
 		else:
-			IsStopping.emit()
+			velocity.x = move_toward(velocity.x, 0, Player_Stats.Decelleration)
+func on_wall():
+	if is_on_wall() and Wall_Detector.is_colliding():
+		Animator.state = Wall
+
+
 func _process_input():
 	if can_direct:
 		if Input.is_action_pressed(Controls.left):
-			add_to_buffer({"type": "direction", "value": "left", "onground": Character.is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
-			direction = -1
+			add_to_buffer({"type": "direction", "value": "left", "onground": is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
 			FacingLeft.emit()
 
 		if Input.is_action_pressed(Controls.right):
-			add_to_buffer({"type": "direction", "value": "right", "onground": Character.is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "direction", "value": "right", "onground": is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
 			direction = 1
 			FacingRight.emit()
 
 		if Input.is_action_pressed(Controls.down):
-			add_to_buffer({"type": "direction", "value": "down", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "direction", "value": "down", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 
 		if Input.is_action_pressed(Controls.up):
-			add_to_buffer({"type": "direction", "value": "up", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "direction", "value": "up", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 func _process_jump_input():
 	if can_jump == true:
-		if Input.is_action_just_pressed(Controls.jump):
-			add_to_buffer({"type": "move", "value": "jump", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			IsJumping.emit()
+		if Input.is_action_just_pressed(Controls.jump) and Player_Stats.Jump_Count > 0:
+			add_to_buffer({"type": "move", "value": "jump", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			if can_attack == true:
+				velocity.y = -Player_Stats.Jump_Height
+				JumpCloud.emit()
+				Player_Stats.Jump_Count -= 1
+
+
+
 
 func _process_dash_input():
 	if can_dash == true:
 		if Input.is_action_just_pressed(Controls.dash):
-			add_to_buffer({"type": "move", "value": "dash", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "move", "value": "dash", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 func _process_block_input():
 	if can_block == true:
-		if Input.is_action_just_pressed(Controls.block):
-			add_to_buffer({"type": "move", "value": "block", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+		if Input.is_action_just_pressed(Controls.dash):
+			add_to_buffer({"type": "move", "value": "block", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 func _process_attack_input():
 	if can_attack == true:
 		if Input.is_action_just_pressed(Controls.throw):
-			add_to_buffer({"type": "attack", "value": "throw", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "attack", "value": "throw", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 		if Input.is_action_just_pressed(Controls.light):
-			add_to_buffer({"type": "attack", "value": "light", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "attack", "value": "light", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 		if Input.is_action_just_pressed(Controls.heavy):
-			add_to_buffer({"type": "attack", "value": "heavy", "onground": Character.is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "attack", "value": "heavy", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 
 
@@ -248,3 +261,25 @@ func _process_single_size_inputs() -> void:
 
 					if input_action.value == "heavy" and input_action.onground == false:
 						Animator.state = Neutral_Recovery
+
+
+func _on_animator_is_attacking() -> void:
+	can_attack = false
+	can_block = false
+	can_direct = false
+	can_jump = false
+
+
+func _on_animator_is_resetting() -> void:
+	can_attack = true
+	can_block = true
+	can_direct = true
+	can_jump = true
+
+
+func _on_animator_disable_movement() -> void:
+	can_move = false
+
+
+func _on_animator_enable_move_ment() -> void:
+	can_move = true

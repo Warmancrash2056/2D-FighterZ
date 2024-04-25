@@ -1,4 +1,4 @@
-extends Area2D
+extends CollisionShape2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,6 +11,9 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_area_entered(area: Area2D) -> void:
-	pass
+func _on_movement_controller_facing_left() -> void:
+	scale.x = -1
 
+
+func _on_movement_controller_facing_right() -> void:
+	scale.x = 1

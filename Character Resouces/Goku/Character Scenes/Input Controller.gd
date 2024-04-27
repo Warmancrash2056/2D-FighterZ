@@ -96,7 +96,7 @@ func on_wall():
 
 
 func _process_input():
-	if can_direct:
+	if can_direct == true:
 		if Input.is_action_pressed(Controls.left):
 			add_to_buffer({"type": "direction", "value": "left", "onground": is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
 			FacingLeft.emit()

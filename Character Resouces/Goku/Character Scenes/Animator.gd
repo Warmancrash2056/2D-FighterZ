@@ -150,7 +150,7 @@ func _physics_process(delta):
 
 		Side_Light:
 			Attack_Vector = Slight
-			play("Side Light")
+			play("Side Light Start")
 
 		Side_Heavy:
 
@@ -192,14 +192,10 @@ func _attack_movment_controller():
 func idle_reset():
 	Attack_Vector = Vector2.ZERO
 	if Character.is_on_floor():
-		OnGround.emit()
-	if Character.is_on_floor():
 		state = Idle
-		IsResetting.emit()
 		play("Idle")
 	if !Character.is_on_floor():
 		state = Air
-		IsResetting.emit()
 		play("Fall")
 
 func enable_vertical_attack_movement():
@@ -222,27 +218,24 @@ func _stop_attack_friction():
 # Disable and enable player movement player movement at keyframe
 func _stop_player_movement():
 	Character.velocity.x = move_toward(Character.velocity.x , 0 , 100)
-	Controller.can_move = false
+	Character.can_move = false
 
 func _start_player_movement():
-	Controller.can_move = true
+	Character.can_move = true
 
 # At first frame disable or enable player actions.
 func _on_is_attacking():
-	Controller.can_jump = false
-	Controller.can_direct = false
-	Controller.can_attack = false
-
-func attack_active():
-	IsAttacking.emit()
+	Character.can_jump = false
+	Character.can_direct = false
+	Character.can_attack = false
 
 func _attack_deactive():
 	IsResetting.emit()
 
 func _on_is_resetting():
-	Controller.can_jump = true
-	Controller.can_direct = true
-	Controller.can_attack = true
+	Character.can_jump = true
+	Character.can_direct = true
+	Character.can_attack = true
 
 
 func _on_attack_friction(Friction: Variant) -> void:
@@ -256,9 +249,6 @@ func _on_attack_moving_x(Vector: Variant) -> void:
 func _on_attack_moving_y(Vector: Variant) -> void:
 	pass # Replace with function body.
 
-# Reset back to idle once recovery has finished.
-
-func transition_recovery():
-	state = Recover
+# From timer node reenable attack and dodge
 func _on_recovery_timer_timeout() -> void:
-	pass # Replace with function body.
+	IsResetting.emit()

@@ -14,8 +14,7 @@ extends Node
 # Decreases the amount of recovery frames you are in before you can attack or move
 # Also effects the your stun time from an incoming attack
 
-func _process(delta: float) -> void:
-	print(Jump_Count)
+
 
 
 func _on_animator_on_ground() -> void:

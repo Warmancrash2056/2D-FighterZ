@@ -10,9 +10,9 @@ func calculate_recovery(new_recovery: float):
 	var stamina_rating = Player_Stats.Stamina_Rating
 
 	new_recovery = animation_length * stamina_rating
-	print(new_recovery)
+	wait_time = new_recovery
+	print(wait_time)
 
-	set_wait_time(new_recovery)
 
 
 

@@ -8776,8 +8776,8 @@ Icon = ExtResource("21_dnxr2")
 
 [node name="Player Stats" type="Node" parent="."]
 script = ExtResource("24_8qm85")
-Speed_Rating = 0.3
-Max_Speed = 550
+Speed_Rating = 0.6
+Max_Speed = 300
 Acceleration = 600
 Decelleration = 50
 Jump_Height = 450
@@ -8785,7 +8785,7 @@ Gravity = 18
 Defense_Rating = 0.3
 Health = 1000.0
 Attack_Rating = 50
-Stamina_Rating = 0.4
+Stamina_Rating = 0.6
 
 [node name="Recovery Timer" type="Timer" parent="." node_paths=PackedStringArray("Character", "Animator", "Player_Stats")]
 one_shot = true

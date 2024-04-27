@@ -72,6 +72,9 @@ func _process(delta: float) -> void:
 	clear_inputs()
 	_input_debugger()
 	_process_combinations()
+
+# Disable movement at crtain frame of attack and enable at the end of attack.
+#Player can only move in the direction they are facing.
 func _get_movement():
 	var new_speed
 	var air_rating: float = Player_Stats.Speed_Rating + 0.1
@@ -85,8 +88,11 @@ func _get_movement():
 		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
 		movement_dir.normalized()
 
-		if movement_dir.x != 0:
-			velocity.x = move_toward(velocity.x, movement_dir.x * new_speed, Player_Stats.Acceleration)
+		if movement_dir.x == 1 and Sprite.flip_h == false:
+			velocity.x = move_toward(velocity.x, new_speed, Player_Stats.Acceleration)
+
+		elif  movement_dir.x == -1 and Sprite.flip_h == true:
+			velocity.x = move_toward(velocity.x, -new_speed, Player_Stats.Acceleration)
 
 		else:
 			velocity.x = move_toward(velocity.x, 0, Player_Stats.Decelleration)
@@ -99,12 +105,10 @@ func _process_input():
 	if can_direct == true:
 		if Input.is_action_pressed(Controls.left):
 			add_to_buffer({"type": "direction", "value": "left", "onground": is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
-			FacingLeft.emit()
 
 		if Input.is_action_pressed(Controls.right):
 			add_to_buffer({"type": "direction", "value": "right", "onground": is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
-			direction = 1
-			FacingRight.emit()
+
 
 		if Input.is_action_pressed(Controls.down):
 			add_to_buffer({"type": "direction", "value": "down", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
@@ -231,11 +235,11 @@ func _process_immediate_action():
 
 
 			"direction":
-				if input_action.value == "left" and Sprite.flip_h == false:
-					pass
+				if input_action.value == "left":
+					FacingLeft.emit()
 
-				if input_action.value == "right" and Sprite.flip_h == true:
-					pass
+				if input_action.value == "right":
+					FacingRight.emit()
 
 			"attack":
 				if input_action.value == "throw" and input_action.onground == true:

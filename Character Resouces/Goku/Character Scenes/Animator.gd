@@ -82,7 +82,7 @@ func _physics_process(delta):
 	match state:
 		Idle:
 			Character.velocity.y += 20
-			if Character.velocity.x != 0:
+			if Character.movement_dir.x != 0 and Character.velocity.x !=0:
 				play("Run")
 
 			else:
@@ -193,10 +193,8 @@ func idle_reset():
 	Attack_Vector = Vector2.ZERO
 	if Character.is_on_floor():
 		state = Idle
-		play("Idle")
 	if !Character.is_on_floor():
 		state = Air
-		play("Fall")
 
 func enable_vertical_attack_movement():
 	enable_y_movement = true
@@ -225,6 +223,7 @@ func _start_player_movement():
 
 # At first frame disable or enable player actions.
 func _on_is_attacking():
+	Character.can_move = false
 	Character.can_jump = false
 	Character.can_direct = false
 	Character.can_attack = false
@@ -233,6 +232,7 @@ func _attack_deactive():
 	IsResetting.emit()
 
 func _on_is_resetting():
+	Character.can_move = true
 	Character.can_jump = true
 	Character.can_direct = true
 	Character.can_attack = true
@@ -243,8 +243,10 @@ func _on_attack_friction(Friction: Variant) -> void:
 
 
 func _on_attack_moving_x(Vector: Variant) -> void:
-	pass # Replace with function body.
-
+	if Sprite.flip_h == false:
+		Character.velocity.x = Vector
+	else:
+		Character.velocity.x = -Vector
 
 func _on_attack_moving_y(Vector: Variant) -> void:
 	pass # Replace with function body.

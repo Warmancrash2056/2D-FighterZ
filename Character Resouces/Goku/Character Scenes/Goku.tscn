@@ -34,11 +34,11 @@
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Body.gd" id="29_xfhue"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gutl"]
-radius = 3.0
-height = 18.0
+radius = 4.5
+height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgphb"]
-radius = 3.0
+radius = 4.0
 height = 14.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pjkur"]
@@ -4781,6 +4781,31 @@ tracks/96/keys = {
 "update": 1,
 "values": [34]
 }
+tracks/97/type = "method"
+tracks/97/imported = false
+tracks/97/enabled = true
+tracks/97/path = NodePath("..")
+tracks/97/interp = 1
+tracks/97/loop_wrap = true
+tracks/97/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/98/type = "method"
+tracks/98/imported = false
+tracks/98/enabled = true
+tracks/98/path = NodePath("../Animator")
+tracks/98/interp = 1
+tracks/98/loop_wrap = true
+tracks/98/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_start_player_movement"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_f73an"]
 resource_name = "Jump"
@@ -8176,23 +8201,6 @@ tracks/33/path = NodePath("../Animator")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"_stop_player_movement"
-}, {
-"args": [],
-"method": &"_start_player_movement"
-}]
-}
-tracks/34/type = "method"
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/path = NodePath("../Animator")
-tracks/34/interp = 1
-tracks/34/loop_wrap = true
-tracks/34/keys = {
 "times": PackedFloat32Array(0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -8203,13 +8211,13 @@ tracks/34/keys = {
 "method": &"stop_attack_movment"
 }]
 }
-tracks/35/type = "method"
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/path = NodePath("../Animator")
-tracks/35/interp = 1
-tracks/35/loop_wrap = true
-tracks/35/keys = {
+tracks/34/type = "method"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("../Animator")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -8217,13 +8225,13 @@ tracks/35/keys = {
 "method": &"_on_is_attacking"
 }]
 }
-tracks/36/type = "method"
-tracks/36/imported = false
-tracks/36/enabled = true
-tracks/36/path = NodePath("../Animator")
-tracks/36/interp = 1
-tracks/36/loop_wrap = true
-tracks/36/keys = {
+tracks/35/type = "method"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("../Animator")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
 "values": []
@@ -8392,6 +8400,7 @@ metadata/_edit_group_ = true
 
 [node name="Light Start" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light Start"]
 visible = false
+position = Vector2(19.5, -7.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4gutl")
 disabled = true
@@ -8410,9 +8419,11 @@ Knockback_Y = 60
 metadata/_edit_group_ = true
 
 [node name="Light End" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light End"]
+visible = false
 position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pgphb")
+disabled = true
 debug_color = Color(0.388235, 0.6, 0.701961, 0.419608)
 
 [node name="Goku | Nuetral Air Left Side" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Nuetral Air Left Side"]]
@@ -8679,7 +8690,6 @@ position = Vector2(0, -40)
 texture = ExtResource("2_50hod")
 hframes = 10
 vframes = 19
-frame = 101
 script = ExtResource("12_ui1va")
 
 [node name="Player Indicator" type="Sprite2D" parent="."]

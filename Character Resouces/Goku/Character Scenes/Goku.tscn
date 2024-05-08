@@ -8751,15 +8751,12 @@ Jump_Sound = NodePath("../Character Jump Sound")
 
 [node name="Character Jump Sound" parent="." instance=ExtResource("8_gtluj")]
 visible = false
-bus = &"SFX"
 
 [node name="Side Light First Punch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_abu5v")
-bus = &"SFX"
 
 [node name="Side Light Second Punch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8kf4q")
-bus = &"SFX"
 
 [node name="Wall Detector" type="RayCast2D" parent="." node_paths=PackedStringArray("Character", "Player_Stats", "Sprite")]
 z_index = 10

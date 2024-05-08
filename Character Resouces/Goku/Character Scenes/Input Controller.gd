@@ -5,7 +5,7 @@ signal FacingLeft
 signal FacingRight
 signal JumpCloud
 # Test to see if i can add the resource during instancing. #
-var Controls: Resource = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
+var Controls: Resource = preload('res://Character Resouces/Global/Controller Resource/Player_3.tres')
 @onready var Player_Stats: Node = $'Player Stats'
 @onready var Animator: AnimationPlayer = $Animator
 @onready var Sprite: Sprite2D = $Sprite

@@ -82,7 +82,7 @@ func _physics_process(delta):
 	match state:
 		Idle:
 			Character.velocity.y += 20
-			if Character.movement_dir.x != 0 and Character.velocity.x !=0:
+			if Character.velocity.x !=0:
 				play("Run")
 
 			else:
@@ -191,6 +191,7 @@ func _attack_movment_controller():
 
 func idle_reset():
 	Attack_Vector = Vector2.ZERO
+	Character.velocity.x = 0
 	if Character.is_on_floor():
 		state = Idle
 	if !Character.is_on_floor():

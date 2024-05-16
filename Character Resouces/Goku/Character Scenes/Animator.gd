@@ -81,7 +81,6 @@ func _physics_process(delta):
 	_attack_movment_controller()
 	match state:
 		Idle:
-			Character.velocity.y += 20
 			if Character.velocity.x !=0:
 				play("Run")
 
@@ -98,7 +97,6 @@ func _physics_process(delta):
 		Dash:
 			play("Dash")
 		Air:
-			Character.velocity.y += 20
 			if Character.velocity.y > 0:
 				play("Fall")
 
@@ -109,7 +107,6 @@ func _physics_process(delta):
 				state = Idle
 				OnGround.emit()
 		Wall:
-			Character.velocity.y = 5
 			play("Wall")
 
 			if !Character.is_on_wall() and !Wall_Detector.is_colliding():

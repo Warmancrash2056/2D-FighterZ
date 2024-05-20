@@ -1,22 +1,11 @@
 extends CharacterBody2D
 
-# Get character Resources
-var controls: Resource = preload("res://Character Resouces/Global/Controller Resource/Player_1.tres")
+signal JumpCloud
+signal WallCloud
+signal DashCloud
 
 # Get character Resources
-var sakura_ulight_smoke = preload("res://Character Resouces/Sakura/Projectile/sakura_up_attack_smoke.tscn")
-
-var jump_smoke = preload("res://Character Resouces/jump_smoke.tscn")
-var counter_smoke = preload("res://Character Resouces/Global/counter.tscn")
-var dash_smoke = preload("res://Character Resouces/Global/dash_smoke.tscn")
-var wall_jump_smoke = preload("res://Autoloads/wall_jump_cloud.tscn")
-
-var hunter_side_attack_arrow = preload( "res://Character Resouces/Hunter/Projectile/Hunter Side Attack Arrow.tscn")
-var hunter_super_side_attack_spear = preload("res://Character Resouces/Hunter/Projectile/projectiles_and_effects/Hunter Super Spear.tscn")
-var hunter_down_attack_shower = preload("res://Character Resouces/Hunter/Projectile/Hunter Arrow Shower .tscn")
-var hunter_air_attack_arrow = preload("res://Character Resouces/Hunter/Projectile/Hunter Air Attack Arrow.tscn")
-
-var general_nuetral_attack_fireball = preload("res://Character Resouces/General Archfield/Projectile/General Archfield Super Side Attack Projectile.tscn") # Goku Projectile Position #
+var controls: Resource
 # Goku Projectile Position #
 var side_registered = false
 @onready var Animate: AnimationPlayer = $Character
@@ -230,39 +219,6 @@ func _reset_side_transition():
 	if side_registered == true:
 		side_registered = false
 
-# Activates cloud effects at first frame of action.
-func _activate_jump_smoke():
-	var instance_smoke_jump = jump_smoke.instantiate()
-	instance_smoke_jump.global_position = smoke_position.global_position
-	get_tree().get_root().add_child(instance_smoke_jump)
-func _activate_wall_jump_smoke():
-	var instance_wall_jump = wall_jump_smoke.instantiate()
-	instance_wall_jump.global_position = wall_jump_smoke_position.global_position
-	get_tree().get_root().add_child(instance_wall_jump)
-
-	if CharacterList.player_1_facing_left == true:
-		instance_wall_jump.scale.y = 3
-	else:
-		instance_wall_jump.scale.y = -3
-
-func _activate_counter_smoke():
-	var instance_smoke_counter = counter_smoke.instantiate()
-	if can_counter == true:
-		instance_smoke_counter.global_position = counter_position.global_position
-		get_tree().get_root().add_child(instance_smoke_counter)
-# Reset counter smoke at the frist frame of idle and fall state.
-func _reset_counter():
-	can_counter = false
-
-func _activate_dash_smoke():
-	var instance_dash_smoke = dash_smoke.instantiate()
-	instance_dash_smoke.global_position = dash_smoke_position.global_position
-	get_tree().get_root().add_child(instance_dash_smoke)
-
-	if CharacterList.player_1_facing_left == true:
-		instance_dash_smoke.scale.x = -1
-	else:
-		instance_dash_smoke.scale.x = 1
 func _hunter_stats():
 	hunter_selected = true
 	Speed = 350
@@ -384,8 +340,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				Select = States.Jumping
 				jump_count -= 1
-				_activate_jump_smoke()
-				$"Character Jump Sound".play()
+				JumpCloud.emit()
 				velocity.y = -Jump_Height
 				Animate.play("Jump")
 			elif Input.is_action_pressed(controls.down):
@@ -458,8 +413,7 @@ func _physics_process(delta):
 				jump_count -= 1
 				velocity.y = -Jump_Height
 				Animate.play("Jump")
-				_activate_jump_smoke()
-				$"Character Jump Sound".play()
+				JumpCloud.emit()
 		States.Falling:
 			Animate.play("Fall")
 			if Input.is_action_pressed(controls.down):
@@ -491,8 +445,7 @@ func _physics_process(delta):
 				jump_count -= 1
 				velocity.y = -Jump_Height
 				Animate.play("Jump")
-				_activate_jump_smoke()
-				$"Character Jump Sound".play()
+				JumpCloud.emit()
 			if Input.is_action_just_pressed(controls.dash) and block_active == false:
 				Select = States.Air_Block
 				block_active = true
@@ -587,8 +540,7 @@ func _physics_process(delta):
 					jump_count -= 1
 					velocity.y = -Jump_Height
 					Select = States.Jumping
-					_activate_jump_smoke()
-					$"Character Jump Sound".play()
+					JumpCloud.emit()
 			velocity.y += Gravity
 			Animate.play("Dash")
 
@@ -669,8 +621,7 @@ func _physics_process(delta):
 					velocity.x = -200
 					Select = States.Jumping
 					velocity.y = -Jump_Height
-					_activate_wall_jump_smoke()
-					$"Character Jump Sound".play()
+					WallCloud.emit()
 
 			if !right_wall_detection.is_colliding():
 				Select = States.Jumping
@@ -688,8 +639,7 @@ func _physics_process(delta):
 					velocity.x = 200
 					Select = States.Jumping
 					velocity.y = -Jump_Height
-					_activate_wall_jump_smoke()
-					$"Character Jump Sound".play()
+					WallCloud.emit()
 
 			if !left_wall_detection.is_colliding():
 				Select = States.Jumping

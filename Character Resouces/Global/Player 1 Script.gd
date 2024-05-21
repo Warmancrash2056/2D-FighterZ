@@ -245,16 +245,6 @@ func _reset_v():
 
 func _activate_invisibility():
 	Invisibilty.play("Invisibilty")
-func _dodge_move():
-	var move_x = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
-	var move_y = Input.get_action_strength(controls.down) - Input.get_action_strength(controls.up)
-
-	if move_x != 0:
-		velocity.x = move_toward(velocity.x, move_x * 50, 10)
-
-
-	if move_y != 0:
-		velocity.y = move_toward(velocity.y, move_y * 50, 10)
 func _process(delta):
 	CharacterList.player_1_health = Health
 

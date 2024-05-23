@@ -4,6 +4,7 @@ signal JumpCloud
 signal WallCloud
 signal DashCloud
 
+
 # Get character Resources
 var controls: Resource
 # Goku Projectile Position #
@@ -229,38 +230,6 @@ func _ready():
 	CharacterList.player_1_health = Health
 	Select = States.Respawn
 	recovery_timer.start()
-
-func _bounce():
-	if is_on_wall():
-		knockback_x *= -1
-
-	elif is_on_ceiling():
-		knockback_y *= -1
-
-func _reset_v():
-	velocity.x = lerp(velocity.x, 0.0, 0.8)
-	velocity.y = lerp(velocity.y, 0.0, 0.8)
-	knockback_x = 0
-	knockback_y = 0
-
-func _activate_invisibility():
-	Invisibilty.play("Invisibilty")
-func _process(delta):
-	CharacterList.player_1_health = Health
-
-	if CharacterList.player_1_health < 700 and CharacterList.player_1_health > 400:
-		knockback_multiplier = 1.0
-
-	elif CharacterList.player_1_health < 490 and CharacterList.player_1_health> 200 :
-		knockback_multiplier = 1.3
-
-	elif CharacterList.player_1_health < 200:
-		knockback_multiplier = 1.6
-
-	else:
-		if CharacterList.player_1_health < 0:
-			knockback_multiplier = 1.9
-
 
 func _physics_process(delta):
 	var move_vec = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
@@ -579,7 +548,6 @@ func _physics_process(delta):
 				Select = States.Jumping
 
 		States.Hurt:
-			_bounce()
 			if is_on_floor():
 				Animate.play("Ground Hurt")
 			else:
@@ -816,80 +784,5 @@ func _on_area_2d_area_entered(area):
 		Select = States.Respawn
 
 
-
-func _on_refresh_block_timeout():
-		block_active = false
-
-
-func _on_area_2d_body_entered(body):
-	pass # Replace with function body.
-
-
-func _on_goku__side_light_transitional_check_area_entered(area):
-	side_registered = true
-	attack_reset = true
-
-func _on_goku__side_light_punch__finial_damager_area_entered(area):
-	attack_reset = true
-
-
-func _on_goku__side_light_punch__initial_damager_area_entered(area):
-	attack_reset = true
-
-func _on_goku__side_heavy_end_area_entered(area):
-	attack_reset = true
-
-func _on_goku__side_air_final_area_entered(area):
-	attack_reset = true
-
-func _on_goku__side_light_heavy_area_entered(area):
-	attack_reset = true
-
-func _on_goku__side_air_tracker_area_entered(area):
-	attack_reset = true
-
-func _on_goku__side_air_start_area_entered(area):
-	attack_reset = true
-
-func _on_goku__nuetral_light_midle_area_entered(area):
-	attack_reset = true
-
-func _on_goku__nuetral_light_end_area_entered(area):
-	attack_reset = true
-
-
-func _on_goku__nuetral_light_start_area_entered(area):
-	attack_reset = true
-
-
-func _on_goku__nuetral_air_right_side_area_entered(area):
-	attack_reset = true
-
-
-func _on_goku__nuetral_air_middle_side_area_entered(area):
-	attack_reset = true
-
-
-func _on_goku__nuetral_air_left_side_area_entered(area):
-	attack_reset = true
-
-func _on_goku__down_light_area_entered(area):
-	attack_reset = true
-
-func _on_goku__down_heavy_final_area_entered(area):
-	attack_reset = true
-
-func _on_goku__down_heavy_initial_area_entered(area):
-	attack_reset = true
-
-func _on_goku_sde_light_finish__second_punch_area_entered(area):
-	attack_reset = true
-
-func _on_goku_sde_light_finish__first_punch_area_entered(area):
-	attack_reset = true
-
-
-
 func _on_recovery_timer_timeout():
 	_idle_state_()
-	_reset_v()

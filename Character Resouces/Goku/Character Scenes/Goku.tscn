@@ -1,8 +1,9 @@
-[gd_scene load_steps=67 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=69 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player 1 Script.gd" id="1_kut0j"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="2_50hod"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Rock Grab.gd" id="2_dnphb"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Hitbox.gd" id="2_ea7nv"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Wall Jump Smoke.gd" id="3_1tgtx"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Projectile Position.gd" id="3_p3wbd"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Dash Smoke Position.gd" id="4_38nij"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="8_gtluj"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Jump Smoke.gd" id="8_q3kv2"]
 [ext_resource type="PackedScene" uid="uid://bo08t0pi17rio" path="res://Character Resouces/Jump_Cloud.tscn" id="10_2bcbp"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player 1 Hurtbox.gd" id="12_ipji5"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player Icon.gd" id="17_v12tc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gutl"]
@@ -9021,8 +9023,11 @@ z_index = 1
 [node name="Goku | Nuetral Light Start" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Light Start"]]
 z_index = 6
 position = Vector2(20, -8)
-collision_layer = 32
-collision_mask = 16
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_ea7nv")
+Recovery_Time = 0.2
+Damage = 25
 metadata/_edit_group_ = true
 
 [node name="Light Start" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light Start"]
@@ -9037,6 +9042,11 @@ debug_color = Color(0, 0.627451, 0.486275, 0.419608)
 position = Vector2(24, -8)
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("2_ea7nv")
+Recovery_Time = 0.2
+Damage = 10
+Knockback_X = 200
+Knockback_Y = 200
 metadata/_edit_group_ = true
 
 [node name="Light End" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Light End"]
@@ -9050,6 +9060,7 @@ debug_color = Color(0.388235, 0.6, 0.701961, 0.419608)
 [node name="Goku | Nuetral Air Left Side" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Air Left Side"]]
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("2_ea7nv")
 
 [node name="Left Side Nuetral Air" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Air Left Side"]
 visible = false
@@ -9062,6 +9073,7 @@ debug_color = Color(0.239216, 0.231373, 1, 0.698039)
 [node name="Goku | Down Air" type="Area2D" parent="Scale Player" groups=["Goku | Down Air"]]
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("2_ea7nv")
 
 [node name="Axe Kick" type="CollisionShape2D" parent="Scale Player/Goku | Down Air"]
 visible = false
@@ -9074,6 +9086,7 @@ debug_color = Color(0.521569, 0.572549, 0.027451, 0.419608)
 [node name="Goku | Neautral Heavy Positioner" type="Area2D" parent="Scale Player" groups=["Goku | Neautral Heavy Positioner"]]
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("2_ea7nv")
 
 [node name="Rock Grab" type="CollisionShape2D" parent="Scale Player/Goku | Neautral Heavy Positioner"]
 visible = false
@@ -9302,18 +9315,18 @@ position = Vector2(0, -40)
 texture = ExtResource("2_50hod")
 hframes = 10
 vframes = 18
-frame = 19
+frame = 143
 
 [node name="Character" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
-speed_scale = 1.7
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 2
+script = ExtResource("12_ipji5")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, 1)
@@ -9409,6 +9422,7 @@ script = ExtResource("17_v12tc")
 [connection signal="area_entered" from="Scale Player/Goku | Side Light Transitional Check" to="." method="_on_goku__side_light_transitional_check_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - First Punch" to="." method="_on_goku_sde_light_finish__first_punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - Second Punch" to="." method="_on_goku_sde_light_finish__second_punch_area_entered"]
+[connection signal="Player1Setting" from="Hurtbox" to="Scale Player/Goku | Nuetral Light Start" method="_on_hurtbox_player_1_setting"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Refresh Block" to="." method="_on_refresh_block_timeout"]

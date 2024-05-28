@@ -11,4 +11,11 @@ var direction: int
 
 
 func _on_hurtbox_player_1_setting() -> void:
-	pass # Replace with function body.
+	set_collision_layer_value(6, true)
+	set_collision_mask_value(9, true)
+
+
+func _on_hurtbox_player_2_setting() -> void:
+	set_collision_layer_value(10, true)
+	set_collision_mask_value(5, true)
+

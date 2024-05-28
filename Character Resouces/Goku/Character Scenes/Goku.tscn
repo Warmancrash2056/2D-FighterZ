@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=71 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player 1 Script.gd" id="1_kut0j"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="2_50hod"]
@@ -17,7 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="8_gtluj"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Jump Smoke.gd" id="8_q3kv2"]
 [ext_resource type="PackedScene" uid="uid://bo08t0pi17rio" path="res://Character Resouces/Jump_Cloud.tscn" id="10_2bcbp"]
-[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player 1 Hurtbox.gd" id="12_ipji5"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player 1 Hurtbox.gd" id="12_b7bkw"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Stun Time.gd" id="13_ovhfo"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Recovery Timer.gd" id="14_7s1tu"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player Icon.gd" id="17_v12tc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gutl"]
@@ -9329,15 +9331,31 @@ libraries = {
 }
 
 [node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 16
+collision_layer = 0
 collision_mask = 2
-script = ExtResource("12_ipji5")
+script = ExtResource("12_b7bkw")
+
+[node name="Stun Time" type="Timer" parent="Hurtbox"]
+script = ExtResource("13_ovhfo")
+
+[node name="Recovery Timer" type="Timer" parent="Hurtbox" node_paths=PackedStringArray("Animator", "Character")]
+one_shot = true
+autostart = true
+script = ExtResource("14_7s1tu")
+Animator = NodePath("../../Character")
+Character = NodePath("../..")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_qamvs")
 disabled = true
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
+
+[node name="Respawn" type="AnimationPlayer" parent="Hurtbox"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_3wvkn")
+}
 
 [node name="Counter Position" type="Marker2D" parent="."]
 position = Vector2(0, 13)
@@ -9385,15 +9403,6 @@ bus = &"SFX"
 
 [node name="Knockback Cloud" type="Marker2D" parent="."]
 
-[node name="Recovery Timer" type="Timer" parent="."]
-one_shot = true
-autostart = true
-
-[node name="Respawn" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_3wvkn")
-}
-
 [node name="Player Indicator" type="Sprite2D" parent="."]
 self_modulate = Color(0, 0, 0, 0.447059)
 position = Vector2(0, -25)
@@ -9427,8 +9436,7 @@ script = ExtResource("17_v12tc")
 [connection signal="area_entered" from="Scale Player/Goku | Side Light Transitional Check" to="." method="_on_goku__side_light_transitional_check_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - First Punch" to="." method="_on_goku_sde_light_finish__first_punch_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku Sde Light Finish - Second Punch" to="." method="_on_goku_sde_light_finish__second_punch_area_entered"]
-[connection signal="Player1Setting" from="Hurtbox" to="Scale Player/Goku | Nuetral Light Start" method="_on_hurtbox_player_1_setting"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Hurtbox/Recovery Timer" to="." method="_on_recovery_timer_timeout"]
 [connection signal="timeout" from="Refresh Block" to="." method="_on_refresh_block_timeout"]
-[connection signal="timeout" from="Recovery Timer" to="." method="_on_recovery_timer_timeout"]

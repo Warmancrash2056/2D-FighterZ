@@ -4,8 +4,14 @@ class_name LinearProjectile extends CharacterBody2D
 @export var Acceleration: float
 var direction = 1
 @export var Animator: AnimationPlayer
+@export var Sprite: Sprite2D
 
 func _ready():
+	if direction == 1:
+		Sprite.flip_h = false
+
+	else:
+		Sprite.flip_h = true
 	Animator.play("Shoot")
 
 
@@ -14,6 +20,11 @@ func _delete():
 
 func _process(delta):
 	move_and_slide()
+	if direction == 1:
+		Sprite.flip_h = false
+
+	else:
+		Sprite.flip_h = true
 	velocity.x = move_toward(velocity.x, direction * Max_Speed, Acceleration)
 
 

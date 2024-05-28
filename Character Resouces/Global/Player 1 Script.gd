@@ -30,22 +30,18 @@ var knockback_y: float
 # Used to detect if there is a wall.
 @onready var right_wall_detection = $Right
 @onready var left_wall_detection = $Left
-var goku_selected = false
-var general_selected = false
-var nomad_selected = false
-var sakura_selected = false
-var hunter_selected = false
-var atlantis_selected = false
-var henry_selected = false
 
+@export var Speed_Rating: float
+@export var Defense_Rating: float
+@export var Attack_Rating: float
+@export var Stamina_Rating: float
 
-var Speed = 350
-var Acceleration: = 50
-var Air_Speed = 200
-var Fall_Speed = 150
-var Roll_Speed = 600
-var Jump_Height = 500
-var Gravity = 20
+var input_vector: int
+const Max_Speed = 350
+const Acceleration = 50
+const Fall_Speed = 150
+const  Jump_Height = 500
+const  Gravity = 20
 
 var can_sakura_ulight_smoke = false
 var can_jump_smoke = false
@@ -103,26 +99,6 @@ enum States {
 	Left_Wall,
 	Right_Wall
 	}
-
-
-
-func _goku_stats():
-	Acceleration = 270
-	CharacterList.goku_selected = true
-	goku_selected = true
-	Health = 1000
-
-func _general_stats():
-	nomad_selected = true
-	Speed = 125
-	Air_Speed = 250
-	Fall_Speed = 175
-
-func _sakura_stats():
-	pass
-
-func _nomad_stats():
-	pass
 
 
 
@@ -200,17 +176,12 @@ func counter_down_heavy():
 func _reset_turn_around():
 	can_change_dir = false
 func turn_around():
-	if can_change_dir ==  false:
-		if Input.is_action_just_pressed(controls.right):
+	if Input.is_action_pressed(controls.right):
 			Sprite.flip_h = false
 			$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			CharacterList.player_1_facing_left = false
-			can_change_dir = true
-		elif Input.is_action_just_pressed(controls.left):
+	elif Input.is_action_pressed(controls.left):
 			Sprite.flip_h = true
 			$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-			CharacterList.player_1_facing_left = true
-			can_change_dir = true
 # Goku Stats
 func _goku_side_finish():
 	if side_registered == true:
@@ -220,39 +191,47 @@ func _reset_side_transition():
 	if side_registered == true:
 		side_registered = false
 
-func _hunter_stats():
-	hunter_selected = true
-	Speed = 350
-	Air_Speed = 350
-	Fall_Speed = 150
-
 func _ready():
 	CharacterList.player_1_health = Health
 	Select = States.Respawn
 	recovery_timer.start()
 
+func _get_movement():
+	var character_speed = Speed_Rating * Max_Speed
+	var air_rating = Speed_Rating + 0.25
+	var air_speed = air_rating * character_speed
+	input_vector = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
+
+	clamp(input_vector,-1, 1)
+
+	if input_vector != 0:
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x , input_vector * character_speed, Acceleration)
+
+		else:
+			velocity.x = move_toward(velocity.x , input_vector * air_speed, Acceleration)
+
+	else:
+		velocity.x = move_toward(velocity.x,0, Acceleration)
+
 func _physics_process(delta):
-	var move_vec = Input.get_action_strength(controls.right) - Input.get_action_strength(controls.left)
 	move_and_slide()
 	match Select:
 		States.Idling:
+			_get_movement()
+			turn_around()
 			jump_count = 3
 			set_collision_mask_value(3, true)
 			if !is_on_floor():
 				Select = States.Jumping
 				Animate.play("Jump")
 			velocity.y += Gravity
-			if move_vec < 0:
-				velocity.x = max(velocity.x -Acceleration, -Speed)
+			if input_vector != 0:
 				Animate.play("Run")
-				Sprite.flip_h = true
-				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_1_facing_left = true
-				if velocity.x != 0:
-					if Input.is_action_just_pressed(controls.dash):
-						Select = States.Dash_Run
-						set_collision_mask_value(2, false)
-						DashCloud.emit()
+				if Input.is_action_just_pressed(controls.dash):
+					Select = States.Dash_Run
+					set_collision_mask_value(2, false)
+					DashCloud.emit()
 
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Light
@@ -260,26 +239,7 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed(controls.heavy):
 					Select = States.Side_Heavy
 
-			elif move_vec > 0:
-				velocity.x = min(velocity.x + Acceleration, Speed)
-				Animate.play("Run")
-				Sprite.flip_h = false
-				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_1_facing_left = false
-				if velocity.x != 0:
-					if Input.is_action_just_pressed(controls.dash):
-						Select = States.Dash_Run
-						set_collision_mask_value(2, false)
-						DashCloud.emit()
-
-
-				if Input.is_action_just_pressed(controls.light):
-					Select = States.Side_Light
-
-				if Input.is_action_just_pressed(controls.heavy):
-					Select = States.Side_Heavy
 			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.2)
 				Animate.play("Idle")
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Nuetral_Light
@@ -292,9 +252,9 @@ func _physics_process(delta):
 					block_active = true
 
 
-				# New Mechanic for projectile throw
-				if Input.is_action_just_pressed(controls.throw):
-					Select = States.Ground_Projectile
+			# New Mechanic for projectile throw
+			if Input.is_action_just_pressed(controls.throw):
+				Select = States.Ground_Projectile
 
 
 
@@ -318,24 +278,13 @@ func _physics_process(delta):
 
 
 		States.Jumping:
-			if move_vec < 0:
-				velocity.x = max(velocity.x - Acceleration, -Air_Speed)
-				Sprite.flip_h = true
-				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_1_facing_left = true
+			_get_movement()
+			turn_around()
+			if input_vector != 0:
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Side_Air
 
-			elif move_vec > 0:
-				velocity.x = min(velocity.x + Acceleration, Air_Speed)
-				Sprite.flip_h = false
-				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_1_facing_left = false
-				if Input.is_action_pressed(controls.light):
-					Select = States.Side_Air
-
 			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.1)
 				if Input.is_action_just_pressed(controls.light):
 					Select = States.Nuetral_Air
 
@@ -376,6 +325,8 @@ func _physics_process(delta):
 				Animate.play("Jump")
 				JumpCloud.emit()
 		States.Falling:
+			turn_around()
+			_get_movement()
 			Animate.play("Fall")
 			if Input.is_action_pressed(controls.down):
 				velocity.y += 20
@@ -388,19 +339,6 @@ func _physics_process(delta):
 				else:
 					if right_wall_detection.is_colliding():
 						Select = States.Right_Wall
-			if move_vec < 0:
-				Sprite.flip_h = true
-				$"Scale Player".set_scale(Vector2(-abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				CharacterList.player_1_facing_left = true
-				velocity.x = max(velocity.x - Acceleration, -Fall_Speed)
-			elif move_vec > 0:
-				Sprite.flip_h = false
-				$"Scale Player".set_scale(Vector2(abs($"Scale Player".get_scale().x), $"Scale Player".get_scale().y))
-				velocity.x = min(velocity.x + Acceleration, Fall_Speed)
-				CharacterList.player_1_facing_left = false
-
-			else:
-				velocity.x = lerp(velocity.x, 0.0, 0.1)
 
 			if Input.is_action_just_pressed(controls.jump) and jump_count > 0:
 				jump_count -= 1
@@ -489,13 +427,20 @@ func _physics_process(delta):
 			# Activate counter smoke to be called during an attack.
 			can_counter = true
 		States.Dash_Run:
+			var original_speed = Speed_Rating * Max_Speed
+			var dash_rating = Speed_Rating + 0.5
+			var dash_speed = dash_rating * Max_Speed
 			if Input.is_action_pressed(controls.dash):
-				velocity.x = move_toward(velocity.x, move_vec * Roll_Speed, Acceleration )
+				if Sprite.flip_h == false:
+					velocity.x = move_toward(velocity.x , dash_speed, 5000)
+
+				else:
+					velocity.x = move_toward(velocity.x , -dash_speed, 5000)
 
 			else:
 				if Input.is_action_just_released(controls.dash):
 					Select = States.Idling
-					velocity.x = move_toward(velocity.x, move_vec * 0, Acceleration )
+					velocity.x = move_toward(velocity.x, 0, Acceleration )
 			if jump_count > 0:
 				if Input.is_action_just_pressed(controls.jump):
 					jump_count -= 1

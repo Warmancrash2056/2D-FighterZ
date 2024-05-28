@@ -270,7 +270,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_acp7n"]
 radius = 4.12311
 
-[node name="Goku Air Projectile" type="CharacterBody2D" node_paths=PackedStringArray("Animator")]
+[node name="Goku Air Projectile" type="CharacterBody2D" node_paths=PackedStringArray("Animator", "Sprite")]
 z_index = 10
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
@@ -279,6 +279,7 @@ script = ExtResource("1_phemg")
 Max_Speed = 500
 Acceleration = 100.0
 Animator = NodePath("AnimationPlayer")
+Sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_t1vhf")

@@ -1,6 +1,6 @@
 class_name Player2 extends Area2D
 
-var num = 1
+signal Player2Setting
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

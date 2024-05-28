@@ -246,7 +246,7 @@ radius = 4.71405
 radius = 5.0
 height = 20.0
 
-[node name="Goku Ground Projectile" type="CharacterBody2D" node_paths=PackedStringArray("Animator")]
+[node name="Goku Ground Projectile" type="CharacterBody2D" node_paths=PackedStringArray("Animator", "Sprite")]
 z_index = 10
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
@@ -255,6 +255,7 @@ script = ExtResource("1_g8efp")
 Max_Speed = 400
 Acceleration = 75.0
 Animator = NodePath("AnimationPlayer")
+Sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_2i1oh")

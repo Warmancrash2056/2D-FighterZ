@@ -1,3 +1,4 @@
 extends Timer
 
-func _stu
+func _stun_time():
+	pass

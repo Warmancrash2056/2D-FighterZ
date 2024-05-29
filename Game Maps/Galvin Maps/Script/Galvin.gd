@@ -17,11 +17,14 @@ const CAMERA_MOVE_THRESHOLD = 5.0
 
 func _ready() -> void:
 	# Set player properties directly
-	var player_id = player_1_spawn.get_node("Hurtbox")
+	var player_1_hurtbox = player_1_spawn.get_node("Hurtbox")
+	player_1_hurtbox.set_script("res://Character Resouces/Goku/Character Scenes/Player 1 Hurtbox.gd")
 	call_deferred("add_child", player_1_spawn)
 	player_1_spawn.controls = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
 	player_1_spawn.position = Vector2(192, -328)
 
+	var player_2_hurtbox = player_2_spawn.get_node("Hurtbox")
+	player_2_hurtbox.set_script("res://Character Resouces/Goku/Character Scenes/Player 1 Hurtbox.gd")
 	call_deferred("add_child", player_2_spawn)
 	player_2_spawn.controls = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
 	player_2_spawn.position = Vector2(-192, -328)

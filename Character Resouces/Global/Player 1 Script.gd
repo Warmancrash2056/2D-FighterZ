@@ -194,7 +194,6 @@ func _reset_side_transition():
 func _ready():
 	CharacterList.player_1_health = Health
 	Select = States.Respawn
-	recovery_timer.start()
 
 func _get_movement():
 	var character_speed = Speed_Rating * Max_Speed
@@ -561,167 +560,6 @@ func _physics_process(delta):
 
 func _on_area_2d_area_entered(area):
 
-	if area.is_in_group("Goku | Neautral Heavy Positioner"):
-		follow_goku_neutral_heavy = true
-		Select = States.Hurt
-		print("Goku | Neautral Heavy Positioner")
-
-	if area.is_in_group("Goku | Neautral Heavy Shatter"):
-		print("Goku | Neautral Heavy Shatter")
-		follow_goku_neutral_heavy = false
-		Select = States.Hurt
-		recovery_timer.start(0.4)
-		if CharacterList.player_2_facing_left == true:
-			knockback_x = 300
-		else:
-			knockback_x = -300
-		if is_on_floor():
-			knockback_y = -600
-
-		else:
-			knockback_y = 900
-	if area.is_in_group("Goku | Side Air Start"):
-		print("Goku | Side Air Start")
-		recovery_timer.start(0.55)
-		Health -= 20
-		Select = States.Hurt
-		if CharacterList.player_2_facing_left == true:
-			knockback_x = -750
-		else:
-			knockback_x = 750
-
-
-		knockback_y = 0
-
-	if area.is_in_group("Goku | Nuetral Air Right Side"):
-		print("Goku | Nuetral Air Right Side")
-		recovery_timer.start(0.3)
-		Health -= 10
-		Select = States.Hurt
-		knockback_x = 0
-		knockback_y = -400
-
-	if area.is_in_group("Goku | Nuetral Air Middle Side"):
-		print("Goku | Nuetral Air Middle Side")
-		recovery_timer.start(0.3)
-		Health -= 10
-		Select = States.Hurt
-		knockback_x = 0
-		knockback_y = -400
-
-	if area.is_in_group("Goku | Nuetral Air Left Side"):
-		print("Goku | Nuetral Air Left Side")
-		recovery_timer.start(0.3)
-		Health -= 10
-		Select = States.Hurt
-		knockback_x = 0
-		knockback_y = -400
-
-	if area.is_in_group("Goku | Down Light"):
-		print("Goku | Down Light")
-		recovery_timer.start(0.4)
-		Select = States.Hurt
-		Health -= 10
-		print("Goku | Nuetral Light End")
-		knockback_y = -400
-
-	if area.is_in_group("Goku | Down Air"):
-		print("Goku | Down Air")
-		recovery_timer.start(0.4)
-		Select = States.Hurt
-		Health -= 10
-		print("Goku | Nuetral Light End")
-		knockback_y = 400
-
-	if area.is_in_group("Goku | Nuetral Light End"):
-		recovery_timer.start(0.6)
-		Select = States.Hurt
-		Health -= 10
-		print("Goku | Nuetral Light End")
-		if CharacterList.player_2_facing_left == true:
-			knockback_x = -350
-		else:
-			knockback_x = 350
-
-		knockback_y = -350
-	if area.is_in_group("Goku | Side Light Punch - Initial Damager"):
-		Select = States.Hurt
-		recovery_timer.start(0.35)
-		knockback_x = 0
-		knockback_y = 0
-		Health -= 50
-
-	if area.is_in_group("Goku | Side Light Punch - Finial Damager"):
-		Select = States.Hurt
-		recovery_timer.start(0.35)
-		Health -= 25
-		knockback_x = 0
-		knockback_y = 0
-
-	if area.is_in_group("Goku | Side Light Transitional Check"):
-		recovery_timer.start(0.35)
-		Select = States.Hurt
-		knockback_x = 0
-		knockback_y = 0
-
-
-	if area.is_in_group("Goku Sde Light Finish - First Punch"):
-		recovery_timer.start(0.35)
-		Select = States.Hurt
-		Health -= 20
-		knockback_x = 0
-		knockback_y = 0
-
-	if area.is_in_group("Goku Sde Light Finish - Second Punch"):
-		Select = States.Hurt
-		recovery_timer.start(0.35)
-		Health -= 25
-		print("Goku | Nuetral Light End")
-		if CharacterList.player_2_facing_left == true:
-			knockback_x = -1200
-		else:
-			knockback_x = 1200
-
-		knockback_y = 0
-
-	if area.is_in_group("Goku | Down Heavy Initial"):
-		recovery_timer.start(0.3)
-		Select = States.Hurt
-		knockback_x = 0
-		knockback_y -= 450
-		Health -= 10
-
-
-	if area.is_in_group("Goku | Down Heavy Final"):
-		recovery_timer.start(0.3)
-		Select = States.Hurt
-		knockback_x = 0
-		knockback_y -= 450
-		Health -= 10
-
-	if area.is_in_group("Goku | Side Heavy Start"):
-		recovery_timer.start(0.1)
-		Select = States.Hurt
-		Health -= 10
-		if CharacterList.player_2_facing_left == true:
-			knockback_x -= 500
-
-		else:
-			knockback_x += 500
-
-		knockback_y = -600
-
-	if area.is_in_group("Goku | Side Heavy End"):
-		recovery_timer.start(0.2)
-		Select = States.Hurt
-		Health -= 10
-		if CharacterList.player_2_facing_left == true:
-			knockback_x -= 500
-
-		else:
-			knockback_x += 500
-
-		knockback_y = -600
 	if area.is_in_group("Off Stage - Galvin"):
 		await get_tree().create_timer(0.2).timeout
 		var tween = get_tree().create_tween()
@@ -731,3 +569,7 @@ func _on_area_2d_area_entered(area):
 
 func _on_recovery_timer_timeout():
 	_idle_state_()
+
+
+func _on_hurtbox_player_2_setting() -> void:
+	pass # Replace with function body.

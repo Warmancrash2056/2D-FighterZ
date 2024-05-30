@@ -21,16 +21,22 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	# Set player properties directly
 	var player_1_hurtbox = player_1_spawn.get_node("Hurtbox")
+	var player_1_hitbox = player_1_spawn.get_node("Hitbox")
 	player_1_hurtbox.set_collision_layer_value(5, true)
 	player_1_hurtbox.set_collision_mask_value(10, true)
+	player_1_hitbox.set_collision_layer_value(6, true)
+	player_1_hitbox.set_collision_mask_value(9, true)
 	player_1_hurtbox.set_script("res://Character Resouces/Goku/Character Scenes/Player 1 Hurtbox.gd")
 	player_1_spawn.controls = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
 	player_1_spawn.position = Vector2(192, -328)
 	call_deferred("add_child", player_1_spawn)
 
 	var player_2_hurtbox = player_2_spawn.get_node("Hurtbox")
+	var player_2_hitbox = player_2_spawn.get_node("Hitbox")
 	player_2_hurtbox.set_collision_layer_value(9, true)
 	player_2_hurtbox.set_collision_mask_value(6, true)
+	player_2_hitbox.set_collision_layer_value(10, true)
+	player_2_hitbox.set_collision_mask_value(5, true)
 	player_2_hurtbox.set_script("res://Character Resouces/Goku/Character Scenes/Player 2 Hurtbox.gd")
 	player_2_spawn.controls = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
 	player_2_spawn.position = Vector2(-192, -328)
@@ -79,8 +85,8 @@ func update_camera() -> void:
 		queue_redraw()
 
 	# Clamp the offset to stay within the bounds
-	#camera.global_position.x = clamp(camera.global_position.x, MIN_OFFSET_X, MAX_OFFSET_X)
-	#camera.global_position.y = clamp(camera.global_position.y, -MAX_OFFSET_X, MAX_OFFSET_X)
+	camera.global_position.x = clamp(camera.global_position.x, MIN_OFFSET_X, MAX_OFFSET_X)
+	camera.global_position.y = clamp(camera.global_position.y, -MAX_OFFSET_X, MAX_OFFSET_X)
 
 func calculate_center(rect: Rect2) -> Vector2:
 	return Vector2(
@@ -97,10 +103,10 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 
 func calculate_zoom_factor(distance: float) -> float:
 	# Calculate the zoom factor based on the distance between players
-	var zoom_factor = 0.9 - distance / MAX_ZOOM_DISTANCE
+	var zoom_factor = 1.0 - distance / MAX_ZOOM_DISTANCE
 
 	# Clamp the zoom factor to be at least 1.0
-	return max(zoom_factor, 0.9)
+	return max(zoom_factor, 0.9 )
 
 func _draw() -> void:
 	if not debug_mode:

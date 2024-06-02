@@ -31,11 +31,15 @@ var knockback_y: float
 @onready var right_wall_detection = $Right
 @onready var left_wall_detection = $Left
 
-@export var Speed_Rating: float # Effects the overall speed of the player
+# Effects the overall speed of the player
+@export var Speed_Rating: float
+
 # Effects the overall damage taken by an attack but does not effect force absolute force.
-# Directiona is forced applied to player existing velocity multiplied by the player direction: Absolute Forc is knockback that is applied to velocity
+# Directional is forced applied to player existing velocity multiplied by the player direction: Absolute Forc is knockback that is applied to velocity
 # Regardless of player current velocity
 @export var Defense_Rating: float
+
+#Effects the base damage for a light or heavy attack
 @export var Attack_Rating: float
 @export var Stamina_Rating: float
 

@@ -4774,7 +4774,7 @@ libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["Hitbox"]]
 
 [node name="Neautral Light - Extender" type="CollisionShape2D" parent="Hitbox"]
 visible = false

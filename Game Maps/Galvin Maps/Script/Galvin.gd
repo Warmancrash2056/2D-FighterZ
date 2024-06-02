@@ -21,6 +21,7 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	# Set player properties directly
 	var player_1_hurtbox = player_1_spawn.get_node("Hurtbox")
+	var player_1_spawn = get_gr
 	var player_1_hitbox = player_1_spawn.get_node("Hitbox")
 	player_1_hurtbox.set_collision_layer_value(5, true)
 	player_1_hurtbox.set_collision_mask_value(10, true)

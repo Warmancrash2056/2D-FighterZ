@@ -61,6 +61,7 @@ func _physics_process(delta: float) -> void:
 	_get_movement()
 	move_and_slide()
 func _process(delta: float) -> void:
+	print(input_buffer)
 	gravity_controller()
 	on_wall()
 	_process_input()
@@ -124,6 +125,7 @@ func _process_jump_input():
 		if can_jump == true and Input.is_action_just_pressed(Controls.jump) and Player_Stats.Jump_Count > 0:
 			add_to_buffer({"type": "move", "value": "jump", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			if can_attack == true:
+				Animator.state = Air
 				velocity.y = -Player_Stats.Jump_Height
 				JumpCloud.emit()
 				Player_Stats.Jump_Count -= 1
@@ -180,18 +182,28 @@ func _process_combinations():
 		var first_input = input_buffer[i]
 		var second_input = input_buffer[i + 1]
 		if first_input.type == "direction":
-			if first_input.value == "right" or first_input.value == "left" and second_input.type == "attack" and second_input.value == "light":
-				if is_on_floor():
+			if first_input.onground == true and first_input.value == "right" and second_input.onground == true and second_input.type == "attack" and second_input.value == "light":
+				if Animator.state == Idle:
 					Animator.state = Side_Light
 
-				else:
-					Animator.state = Side_Air
+			if first_input.onground == true and first_input.value == "left" and  second_input.onground == true and second_input.type == "attack" and second_input.value == "light":
+				if Animator.state == Idle:
+					Animator.state = Side_Light
 
-			if first_input.value == "right" or first_input.value == "left" and second_input.type == "attack" and second_input.value == "heavy":
-				if is_on_floor():
+			if first_input.onground == true and first_input.value == "right" and second_input.onground == true and second_input.type == "attack" and second_input.value == "heavy":
+				if Animator.state == Idle:
 					Animator.state = Side_Heavy
 
-				else:
+			if first_input.onground == true and first_input.value == "left"  and second_input.onground == true and second_input.type == "attack" and second_input.value == "heavy":
+				if Animator.state == Idle:
+					Animator.state = Side_Heavy
+
+			if first_input.onground == false and first_input.value == "right" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
+				if Animator.state == Air:
+					Animator.state = Side_Air
+
+			if first_input.onground == false and first_input.value == "left" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
+				if Animator.state == Air:
 					Animator.state = Side_Air
 
 
@@ -236,14 +248,18 @@ func _process_immediate_action():
 					Animator.state = Air_Block
 
 				if input_action.value == "jump" and Player_Stats.Jump_Count > 0:
-					Animator.state = Air
+					pass
 
 
 			"direction":
-				if input_action.value == "left":
+				if input_action.value == "left" and Sprite.flip_h == false:
+					if is_on_floor():
+						Animator.state = Turning
 					FacingLeft.emit()
 
-				if input_action.value == "right":
+				if input_action.value == "right" and Sprite.flip_h == true:
+					if is_on_floor():
+						Animator.state = Turning
 					FacingRight.emit()
 
 			"attack":

@@ -92,7 +92,7 @@ func _physics_process(delta):
 			if !Character.is_on_floor():
 				state = Air
 		Turning:
-			pass
+			play("Turn")
 
 		Dash:
 			play("Dash")
@@ -139,7 +139,7 @@ func _physics_process(delta):
 
 		Neutral_Air:
 			Attack_Vector = NAir
-			play("Neutral Air")
+			play("Nuetral Air")
 
 		Neutral_Recovery:
 			Attack_Vector = NRecovery
@@ -188,7 +188,7 @@ func _attack_movment_controller():
 
 func idle_reset():
 	Attack_Vector = Vector2.ZERO
-	Character.velocity.x = 0
+	OnGround.emit()
 	if Character.is_on_floor():
 		state = Idle
 	if !Character.is_on_floor():

@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbl8tfhqj4rfw"]
+
+[ext_resource type="Texture2D" uid="uid://7u6lkg55hnv6" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)1.png" id="1_6ppa6"]
+[ext_resource type="Texture2D" uid="uid://cd7ee0hqpi1tf" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)2.png" id="2_s5hvh"]
+[ext_resource type="Texture2D" uid="uid://d14llquikkfkm" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)3.png" id="3_bngye"]
+[ext_resource type="Texture2D" uid="uid://branhkmm0jdv8" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)4.png" id="4_u4wg0"]
+[ext_resource type="Texture2D" uid="uid://d2pyfv1atwr6j" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)5.png" id="5_50o7g"]
+[ext_resource type="Texture2D" uid="uid://fxjia53csui6" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)6.png" id="6_hewl8"]
+[ext_resource type="Texture2D" uid="uid://dfa2ducw4uwyx" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 2/Separated Frames/Smoke VFX 2 (48X16)7.png" id="7_5h3hv"]
+[ext_resource type="Script" path="res://Character Resouces/jump_smoke.gd" id="8_16o64"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sev5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6ppa6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s5hvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bngye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u4wg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_50o7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hewl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5h3hv")
+}],
+"loop": true,
+"name": &"Smoke",
+"speed": 5.0
+}]
+
+[node name="Wall Jump Cloud" type="AnimatedSprite2D"]
+z_index = 20
+rotation = 1.5708
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sev5d")
+animation = &"Smoke"
+frame_progress = 0.1723
+script = ExtResource("8_16o64")
+
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

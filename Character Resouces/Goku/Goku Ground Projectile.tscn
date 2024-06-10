@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bwldo5okthbx"]
 
-[ext_resource type="Script" path="res://Character Resouces/Goku/Goku Air Projectile.gd" id="1_g8efp"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/LinarProjectile.gd" id="1_hlycg"]
 [ext_resource type="Texture2D" uid="uid://drjlnxy6db6aj" path="res://Character Resouces/Goku/Spritesheet/Davaughncjames Projectiles (1)-Sheet.png" id="2_2i1oh"]
 
 [sub_resource type="Animation" id="Animation_a5swo"]
@@ -251,7 +251,7 @@ z_index = 10
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 collision_mask = 31
-script = ExtResource("1_g8efp")
+script = ExtResource("1_hlycg")
 Max_Speed = 400
 Acceleration = 75.0
 Animator = NodePath("AnimationPlayer")

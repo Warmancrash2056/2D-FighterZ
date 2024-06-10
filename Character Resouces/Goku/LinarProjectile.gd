@@ -26,7 +26,11 @@ func _process(delta):
 	else:
 		Sprite.flip_h = true
 	velocity.x = move_toward(velocity.x, direction * Max_Speed, Acceleration)
+	if direction == 1:
+		scale.x = 1
 
+	else:
+		scale.x = -1
 
 func _on_area_2d_body_entered(body):
 	Animator.play("Hit")

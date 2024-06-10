@@ -10,10 +10,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$ProgressBar.value = CharacterList.health
-	
-	
+
+
 	if CharacterList.goku_selected == true:
 		$Sprite2D.texture = load("res://Character Resouces/Goku/Icon/Goku.png")
-	
+
 	if CharacterList.sakura_selected == true:
 		$prite.texture = load("res://Character Resouces/Sakura/Icon/Assasin Character Icon.png")

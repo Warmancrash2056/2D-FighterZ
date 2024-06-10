@@ -24,7 +24,8 @@ var goku_neutral_heavy_grab_position = Vector2()
 var player_1_position: Vector2
 var player_2_position: Vector2
 # Display Icon
-var icon
+var player_1_icon: Texture
+var player_2_icon: Texture
 var check_player_1_is_called = false
 var check_player_2_is_called = false
 var check_main_is_called = false

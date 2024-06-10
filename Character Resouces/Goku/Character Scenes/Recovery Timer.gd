@@ -1,13 +1,18 @@
 extends Timer
 
+@export var  Character: CharacterBody2D
 @export var Animator: AnimationPlayer
-@export var Character: CharacterBody2D
+@export var Player_Stats: Node
+func calculate_recovery(new_recovery: float):
+	# Get the current attack animation and multiply the time.
+	# By the player stamina rating. Set the wait time to new recovery.
+	var animation_length = Animator.current_animation_length
+	var stamina_rating = Player_Stats.Stamina_Rating
 
-# Calculate the attack length and multiply the stamina rating to get.
-# Exact time to recover to idle state.
-func _calculate_recovery(new_recovery: float):
-	var attack_length: float = Animator.current_animation_length
-	var stamina_rate: float = Character.Stamina_Rating
+	new_recovery = animation_length * stamina_rating
+	wait_time = new_recovery
+	print(wait_time)
 
-	new_recovery = stamina_rate * attack_length
+
+
 

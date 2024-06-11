@@ -5,7 +5,7 @@ signal FacingLeft
 signal FacingRight
 signal JumpCloud
 # Test to see if i can add the resource during instancing. #
-var Controls: Resource = preload('res://Character Resouces/Global/Controller Resource/Player_3.tres')
+var Controls: Resource
 @onready var Player_Stats: Node = $'Player Stats'
 @onready var Animator: AnimationPlayer = $Animator
 @onready var Sprite: Sprite2D = $Sprite
@@ -61,7 +61,6 @@ func _physics_process(delta: float) -> void:
 	_get_movement()
 	move_and_slide()
 func _process(delta: float) -> void:
-	print(input_buffer)
 	gravity_controller()
 	on_wall()
 	_process_input()
@@ -253,13 +252,9 @@ func _process_immediate_action():
 
 			"direction":
 				if input_action.value == "left" and Sprite.flip_h == false:
-					if is_on_floor():
-						Animator.state = Turning
 					FacingLeft.emit()
 
 				if input_action.value == "right" and Sprite.flip_h == true:
-					if is_on_floor():
-						Animator.state = Turning
 					FacingRight.emit()
 
 			"attack":

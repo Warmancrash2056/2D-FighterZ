@@ -1,6 +1,5 @@
-extends Timer
+extends Node2D
 
-<<<<<<<< HEAD:Character Resouces/Goku/Character Scenes/Refresh Block.gd
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,6 +9,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-========
-@export var Icon: Texture
->>>>>>>> Fighterz-Test:Character Resouces/Goku/Character Scenes/Player Controller.gd

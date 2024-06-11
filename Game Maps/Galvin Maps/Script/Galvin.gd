@@ -16,30 +16,13 @@ const MAX_ZOOM_DISTANCE = 3000.0
 const CAMERA_MOVE_THRESHOLD = 5.0
 
 func _ready() -> void:
-	setup_camera()
-	GameAuido._galvin_map_play()
 	await get_tree().create_timer(2).timeout
 	# Set player properties directly
-	var player_1_hurtbox = player_1_spawn.get_node("Hurtbox")
-	var player_1_spawn = get_gr
-	var player_1_hitbox = player_1_spawn.get_node("Hitbox")
-	player_1_hurtbox.set_collision_layer_value(5, true)
-	player_1_hurtbox.set_collision_mask_value(10, true)
-	player_1_hitbox.set_collision_layer_value(6, true)
-	player_1_hitbox.set_collision_mask_value(9, true)
-	player_1_hurtbox.set_script("res://Character Resouces/Goku/Character Scenes/Player 1 Hurtbox.gd")
-	player_1_spawn.controls = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
+
+	player_1_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
 	player_1_spawn.position = Vector2(192, -328)
 	call_deferred("add_child", player_1_spawn)
-
-	var player_2_hurtbox = player_2_spawn.get_node("Hurtbox")
-	var player_2_hitbox = player_2_spawn.get_node("Hitbox")
-	player_2_hurtbox.set_collision_layer_value(9, true)
-	player_2_hurtbox.set_collision_mask_value(6, true)
-	player_2_hitbox.set_collision_layer_value(10, true)
-	player_2_hitbox.set_collision_mask_value(5, true)
-	player_2_hurtbox.set_script("res://Character Resouces/Goku/Character Scenes/Player 2 Hurtbox.gd")
-	player_2_spawn.controls = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
+	player_2_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
 	player_2_spawn.position = Vector2(-192, -328)
 	call_deferred("add_child", player_2_spawn)
 

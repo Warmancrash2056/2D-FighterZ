@@ -7,11 +7,12 @@ var knockback_multiplier: float
 signal IsHurt(Damage: int)
 
 func _on_area_entered(area: Area2D) -> void:
-	var stun_time: float = area.Stun_Time
+	print("detect")
 	var Damage: int = area.Damage
+	IsHurt.emit(Damage)
+	var stun_time: float = area.Stun_Time
 	var knockback_x: int = area.Knockback_X
 	var knockback_y: int = area.Knockback_Y
-	IsHurt.emit(Damage)
 
 
 func _on_is_hurt(Damage: int) -> void:

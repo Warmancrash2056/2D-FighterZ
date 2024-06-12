@@ -109,8 +109,22 @@ func _physics_process(delta):
 		Wall:
 			play("Wall")
 
+
+			if Wall_Detector.target_position.x == -9:
+				Sprite.flip_h = false
+
+			else:
+				Sprite.flip_h = true
+
+
 			if !Character.is_on_wall() and !Wall_Detector.is_colliding():
 				state = Air
+				Character.can_jump = true
+				Character.can_direct = true
+
+			else:
+				Character.can_jump = false
+				Character.can_direct = false
 		Respawn:
 			play("Respawn")
 
@@ -221,7 +235,6 @@ func _start_player_movement():
 
 # At first frame disable or enable player actions.
 func _on_is_attacking():
-	Character.can_move = false
 	Character.can_jump = false
 	Character.can_direct = false
 	Character.can_attack = false
@@ -230,7 +243,6 @@ func _attack_deactive():
 	IsResetting.emit()
 
 func _on_is_resetting():
-	Character.can_move = true
 	Character.can_jump = true
 	Character.can_direct = true
 	Character.can_attack = true

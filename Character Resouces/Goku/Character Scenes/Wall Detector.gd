@@ -8,17 +8,10 @@ func _process(delta: float) -> void:
 	if Character.is_on_wall() and is_colliding():
 		Player_Stats.Jump_Count = 3
 
-		if target_position.x == -11:
-			Sprite.flip_h = false
-
-		else:
-			Sprite.flip_h = true
-
-
 
 func _on_movement_controller_facing_left() -> void:
-	target_position.x = -11
+	target_position.x = -9
 
 
 func _on_movement_controller_facing_right() -> void:
-	target_position.x = 11
+	target_position.x = 9

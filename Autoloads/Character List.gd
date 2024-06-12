@@ -1,4 +1,4 @@
-extends Node
+class_name GameManager extends Node
 
 var galvin_player_respawn = Vector2(0,-328)
 var get_player_1 = null

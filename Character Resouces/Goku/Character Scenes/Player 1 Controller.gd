@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player1Controller extends CharacterBody2D
 
 signal Player1Box
 signal FacingLeft
@@ -15,7 +15,7 @@ var direction = 1
 var movement_dir: Vector2
 var input_buffer = []
 var max_buffer_limit = 3
-var buffer_time = 0.01
+var buffer_time = 0.1
 
 
 var can_move = true
@@ -92,18 +92,24 @@ func _get_movement():
 		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
 		movement_dir.normalized()
 
-		if movement_dir.x == 1 and Sprite.flip_h == false:
+		if movement_dir.x == 1:
 			velocity.x = move_toward(velocity.x, new_speed, Player_Stats.Acceleration)
 
-		elif  movement_dir.x == -1 and Sprite.flip_h == true:
+		elif  movement_dir.x == -1:
 			velocity.x = move_toward(velocity.x, -new_speed, Player_Stats.Acceleration)
 
 		else:
 			velocity.x = move_toward(velocity.x, 0, Player_Stats.Decelleration)
 func on_wall():
-	if is_on_wall() and Wall_Detector.is_colliding():
-		Animator.state = Wall
+	if is_on_wall():
+		if Animator.state == Air and Wall_Detector.is_colliding():
+			Animator.state = Wall
 
+			if Wall_Detector.target_position.x == -9:
+				Sprite.flip_h = false
+
+			else:
+				Sprite.flip_h = true
 
 func _process_input():
 	if can_direct == true:
@@ -253,10 +259,12 @@ func _process_immediate_action():
 			"direction":
 				if input_action.value == "left" and Sprite.flip_h == false:
 					FacingLeft.emit()
+					CharacterList.player_1_facing_left = true
+
 
 				if input_action.value == "right" and Sprite.flip_h == true:
 					FacingRight.emit()
-
+					CharacterList.player_1_facing_left = false
 			"attack":
 				if input_action.value == "throw" and input_action.onground == true:
 					Animator.state = Ground_Throw
@@ -303,3 +311,7 @@ func _on_animator_disable_movement() -> void:
 
 func _on_animator_enable_move_ment() -> void:
 	can_move = true
+
+
+func _on_stun_time_timeout() -> void:
+	pass # Replace with function body.

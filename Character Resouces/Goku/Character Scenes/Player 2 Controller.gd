@@ -7,6 +7,7 @@ signal JumpCloud
 # Test to see if i can add the resource during instancing. #
 var Controls: Resource
 @onready var Player_Stats: Node = $'Player Stats'
+@onready var Player_Icon: Node2D = $'Player Icon'
 @onready var Animator: AnimationPlayer = $Animator
 @onready var Sprite: Sprite2D = $Sprite
 @onready var Wall_Detector: RayCast2D = $'Wall Detector'
@@ -55,7 +56,8 @@ enum {
 
 var state = Respawn
 func _ready():
-	Player1Box.emit()
+	CharacterList.player_2_icon = Player_Icon.Icon
+	CharacterList.player_2_health = Player_Stats.Health
 
 func _physics_process(delta: float) -> void:
 	_get_movement()
@@ -314,3 +316,8 @@ func _on_animator_enable_move_ment() -> void:
 
 func _on_stun_time_timeout() -> void:
 	pass # Replace with function body.
+
+
+func _on_hurtbox_is_hurt(Damage: int) -> void:
+	CharacterList.player_1_health = Player_Stats.Health
+	Animator.state = Hurt

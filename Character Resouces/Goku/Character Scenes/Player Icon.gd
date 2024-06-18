@@ -1,3 +1,3 @@
 extends Node2D
 
-@export var Player_Icon: Texture
+@export var Icon: Texture

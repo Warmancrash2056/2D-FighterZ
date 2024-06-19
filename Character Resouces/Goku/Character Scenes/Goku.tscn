@@ -63,7 +63,7 @@ radius = 6.5
 height = 39.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d5adm"]
-radius = 5.5
+radius = 6.5
 height = 17.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhnwd"]
@@ -6229,20 +6229,6 @@ tracks/2/keys = {
 "method": &"_on_is_attacking"
 }]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Animator")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"enable_vertical_attack_movement"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_xwvap"]
 length = 0.001
@@ -7403,90 +7389,11 @@ tracks/26/path = NodePath("../Animator")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"start_attack_movment"
-}, {
-"args": [],
-"method": &"stop_attack_movment"
-}]
-}
-tracks/27/type = "method"
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/path = NodePath("../Animator")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"_start_attack_friction"
-}, {
-"args": [],
-"method": &"_stop_attack_friction"
-}]
-}
-tracks/28/type = "method"
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/path = NodePath("../Animator")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"_stop_player_movement"
-}, {
-"args": [],
-"method": &"_start_player_movement"
-}]
-}
-tracks/29/type = "method"
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/path = NodePath("../Animator")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_on_is_attacking"
-}]
-}
-tracks/30/type = "method"
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/path = NodePath("../Recovery Timer")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [0.0],
-"method": &"calculate_recovery"
-}]
-}
-tracks/31/type = "method"
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/path = NodePath("../Recovery Timer")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/keys = {
-"times": PackedFloat32Array(1.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [-1],
-"method": &"start"
 }]
 }
 
@@ -8567,6 +8474,7 @@ metadata/_edit_group_ = true
 
 [node name="Initial Kick" type="CollisionShape2D" parent="Scale Player/Goku | Side Air Start"]
 visible = false
+position = Vector2(17, -10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_d5adm")
 disabled = true
@@ -8581,6 +8489,8 @@ Sprite = NodePath("../../Sprite")
 metadata/_edit_group_ = true
 
 [node name="Finishing Kick" type="CollisionShape2D" parent="Scale Player/Goku | Side Air Final"]
+visible = false
+position = Vector2(18.5, -10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uhnwd")
 disabled = true
@@ -8597,11 +8507,9 @@ Damage = 50
 Constant_Force = Vector2(20, 20)
 
 [node name="Small Pillar" type="CollisionShape2D" parent="Scale Player/Goku | Side Heavy Start"]
-visible = false
 position = Vector2(30, 7.5)
 rotation = 0.705113
 shape = SubResource("CapsuleShape2D_lm0pa")
-disabled = true
 
 [node name="Goku | Side Heavy End" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Side Heavy End"]]
 collision_layer = 32
@@ -8717,7 +8625,7 @@ position = Vector2(0, -40)
 texture = ExtResource("2_50hod")
 hframes = 10
 vframes = 19
-frame = 123
+frame = 118
 script = ExtResource("12_ui1va")
 
 [node name="Player Indicator" type="Sprite2D" parent="."]
@@ -8750,7 +8658,7 @@ Animator = NodePath("../Animator")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox"]
 z_index = 10
-position = Vector2(0.5, -9.5)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_qamvs")
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
@@ -8815,9 +8723,22 @@ Speed_Rating = 0.8
 Max_Speed = 250
 Acceleration = 18
 Decelleration = 30
-Jump_Height = 400
-Gravity = 15
+Jump_Height = 450
+Gravity = 8
 Defense_Rating = 0.7
+Health = 1000.0
+Attack_Rating = 2.0
+Stamina_Rating = 0.7
+
+[node name="Player Stats2" type="Node" parent="."]
+script = ExtResource("24_8qm85")
+Speed_Rating = 0.8
+Max_Speed = 250
+Acceleration = 18
+Decelleration = 30
+Jump_Height = 450
+Gravity = 8
+Defense_Rating = 0.3
 Health = 1000.0
 Attack_Rating = 2.0
 Stamina_Rating = 0.7

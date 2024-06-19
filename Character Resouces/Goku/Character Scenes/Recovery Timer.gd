@@ -14,5 +14,5 @@ func calculate_recovery(new_recovery: float):
 	print(wait_time)
 
 
-func _on_goku__nuetral_air_left_side_attack_connected() -> void:
-	pass
+
+

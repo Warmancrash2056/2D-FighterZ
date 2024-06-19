@@ -81,12 +81,12 @@ func _physics_process(delta):
 	_attack_movment_controller()
 	match state:
 		Idle:
-
-			if Character.movement_dir.x == 0:
-				play("Idle")
+			if Character.velocity.x !=0:
+				play("Run")
 
 			else:
-				play("Run")
+				play("Idle")
+
 
 
 			if !Character.is_on_floor():
@@ -125,14 +125,6 @@ func _physics_process(delta):
 			else:
 				Character.can_jump = false
 				Character.can_direct = false
-
-		Hurt:
-			Character.velocity.x
-			if Character.is_on_floor():
-				play("Ground Hurt")
-
-			else:
-				play("Air Hurt")
 		Respawn:
 			play("Respawn")
 
@@ -211,7 +203,6 @@ func _attack_movment_controller():
 func idle_reset():
 	Attack_Vector = Vector2.ZERO
 	OnGround.emit()
-	Character.velocity.x = 0
 	if Character.is_on_floor():
 		state = Idle
 	if !Character.is_on_floor():
@@ -273,8 +264,3 @@ func _on_attack_moving_y(Vector: Variant) -> void:
 # From timer node reenable attack and dodge
 func _on_recovery_timer_timeout() -> void:
 	IsResetting.emit()
-
-
-
-func _on_stun_time_timeout() -> void:
-	idle_reset()

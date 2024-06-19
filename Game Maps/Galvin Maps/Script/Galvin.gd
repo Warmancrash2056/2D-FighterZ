@@ -16,16 +16,14 @@ const MAX_ZOOM_DISTANCE = 3000.0
 const CAMERA_MOVE_THRESHOLD = 5.0
 
 func _ready() -> void:
+	await get_tree().create_timer(2).timeout
 	# Set player properties directly
-	player_1_spawn.set_script(CharacterList.get_player_1_script)
+
 	player_1_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
 	player_1_spawn.position = Vector2(192, -328)
-	player_2_spawn.set_script(CharacterList.get_player_2_script)
+	call_deferred("add_child", player_1_spawn)
 	player_2_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
 	player_2_spawn.position = Vector2(-192, -328)
-
-	await get_tree().create_timer(1).timeout
-	call_deferred("add_child", player_1_spawn)
 	call_deferred("add_child", player_2_spawn)
 
 	setup_camera()

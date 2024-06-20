@@ -1,5 +1,5 @@
 extends Area2D
-
+@onready var Stun_Timer: Timer = $'Stun Time'
 @export var Character:CharacterBody2D
 @export var Player_Stats: Node
 @export var Sprite: Sprite2D
@@ -9,23 +9,46 @@ signal IsHurt(Damage: int)
 var stun_time: float
 var constant_force: Vector2
 var variable_force: Vector2
+enum {
+	Idle,
+	Turning,
+	Running,
+	Dash,
+	Wall,
+	Air,
+	Ground_Block,
+	Air_Block,
+	Neutral_Light,
+	Neutral_Heavy,
+	Neutral_Air,
+	Neutral_Recovery,
+	Side_Light,
+	Side_Heavy,
+	Side_Air,
+	Down_Light,
+	Down_Heavy,
+	Down_Air,
+	Dowm_Recovery,
+	Ground_Throw,
+	Air_Throw,
+	Hurt,
+	Recover,
+	Respawn
+}
 
-enum {Idle, Air, Hurt}
 
 func _process(delta: float) -> void:
 	if Animator.state == Hurt:
-		_constant_force(constant_force)
+		_apply_constant_force(constant_force)
 
 
 func _on_area_entered(area: Area2D) -> void:
 	print("detect")
-	var Damage: int = area.Damage
-	IsHurt.emit(Damage)
-	stun_time = area.Stun_Time
+	IsHurt.emit(area.Damage)
+	calculate_stun(area.Stun_Time)
 	constant_force = area.Constant_Force
-	variable_force = area.Variable_Force
-	_constant_force(constant_force)
-func _constant_force(Constant: Vector2):
+
+func _apply_constant_force(Constant: Vector2):
 	if Sprite.flip_h == true:
 		Constant.x
 
@@ -34,6 +57,12 @@ func _constant_force(Constant: Vector2):
 
 	Character.velocity = Constant
 
+func calculate_stun(Recovery: float):
+	var stamina_rating: float = Player_Stats.Stamina_Rating
+	var stuned_time: float = Recovery * stamina_rating
+
+	Stun_Timer.set_wait_time(stuned_time)
+	Stun_Timer.start()
 
 
 func _on_is_hurt(Damage: int) -> void:

@@ -260,8 +260,8 @@ scale = Vector2(1.5, 1.5)
 theme_override_fonts/normal_font = ExtResource("2_hpbea")
 fit_content = true
 
-[connection signal="value_changed" from="MarginContainer/TabContainer/Game/Master Volume Slider" to="MarginContainer" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/TabContainer/Game/Master Volume Slider" to="MarginContainer" method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/TabContainer/Game/Master Volume Slider" to="MarginContainer" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/TabContainer/Game/SFX Slider" to="MarginContainer" method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/TabContainer/Game/Music Slider" to="MarginContainer" method="_on_music_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/TabContainer/Game/V - Sync Enabler" to="MarginContainer" method="_on_v__sync_enabler_toggled"]

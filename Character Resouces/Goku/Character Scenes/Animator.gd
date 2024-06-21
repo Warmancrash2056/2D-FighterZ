@@ -49,8 +49,8 @@ signal AttackFriction(Friction)
 
 enum {
 	Idle,
-	Turning,
 	Running,
+	Turning,
 	Dash,
 	Wall,
 	Air,
@@ -81,16 +81,10 @@ func _physics_process(delta):
 	_attack_movment_controller()
 	match state:
 		Idle:
-			if Character.velocity.x !=0:
-				play("Run")
+			play("Idle")
 
-			else:
-				play("Idle")
-
-
-
-			if !Character.is_on_floor():
-				state = Air
+		Running:
+			play("Run")
 		Turning:
 			play("Turn")
 
@@ -125,6 +119,13 @@ func _physics_process(delta):
 			else:
 				Character.can_jump = false
 				Character.can_direct = false
+
+		Hurt:
+			if Character.is_on_floor():
+				play("Ground Hurt")
+
+			else:
+				play("Air Hurt")
 		Respawn:
 			play("Respawn")
 
@@ -205,8 +206,10 @@ func idle_reset():
 	OnGround.emit()
 	if Character.is_on_floor():
 		state = Idle
+		play("Idle")
 	if !Character.is_on_floor():
 		state = Air
+		play("Fall")
 
 func enable_vertical_attack_movement():
 	enable_y_movement = true
@@ -263,4 +266,10 @@ func _on_attack_moving_y(Vector: Variant) -> void:
 
 # From timer node reenable attack and dodge
 func _on_recovery_timer_timeout() -> void:
+	IsResetting.emit()
+
+
+func _on_stun_time_timeout() -> void:
+	idle_reset()
+	_start_player_movement()
 	IsResetting.emit()

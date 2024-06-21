@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=82 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player 1 Controller.gd" id="1_4cq2u"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Goku/Spritesheet/Goku-Sheet.png" id="2_50hod"]
@@ -26,7 +26,9 @@
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Recovery Timer.gd" id="22_ggqu3"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Wall Detector.gd" id="22_kaudo"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player Stats.gd" id="24_8qm85"]
+[ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player Icon.gd" id="27_8er01"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Floor Detector.gd" id="27_n06iq"]
+[ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Goku/Icon/Goku.png" id="28_caldb"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Player 1 Identifier.gd" id="29_w0n2c"]
 [ext_resource type="Script" path="res://Character Resouces/Goku/Character Scenes/Body.gd" id="29_xfhue"]
 
@@ -8822,15 +8824,16 @@ script = ExtResource("1_4cq2u")
 z_index = 1
 script = ExtResource("2_hdr0l")
 
-[node name="Area2D" type="Area2D" parent="Scale Player"]
+[node name="Area2D" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Force"]]
 z_index = 5
 position = Vector2(20.5, -8.5)
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("3_vttb8")
-Stun_Time = 0.28
-Damage = 30
-Constant_Force = Vector2(200, -200)
+Sprite = NodePath("../../Sprite")
+Stun_Time = 0.5
+Damage = 50
+Constant_Force = Vector2(250, -150)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale Player/Area2D"]
 visible = false
@@ -8839,10 +8842,11 @@ shape = SubResource("CapsuleShape2D_yucej")
 disabled = true
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Goku | Nuetral Air Left Side" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Air Left Side"]]
+[node name="Goku | Nuetral Air Left Side" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Force", "Goku | Nuetral Air Left Side"]]
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("3_vttb8")
+Sprite = NodePath("../../Sprite")
 
 [node name="Left Side Nuetral Air" type="CollisionShape2D" parent="Scale Player/Goku | Nuetral Air Left Side"]
 visible = false
@@ -8852,7 +8856,7 @@ shape = SubResource("CapsuleShape2D_pjkur")
 disabled = true
 debug_color = Color(0.239216, 0.231373, 1, 0.698039)
 
-[node name="Goku | Down Air" type="Area2D" parent="Scale Player" groups=["Goku | Down Air"]]
+[node name="Goku | Down Air" type="Area2D" parent="Scale Player" groups=["Force", "Goku | Down Air"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -8864,7 +8868,7 @@ shape = SubResource("CapsuleShape2D_6cfjw")
 disabled = true
 debug_color = Color(0.521569, 0.572549, 0.027451, 0.419608)
 
-[node name="Goku | Neautral Heavy Positioner" type="Area2D" parent="Scale Player" groups=["Goku | Neautral Heavy Positioner"]]
+[node name="Goku | Neautral Heavy Positioner" type="Area2D" parent="Scale Player" groups=["Goku | Neautral Heavy Positioner", "Positioner"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -8876,7 +8880,7 @@ disabled = true
 debug_color = Color(0.709804, 0.486275, 0, 0.419608)
 script = ExtResource("2_dnphb")
 
-[node name="Goku | Neautral Heavy Shatter" type="Area2D" parent="Scale Player" groups=["Goku | Neautral Heavy Shatter"]]
+[node name="Goku | Neautral Heavy Shatter" type="Area2D" parent="Scale Player" groups=["Force", "Goku | Neautral Heavy Shatter"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -8888,7 +8892,7 @@ shape = SubResource("CapsuleShape2D_www3h")
 disabled = true
 debug_color = Color(0.788235, 0.160784, 0.964706, 0.419608)
 
-[node name="Goku | Nuetral Air Middle Side" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Air Middle Side"]]
+[node name="Goku | Nuetral Air Middle Side" type="Area2D" parent="Scale Player" groups=["Force", "Goku | Nuetral Air Middle Side"]]
 position = Vector2(-20.5, -11)
 rotation = 1.5708
 collision_layer = 32
@@ -8901,7 +8905,7 @@ shape = SubResource("CapsuleShape2D_ufmp6")
 disabled = true
 debug_color = Color(0.498039, 0.584314, 0, 0.419608)
 
-[node name="Goku | Nuetral Air Right Side" type="Area2D" parent="Scale Player" groups=["Goku | Nuetral Air Right Side"]]
+[node name="Goku | Nuetral Air Right Side" type="Area2D" parent="Scale Player" groups=["Force", "Goku | Nuetral Air Right Side"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -8913,11 +8917,14 @@ shape = SubResource("CapsuleShape2D_vl3fl")
 disabled = true
 debug_color = Color(0.588235, 0.376471, 1, 0.419608)
 
-[node name="Goku | Down Light Start" type="Area2D" parent="Scale Player" groups=["Goku | Down Light"]]
+[node name="Goku | Down Light Start" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Force", "Goku | Down Light"]]
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("3_vttb8")
-Damage = 50
+Sprite = NodePath("../../Sprite")
+Stun_Time = 0.28
+Damage = 45
+Constant_Force = Vector2(0, -25)
 
 [node name="Starting Kick" type="CollisionShape2D" parent="Scale Player/Goku | Down Light Start"]
 visible = false
@@ -8927,9 +8934,14 @@ shape = SubResource("CapsuleShape2D_tqa1m")
 disabled = true
 debug_color = Color(0, 0.643137, 0.317647, 0.419608)
 
-[node name="Goku | Down Light Final" type="Area2D" parent="Scale Player" groups=["Goku | Down Light Final"]]
+[node name="Goku | Down Light Final" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Force", "Goku | Down Light Final"]]
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("3_vttb8")
+Sprite = NodePath("../../Sprite")
+Stun_Time = 0.28
+Damage = 55
+Constant_Force = Vector2(0, -276)
 
 [node name="Final Kick" type="CollisionShape2D" parent="Scale Player/Goku | Down Light Final"]
 visible = false
@@ -8939,7 +8951,7 @@ shape = SubResource("CapsuleShape2D_tqa1m")
 disabled = true
 debug_color = Color(1, 0.0196078, 0, 0.419608)
 
-[node name="Goku | Down Heavy Initial" type="Area2D" parent="Scale Player" groups=["Goku | Down Heavy Initial"]]
+[node name="Goku | Down Heavy Initial" type="Area2D" parent="Scale Player" groups=["Force", "Goku | Down Heavy Initial"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -8950,7 +8962,7 @@ shape = SubResource("CapsuleShape2D_emolw")
 disabled = true
 debug_color = Color(0.556863, 0.34902, 0.972549, 0.419608)
 
-[node name="Goku | Down Heavy Final" type="Area2D" parent="Scale Player" groups=["Goku | Down Heavy Final"]]
+[node name="Goku | Down Heavy Final" type="Area2D" parent="Scale Player" groups=["Force", "Goku | Down Heavy Final"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -8962,7 +8974,7 @@ shape = SubResource("CapsuleShape2D_okev4")
 disabled = true
 debug_color = Color(0.937255, 0.12549, 0, 0.419608)
 
-[node name="Goku | Side Air Start" type="Area2D" parent="Scale Player" groups=["Goku | Side Air Start"]]
+[node name="Goku | Side Air Start" type="Area2D" parent="Scale Player" groups=["Goku | Side Air Start", "Positioner"]]
 position = Vector2(17.5, -9.5)
 collision_layer = 32
 collision_mask = 16
@@ -8975,7 +8987,7 @@ shape = SubResource("CapsuleShape2D_d5adm")
 disabled = true
 debug_color = Color(1, 0, 0.141176, 0.419608)
 
-[node name="Goku | Side Air Final" type="Area2D" parent="Scale Player" groups=["Goku | Side Air Final"]]
+[node name="Goku | Side Air Final" type="Area2D" parent="Scale Player" groups=["Force", "Goku | Side Air Final"]]
 position = Vector2(18, -9.5)
 collision_layer = 16
 collision_mask = 32
@@ -8988,7 +9000,7 @@ shape = SubResource("CapsuleShape2D_uhnwd")
 disabled = true
 debug_color = Color(0.901961, 0.235294, 0.513726, 0.419608)
 
-[node name="Goku | Side Heavy Start" type="Area2D" parent="Scale Player" groups=["Goku | Side Heavy End"]]
+[node name="Goku | Side Heavy Start" type="Area2D" parent="Scale Player" groups=["Force", "Goku | Side Heavy End"]]
 position = Vector2(1.5, 0)
 collision_layer = 32
 collision_mask = 16
@@ -9000,7 +9012,7 @@ rotation = 0.705113
 shape = SubResource("CapsuleShape2D_lm0pa")
 disabled = true
 
-[node name="Goku | Side Heavy End" type="Area2D" parent="Scale Player" groups=["Goku | Side Heavy End"]]
+[node name="Goku | Side Heavy End" type="Area2D" parent="Scale Player" groups=["Force", "Goku | Side Heavy End"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -9011,7 +9023,7 @@ rotation = 0.785398
 shape = SubResource("CapsuleShape2D_i4cnc")
 disabled = true
 
-[node name="Goku | Side Light Punch - Initial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Punch - Initial Damager"]]
+[node name="Goku | Side Light Punch - Initial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Punch - Initial Damager", "Positioner"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -9023,7 +9035,7 @@ shape = SubResource("CircleShape2D_l30jt")
 disabled = true
 debug_color = Color(0.972549, 0, 0.435294, 0.419608)
 
-[node name="Goku | Side Light Punch - Finial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Punch - Finial Damager"]]
+[node name="Goku | Side Light Punch - Finial Damager" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Punch - Finial Damager", "Positioner"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -9035,7 +9047,7 @@ shape = SubResource("CircleShape2D_l30jt")
 disabled = true
 debug_color = Color(0.145098, 0.258824, 0.890196, 0.419608)
 
-[node name="Goku | Side Light Transitional Check" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Transitional Check"]]
+[node name="Goku | Side Light Transitional Check" type="Area2D" parent="Scale Player" groups=["Goku | Side Light Transitional Check", "Positioner"]]
 collision_layer = 32
 collision_mask = 16
 
@@ -9047,9 +9059,13 @@ shape = SubResource("CircleShape2D_drh4y")
 disabled = true
 debug_color = Color(0, 0.533333, 0.141176, 0.419608)
 
-[node name="Goku Sde Light Finish - First Punch" type="Area2D" parent="Scale Player" groups=["Goku Sde Light Finish - First Punch"]]
+[node name="Goku Sde Light Finish - First Punch" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku Sde Light Finish - First Punch", "Positioner"]]
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("3_vttb8")
+Sprite = NodePath("../../Sprite")
+Stun_Time = 0.6
+Damage = 10
 
 [node name="First Punch" type="CollisionShape2D" parent="Scale Player/Goku Sde Light Finish - First Punch"]
 visible = false
@@ -9058,9 +9074,14 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jsj12")
 disabled = true
 
-[node name="Goku Sde Light Finish - Second Punch" type="Area2D" parent="Scale Player" groups=["Goku Sde Light Finish - Second Punch"]]
+[node name="Goku Sde Light Finish - Second Punch" type="Area2D" parent="Scale Player" node_paths=PackedStringArray("Sprite") groups=["Force", "Goku Sde Light Finish - Second Punch"]]
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("3_vttb8")
+Sprite = NodePath("../../Sprite")
+Stun_Time = 0.5
+Damage = 100
+Constant_Force = Vector2(400, 0)
 
 [node name="First Punch" type="CollisionShape2D" parent="Scale Player/Goku Sde Light Finish - Second Punch"]
 visible = false
@@ -9099,11 +9120,10 @@ position = Vector2(0, -40)
 texture = ExtResource("2_50hod")
 hframes = 10
 vframes = 19
-frame = 131
+frame = 62
 script = ExtResource("12_ui1va")
 
 [node name="Player Indicator" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 0, 0.447059)
 position = Vector2(0, -25)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_pqra7")
@@ -9144,6 +9164,7 @@ libraries = {
 }
 
 [node name="Stun Time" type="Timer" parent="Hurtbox"]
+one_shot = true
 
 [node name="Body" type="CollisionShape2D" parent="."]
 z_index = 10
@@ -9193,6 +9214,8 @@ Character = NodePath("..")
 Player_Stats = NodePath("../Player Stats")
 
 [node name="Player Icon" type="Node2D" parent="."]
+script = ExtResource("27_8er01")
+Icon = ExtResource("28_caldb")
 
 [node name="Player Stats" type="Node" parent="."]
 script = ExtResource("24_8qm85")
@@ -9200,8 +9223,8 @@ Speed_Rating = 0.8
 Max_Speed = 250
 Acceleration = 18
 Decelleration = 30
-Jump_Height = 450
-Gravity = 18
+Jump_Height = 350
+Gravity = 9
 Defense_Rating = 0.3
 Health = 1000.0
 Attack_Rating = 50
@@ -9260,11 +9283,12 @@ script = ExtResource("29_w0n2c")
 [connection signal="OnGround" from="Animator" to="Wall Detector" method="_on_animator_on_ground"]
 [connection signal="OnGround" from="Animator" to="Floor Detector" method="_on_animator_on_ground"]
 [connection signal="OnGround" from="Animator" to="Player Stats" method="_on_animator_on_ground"]
+[connection signal="IsHurt" from="Hurtbox" to="." method="_on_hurtbox_is_hurt"]
 [connection signal="IsHurt" from="Hurtbox" to="Hurtbox" method="_on_is_hurt"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
-[connection signal="area_exited" from="Hurtbox" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_exited" from="Hurtbox" to="Hurtbox" method="_on_area_exited"]
 [connection signal="timeout" from="Hurtbox/Stun Time" to="." method="_on_stun_time_timeout"]
+[connection signal="timeout" from="Hurtbox/Stun Time" to="Animator" method="_on_stun_time_timeout"]
 [connection signal="timeout" from="Hurtbox/Stun Time" to="Hurtbox" method="_on_stun_time_timeout"]
 [connection signal="timeout" from="Recovery Timer" to="." method="_on_recovery_timer_timeout"]
 [connection signal="timeout" from="Recovery Timer" to="Animator" method="_on_recovery_timer_timeout"]

@@ -1,4 +1,4 @@
-class_name Player1Controller extends CharacterBody2D
+extends CharacterBody2D
 
 signal Player1Box
 signal FacingLeft
@@ -7,6 +7,8 @@ signal JumpCloud
 # Test to see if i can add the resource during instancing. #
 var Controls: Resource
 @onready var Player_Stats: Node = $'Player Stats'
+@onready var PLayer_Icon: Node2D = $'Player Icon'
+@onready var Player_Indicator: Sprite2D = $'Player Indicator'
 @onready var Animator: AnimationPlayer = $Animator
 @onready var Sprite: Sprite2D = $Sprite
 @onready var Wall_Detector: RayCast2D = $'Wall Detector'
@@ -51,17 +53,17 @@ enum {
 	Respawn
 }
 
-
-
 var state = Respawn
 func _ready():
-	Player1Box.emit()
+	CharacterList.player_1_icon = PLayer_Icon.Icon
+	CharacterList.player_1_health = Player_Stats.Health
+	Player_Indicator.modulate = Color(0, 1, 1, 1)
 
 func _physics_process(delta: float) -> void:
 	_get_movement()
 	move_and_slide()
-func _process(delta: float) -> void:
 	gravity_controller()
+func _process(delta: float) -> void:
 	on_wall()
 	_process_input()
 	_process_attack_input()
@@ -82,12 +84,15 @@ func gravity_controller():
 func _get_movement():
 	var new_speed
 	var air_rating: float = Player_Stats.Speed_Rating + 0.25
-
+	var decelleration =  Player_Stats.Decelleration
 	if is_on_floor():
 		new_speed = Player_Stats.Max_Speed * Player_Stats.Speed_Rating
-
+		decelleration =  Player_Stats.Decelleration
 	else:
 		new_speed = air_rating * Player_Stats.Max_Speed
+		decelleration =  5
+
+
 	if can_move == true:
 		movement_dir = Vector2(Input.get_action_strength(Controls.right) - Input.get_action_strength(Controls.left),0)
 		movement_dir.normalized()
@@ -99,7 +104,7 @@ func _get_movement():
 			velocity.x = move_toward(velocity.x, -new_speed, Player_Stats.Acceleration)
 
 		else:
-			velocity.x = move_toward(velocity.x, 0, Player_Stats.Decelleration)
+			velocity.x = move_toward(velocity.x, 0, decelleration)
 func on_wall():
 	if is_on_wall():
 		if Animator.state == Air and Wall_Detector.is_colliding():
@@ -315,3 +320,8 @@ func _on_animator_enable_move_ment() -> void:
 
 func _on_stun_time_timeout() -> void:
 	pass # Replace with function body.
+
+
+func _on_hurtbox_is_hurt(Damage: int) -> void:
+	CharacterList.player_1_health = Player_Stats.Health
+

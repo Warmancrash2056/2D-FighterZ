@@ -9120,7 +9120,7 @@ position = Vector2(0, -40)
 texture = ExtResource("2_50hod")
 hframes = 10
 vframes = 19
-frame = 62
+frame = 131
 script = ExtResource("12_ui1va")
 
 [node name="Player Indicator" type="Sprite2D" parent="."]
@@ -9224,7 +9224,7 @@ Max_Speed = 250
 Acceleration = 18
 Decelleration = 30
 Jump_Height = 350
-Gravity = 9
+Gravity = 12
 Defense_Rating = 0.3
 Health = 1000.0
 Attack_Rating = 50

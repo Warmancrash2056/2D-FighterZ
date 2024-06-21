@@ -83,8 +83,15 @@ func _physics_process(delta):
 		Idle:
 			play("Idle")
 
+			if Character.movement_dir.x != 0:
+				state = Running
+
+
 		Running:
 			play("Run")
+
+			if Character.movement_dir.x == 0:
+				state = Idle
 		Turning:
 			play("Turn")
 

@@ -9120,7 +9120,7 @@ position = Vector2(0, -40)
 texture = ExtResource("2_50hod")
 hframes = 10
 vframes = 19
-frame = 131
+frame = 101
 script = ExtResource("12_ui1va")
 
 [node name="Player Indicator" type="Sprite2D" parent="."]
@@ -9256,6 +9256,10 @@ script = ExtResource("29_w0n2c")
 [connection signal="FacingRight" from="." to="Body" method="_on_movement_controller_facing_right"]
 [connection signal="FacingRight" from="." to="Wall Detector" method="_on_movement_controller_facing_right"]
 [connection signal="JumpCloud" from="." to="Jump Smoke" method="_on_movement_controller_jump_cloud"]
+[connection signal="AttackConnected" from="Scale Player/Area2D" to="Scale Player/Area2D" method="_on_attack_connected"]
+[connection signal="AttackConnected" from="Scale Player/Area2D" to="Hurtbox" method="_on_area_2d_attack_connected"]
+[connection signal="AttackConnected" from="Scale Player/Area2D" to="Recovery Timer" method="_on_area_2d_attack_connected"]
+[connection signal="area_entered" from="Scale Player/Area2D" to="Scale Player/Area2D" method="_on_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku | Nuetral Air Left Side" to="." method="_on_goku__nuetral_air_left_side_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku | Down Air" to="." method="_on_goku__down_air_area_entered"]
 [connection signal="area_entered" from="Scale Player/Goku | Neautral Heavy Shatter" to="." method="_on_goku__neautral_heavy_shatter_area_entered"]
@@ -9283,6 +9287,7 @@ script = ExtResource("29_w0n2c")
 [connection signal="OnGround" from="Animator" to="Wall Detector" method="_on_animator_on_ground"]
 [connection signal="OnGround" from="Animator" to="Floor Detector" method="_on_animator_on_ground"]
 [connection signal="OnGround" from="Animator" to="Player Stats" method="_on_animator_on_ground"]
+[connection signal="animation_finished" from="Animator" to="Animator" method="_on_animation_finished"]
 [connection signal="IsHurt" from="Hurtbox" to="." method="_on_hurtbox_is_hurt"]
 [connection signal="IsHurt" from="Hurtbox" to="Hurtbox" method="_on_is_hurt"]
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

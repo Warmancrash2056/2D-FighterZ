@@ -1,5 +1,6 @@
 extends AnimationPlayer
 
+
 @export var Controller: Node
 @export var Character: CharacterBody2D
 @export var Scaler: Node
@@ -15,6 +16,9 @@ var enable_y_movement = false
 var enable_x_movement = false
 var start_friction = false
 
+var side_transition: bool = false
+var neutral_transition: bool = false
+var down_tramnsition
 const Block = Vector2.ZERO
 @export var Throw_Ground: Vector2
 @export var Throw_Air: Vector2
@@ -204,9 +208,9 @@ func _attack_movment_controller():
 	if start_friction == true:
 		AttackFriction.emit(Attack_Friction)
 
-#func _side_transition():
-	#if side_transition == true:
-		#play("Side Finish")
+func _side_transition():
+	if side_transition == true:
+		play("Side Finish")
 
 func idle_reset():
 	Attack_Vector = Vector2.ZERO
@@ -280,3 +284,6 @@ func _on_stun_time_timeout() -> void:
 	idle_reset()
 	_start_player_movement()
 	IsResetting.emit()
+
+
+

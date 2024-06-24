@@ -59,11 +59,12 @@ extends Node2D
 @onready var NiaNairButton = $"Nia Character Selection/Nia Nair"
 
 func _ready():
-	Audio.Main_Menu_Audio
+	GameAuido.Main_Menu_Audio
 func _physics_process(delta):
 	if Input.is_action_just_pressed("exit"):
 		get_tree().change_scene_to_file("res://Game Start/Main Menu/Main Menu.tscn")
-		Audio.Main_Menu_Audio
+		GameAuido.Main_Menu_Audio
+
 func _on_general_archfield_animation_looped():
 	GeneralArchfieldAnimation.play("Idle")
 

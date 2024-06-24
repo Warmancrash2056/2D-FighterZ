@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvw334dkbul16"]
 
-[ext_resource type="PackedScene" uid="uid://b3rv1kotqtmjy" path="res://Autoloads/Player 1 Healthbar.tscn" id="1_cl78v"]
-[ext_resource type="PackedScene" uid="uid://cyanpmw7wuxhc" path="res://Autoloads/Player 2 Healthbar.tscn" id="2_heo7u"]
+[ext_resource type="PackedScene" uid="uid://b3rv1kotqtmjy" path="res://Ui Resources/Player 1 Healthbar.tscn" id="1_cl78v"]
+[ext_resource type="PackedScene" uid="uid://cyanpmw7wuxhc" path="res://Ui Resources/Player 2 Healthbar.tscn" id="2_heo7u"]
 
 [node name="Players Stats" type="MarginContainer"]
 anchors_preset = 10

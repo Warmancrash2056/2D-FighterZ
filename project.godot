@@ -14,14 +14,14 @@ config/name="2D FighterZ"
 run/main_scene="res://Game Start/Attention Prompt/Attention.tscn"
 config/features=PackedStringArray("4.2")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://Character Resouces/Nomad/wind_elemental.png"
+config/icon="res://Character Resouces/Characters/Nomad/wind_elemental.png"
 
 [autoload]
 
 CharacterList="*res://Autoloads/Character List.gd"
 GameAuido="*res://Autoloads/Game Audio.tscn"
 UserSettingConfig="*res://Save/UserSettingConfig.gd"
-Startup="*res://Startup.gd"
+Startup="*res://Autoloads/Startup.gd"
 
 [display]
 
@@ -36,6 +36,20 @@ project/assembly_name="2D FighterZ"
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[file_customization]
+
+folder_colors={
+"res://Autoloads/": "orange",
+"res://Character Resouces/": "red",
+"res://Character Resouces/Characters/": "gray",
+"res://Character Resouces/Characters/Atlantis/": "purple",
+"res://Character Resouces/Characters/Crystal Dwarf/": "green",
+"res://Character Resouces/Characters/Goku/": "orange",
+"res://Character Resouces/Characters/Hunter/": "yellow",
+"res://Character Resouces/Characters/Nomad/": "teal",
+"res://Character Resouces/Characters/Sakura/": "pink"
+}
 
 [gui]
 

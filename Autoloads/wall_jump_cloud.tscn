@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://jk1kwg4k0ix2"]
+[gd_scene load_steps=3 format=3 uid="uid://c7aeqpf52cf40"]
 
-[ext_resource type="Script" path="res://Character Resouces/jump_smoke.gd" id="8_16o64"]
+[ext_resource type="Script" path="res://Character Resouces/Global/Cloud Resources/Cloud.gd" id="1_d7w6o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sev5d"]
 animations = [{
@@ -15,6 +15,6 @@ scale = Vector2(1, 2)
 sprite_frames = SubResource("SpriteFrames_sev5d")
 animation = &"Smoke"
 frame_progress = 0.0673067
-script = ExtResource("8_16o64")
+script = ExtResource("1_d7w6o")
 
 [connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

@@ -39,15 +39,10 @@ var disable_mini_platform = false
 
 # Reminder that if script is not erroing and cannot register script.
 # Usually means that script has an error.
-var get_player_1_script = preload('res://Character Resouces/Goku/Character Scenes/Player 1 Controller.gd')
-var get_player_2_script = preload('res://Character Resouces/Goku/Character Scenes/Player 2 Controller.gd')
-
+var get_player_1_script = preload("res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd")
+var get_player_2_script = preload("res://Character Resouces/Global/Player Controllers/Player 2 Identifier.gd")
 # Get character resouces to be called in character selection menu
 var SelectCharacters = {
-	"General Archfield" : preload("res://Character Resouces/General Archfield/Character Scenes/General Archfield.tscn"),
-	"Hunter" : preload("res://Character Resouces/Hunter/Character Scene/Hunter.tscn"),
-	"Atlantis" : preload("res://Character Resouces/Atlantis/Character Scenes/Atlantis.tscn"),
-	"Nomad" : preload("res://Character Resouces/Nomad/Character Scenes/Nomad.tscn"),
-	"Goku" : preload("res://Character Resouces/Goku/Character Scenes/Goku.tscn"),
-	"Sakura" : preload("res://Character Resouces/Sakura/Character Scene/Sakura.tscn")
+	"General Archfield" : preload("res://Character Resouces/Characters/General Archfield/Character Scenes/General Archfield.tscn"),
+	"Goku" : preload("res://Character Resouces/Characters/Goku/Character Scenes/Goku.tscn")
 }

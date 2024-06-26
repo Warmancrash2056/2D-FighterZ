@@ -161,6 +161,8 @@ func _physics_process(delta):
 				Character.velocity.x = 300
 				Character.velocity.y = -200
 				state = Air
+				IsResetting.emit()
+				_start_player_movement()
 
 			if !Wall_Detector.is_colliding():
 				state = Air

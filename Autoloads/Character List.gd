@@ -1,5 +1,5 @@
 class_name GameManager extends Node
-
+signal player
 var galvin_player_respawn = Vector2(0,-328)
 var get_player_1 = null
 var get_player_2 = null

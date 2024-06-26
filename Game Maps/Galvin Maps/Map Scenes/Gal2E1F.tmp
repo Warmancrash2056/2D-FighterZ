@@ -5836,11 +5836,10 @@ position = Vector2(0, 62)
 polygon = PackedVector2Array(368, 48, 368, 448, 336, 448, 336, 48)
 
 [node name="Local Camera" parent="." instance=ExtResource("9_m0frr")]
-zoom = Vector2(1.5, 1.5)
-limit_left = -721
-limit_top = -341
-limit_right = 719
-limit_bottom = 470
+limit_left = -700
+limit_top = -512
+limit_right = 700
+limit_bottom = 512
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -5862,11 +5861,6 @@ position = Vector2(0, 64)
 polygon = PackedVector2Array(-280, 376, -320, 376, -320, 392, 368, 392, 368, 376, 336, 376, 336, 376)
 
 [node name="Knockout Area" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knockout Area"]
-polygon = PackedVector2Array(-1688, 952, 1696, 952, 1696, -960, 784, -960, 712, -344, 720, 472, -720, 472, -720, -344, 712, -344, 776, -960, -768, -960, -1696, -960)
-
-[connection signal="body_entered" from="Knockout Area" to="." method="_on_knockout_area_body_entered"]
-[connection signal="body_exited" from="Knockout Area" to="." method="_on_knockout_area_body_exited"]
+polygon = PackedVector2Array(-1688, 952, 1696, 952, 1696, -960, 776, -960, 768, 512, -768, 512, -752, -512, 776, -512, 776, -960, -768, -960, -1696, -960)

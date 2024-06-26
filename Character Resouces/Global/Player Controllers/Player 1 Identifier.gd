@@ -1,5 +1,5 @@
 class_name Player1Controller extends Node2D
-
+signal knockedout
 @export var Controls: Resource
 
 @onready var Player_Icon: Node2D = $'Player Icon'
@@ -14,3 +14,8 @@ func _ready() -> void:
 
 func _on_hurtbox_is_hurt(Damage: int) -> void:
 	CharacterList.player_1_health = Player_Stats.Health
+
+
+func _on_knockedout() -> void:
+	queue_free()
+	CharacterList.player.emit()

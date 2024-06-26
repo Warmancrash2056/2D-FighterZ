@@ -9609,6 +9609,7 @@ scale = Vector2(2, 2)
 script = ExtResource("28_ivokx")
 Icon = ExtResource("29_quw3q")
 
+[connection signal="knockedout" from="." to="." method="_on_knockedout"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Scale Player" method="_on_movement_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Sprite" method="_on_movement_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Body" method="_on_movement_controller_facing_left"]

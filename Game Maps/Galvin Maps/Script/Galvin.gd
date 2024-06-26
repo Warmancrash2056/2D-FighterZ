@@ -3,7 +3,7 @@ extends Node2D
 @onready var player_1_spawn = CharacterList.get_player_1.instantiate()
 @onready var player_2_spawn = CharacterList.get_player_2.instantiate()
 
-@export_range(0.0, 0.8 ,0.1) var zoom_offset : float = 0.1
+@export_range(0.0, 0.8 ,0.1) var zoom_offset : float = 0.01
 @export var debug_mode : bool = false
 var camera_rect := Rect2()
 var viewport_rect := Rect2()
@@ -12,7 +12,7 @@ var camera_reset = false
 const MAX_OFFSET_X = 800.0
 const MIN_OFFSET_X = -800.0
 
-const MAX_ZOOM_DISTANCE = 3000.0
+const MAX_ZOOM_DISTANCE = 5000.0
 const CAMERA_MOVE_THRESHOLD = 5.0
 
 func _ready() -> void:
@@ -33,6 +33,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	#print(camera.zoom)
 	set_process(get_child_count() > 0)
 	calculate_camera_rect()
 	update_camera()
@@ -112,23 +113,9 @@ func setup_camera() -> void:
 
 
 
+func _on_knockout_area_body_entered(body: Node2D) -> void:
+	print(body.get_class())
 
 
-func _on_area_2d_4_area_entered(area):
-	pass # Replace with function body.
-
-
-func _on_area_2d_5_area_entered(area):
-	pass # Replace with function body.
-
-
-func _on_area_2d_body_entered(body):
-	pass # Replace with function body.
-
-
-func _on_area_2d_2_body_entered(body):
-	pass # Replace with function body.
-
-
-func _on_area_2d_area_entered(area):
+func _on_knockout_area_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.

@@ -30,7 +30,6 @@ var can_jump = true
 var can_dash = true
 var can_attack = true
 var can_block = true
-var gravity_active: bool = true
 enum {
 	Idle,
 	Turning,
@@ -68,7 +67,6 @@ func _physics_process(delta: float) -> void:
 		global_position = CharacterList.goku_neutral_heavy_grab_position
 	_get_movement()
 	move_and_slide()
-	gravity_controller()
 func _process(delta: float) -> void:
 	_process_input()
 	_process_attack_input()
@@ -81,23 +79,15 @@ func _process(delta: float) -> void:
 	_input_debugger()
 	_process_dual_combinations()
 
-func _deactivate_gravity():
-	gravity_active = false
-
-func _activate_gravity():
-	gravity_active = true
-func gravity_controller():
-	if !is_on_floor() and gravity_active == true:
-		if Wall_Detector.is_colliding():
-			velocity.y = 10
-
-		else:
-			velocity.y += Player_Stats.Gravity
-
 
 # Disable movement at crtain frame of attack and enable at the end of attack.
 #Player can only move in the direction they are facing.
 func _get_movement():
+	if Wall_Detector.is_colliding():
+		velocity.y = 10
+
+	else:
+		velocity.y += Player_Stats.Gravity
 	var new_speed
 	var air_rating: float = Player_Stats.Speed_Rating + 0.25
 	var decelleration =  Player_Stats.Decelleration
@@ -134,7 +124,7 @@ func _process_input():
 		if Input.is_action_pressed(Player_Identifier.Controls.down):
 			add_to_buffer({"type": "direction", "value": "down", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			if Animator.state == Air and !is_on_floor() and can_attack == true:
-				if Input.is_action_just_pressed(Player_Identifier.Controls.down) and gravity_active == true:
+				if Input.is_action_just_pressed(Player_Identifier.Controls.down):
 					await get_tree().create_timer(0.2).timeout
 					if can_attack == true:
 						velocity.y += 100
@@ -145,7 +135,6 @@ func _process_jump_input():
 		if can_jump == true and Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
 			add_to_buffer({"type": "move", "value": "jump", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			if can_attack == true:
-				Animator.state = Air
 				velocity.y = -Player_Stats.Jump_Height
 				JumpCloud.emit()
 				Player_Stats.Jump_Count -= 1
@@ -164,12 +153,15 @@ func _process_attack_input():
 	if can_attack == true:
 		if Input.is_action_just_pressed(Player_Identifier.Controls.throw):
 			add_to_buffer({"type": "attack", "value": "throw", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			IsAttacking.emit()
 
 		if Input.is_action_just_pressed(Player_Identifier.Controls.light):
 			add_to_buffer({"type": "attack", "value": "light", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			IsAttacking.emit()
 
 		if Input.is_action_just_pressed(Player_Identifier.Controls.heavy):
 			add_to_buffer({"type": "attack", "value": "heavy", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			IsAttacking.emit()
 
 
 
@@ -279,6 +271,7 @@ func _process_immediate_action():
 
 				if input_action.value == "jump" and Player_Stats.Jump_Count > 0:
 					Animator.state = Air
+					velocity.y = -Player_Stats.Jump_Height
 
 
 			"direction":
@@ -351,7 +344,6 @@ func _on_refresh_block_timeout() -> void:
 
 func _on_is_attacking() -> void:
 	can_attack = false
-	can_block = false
 	can_direct = false
 	can_jump = false
 
@@ -362,6 +354,5 @@ func _on_is_blocking() -> void:
 
 func _on_is_ressetting() -> void:
 	can_attack = true
-	can_block = true
 	can_direct = true
 	can_jump = true

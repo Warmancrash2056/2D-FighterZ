@@ -94,7 +94,7 @@ func _physics_process(delta):
 				state = Air
 			play("Idle")
 
-			if Character.movement_dir.x != 0:
+			if Character.movement_dir.x != 0 and Character.is_on_floor():
 				state = Running
 
 
@@ -203,7 +203,7 @@ func _physics_process(delta):
 
 		Neutral_Air:
 			Attack_Vector = NAir
-			play("Nuetral Air")
+			play("Neautral Air")
 
 		Neutral_Recovery:
 			Attack_Vector = NRecovery
@@ -252,6 +252,7 @@ func _side_transition():
 
 func idle_reset():
 	Attack_Vector = Vector2.ZERO
+	Character.movement_dir.x = 0
 	OnGround.emit()
 	if Character.is_on_floor():
 		state = Idle
@@ -292,6 +293,8 @@ func _stop_player_movement():
 
 func _start_player_movement():
 	Character.can_move = true
+	Character.can_direct = true
+	Character.can_jump = true
 
 # At first frame disable or enable player actions.
 func _on_is_attacking():
@@ -302,9 +305,7 @@ func _on_is_attacking():
 func _attack_deactive():
 	IsResetting.emit()
 
-func _on_is_resetting():
-	Character.can_jump = true
-	Character.can_direct = true
+func _on_is_resetting(): # Reset the attack trigger to on.
 	Character.can_attack = true
 
 
@@ -324,7 +325,6 @@ func _on_attack_moving_y(Vector: Variant) -> void:
 # From timer node reenable attack and dodge
 func _on_recovery_timer_timeout() -> void:
 	IsResetting.emit()
-	_start_player_movement()
 
 
 func _on_stun_time_timeout() -> void:
@@ -335,3 +335,10 @@ func _on_stun_time_timeout() -> void:
 
 func _on_refresh_block_timeout() -> void:
 	pass # Replace with function body.
+
+
+func _on_movement_cooldown_timeout() -> void:
+	Character.can_move = true
+	Character.can_direct = true
+	Character.can_jump = true
+

@@ -33,5 +33,3 @@ func _on_attack_connected() -> void:
 
 	print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,Movement_Cooldown.wait_time)
 
-
-

@@ -262,6 +262,8 @@ func idle_reset():
 		play("Fall")
 
 	if Character.is_on_wall() and Wall_Detector.is_colliding():
+		IsAttacking.emit()
+		_stop_player_movement()
 		Character.velocity.y = 0
 		if Wall_Detector.target_position.x == 9:
 			state = Left_Wall

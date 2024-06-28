@@ -135,3 +135,11 @@ func _on_area_exited(area: Area2D) -> void:
 
 func _on_area_2d_attack_connected() -> void:
 	pass # Replace with function body.
+
+
+func _on_controller_facing_left() -> void:
+	scale.x = -1
+
+
+func _on_controller_facing_right() -> void:
+	scale.x = 1

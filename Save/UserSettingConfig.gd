@@ -8,7 +8,7 @@ class_name UserConfigurations extends Resource
 @export var Dislay_Fps: bool = false
 func save() -> void:
 	ResourceSaver.save(self, "user://user_prefs.tres")
-	
+
 
 static func load_or_create() -> UserConfigurations:
 	var res: UserConfigurations = load("user://user_prefs.tres") as UserConfigurations

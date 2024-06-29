@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready():
 	Animate.play("Start")
-	GameAuido._galvin_map_play()
+	GameAuido._studio_play()
 
 func _on_animation_player_animation_finished(anim_name):
 	get_tree().change_scene_to_file("res://Game Start/Main Menu/Main Menu.tscn")

@@ -60,7 +60,7 @@ func _process(delta):
 
 func _on_master_volume_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
-
+	print(value)
 	if user_config:
 		user_config.Master_Audio_Level = value
 		user_config.save()

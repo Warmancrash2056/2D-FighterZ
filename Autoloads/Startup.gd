@@ -21,3 +21,7 @@ func _ready():
 
 		if user_config.v_Sync_enable == false:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+		AudioServer.set_bus_volume_db(0, linear_to_db(user_config.Master_Audio_Level))
+		AudioServer.set_bus_volume_db(1, linear_to_db(user_config.Sfx_Audio_Level))
+		AudioServer.set_bus_volume_db(0, linear_to_db(user_config.Music_Audio_Level))

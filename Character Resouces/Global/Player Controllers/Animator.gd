@@ -139,7 +139,7 @@ func _physics_process(delta):
 				if Wall_Detector.target_position.x == -8.3:
 					Sprite.flip_h = false
 
-			if Input.is_action_just_pressed()Sprite.flip_h == true
+
 
 			if !Character.is_on_wall() and !Wall_Detector.is_colliding():
 				Character.can_jump = true

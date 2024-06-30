@@ -60,8 +60,7 @@ enum {
 	Turning,
 	Running,
 	Dash,
-	Left_Wall,
-	Right_Wall,
+	Wall,
 	Air,
 	Ground_Block,
 	Air_Block,
@@ -122,52 +121,34 @@ func _physics_process(delta):
 				OnGround.emit()
 
 			if Character.is_on_wall() and Wall_Detector.is_colliding():
-				IsAttacking.emit()
-				_stop_player_movement()
-				Character.velocity.y = 0
-				if Wall_Detector.target_position.x == 9:
-					state = Left_Wall
-					Sprite.flip_h = true
+				Character.can_jump = false
+				Character.can_direct = false
+				Character.can_attack = false
+				Character.can_move = false
+				await get_tree().create_timer(0.1).timeout
+				state = Wall
 
-				else:
+
+		Wall:
+			play("Wall")
+
+			if Wall_Detector.target_position.x == 8.3:
+				Sprite.flip_h = true
+
+			else:
+				if Wall_Detector.target_position.x == -8.3:
 					Sprite.flip_h = false
-					state = Right_Wall
 
-				if !Character.is_on_wall() and !Wall_Detector.is_colliding():
-					IsResetting.emit()
-					_start_player_movement()
+			if Input.is_action_just_pressed()Sprite.flip_h == true
 
-
-		Left_Wall:
-			play("Wall")
-			Sprite.flip_h = true
-			if Input.is_action_just_pressed(Player_Identifier.Controls.left):
-				Character.velocity.x = -300
-				Character.velocity.y = -200
+			if !Character.is_on_wall() and !Wall_Detector.is_colliding():
+				Character.can_jump = true
+				Character.can_direct = true
+				Character.can_attack = true
+				Character.can_move = true
 				state = Air
-				IsResetting.emit()
-				_start_player_movement()
-
-			if !Wall_Detector.is_colliding():
-				state = Air
-				IsResetting.emit()
-				_start_player_movement()
 
 
-		Right_Wall:
-			play("Wall")
-			Sprite.flip_h = false
-			if Input.is_action_just_pressed(Player_Identifier.Controls.right):
-				Character.velocity.x = 300
-				Character.velocity.y = -200
-				state = Air
-				IsResetting.emit()
-				_start_player_movement()
-
-			if !Wall_Detector.is_colliding():
-				state = Air
-				IsResetting.emit()
-				_start_player_movement()
 
 		Hurt:
 			if Character.is_on_floor():
@@ -265,11 +246,7 @@ func idle_reset():
 		IsAttacking.emit()
 		_stop_player_movement()
 		Character.velocity.y = 0
-		if Wall_Detector.target_position.x == 9:
-			state = Left_Wall
-
-		else:
-			state = Right_Wall
+		state = Wall
 
 func enable_vertical_attack_movement():
 	enable_y_movement = true

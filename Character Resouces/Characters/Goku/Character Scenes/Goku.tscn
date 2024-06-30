@@ -9182,7 +9182,7 @@ position = Vector2(0, 8)
 script = ExtResource("8_sermq")
 
 [node name="Projectile Position" type="Marker2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite")]
-position = Vector2(32.5, 0)
+position = Vector2(23.5, -4)
 script = ExtResource("10_uymbi")
 Air_Projectle = ExtResource("11_wftpu")
 Ground_Projectile = ExtResource("12_8cg2b")
@@ -9211,7 +9211,7 @@ position = Vector2(0, -40)
 texture = ExtResource("13_nulpv")
 hframes = 10
 vframes = 19
-frame = 70
+frame = 131
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -9244,9 +9244,10 @@ Animator = NodePath("../Animator")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Controller/Hurtbox"]
 z_index = 10
-position = Vector2(-5.5, -11)
+position = Vector2(0, 1)
 rotation = -1.00007
 shape = SubResource("CapsuleShape2D_qamvs")
+disabled = true
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
 [node name="Respawn" type="AnimationPlayer" parent="Controller/Hurtbox"]
@@ -9309,10 +9310,10 @@ Player_Stats = NodePath("../Player Stats")
 
 [node name="Player Stats" type="Node" parent="Controller"]
 script = ExtResource("30_h56yx")
-Speed_Rating = 0.8
-Max_Speed = 180
-Acceleration = 18
-Decelleration = 30
+Speed_Rating = 8.0
+Max_Speed = 25
+Acceleration = 15
+Decelleration = 25
 Jump_Height = 300
 Gravity = 8
 Defense_Rating = 0.3

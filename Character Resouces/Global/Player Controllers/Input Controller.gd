@@ -35,8 +35,7 @@ enum {
 	Turning,
 	Running,
 	Dash,
-	Left_Wall,
-	Right_Wall,
+	Wall,
 	Air,
 	Ground_Block,
 	Air_Block,
@@ -103,10 +102,10 @@ func _get_movement():
 		movement_dir = Vector2(Input.get_action_strength(Player_Identifier.Controls.right) - Input.get_action_strength(Player_Identifier.Controls.left),0)
 		movement_dir.normalized()
 
-		if movement_dir.x == 1:
+		if movement_dir.x == 1 and Sprite.flip_h == false:
 			velocity.x = move_toward(velocity.x, new_speed, Player_Stats.Acceleration)
 
-		elif  movement_dir.x == -1:
+		elif  movement_dir.x == -1 and Sprite.flip_h == true:
 			velocity.x = move_toward(velocity.x, -new_speed, Player_Stats.Acceleration)
 
 		else:
@@ -116,10 +115,13 @@ func _process_input():
 	if can_direct == true:
 		if Input.is_action_pressed(Player_Identifier.Controls.left):
 			add_to_buffer({"type": "direction", "value": "left", "onground": is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
+			if Input.is_action_just_pressed(Player_Identifier.Controls.left):
+				FacingLeft.emit()
 
 		if Input.is_action_pressed(Player_Identifier.Controls.right):
 			add_to_buffer({"type": "direction", "value": "right", "onground": is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
-
+			if Input.is_action_just_pressed(Player_Identifier.Controls.right):
+				FacingRight.emit()
 
 		if Input.is_action_pressed(Player_Identifier.Controls.down):
 			add_to_buffer({"type": "direction", "value": "down", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
@@ -134,10 +136,9 @@ func _process_input():
 func _process_jump_input():
 		if can_jump == true and Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
 			add_to_buffer({"type": "move", "value": "jump", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			if can_attack == true:
-				velocity.y = -Player_Stats.Jump_Height
-				JumpCloud.emit()
-				Player_Stats.Jump_Count -= 1
+			velocity.y = -Player_Stats.Jump_Height
+			JumpCloud.emit()
+			Player_Stats.Jump_Count -= 1
 
 func _process_dash_input():
 	if can_dash == true:
@@ -276,12 +277,12 @@ func _process_immediate_action():
 
 			"direction":
 				if input_action.value == "left" and can_direct == true:
-					FacingLeft.emit()
+					pass
 
 
 
 				if input_action.value == "right" and can_direct == true:
-					FacingRight.emit()
+					pass
 
 			"attack":
 				if input_action.value == "throw" and input_action.onground == true:

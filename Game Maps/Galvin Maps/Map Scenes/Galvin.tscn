@@ -5747,23 +5747,23 @@ script = ExtResource("1_cxki7")
 debug_mode = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-5.10216e-05, 6.29425e-05)
-scale = Vector2(4, 4)
+position = Vector2(0, 60)
+scale = Vector2(2, 2)
 texture = ExtResource("3_qrqqu")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(4, -1.71661e-05)
-scale = Vector2(4, 4)
+position = Vector2(0, 60)
+scale = Vector2(2, 2)
 texture = ExtResource("4_8pavo")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(4.57764e-05, -1.71661e-05)
-scale = Vector2(4, 4)
+position = Vector2(0, 60)
+scale = Vector2(2, 2)
 texture = ExtResource("5_37ogg")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(4.57764e-05, -4.00001)
-scale = Vector2(4, 4)
+position = Vector2(0, 60)
+scale = Vector2(2, 2)
 texture = ExtResource("6_kexdy")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -5808,36 +5808,31 @@ layer_0/tile_data = PackedInt32Array(589826, 65536, 12, 655362, 65536, 13, 72089
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 z_index = 5
-position = Vector2(0, -70)
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-40, 78)
+position = Vector2(-40, 5)
 polygon = PackedVector2Array(400, 8, 408, 8, 408, 40, 176, 40, -280, 40, -280, 24, -280, 8, -272, 8)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 z_index = 5
-position = Vector2(0, -70)
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(1, 63)
-polygon = PackedVector2Array(-320, 48, -320, 448, -288, 448, -288, 48)
+polygon = PackedVector2Array(-320, 45, -320, 448, -288, 448, -288, 45)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 z_index = 5
-position = Vector2(0, -70)
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
-position = Vector2(0, 62)
-polygon = PackedVector2Array(368, 48, 368, 448, 336, 448, 336, 48)
+polygon = PackedVector2Array(368, 45, 368, 448, 336, 448, 335, 45)
 
 [node name="Local Camera" parent="." instance=ExtResource("9_m0frr")]
 zoom = Vector2(1.5, 1.5)
-limit_left = -721
+limit_left = -705
 limit_top = -341
 limit_right = 719
 limit_bottom = 470
@@ -5852,13 +5847,13 @@ editor_draw_drag_margin = true
 [node name="Galvin Stage Body" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Stage Body"]
-position = Vector2(0, 64)
+position = Vector2(0, 72)
 polygon = PackedVector2Array(-288, -24, -288, 376, 336, 376, 336, -24)
 
 [node name="Galvin Stage Buttom" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Stage Buttom"]
-position = Vector2(0, 64)
+position = Vector2(0, 72)
 polygon = PackedVector2Array(-280, 376, -320, 376, -320, 392, 368, 392, 368, 376, 336, 376, 336, 376)
 
 [node name="Knockout Area" type="Area2D" parent="."]
@@ -5866,7 +5861,7 @@ collision_layer = 2
 collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knockout Area"]
-polygon = PackedVector2Array(-1688, 952, 1696, 952, 1696, -960, 784, -960, 712, -344, 720, 472, -720, 472, -720, -344, 712, -344, 776, -960, -768, -960, -1696, -960)
+polygon = PackedVector2Array(-1688, 952, 1696, 952, 1696, -960, 780, -968, 848, -418, 848, 540, -848, 540, -848, 504, -848, 449, -848, -420, 24, -420, 401, -421, 595, -420, 708, -420, 848, -420, 776, -964, -768, -960, -1696, -960)
 
 [connection signal="body_entered" from="Knockout Area" to="." method="_on_knockout_area_body_entered"]
 [connection signal="body_exited" from="Knockout Area" to="." method="_on_knockout_area_body_exited"]

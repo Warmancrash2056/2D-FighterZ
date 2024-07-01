@@ -11163,7 +11163,7 @@ position = Vector2(0, 8)
 script = ExtResource("8_sermq")
 
 [node name="Projectile Position" type="Marker2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite")]
-position = Vector2(32.5, 0)
+position = Vector2(23.5, -4)
 script = ExtResource("10_uymbi")
 Air_Projectle = ExtResource("11_wftpu")
 Ground_Projectile = ExtResource("12_8cg2b")
@@ -11192,7 +11192,7 @@ position = Vector2(0, -40)
 texture = ExtResource("13_nulpv")
 hframes = 10
 vframes = 19
-frame = 101
+frame = 28
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -11273,7 +11273,7 @@ bus = &"SFX"
 [node name="Wall Detector" type="RayCast2D" parent="Controller" node_paths=PackedStringArray("Character", "Player_Stats", "Sprite")]
 z_index = 10
 exclude_parent = false
-target_position = Vector2(-8.3, 0)
+target_position = Vector2(9, 0)
 collision_mask = 8
 hit_from_inside = true
 script = ExtResource("26_k5gbg")
@@ -11283,7 +11283,7 @@ Sprite = NodePath("../Sprite")
 
 [node name="Floor Detector" type="RayCast2D" parent="Controller" node_paths=PackedStringArray("Character", "Player_Stats")]
 position = Vector2(0, 17)
-target_position = Vector2(0, 1)
+target_position = Vector2(0, 2)
 script = ExtResource("27_1k2ni")
 Character = NodePath("..")
 Player_Stats = NodePath("../Player Stats")

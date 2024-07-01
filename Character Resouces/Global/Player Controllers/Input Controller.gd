@@ -82,7 +82,7 @@ func _process(delta: float) -> void:
 # Disable movement at crtain frame of attack and enable at the end of attack.
 #Player can only move in the direction they are facing.
 func _get_movement():
-	if Wall_Detector.is_colliding():
+	if Wall_Detector.is_colliding() and Animator.state == Wall:
 		velocity.y = 10
 
 	else:
@@ -102,10 +102,10 @@ func _get_movement():
 		movement_dir = Vector2(Input.get_action_strength(Player_Identifier.Controls.right) - Input.get_action_strength(Player_Identifier.Controls.left),0)
 		movement_dir.normalized()
 
-		if movement_dir.x == 1 and Sprite.flip_h == false:
+		if movement_dir.x == 1:
 			velocity.x = move_toward(velocity.x, new_speed, Player_Stats.Acceleration)
 
-		elif  movement_dir.x == -1 and Sprite.flip_h == true:
+		elif  movement_dir.x == -1:
 			velocity.x = move_toward(velocity.x, -new_speed, Player_Stats.Acceleration)
 
 		else:
@@ -115,13 +115,9 @@ func _process_input():
 	if can_direct == true:
 		if Input.is_action_pressed(Player_Identifier.Controls.left):
 			add_to_buffer({"type": "direction", "value": "left", "onground": is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
-			if Input.is_action_just_pressed(Player_Identifier.Controls.left):
-				FacingLeft.emit()
 
 		if Input.is_action_pressed(Player_Identifier.Controls.right):
 			add_to_buffer({"type": "direction", "value": "right", "onground": is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
-			if Input.is_action_just_pressed(Player_Identifier.Controls.right):
-				FacingRight.emit()
 
 		if Input.is_action_pressed(Player_Identifier.Controls.down):
 			add_to_buffer({"type": "direction", "value": "down", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
@@ -276,13 +272,13 @@ func _process_immediate_action():
 
 
 			"direction":
-				if input_action.value == "left" and can_direct == true:
-					pass
+				if input_action.value == "left" and !Animator.state == Wall:
+					FacingLeft.emit()
 
 
 
-				if input_action.value == "right" and can_direct == true:
-					pass
+				if input_action.value == "right" and !Animator.state == Wall:
+					FacingRight.emit()
 
 			"attack":
 				if input_action.value == "throw" and input_action.onground == true:

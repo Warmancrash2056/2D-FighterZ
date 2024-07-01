@@ -121,9 +121,8 @@ func _physics_process(delta):
 				OnGround.emit()
 
 			if Character.is_on_wall() and Wall_Detector.is_colliding():
-				Character.can_jump = false
-				Character.can_direct = false
 				Character.can_attack = false
+				Character.can_jump = false
 				await get_tree().create_timer(0.1).timeout
 				state = Wall
 
@@ -141,9 +140,8 @@ func _physics_process(delta):
 
 
 			if !Character.is_on_wall() and !Wall_Detector.is_colliding():
-				Character.can_jump = true
-				Character.can_direct = true
 				Character.can_attack = true
+				Character.can_jump = true
 				state = Air
 
 
@@ -242,7 +240,6 @@ func idle_reset():
 
 	if Character.is_on_wall() and Wall_Detector.is_colliding():
 		IsAttacking.emit()
-		_stop_player_movement()
 		Character.velocity.y = 0
 		state = Wall
 

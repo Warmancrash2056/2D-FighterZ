@@ -13,9 +13,3 @@ extends Node
 @export var Stamina_Rating: float
 # Decreases the amount of recovery frames you are in before you can attack or move
 # Also effects the your stun time from an incoming attack
-
-
-
-
-func _on_animator_on_ground() -> void:
-	Jump_Count = 3

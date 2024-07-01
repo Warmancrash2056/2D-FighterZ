@@ -3,14 +3,14 @@ extends Node2D
 @onready var player_1_spawn = CharacterList.get_player_1.instantiate()
 @onready var player_2_spawn = CharacterList.get_player_2.instantiate()
 
-@export_range(0.0, 0.8 ,0.1) var zoom_offset : float = 0.01
+@export_range(0.0, 0.8 ,0.5) var zoom_offset : float = 0.5
 @export var debug_mode : bool = false
 var camera_rect := Rect2()
 var viewport_rect := Rect2()
 
 var camera_reset = false
-const MAX_OFFSET_X = 800.0
-const MIN_OFFSET_X = -800.0
+const MAX_OFFSET_X = 500.0
+const MIN_OFFSET_X = -500.0
 
 const MAX_ZOOM_DISTANCE = 5000.0
 const CAMERA_MOVE_THRESHOLD = 5.0
@@ -78,8 +78,8 @@ func update_camera() -> void:
 		queue_redraw()
 
 	# Clamp the offset to stay within the bounds
-	#camera.global_position.x = clamp(camera.global_position.x, MIN_OFFSET_X, MAX_OFFSET_X)
-	#camera.global_position.y = clamp(camera.global_position.y, -MAX_OFFSET_X, MAX_OFFSET_X)
+	camera.global_position.x = clamp(camera.global_position.x, MIN_OFFSET_X, MAX_OFFSET_X)
+	camera.global_position.y = clamp(camera.global_position.y, -MAX_OFFSET_X, MAX_OFFSET_X)
 
 func calculate_center(rect: Rect2) -> Vector2:
 	return Vector2(
@@ -92,14 +92,14 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 		min(1.5, viewport_size.x / rect.size.x - zoom_offset),
 		min(1.5, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 0.9), max(min_zoom, 0.9))
+	return Vector2(max(min_zoom, 0.8), max(min_zoom, 0.8))
 
 func calculate_zoom_factor(distance: float) -> float:
 	# Calculate the zoom factor based on the distance between players
 	var zoom_factor = 1.0 - distance / MAX_ZOOM_DISTANCE
 
 	# Clamp the zoom factor to be at least 1.0
-	return max(zoom_factor, 0.9)
+	return max(zoom_factor, 0.8)
 
 func _draw() -> void:
 	if not debug_mode:

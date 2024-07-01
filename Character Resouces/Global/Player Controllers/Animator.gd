@@ -124,7 +124,6 @@ func _physics_process(delta):
 				Character.can_jump = false
 				Character.can_direct = false
 				Character.can_attack = false
-				Character.can_move = false
 				await get_tree().create_timer(0.1).timeout
 				state = Wall
 
@@ -132,11 +131,11 @@ func _physics_process(delta):
 		Wall:
 			play("Wall")
 
-			if Wall_Detector.target_position.x == 8.3:
+			if Wall_Detector.target_position.x == 9:
 				Sprite.flip_h = true
 
 			else:
-				if Wall_Detector.target_position.x == -8.3:
+				if Wall_Detector.target_position.x == -9:
 					Sprite.flip_h = false
 
 
@@ -145,7 +144,6 @@ func _physics_process(delta):
 				Character.can_jump = true
 				Character.can_direct = true
 				Character.can_attack = true
-				Character.can_move = true
 				state = Air
 
 

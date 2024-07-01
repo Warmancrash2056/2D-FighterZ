@@ -5762,7 +5762,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("5_37ogg")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(0, 60)
+position = Vector2(4, 60)
 scale = Vector2(2, 2)
 texture = ExtResource("6_kexdy")
 
@@ -5847,8 +5847,8 @@ editor_draw_drag_margin = true
 [node name="Galvin Stage Body" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Stage Body"]
-position = Vector2(0, 72)
-polygon = PackedVector2Array(-288, -24, -288, 376, 336, 376, 336, -24)
+position = Vector2(0, 69)
+polygon = PackedVector2Array(-288, -24, -288, 379, 336, 379, 336, -24)
 
 [node name="Galvin Stage Buttom" type="StaticBody2D" parent="."]
 

@@ -16,20 +16,20 @@ func calculate_recovery(new_recovery: float):
 	# By the player stamina rating. Set the wait time to new recovery.
 	var animation_length = Animator.current_animation_length
 	var stamina_rating = Player_Stats.Stamina_Rating
-	var movement_cooldown_timer: float = new_recovery * 0.5
 	new_recovery = animation_length * stamina_rating
+	var movement_cooldown_timer: float = new_recovery * 0.3
 	get_recovery = new_recovery
 
 	Movement_Cooldown.set_wait_time(movement_cooldown_timer)
 	set_wait_time(new_recovery)
 	print(wait_time)
-
+	print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,movement_cooldown_timer)
 
 
 func _on_attack_connected() -> void:
 	var reduced_recovery: float = get_recovery * 0.01
 	set_wait_time(reduced_recovery)
-	Movement_Cooldown.set_wait_time(0.01)
+	Movement_Cooldown.set_wait_time(0)
 
 	print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,Movement_Cooldown.wait_time)
 

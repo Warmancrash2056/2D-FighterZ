@@ -73,16 +73,21 @@ func _calculate_stun(Recovery: float):
 	Stun_Timer.set_wait_time(stuned_time)
 	Stun_Timer.start()
 	print("Stun time " ,stuned_time)
+
+
 func apply_constant_force(Constant: Vector2):
 	if direction == true:
 		Constant.x *= -1
 
 	else:
 		Constant.x *= 1
+	var defense_rating: float = Player_Stats.Defense_Rating
+	var knockback_x: float = Constant.x * defense_rating
+	var knockback_y: float = Constant.y * defense_rating
+	var knockback_vector: Vector2 = Vector2(knockback_x,knockback_y)
 
-	Character.velocity = Constant * knockback_multiplier
 
-
+	Character.velocity = knockback_vector * knockback_multiplier
 
 func _on_is_hurt(Damage: int) -> void:
 	Animator.state = Hurt

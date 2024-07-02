@@ -327,7 +327,8 @@ func _on_animator_enable_move_ment() -> void:
 
 
 func _on_stun_time_timeout() -> void:
-	IsRessetting.emit()
+	velocity.x = move_toward(velocity.x, 0, 100)
+	velocity.y = move_toward(velocity.y, 0, 100)
 
 
 func _on_hurtbox_is_hurt(Damage: int) -> void:

@@ -22,8 +22,8 @@ func calculate_recovery(new_recovery: float):
 
 	Movement_Cooldown.set_wait_time(movement_cooldown_timer)
 	set_wait_time(new_recovery)
-	print(wait_time)
-	print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,movement_cooldown_timer)
+	#print(wait_time)
+	#print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,movement_cooldown_timer)
 
 
 func _on_attack_connected() -> void:
@@ -31,5 +31,5 @@ func _on_attack_connected() -> void:
 	set_wait_time(reduced_recovery)
 	Movement_Cooldown.set_wait_time(0)
 
-	print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,Movement_Cooldown.wait_time)
+	#print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,Movement_Cooldown.wait_time)
 

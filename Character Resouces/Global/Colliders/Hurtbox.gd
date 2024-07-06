@@ -5,6 +5,8 @@ extends Area2D
 @export var Player_Stats: Node
 @export var Sprite: Sprite2D
 @export var Animator: AnimationPlayer
+
+@onready var Hurtbox_Collider = $'Hurtbox Collision'
 var knockback_multiplier: float
 signal IsHurt(Damage: int)
 var stun_time: float
@@ -48,7 +50,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Force"):
-		print("detect")
 		damage_taken = area.Damage
 		IsHurt.emit(damage_taken)
 		_calculate_stun(area.Stun_Time)
@@ -56,7 +57,8 @@ func _on_area_entered(area: Area2D) -> void:
 		direction = area.direction
 		goku_neautral_havy = false
 
-
+	if area.is_in_group("Knockout Area"):
+		Animator.state = Respawn
 
 	if area.is_in_group("Goku | Neautral Heavy Positioner"):
 		goku_neautral_havy = true
@@ -66,7 +68,6 @@ func _on_area_entered(area: Area2D) -> void:
 		direction = area.direction
 
 func _calculate_stun(Recovery: float):
-	print("Game data")
 	var stamina_rating: float = Player_Stats.Stamina_Rating
 	var stuned_time: float = Recovery * stamina_rating
 
@@ -91,7 +92,7 @@ func apply_constant_force(Constant: Vector2):
 
 func _on_is_hurt(Damage: int) -> void:
 	Animator.state = Hurt
-	print(Player_Stats.Health)
+
 	Player_Stats.Health -= Damage
 	if Player_Stats.Health < 1000:
 		knockback_multiplier = 1.0
@@ -147,3 +148,8 @@ func _on_controller_facing_left() -> void:
 
 func _on_controller_facing_right() -> void:
 	scale.x = 1
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Knockout Area"):
+		Animator.state = Respawn

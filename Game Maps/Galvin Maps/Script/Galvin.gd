@@ -21,11 +21,11 @@ func _ready() -> void:
 	GameAuido._galvin_map_play()
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
 	player_1_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
-	player_1_spawn.position = Vector2(192, -328)
+	player_1_spawn.position = Vector2(192, 0)
 
 	player_2_spawn.set_script(CharacterList.get_player_2_script)
 	player_2_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
-	player_2_spawn.position = Vector2(-192, -328)
+	player_2_spawn.position = Vector2(-192, 0)
 
 	await get_tree().create_timer(2).timeout
 	call_deferred("add_child", player_1_spawn)
@@ -114,7 +114,12 @@ func setup_camera() -> void:
 
 
 func _on_knockout_area_body_entered(body: Node2D) -> void:
-	print(body.get_class())
+	var player_1_position = player_1_spawn.get_node("Controller")
+
+	if body.get_parent() is Player1Controller:
+		player_1_position.position = Vector2(0,-155)
+		print("gooo")
+
 
 
 func _on_knockout_area_body_exited(body: Node2D) -> void:

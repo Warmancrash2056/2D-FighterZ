@@ -82,7 +82,7 @@ enum {
 	Respawn
 }
 
-var state = Idle
+var state = Respawn
 
 
 func _physics_process(delta):
@@ -153,6 +153,7 @@ func _physics_process(delta):
 			else:
 				play("Air Hurt")
 		Respawn:
+			Character.velocity = Vector2.ZERO
 			play("Respawn")
 
 		Ground_Throw:

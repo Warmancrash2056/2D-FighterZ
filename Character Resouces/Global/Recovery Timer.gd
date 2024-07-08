@@ -29,7 +29,7 @@ func calculate_recovery(new_recovery: float):
 func _on_attack_connected() -> void:
 	var reduced_recovery: float = get_recovery * 0.01
 	set_wait_time(reduced_recovery)
-	Movement_Cooldown.set_wait_time(0)
+	Movement_Cooldown.set_wait_time(0.1)
 
 	#print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,Movement_Cooldown.wait_time)
 

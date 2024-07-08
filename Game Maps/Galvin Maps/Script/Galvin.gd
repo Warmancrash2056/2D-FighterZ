@@ -172,12 +172,12 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 		player_1_spawn.visible = false
 		tween.tween_property(player_1_position, "global_position", Vector2(0,-300), 1)
 		tween.tween_property(player_1_spawn, "visible", true, 1 )
-		if player_1_spawn.visible == true:
-			player_1_animator.state = Idle
-			player_1_position.can_move = true
-			player_1_position.can_direct = true
-			player_1_position.can_jump = true
-			player_1_position.can_attack = true
+		await tween.finished
+		player_1_animator.state = Idle
+		player_1_position.can_move = true
+		player_1_position.can_direct = true
+		player_1_position.can_jump = true
+		player_1_position.can_attack = true
 
 
 	if body.get_parent() is Player2Controller:
@@ -186,12 +186,12 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 		player_2_animator.state = Respawn
 		tween.tween_property(player_2_position, "global_position", Vector2(0,-300), 1)
 		tween.tween_property(player_2_spawn, "visible", true, 1)
-		if tween.finished:
-			player_2_animator.state = Idle
-			player_2_position.can_move = true
-			player_2_position.can_direct = true
-			player_2_position.can_jump = true
-			player_2_position.can_attack = true
+		await tween.finished
+		player_2_animator.state = Idle
+		player_2_position.can_move = true
+		player_2_position.can_direct = true
+		player_2_position.can_jump = true
+		player_2_position.can_attack = true
 
 func _on_timer_timeout() -> void:
 	if camera_move == true:

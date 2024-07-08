@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvgm6lrd873fg"]
+[gd_scene load_steps=10 format=3 uid="uid://bvgm6lrd873fg"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/LinearProjectile.gd" id="1_2xba1"]
 [ext_resource type="Texture2D" uid="uid://drjlnxy6db6aj" path="res://Character Resouces/Characters/Goku/Spritesheet/Davaughncjames Projectiles (1)-Sheet.png" id="2_ys3c6"]
+[ext_resource type="Script" path="res://Character Resouces/Global/Colliders/Hitbox.gd" id="3_rxfed"]
 
 [sub_resource type="Animation" id="Animation_esykh"]
 resource_name = "Hit"
@@ -295,9 +296,14 @@ libraries = {
 position = Vector2(7.33333, 0)
 shape = SubResource("CircleShape2D_acp7n")
 
-[node name="Goku | Air Projectile" type="Area2D" parent="." groups=["Goku | Air Projectile"]]
+[node name="Goku | Air Projectile" type="Area2D" parent="." node_paths=PackedStringArray("Sprite") groups=["Force", "Goku | Air Projectile"]]
 collision_layer = 32
 collision_mask = 30
+script = ExtResource("3_rxfed")
+Sprite = NodePath("../Sprite2D")
+Stun_Time = 1.2
+Damage = 50
+Constant_Force = Vector2(250, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goku | Air Projectile"]
 position = Vector2(5, 0)

@@ -123,8 +123,16 @@ func _physics_process(delta):
 			if Character.is_on_wall() and Wall_Detector.is_colliding():
 				Character.can_attack = false
 				Character.can_jump = false
-				await get_tree().create_timer(0.1).timeout
-				state = Wall
+				await get_tree().create_timer(0.01).timeout
+				if Character.is_on_wall() and Wall_Detector.is_colliding():
+					state = Wall
+					play("Wall")
+
+
+				else:
+					state = Air
+					Character.can_attack = true
+					Character.can_jump = true
 
 
 		Wall:
@@ -143,6 +151,7 @@ func _physics_process(delta):
 				Character.can_attack = true
 				Character.can_jump = true
 				state = Air
+				play("Fall")
 
 
 
@@ -232,17 +241,19 @@ func idle_reset():
 	Attack_Vector = Vector2.ZERO
 	Character.movement_dir.x = 0
 	OnGround.emit()
-	if Character.is_on_floor():
-		state = Idle
-		play("Idle")
-	if !Character.is_on_floor():
-		state = Air
-		play("Fall")
 
 	if Character.is_on_wall() and Wall_Detector.is_colliding():
 		IsAttacking.emit()
 		Character.velocity.y = 0
 		state = Wall
+
+	else:
+		if Character.is_on_floor():
+			state = Idle
+			play("Idle")
+		elif !Character.is_on_floor():
+			state = Air
+			play("Fall")
 
 func enable_vertical_attack_movement():
 	enable_y_movement = true

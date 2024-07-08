@@ -108,8 +108,7 @@ func _get_movement():
 		elif  movement_dir.x == -1:
 			velocity.x = move_toward(velocity.x, -new_speed, Player_Stats.Acceleration)
 
-		else:
-			velocity.x = move_toward(velocity.x, 0, decelleration)
+		else:	velocity.x = move_toward(velocity.x, 0, decelleration)
 
 func _process_input():
 	if can_direct == true:

@@ -8617,12 +8617,9 @@ tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_idle_state_"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -8793,12 +8790,9 @@ tracks/15/path = NodePath("../Animator")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"idle_reset"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/16/type = "method"
 tracks/16/imported = false
@@ -8807,14 +8801,11 @@ tracks/16/path = NodePath("../Animator")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"_stop_player_movement"
-}, {
-"args": [],
-"method": &"_start_player_movement"
 }]
 }
 tracks/17/type = "method"
@@ -8824,14 +8815,11 @@ tracks/17/path = NodePath("../Animator")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"_on_is_attacking"
-}, {
-"args": [],
-"method": &"_on_is_resetting"
 }]
 }
 
@@ -11343,7 +11331,7 @@ position = Vector2(0, -40)
 texture = ExtResource("13_nulpv")
 hframes = 10
 vframes = 19
-frame = 13
+frame = 125
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -11358,6 +11346,7 @@ root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
+speed_scale = 0.3
 script = ExtResource("17_xa6s0")
 Controller = NodePath("../..")
 Character = NodePath("..")
@@ -11379,6 +11368,7 @@ Animator = NodePath("../Animator")
 z_index = 10
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_qamvs")
+disabled = true
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
 [node name="Respawn" type="AnimationPlayer" parent="Controller/Hurtbox"]
@@ -11450,7 +11440,7 @@ Gravity = 8
 Defense_Rating = 0.9
 Health = 1000.0
 Attack_Rating = 50
-Stamina_Rating = 0.4
+Stamina_Rating = 0.7
 
 [node name="Recovery Timer" type="Timer" parent="Controller" node_paths=PackedStringArray("Character", "Animator", "Player_Stats", "Hurtbox")]
 one_shot = true

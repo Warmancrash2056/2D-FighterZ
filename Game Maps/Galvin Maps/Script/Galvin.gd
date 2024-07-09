@@ -162,6 +162,7 @@ func setup_camera() -> void:
 
 
 func _on_knockout_area_body_entered(body: Node2D) -> void:
+	timer.stop()
 	var player_1_position:CharacterBody2D = player_1_spawn.get_node("Controller")
 	var player_1_animator:AnimationPlayer = player_1_spawn.get_node("Controller/Animator")
 	var player_2_position:CharacterBody2D = player_2_spawn.get_node("Controller")
@@ -170,28 +171,31 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 	if body.get_parent() is Player1Controller:
 		var tween = get_tree().create_tween()
 		player_1_spawn.visible = false
-		tween.tween_property(player_1_position, "global_position", Vector2(0,-300), 1)
-		tween.tween_property(player_1_spawn, "visible", true, 1 )
+		tween.tween_property(player_1_position, "global_position", Vector2(0,-300), 3)
+		tween.tween_property(player_1_spawn, "visible", true, 3 )
 		await tween.finished
 		player_1_animator.state = Idle
 		player_1_position.can_move = true
 		player_1_position.can_direct = true
 		player_1_position.can_jump = true
 		player_1_position.can_attack = true
+		timer.start()
 
 
 	if body.get_parent() is Player2Controller:
+		camera_move = false
 		var tween = get_tree().create_tween()
 		player_2_spawn.visible = false
 		player_2_animator.state = Respawn
-		tween.tween_property(player_2_position, "global_position", Vector2(0,-300), 1)
-		tween.tween_property(player_2_spawn, "visible", true, 1)
+		tween.tween_property(player_2_position, "global_position", Vector2(0,-300), 3)
+		tween.tween_property(player_2_spawn, "visible", true, 3)
 		await tween.finished
 		player_2_animator.state = Idle
 		player_2_position.can_move = true
 		player_2_position.can_direct = true
 		player_2_position.can_jump = true
 		player_2_position.can_attack = true
+		timer.start()
 
 func _on_timer_timeout() -> void:
 	if camera_move == true:

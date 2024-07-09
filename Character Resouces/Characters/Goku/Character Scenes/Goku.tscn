@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=82 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_peh4b"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -73,9 +73,17 @@ height = 24.0
 radius = 6.5
 height = 39.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtsb4"]
+radius = 2.5
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kqv5d"]
+radius = 3.5
+height = 18.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lm0pa"]
-radius = 13.6469
-height = 51.2205
+radius = 4.87709
+height = 27.0103
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i4cnc"]
 radius = 6.2141
@@ -91,9 +99,8 @@ radius = 4.27
 radius = 3.5
 height = 19.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtsb4"]
-radius = 2.5
-height = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_vr6lk"]
+radius = 3.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qamvs"]
 radius = 8.0
@@ -6953,7 +6960,7 @@ tracks/9/path = NodePath("../Scale Player/Goku | Neautral Heavy Positioner/Rock 
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.2),
+"times": PackedFloat32Array(0, 0.5, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -6965,10 +6972,10 @@ tracks/10/path = NodePath("../Scale Player/Goku | Neautral Heavy Positioner/Rock
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.69, 0.7, 0.79, 0.8, 0.89, 0.9, 0.99, 0.998774, 1.09, 1.1, 1.19, 1.20003),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.59, 0.6, 0.69, 0.7, 0.79, 0.801085, 0.89, 0.9, 0.99, 0.998774, 1, 1.09, 1.1, 1.19, 1.20003, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(31.5, -24.5), Vector2(31.5, -24.5), Vector2(67.5, -59), Vector2(67.5, -59), Vector2(72, -62), Vector2(72, -62), Vector2(61.5, -68), Vector2(61.5, -68), Vector2(48, -72.5), Vector2(48, -72.5), Vector2(-19, -21), Vector2(-19, -21), Vector2(-60, 16)]
+"values": [Vector2(31.5, -24.5), Vector2(31.5, -24.5), Vector2(67.5, -59), Vector2(67.5, -59), Vector2(72, -62), Vector2(72, -62), Vector2(62, -67.5), Vector2(62, -67.5), Vector2(48.5, -72.5), Vector2(48.5, -72.5), Vector2(48, -72.5), Vector2(-19.5, -21), Vector2(-19.5, -21), Vector2(-59, 9), Vector2(-59, 9), Vector2(-60, 16), Vector2(31.5, -24.5)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -6977,7 +6984,7 @@ tracks/11/path = NodePath("../Scale Player/Goku | Neautral Heavy Positioner/Rock
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.2),
+"times": PackedFloat32Array(0, 0.5, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -7013,7 +7020,7 @@ tracks/14/path = NodePath("../Scale Player/Goku | Neautral Heavy Shatter/Rock Sm
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 1.2, 1.4),
+"times": PackedFloat32Array(0, 1.2, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -7332,6 +7339,18 @@ tracks/38/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("../Scale Player/Goku | Neautral Heavy Positioner/Rock Grab:rotation")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_auvrv"]
@@ -8622,6 +8641,258 @@ tracks/56/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("../Scale Player/Goku | Neautral Heavy Positioner/Rock Grab:visible")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("../Scale Player/Goku | Neautral Heavy Positioner/Rock Grab:disabled")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("../Scale Player/Goku | Neautral Heavy Positioner/Rock Grab:shape")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_adp42")]
+}
+tracks/60/type = "value"
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/path = NodePath("../Scale Player/Goku | Neautral Heavy Positioner/Rock Grab:debug_color")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.709804, 0.486275, 0, 0.419608)]
+}
+tracks/61/type = "value"
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/path = NodePath("../Scale Player/Goku | Neautral Heavy Positioner/Rock Grab:position")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31.5, -24.5)]
+}
+tracks/62/type = "value"
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/path = NodePath("../Scale Player/Goku | Neautral Heavy Positioner/Rock Grab:rotation")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:shape")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_kqv5d")]
+}
+tracks/64/type = "value"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:shape:radius")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+tracks/65/type = "value"
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:shape:height")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [18.0]
+}
+tracks/66/type = "value"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:disabled")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/67/type = "value"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:debug_color")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.6, 0.7, 0.42)]
+}
+tracks/68/type = "value"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:position")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.5, -9)]
+}
+tracks/69/type = "value"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:rotation")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/70/type = "value"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:visible")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/71/type = "value"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("../Scale Player/Area2D/CollisionShape2D:shape")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_vr6lk")]
+}
+tracks/72/type = "value"
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/path = NodePath("../Scale Player/Area2D/CollisionShape2D:shape:radius")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+tracks/73/type = "value"
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/path = NodePath("../Scale Player/Area2D/CollisionShape2D:disabled")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/74/type = "value"
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/path = NodePath("../Scale Player/Area2D/CollisionShape2D:debug_color")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.996078, 0, 0, 0.419608)]
+}
+tracks/75/type = "value"
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/path = NodePath("../Scale Player/Area2D/CollisionShape2D:position")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21.5, -9)]
+}
+tracks/76/type = "value"
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/path = NodePath("../Scale Player/Area2D/CollisionShape2D:rotation")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/77/type = "value"
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/path = NodePath("../Scale Player/Area2D/CollisionShape2D:visible")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_k874w"]
 resource_name = "Respawn"
@@ -9173,7 +9444,7 @@ tracks/13/path = NodePath("../Animator")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0.4, 0.9),
+"times": PackedFloat32Array(0.2, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -9294,7 +9565,7 @@ tracks/22/path = NodePath("../Scale Player/Side Air Start/CollisionShape2D:disab
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
+"times": PackedFloat32Array(0, 0.2, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -9342,10 +9613,10 @@ tracks/26/path = NodePath("../Scale Player/Side Air Start/CollisionShape2D:visib
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [false, true, true, false]
 }
 tracks/27/type = "value"
 tracks/27/imported = false
@@ -9370,6 +9641,186 @@ tracks/28/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:shape")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_kqv5d")]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:shape:radius")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:shape:height")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [18.0]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:disabled")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:debug_color")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.6, 0.7, 0.42)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.5, -9)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:rotation")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("../Scale Player/Side Air Positioner/CollisionShape2D:visible")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("../Scale Player/Area2D/CollisionShape2D:shape")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_vr6lk")]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("../Scale Player/Area2D/CollisionShape2D:shape:radius")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("../Scale Player/Area2D/CollisionShape2D:disabled")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("../Scale Player/Area2D/CollisionShape2D:debug_color")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.996078, 0, 0, 0.419608)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("../Scale Player/Area2D/CollisionShape2D:position")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21.5, -9)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("../Scale Player/Area2D/CollisionShape2D:rotation")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("../Scale Player/Area2D/CollisionShape2D:visible")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_e2ryg"]
@@ -9715,11 +10166,14 @@ tracks/27/path = NodePath("../Animator")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"start_attack_movment"
+}, {
+"args": [],
+"method": &"stop_attack_movment"
 }]
 }
 tracks/28/type = "method"
@@ -9831,6 +10285,48 @@ tracks/36/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/37/type = "method"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("../Recovery Timer")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"calculate_recovery"
+}]
+}
+tracks/38/type = "method"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("../Recovery Timer")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [-1],
+"method": &"start"
+}]
+}
+tracks/39/type = "method"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("../Animator")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_stop_player_movement"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_1cdqp"]
@@ -11111,7 +11607,7 @@ shape = SubResource("CapsuleShape2D_vl3fl")
 disabled = true
 debug_color = Color(0.588235, 0.376471, 1, 0.419608)
 
-[node name="Goku | Neautral Heavy Positioner" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Neautral Heavy Positioner", "Positioner"]]
+[node name="Goku | Neautral Heavy Positioner" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite") groups=["Goku | Neautral Heavy Positioner"]]
 z_index = 5
 collision_layer = 32
 collision_mask = 16
@@ -11133,10 +11629,11 @@ collision_layer = 32
 collision_mask = 16
 script = ExtResource("4_1ntk6")
 Sprite = NodePath("../../Sprite")
-Constant_Force = Vector2(0, -350)
+Stun_Time = 1.0
+Damage = 49
+Constant_Force = Vector2(0, -200)
 
 [node name="Rock Smash" type="CollisionShape2D" parent="Controller/Scale Player/Goku | Neautral Heavy Shatter"]
-visible = false
 position = Vector2(-60, 17)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_www3h")
@@ -11224,21 +11721,53 @@ shape = SubResource("CapsuleShape2D_okev4")
 disabled = true
 debug_color = Color(0.937255, 0.12549, 0, 0.419608)
 
-[node name="Goku | Side Heavy Start" type="Area2D" parent="Controller/Scale Player" groups=["Force", "Goku | Side Heavy End"]]
+[node name="Side Air Start" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite") groups=["Force"]]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("4_1ntk6")
+Sprite = NodePath("../../Sprite")
+Stun_Time = 0.6
+Damage = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controller/Scale Player/Side Air Start"]
+position = Vector2(17.5, -8.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wtsb4")
+debug_color = Color(0, 0, 1, 0.419608)
+
+[node name="Side Air Positioner" type="Area2D" parent="Controller/Scale Player"]
+z_index = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controller/Scale Player/Side Air Positioner"]
+position = Vector2(18.5, -9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_kqv5d")
+
+[node name="Goku | Side Heavy Start" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite") groups=["Force", "Goku | Side Heavy End"]]
 position = Vector2(1.5, 0)
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("4_1ntk6")
+Sprite = NodePath("../../Sprite")
+Stun_Time = 1.0
+Damage = 45
+Constant_Force = Vector2(50, -100)
 
 [node name="Small Pillar" type="CollisionShape2D" parent="Controller/Scale Player/Goku | Side Heavy Start"]
 visible = false
-position = Vector2(44, -2.86102e-06)
-rotation = 1.36659
+position = Vector2(30, 7.5)
+rotation = 0.705113
 shape = SubResource("CapsuleShape2D_lm0pa")
 disabled = true
 
-[node name="Goku | Side Heavy End" type="Area2D" parent="Controller/Scale Player" groups=["Force", "Goku | Side Heavy End"]]
+[node name="Goku | Side Heavy End" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite") groups=["Force", "Goku | Side Heavy End"]]
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("4_1ntk6")
+Sprite = NodePath("../../Sprite")
+Stun_Time = 1.0
+Damage = 60
+Constant_Force = Vector2(280, -180)
 
 [node name="Extended Pillar" type="CollisionShape2D" parent="Controller/Scale Player/Goku | Side Heavy End"]
 visible = false
@@ -11336,22 +11865,15 @@ Air_Projectle = ExtResource("11_wftpu")
 Ground_Projectile = ExtResource("12_8cg2b")
 Sprite = NodePath("../../Sprite")
 
-[node name="Side Air Start" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite") groups=["Force"]]
-visible = false
-collision_layer = 32
-collision_mask = 16
-script = ExtResource("4_1ntk6")
-Sprite = NodePath("../../Sprite")
-Stun_Time = 0.6
-Damage = 60
-Constant_Force = Vector2(300, 0)
+[node name="Area2D" type="Area2D" parent="Controller/Scale Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controller/Scale Player/Side Air Start"]
-position = Vector2(17.5, -8.5)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_wtsb4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controller/Scale Player/Area2D"]
+visible = false
+z_index = 5
+position = Vector2(21.5, -9)
+shape = SubResource("CircleShape2D_vr6lk")
 disabled = true
-debug_color = Color(0, 0, 1, 0.419608)
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="Sprite" type="Sprite2D" parent="Controller"]
 z_index = 5
@@ -11359,7 +11881,7 @@ position = Vector2(0, -40)
 texture = ExtResource("13_nulpv")
 hframes = 10
 vframes = 19
-frame = 19
+frame = 71
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -11374,7 +11896,6 @@ root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
-speed_scale = 0.3
 script = ExtResource("17_xa6s0")
 Controller = NodePath("../..")
 Character = NodePath("..")
@@ -11394,7 +11915,8 @@ Animator = NodePath("../Animator")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Controller/Hurtbox"]
 z_index = 10
-position = Vector2(0, 1)
+position = Vector2(-5.5, -11)
+rotation = -1.00007
 shape = SubResource("CapsuleShape2D_qamvs")
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
@@ -11459,7 +11981,7 @@ Player_Stats = NodePath("../Player Stats")
 [node name="Player Stats" type="Node" parent="Controller"]
 script = ExtResource("30_h56yx")
 Speed_Rating = 8.0
-Max_Speed = 25
+Max_Speed = 30
 Acceleration = 15
 Decelleration = 25
 Jump_Height = 300
@@ -11542,6 +12064,8 @@ Icon = ExtResource("29_quw3q")
 [connection signal="AttackConnected" from="Controller/Scale Player/Goku | Down Heavy Final" to="Controller/Scale Player/Goku | Down Heavy Final" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Goku | Down Heavy Final" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Goku | Down Heavy Final" to="Controller/Scale Player/Goku | Down Heavy Final" method="_on_area_entered"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Side Air Start" to="Controller/Scale Player/Side Air Start" method="_on_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Side Air Start" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Goku | Side Heavy Start" to="Controller" method="_on_goku__side_heavy_end_area_entered"]
 [connection signal="area_entered" from="Controller/Scale Player/Goku | Side Heavy End" to="Controller" method="_on_goku__side_heavy_end_area_entered"]
 [connection signal="area_entered" from="Controller/Scale Player/Goku | Side Light Punch - Initial Damager" to="Controller" method="_on_goku__side_light_punch__initial_damager_area_entered"]
@@ -11549,8 +12073,6 @@ Icon = ExtResource("29_quw3q")
 [connection signal="area_entered" from="Controller/Scale Player/Goku | Side Light Transitional Check" to="Controller" method="_on_goku__side_light_transitional_check_area_entered"]
 [connection signal="area_entered" from="Controller/Scale Player/Goku Sde Light Finish - First Punch" to="Controller" method="_on_goku_sde_light_finish__first_punch_area_entered"]
 [connection signal="area_entered" from="Controller/Scale Player/Goku Sde Light Finish - Second Punch" to="Controller" method="_on_goku_sde_light_finish__second_punch_area_entered"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Side Air Start" to="Controller/Scale Player/Side Air Start" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Side Air Start" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="AttackFriction" from="Controller/Animator" to="Controller/Animator" method="_on_attack_friction"]
 [connection signal="AttackMovingX" from="Controller/Animator" to="Controller/Animator" method="_on_attack_moving_x"]
 [connection signal="AttackMovingY" from="Controller/Animator" to="Controller/Animator" method="_on_attack_moving_y"]

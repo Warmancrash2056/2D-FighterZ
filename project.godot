@@ -13,6 +13,7 @@ config_version=5
 config/name="2D FighterZ"
 run/main_scene="res://Game Start/Attention Prompt/Attention.tscn"
 config/features=PackedStringArray("4.2")
+run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Character Resouces/Characters/Nomad/wind_elemental.png"
 

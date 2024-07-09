@@ -95,17 +95,17 @@ func _get_movement():
 		decelleration =  Player_Stats.Decelleration
 	else:
 		new_speed = air_rating * Player_Stats.Max_Speed
-		decelleration =  5
+		decelleration =  3
 
 
 	if can_move == true:
 		movement_dir = Vector2(Input.get_action_strength(Player_Identifier.Controls.right) - Input.get_action_strength(Player_Identifier.Controls.left),0)
 		movement_dir.normalized()
 
-		if movement_dir.x == 1:
+		if movement_dir.x == 1 and Sprite.flip_h == false:
 			velocity.x = move_toward(velocity.x, new_speed, Player_Stats.Acceleration)
 
-		elif  movement_dir.x == -1:
+		elif  movement_dir.x == -1 and Sprite.flip_h == true:
 			velocity.x = move_toward(velocity.x, -new_speed, Player_Stats.Acceleration)
 
 		else:	velocity.x = move_toward(velocity.x, 0, decelleration)
@@ -199,12 +199,10 @@ func _process_dual_combinations():
 				Animator.state = Side_Light
 
 			if first_input.onground == true and first_input.value == "right" and second_input.onground == true and second_input.type == "attack" and second_input.value == "heavy":
-				if Animator.state == Idle:
-					Animator.state = Side_Heavy
+				Animator.state = Side_Heavy
 
 			if first_input.onground == true and first_input.value == "left"  and second_input.onground == true and second_input.type == "attack" and second_input.value == "heavy":
-				if Animator.state == Idle:
-					Animator.state = Side_Heavy
+				Animator.state = Side_Heavy
 
 			if first_input.onground == false and first_input.value == "right" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
 				if Animator.state == Air:

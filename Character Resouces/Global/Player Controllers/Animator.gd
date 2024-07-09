@@ -146,6 +146,13 @@ func _physics_process(delta):
 					Sprite.flip_h = false
 
 
+			if Input.is_action_just_pressed(Controller.Controls.left) and Wall_Detector.target_position.x == 9:
+				Character.velocity.x = -200
+				Character.velocity.y  = -600
+
+			elif Input.is_action_just_pressed(Controller.Controls.right) and Wall_Detector.target_position.x == -9:
+				Character.velocity.x = -200
+				Character.velocity.y  = -600
 
 			if !Character.is_on_wall() and !Wall_Detector.is_colliding():
 				Character.can_attack = true

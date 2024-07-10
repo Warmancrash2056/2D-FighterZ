@@ -201,7 +201,7 @@ func _physics_process(delta):
 
 		Neutral_Recovery:
 			Attack_Vector = NRecovery
-			play("Neutral Recovery")
+			play("Nuetral Recovery")
 
 		Side_Light:
 			Attack_Vector = Slight

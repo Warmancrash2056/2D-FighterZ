@@ -5,8 +5,8 @@ extends Area2D
 @export var Player_Stats: Node
 @export var Sprite: Sprite2D
 @export var Animator: AnimationPlayer
+@export var Colider: CollisionShape2D
 
-@onready var Hurtbox_Collider = $'Hurtbox Collision'
 var knockback_multiplier: float
 signal IsHurt(Damage: int)
 var stun_time: float
@@ -45,10 +45,13 @@ enum {
 	Respawn
 }
 func _physics_process(delta: float) -> void:
+	print(Player_Stats.Health)
 	if Animator.state == Hurt:
 		apply_constant_force(constant_force)
 
 func _on_area_entered(area: Area2D) -> void:
+	Colider.disabled = true
+	Colider.disabled = false
 	if area.is_in_group("Force"):
 		damage_taken = area.Damage
 		IsHurt.emit(damage_taken)

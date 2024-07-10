@@ -6,9 +6,9 @@ var get_player_2 = null
 var get_main_player = null
 
 var goku_neutral_heavy_positioner = Vector2()
-var player_1_health: int
-var player_2_health: int
-var player_3_health: int
+var player_1_health: float
+var player_2_health: float
+var player_3_health: float
 var lives = 2
 
 var goku_selected = false

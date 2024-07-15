@@ -214,7 +214,7 @@ func _physics_process(delta):
 
 		Neutral_Heavy:
 			Attack_Vector = NHeavy
-			play("Neutral Heavy - Start -")
+			play("Ne")
 
 		Neutral_Air:
 			Attack_Vector = NAir

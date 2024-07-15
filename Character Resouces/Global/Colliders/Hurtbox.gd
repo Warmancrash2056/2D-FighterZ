@@ -44,26 +44,29 @@ enum {
 	Recover,
 	Respawn
 }
+
+func _ready() -> void:
+	Colider.disabled = true
+	Colider.disabled = false
 func _physics_process(delta: float) -> void:
-	print(Player_Stats.Health)
 	if Animator.state == Hurt:
 		apply_constant_force(constant_force)
 
 func _on_area_entered(area: Area2D) -> void:
-	Colider.disabled = true
-	Colider.disabled = false
 	if area.is_in_group("Force"):
+		Colider.disabled = true
+		constant_force = area.Constant_Force
 		damage_taken = area.Damage
 		IsHurt.emit(damage_taken)
 		_calculate_stun(area.Stun_Time)
-		constant_force = area.Constant_Force
 		direction = area.direction
 		goku_neautral_havy = false
+		Colider.disabled = false
 
-	if area.is_in_group("Knockout Area"):
-		Animator.state = Respawn
+	elif area.is_in_group("Knockout Area"):
+		pass
 
-	if area.is_in_group("Goku | Neautral Heavy Positioner"):
+	elif area.is_in_group("Goku | Positioner"):
 		goku_neautral_havy = true
 		damage_taken = area.Damage
 		IsHurt.emit(damage_taken)
@@ -156,3 +159,4 @@ func _on_controller_facing_right() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Knockout Area"):
 		Animator.state = Respawn
+		Player_Stats.Health = 1000

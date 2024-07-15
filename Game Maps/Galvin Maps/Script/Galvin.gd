@@ -50,14 +50,20 @@ func _ready() -> void:
 	var player_1_animator:AnimationPlayer = player_1_spawn.get_node("Controller/Animator")
 	var player_2_position:CharacterBody2D = player_2_spawn.get_node("Controller")
 	var player_2_animator:AnimationPlayer = player_2_spawn.get_node("Controller/Animator")
+	var player_1_hurtbox: Area2D = player_1_spawn.get_node("Controller/Scale Player/Goku | Attack Positioner")
+	var player_2_hurtbox: Area2D = player_2_spawn.get_node("Controller/Scale Player/Goku | Attack Positioner")
 	# Set player properties directly
 	setup_camera()
 	GameAuido._galvin_map_play()
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
 	player_1_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
+	player_1_hurtbox.set_collision_layer_value(12, true)
+	player_1_hurtbox.set_collision_mask_value(16, true)
 
 	player_2_spawn.set_script(CharacterList.get_player_2_script)
 	player_2_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
+	player_2_hurtbox.set_collision_layer_value(20, true)
+	player_2_hurtbox.set_collision_mask_value(26, true)
 
 	await get_tree().create_timer(2).timeout
 	call_deferred("add_child", player_1_spawn)
@@ -97,7 +103,7 @@ func calculate_camera_rect() -> void:
 	var player_1_position = player_1_spawn.get_node("Controller")
 	var player_2_position = player_2_spawn.get_node("Controller")
 	viewport_rect = get_viewport_rect()
-	set_process(get_child_count() >= 3)
+	set_process(get_child_count() >= 1)
 	camera_rect = Rect2(player_1_position.global_position, Vector2())
 	for index in range(get_child_count()):
 		if index == 0:
@@ -113,10 +119,9 @@ func update_camera() -> void:
 	var player2_position = player_2_position.global_position
 
 	var distance = player1_position.distance_to(player2_position)
-
 	# Move the camera only when players are far away
 	if distance > CAMERA_MOVE_THRESHOLD:
-		camera.global_position = lerp(camera.global_position,calculate_center(camera_rect),0.1)
+		new_position = calculate_center(camera_rect)
 
 
 	# Adjust zoom based on distance between players
@@ -167,11 +172,16 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 	var player_1_animator:AnimationPlayer = player_1_spawn.get_node("Controller/Animator")
 	var player_2_position:CharacterBody2D = player_2_spawn.get_node("Controller")
 	var player_2_animator:AnimationPlayer = player_2_spawn.get_node("Controller/Animator")
+	var Player_1_stats:Node = player_1_spawn.get_node("Controller/Player Stats")
+	var Player_2_stats:Node = player_2_spawn.get_node("Controller/Player Stats")
+
 
 	if body.get_parent() is Player1Controller:
+		Player_1_stats.Health = 1000
 		var tween = get_tree().create_tween()
 		player_1_spawn.visible = false
-		tween.tween_property(player_1_position, "global_position", Vector2(0,-300), 3)
+		player_1_animator.state = Respawn
+		tween.tween_property(player_1_position, "global_position", Vector2(-200,-300), 3)
 		tween.tween_property(player_1_spawn, "visible", true, 3 )
 		await tween.finished
 		player_1_animator.state = Idle
@@ -183,11 +193,11 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 
 
 	if body.get_parent() is Player2Controller:
-		camera_move = false
+		Player_2_stats.Health = 1000
 		var tween = get_tree().create_tween()
 		player_2_spawn.visible = false
 		player_2_animator.state = Respawn
-		tween.tween_property(player_2_position, "global_position", Vector2(0,-300), 3)
+		tween.tween_property(player_2_position, "global_position", Vector2(200,-300), 3)
 		tween.tween_property(player_2_spawn, "visible", true, 3)
 		await tween.finished
 		player_2_animator.state = Idle
@@ -201,3 +211,8 @@ func _on_timer_timeout() -> void:
 	if camera_move == true:
 		var tween = get_tree().create_tween()
 		tween.tween_property(camera,'zoom', new_zoom, 0.5)
+		tween.tween_property(camera, "global_position", new_position, 0.5)
+
+
+func _on_game_start_timeout() -> void:
+	pass # Replace with function body.

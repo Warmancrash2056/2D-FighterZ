@@ -22,9 +22,9 @@ offset_bottom = 136.0
 grow_horizontal = 2
 
 [node name="Player 1 Healthbar" parent="Control/MarginContainer" instance=ExtResource("1_thw4x")]
-position = Vector2(1031, 22)
+position = Vector2(1024, 24)
 
 [node name="Player 2 Healthbar" parent="Control/MarginContainer" instance=ExtResource("2_ewhbx")]
-position = Vector2(1031, 69)
+position = Vector2(1024, 88)
 
 [node name="MarginContainer" parent="." instance=ExtResource("3_h8gku")]

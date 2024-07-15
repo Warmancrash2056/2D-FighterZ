@@ -13,7 +13,7 @@ var movement_dir: Vector2
 var direction: int
 
 var Attack_Vector: Vector2
-var Attack_Friction = 0.8
+var Attack_Friction = 0.1
 var enable_y_movement = false
 var enable_x_movement = false
 var start_friction = false
@@ -109,6 +109,26 @@ func _physics_process(delta):
 
 		Dash:
 			play("Dash")
+			if !Character.is_on_floor():
+				state = Air
+			if Character.movement_dir.x == 0:
+				state = Idle
+				Character.can_attack = true
+				Character.can_jump = true
+				Character.can_direct = true
+
+			if Sprite.flip_h == false and Character.movement_dir.x == -1:
+				state = Wall
+				Character.can_attack = true
+				Character.can_jump = true
+				Character.can_direct = true
+
+			if Sprite.flip_h == true and Character.movement_dir.x == 1:
+				state = Wall
+				Character.can_attack = true
+				Character.can_jump = true
+				Character.can_direct = true
+
 		Air:
 			if Character.velocity.y > 0:
 				play("Fall")
@@ -187,34 +207,35 @@ func _physics_process(delta):
 		Air_Block:
 			Attack_Vector = Block
 			play("Air Block")
+
 		Neutral_Light:
 			Attack_Vector = Nlight
-			play("Nuetral Light")
+			play("Neutral Light - Start -")
 
 		Neutral_Heavy:
 			Attack_Vector = NHeavy
-			play("Nuetral Heavy")
+			play("Neutral Heavy - Start -")
 
 		Neutral_Air:
 			Attack_Vector = NAir
-			play("Neautral Air")
+			play("Neautral Air - Start -")
 
 		Neutral_Recovery:
 			Attack_Vector = NRecovery
-			play("Nuetral Recovery")
+			play("Neutral Recovery - Start -")
 
 		Side_Light:
 			Attack_Vector = Slight
-			play("Side Light Start")
+			play("Side Light -Start -")
 
 		Side_Heavy:
 
 			Attack_Vector = SHeavy
-			play("Side Heavy")
+			play("Side Heavy - Finish -")
 
 		Side_Air:
 			Attack_Vector = SAir
-			play("Side Air")
+			play("Side Air - Start -")
 
 		Down_Light:
 			Attack_Vector = Dlight
@@ -230,7 +251,7 @@ func _physics_process(delta):
 
 		Dowm_Recovery:
 			Attack_Vector = DRecovery
-			play("Down Recovery")
+			play("Down Recovery - Start -")
 
 func _attack_movment_controller():
 	if enable_x_movement == true:
@@ -281,7 +302,6 @@ func _stop_attack_friction():
 
 # Disable and enable player movement player movement at keyframe
 func _stop_player_movement():
-	Character.velocity.x = move_toward(Character.velocity.x , 0 , 100)
 	Character.can_move = false
 
 func _start_player_movement():
@@ -303,7 +323,7 @@ func _on_is_resetting(): # Reset the attack trigger to on.
 
 
 func _on_attack_friction(Friction: Variant) -> void:
-	pass # Replace with function body.
+	Character.velocity.x = lerp(Character.velocity.x , 0.0, Friction)
 
 
 func _on_attack_moving_x(Vector: Variant) -> void:
@@ -318,6 +338,7 @@ func _on_attack_moving_y(Vector: Variant) -> void:
 # From timer node reenable attack and dodge
 func _on_recovery_timer_timeout() -> void:
 	IsResetting.emit()
+	Character.can_dash = true
 
 
 func _on_stun_time_timeout() -> void:

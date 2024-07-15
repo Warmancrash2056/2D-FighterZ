@@ -89,28 +89,35 @@ func _get_movement():
 
 	else:
 		velocity.y += Player_Stats.Gravity
+
 	var new_speed
-	var air_rating: float = Player_Stats.Speed_Rating + 0.25
+	var air_rating: float = Player_Stats.Speed_Rating + 1.2
 	var decelleration =  Player_Stats.Decelleration
+	var dash_rating: float = Player_Stats.Speed_Rating + 5.5
 	if is_on_floor():
-		new_speed = Player_Stats.Max_Speed * Player_Stats.Speed_Rating
-		decelleration =  Player_Stats.Decelleration
+		print(velocity.x)
+		if Animator.state == Dash:
+			new_speed = dash_rating * Player_Stats.Max_Speed
+		else:
+			new_speed = Player_Stats.Max_Speed * Player_Stats.Speed_Rating
+			decelleration =  Player_Stats.Decelleration
 	else:
-		new_speed = air_rating * Player_Stats.Max_Speed
-		decelleration =  3
+		new_speed = Player_Stats.Max_Speed * air_rating
+		decelleration =  5
 
 
 	if can_move == true:
 		movement_dir = Vector2(Input.get_action_strength(Player_Identifier.Controls.right) - Input.get_action_strength(Player_Identifier.Controls.left),0)
 		movement_dir.normalized()
 
-		if movement_dir.x == 1 and Sprite.flip_h == false:
-			velocity.x = move_toward(velocity.x, new_speed, Player_Stats.Acceleration)
+		if movement_dir.x == 1:
+				velocity.x = move_toward(velocity.x, new_speed, Player_Stats.Acceleration)
 
-		elif  movement_dir.x == -1 and Sprite.flip_h == true:
-			velocity.x = move_toward(velocity.x, -new_speed, Player_Stats.Acceleration)
+		elif  movement_dir.x == -1:
+				velocity.x = move_toward(velocity.x, -new_speed, Player_Stats.Acceleration)
 
-		else:	velocity.x = move_toward(velocity.x, 0, decelleration)
+		else:
+			velocity.x = move_toward(velocity.x, 0, decelleration)
 
 func _process_input():
 	if can_direct == true:
@@ -144,9 +151,10 @@ func _process_dash_input():
 
 func _process_block_input():
 	if can_block == true and can_attack == true:
-		if Input.is_action_just_pressed(Player_Identifier.Controls.dash):
+		if Input.is_action_just_pressed(Player_Identifier.Controls.block):
 			add_to_buffer({"type": "move", "value": "block", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			IsBlocking.emit()
+
 func _process_attack_input():
 	if can_attack == true:
 		if Input.is_action_just_pressed(Player_Identifier.Controls.throw):
@@ -207,20 +215,17 @@ func _process_dual_combinations():
 				Animator.state = Side_Heavy
 
 			if first_input.onground == false and first_input.value == "right" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
-				if Animator.state == Air:
-					Animator.state = Side_Air
+				Animator.state = Side_Air
 
 			if first_input.onground == false and first_input.value == "left" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
-				if Animator.state == Air:
-					Animator.state = Side_Air
+				Animator.state = Side_Air
 
 
-			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
-				if is_on_floor():
+			if first_input.onground == true and first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
 					Animator.state = Down_Light
 
-				else:
-					Animator.state = Down_Air
+			if first_input.onground == false and first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
+					Animator.state = Down_Heavy
 
 			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
 				if is_on_floor():
@@ -259,6 +264,10 @@ func _process_immediate_action():
 	for input_action in input_buffer:
 		match input_action.type:
 			"move":
+				if movement_dir.x != 0:
+					if input_action.value == "dash" and input_action.onground == true:
+						Animator.state = Dash
+
 				if input_action.value == "block" and input_action.onground == true:
 					Animator.state = Ground_Block
 
@@ -343,6 +352,7 @@ func _on_is_attacking() -> void:
 	can_attack = false
 	can_direct = false
 	can_jump = false
+	can_dash = false
 
 
 func _on_is_blocking() -> void:

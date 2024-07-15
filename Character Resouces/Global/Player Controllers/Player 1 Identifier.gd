@@ -11,7 +11,8 @@ func _ready() -> void:
 	CharacterList.player_1_health = Player_Stats.Health
 	Player_Indicator.modulate = Color(0, 0, 0.545098, 1)
 
-
+func _physics_process(delta: float) -> void:
+	CharacterList.player_1_health = Player_Stats.Health
 func _on_hurtbox_is_hurt(Damage: int) -> void:
 	CharacterList.player_1_health = Player_Stats.Health
 

@@ -276,7 +276,8 @@ collision_layer = 32
 collision_mask = 30
 script = ExtResource("3_snfjr")
 Sprite = NodePath("../Sprite2D")
-Stun_Time = 1.5
+Stun_Time = 0.65
+Damage = 30.0
 Constant_Force = Vector2(300, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goku | Ground Projectile"]

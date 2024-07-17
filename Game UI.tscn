@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://diq454tksfcxt"]
+[gd_scene load_steps=6 format=3 uid="uid://diq454tksfcxt"]
 
+[ext_resource type="Script" path="res://Game UI.gd" id="1_t7vyy"]
 [ext_resource type="PackedScene" uid="uid://b3rv1kotqtmjy" path="res://Ui Resources/Player 1 Healthbar.tscn" id="1_thw4x"]
 [ext_resource type="PackedScene" uid="uid://cyanpmw7wuxhc" path="res://Ui Resources/Player 2 Healthbar.tscn" id="2_ewhbx"]
 [ext_resource type="PackedScene" uid="uid://c44n0gxwdlna2" path="res://User Setting/Setting Menu.tscn" id="3_h8gku"]
+[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://Fonts/ThaleahFat.ttf" id="5_efpkt"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_t7vyy")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -16,15 +19,32 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 offset_bottom = 136.0
 grow_horizontal = 2
 
 [node name="Player 1 Healthbar" parent="Control/MarginContainer" instance=ExtResource("1_thw4x")]
-position = Vector2(1024, 24)
+position = Vector2(-184, 24)
 
 [node name="Player 2 Healthbar" parent="Control/MarginContainer" instance=ExtResource("2_ewhbx")]
-position = Vector2(1024, 88)
+position = Vector2(184, 24)
 
 [node name="MarginContainer" parent="." instance=ExtResource("3_h8gku")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 400.0
+one_shot = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_right = 5.0
+offset_bottom = 16.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+theme_override_fonts/normal_font = ExtResource("5_efpkt")
+text = "400"

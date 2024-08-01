@@ -11,4 +11,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	Match_Text.set_text(str(int(Match_Time.time_left)))
+	if Match_Time.time_left <= 0:
+		Match_Text.set_text("000")
+
+	else:
+		Match_Text.set_text(str(int(Match_Time.time_left)))
+

@@ -31,7 +31,8 @@ enum {
 	Neutral_Heavy,
 	Neutral_Air,
 	Neutral_Recovery,
-	Side_Light,
+	Side_Light_Start,
+	Side_Light_Finish,
 	Side_Heavy,
 	Side_Air,
 	Down_Light,
@@ -54,14 +55,14 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Force"):
-		Colider.disabled = true
+		monitoring = true
 		constant_force = area.Constant_Force
 		damage_taken = area.Damage
 		IsHurt.emit(damage_taken)
 		_calculate_stun(area.Stun_Time)
 		direction = area.direction
 		goku_neautral_havy = false
-		Colider.disabled = false
+		monitoring = true
 
 	elif area.is_in_group("Knockout Area"):
 		pass
@@ -94,7 +95,8 @@ func apply_constant_force(Constant: Vector2):
 	var knockback_vector: Vector2 = Vector2(knockback_x,knockback_y)
 
 
-	Character.velocity = knockback_vector * knockback_multiplier
+	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x * knockback_multiplier, 100)
+	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y * knockback_multiplier, 100)
 
 func _on_is_hurt(Damage: int) -> void:
 	Animator.state = Hurt

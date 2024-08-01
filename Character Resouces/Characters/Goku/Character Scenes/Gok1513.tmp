@@ -1,6 +1,6 @@
 [gd_scene load_steps=92 format=3 uid="uid://c40ypkrmks8qe"]
 
-[ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 2 Identifier.gd" id="1_l0vft"]
+[ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_peh4b"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Scale Player.gd" id="3_o62ja"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Colliders/Hitbox.gd" id="4_1ntk6"]
@@ -8804,11 +8804,8 @@ tracks/34/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_trs8c"]
-resource_name = "Side Heavy - Heavy - "
-
 [sub_resource type="Animation" id="Animation_e2ryg"]
-resource_name = "Side Heavy - Start -"
+resource_name = "Side Heavy - Finish -"
 length = 1.3
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -9301,6 +9298,9 @@ tracks/38/keys = {
 "values": [1.0]
 }
 
+[sub_resource type="Animation" id="Animation_trs8c"]
+resource_name = "Side Heavy - Start -"
+
 [sub_resource type="Animation" id="Animation_1cdqp"]
 resource_name = "Side Light - Finish -"
 length = 0.70001
@@ -9758,34 +9758,6 @@ tracks/35/keys = {
 "values": [{
 "args": [],
 "method": &"_on_is_attacking"
-}]
-}
-tracks/36/type = "method"
-tracks/36/imported = false
-tracks/36/enabled = true
-tracks/36/path = NodePath("../Recovery Timer")
-tracks/36/interp = 1
-tracks/36/loop_wrap = true
-tracks/36/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [0.0],
-"method": &"calculate_recovery"
-}]
-}
-tracks/37/type = "method"
-tracks/37/imported = false
-tracks/37/enabled = true
-tracks/37/path = NodePath("../Recovery Timer")
-tracks/37/interp = 1
-tracks/37/loop_wrap = true
-tracks/37/keys = {
-"times": PackedFloat32Array(0.7),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [-1],
-"method": &"start"
 }]
 }
 
@@ -10571,8 +10543,8 @@ _data = {
 "Run": SubResource("Animation_jyc66"),
 "Side Air - Finish -": SubResource("Animation_37jc3"),
 "Side Air - Start -": SubResource("Animation_xd12r"),
-"Side Heavy - Heavy - ": SubResource("Animation_trs8c"),
-"Side Heavy - Start -": SubResource("Animation_e2ryg"),
+"Side Heavy - Finish -": SubResource("Animation_e2ryg"),
+"Side Heavy - Start -": SubResource("Animation_trs8c"),
 "Side Light - Finish -": SubResource("Animation_1cdqp"),
 "Side Light -Start -": SubResource("Animation_t2w0d"),
 "Side Recovery - Finish -": SubResource("Animation_5ok2h"),
@@ -10648,7 +10620,7 @@ _data = {
 
 [node name="Player Identifier" type="Node2D"]
 position = Vector2(0, 1)
-script = ExtResource("1_l0vft")
+script = ExtResource("1_peh4b")
 
 [node name="Controller" type="CharacterBody2D" parent="."]
 z_index = 3
@@ -10668,8 +10640,8 @@ script = ExtResource("3_o62ja")
 editor_description = "Attack Psoitioner tracks a c ollider and moves player along the path. For 5s.
 "
 z_index = 5
-collision_layer = 0
-collision_mask = 0
+collision_layer = 32
+collision_mask = 16
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
@@ -10683,7 +10655,7 @@ disabled = true
 debug_color = Color(0.709804, 0.486275, 0, 0.419608)
 script = ExtResource("5_6k13g")
 
-[node name="Transitional Check" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Transitional Check" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force", "Goku | Side Light Transitional Check"]]
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("4_1ntk6")
@@ -10937,8 +10909,8 @@ collision_mask = 16
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Stun_Time = 0.8
-Constant_Force = Vector2(300, 0)
+Stun_Time = 0.5
+Constant_Force = Vector2(400, 0)
 
 [node name="First Punch" type="CollisionShape2D" parent="Controller/Scale Player/Goku Sde Light Finish - Second Punch"]
 visible = false
@@ -11000,21 +10972,33 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("15_ljr8u")
 script = ExtResource("16_t1xat")
 
-[node name="Animator" type="AnimationPlayer" parent="Controller" node_paths=PackedStringArray("Controller", "Character", "Scaler", "Sprite", "Wall_Detector")]
+[node name="Animator" type="AnimationPlayer" parent="Controller" node_paths=PackedStringArray("hitbox", "Controller", "Character", "Scaler", "Sprite", "Wall_Detector")]
 reset_on_save = false
 root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
 script = ExtResource("17_xa6s0")
+hitbox = NodePath("../Scale Player/Transitional Check")
 Controller = NodePath("../..")
 Character = NodePath("..")
 Scaler = NodePath("../Scale Player")
 Sprite = NodePath("../Sprite")
 Wall_Detector = NodePath("../Wall Detector")
+Throw_Ground = null
+Throw_Air = null
+Nlight = null
+NHeavy = null
+NAir = null
 NRecovery = Vector2(0, -370)
 Slight = Vector2(5, 0)
+SHeavy = null
 SAir = Vector2(170, 0)
+Dlight = null
+DHeavy = null
+DAir = null
+DRecovery = null
+starting_frames = null
 
 [node name="Body" type="CollisionShape2D" parent="Controller"]
 z_index = 10
@@ -11125,6 +11109,8 @@ scale = Vector2(2, 2)
 script = ExtResource("28_ivokx")
 Icon = ExtResource("29_quw3q")
 
+[connection signal="Player1box" from="." to="Controller/Scale Player/Goku | Attack Positioner" method="_on_player_identifier_player_1_box"]
+[connection signal="knockedout" from="." to="." method="_on_knockedout"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Scale Player" method="_on_movement_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Sprite" method="_on_movement_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Body" method="_on_movement_controller_facing_left"]
@@ -11144,11 +11130,8 @@ Icon = ExtResource("29_quw3q")
 [connection signal="AttackConnected" from="Controller/Scale Player/Goku | Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Goku | Attack Positioner" to="Controller/Scale Player/Goku | Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Animator" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]
-[connection signal="area_entered" from="Controller/Scale Player/Transitional Check" to="." method="_on_transitional_check_area_entered"]
 [connection signal="area_entered" from="Controller/Scale Player/Transitional Check" to="Controller" method="_on_goku__side_light_transitional_check_area_entered"]
-[connection signal="area_entered" from="Controller/Scale Player/Transitional Check" to="Controller/Animator" method="_on_transitional_check_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Goku | Nuetral Lighrt Jab" to="Controller/Scale Player/Goku | Nuetral Lighrt Jab" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Goku | Nuetral Lighrt Jab" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Goku | Nuetral Light Extended Jab" to="Controller/Scale Player/Goku | Nuetral Light Extended Jab" method="_on_attack_connected"]

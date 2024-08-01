@@ -1,6 +1,6 @@
 extends AnimationPlayer
 
-
+@export var hittbox: Area2D
 @export var Controller: Node
 @export var Character: CharacterBody2D
 @export var Scaler: Node
@@ -11,7 +11,7 @@ extends AnimationPlayer
 # Get directions of player
 var movement_dir: Vector2
 var direction: int
-
+var transition_to_finish = false
 var Attack_Vector: Vector2
 var Attack_Friction = 0.1
 var enable_y_movement = false
@@ -68,7 +68,8 @@ enum {
 	Neutral_Heavy,
 	Neutral_Air,
 	Neutral_Recovery,
-	Side_Light,
+	Side_Light_Start,
+	Side_Light_Finish,
 	Side_Heavy,
 	Side_Air,
 	Down_Light,
@@ -214,7 +215,7 @@ func _physics_process(delta):
 
 		Neutral_Heavy:
 			Attack_Vector = NHeavy
-			play("Ne")
+			play("Neautral Heavy - Start -")
 
 		Neutral_Air:
 			Attack_Vector = NAir
@@ -224,14 +225,17 @@ func _physics_process(delta):
 			Attack_Vector = NRecovery
 			play("Neutral Recovery - Start -")
 
-		Side_Light:
+		Side_Light_Start:
 			Attack_Vector = Slight
 			play("Side Light -Start -")
+
+		Side_Light_Finish:
+			play("Side Light - Finish -")
 
 		Side_Heavy:
 
 			Attack_Vector = SHeavy
-			play("Side Heavy - Finish -")
+			play("Side Heavy - Start -")
 
 		Side_Air:
 			Attack_Vector = SAir
@@ -239,15 +243,15 @@ func _physics_process(delta):
 
 		Down_Light:
 			Attack_Vector = Dlight
-			play("Down Light")
+			play("Down Light - Start -")
 
 		Down_Heavy:
 			Attack_Vector = DHeavy
-			play("Down Heavy")
+			play("Down Heavy - Start -")
 
 		Down_Air:
 			Attack_Vector = DAir
-			play("Down Air")
+			play("Down Air - Start -")
 
 		Dowm_Recovery:
 			Attack_Vector = DRecovery
@@ -261,9 +265,12 @@ func _attack_movment_controller():
 	if start_friction == true:
 		AttackFriction.emit(Attack_Friction)
 
-func _side_transition():
-	if side_transition == true:
-		play("Side Finish")
+func _side_light_transition():
+	print(transition_to_finish)
+	if transition_to_finish == true:
+		state = Side_Light_Finish
+		transition_to_finish = false
+
 
 func idle_reset():
 	Attack_Vector = Vector2.ZERO
@@ -356,3 +363,10 @@ func _on_movement_cooldown_timeout() -> void:
 	Character.can_direct = true
 	Character.can_jump = true
 
+
+func _on_attack_connected() -> void:
+	print("good")
+
+
+func _on_transitional_check_area_entered(area: Area2D) -> void:
+	transition_to_finish = true

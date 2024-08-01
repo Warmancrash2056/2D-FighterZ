@@ -132,7 +132,7 @@
 [ext_resource type="Texture2D" uid="uid://dhnu3hvx148jv" path="res://Character Resouces/Characters/Sakura/Animation/Up Light/06_trap_cast_9.png" id="130_bsukf"]
 [ext_resource type="Texture2D" uid="uid://cs088whdps344" path="res://Character Resouces/Characters/Sakura/Animation/Up Light/06_trap_cast_10.png" id="131_7qe0s"]
 [ext_resource type="PackedScene" uid="uid://c44n0gxwdlna2" path="res://User Setting/Setting Menu.tscn" id="131_j6jix"]
-[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="131_pwnav"]
+[ext_resource type="FontFile" uid="uid://b4y6ctw587tbu" path="res://ThaleahFat.ttf" id="131_pwnav"]
 [ext_resource type="Script" path="res://Game Start/Local Play/Prompt Animate.gd" id="134_lcku6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwqe8"]
@@ -1499,8 +1499,8 @@ script = ExtResource("134_lcku6")
 [connection signal="animation_looped" from="Player 1 Nomad" to="Player 1 Cursor" method="_on_player_1_nomad_animation_looped"]
 [connection signal="animation_looped" from="Player 1 Atlantis" to="Player 1 Cursor" method="_on_player_1_atlantis_animation_looped"]
 [connection signal="animation_looped" from="Player 1 Sakura" to="Player 1 Cursor" method="_on_player_1_nai_animation_looped"]
-[connection signal="animation_looped" from="Player 2 General Archfield" to="Player 2 Cursor" method="_on_player_2_general_pyrus_animation_looped"]
 [connection signal="animation_looped" from="Player 2 General Archfield" to="Player 2 Cursor" method="_on_player_2_general_archfield_animation_looped"]
+[connection signal="animation_looped" from="Player 2 General Archfield" to="Player 2 Cursor" method="_on_player_2_general_pyrus_animation_looped"]
 [connection signal="animation_looped" from="Player 2 Goku" to="Player 2 Cursor" method="_on_player_2_goku_animation_looped"]
 [connection signal="animation_looped" from="Player 2 Hunter" to="Player 2 Cursor" method="_on_player_2_hunter_animation_looped"]
 [connection signal="animation_looped" from="Player 2 Nomad" to="Player 2 Cursor" method="_on_player_2_nomad_animation_looped"]

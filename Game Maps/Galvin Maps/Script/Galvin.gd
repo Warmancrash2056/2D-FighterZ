@@ -50,20 +50,14 @@ func _ready() -> void:
 	var player_1_animator:AnimationPlayer = player_1_spawn.get_node("Controller/Animator")
 	var player_2_position:CharacterBody2D = player_2_spawn.get_node("Controller")
 	var player_2_animator:AnimationPlayer = player_2_spawn.get_node("Controller/Animator")
-	var player_1_hurtbox: Area2D = player_1_spawn.get_node("Controller/Scale Player/Goku | Attack Positioner")
-	var player_2_hurtbox: Area2D = player_2_spawn.get_node("Controller/Scale Player/Goku | Attack Positioner")
 	# Set player properties directly
 	setup_camera()
 	GameAuido._galvin_map_play()
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
 	player_1_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
-	player_1_hurtbox.set_collision_layer_value(12, true)
-	player_1_hurtbox.set_collision_mask_value(16, true)
 
 	player_2_spawn.set_script(CharacterList.get_player_2_script)
 	player_2_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
-	player_2_hurtbox.set_collision_layer_value(20, true)
-	player_2_hurtbox.set_collision_mask_value(26, true)
 
 	await get_tree().create_timer(2).timeout
 	call_deferred("add_child", player_1_spawn)
@@ -93,11 +87,6 @@ func _process(delta: float) -> void:
 	set_process(get_child_count() > 0)
 	calculate_camera_rect()
 	update_camera()
-func _reset_c():
-	camera.position.x = move_toward(camera.position.x , 0.0, 1.0)
-	camera.position.y = move_toward(camera.position.y , 0.0, 1.0)
-	camera.zoom.x = move_toward(camera.zoom.x, 0.6, 0.1)
-	camera.zoom.y = move_toward(camera.zoom.y, 0.6, 0.1)
 
 func calculate_camera_rect() -> void:
 	var player_1_position = player_1_spawn.get_node("Controller")
@@ -142,8 +131,8 @@ func calculate_center(rect: Rect2) -> Vector2:
 
 func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 	var min_zoom = min(
-		min(1.1, viewport_size.x / rect.size.x - zoom_offset),
-		min(1.1, viewport_size.y / rect.size.y - zoom_offset)
+		min(1.8, viewport_size.x / rect.size.x - zoom_offset),
+		min(1.8, viewport_size.y / rect.size.y - zoom_offset)
 	)
 	return Vector2(max(min_zoom, 1.0), max(min_zoom, 1.0))
 
@@ -181,8 +170,8 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 		var tween = get_tree().create_tween()
 		player_1_spawn.visible = false
 		player_1_animator.state = Respawn
-		tween.tween_property(player_1_position, "global_position", Vector2(-200,-300), 3)
-		tween.tween_property(player_1_spawn, "visible", true, 3 )
+		tween.tween_property(player_1_position, "global_position", Vector2(-200,-300), 4)
+		tween.tween_property(player_1_spawn, "visible", true, 3)
 		await tween.finished
 		player_1_animator.state = Idle
 		player_1_position.can_move = true
@@ -197,8 +186,8 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 		var tween = get_tree().create_tween()
 		player_2_spawn.visible = false
 		player_2_animator.state = Respawn
-		tween.tween_property(player_2_position, "global_position", Vector2(200,-300), 3)
-		tween.tween_property(player_2_spawn, "visible", true, 3)
+		tween.tween_property(player_2_position, "global_position", Vector2(200,-300), 4)
+		tween.tween_property(player_2_spawn, "visible", true, 4)
 		await tween.finished
 		player_2_animator.state = Idle
 		player_2_position.can_move = true
@@ -210,8 +199,8 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	if camera_move == true:
 		var tween = get_tree().create_tween()
-		tween.tween_property(camera,'zoom', new_zoom, 0.5)
-		tween.tween_property(camera, "global_position", new_position, 0.5)
+		tween.tween_property(camera,'zoom', new_zoom, 0.15).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(camera, "global_position", new_position, 0.15).set_ease(Tween.EASE_IN_OUT)
 
 
 func _on_game_start_timeout() -> void:

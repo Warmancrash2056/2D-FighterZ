@@ -1,7 +1,5 @@
 class_name Player2Controller extends Node2D
-
 @export var Controls: Resource
-
 @onready var Player_Icon: Node2D = $'Player Icon'
 @onready var Player_Indicator: Sprite2D = $'Controller/Player Indicator'
 @onready var Player_Stats: Node = $'Controller/Player Stats'

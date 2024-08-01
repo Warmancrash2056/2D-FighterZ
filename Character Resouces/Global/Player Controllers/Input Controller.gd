@@ -30,6 +30,7 @@ var can_jump = true
 var can_dash = true
 var can_attack = true
 var can_block = true
+
 enum {
 	Idle,
 	Turning,
@@ -43,7 +44,8 @@ enum {
 	Neutral_Heavy,
 	Neutral_Air,
 	Neutral_Recovery,
-	Side_Light,
+	Side_Light_Start,
+	Side_Light_Finish,
 	Side_Heavy,
 	Side_Air,
 	Down_Light,
@@ -95,7 +97,6 @@ func _get_movement():
 	var decelleration =  Player_Stats.Decelleration
 	var dash_rating: float = Player_Stats.Speed_Rating + 5.5
 	if is_on_floor():
-		print(velocity.x)
 		if Animator.state == Dash:
 			new_speed = dash_rating * Player_Stats.Max_Speed
 		else:
@@ -118,7 +119,8 @@ func _get_movement():
 
 		else:
 			velocity.x = move_toward(velocity.x, 0, decelleration)
-
+		velocity.x = clamp(velocity.x, -new_speed, new_speed)
+		velocity.y = clamp(velocity.y, -Player_Stats.Jump_Height, Player_Stats.Jump_Height)
 func _process_input():
 	if can_direct == true:
 		if Input.is_action_pressed(Player_Identifier.Controls.left):
@@ -203,10 +205,10 @@ func _process_dual_combinations():
 		var second_input = input_buffer[i + 1]
 		if first_input.type == "direction":
 			if first_input.onground == true and first_input.value == "right" and second_input.onground == true and second_input.type == "attack" and second_input.value == "light":
-				Animator.state = Side_Light
+				Animator.state = Side_Light_Start
 
 			if first_input.onground == true and first_input.value == "left" and  second_input.onground == true and second_input.type == "attack" and second_input.value == "light":
-				Animator.state = Side_Light
+				Animator.state = Side_Light_Start
 
 			if first_input.onground == true and first_input.value == "right" and second_input.onground == true and second_input.type == "attack" and second_input.value == "heavy":
 				Animator.state = Side_Heavy
@@ -224,29 +226,25 @@ func _process_dual_combinations():
 			if first_input.onground == true and first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
 					Animator.state = Down_Light
 
+			if first_input.onground == false and first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
+					Animator.state = Down_Air
+
+			if first_input.onground == true and first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
+				Animator.state = Down_Heavy
+
 			if first_input.onground == false and first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
-					Animator.state = Down_Heavy
-
-			if first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
-				if is_on_floor():
-					Animator.state = Down_Heavy
-
-				else:
 					Animator.state = Dowm_Recovery
 
-			if first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
-				if is_on_floor():
-					Animator.state = Neutral_Light
+			if first_input.onground == true and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
+				Animator.state = Neutral_Light
 
-				else:
+			if first_input.onground == false and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
 					Animator.state = Neutral_Air
 
+			if first_input.onground == true and first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
+				Animator.state = Neutral_Heavy
 
-			if first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
-				if is_on_floor():
-					Animator.state = Neutral_Heavy
-
-				else:
+			if first_input.onground == false and first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
 					Animator.state = Neutral_Recovery
 
 func _proces_triple_combination():

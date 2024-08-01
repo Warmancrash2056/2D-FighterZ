@@ -42,7 +42,11 @@ var disable_mini_platform = false
 var get_player_1_script = preload("res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd")
 var get_player_2_script = preload("res://Character Resouces/Global/Player Controllers/Player 2 Identifier.gd")
 # Get character resouces to be called in character selection menu
-var SelectCharacters = {
+var Player_1SelectCharacters = {
+	"General Archfield" : preload("res://Character Resouces/Characters/General Archfield/Character Scenes/General Archfield.tscn"),
+	"Goku" : preload("res://Character Resouces/Characters/Goku/Character Scenes/Goku.tscn")
+}
+var Player_2SelectCharacters = {
 	"General Archfield" : preload("res://Character Resouces/Characters/General Archfield/Character Scenes/General Archfield.tscn"),
 	"Goku" : preload("res://Character Resouces/Characters/Goku/Character Scenes/Goku.tscn")
 }

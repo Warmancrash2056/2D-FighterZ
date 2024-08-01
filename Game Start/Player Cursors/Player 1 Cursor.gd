@@ -76,7 +76,7 @@ func _process(delta):
 		Player1Ready = true
 		if CharacterList.get_player_1 == null:
 			CharacterList.get_player_1
-			CharacterList.get_player_1 = CharacterList.SelectCharacters[characters[currentSelected].name]
+			CharacterList.get_player_1 = CharacterList.Player_1SelectCharacters[characters[currentSelected].name]
 			# when character selected map spawn will be active for player 1.
 			CharacterList.check_player_1_is_called = true
 			portraitOffset.x = 0

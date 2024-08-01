@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b3rv1kotqtmjy" path="res://Ui Resources/Player 1 Healthbar.tscn" id="1_thw4x"]
 [ext_resource type="PackedScene" uid="uid://cyanpmw7wuxhc" path="res://Ui Resources/Player 2 Healthbar.tscn" id="2_ewhbx"]
 [ext_resource type="PackedScene" uid="uid://c44n0gxwdlna2" path="res://User Setting/Setting Menu.tscn" id="3_h8gku"]
-[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://Fonts/ThaleahFat.ttf" id="5_efpkt"]
+[ext_resource type="FontFile" uid="uid://b4y6ctw587tbu" path="res://ThaleahFat.ttf" id="5_1yaea"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_t7vyy")
@@ -22,29 +22,38 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_bottom = 136.0
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 64.0
 grow_horizontal = 2
 
 [node name="Player 1 Healthbar" parent="Control/MarginContainer" instance=ExtResource("1_thw4x")]
-position = Vector2(-184, 24)
+position = Vector2(-43, 23)
 
 [node name="Player 2 Healthbar" parent="Control/MarginContainer" instance=ExtResource("2_ewhbx")]
-position = Vector2(184, 24)
-
-[node name="MarginContainer" parent="." instance=ExtResource("3_h8gku")]
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 400.0
-one_shot = true
+position = Vector2(72, 23)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -23.0
-offset_right = 5.0
-offset_bottom = 16.0
+offset_left = -43.0001
+offset_top = 2.0
+offset_right = -14.0001
+offset_bottom = 24.0
 grow_horizontal = 2
-scale = Vector2(2, 2)
-theme_override_fonts/normal_font = ExtResource("5_efpkt")
-text = "400"
+scale = Vector2(2.1, 2.1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("5_1yaea")
+text = "000"
+fit_content = true
+autowrap_mode = 1
+language = "en_US"
+
+[node name="MarginContainer" parent="." instance=ExtResource("3_h8gku")]
+size_flags_vertical = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 400.0
+one_shot = true

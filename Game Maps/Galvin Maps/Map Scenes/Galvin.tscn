@@ -5875,7 +5875,7 @@ collision_mask = 272
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knockout Area"]
 position = Vector2(0, 128)
-polygon = PackedVector2Array(-1272, 464, 1272, 464, 1272, -976, 704, -336, 704, -112, 712, 192, -704, 192, -704, -704, 704, -704, 704, -336, 1008, -672, 1272, -976, -760, -976, -1272, -976)
+polygon = PackedVector2Array(-1272, 464, 1272, 464, 1272, -976, 704, -336, 704, -112, 704, 312, -704, 320, -704, -704, 704, -704, 704, -336, 1008, -672, 1272, -976, -760, -976, -1272, -976)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=93 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 2 Identifier.gd" id="1_l0vft"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -86,6 +86,9 @@ height = 19.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dlibj"]
 radius = 3.5
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lvoev"]
+b = Vector2(1.5, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qamvs"]
 radius = 8.0
@@ -10708,9 +10711,9 @@ collision_mask = 16
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Stun_Time = 20.0
+Stun_Time = 0.2
 Damage = 0.3
-Constant_Force = Vector2(50, -25)
+Constant_Force = Vector2(60, -35)
 
 [node name="Nuetral Light Jab" type="CollisionShape2D" parent="Controller/Scale Player/Goku | Nuetral Lighrt Jab"]
 visible = false
@@ -10967,13 +10970,6 @@ debug_color = Color(0.788235, 0.298039, 0.780392, 0.419608)
 [node name="Marker2D" type="Marker2D" parent="Controller/Scale Player"]
 position = Vector2(16, 0)
 
-[node name="Wall Cloud Position" type="Marker2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite", "Wall_Sound")]
-position = Vector2(-7, 0)
-script = ExtResource("6_k6vmu")
-Wall_Cloud = ExtResource("7_ndq5m")
-Sprite = NodePath("../../Sprite")
-Wall_Sound = NodePath("../../Character Jump Sound")
-
 [node name="Dash Smoke Position" type="Marker2D" parent="Controller/Scale Player"]
 position = Vector2(0, 8)
 script = ExtResource("8_sermq")
@@ -10985,13 +10981,30 @@ Air_Projectle = ExtResource("11_wftpu")
 Ground_Projectile = ExtResource("12_8cg2b")
 Sprite = NodePath("../../Sprite")
 
+[node name="Wall Cloud Position" type="Marker2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite", "Wall_Sound")]
+position = Vector2(5, -0.5)
+script = ExtResource("6_k6vmu")
+Wall_Cloud = ExtResource("7_ndq5m")
+Sprite = NodePath("../../Sprite")
+Wall_Sound = NodePath("../../Character Jump Sound")
+
+[node name="Area2D" type="Area2D" parent="Controller/Scale Player/Wall Cloud Position"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controller/Scale Player/Wall Cloud Position/Area2D"]
+z_index = 20
+position = Vector2(2, 0)
+shape = SubResource("SegmentShape2D_lvoev")
+debug_color = Color(0.960784, 0, 0.517647, 0.419608)
+
 [node name="Sprite" type="Sprite2D" parent="Controller"]
 z_index = 5
 position = Vector2(0, -40)
 texture = ExtResource("13_nulpv")
 hframes = 10
 vframes = 19
-frame = 131
+frame = 125
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -11006,6 +11019,7 @@ root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
+speed_scale = 0.3
 script = ExtResource("17_xa6s0")
 Controller = NodePath("../..")
 Character = NodePath("..")
@@ -11071,7 +11085,7 @@ Speed_Rating = 8.0
 Max_Speed = 20
 Acceleration = 30
 Decelleration = 15
-Jump_Height = 300
+Jump_Height = 260
 Gravity = 8
 Defense_Rating = 0.9
 Health = 1000.0
@@ -11109,6 +11123,7 @@ Colider = NodePath("Hurtbox")
 z_index = 10
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_qamvs")
+disabled = true
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
 [node name="Respawn" type="AnimationPlayer" parent="Controller/Hurtbox"]
@@ -11195,6 +11210,8 @@ Icon = ExtResource("29_quw3q")
 [connection signal="area_entered" from="Controller/Scale Player/Goku Sde Light Finish - Second Punch" to="Controller" method="_on_goku_sde_light_finish__second_punch_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Goku Side Air kickBack" to="Controller/Scale Player/Goku Side Air kickBack" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Goku Side Air kickBack" to="Controller/Recovery Timer" method="_on_goku_side_air_kick_back_attack_connected"]
+[connection signal="body_entered" from="Controller/Scale Player/Wall Cloud Position/Area2D" to="Controller/Scale Player/Wall Cloud Position" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Controller/Scale Player/Wall Cloud Position/Area2D" to="Controller/Scale Player/Wall Cloud Position" method="_on_area_2d_body_exited"]
 [connection signal="AttackFriction" from="Controller/Animator" to="Controller/Animator" method="_on_attack_friction"]
 [connection signal="AttackMovingX" from="Controller/Animator" to="Controller/Animator" method="_on_attack_moving_x"]
 [connection signal="AttackMovingY" from="Controller/Animator" to="Controller/Animator" method="_on_attack_moving_y"]

@@ -66,7 +66,7 @@ func _ready() -> void:
 	player_2_position.global_position = Vector2(-192, 0)
 	timer.start()
 
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(2.5).timeout
 	player_1_animator.state = Idle
 	player_1_position.can_move = true
 	player_1_position.can_direct = true

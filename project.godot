@@ -328,7 +328,10 @@ Player2_Block={
 2d_physics/layer_7="Player 1 Marker"
 2d_physics/layer_8="Player 2 Marker"
 2d_physics/layer_9="Player"
-2d_physics/layer_10="Player 2 Hitbox"
+2d_physics/layer_10="P1 Hurtbox"
+2d_physics/layer_11="P1 Hitbox"
+2d_physics/layer_12="P2 Hurtbox"
+2d_physics/layer_13="P2 Hitbox"
 
 [mono]
 
@@ -337,7 +340,6 @@ project/assembly_name="2D FighterZ"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-textures/canvas_textures/default_texture_repeat=1
-2d/snapping/use_gpu_pixel_snap=true
+camera/depth_of_field/depth_of_field_bokeh_quality=2
 environment/size/viewport_height=700
 environment/size/viewport_width=1200

@@ -5,9 +5,7 @@ extends Marker2D
 @export var Wall_Sound: AudioStreamPlayer2D
 
 
-
-
-func _on_controller_on_wall() -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	var instance_wall_cloud = Wall_Cloud.instantiate()
 	instance_wall_cloud.global_position = global_position
 	get_tree().get_root().add_child(instance_wall_cloud)

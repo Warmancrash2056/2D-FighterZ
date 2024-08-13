@@ -34,3 +34,6 @@ func _on_attack_connected() -> void:
 
 	print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,Movement_Cooldown.wait_time)
 
+
+func _on_side_air__2_attack_connected() -> void:
+	pass # Replace with function body.

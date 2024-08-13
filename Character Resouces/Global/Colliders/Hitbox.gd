@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	direction = Sprite.flip_h
 
 
-## Make Sure the name of signal is the sam for every hitbox to register.
+## Make Sure the name of signal is the same for every hitbox to register.
 func _on_attack_connected() -> void:
 	pass
 

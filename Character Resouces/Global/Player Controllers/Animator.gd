@@ -168,12 +168,12 @@ func _physics_process(delta):
 
 
 			if Input.is_action_just_pressed(Controller.Controls.left) and Wall_Detector.target_position.x == 9:
-				Character.velocity.x = -200
-				Character.velocity.y  = -600
+				Character.velocity.x = -5000
+				Character.velocity.y  = -10000
 
 			elif Input.is_action_just_pressed(Controller.Controls.right) and Wall_Detector.target_position.x == -9:
-				Character.velocity.x = -200
-				Character.velocity.y  = -600
+				Character.velocity.x = 5000
+				Character.velocity.y  = -10000
 
 			if !Character.is_on_wall() and !Wall_Detector.is_colliding():
 				Character.can_attack = true
@@ -362,10 +362,6 @@ func _on_movement_cooldown_timeout() -> void:
 	Character.can_move = true
 	Character.can_direct = true
 	Character.can_jump = true
-
-
-func _on_attack_connected() -> void:
-	print("good")
 
 
 func _on_transitional_check_area_entered(area: Area2D) -> void:

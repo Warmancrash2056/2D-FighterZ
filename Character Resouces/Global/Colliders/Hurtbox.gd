@@ -47,22 +47,21 @@ enum {
 }
 
 func _ready() -> void:
-	Colider.disabled = true
-	Colider.disabled = false
+	pass
 func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
 		apply_constant_force(constant_force)
+		print(Character.velocity)
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Force"):
-		monitoring = true
 		constant_force = area.Constant_Force
 		damage_taken = area.Damage
 		IsHurt.emit(damage_taken)
 		_calculate_stun(area.Stun_Time)
 		direction = area.direction
 		goku_neautral_havy = false
-		monitoring = true
+
 
 	elif area.is_in_group("Knockout Area"):
 		pass

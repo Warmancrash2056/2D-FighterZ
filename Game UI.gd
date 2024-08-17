@@ -16,4 +16,3 @@ func _process(delta: float) -> void:
 
 	else:
 		Match_Text.set_text(str(int(Match_Time.time_left)))
-

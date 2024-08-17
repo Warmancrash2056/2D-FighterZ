@@ -32,7 +32,7 @@ func _on_attack_connected() -> void:
 	set_wait_time(reduced_recovery)
 	Movement_Cooldown.set_wait_time(0.01)
 
-	print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,Movement_Cooldown.wait_time)
+	print("Hit Registered on Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,Movement_Cooldown.wait_time)
 
 
 func _on_side_air__2_attack_connected() -> void:

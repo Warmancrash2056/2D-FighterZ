@@ -24,4 +24,3 @@ func _on_attack_connected() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	AttackConnected.emit()
-

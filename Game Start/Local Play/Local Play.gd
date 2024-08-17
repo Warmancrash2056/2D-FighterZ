@@ -25,7 +25,3 @@ func _process(delta):
 		GameAuido._main_menu_play()
 		Cursor1.Player1Ready = false
 		Cursor2.Player2Ready = false
-
-
-
-

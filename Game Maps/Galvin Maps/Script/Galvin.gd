@@ -82,11 +82,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-
+	pass
 	#print(camera.zoom)
-	set_process(get_child_count() > 0)
-	calculate_camera_rect()
-	update_camera()
+	#set_process(get_child_count() > 0)
+	#calculate_camera_rect()
+	#update_camera()
 
 func calculate_camera_rect() -> void:
 	var player_1_position = player_1_spawn.get_node("Controller")
@@ -131,8 +131,8 @@ func calculate_center(rect: Rect2) -> Vector2:
 
 func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 	var min_zoom = min(
-		min(1.8, viewport_size.x / rect.size.x - zoom_offset),
-		min(1.8, viewport_size.y / rect.size.y - zoom_offset)
+		min(1.4, viewport_size.x / rect.size.x - zoom_offset),
+		min(1.4, viewport_size.y / rect.size.y - zoom_offset)
 	)
 	return Vector2(max(min_zoom, 1.0), max(min_zoom, 1.0))
 

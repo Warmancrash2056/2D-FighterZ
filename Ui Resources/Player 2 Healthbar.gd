@@ -12,4 +12,3 @@ func _physics_process(delta: float) -> void:
 	#print(CharacterList.player_2_health)
 	$TextureProgressBar.value = CharacterList.player_2_health
 	$Sprite2D.texture = CharacterList.player_1_icon
-

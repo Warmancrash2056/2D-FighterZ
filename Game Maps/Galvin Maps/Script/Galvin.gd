@@ -84,9 +84,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	#print(camera.zoom)
-	#set_process(get_child_count() > 0)
-	#calculate_camera_rect()
-	#update_camera()
+	set_process(get_child_count() > 0)
+	calculate_camera_rect()
+	update_camera()
 
 func calculate_camera_rect() -> void:
 	var player_1_position = player_1_spawn.get_node("Controller")

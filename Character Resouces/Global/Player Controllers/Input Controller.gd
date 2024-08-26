@@ -20,8 +20,8 @@ var direction = 1
 
 var movement_dir: Vector2
 var input_buffer = []
-var max_buffer_limit = 3
-var buffer_time = 0.1
+var max_buffer_limit = 2
+var buffer_time = 0.01
 
 
 var can_move = true
@@ -108,8 +108,9 @@ func _get_movement():
 
 
 	if can_move == true:
-		movement_dir = Vector2(Input.get_action_strength(Player_Identifier.Controls.right) - Input.get_action_strength(Player_Identifier.Controls.left),0)
-		movement_dir.normalized()
+		movement_dir = Vector2(int(Input.get_action_strength(Player_Identifier.Controls.right) -
+		Input.get_action_strength(Player_Identifier.Controls.left)),
+		int(0)).normalized()
 
 		if movement_dir.x == 1:
 				velocity.x = move_toward(velocity.x, new_speed, Player_Stats.Acceleration)

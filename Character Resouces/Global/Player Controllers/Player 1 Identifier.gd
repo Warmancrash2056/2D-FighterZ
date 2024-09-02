@@ -125,12 +125,13 @@ func _ready() -> void:
 	sheavy_3.set_collision_layer_value(11, true)
 	Hurtbox.set_collision_layer_value(10, true)
 	Hurtbox.set_collision_mask_value(13, true)
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	CharacterList.player_1_health = Player_Stats.Health
-
+	CharacterList.connect('Player1Knockout', player_1_ringout,CONNECT_ONE_SHOT)
+## Signal to CharacterManager that player is damaged and needs to be updated
 func _on_hurtbox_is_hurt(Damage: int) -> void:
 	CharacterList.player_1_health = Player_Stats.Health
 
 
-func _on_player_1_ringout() -> void:
-	pass # Replace with function body.
+func player_1_ringout() -> void:
+	Hurtbox.knockback_multiplier = 0.0

@@ -6,7 +6,7 @@ var transition_attack: bool = false
 
 @export var Animator: AnimationPlayer
 @export var Sprite: Sprite2D
-@export var Stun_Time: float ## Send the amount of time player is stunned to hitbox
+@export var Recovery_Frames: int ## Send the amount of time player is stunned to hitbox
 @export var Damage: float
 @export var Variable_Force: Vector2 ## Force added onto current player velocity
 @export var Constant_Force: Vector2 ## Constant Force applied to player velocity

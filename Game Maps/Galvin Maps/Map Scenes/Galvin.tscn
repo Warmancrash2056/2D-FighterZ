@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=18 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dmuoyx7cq8gk1" path="res://Game Maps/Galvin Maps/Galvin Assets/decorative.png" id="6_umm62"]
 [ext_resource type="Texture2D" uid="uid://oi1cy53obtgr" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildB.png" id="8_evgpo"]
 [ext_resource type="PackedScene" uid="uid://bkqtqaahh05qw" path="res://Local Camera.tscn" id="9_m0frr"]
+[ext_resource type="Script" path="res://Game Maps/Galvin Maps/Map Scenes/player_1_manager.gd" id="10_bp7nc"]
+[ext_resource type="Script" path="res://Game Maps/Galvin Maps/Map Scenes/player_2_manager.gd" id="11_g8d6d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyb27"]
 texture = ExtResource("6_umm62")
@@ -5881,10 +5883,18 @@ collision_mask = 272
 position = Vector2(0, 128)
 polygon = PackedVector2Array(-1272, 464, 1272, 464, 1272, -976, 704, -336, 704, -112, 704, 312, -704, 320, -704, -704, 704, -704, 704, -336, 1008, -672, 1272, -976, -760, -976, -1272, -976)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Camera Updater" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
 
+[node name="Player 1 Manager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("10_bp7nc")
+
+[node name="Player 2 Manager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("11_g8d6d")
+
 [connection signal="body_entered" from="Knockout Area" to="." method="_on_knockout_area_body_entered"]
 [connection signal="body_exited" from="Knockout Area" to="." method="_on_knockout_area_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Camera Updater" to="." method="_on_timer_timeout"]

@@ -2,7 +2,9 @@ extends Node2D
 @onready var camera = $"Local Camera"
 @onready var player_1_spawn = CharacterList.get_player_1.instantiate()
 @onready var player_2_spawn = CharacterList.get_player_2.instantiate()
-@onready var timer = $Timer
+@onready var player_1_manager = %'Player 1 Manager'
+@onready var player_2_manager = %'Player 2 Manager'
+@onready var timer = $'Camera Updater'
 @export_range(1.0, 1.9 ,0.5) var zoom_offset : float = 1.0
 @export var debug_mode : bool = false
 @export var camera_move: bool = true
@@ -46,40 +48,10 @@ enum { # Character animator states.
 	Respawn
 }
 func _ready() -> void:
-	var player_1_position:CharacterBody2D = player_1_spawn.get_node("Controller")
-	var player_1_animator:AnimationPlayer = player_1_spawn.get_node("Controller/Animator")
-	var player_2_position:CharacterBody2D = player_2_spawn.get_node("Controller")
-	var player_2_animator:AnimationPlayer = player_2_spawn.get_node("Controller/Animator")
 	# Set player properties directly
 	setup_camera()
 	GameAuido._galvin_map_play()
-	player_1_spawn.set_script(CharacterList.get_player_1_script)
-	player_1_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
-
-	player_2_spawn.set_script(CharacterList.get_player_2_script)
-	player_2_spawn.Controls = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
-
-	await get_tree().create_timer(2).timeout
-	call_deferred("add_child", player_1_spawn)
-	player_1_position.global_position = Vector2(192, 0)
-	call_deferred("add_child", player_2_spawn)
-	player_2_position.global_position = Vector2(-192, 0)
 	timer.start()
-
-	await get_tree().create_timer(2.5).timeout
-	player_1_animator.state = Idle
-	player_1_position.can_move = true
-	player_1_position.can_direct = true
-	player_1_position.can_jump = true
-	player_1_position.can_attack = true
-	player_2_animator.state = Idle
-	player_2_position.can_move = true
-	player_2_position.can_direct = true
-	player_2_position.can_jump = true
-	player_2_position.can_attack = true
-
-
-
 
 func _process(delta: float) -> void:
 	pass
@@ -93,11 +65,11 @@ func calculate_camera_rect() -> void:
 	var player_2_position = player_2_spawn.get_node("Controller")
 	viewport_rect = get_viewport_rect()
 	set_process(get_child_count() >= 1)
-	camera_rect = Rect2(player_1_position.global_position, Vector2())
+	camera_rect = Rect2(MatchGameManager.player_1_global_position, Vector2())
 	for index in range(get_child_count()):
 		if index == 0:
 			continue
-		camera_rect = camera_rect.expand(player_2_position.global_position)
+		camera_rect = camera_rect.expand(MatchGameManager.player_2_global_position)
 
 func update_camera() -> void:
 	new_zoom = calculate_zoom(camera_rect, viewport_rect.size)
@@ -107,7 +79,7 @@ func update_camera() -> void:
 	var player1_position = player_1_position.global_position
 	var player2_position = player_2_position.global_position
 
-	var distance = player1_position.distance_to(player2_position)
+	var distance = MatchGameManager.player_1_global_position.distance_to(MatchGameManager.player_2_global_position)
 	# Move the camera only when players are far away
 	if distance > CAMERA_MOVE_THRESHOLD:
 		new_position = calculate_center(camera_rect)

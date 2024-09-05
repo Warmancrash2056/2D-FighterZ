@@ -1,5 +1,6 @@
 class_name Player2Controller extends Node2D
-@export var Controls: Resource
+@export var Controls: Resource = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
+@onready var Controller = $Controller
 @onready var Player_Icon: Node2D = $'Player Icon'
 @onready var Player_Indicator: Sprite2D = $'Controller/Player Indicator'
 @onready var Player_Stats: Node = $'Controller/Player Stats'
@@ -123,8 +124,6 @@ func _ready() -> void:
 	sheavy_3.set_collision_mask_value(10, true)
 	Hurtbox.set_collision_layer_value(12, true)
 	Hurtbox.set_collision_mask_value(11, true)
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	CharacterList.player_2_health = Player_Stats.Health
-
-func _on_hurtbox_is_hurt(Damage: int) -> void:
-	CharacterList.player_2_health = Player_Stats.Health
+	MatchGameManager.player_2_global_position = Controller.global_position

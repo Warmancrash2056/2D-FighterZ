@@ -1,6 +1,5 @@
 class_name Player1Controller extends Node2D
-@onready var Player_1_Character = CharacterList.get_player_1.instantiate()
-@export var Controls: Resource
+@export var Controls: Resource = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
 @onready var Controller = $Controller
 @onready var Player_Icon: Node2D = $'Player Icon'
 @onready var Player_Indicator: Sprite2D = $'Controller/Player Indicator'
@@ -127,11 +126,5 @@ func _ready() -> void:
 	Hurtbox.set_collision_mask_value(13, true)
 func _process(delta: float) -> void:
 	CharacterList.player_1_health = Player_Stats.Health
-	CharacterList.connect('Player1Knockout', player_1_ringout,CONNECT_ONE_SHOT)
-## Signal to CharacterManager that player is damaged and needs to be updated
-func _on_hurtbox_is_hurt(Damage: int) -> void:
-	CharacterList.player_1_health = Player_Stats.Health
-
-
-func player_1_ringout() -> void:
-	Hurtbox.knockback_multiplier = 0.0
+	MatchGameManager.player_1_global_position = Controller.global_position
+	print(MatchGameManager.player_1_global_position)

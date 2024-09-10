@@ -1,5 +1,7 @@
 class_name Player2Controller extends Node2D
 @export var Controls: Resource = preload('res://Character Resouces/Global/Controller Resource/Player_2.tres')
+@export var Projectile_Layer: int = 13
+@export var Projectile_Mask: int = 10
 @onready var Controller = $Controller
 @onready var Player_Icon: Node2D = $'Player Icon'
 @onready var Player_Indicator: Sprite2D = $'Controller/Player Indicator'

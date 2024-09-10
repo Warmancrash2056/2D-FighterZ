@@ -10,20 +10,22 @@ extends Timer
 @export var Hurtbox: Area2D
 var get_recovery: float
 var get_movement: float
+var frame_recovery: float
 
 func calculate_recovery(new_recovery: float):
-	# Get the current attack animation and multiply the time.
-	# By the player stamina rating. Set the wait time to new recovery.
 	var animation_length = Animator.current_animation_length
 	var stamina_rating = Player_Stats.Stamina_Rating
-	new_recovery = animation_length * stamina_rating
+	var animation_frame_count: float = animation_length * 60
+	var stamina_reduced_frame_cont: float = animation_frame_count / 7
+	var calculated_frame_count_to_sec: float = stamina_reduced_frame_cont / 60
+	new_recovery = calculated_frame_count_to_sec
 	var movement_cooldown_timer: float = new_recovery * 0.1
 	get_recovery = new_recovery
 	get_movement = movement_cooldown_timer
 	Movement_Cooldown.set_wait_time(movement_cooldown_timer)
 	set_wait_time(new_recovery)
-	#print(wait_time)
-	#print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,movement_cooldown_timer)
+	print(calculated_frame_count_to_sec)
+	print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,movement_cooldown_timer)
 
 
 func _on_attack_connected() -> void:
@@ -32,7 +34,7 @@ func _on_attack_connected() -> void:
 	set_wait_time(reduced_recovery)
 	Movement_Cooldown.set_wait_time(0.01)
 
-	#print("Hit Registered on Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,Movement_Cooldown.wait_time)
+	print("Hit Registered on Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,Movement_Cooldown.wait_time)
 
 
 func _on_side_air__2_attack_connected() -> void:

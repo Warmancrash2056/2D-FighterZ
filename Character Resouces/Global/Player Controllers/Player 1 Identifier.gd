@@ -1,5 +1,7 @@
 class_name Player1Controller extends Node2D
 @export var Controls: Resource = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
+@export var Projectile_Layer: int = 11
+@export var Projectile_Mask: int = 12
 @onready var Controller = $Controller
 @onready var Player_Icon: Node2D = $'Player Icon'
 @onready var Player_Indicator: Sprite2D = $'Controller/Player Indicator'
@@ -127,4 +129,3 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	CharacterList.player_1_health = Player_Stats.Health
 	MatchGameManager.player_1_global_position = Controller.global_position
-	print(MatchGameManager.player_1_global_position)

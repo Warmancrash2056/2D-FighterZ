@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://di5auhdx6t7vg"]
 
 [ext_resource type="Script" path="res://Game Start/Main Menu/Main Menu.gd" id="1_a0kbw"]
-[ext_resource type="FontFile" uid="uid://bmfcvw8qxy8b0" path="res://ThaleahFat.ttf" id="2_n77w0"]
+[ext_resource type="FontFile" uid="uid://b4y6ctw587tbu" path="res://Font Style/ThaleahFat.ttf" id="2_n77w0"]
 [ext_resource type="Script" path="res://Game Start/Main Menu/Local Play.gd" id="3_m8lw7"]
 [ext_resource type="PackedScene" uid="uid://dxt3p4j6tq4np" path="res://Game Start/Background.tscn" id="4_qpfyd"]
 [ext_resource type="PackedScene" uid="uid://bys0ptudnouiw" path="res://Game Start/Character Idle.tscn" id="4_u8wxl"]
@@ -74,10 +74,10 @@ offset_bottom = -128.856
 grow_horizontal = 2
 scale = Vector2(10, 10)
 theme_override_fonts/normal_font = ExtResource("2_n77w0")
-theme_override_fonts/bold_font = ExtResource("2_n77w0")
+theme_override_fonts/mono_font = ExtResource("2_n77w0")
 theme_override_fonts/italics_font = ExtResource("2_n77w0")
 theme_override_fonts/bold_italics_font = ExtResource("2_n77w0")
-theme_override_fonts/mono_font = ExtResource("2_n77w0")
+theme_override_fonts/bold_font = ExtResource("2_n77w0")
 text = "2D FighterZ"
 fit_content = true
 

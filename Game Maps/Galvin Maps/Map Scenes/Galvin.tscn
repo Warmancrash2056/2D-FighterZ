@@ -5889,12 +5889,16 @@ autostart = true
 
 [node name="Player 1 Manager" type="Node2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(-192, -192)
 script = ExtResource("10_bp7nc")
 
 [node name="Player 2 Manager" type="Node2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(192, -192)
 script = ExtResource("11_g8d6d")
 
+[connection signal="Player1Knockout" from="." to="Player 1 Manager" method="_on_galvin_road_player_1_knockout"]
+[connection signal="Player2Knockout" from="." to="Player 2 Manager" method="_on_galvin_road_player_2_knockout"]
 [connection signal="body_entered" from="Knockout Area" to="." method="_on_knockout_area_body_entered"]
 [connection signal="body_exited" from="Knockout Area" to="." method="_on_knockout_area_body_exited"]
 [connection signal="timeout" from="Camera Updater" to="." method="_on_timer_timeout"]

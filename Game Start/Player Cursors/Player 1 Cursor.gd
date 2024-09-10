@@ -185,4 +185,3 @@ func _on_player_1_goku_select_area_exited(area):
 		GokuAnimation.stop()
 		GokuAnimation.frame = 0
 		GokuAnimation.visible = false
-

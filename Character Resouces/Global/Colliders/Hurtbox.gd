@@ -56,10 +56,13 @@ func _on_area_entered(area: Area2D) -> void:
 		constant_force = area.Constant_Force
 		damage_taken = area.Damage
 		IsHurt.emit(damage_taken)
-		_calculate_stun(area.Stun_Time)
+		_calculate_stun(area.Recovery_Frames)
 		direction = area.direction
 		goku_neautral_havy = false
 
+	elif area.is_in_group("Damager"):
+		IsHurt.emit(damage_taken)
+		_calculate_stun(area.Recovery_Frames)
 
 	elif area.is_in_group("Knockout Area"):
 		pass
@@ -68,12 +71,13 @@ func _on_area_entered(area: Area2D) -> void:
 		goku_neautral_havy = true
 		damage_taken = area.Damage
 		IsHurt.emit(damage_taken)
-		_calculate_stun(area.Stun_Time)
+		_calculate_stun(area.Recovery_Frames)
 		direction = area.direction
 
 func _calculate_stun(Recovery: float):
 	var stamina_rating: float = Player_Stats.Stamina_Rating
-	var stuned_time: float = Recovery * stamina_rating
+	var stun_frames: float = Recovery / stamina_rating
+	var stuned_time: float = stun_frames / 60
 
 	Stun_Timer.set_wait_time(stuned_time)
 	Stun_Timer.start()
@@ -87,10 +91,10 @@ func apply_constant_force(Constant: Vector2):
 	else:
 		Constant.x *= 1
 	var defense_rating: float = Player_Stats.Defense_Rating
-	var knockback_x: float = Constant.x * defense_rating
-	var knockback_y: float = Constant.y * defense_rating
+	var knockback_x: float = Constant.x / defense_rating
+	var knockback_y: float = Constant.y / defense_rating
 	var knockback_vector: Vector2 = Vector2(knockback_x,knockback_y)
-
+	#print(Character.velocity)
 
 	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x * knockback_multiplier, 100)
 	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y * knockback_multiplier, 100)
@@ -103,34 +107,34 @@ func _on_is_hurt(Damage: int) -> void:
 		knockback_multiplier = 1.0
 
 	if Player_Stats.Health < 900:
-		knockback_multiplier = 1.1
+		knockback_multiplier = 2.0
 
 	if Player_Stats.Health < 800:
-		knockback_multiplier = 1.2
+		knockback_multiplier = 3.0
 
 	if Player_Stats.Health < 700:
-		knockback_multiplier = 1.3
+		knockback_multiplier = 4.0
 
 	if Player_Stats.Health < 600:
-		knockback_multiplier = 1.4
+		knockback_multiplier = 5.0
 
 	if Player_Stats.Health < 500:
-		knockback_multiplier = 1.5
+		knockback_multiplier = 6.0
 
 	if Player_Stats.Health < 400:
-		knockback_multiplier = 1.6
+		knockback_multiplier = 7.0
 
 	if Player_Stats.Health < 300:
-		knockback_multiplier = 1.7
+		knockback_multiplier = 8.0
 
 	if Player_Stats.Health < 200:
-		knockback_multiplier = 1.8
+		knockback_multiplier = 9.0
 
 	if Player_Stats.Health < 100:
-		knockback_multiplier = 1.9
+		knockback_multiplier = 10.0
 
 	if Player_Stats.Health < 0:
-		knockback_multiplier = 2.0
+		knockback_multiplier = 11.0
 
 
 

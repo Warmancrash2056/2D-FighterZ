@@ -1,5 +1,6 @@
 extends AnimationPlayer
 
+signal GroundKnockbackCloud
 @export var hittbox: Area2D
 @export var Controller: Node
 @export var Character: CharacterBody2D
@@ -187,6 +188,7 @@ func _physics_process(delta):
 			if Character.is_on_floor():
 				play("Ground Hurt")
 
+
 			else:
 				play("Air Hurt")
 		Respawn:
@@ -256,6 +258,14 @@ func _physics_process(delta):
 		Dowm_Recovery:
 			Attack_Vector = DRecovery
 			play("Down Recovery - Start -")
+
+func _ground_knockback():
+	if Character.is_on_floor():
+		if Character.velocity.x >= 150:
+			GroundKnockbackCloud.emit()
+
+		if Character.velocity.x <= -150:
+			GroundKnockbackCloud.emit()
 
 func _attack_movment_controller():
 	if enable_x_movement == true:

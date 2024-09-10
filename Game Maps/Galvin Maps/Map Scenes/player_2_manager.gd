@@ -53,7 +53,6 @@ func player_2_package() -> void:
 
 
 	# Set the initial position and properties
-	player_2_position.global_position = Vector2(192, 0)
 
 	# Wait a bit before changing the animator state
 	await get_tree().create_timer(2.5).timeout
@@ -64,12 +63,12 @@ func player_2_package() -> void:
 	player_2_position.can_attack = true
 
 func _process(delta: float) -> void:
-	if is_instance_valid(player_2_spawn):
-		var player_2_position:CharacterBody2D = player_2_spawn.get_node("Controller")
-		player2_position = player_2_position.global_position
+	pass
 
 
-func _on_galvin_road_player_2_knocked_out() -> void:
+
+
+func _on_galvin_road_player_2_knockout() -> void:
 	queue_player()
 	await get_tree().create_timer(3).timeout
 	player_2_package()

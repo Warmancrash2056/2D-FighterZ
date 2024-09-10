@@ -185,4 +185,3 @@ func _on_player_2_atlantis_select_area_exited(area):
 		atlantis_animation.stop()
 		atlantis_animation.frame = 0
 		atlantis_animation.visible = false
-

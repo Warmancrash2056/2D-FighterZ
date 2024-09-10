@@ -10,7 +10,8 @@ extends Node2D
 @export var camera_move: bool = true
 var camera_rect := Rect2()
 var viewport_rect := Rect2()
-
+signal Player1Knockout
+signal Player2Knockout
 var new_zoom: Vector2
 var new_position: Vector2 # Get the position and zoom every few seconds.\
 
@@ -128,45 +129,11 @@ func setup_camera() -> void:
 
 
 func _on_knockout_area_body_entered(body: Node2D) -> void:
-	timer.stop()
-	var player_1_position:CharacterBody2D = player_1_spawn.get_node("Controller")
-	var player_1_animator:AnimationPlayer = player_1_spawn.get_node("Controller/Animator")
-	var player_2_position:CharacterBody2D = player_2_spawn.get_node("Controller")
-	var player_2_animator:AnimationPlayer = player_2_spawn.get_node("Controller/Animator")
-	var Player_1_stats:Node = player_1_spawn.get_node("Controller/Player Stats")
-	var Player_2_stats:Node = player_2_spawn.get_node("Controller/Player Stats")
-
-
 	if body.get_parent() is Player1Controller:
-		Player_1_stats.Health = 1000
-		var tween = get_tree().create_tween()
-		player_1_spawn.visible = false
-		player_1_animator.state = Respawn
-		tween.tween_property(player_1_position, "global_position", Vector2(-200,-300), 4)
-		tween.tween_property(player_1_spawn, "visible", true, 3)
-		await tween.finished
-		player_1_animator.state = Idle
-		player_1_position.can_move = true
-		player_1_position.can_direct = true
-		player_1_position.can_jump = true
-		player_1_position.can_attack = true
-		timer.start()
-
+		Player1Knockout.emit()
 
 	if body.get_parent() is Player2Controller:
-		Player_2_stats.Health = 1000
-		var tween = get_tree().create_tween()
-		player_2_spawn.visible = false
-		player_2_animator.state = Respawn
-		tween.tween_property(player_2_position, "global_position", Vector2(200,-300), 4)
-		tween.tween_property(player_2_spawn, "visible", true, 4)
-		await tween.finished
-		player_2_animator.state = Idle
-		player_2_position.can_move = true
-		player_2_position.can_direct = true
-		player_2_position.can_jump = true
-		player_2_position.can_attack = true
-		timer.start()
+		Player2Knockout.emit()
 
 func _on_timer_timeout() -> void:
 	if camera_move == true:

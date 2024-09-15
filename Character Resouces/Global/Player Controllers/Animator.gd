@@ -1,6 +1,7 @@
 extends AnimationPlayer
 
 signal GroundKnockbackCloud
+signal AirKnockbackCloud
 @export var hittbox: Area2D
 @export var Controller: Node
 @export var Character: CharacterBody2D

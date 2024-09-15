@@ -20,8 +20,8 @@ var direction = 1
 
 var movement_dir: Vector2
 var input_buffer = []
-var max_buffer_limit = 2
-var buffer_time = 0.01
+var max_buffer_limit = 3
+var buffer_time = 0.1
 
 
 var can_move = true
@@ -208,44 +208,44 @@ func _process_dual_combinations():
 			if first_input.onground == true and first_input.value == "right" and second_input.onground == true and second_input.type == "attack" and second_input.value == "light":
 				Animator.state = Side_Light_Start
 
-			if first_input.onground == true and first_input.value == "left" and  second_input.onground == true and second_input.type == "attack" and second_input.value == "light":
+			elif first_input.onground == true and first_input.value == "left" and  second_input.onground == true and second_input.type == "attack" and second_input.value == "light":
 				Animator.state = Side_Light_Start
 
-			if first_input.onground == true and first_input.value == "right" and second_input.onground == true and second_input.type == "attack" and second_input.value == "heavy":
+			elif first_input.onground == true and first_input.value == "right" and second_input.onground == true and second_input.type == "attack" and second_input.value == "heavy":
 				Animator.state = Side_Heavy
 
-			if first_input.onground == true and first_input.value == "left"  and second_input.onground == true and second_input.type == "attack" and second_input.value == "heavy":
+			elif first_input.onground == true and first_input.value == "left"  and second_input.onground == true and second_input.type == "attack" and second_input.value == "heavy":
 				Animator.state = Side_Heavy
 
-			if first_input.onground == false and first_input.value == "right" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
+			elif first_input.onground == false and first_input.value == "right" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
 				Animator.state = Side_Air
 
-			if first_input.onground == false and first_input.value == "left" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
+			elif first_input.onground == false and first_input.value == "left" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
 				Animator.state = Side_Air
 
 
-			if first_input.onground == true and first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
+			elif first_input.onground == true and first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
 					Animator.state = Down_Light
 
-			if first_input.onground == false and first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
+			elif first_input.onground == false and first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
 					Animator.state = Down_Air
 
-			if first_input.onground == true and first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
+			elif first_input.onground == true and first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
 				Animator.state = Down_Heavy
 
-			if first_input.onground == false and first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
+			elif first_input.onground == false and first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
 					Animator.state = Dowm_Recovery
 
-			if first_input.onground == true and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
+			elif first_input.onground == true and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
 				Animator.state = Neutral_Light
 
-			if first_input.onground == false and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
+			elif first_input.onground == false and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
 					Animator.state = Neutral_Air
 
-			if first_input.onground == true and first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
+			elif first_input.onground == true and first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
 				Animator.state = Neutral_Heavy
 
-			if first_input.onground == false and first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
+			elif first_input.onground == false and first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
 					Animator.state = Neutral_Recovery
 
 func _proces_triple_combination():
@@ -267,13 +267,13 @@ func _process_immediate_action():
 					if input_action.value == "dash" and input_action.onground == true:
 						Animator.state = Dash
 
-				if input_action.value == "block" and input_action.onground == true:
+				elif input_action.value == "block" and input_action.onground == true:
 					Animator.state = Ground_Block
 
-				if input_action.value == "block" and input_action.onground == false:
+				elif input_action.value == "block" and input_action.onground == false:
 					Animator.state = Air_Block
 
-				if input_action.value == "jump" and Player_Stats.Jump_Count > 0:
+				elif input_action.value == "jump" and Player_Stats.Jump_Count > 0:
 					Animator.state = Air
 					velocity.y = -Player_Stats.Jump_Height
 
@@ -284,14 +284,14 @@ func _process_immediate_action():
 
 
 
-				if input_action.value == "right" and !Animator.state == Wall:
+				elif input_action.value == "right" and !Animator.state == Wall:
 					FacingRight.emit()
 
 			"attack":
 				if input_action.value == "throw" and input_action.onground == true:
 					Animator.state = Ground_Throw
 
-				if input_action.value == "throw" and input_action.onground == false:
+				elif input_action.value == "throw" and input_action.onground == false:
 					Animator.state = Air_Throw
 
 # Process actions that require a size of 1 input buffer
@@ -303,13 +303,13 @@ func _process_single_size_inputs() -> void:
 					if input_action.value == "light" and input_action.onground == true:
 						Animator.state = Neutral_Light
 
-					if input_action.value == "heavy" and input_action.onground == true:
+					elif input_action.value == "heavy" and input_action.onground == true:
 						Animator.state = Neutral_Heavy
 
-					if input_action.value == "light" and input_action.onground == false:
+					elif input_action.value == "light" and input_action.onground == false:
 						Animator.state = Neutral_Air
 
-					if input_action.value == "heavy" and input_action.onground == false:
+					elif input_action.value == "heavy" and input_action.onground == false:
 						Animator.state = Neutral_Recovery
 
 

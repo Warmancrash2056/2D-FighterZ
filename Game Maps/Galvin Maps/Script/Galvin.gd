@@ -20,7 +20,8 @@ const MAX_OFFSET_X = 1200.0
 const MIN_OFFSET_X = -1200.0
 
 const MAX_ZOOM_DISTANCE = 1.0
-const CAMERA_MOVE_THRESHOLD = 0.1
+var camera_zoom_level: float = 1.0
+const CAMERA_MOVE_THRESHOLD = 100
 
 enum { # Character animator states.
 	Idle,
@@ -55,7 +56,14 @@ func _ready() -> void:
 	timer.start()
 
 func _process(delta: float) -> void:
-	pass
+	#print(player_1_manager.get_child_count())
+
+	if player_1_manager.get_child_count() == 1 or player_2_manager.get_child_count() == 1:
+		camera_move = true
+
+	else:
+		camera_move = false
+
 	#print(camera.zoom)
 	set_process(get_child_count() > 0)
 	calculate_camera_rect()
@@ -81,13 +89,21 @@ func update_camera() -> void:
 	var player2_position = player_2_position.global_position
 
 	var distance = MatchGameManager.player_1_global_position.distance_to(MatchGameManager.player_2_global_position)
+	#print("players current distance from each other. " ,distance)
 	# Move the camera only when players are far away
+
+	if distance <= 80:
+		camera_zoom_level = 1.4
+	elif distance <= 250:
+		camera_zoom_level = 1.2
+
+	elif distance >= 400:
+		camera_zoom_level = 1.0
 	if distance > CAMERA_MOVE_THRESHOLD:
 		new_position = calculate_center(camera_rect)
 
 
-	# Adjust zoom based on distance between players
-	camera.zoom *= calculate_zoom_factor(distance)
+
 
 	if debug_mode:
 		queue_redraw()
@@ -104,17 +120,11 @@ func calculate_center(rect: Rect2) -> Vector2:
 
 func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 	var min_zoom = min(
-		min(1.4, viewport_size.x / rect.size.x - zoom_offset),
-		min(1.4, viewport_size.y / rect.size.y - zoom_offset)
+		min(camera_zoom_level, viewport_size.x / rect.size.x - zoom_offset),
+		min(camera_zoom_level, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 1.0), max(min_zoom, 1.0))
+	return Vector2(max(min_zoom, 0.5), max(min_zoom, 0.5))
 
-func calculate_zoom_factor(distance: float) -> float:
-	# Calculate the zoom factor based on the distance between players
-	var zoom_factor = 1.0 - distance / MAX_ZOOM_DISTANCE
-
-	# Clamp the zoom factor to be at least 1.0
-	return max(zoom_factor, 1.0)
 
 func _draw() -> void:
 	if not debug_mode:
@@ -123,8 +133,11 @@ func _draw() -> void:
 	draw_circle(calculate_center(camera_rect), 5, Color(1, 1, 1))
 
 func setup_camera() -> void:
-	# Set initial camera properties here, if needed
-	pass
+	camera.zoom.x = move_toward(camera.zoom.x, 1.4, 0.5)
+	camera.zoom.x = move_toward(camera.zoom.y, 1.4, 0.5)
+	camera.position.x = move_toward(camera.position.x , 0, 100)
+	camera.position.x = move_toward(camera.position.y, 192, 100)
+
 
 
 
@@ -138,8 +151,8 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	if camera_move == true:
 		var tween = get_tree().create_tween()
-		tween.tween_property(camera,'zoom', new_zoom, 0.15).set_ease(Tween.EASE_IN_OUT)
-		tween.tween_property(camera, "global_position", new_position, 0.15).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(camera,'zoom', new_zoom, 1).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(camera, "global_position", new_position, 1).set_ease(Tween.EASE_IN_OUT)
 
 
 func _on_game_start_timeout() -> void:

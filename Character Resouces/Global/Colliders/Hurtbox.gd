@@ -1,5 +1,7 @@
 extends Area2D
-
+signal CalculateConstantForce(Constant: Vector2)
+signal CalculateVariableForce(Variable: Vector2)
+signal CalculateStunFrames(Recovery: int)
 @onready var Stun_Timer: Timer = $'Stun Time'
 @export var Character:CharacterBody2D
 @export var Player_Stats: Node
@@ -8,6 +10,7 @@ extends Area2D
 @export var Colider: CollisionShape2D
 
 var knockback_multiplier: float
+var knockback_vector: Vector2
 signal IsHurt(Damage: int)
 var stun_time: float
 var damage_taken: int
@@ -50,54 +53,38 @@ func _ready() -> void:
 	pass
 func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
-		apply_constant_force(constant_force)
+		apply_force()
+		print(knockback_vector)
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Force"):
-		constant_force = area.Constant_Force
-		damage_taken = area.Damage
-		IsHurt.emit(damage_taken)
-		_calculate_stun(area.Recovery_Frames)
+	if area.is_in_group("Variable Force"):
+		direction = area.direction
+		await get_tree().create_timer(0.1).timeout
+		CalculateVariableForce.emit(area.Variable_Force)
+		IsHurt.emit(area.Damage)
+		CalculateStunFrames.emit(area.Recovery_Frames)
 		direction = area.direction
 		goku_neautral_havy = false
 
+	elif area.is_in_group("Constant Force"):
+		direction = area.direction
+		await get_tree().create_timer(0.1).timeout
+		CalculateConstantForce.emit(area.Constant_Force)
+		IsHurt.emit(area.Damage)
+		CalculateStunFrames.emit(area.Recovery_Frames)
+		goku_neautral_havy = false
+
 	elif area.is_in_group("Damager"):
-		IsHurt.emit(damage_taken)
-		_calculate_stun(area.Recovery_Frames)
+		IsHurt.emit(area.Damage)
+		CalculateStunFrames.emit(area.Recovery_Frames)
 
 	elif area.is_in_group("Knockout Area"):
 		pass
 
 	elif area.is_in_group("Goku | Positioner"):
-		goku_neautral_havy = true
-		damage_taken = area.Damage
-		IsHurt.emit(damage_taken)
-		_calculate_stun(area.Recovery_Frames)
-		direction = area.direction
-
-func _calculate_stun(Recovery: float):
-	var stamina_rating: float = Player_Stats.Stamina_Rating
-	var stun_frames: float = Recovery / stamina_rating
-	var stuned_time: float = stun_frames / 60
-
-	Stun_Timer.set_wait_time(stuned_time)
-	Stun_Timer.start()
-	print("Stun time " ,stuned_time)
-
-
-func apply_constant_force(Constant: Vector2):
-	if direction == true:
-		Constant.x *= -1
-
-	else:
-		Constant.x *= 1
-	var defense_rating: float = Player_Stats.Defense_Rating
-	var knockback_x: float = Constant.x / defense_rating
-	var knockback_y: float = Constant.y / defense_rating
-	var knockback_vector: Vector2 = Vector2(knockback_x,knockback_y)
-	#print(Character.velocity)
-
-	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x * knockback_multiplier, 100)
-	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y * knockback_multiplier, 100)
+		pass
+func apply_force():
+	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 100)
+	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 100)
 
 func _on_is_hurt(Damage: int) -> void:
 	Animator.state = Hurt
@@ -139,16 +126,9 @@ func _on_is_hurt(Damage: int) -> void:
 
 
 func _on_stun_time_timeout() -> void:
-	goku_neautral_havy = false
-	#Character.velocity = Vector2.ZERO
+	knockback_vector = Vector2.ZERO
 
 
-func _on_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_area_2d_attack_connected() -> void:
-	pass # Replace with function body.
 
 
 func _on_controller_facing_left() -> void:
@@ -163,3 +143,36 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Knockout Area"):
 		Animator.state = Respawn
 		Player_Stats.Health = 1000
+
+
+func _on_calculate_constant_force(Constant: Vector2) -> void:
+	if direction == true:
+		Constant.x *= -1
+
+	else:
+		Constant.x *= 1
+
+	knockback_vector = Constant
+
+
+func _on_calculate_variable_force(Variable: Vector2) -> void:
+	if direction == true:
+		Variable.x *= -1
+
+	else:
+		Variable.x *= 1
+	var defense_rating: float = Player_Stats.Defense_Rating
+	var knockback_x: float = Variable.x / defense_rating
+	var knockback_y: float = Variable.y / defense_rating
+	knockback_vector = Vector2(knockback_x * knockback_multiplier,knockback_y * knockback_multiplier)
+
+
+
+
+func _on_calculate_stun_frames(Recovery: int) -> void:
+	var stamina_rating: float = Player_Stats.Stamina_Rating
+	var stun_frames: float = Recovery / stamina_rating
+	var stuned_time: float = stun_frames / 60
+
+	Stun_Timer.set_wait_time(stuned_time)
+	Stun_Timer.start()

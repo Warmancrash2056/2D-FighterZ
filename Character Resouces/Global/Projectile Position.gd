@@ -24,7 +24,7 @@ func _ground_projectile():
 		instance_air_projectile.direction = 1
 	else:
 		instance_ground_projectile.direction = -1
-		instance_air_projectile.irection = -1
+		instance_air_projectile.direction = -1
 
 	if Controller.is_on_floor():
 		get_tree().get_root().add_child(instance_ground_projectile)

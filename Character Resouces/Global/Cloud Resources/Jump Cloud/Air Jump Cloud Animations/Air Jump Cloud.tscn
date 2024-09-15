@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://1xe4ewwcd86y"]
+
+[ext_resource type="Texture2D" uid="uid://c10d8cd8853sa" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Air Jump Cloud Animations/Smoke VFX 10 (32X32)1.png" id="1_fml8m"]
+[ext_resource type="Texture2D" uid="uid://cghmuc2cp1ch8" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Air Jump Cloud Animations/Smoke VFX 10 (32X32)2.png" id="2_gyjhg"]
+[ext_resource type="Texture2D" uid="uid://ryh4yi351mjk" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Air Jump Cloud Animations/Smoke VFX 10 (32X32)3.png" id="3_e6nbo"]
+[ext_resource type="Texture2D" uid="uid://bc10wnbhik7tb" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Air Jump Cloud Animations/Smoke VFX 10 (32X32)4.png" id="4_pdypc"]
+[ext_resource type="Texture2D" uid="uid://b2xv46nhf6rgv" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Air Jump Cloud Animations/Smoke VFX 10 (32X32)5.png" id="5_6nis7"]
+[ext_resource type="Texture2D" uid="uid://dts3l8yr73w74" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Air Jump Cloud Animations/Smoke VFX 10 (32X32)6.png" id="6_wrej6"]
+[ext_resource type="Texture2D" uid="uid://cogck3ve4x75b" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Air Jump Cloud Animations/Smoke VFX 10 (32X32)7.png" id="7_qf8g0"]
+[ext_resource type="Texture2D" uid="uid://bas16kqt7smf8" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Air Jump Cloud Animations/Smoke VFX 10 (32X32)8.png" id="8_hc6pk"]
+[ext_resource type="Texture2D" uid="uid://5q555qk3hjoo" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Air Jump Cloud Animations/Smoke VFX 10 (32X32)9.png" id="9_0s42n"]
+[ext_resource type="Texture2D" uid="uid://pxiesse3skf5" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Air Jump Cloud Animations/Smoke VFX 10 (32X32)10.png" id="10_43u1m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8v37"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fml8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gyjhg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_e6nbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pdypc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6nis7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wrej6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qf8g0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hc6pk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0s42n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_43u1m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(7.10543e-15, -2.38419e-07)
+rotation = 1.5708
+scale = Vector2(0.44984, 1.60869)
+sprite_frames = SubResource("SpriteFrames_e8v37")
+frame_progress = 0.95941

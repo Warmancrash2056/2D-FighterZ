@@ -16,7 +16,7 @@ func calculate_recovery(new_recovery: float):
 	var animation_length = Animator.current_animation_length
 	var stamina_rating = Player_Stats.Stamina_Rating
 	var animation_frame_count: float = animation_length * 60
-	var stamina_reduced_frame_cont: float = animation_frame_count / 7
+	var stamina_reduced_frame_cont: float = animation_frame_count / stamina_rating
 	var calculated_frame_count_to_sec: float = stamina_reduced_frame_cont / 60
 	new_recovery = calculated_frame_count_to_sec
 	var movement_cooldown_timer: float = new_recovery * 0.1
@@ -24,8 +24,8 @@ func calculate_recovery(new_recovery: float):
 	get_movement = movement_cooldown_timer
 	Movement_Cooldown.set_wait_time(movement_cooldown_timer)
 	set_wait_time(new_recovery)
-	print(calculated_frame_count_to_sec)
-	print("Reduced Attack Cooldoen " ,wait_time,"Reduced Movement Cooldoen " ,movement_cooldown_timer)
+	#print(calculated_frame_count_to_sec)
+	print("Reduced Attack Cooldoen: " ,wait_time ," Reduced Movement Cooldoen: " ,movement_cooldown_timer)
 
 
 func _on_attack_connected() -> void:

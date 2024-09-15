@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=117 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bvgm6lrd873fg" path="res://Character Resouces/Characters/Goku/Projectile & Positioner/Goku Air Projectile.tscn" id="11_wftpu"]
 [ext_resource type="PackedScene" uid="uid://bwldo5okthbx" path="res://Character Resouces/Characters/Goku/Projectile & Positioner/Goku Ground Projectile.tscn" id="12_8cg2b"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/Ground Knockback Slide.gd" id="12_n75qq"]
-[ext_resource type="PackedScene" uid="uid://8511jr45c2mo" path="res://Character Resouces/Global/Cloud Resources/slow_cloud.tscn" id="13_awsw1"]
+[ext_resource type="PackedScene" uid="uid://8511jr45c2mo" path="res://Character Resouces/Global/Cloud Resources/Knockback Cloud/Ground Knockback/Ground Knockback Cloud.tscn" id="13_awsw1"]
 [ext_resource type="Texture2D" uid="uid://larmu623rlvd" path="res://Character Resouces/Characters/Goku/Spritesheet/Goku-Sheet.png" id="13_nulpv"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Sprite.gd" id="14_3k6ql"]
 [ext_resource type="Texture2D" uid="uid://cj3wx0nbythks" path="res://Chevron-Arrow-Down.png" id="15_ljr8u"]
@@ -22,16 +22,25 @@
 [ext_resource type="Script" path="res://Character Resouces/Global/Body.gd" id="19_rdlrt"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Cloud Resources/Counter Cloud/Counter Position.gd" id="20_h32t0"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Jump Cloud Position.gd" id="21_3yqvh"]
-[ext_resource type="PackedScene" uid="uid://bo08t0pi17rio" path="res://Character Resouces/Global/Cloud Resources/Jump_Cloud.tscn" id="22_ifdxx"]
+[ext_resource type="Texture2D" uid="uid://7u6lkg55hnv6" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)1.png" id="22_yef7p"]
 [ext_resource type="PackedScene" uid="uid://bdexwo5ypwmay" path="res://Character Resouces/Global/Jump Smoke Assets/character_jump_sound.tscn" id="23_7xqv3"]
+[ext_resource type="Texture2D" uid="uid://cd7ee0hqpi1tf" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)2.png" id="23_pli5v"]
+[ext_resource type="Texture2D" uid="uid://d14llquikkfkm" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)3.png" id="24_1yprd"]
 [ext_resource type="AudioStream" uid="uid://bl21gbececfew" path="res://Character Resouces/Characters/Goku/Sound Effects/First Punch.wav" id="24_vri0b"]
 [ext_resource type="AudioStream" uid="uid://r5tlbrig47nu" path="res://Character Resouces/Characters/Goku/Sound Effects/Second Punch.wav" id="25_clf1u"]
+[ext_resource type="Texture2D" uid="uid://branhkmm0jdv8" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)4.png" id="25_mcoj1"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Wall Detector.gd" id="26_k5gbg"]
+[ext_resource type="Texture2D" uid="uid://d2pyfv1atwr6j" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)5.png" id="26_mdfka"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Floor Detector.gd" id="27_1k2ni"]
+[ext_resource type="Texture2D" uid="uid://fxjia53csui6" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)6.png" id="27_l2t2f"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Icon.gd" id="28_ivokx"]
+[ext_resource type="Texture2D" uid="uid://dfa2ducw4uwyx" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)7.png" id="28_rtxlw"]
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Characters/Goku/Icon/Goku.png" id="29_quw3q"]
+[ext_resource type="Script" path="res://Character Resouces/Global/Cloud Resources/Cloud.gd" id="29_u4u32"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Stats.gd" id="30_h56yx"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Recovery Timer.gd" id="31_ikjgj"]
+[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/air_knockback_cloud_positioner.gd" id="38_bu0px"]
+[ext_resource type="PackedScene" uid="uid://2pjd3qes2s7u" path="res://Character Resouces/Global/Cloud Resources/Knockback Cloud/Air Knockback/Air Knockback Cloud.tscn" id="39_q7fls"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3v6"]
 
@@ -46,12 +55,12 @@ height = 16.0
 radius = 2.5
 height = 15.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pjkur"]
-height = 65.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gkqv"]
 radius = 6.0
 height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pjkur"]
+height = 65.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_784ov"]
 radius = 3.0
@@ -505,7 +514,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/28/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -517,7 +526,7 @@ tracks/28/keys = {
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/29/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
@@ -529,7 +538,7 @@ tracks/29/keys = {
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/30/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
@@ -541,7 +550,7 @@ tracks/30/keys = {
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/31/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
@@ -1237,6 +1246,7 @@ tracks/88/keys = {
 [sub_resource type="Animation" id="Animation_tbwdi"]
 resource_name = "Air Hurt"
 length = 0.5
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1543,7 +1553,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/25/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -1555,7 +1565,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/26/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -1567,7 +1577,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/27/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -1579,7 +1589,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/28/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -2284,6 +2294,35 @@ tracks/86/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/87/type = "method"
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/path = NodePath("../Air Knockback Cloud Positioner")
+tracks/87/interp = 1
+tracks/87/loop_wrap = true
+tracks/87/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_instance_air_cloud"
+}, {
+"args": [],
+"method": &"_instance_air_cloud"
+}, {
+"args": [],
+"method": &"_instance_air_cloud"
+}, {
+"args": [],
+"method": &"_instance_air_cloud"
+}, {
+"args": [],
+"method": &"_instance_air_cloud"
+}, {
+"args": [],
+"method": &"_instance_air_cloud"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_1w688"]
 resource_name = "Air Projectile"
@@ -2720,7 +2759,7 @@ tracks/32/keys = {
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/33/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -2732,7 +2771,7 @@ tracks/33/keys = {
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/34/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
@@ -2744,7 +2783,7 @@ tracks/34/keys = {
 tracks/35/type = "value"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/35/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
@@ -2756,7 +2795,7 @@ tracks/35/keys = {
 tracks/36/type = "value"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/36/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
@@ -4295,7 +4334,7 @@ tracks/69/keys = {
 tracks/70/type = "value"
 tracks/70/imported = false
 tracks/70/enabled = true
-tracks/70/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/70/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/70/interp = 1
 tracks/70/loop_wrap = true
 tracks/70/keys = {
@@ -4307,7 +4346,7 @@ tracks/70/keys = {
 tracks/71/type = "value"
 tracks/71/imported = false
 tracks/71/enabled = true
-tracks/71/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/71/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/71/interp = 1
 tracks/71/loop_wrap = true
 tracks/71/keys = {
@@ -4319,7 +4358,7 @@ tracks/71/keys = {
 tracks/72/type = "value"
 tracks/72/imported = false
 tracks/72/enabled = true
-tracks/72/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/72/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/72/interp = 1
 tracks/72/loop_wrap = true
 tracks/72/keys = {
@@ -4331,7 +4370,7 @@ tracks/72/keys = {
 tracks/73/type = "value"
 tracks/73/imported = false
 tracks/73/enabled = true
-tracks/73/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/73/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/73/interp = 1
 tracks/73/loop_wrap = true
 tracks/73/keys = {
@@ -5138,7 +5177,7 @@ tracks/55/keys = {
 tracks/56/type = "value"
 tracks/56/imported = false
 tracks/56/enabled = true
-tracks/56/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/56/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/56/interp = 1
 tracks/56/loop_wrap = true
 tracks/56/keys = {
@@ -5150,7 +5189,7 @@ tracks/56/keys = {
 tracks/57/type = "value"
 tracks/57/imported = false
 tracks/57/enabled = true
-tracks/57/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/57/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/57/interp = 1
 tracks/57/loop_wrap = true
 tracks/57/keys = {
@@ -5162,7 +5201,7 @@ tracks/57/keys = {
 tracks/58/type = "value"
 tracks/58/imported = false
 tracks/58/enabled = true
-tracks/58/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/58/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/58/interp = 1
 tracks/58/loop_wrap = true
 tracks/58/keys = {
@@ -5174,7 +5213,7 @@ tracks/58/keys = {
 tracks/59/type = "value"
 tracks/59/imported = false
 tracks/59/enabled = true
-tracks/59/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/59/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/59/interp = 1
 tracks/59/loop_wrap = true
 tracks/59/keys = {
@@ -5702,7 +5741,7 @@ tracks/29/keys = {
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/30/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
@@ -5714,7 +5753,7 @@ tracks/30/keys = {
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/31/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
@@ -5726,7 +5765,7 @@ tracks/31/keys = {
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/32/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
@@ -5738,7 +5777,7 @@ tracks/32/keys = {
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/33/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -7313,7 +7352,7 @@ tracks/55/keys = {
 tracks/56/type = "value"
 tracks/56/imported = false
 tracks/56/enabled = true
-tracks/56/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/56/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/56/interp = 1
 tracks/56/loop_wrap = true
 tracks/56/keys = {
@@ -7325,7 +7364,7 @@ tracks/56/keys = {
 tracks/57/type = "value"
 tracks/57/imported = false
 tracks/57/enabled = true
-tracks/57/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/57/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/57/interp = 1
 tracks/57/loop_wrap = true
 tracks/57/keys = {
@@ -7337,7 +7376,7 @@ tracks/57/keys = {
 tracks/58/type = "value"
 tracks/58/imported = false
 tracks/58/enabled = true
-tracks/58/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/58/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/58/interp = 1
 tracks/58/loop_wrap = true
 tracks/58/keys = {
@@ -7349,7 +7388,7 @@ tracks/58/keys = {
 tracks/59/type = "value"
 tracks/59/imported = false
 tracks/59/enabled = true
-tracks/59/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/59/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/59/interp = 1
 tracks/59/loop_wrap = true
 tracks/59/keys = {
@@ -7885,7 +7924,7 @@ tracks/30/keys = {
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/31/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
@@ -7897,7 +7936,7 @@ tracks/31/keys = {
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/32/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
@@ -7909,7 +7948,7 @@ tracks/32/keys = {
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/33/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -7921,7 +7960,7 @@ tracks/33/keys = {
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/34/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
@@ -8644,7 +8683,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/10/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -8656,7 +8695,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/11/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -8668,7 +8707,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/12/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -8680,7 +8719,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/13/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -10427,7 +10466,7 @@ tracks/85/keys = {
 tracks/86/type = "value"
 tracks/86/imported = false
 tracks/86/enabled = true
-tracks/86/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/86/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/86/interp = 1
 tracks/86/loop_wrap = true
 tracks/86/keys = {
@@ -10439,7 +10478,7 @@ tracks/86/keys = {
 tracks/87/type = "value"
 tracks/87/imported = false
 tracks/87/enabled = true
-tracks/87/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/87/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/87/interp = 1
 tracks/87/loop_wrap = true
 tracks/87/keys = {
@@ -10451,7 +10490,7 @@ tracks/87/keys = {
 tracks/88/type = "value"
 tracks/88/imported = false
 tracks/88/enabled = true
-tracks/88/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/88/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/88/interp = 1
 tracks/88/loop_wrap = true
 tracks/88/keys = {
@@ -10463,7 +10502,7 @@ tracks/88/keys = {
 tracks/89/type = "value"
 tracks/89/imported = false
 tracks/89/enabled = true
-tracks/89/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/89/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/89/interp = 1
 tracks/89/loop_wrap = true
 tracks/89/keys = {
@@ -10791,7 +10830,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/10/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -10803,7 +10842,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/11/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -10815,7 +10854,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/12/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -10827,7 +10866,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/13/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -11189,7 +11228,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/20/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -11201,7 +11240,7 @@ tracks/20/keys = {
 tracks/21/type = "method"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
+tracks/21/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -11717,7 +11756,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/1/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -12658,7 +12697,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/24/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -12670,7 +12709,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/25/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -12682,7 +12721,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/26/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -12694,7 +12733,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/27/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -13796,7 +13835,7 @@ tracks/32/keys = {
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/33/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -13808,7 +13847,7 @@ tracks/33/keys = {
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/34/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
@@ -13844,7 +13883,7 @@ tracks/36/keys = {
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/37/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
@@ -13856,7 +13895,7 @@ tracks/37/keys = {
 tracks/38/type = "value"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/38/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
@@ -13872,6 +13911,7 @@ resource_name = "Landing"
 [sub_resource type="Animation" id="Animation_oi0xp"]
 resource_name = "Neautral Air - Start -"
 length = 0.7
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13944,7 +13984,7 @@ tracks/5/path = NodePath("../Animator")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.7),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -14210,7 +14250,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("%Neutral Air - 1/Neutral Air - 1:shape")
+tracks/27/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -14222,7 +14262,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("%Neutral Air - 1/Neutral Air - 1:shape:radius")
+tracks/28/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape:radius")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -14234,7 +14274,7 @@ tracks/28/keys = {
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("%Neutral Air - 1/Neutral Air - 1:shape:height")
+tracks/29/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape:height")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
@@ -14246,7 +14286,7 @@ tracks/29/keys = {
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/30/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
@@ -14258,7 +14298,7 @@ tracks/30/keys = {
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("%Neutral Air - 1/Neutral Air - 1:position")
+tracks/31/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:position")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
@@ -14270,7 +14310,7 @@ tracks/31/keys = {
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("%Neutral Air - 1/Neutral Air - 1:rotation")
+tracks/32/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:rotation")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
@@ -14282,7 +14322,7 @@ tracks/32/keys = {
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/33/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -14294,7 +14334,7 @@ tracks/33/keys = {
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape")
+tracks/34/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:shape")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
@@ -14306,7 +14346,7 @@ tracks/34/keys = {
 tracks/35/type = "value"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape:radius")
+tracks/35/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:shape:radius")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
@@ -14318,7 +14358,7 @@ tracks/35/keys = {
 tracks/36/type = "value"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape:height")
+tracks/36/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:shape:height")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
@@ -14330,7 +14370,7 @@ tracks/36/keys = {
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/37/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
@@ -14342,7 +14382,7 @@ tracks/37/keys = {
 tracks/38/type = "value"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:position")
+tracks/38/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:position")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
@@ -14354,7 +14394,7 @@ tracks/38/keys = {
 tracks/39/type = "value"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:rotation")
+tracks/39/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:rotation")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
@@ -14366,7 +14406,7 @@ tracks/39/keys = {
 tracks/40/type = "value"
 tracks/40/imported = false
 tracks/40/enabled = true
-tracks/40/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
+tracks/40/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/keys = {
@@ -14438,7 +14478,7 @@ tracks/45/keys = {
 tracks/46/type = "value"
 tracks/46/imported = false
 tracks/46/enabled = true
-tracks/46/path = NodePath("%Neutral Air - 2/Neutral Air - 2:debug_color")
+tracks/46/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:debug_color")
 tracks/46/interp = 1
 tracks/46/loop_wrap = true
 tracks/46/keys = {
@@ -14450,7 +14490,7 @@ tracks/46/keys = {
 tracks/47/type = "value"
 tracks/47/imported = false
 tracks/47/enabled = true
-tracks/47/path = NodePath("%Neutral Air - 1/Neutral Air - 1:debug_color")
+tracks/47/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:debug_color")
 tracks/47/interp = 1
 tracks/47/loop_wrap = true
 tracks/47/keys = {
@@ -15634,7 +15674,7 @@ tracks/35/keys = {
 tracks/36/type = "value"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/36/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
@@ -15646,7 +15686,7 @@ tracks/36/keys = {
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/37/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
@@ -15666,6 +15706,30 @@ tracks/38/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [41, 42, 43, 44, 45]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("%Down Heavy - 2/Down Heavy - 2:disabled")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("%Down Heavy - 2/Down Heavy - 2:visible")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_i5wdn"]
@@ -16021,7 +16085,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("%Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/9/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -16033,7 +16097,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("%Neutral Air - 1/Neutral Air - 1:visible")
+tracks/10/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -16165,7 +16229,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("%Neutral Air - 1/Neutral Air - 1:shape")
+tracks/21/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -16177,7 +16241,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("%Neutral Air - 1/Neutral Air - 1:shape:radius")
+tracks/22/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape:radius")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -16189,7 +16253,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("%Neutral Air - 1/Neutral Air - 1:shape:height")
+tracks/23/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape:height")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -16201,7 +16265,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("%Neutral Air - 1/Neutral Air - 1:position")
+tracks/24/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:position")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -16213,7 +16277,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("%Neutral Air - 1/Neutral Air - 1:rotation")
+tracks/25/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:rotation")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -16225,7 +16289,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape")
+tracks/26/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:shape")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -16237,7 +16301,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape:radius")
+tracks/27/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:shape:radius")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -16249,7 +16313,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:shape:height")
+tracks/28/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:shape:height")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -16261,7 +16325,7 @@ tracks/28/keys = {
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/29/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
@@ -16273,7 +16337,7 @@ tracks/29/keys = {
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:position")
+tracks/30/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
@@ -16285,7 +16349,7 @@ tracks/30/keys = {
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:rotation")
+tracks/31/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:rotation")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
@@ -16297,7 +16361,7 @@ tracks/31/keys = {
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:visible")
+tracks/32/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
@@ -16645,7 +16709,7 @@ tracks/60/keys = {
 tracks/61/type = "value"
 tracks/61/imported = false
 tracks/61/enabled = true
-tracks/61/path = NodePath("%Neutral Air - 2/Neutral Air - 2:disabled")
+tracks/61/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
 tracks/61/interp = 1
 tracks/61/loop_wrap = true
 tracks/61/keys = {
@@ -16657,7 +16721,7 @@ tracks/61/keys = {
 tracks/62/type = "value"
 tracks/62/imported = false
 tracks/62/enabled = true
-tracks/62/path = NodePath("%Neutral Air - 2/Neutral Air - 2:visible")
+tracks/62/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:visible")
 tracks/62/interp = 1
 tracks/62/loop_wrap = true
 tracks/62/keys = {
@@ -17365,7 +17429,7 @@ tracks/120/keys = {
 tracks/121/type = "value"
 tracks/121/imported = false
 tracks/121/enabled = true
-tracks/121/path = NodePath("%Neutral Air - 2/Neutral Air - 2:debug_color")
+tracks/121/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:debug_color")
 tracks/121/interp = 1
 tracks/121/loop_wrap = true
 tracks/121/keys = {
@@ -17377,7 +17441,7 @@ tracks/121/keys = {
 tracks/122/type = "value"
 tracks/122/imported = false
 tracks/122/enabled = true
-tracks/122/path = NodePath("%Neutral Air - 1/Neutral Air - 1:debug_color")
+tracks/122/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:debug_color")
 tracks/122/interp = 1
 tracks/122/loop_wrap = true
 tracks/122/keys = {
@@ -19197,7 +19261,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Scale Player/Neutral Air - 1/Neutral Air - 1:disabled")
+tracks/1/path = NodePath("../Scale Player/Neutral Air - 2/Neutral Air - 2:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -19357,7 +19421,7 @@ tracks/13/path = NodePath("../Recovery Timer/Movement Cooldown")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(1.2),
+"times": PackedFloat32Array(1.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [-1],
@@ -19481,7 +19545,7 @@ tracks/23/path = NodePath("../Recovery Timer")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
-"times": PackedFloat32Array(1.2),
+"times": PackedFloat32Array(1.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [-1],
@@ -20980,6 +21044,48 @@ _data = {
 radius = 8.0
 height = 31.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c4gd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_yef7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_pli5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_1yprd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_mcoj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_mdfka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_l2t2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_rtxlw")
+}],
+"loop": true,
+"name": &"Smoke",
+"speed": 6.0
+}]
+
+[sub_resource type="PackedScene" id="PackedScene_qossj"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(0, 0, 9, 8, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Jump Smoke", "z_index", "scale", "sprite_frames", "animation", "frame_progress", "script", "AnimatedSprite2D", "_on_animation_looped", "animation_looped"),
+"node_count": 1,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 7, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 0),
+"variants": [5, Vector2(1.5, 1.5), SubResource("SpriteFrames_1c4gd"), &"Smoke", 0.894899, ExtResource("29_u4u32")],
+"version": 3
+}
+
 [sub_resource type="Animation" id="Animation_6fnn5"]
 resource_name = "Invisibilty"
 length = 5.0
@@ -21035,7 +21141,7 @@ script = ExtResource("2_u8pn8")
 z_index = 1
 script = ExtResource("3_o62ja")
 
-[node name="Attack Positioner" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Goku | Positioner"]]
+[node name="Attack Positioner" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite")]
 unique_name_in_owner = true
 editor_description = "Attack Psoitioner tracks a c ollider and moves player along the path. For 5s.
 "
@@ -21055,7 +21161,7 @@ disabled = true
 debug_color = Color(0.709804, 0.486275, 0, 0.419608)
 script = ExtResource("5_6k13g")
 
-[node name="Transitional Check" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Transitional Check" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21072,7 +21178,7 @@ shape = SubResource("CircleShape2D_drh4y")
 disabled = true
 debug_color = Color(0, 0.533333, 0.141176, 0.419608)
 
-[node name="Neutral Light - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Neutral Light - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 z_index = 5
 position = Vector2(20.5, -8.5)
@@ -21081,9 +21187,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 10
-Damage = 0.3
-Constant_Force = Vector2(90, -90)
+Recovery_Frames = 30
+Damage = 8.0
+Constant_Force = Vector2(60, -60)
 
 [node name="Nuetral Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light - 1"]
 visible = false
@@ -21093,7 +21199,7 @@ shape = SubResource("CapsuleShape2D_yucej")
 disabled = true
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Neutral Light - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Neutral Light - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
 unique_name_in_owner = true
 position = Vector2(26.5, -10)
 collision_layer = 0
@@ -21103,7 +21209,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 30
 Damage = 20.0
-Constant_Force = Vector2(300, -250)
+Variable_Force = Vector2(200, -260)
 
 [node name="Nuetral Light - 2" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light - 2"]
 visible = false
@@ -21113,7 +21219,7 @@ disabled = true
 debug_color = Color(0, 0, 1, 0.419608)
 metadata/_edit_lock_ = true
 
-[node name="Neutral Light - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Neutral Light - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite")]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21122,40 +21228,22 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 
 [node name="Neutral Light - 3" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light - 3"]
+visible = false
 position = Vector2(26.5, -8)
 disabled = true
 
-[node name="Neutral Air - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force", "Goku | Nuetral Air Left Side"]]
+[node name="Neutral Air - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 3
-Damage = 16.0
-Constant_Force = Vector2(50, -50)
+Recovery_Frames = 17
+Damage = 20.0
+Constant_Force = Vector2(0, -340)
 
 [node name="Neutral Air - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Air - 1"]
-visible = false
-position = Vector2(1.5, -13)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_pjkur")
-disabled = true
-debug_color = Color(1, 0, 0, 0.698039)
-
-[node name="Neutral Air - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
-unique_name_in_owner = true
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("4_1ntk6")
-Animator = NodePath("../../Animator")
-Sprite = NodePath("../../Sprite")
-Recovery_Frames = 9
-Damage = 20.0
-Constant_Force = Vector2(200, -200)
-
-[node name="Neutral Air - 2" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Air - 2"]
 visible = false
 position = Vector2(-1.5, -12.5)
 rotation = 1.5708
@@ -21163,7 +21251,25 @@ shape = SubResource("CapsuleShape2D_3gkqv")
 disabled = true
 debug_color = Color(0, 1, 0, 0.419608)
 
-[node name="Neutral Air - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Neutral Air - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Damager"]]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("4_1ntk6")
+Animator = NodePath("../../Animator")
+Sprite = NodePath("../../Sprite")
+Recovery_Frames = 17
+Damage = 20.0
+
+[node name="Neutral Air - 2" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Air - 2"]
+visible = false
+position = Vector2(1.5, -13)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pjkur")
+disabled = true
+debug_color = Color(1, 0, 0, 0.698039)
+
+[node name="Neutral Air - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite")]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21172,10 +21278,8 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 
 [node name="Neutral Air - 3" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Air - 3"]
-visible = false
-disabled = true
 
-[node name="Neatral Heavy - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force", "Goku | Neautral Heavy Shatter"]]
+[node name="Neatral Heavy - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21192,7 +21296,7 @@ shape = SubResource("CapsuleShape2D_784ov")
 disabled = true
 debug_color = Color(0.788235, 0.160784, 0.964706, 0.419608)
 
-[node name="Neutral Heavy - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Neutral Heavy - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21207,7 +21311,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_s6r7d")
 disabled = true
 
-[node name="Neutral Heavy - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Neutral Heavy - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21222,7 +21326,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bvbgj")
 disabled = true
 
-[node name="Neautral Recovery - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Neautral Recovery - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21234,7 +21338,7 @@ Sprite = NodePath("../../Sprite")
 visible = false
 disabled = true
 
-[node name="Neautral Recovery - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Neautral Recovery - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21246,7 +21350,7 @@ Sprite = NodePath("../../Sprite")
 visible = false
 disabled = true
 
-[node name="Neautral Recovery - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Neautral Recovery - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21258,7 +21362,7 @@ Sprite = NodePath("../../Sprite")
 visible = false
 disabled = true
 
-[node name="Down Light - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force", "Goku | Down Light Final"]]
+[node name="Down Light - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21266,8 +21370,8 @@ script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 18
-Damage = 40.0
-Constant_Force = Vector2(0, -90)
+Damage = 15.0
+Variable_Force = Vector2(0, -280)
 
 [node name="Down Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Down Light - 1"]
 visible = false
@@ -21277,15 +21381,15 @@ shape = SubResource("CapsuleShape2D_tqa1m")
 disabled = true
 debug_color = Color(0, 1, 0, 0.419608)
 
-[node name="Down Light - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Down Light - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Damager"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 18
-Constant_Force = Vector2(0, -250)
+Recovery_Frames = 30
+Damage = 39.0
 
 [node name="Down Light - 2" type="CollisionShape2D" parent="Controller/Scale Player/Down Light - 2"]
 visible = false
@@ -21302,7 +21406,8 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 18
+Recovery_Frames = 30
+Damage = 10.0
 
 [node name="Down Light - 3" type="CollisionShape2D" parent="Controller/Scale Player/Down Light - 3"]
 visible = false
@@ -21311,7 +21416,7 @@ shape = SubResource("CircleShape2D_8n1ld")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Down Air - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force", "Goku | Down Air"]]
+[node name="Down Air - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 z_index = 7
 collision_layer = 0
@@ -21328,7 +21433,7 @@ shape = SubResource("CapsuleShape2D_6cfjw")
 disabled = true
 debug_color = Color(0.521569, 0.572549, 0.027451, 0.419608)
 
-[node name="Down Air - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Down Air - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21342,7 +21447,7 @@ position = Vector2(16.5, -22.5)
 shape = SubResource("CapsuleShape2D_u8gtd")
 disabled = true
 
-[node name="Down Air - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force", "Goku | Down Light"]]
+[node name="Down Air - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21361,7 +21466,7 @@ shape = SubResource("CapsuleShape2D_3xm02")
 disabled = true
 debug_color = Color(0, 0.643137, 0.317647, 0.419608)
 
-[node name="Down Heavy - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force", "Goku | Down Heavy Initial"]]
+[node name="Down Heavy - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 position = Vector2(0, -0.5)
 collision_layer = 0
@@ -21378,7 +21483,7 @@ shape = SubResource("CapsuleShape2D_emolw")
 disabled = true
 debug_color = Color(0.556863, 0.34902, 0.972549, 0.419608)
 
-[node name="Down Heavy - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force", "Goku | Down Heavy Final"]]
+[node name="Down Heavy - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21395,7 +21500,7 @@ shape = SubResource("CapsuleShape2D_okev4")
 disabled = true
 debug_color = Color(0.937255, 0.12549, 0, 0.419608)
 
-[node name="Down Heavy - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force", "Goku | Side Heavy End"]]
+[node name="Down Heavy - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 position = Vector2(1.5, 0)
 collision_layer = 0
@@ -21412,7 +21517,7 @@ shape = SubResource("CapsuleShape2D_lm0pa")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Down Recovery - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Down Recovery - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21446,15 +21551,16 @@ Sprite = NodePath("../../Sprite")
 visible = false
 disabled = true
 
-[node name="Side Light - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Side Light - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Damage = 20.0
-Constant_Force = Vector2(0, -3)
+Recovery_Frames = 18
+Damage = 14.0
+Constant_Force = Vector2(0, -20)
 
 [node name="Side Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Side Light - 1"]
 visible = false
@@ -21464,13 +21570,15 @@ shape = SubResource("CircleShape2D_l30jt")
 disabled = true
 debug_color = Color(0.972549, 0, 0.435294, 0.419608)
 
-[node name="Side Light -  2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Side Light -  2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
+Recovery_Frames = 18
+Damage = 7.0
 
 [node name="Side Light - 2" type="CollisionShape2D" parent="Controller/Scale Player/Side Light -  2"]
 visible = false
@@ -21479,13 +21587,15 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jsj12")
 disabled = true
 
-[node name="Side Light - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Side Light - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
+Recovery_Frames = 18
+Damage = 7.0
 Constant_Force = Vector2(300, 0)
 
 [node name="Side Light - 3" type="CollisionShape2D" parent="Controller/Scale Player/Side Light - 3"]
@@ -21496,7 +21606,7 @@ shape = SubResource("CapsuleShape2D_jsj12")
 disabled = true
 debug_color = Color(0.564706, 0.556863, 0, 0.419608)
 
-[node name="Side Air - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Side Air - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21514,7 +21624,7 @@ shape = SubResource("CapsuleShape2D_60odr")
 disabled = true
 debug_color = Color(0, 1, 0, 0.419608)
 
-[node name="Side Air - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Side Air - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21530,7 +21640,7 @@ shape = SubResource("CapsuleShape2D_pqq3y")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Side Air - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Side Air - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21542,7 +21652,7 @@ Sprite = NodePath("../../Sprite")
 visible = false
 disabled = true
 
-[node name="Side Heavy - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Side Heavy - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21578,7 +21688,7 @@ rotation = 0.610254
 shape = SubResource("CapsuleShape2D_v3u12")
 disabled = true
 
-[node name="Side Heavy - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Force"]]
+[node name="Side Heavy - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21641,7 +21751,7 @@ position = Vector2(0, -40)
 texture = ExtResource("13_nulpv")
 hframes = 10
 vframes = 19
-frame = 152
+frame = 35
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -21679,7 +21789,7 @@ script = ExtResource("20_h32t0")
 [node name="Jump Smoke" type="Marker2D" parent="Controller" node_paths=PackedStringArray("Character", "Jump_Sound")]
 position = Vector2(0, 10)
 script = ExtResource("21_3yqvh")
-Jump_Cloud = ExtResource("22_ifdxx")
+Jump_Cloud = SubResource("PackedScene_qossj")
 Character = NodePath("..")
 Jump_Sound = NodePath("../Character Jump Sound")
 
@@ -21717,16 +21827,16 @@ Player_Stats = NodePath("../Player Stats")
 
 [node name="Player Stats" type="Node" parent="Controller"]
 script = ExtResource("30_h56yx")
-Speed_Rating = 8.0
-Max_Speed = 20
+Speed_Rating = 10
+Weight_Scale = 3
+Max_Speed = 25
 Acceleration = 30
 Decelleration = 15
 Jump_Height = 260
 Gravity = 8
 Defense_Rating = 3
-Health = 1000.0
 Attack_Rating = 50
-Stamina_Rating = 1
+Stamina_Rating = 5
 
 [node name="Recovery Timer" type="Timer" parent="Controller" node_paths=PackedStringArray("Character", "Animator", "Player_Stats")]
 one_shot = true
@@ -21747,7 +21857,7 @@ one_shot = true
 [node name="Hurtbox" type="Area2D" parent="Controller" node_paths=PackedStringArray("Character", "Player_Stats", "Sprite", "Animator", "Colider")]
 unique_name_in_owner = true
 collision_layer = 0
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("18_eu0nm")
 Character = NodePath("..")
 Player_Stats = NodePath("../Player Stats")
@@ -21769,6 +21879,11 @@ libraries = {
 
 [node name="Stun Time" type="Timer" parent="Controller/Hurtbox"]
 one_shot = true
+
+[node name="Air Knockback Cloud Positioner" type="Marker2D" parent="Controller" node_paths=PackedStringArray("Character")]
+script = ExtResource("38_bu0px")
+Air_Knockback_Cloud = ExtResource("39_q7fls")
+Character = NodePath("..")
 
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)
@@ -21895,6 +22010,7 @@ Icon = ExtResource("29_quw3q")
 [connection signal="AttackConnected" from="Controller/Scale Player/Side Heavy - 3" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Side Heavy - 3" to="Controller/Scale Player/Side Heavy - 3" method="_on_area_entered"]
 [connection signal="body_exited" from="Controller/Scale Player/Wall Cloud Position/Area2D" to="Controller/Scale Player/Wall Cloud Position" method="_on_area_2d_body_exited"]
+[connection signal="AirKnockbackCloud" from="Controller/Animator" to="Controller/Air Knockback Cloud Positioner" method="_on_animator_air_knockback_cloud"]
 [connection signal="AttackFriction" from="Controller/Animator" to="Controller/Animator" method="_on_attack_friction"]
 [connection signal="AttackMovingX" from="Controller/Animator" to="Controller/Animator" method="_on_attack_moving_x"]
 [connection signal="AttackMovingY" from="Controller/Animator" to="Controller/Animator" method="_on_attack_moving_y"]
@@ -21912,8 +22028,12 @@ Icon = ExtResource("29_quw3q")
 [connection signal="timeout" from="Controller/Recovery Timer/Movement Cooldown" to="Controller/Animator" method="_on_movement_cooldown_timeout"]
 [connection signal="timeout" from="Controller/Recovery Timer/Refresh Block" to="Controller" method="_on_refresh_block_timeout"]
 [connection signal="timeout" from="Controller/Recovery Timer/Refresh Block" to="Controller/Animator" method="_on_refresh_block_timeout"]
+[connection signal="CalculateConstantForce" from="Controller/Hurtbox" to="Controller/Hurtbox" method="_on_calculate_constant_force"]
+[connection signal="CalculateStunFrames" from="Controller/Hurtbox" to="Controller/Hurtbox" method="_on_calculate_stun_frames"]
+[connection signal="CalculateVariableForce" from="Controller/Hurtbox" to="Controller/Hurtbox" method="_on_calculate_variable_force"]
 [connection signal="IsHurt" from="Controller/Hurtbox" to="." method="_on_hurtbox_is_hurt"]
 [connection signal="IsHurt" from="Controller/Hurtbox" to="Controller/Hurtbox" method="_on_is_hurt"]
 [connection signal="area_entered" from="Controller/Hurtbox" to="Controller/Hurtbox" method="_on_area_entered"]
 [connection signal="timeout" from="Controller/Hurtbox/Stun Time" to="Controller" method="_on_stun_time_timeout"]
 [connection signal="timeout" from="Controller/Hurtbox/Stun Time" to="Controller/Animator" method="_on_stun_time_timeout"]
+[connection signal="timeout" from="Controller/Hurtbox/Stun Time" to="Controller/Hurtbox" method="_on_stun_time_timeout"]

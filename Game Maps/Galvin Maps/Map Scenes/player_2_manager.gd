@@ -43,9 +43,9 @@ func player_2_package() -> void:
 	player_2_spawn.set_script(CharacterList.get_player_2_script)
 
 	# Add the new player to the scene tree first
-	call_deferred("add_child", player_2_spawn)
 
 	await get_tree().create_timer(0.1).timeout  # Short delay to ensure it's added
+	call_deferred("add_child", player_2_spawn)
 
 	# Now access the player's nodes and set properties
 	var player_2_position:CharacterBody2D = player_2_spawn.get_node("Controller")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxxgvr0x556qs"]
+
+[ext_resource type="Texture2D" uid="uid://7u6lkg55hnv6" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)1.png" id="1_x66bm"]
+[ext_resource type="Texture2D" uid="uid://cd7ee0hqpi1tf" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)2.png" id="2_8o8ie"]
+[ext_resource type="Texture2D" uid="uid://d14llquikkfkm" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)3.png" id="3_6nqlg"]
+[ext_resource type="Texture2D" uid="uid://branhkmm0jdv8" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)4.png" id="4_soe0m"]
+[ext_resource type="Texture2D" uid="uid://d2pyfv1atwr6j" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)5.png" id="5_135fh"]
+[ext_resource type="Texture2D" uid="uid://fxjia53csui6" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)6.png" id="6_inqym"]
+[ext_resource type="Texture2D" uid="uid://dfa2ducw4uwyx" path="res://Character Resouces/Global/Cloud Resources/Jump Cloud/Ground Cloud/Ground Jump Cloud Animations/Smoke VFX 2 (48X16)7.png" id="7_a8s6d"]
+[ext_resource type="Script" path="res://Character Resouces/Global/Cloud Resources/Cloud.gd" id="8_fjvif"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c4gd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x66bm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8o8ie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6nqlg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_soe0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_135fh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_inqym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a8s6d")
+}],
+"loop": true,
+"name": &"Smoke",
+"speed": 6.0
+}]
+
+[node name="Jump Smoke" type="AnimatedSprite2D"]
+z_index = 5
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_1c4gd")
+animation = &"Smoke"
+frame_progress = 0.0508988
+script = ExtResource("8_fjvif")
+
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

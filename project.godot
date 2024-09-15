@@ -8,6 +8,11 @@
 
 config_version=5
 
+[animation]
+
+warnings/check_invalid_track_paths=false
+warnings/check_angle_interpolation_type_conflicting=false
+
 [application]
 
 config/name="2D FighterZ"
@@ -24,6 +29,7 @@ GameAuido="*res://Autoloads/Game Audio.tscn"
 UserSettingConfig="*res://Save/UserSettingConfig.gd"
 Startup="*res://Autoloads/Startup.gd"
 MatchGameManager="*res://Autoloads/MatchManager.gd"
+InputFocus="*res://Autoloads/Input Focus.gd"
 
 [display]
 
@@ -53,6 +59,12 @@ folder_colors={
 "res://Character Resouces/Characters/Sakura/": "pink",
 "res://Character Resouces/Global/": "gray"
 }
+
+[global_group]
+
+"Constant Force"=""
+"Variable Force"=""
+Damager=""
 
 [gui]
 

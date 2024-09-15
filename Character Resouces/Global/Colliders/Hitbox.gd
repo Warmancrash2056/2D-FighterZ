@@ -6,7 +6,9 @@ var transition_attack: bool = false
 
 @export var Animator: AnimationPlayer
 @export var Sprite: Sprite2D
-@export var Recovery_Frames: int ## Send the amount of time player is stunned to hitbox
+## Send the amount of time player is stunned to hitbox.
+## Light Attack by default are 15 - 30 frames and Heavy are 30 - 60 frames
+@export var Recovery_Frames: int
 @export var Damage: float
 @export var Variable_Force: Vector2 ## Force added onto current player velocity
 @export var Constant_Force: Vector2 ## Constant Force applied to player velocity

@@ -5876,15 +5876,15 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Knockout Area" type="Area2D" parent="." groups=["Knockout Area"]]
-collision_layer = 2
-collision_mask = 272
+collision_layer = 0
+collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knockout Area"]
 position = Vector2(0, 128)
 polygon = PackedVector2Array(-1272, 464, 1272, 464, 1272, -976, 704, -336, 704, -112, 704, 312, -704, 320, -704, -704, 704, -704, 704, -336, 1008, -672, 1272, -976, -760, -976, -1272, -976)
 
 [node name="Camera Updater" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.01
 autostart = true
 
 [node name="Player 1 Manager" type="Node2D" parent="."]

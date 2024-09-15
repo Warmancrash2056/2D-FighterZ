@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=3 uid="uid://2pjd3qes2s7u"]
+
+[ext_resource type="Texture2D" uid="uid://cvme01b5u125c" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 11/Separated Frames/Smoke VFX 11 (32X32)1.png" id="1_ll0nb"]
+[ext_resource type="Texture2D" uid="uid://sc0s1l61jh32" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 11/Separated Frames/Smoke VFX 11 (32X32)2.png" id="2_f5txr"]
+[ext_resource type="Texture2D" uid="uid://5ijtht7hctfh" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 11/Separated Frames/Smoke VFX 11 (32X32)3.png" id="3_bjvv2"]
+[ext_resource type="Texture2D" uid="uid://b6c71fx03su6k" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 11/Separated Frames/Smoke VFX 11 (32X32)4.png" id="4_jyyqu"]
+[ext_resource type="Texture2D" uid="uid://dbpe0ef34cpg4" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 11/Separated Frames/Smoke VFX 11 (32X32)5.png" id="5_exouh"]
+[ext_resource type="Texture2D" uid="uid://dmc6cybpts11c" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 11/Separated Frames/Smoke VFX 11 (32X32)6.png" id="6_r0dm1"]
+[ext_resource type="Texture2D" uid="uid://2ibxocs6dans" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 11/Separated Frames/Smoke VFX 11 (32X32)7.png" id="7_1kddb"]
+[ext_resource type="Texture2D" uid="uid://cmayqsggvfvlq" path="res://Character Resouces/Smoke Effect 02/Smoke VFX 11/Separated Frames/Smoke VFX 11 (32X32)8.png" id="8_j6sve"]
+[ext_resource type="Script" path="res://Character Resouces/Global/Cloud Resources/Cloud.gd" id="9_o2lfs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_155j4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ll0nb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f5txr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jyyqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_exouh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bjvv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_r0dm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1kddb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j6sve")
+}],
+"loop": true,
+"name": &"Smoke",
+"speed": 12.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = 30
+y_sort_enabled = true
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_155j4")
+animation = &"Smoke"
+frame_progress = 0.363307
+script = ExtResource("9_o2lfs")
+
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

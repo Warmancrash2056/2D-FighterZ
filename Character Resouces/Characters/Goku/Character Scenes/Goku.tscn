@@ -18696,6 +18696,7 @@ resource_name = "Side Air - Finish -"
 
 [sub_resource type="Animation" id="Animation_xd12r"]
 resource_name = "Side Air - Start -"
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18941,7 +18942,7 @@ tracks/18/path = NodePath("../Animator")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0.4, 0.5),
+"times": PackedFloat32Array(0.2, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -18958,7 +18959,7 @@ tracks/19/path = NodePath("../Animator")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -21187,7 +21188,7 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 30
+Recovery_Frames = 90
 Damage = 8.0
 Constant_Force = Vector2(60, -60)
 
@@ -21207,9 +21208,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 30
+Recovery_Frames = 126
 Damage = 20.0
-Variable_Force = Vector2(200, -260)
+Variable_Force = Vector2(400, -290)
 
 [node name="Nuetral Light - 2" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light - 2"]
 visible = false
@@ -21369,7 +21370,7 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 18
+Recovery_Frames = 160
 Damage = 15.0
 Variable_Force = Vector2(0, -280)
 
@@ -21388,7 +21389,7 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 30
+Recovery_Frames = 78
 Damage = 39.0
 
 [node name="Down Light - 2" type="CollisionShape2D" parent="Controller/Scale Player/Down Light - 2"]
@@ -21406,7 +21407,7 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 30
+Recovery_Frames = 160
 Damage = 10.0
 
 [node name="Down Light - 3" type="CollisionShape2D" parent="Controller/Scale Player/Down Light - 3"]
@@ -21751,7 +21752,7 @@ position = Vector2(0, -40)
 texture = ExtResource("13_nulpv")
 hframes = 10
 vframes = 19
-frame = 35
+frame = 68
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -21830,13 +21831,15 @@ script = ExtResource("30_h56yx")
 Speed_Rating = 10
 Weight_Scale = 3
 Max_Speed = 25
+Fast_Fall = 50
 Acceleration = 30
 Decelleration = 15
 Jump_Height = 260
 Gravity = 8
 Defense_Rating = 3
+Health = 1000.0
 Attack_Rating = 50
-Stamina_Rating = 5
+Stamina_Rating = 6
 
 [node name="Recovery Timer" type="Timer" parent="Controller" node_paths=PackedStringArray("Character", "Animator", "Player_Stats")]
 one_shot = true
@@ -21867,7 +21870,7 @@ Colider = NodePath("Hurtbox")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Controller/Hurtbox"]
 z_index = 10
-position = Vector2(0, 1)
+position = Vector2(-2, -8.5)
 shape = SubResource("CapsuleShape2D_qamvs")
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 

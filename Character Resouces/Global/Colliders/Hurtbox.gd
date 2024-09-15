@@ -54,7 +54,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
 		apply_force()
-		print(knockback_vector)
+		#print(knockback_vector)
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Variable Force"):
 		direction = area.direction
@@ -176,3 +176,4 @@ func _on_calculate_stun_frames(Recovery: int) -> void:
 
 	Stun_Timer.set_wait_time(stuned_time)
 	Stun_Timer.start()
+	print(stuned_time)

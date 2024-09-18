@@ -18,8 +18,8 @@ warnings/check_angle_interpolation_type_conflicting=false
 config/name="2D FighterZ"
 run/main_scene="res://Game Start/Attention Prompt/Attention.tscn"
 config/features=PackedStringArray("4.3")
-run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Character Resouces/Characters/Goku/Icon/ground_elemental.png"
 config/icon="res://Character Resouces/Characters/Nomad/wind_elemental.png"
 
 [autoload]
@@ -65,6 +65,19 @@ folder_colors={
 "Constant Force"=""
 "Variable Force"=""
 Damager=""
+Transition=""
+test=""
+"Fire Effect"=""
+"Freeze Effect"=""
+"Wind Effect"=""
+"Area Force"=""
+"Goku Positioner"=""
+"Piercing Attack"=""
+"Slash Attack"=""
+Physical=""
+Blunt=""
+"Water Effect"=""
+"Shaken Effect"=""
 
 [gui]
 

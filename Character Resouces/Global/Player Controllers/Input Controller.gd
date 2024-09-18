@@ -20,8 +20,8 @@ var direction = 1
 
 var movement_dir: Vector2
 var input_buffer = []
-var max_buffer_limit = 3
-var buffer_time = 0.1
+var max_buffer_limit = 2
+var buffer_time = 0.01
 
 
 var can_move = true
@@ -38,8 +38,12 @@ enum {
 	Dash,
 	Wall,
 	Air,
-	Ground_Block,
-	Air_Block,
+	Ground_Block_Start_Tap,
+	Ground_Block_Held,
+	Ground_Block_To_Idle,
+	Block_Slide,
+	Air_Block_Start_Tap,
+	Air_Block_Held,
 	Neutral_Light,
 	Neutral_Heavy,
 	Neutral_Air,
@@ -66,8 +70,8 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if Hurtbox.goku_neautral_havy == true:
 		var Goku_Positioner: Vector2 = CharacterList.goku_neutral_heavy_grab_position
-		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 1000)
-		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 1000)
+		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 500)
+		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 500)
 	_get_movement()
 	move_and_slide()
 func _process(delta: float) -> void:
@@ -268,10 +272,10 @@ func _process_immediate_action():
 						Animator.state = Dash
 
 				elif input_action.value == "block" and input_action.onground == true:
-					Animator.state = Ground_Block
+					Animator.state = Ground_Block_Start_Tap
 
 				elif input_action.value == "block" and input_action.onground == false:
-					Animator.state = Air_Block
+					Animator.state = Air_Block_Start_Tap
 
 				elif input_action.value == "jump" and Player_Stats.Jump_Count > 0:
 					Animator.state = Air

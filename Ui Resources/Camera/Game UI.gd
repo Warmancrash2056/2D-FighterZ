@@ -10,9 +10,21 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Match_Time.time_left <= 0:
-		Match_Text.set_text("000")
+func _physics_process(delta: float) -> void:
+	if Match_Time.time_left > 0:
+		if Match_Time.time_left < 100:
+			Match_Text.text = str("0",int(Match_Time.time_left))
 
+		if Match_Time.time_left <= 10:
+			Match_Text.text = str("00",int(Match_Time.time_left))
+
+		else:
+			if Match_Time.time_left > 100:
+				Match_Text.text = str(int(Match_Time.time_left))
 	else:
-		Match_Text.set_text(str(int(Match_Time.time_left)))
+		if Match_Time.time_left <= 0:
+			Match_Text.text = str("000")
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

@@ -2,14 +2,16 @@ extends AnimationPlayer
 
 signal GroundKnockbackCloud
 signal AirKnockbackCloud
-@export var hittbox: Area2D
+@export var Player_Identifier: Node2D
 @export var Controller: Node
+@export var Recovery_Timer: Timer
+@export var Movement_Timer: Timer
+@export var Refresh_Block: Timer
 @export var Character: CharacterBody2D
 @export var Scaler: Node
 @export var Sprite: Sprite2D
 @export var Wall_Detector: RayCast2D
 
-@onready var Player_Identifier: Node2D = $'../..'
 # Get directions of player
 var movement_dir: Vector2
 var direction: int
@@ -64,8 +66,12 @@ enum {
 	Dash,
 	Wall,
 	Air,
-	Ground_Block,
-	Air_Block,
+	Ground_Block_Start_Tap,
+	Ground_Block_Held,
+	Ground_Block_To_Idle,
+	Block_Slide,
+	Air_Block_Start_Tap,
+	Air_Block_Held,
 	Neutral_Light,
 	Neutral_Heavy,
 	Neutral_Air,
@@ -204,11 +210,14 @@ func _physics_process(delta):
 			play("Air Projectile")
 			Attack_Vector = Throw_Air
 
-		Ground_Block:
+		Ground_Block_Start_Tap:
 			Attack_Vector = Block
-			play("Ground Block")
+			play("Ground Block - Start -")
 
-		Air_Block:
+		Ground_Block_Held:
+			play("Ground Block - Finish -")
+
+		Air_Block_Start_Tap:
 			Attack_Vector = Block
 			play("Air Block")
 
@@ -377,3 +386,18 @@ func _on_movement_cooldown_timeout() -> void:
 
 func _on_transitional_check_area_entered(area: Area2D) -> void:
 	transition_to_finish = true
+
+
+func holding_block():
+	if Input.is_action_pressed(Player_Identifier.Controls.block):
+		print("Block Continue")
+
+	else:
+		idle_reset()
+		Recovery_Timer.start()
+		Movement_Timer.start()
+		Refresh_Block.start()
+
+
+func _transition_to_Finish_block():
+	state = Ground_Block_Held

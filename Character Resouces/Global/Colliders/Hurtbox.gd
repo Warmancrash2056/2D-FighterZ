@@ -28,8 +28,12 @@ enum {
 	Dash,
 	Wall,
 	Air,
-	Ground_Block,
-	Air_Block,
+	Ground_Block_Start_Tap,
+	Ground_Block_Held,
+	Ground_Block_To_Idle,
+	Block_Slide,
+	Air_Block_Start_Tap,
+	Air_Block_Held,
 	Neutral_Light,
 	Neutral_Heavy,
 	Neutral_Air,
@@ -55,36 +59,46 @@ func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
 		apply_force()
 		#print(knockback_vector)
+
 func _on_area_entered(area: Area2D) -> void:
+
+	# Variable force that is affected by the player defense.
 	if area.is_in_group("Variable Force"):
 		direction = area.direction
-		await get_tree().create_timer(0.1).timeout
 		CalculateVariableForce.emit(area.Variable_Force)
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
-		direction = area.direction
 		goku_neautral_havy = false
 
+	# Constant force that is fixed velocity not affected by player defense
 	elif area.is_in_group("Constant Force"):
 		direction = area.direction
-		await get_tree().create_timer(0.1).timeout
 		CalculateConstantForce.emit(area.Constant_Force)
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
 		goku_neautral_havy = false
 
+	# Transition checks and relays to animator that attack connected.
+	elif area.is_in_group("Transition"):
+		IsHurt.emit(area.Damage)
+
+	# Only applies damage and stun to player.
 	elif area.is_in_group("Damager"):
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
 
-	elif area.is_in_group("Knockout Area"):
-		pass
+	# Grabs the player and follow the hitbox it is connected to
+	elif area.is_in_group("Goku Positioner"):
+		IsHurt.emit(area.Damage)
+		CalculateStunFrames.emit(area.Recovery_Frames)
+		goku_neautral_havy = true
 
-	elif area.is_in_group("Goku | Positioner"):
-		pass
+	elif area.is_in_group("test"):
+		print("insxide")
+
 func apply_force():
-	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 100)
-	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 100)
+	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 50)
+	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 50)
 
 func _on_is_hurt(Damage: int) -> void:
 	Animator.state = Hurt
@@ -177,3 +191,8 @@ func _on_calculate_stun_frames(Recovery: int) -> void:
 	Stun_Timer.set_wait_time(stuned_time)
 	Stun_Timer.start()
 	print(stuned_time)
+
+
+func _on_area_exited(area: Area2D) -> void:
+	if area.is_in_group("Positioner"):
+		goku_neautral_havy = false

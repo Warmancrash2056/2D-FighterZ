@@ -92,13 +92,7 @@ func update_camera() -> void:
 	#print("players current distance from each other. " ,distance)
 	# Move the camera only when players are far away
 
-	if distance <= 80:
-		camera_zoom_level = 1.4
-	elif distance <= 250:
-		camera_zoom_level = 1.2
 
-	elif distance >= 400:
-		camera_zoom_level = 1.0
 	if distance > CAMERA_MOVE_THRESHOLD:
 		new_position = calculate_center(camera_rect)
 
@@ -123,7 +117,7 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 		min(camera_zoom_level, viewport_size.x / rect.size.x - zoom_offset),
 		min(camera_zoom_level, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 0.5), max(min_zoom, 0.5))
+	return Vector2(max(min_zoom, 0.9), max(min_zoom, 0.9))
 
 
 func _draw() -> void:
@@ -152,7 +146,7 @@ func _on_timer_timeout() -> void:
 	if camera_move == true:
 		var tween = get_tree().create_tween()
 		tween.tween_property(camera,'zoom', new_zoom, 1).set_ease(Tween.EASE_IN_OUT)
-		tween.tween_property(camera, "global_position", new_position, 1).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(camera, "global_position", new_position, .2).set_ease(Tween.EASE_IN_OUT)
 
 
 func _on_game_start_timeout() -> void:

@@ -1,8 +1,11 @@
 class_name LinearProjectile extends CharacterBody2D
-
+@export var Projectile_Hitbox: Area2D
 @export var Max_Speed: int
 @export var Acceleration: float
 var direction = 1
+var Projectile_Layer: int
+var Projectile_Mask: int
+var collider_mask: int
 @export var Animator: AnimationPlayer
 @export var Sprite: Sprite2D
 
@@ -15,10 +18,13 @@ func _ready():
 	Animator.play("Shoot")
 
 
+
 func _delete():
 	queue_free()
 
 func _process(delta):
+	Projectile_Hitbox.set_collision_layer_value(Projectile_Layer,true)
+	Projectile_Hitbox.set_collision_mask_value(Projectile_Mask, true)
 	move_and_slide()
 	if direction == 1:
 		Sprite.flip_h = false

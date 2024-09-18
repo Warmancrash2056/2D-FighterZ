@@ -15,4 +15,3 @@ static func load_or_create() -> UserConfigurations:
 	if !res:
 		res = UserConfigurations.new()
 	return res
-

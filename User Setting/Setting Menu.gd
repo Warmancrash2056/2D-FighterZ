@@ -3,7 +3,7 @@ extends MarginContainer
 @onready var Music_Slider = %"Music Slider"
 @onready var Master_Slider = %"Master Volume Slider"
 @onready var SFX_Slider = %"SFX Slider"
-@onready var Window_Mode = %"Window Options"
+@onready var Window_Mode = %'Window Mode'
 @onready var Enable_Fps = $"TabContainer/Game/Fps Enabler"
 @onready var V_Sync_Toggle = $"TabContainer/Game/V - Sync Enabler"
 @onready var fps_visible = %"Fps Display"
@@ -32,6 +32,8 @@ func _ready():
 
 	if V_Sync_Toggle:
 		V_Sync_Toggle.button_pressed = user_config.v_Sync_enable
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	fps_visible.text = str("Fps: ",Engine.get_frames_per_second())

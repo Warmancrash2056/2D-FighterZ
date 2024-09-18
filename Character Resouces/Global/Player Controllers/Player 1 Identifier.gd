@@ -85,18 +85,21 @@ func _ready() -> void:
 	dlight_2.set_collision_mask_value(12, true)
 	dlight_3.set_collision_layer_value(11, true)
 	dlight_3.set_collision_mask_value(12, true)
+
 	dair_1.set_collision_layer_value(11, true)
 	dair_1.set_collision_mask_value(12, true)
 	dair_2.set_collision_layer_value(11, true)
 	dair_2.set_collision_mask_value(12, true)
 	dair_3.set_collision_layer_value(11, true)
 	dair_3.set_collision_mask_value(12, true)
+
 	dheavy_1.set_collision_layer_value(11, true)
 	dheavy_1.set_collision_mask_value(12, true)
 	dheavy_2.set_collision_layer_value(11, true)
 	dheavy_2.set_collision_mask_value(12, true)
-	dheavy_3.set_collision_layer_value(12, true)
+	dheavy_3.set_collision_layer_value(11, true)
 	dheavy_3.set_collision_mask_value(12, true)
+
 	drec_1.set_collision_layer_value(11, true)
 	drec_1.set_collision_mask_value(12, true)
 	drec_2.set_collision_layer_value(11, true)
@@ -111,6 +114,7 @@ func _ready() -> void:
 	slight_2.set_collision_mask_value(12, true)
 	slight_3.set_collision_layer_value(11, true)
 	slight_3.set_collision_mask_value(12, true)
+
 	sair_1.set_collision_layer_value(11, true)
 	sair_1.set_collision_mask_value(12, true)
 	sair_2.set_collision_layer_value(11, true)
@@ -118,14 +122,24 @@ func _ready() -> void:
 	sair_2.set_collision_layer_value(11, true)
 	sair_3.set_collision_mask_value(12, true)
 	sair_3.set_collision_layer_value(11, true)
-	sheavy_1.set_collision_mask_value(12, true)
+
 	sheavy_1.set_collision_layer_value(11, true)
-	sheavy_2.set_collision_mask_value(12, true)
+	sheavy_1.set_collision_mask_value(12, true)
+	sheavy_2.set_collision_layer_value(11, true)
 	sheavy_2.set_collision_layer_value(12, true)
-	sheavy_3.set_collision_mask_value(12, true)
 	sheavy_3.set_collision_layer_value(11, true)
+	sheavy_3.set_collision_mask_value(12, true)
+
 	Hurtbox.set_collision_layer_value(10, true)
 	Hurtbox.set_collision_mask_value(13, true)
 func _process(delta: float) -> void:
 	CharacterList.player_1_health = Player_Stats.Health
 	MatchGameManager.player_1_global_position = Controller.global_position
+
+
+func _on_hurtbox_area_exited(area: Area2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_block_hurtbox_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

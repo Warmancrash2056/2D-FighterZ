@@ -118,12 +118,14 @@ func _ready() -> void:
 	sair_2.set_collision_layer_value(13, true)
 	sair_3.set_collision_mask_value(10, true)
 	sair_3.set_collision_layer_value(13, true)
-	sheavy_1.set_collision_mask_value(10, true)
+
 	sheavy_1.set_collision_layer_value(13, true)
-	sheavy_2.set_collision_mask_value(10, true)
+	sheavy_1.set_collision_mask_value(10, true)
 	sheavy_2.set_collision_layer_value(13, true)
+	sheavy_2.set_collision_mask_value(10, true)
 	sheavy_3.set_collision_layer_value(13, true)
 	sheavy_3.set_collision_mask_value(10, true)
+
 	Hurtbox.set_collision_layer_value(12, true)
 	Hurtbox.set_collision_mask_value(11, true)
 func _process(delta: float) -> void:

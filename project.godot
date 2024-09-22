@@ -18,6 +18,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 config/name="2D FighterZ"
 run/main_scene="res://Game Start/Attention Prompt/Attention.tscn"
 config/features=PackedStringArray("4.3")
+run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Character Resouces/Characters/Goku/Icon/ground_elemental.png"
 config/icon="res://Character Resouces/Characters/Nomad/wind_elemental.png"
@@ -34,7 +35,7 @@ InputFocus="*res://Autoloads/Input Focus.gd"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
+window/stretch/aspect="expand"
 window/handheld/orientation=6
 
 [dotnet]
@@ -78,10 +79,6 @@ Physical=""
 Blunt=""
 "Water Effect"=""
 "Shaken Effect"=""
-
-[gui]
-
-common/drop_mouse_on_gui_input_disabled=true
 
 [importer_defaults]
 
@@ -366,6 +363,5 @@ project/assembly_name="2D FighterZ"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-camera/depth_of_field/depth_of_field_bokeh_quality=2
-environment/size/viewport_height=700
+textures/canvas_textures/default_texture_repeat=1
 environment/size/viewport_width=1200

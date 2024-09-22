@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=119 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -1244,6 +1244,54 @@ tracks/88/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
 "values": []
+}
+tracks/89/type = "value"
+tracks/89/imported = false
+tracks/89/enabled = true
+tracks/89/path = NodePath("../Block Hurtbox/CollisionShape2D:disabled")
+tracks/89/interp = 1
+tracks/89/loop_wrap = true
+tracks/89/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/90/type = "value"
+tracks/90/imported = false
+tracks/90/enabled = true
+tracks/90/path = NodePath("../Block Hurtbox/CollisionShape2D:visible")
+tracks/90/interp = 1
+tracks/90/loop_wrap = true
+tracks/90/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/91/type = "value"
+tracks/91/imported = false
+tracks/91/enabled = true
+tracks/91/path = NodePath("../../Floor Effect Hitbox/CollisionShape2D:disabled")
+tracks/91/interp = 1
+tracks/91/loop_wrap = true
+tracks/91/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/92/type = "value"
+tracks/92/imported = false
+tracks/92/enabled = true
+tracks/92/path = NodePath("../../Floor Effect Hitbox/CollisionShape2D:visible")
+tracks/92/interp = 1
+tracks/92/loop_wrap = true
+tracks/92/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_tbwdi"]
@@ -18594,6 +18642,54 @@ tracks/203/keys = {
 "update": 0,
 "values": [Color(0.67451, 0.505882, 0, 0.196078)]
 }
+tracks/204/type = "value"
+tracks/204/imported = false
+tracks/204/enabled = true
+tracks/204/path = NodePath("../Block Hurtbox/CollisionShape2D:disabled")
+tracks/204/interp = 1
+tracks/204/loop_wrap = true
+tracks/204/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/205/type = "value"
+tracks/205/imported = false
+tracks/205/enabled = true
+tracks/205/path = NodePath("../Block Hurtbox/CollisionShape2D:visible")
+tracks/205/interp = 1
+tracks/205/loop_wrap = true
+tracks/205/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/206/type = "value"
+tracks/206/imported = false
+tracks/206/enabled = true
+tracks/206/path = NodePath("../../Floor Effect Hitbox/CollisionShape2D:disabled")
+tracks/206/interp = 1
+tracks/206/loop_wrap = true
+tracks/206/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/207/type = "value"
+tracks/207/imported = false
+tracks/207/enabled = true
+tracks/207/path = NodePath("../../Floor Effect Hitbox/CollisionShape2D:visible")
+tracks/207/interp = 1
+tracks/207/loop_wrap = true
+tracks/207/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_k874w"]
 resource_name = "Respawn"
@@ -21313,6 +21409,8 @@ _bundled = {
 "version": 3
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ohryw"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qtdme"]
 radius = 7.5
 height = 19.0
@@ -21375,7 +21473,7 @@ shape = SubResource("CircleShape2D_drh4y")
 disabled = true
 debug_color = Color(0, 0.533333, 0.141176, 0.419608)
 
-[node name="Neutral Light - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
+[node name="Neutral Light - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Blunt", "Constant Force"]]
 unique_name_in_owner = true
 z_index = 5
 position = Vector2(20.5, -8.5)
@@ -21396,7 +21494,7 @@ shape = SubResource("CapsuleShape2D_yucej")
 disabled = true
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Neutral Light - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
+[node name="Neutral Light - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Blunt", "Variable Force"]]
 unique_name_in_owner = true
 position = Vector2(26.5, -10)
 collision_layer = 0
@@ -21425,10 +21523,11 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 
 [node name="Neutral Light - 3" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light - 3"]
+visible = false
 position = Vector2(26.5, -8)
 disabled = true
 
-[node name="Neutral Air - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
+[node name="Neutral Air - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Blunt", "Constant Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21447,7 +21546,7 @@ shape = SubResource("CapsuleShape2D_3gkqv")
 disabled = true
 debug_color = Color(0, 1, 0, 0.419608)
 
-[node name="Neutral Air - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Damager"]]
+[node name="Neutral Air - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Blunt", "Damager"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21664,7 +21763,7 @@ shape = SubResource("CapsuleShape2D_3xm02")
 disabled = true
 debug_color = Color(0, 0.643137, 0.317647, 0.419608)
 
-[node name="Down Heavy - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Damager"]]
+[node name="Down Heavy - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Damager", "Piercing Attack"]]
 unique_name_in_owner = true
 position = Vector2(0, -0.5)
 collision_layer = 0
@@ -21682,7 +21781,7 @@ shape = SubResource("CapsuleShape2D_emolw")
 disabled = true
 debug_color = Color(0.556863, 0.34902, 0.972549, 0.419608)
 
-[node name="Down Heavy - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
+[node name="Down Heavy - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Piercing Attack", "Variable Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -21700,7 +21799,7 @@ shape = SubResource("CapsuleShape2D_okev4")
 disabled = true
 debug_color = Color(0.937255, 0.12549, 0, 0.419608)
 
-[node name="Down Heavy - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Damager"]]
+[node name="Down Heavy - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Damager", "Piercing Attack"]]
 unique_name_in_owner = true
 position = Vector2(1.5, 0)
 collision_layer = 0
@@ -21956,7 +22055,7 @@ position = Vector2(0, -40)
 texture = ExtResource("13_nulpv")
 hframes = 10
 vframes = 19
-frame = 162
+frame = 91
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -22104,6 +22203,7 @@ debug_color = Color(1, 0, 0, 0.235294)
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Controller/Opponent Effect Hurtbox"]
+shape = SubResource("CapsuleShape2D_ohryw")
 
 [node name="Block Hurtbox" type="Area2D" parent="Controller"]
 z_index = 10
@@ -22113,8 +22213,10 @@ script = ExtResource("40_0gelp")
 Block_Health = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Controller/Block Hurtbox"]
+visible = false
 position = Vector2(-2.5, -2)
 shape = SubResource("CapsuleShape2D_qtdme")
+disabled = true
 debug_color = Color(0, 0.643513, 0.298632, 0.42)
 
 [node name="Player Icon" type="Node2D" parent="."]
@@ -22126,9 +22228,11 @@ Icon = ExtResource("29_quw3q")
 script = ExtResource("43_tj1e8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor Effect Hitbox"]
+visible = false
 position = Vector2(-1, 32)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6vkij")
+disabled = true
 debug_color = Color(0.66071, 0.514299, 0, 0.42)
 
 [connection signal="FacingLeft" from="Controller" to="Controller/Scale Player" method="_on_movement_controller_facing_left"]
@@ -22147,8 +22251,8 @@ debug_color = Color(0.66071, 0.514299, 0, 0.42)
 [connection signal="JumpCloud" from="Controller" to="Controller/Jump Smoke" method="_on_movement_controller_jump_cloud"]
 [connection signal="Player1Box" from="Controller" to="Controller/Scale Player/Attack Positioner" method="_on_controller_player_1_box"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]

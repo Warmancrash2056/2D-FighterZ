@@ -166,15 +166,12 @@ func _process_attack_input():
 	if can_attack == true:
 		if Input.is_action_just_pressed(Player_Identifier.Controls.throw):
 			add_to_buffer({"type": "attack", "value": "throw", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			IsAttacking.emit()
 
 		if Input.is_action_just_pressed(Player_Identifier.Controls.light):
 			add_to_buffer({"type": "attack", "value": "light", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			IsAttacking.emit()
 
 		if Input.is_action_just_pressed(Player_Identifier.Controls.heavy):
 			add_to_buffer({"type": "attack", "value": "heavy", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			IsAttacking.emit()
 
 
 
@@ -303,7 +300,7 @@ func _process_single_size_inputs() -> void:
 	for input_action in input_buffer:
 		match input_action.type:
 			"attack":
-				if input_buffer.size() < 2:
+				if input_buffer.size()  <= 1:
 					if input_action.value == "light" and input_action.onground == true:
 						Animator.state = Neutral_Light
 

@@ -44,8 +44,10 @@ func queue_player() -> void:
 
 func player_1_package() -> void:
 	# Instantiate a new player node
+
 	player_1_spawn = CharacterList.get_player_1.instantiate()
 	player_1_spawn.set_script(CharacterList.get_player_1_script)
+	player_1_spawn.Controls = load('res://Character Resouces/Global/Controller Resource/Player_1.tres')
 
 	# Add the new player to the scene tree first
 	await get_tree().create_timer(0.1).timeout  # Short delay to ensure it's added

@@ -1,7 +1,8 @@
 class_name Player1Controller extends Node2D
-@export var Controls: Resource = preload('res://Character Resouces/Global/Controller Resource/Player_1.tres')
-@export var Projectile_Layer: int = 11
-@export var Projectile_Mask: int = 12
+@export var Controls: Resource
+@export var Attack_Layer: int = 11
+@export var Attack_Mask: int = 12
+@export var Body_Layer: int = 8
 @onready var Controller = $Controller
 @onready var Player_Icon: Node2D = $'Player Icon'
 @onready var Player_Indicator: Sprite2D = $'Controller/Player Indicator'
@@ -47,61 +48,64 @@ func _ready() -> void:
 	CharacterList.player_1_icon = Player_Icon.Icon
 	CharacterList.player_1_health = Player_Stats.Health
 	Player_Indicator.modulate = Color(0, 0, 0.545098, 1)
-	attack_positioner.set_collision_layer_value(11, true)
-	attack_positioner.set_collision_mask_value(12, true)
-	transition_attack.set_collision_layer_value(11, true)
-	transition_attack.set_collision_mask_value(12, true)
+	attack_positioner.set_collision_layer_value(Attack_Layer, true)
+	attack_positioner.set_collision_mask_value(Attack_Mask, true)
+	transition_attack.set_collision_layer_value(Attack_Layer, true)
+	transition_attack.set_collision_mask_value(Attack_Mask, true)
 	# Layer : 11 Mask : 12 Plauer
 	# Colliders section for Neautral Attacks #
-	nlight_1.set_collision_layer_value(11, true)
-	nlight_1.set_collision_mask_value(12, true)
-	nlight_2.set_collision_layer_value(11, true)
-	nlight_2.set_collision_mask_value(12, true)
-	nlight_3.set_collision_layer_value(11, true)
-	nlight_3.set_collision_mask_value(12, true)
-	nair_1.set_collision_layer_value(11, true)
-	nair_1.set_collision_mask_value(12, true)
-	nair_2.set_collision_layer_value(11, true)
-	nair_2.set_collision_mask_value(12, true)
-	nair_3.set_collision_layer_value(11, true)
-	nair_3.set_collision_mask_value(12, true)
-	nheavy_1.set_collision_layer_value(11, true)
-	nheavy_1.set_collision_mask_value(12, true)
-	nheavy_2.set_collision_layer_value(11, true)
-	nheavy_2.set_collision_mask_value(12, true)
-	nheavy_3.set_collision_layer_value(11, true)
-	nheavy_3.set_collision_mask_value(12, true)
-	nrec_1.set_collision_layer_value(11, true)
-	nrec_1.set_collision_mask_value(12, true)
-	nrec_2.set_collision_layer_value(11, true)
-	nrec_2.set_collision_mask_value(12, true)
-	nrec_3.set_collision_layer_value(11, true)
-	nrec_3.set_collision_mask_value(12, true)
+	nlight_1.set_collision_layer_value(Attack_Layer, true)
+	nlight_1.set_collision_mask_value(Attack_Mask, true)
+	nlight_2.set_collision_layer_value(Attack_Layer, true)
+	nlight_2.set_collision_mask_value(Attack_Mask, true)
+	nlight_3.set_collision_layer_value(Attack_Layer, true)
+	nlight_3.set_collision_mask_value(Attack_Mask, true)
+	nair_1.set_collision_layer_value(Attack_Layer, true)
+
+	nair_1.set_collision_mask_value(Attack_Mask, true)
+	nair_2.set_collision_layer_value(Attack_Layer, true)
+	nair_2.set_collision_mask_value(Attack_Layer, true)
+	nair_3.set_collision_layer_value(Attack_Mask, true)
+	nair_3.set_collision_mask_value(Attack_Layer, true)
+
+	nheavy_1.set_collision_layer_value(Attack_Mask, true)
+	nheavy_1.set_collision_mask_value(Attack_Layer, true)
+	nheavy_2.set_collision_layer_value(Attack_Mask, true)
+	nheavy_2.set_collision_mask_value(Attack_Layer, true)
+	nheavy_3.set_collision_layer_value(Attack_Mask, true)
+	nheavy_3.set_collision_mask_value(Attack_Layer, true)
+	nrec_1.set_collision_layer_value(Attack_Layer, true)
+
+	nrec_1.set_collision_mask_value(Attack_Mask, true)
+	nrec_2.set_collision_layer_value(Attack_Layer, true)
+	nrec_2.set_collision_mask_value(Attack_Mask, true)
+	nrec_3.set_collision_layer_value(Attack_Layer, true)
+	nrec_3.set_collision_mask_value(Attack_Mask, true)
 
 	# Section for Down Attacks #
-	dlight_1.set_collision_layer_value(11, true)
-	dlight_1.set_collision_mask_value(12, true)
-	dlight_2.set_collision_layer_value(11, true)
-	dlight_2.set_collision_mask_value(12, true)
-	dlight_3.set_collision_layer_value(11, true)
-	dlight_3.set_collision_mask_value(12, true)
+	dlight_1.set_collision_layer_value(Attack_Layer, true)
+	dlight_1.set_collision_mask_value(Attack_Layer, true)
+	dlight_2.set_collision_layer_value(Attack_Layer, true)
+	dlight_2.set_collision_mask_value(Attack_Mask, true)
+	dlight_3.set_collision_layer_value(Attack_Layer, true)
+	dlight_3.set_collision_mask_value(Attack_Mask, true)
 
-	dair_1.set_collision_layer_value(11, true)
-	dair_1.set_collision_mask_value(12, true)
-	dair_2.set_collision_layer_value(11, true)
-	dair_2.set_collision_mask_value(12, true)
-	dair_3.set_collision_layer_value(11, true)
-	dair_3.set_collision_mask_value(12, true)
+	dair_1.set_collision_layer_value(Attack_Layer, true)
+	dair_1.set_collision_mask_value(Attack_Mask, true)
+	dair_2.set_collision_layer_value(Attack_Layer, true)
+	dair_2.set_collision_mask_value(Attack_Mask, true)
+	dair_3.set_collision_layer_value(Attack_Layer, true)
+	dair_3.set_collision_mask_value(Attack_Mask, true)
 
-	dheavy_1.set_collision_layer_value(11, true)
-	dheavy_1.set_collision_mask_value(12, true)
-	dheavy_2.set_collision_layer_value(11, true)
-	dheavy_2.set_collision_mask_value(12, true)
-	dheavy_3.set_collision_layer_value(11, true)
-	dheavy_3.set_collision_mask_value(12, true)
+	dheavy_1.set_collision_layer_value(Attack_Layer, true)
+	dheavy_1.set_collision_mask_value(Attack_Mask, true)
+	dheavy_2.set_collision_layer_value(Attack_Layer, true)
+	dheavy_2.set_collision_mask_value(Attack_Mask, true)
+	dheavy_3.set_collision_layer_value(Attack_Layer, true)
+	dheavy_3.set_collision_mask_value(Attack_Mask, true)
 
-	drec_1.set_collision_layer_value(11, true)
-	drec_1.set_collision_mask_value(12, true)
+	drec_1.set_collision_layer_value(Attack_Layer, true)
+	drec_1.set_collision_mask_value(Attack_Mask, true)
 	drec_2.set_collision_layer_value(11, true)
 	drec_2.set_collision_mask_value(12, true)
 	drec_3.set_collision_layer_value(11, true)
@@ -132,6 +136,7 @@ func _ready() -> void:
 
 	Hurtbox.set_collision_layer_value(10, true)
 	Hurtbox.set_collision_mask_value(13, true)
+
 func _process(delta: float) -> void:
 	CharacterList.player_1_health = Player_Stats.Health
 	MatchGameManager.player_1_global_position = Controller.global_position

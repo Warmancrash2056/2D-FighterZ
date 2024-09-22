@@ -5,7 +5,7 @@ extends Node2D
 @onready var player_1_manager = %'Player 1 Manager'
 @onready var player_2_manager = %'Player 2 Manager'
 @onready var timer = $'Camera Updater'
-@export_range(1.0, 1.9 ,0.5) var zoom_offset : float = 1.0
+@export_range(0.9, 1.0 ,1.0) var zoom_offset : float = 1.0
 @export var debug_mode : bool = false
 @export var camera_move: bool = true
 var camera_rect := Rect2()
@@ -145,8 +145,8 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	if camera_move == true:
 		var tween = get_tree().create_tween()
-		tween.tween_property(camera,'zoom', new_zoom, 1).set_ease(Tween.EASE_IN_OUT)
-		tween.tween_property(camera, "global_position", new_position, .2).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(camera,'zoom', new_zoom, .25).set_ease(Tween.EASE_OUT_IN)
+		tween.tween_property(camera, "global_position", new_position, .25).set_ease(Tween.EASE_OUT_IN)
 
 
 func _on_game_start_timeout() -> void:

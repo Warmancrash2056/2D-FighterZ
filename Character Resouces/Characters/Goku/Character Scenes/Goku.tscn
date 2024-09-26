@@ -2367,6 +2367,7 @@ tracks/86/keys = {
 [sub_resource type="Animation" id="Animation_1w688"]
 resource_name = "Air Projectile"
 length = 0.9
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2426,11 +2427,11 @@ tracks/4/path = NodePath("../Scale Player/Projectile Position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.7),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"air_prrojectile"
+"method": &"_create_projectile"
 }]
 }
 tracks/5/type = "method"
@@ -12384,11 +12385,11 @@ tracks/6/path = NodePath("../Scale Player/Projectile Position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"_ground_projectile"
+"method": &"_create_projectile"
 }]
 }
 tracks/7/type = "method"
@@ -21431,6 +21432,8 @@ collision_mask = 15
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 0.174533
+platform_floor_layers = 4294901761
+platform_wall_layers = 8
 script = ExtResource("2_u8pn8")
 
 [node name="Scale Player" type="Node2D" parent="Controller"]
@@ -21524,6 +21527,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 
 [node name="Neutral Light - 3" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light - 3"]
+visible = false
 position = Vector2(26.5, -8)
 disabled = true
 
@@ -21826,8 +21830,6 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 
 [node name="Down Recovery - 1" type="CollisionShape2D" parent="Controller/Scale Player/Down Recovery - 1"]
-visible = false
-disabled = true
 
 [node name="Down Recovery - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite")]
 unique_name_in_owner = true
@@ -22055,7 +22057,7 @@ position = Vector2(0, -40)
 texture = ExtResource("13_nulpv")
 hframes = 10
 vframes = 19
-frame = 101
+frame = 25
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -22085,6 +22087,7 @@ Slight = Vector2(5, 0)
 SAir = Vector2(60, 0)
 
 [node name="Body" type="CollisionShape2D" parent="Controller"]
+unique_name_in_owner = true
 visible = false
 z_index = 10
 position = Vector2(0, 1.5)
@@ -22142,7 +22145,7 @@ Max_Speed = 15
 Fast_Fall = 50
 Acceleration = 30
 Decelleration = 15
-Jump_Height = 260
+Jump_Height = 300
 Gravity = 8
 Defense_Rating = 3
 Health = 1000.0
@@ -22219,11 +22222,6 @@ shape = SubResource("CapsuleShape2D_qtdme")
 disabled = true
 debug_color = Color(0, 0.643513, 0.298632, 0.42)
 
-[node name="Collision Configurator" type="Node2D" parent="Controller" node_paths=PackedStringArray("Player_Identifier")]
-scale = Vector2(0.5, 0.5)
-script = ExtResource("44_7uh1h")
-Player_Identifier = NodePath("../..")
-
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)
 script = ExtResource("28_ivokx")
@@ -22239,6 +22237,11 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6vkij")
 disabled = true
 debug_color = Color(0.66071, 0.514299, 0, 0.42)
+
+[node name="Collision Configurator" type="Node2D" parent="." node_paths=PackedStringArray("Player_Identifier", "Motion_Body")]
+script = ExtResource("44_7uh1h")
+Player_Identifier = NodePath("..")
+Motion_Body = NodePath("../Controller")
 
 [connection signal="FacingLeft" from="Controller" to="Controller/Scale Player" method="_on_movement_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Sprite" method="_on_movement_controller_facing_left"]

@@ -271,12 +271,13 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_acp7n"]
 radius = 4.12311
 
-[node name="Goku Air Projectile" type="CharacterBody2D" node_paths=PackedStringArray("Animator", "Sprite")]
+[node name="Goku Air Projectile" type="CharacterBody2D" node_paths=PackedStringArray("Projectile_Hitbox", "Animator", "Sprite")]
 z_index = 10
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 collision_mask = 31
 script = ExtResource("1_2xba1")
+Projectile_Hitbox = NodePath("Hitbox")
 Max_Speed = 500
 Acceleration = 100.0
 Animator = NodePath("AnimationPlayer")
@@ -296,12 +297,13 @@ libraries = {
 position = Vector2(7.33333, 0)
 shape = SubResource("CircleShape2D_acp7n")
 
-[node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("Animator", "Sprite") groups=["Force", "Goku | Air Projectile"]]
+[node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
 collision_layer = 32
 collision_mask = 30
 script = ExtResource("3_rxfed")
 Animator = NodePath("../AnimationPlayer")
 Sprite = NodePath("../Sprite2D")
+Recovery_Frames = 150
 Damage = 30.0
 Constant_Force = Vector2(250, -50)
 

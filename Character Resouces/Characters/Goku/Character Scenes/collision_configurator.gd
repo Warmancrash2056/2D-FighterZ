@@ -1,5 +1,6 @@
 extends Node2D
 @export var Player_Identifier: Node
+@export var Motion_Body: CharacterBody2D
 @onready var attack_positioner = %'Attack Positioner'
 @onready var transition_attack = %'Transitional Check'
 @onready var nlight_1 = %'Neutral Light - 1'
@@ -36,8 +37,7 @@ extends Node2D
 @onready var sheavy_2 = %'Side Heavy - 2'
 @onready var sheavy_3 = %'Side Heavy - 3'
 @onready var Hurtbox = %Hurtbox
-
-func _process(delta: float) -> void:
+func _ready() -> void:
 	# Layer : 11 Mask : 12 Plauer
 	# Colliders section for Neautral Attacks #
 
@@ -121,6 +121,9 @@ func _process(delta: float) -> void:
 	sheavy_2.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 	sheavy_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	sheavy_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+
+	Motion_Body.set_collision_layer_value(Player_Identifier.Motion_Layer, true)
+	Motion_Body.set_collision_mask_value(Player_Identifier.Motion_Mask, true)
 
 	Hurtbox.set_collision_layer_value(Player_Identifier.Body_Layer, true)
 	Hurtbox.set_collision_mask_value(Player_Identifier.Body_Mask, true)

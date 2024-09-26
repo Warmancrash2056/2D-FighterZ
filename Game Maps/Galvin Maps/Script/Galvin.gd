@@ -23,20 +23,25 @@ const MAX_ZOOM_DISTANCE = 1.0
 var camera_zoom_level: float = 1.0
 const CAMERA_MOVE_THRESHOLD = 100
 
-enum { # Character animator states.
+enum {
 	Idle,
 	Turning,
 	Running,
 	Dash,
 	Wall,
 	Air,
-	Ground_Block,
-	Air_Block,
+	Ground_Block_Start_Tap,
+	Ground_Block_Held,
+	Ground_Block_To_Idle,
+	Block_Slide,
+	Air_Block_Start_Tap,
+	Air_Block_Held,
 	Neutral_Light,
 	Neutral_Heavy,
 	Neutral_Air,
 	Neutral_Recovery,
-	Side_Light,
+	Side_Light_Start,
+	Side_Light_Finish,
 	Side_Heavy,
 	Side_Air,
 	Down_Light,

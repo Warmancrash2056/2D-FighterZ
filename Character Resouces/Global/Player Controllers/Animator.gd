@@ -384,8 +384,6 @@ func _on_movement_cooldown_timeout() -> void:
 	Character.can_jump = true
 
 
-func _on_transitional_check_area_entered(area: Area2D) -> void:
-	transition_to_finish = true
 
 
 func holding_block():
@@ -401,3 +399,7 @@ func holding_block():
 
 func _transition_to_Finish_block():
 	state = Ground_Block_Held
+
+
+func _on_transitional_check_area_entered(area: Area2D) -> void:
+	transition_to_finish = true

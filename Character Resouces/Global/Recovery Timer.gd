@@ -24,7 +24,7 @@ func calculate_recovery(new_recovery: float):
 	get_movement = movement_cooldown_timer
 	Movement_Cooldown.set_wait_time(movement_cooldown_timer)
 	set_wait_time(new_recovery)
-	#print(calculated_frame_count_to_sec)
+	print(calculated_frame_count_to_sec)
 	print("Reduced Attack Cooldoen: " ,wait_time ," Reduced Movement Cooldoen: " ,movement_cooldown_timer)
 
 

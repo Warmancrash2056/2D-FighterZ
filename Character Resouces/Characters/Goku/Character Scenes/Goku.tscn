@@ -20154,6 +20154,20 @@ tracks/46/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/47/type = "method"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("../Animator")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_is_attacking"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_1cdqp"]
 resource_name = "Side Light - Finish -"
@@ -21830,6 +21844,8 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 
 [node name="Down Recovery - 1" type="CollisionShape2D" parent="Controller/Scale Player/Down Recovery - 1"]
+visible = false
+disabled = true
 
 [node name="Down Recovery - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite")]
 unique_name_in_owner = true
@@ -22057,7 +22073,7 @@ position = Vector2(0, -40)
 texture = ExtResource("13_nulpv")
 hframes = 10
 vframes = 19
-frame = 25
+frame = 47
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -22088,10 +22104,10 @@ SAir = Vector2(60, 0)
 
 [node name="Body" type="CollisionShape2D" parent="Controller"]
 unique_name_in_owner = true
-visible = false
 z_index = 10
 position = Vector2(0, 1.5)
 shape = SubResource("CapsuleShape2D_2gol2")
+one_way_collision_margin = 50.0
 script = ExtResource("19_rdlrt")
 
 [node name="Counter Position" type="Marker2D" parent="Controller"]
@@ -22139,9 +22155,9 @@ Player_Stats = NodePath("../Player Stats")
 
 [node name="Player Stats" type="Node" parent="Controller"]
 script = ExtResource("30_h56yx")
-Speed_Rating = 10
+Speed_Rating = 6
 Weight_Scale = 3
-Max_Speed = 15
+Max_Speed = 20
 Fast_Fall = 50
 Acceleration = 30
 Decelleration = 15
@@ -22150,7 +22166,7 @@ Gravity = 8
 Defense_Rating = 3
 Health = 1000.0
 Attack_Rating = 50
-Stamina_Rating = 6
+Stamina_Rating = 10
 
 [node name="Recovery Timer" type="Timer" parent="Controller" node_paths=PackedStringArray("Character", "Animator", "Player_Stats")]
 one_shot = true
@@ -22259,8 +22275,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="JumpCloud" from="Controller" to="Controller/Jump Smoke" method="_on_movement_controller_jump_cloud"]
 [connection signal="Player1Box" from="Controller" to="Controller/Scale Player/Attack Positioner" method="_on_controller_player_1_box"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]

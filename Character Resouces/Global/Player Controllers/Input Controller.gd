@@ -20,8 +20,8 @@ var direction = 1
 
 var movement_dir: Vector2
 var input_buffer = []
-var max_buffer_limit = 2
-var buffer_time = 0.01
+var max_buffer_limit = 3
+var buffer_time = 0.1
 
 
 var can_move = true
@@ -185,14 +185,14 @@ func add_to_buffer(input_action):
 
 	# Keep the buffer size within the buffer size of 3.
 	if len(input_buffer) > max_buffer_limit:
-		input_buffer.pop_at(0) # Remove the oldest input.
+		input_buffer.remove_at(0) # Remove the oldest input.
 
 func clear_inputs():
 	var current_time = Time.get_ticks_msec()
 	var new_input_buffer = []
 
 	for input in input_buffer:
-		if current_time - input.timestamp <= buffer_time * 1000:
+		if current_time - input["timestamp"] <= buffer_time * 1000:
 			new_input_buffer.append(input)
 
 	input_buffer = new_input_buffer
@@ -208,9 +208,11 @@ func _process_dual_combinations():
 		if first_input.type == "direction":
 			if first_input.onground == true and first_input.value == "right" and second_input.onground == true and second_input.type == "attack" and second_input.value == "light":
 				Animator.state = Side_Light_Start
+				Animator.play("Side Light -Start -")
 
 			elif first_input.onground == true and first_input.value == "left" and  second_input.onground == true and second_input.type == "attack" and second_input.value == "light":
 				Animator.state = Side_Light_Start
+				Animator.play("Side Light -Start -")
 
 			elif first_input.onground == true and first_input.value == "right" and second_input.onground == true and second_input.type == "attack" and second_input.value == "heavy":
 				Animator.state = Side_Heavy
@@ -233,6 +235,7 @@ func _process_dual_combinations():
 
 			elif first_input.onground == true and first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
 				Animator.state = Down_Heavy
+				Animator.play("Down Heavy - Start -")
 
 			elif first_input.onground == false and first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
 					Animator.state = Dowm_Recovery
@@ -242,12 +245,15 @@ func _process_dual_combinations():
 
 			elif first_input.onground == false and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
 					Animator.state = Neutral_Air
+					Animator.play("Neutral Light - Start -")
 
 			elif first_input.onground == true and first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
 				Animator.state = Neutral_Heavy
+				Animator.play("Neautral Heavy - Start -")
 
 			elif first_input.onground == false and first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
 					Animator.state = Neutral_Recovery
+					Animator.play("Neutral Recovery - Start -")
 
 func _proces_triple_combination():
 	for i in range(len(input_buffer) - 1):
@@ -277,6 +283,7 @@ func _process_immediate_action():
 				elif input_action.value == "jump" and Player_Stats.Jump_Count > 0:
 					Animator.state = Air
 					velocity.y = -Player_Stats.Jump_Height
+					Animator.play("Jump")
 
 
 			"direction":
@@ -303,15 +310,19 @@ func _process_single_size_inputs() -> void:
 				if input_buffer.size()  <= 1:
 					if input_action.value == "light" and input_action.onground == true:
 						Animator.state = Neutral_Light
+						Animator.play("Neutral Light - Start -")
 
 					elif input_action.value == "heavy" and input_action.onground == true:
 						Animator.state = Neutral_Heavy
+						Animator.play("Down Heavy - Start -")
 
 					elif input_action.value == "light" and input_action.onground == false:
 						Animator.state = Neutral_Air
+						break
 
 					elif input_action.value == "heavy" and input_action.onground == false:
 						Animator.state = Neutral_Recovery
+						break
 
 
 func _on_animator_is_attacking() -> void:

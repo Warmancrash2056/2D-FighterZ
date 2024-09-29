@@ -123,7 +123,6 @@ func _ready() -> void:
 	sheavy_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
 	Motion_Body.set_collision_layer_value(Player_Identifier.Motion_Layer, true)
-	Motion_Body.set_collision_mask_value(Player_Identifier.Motion_Mask, true)
 
 	Hurtbox.set_collision_layer_value(Player_Identifier.Body_Layer, true)
 	Hurtbox.set_collision_mask_value(Player_Identifier.Body_Mask, true)

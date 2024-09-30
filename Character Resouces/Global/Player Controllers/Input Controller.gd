@@ -152,7 +152,7 @@ func _process_jump_input():
 			Player_Stats.Jump_Count -= 1
 
 func _process_dash_input():
-	if can_dash == true:
+	if can_dash == true and can_attack == true:
 		if Input.is_action_just_pressed(Player_Identifier.Controls.dash):
 			add_to_buffer({"type": "move", "value": "dash", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
@@ -222,16 +222,20 @@ func _process_dual_combinations():
 
 			elif first_input.onground == false and first_input.value == "right" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
 				Animator.state = Side_Air
+				Animator.play("Side Air - Start -")
 
 			elif first_input.onground == false and first_input.value == "left" and second_input.onground == false and second_input.type == "attack" and second_input.value == "light":
 				Animator.state = Side_Air
+				Animator.play("Side Air - Start -")
 
 
 			elif first_input.onground == true and first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
 					Animator.state = Down_Light
+					Animator.play("Down Light - Start -")
 
 			elif first_input.onground == false and first_input.value == "down" and second_input.type == "attack" and second_input.value == "light":
 					Animator.state = Down_Air
+					Animator.play("Down Air - Start -")
 
 			elif first_input.onground == true and first_input.value == "down" and second_input.type == "attack" and second_input.value == "heavy":
 				Animator.state = Down_Heavy
@@ -242,18 +246,19 @@ func _process_dual_combinations():
 
 			elif first_input.onground == true and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
 				Animator.state = Neutral_Light
+				Animator.play("Neutral Light - Start -")
 
 			elif first_input.onground == false and first_input.value == "up" and second_input.type == "attack" and second_input.value == "light":
 					Animator.state = Neutral_Air
-					Animator.play("Neutral Light - Start -")
+					Animator.play("Neutral Air - Start -")
 
 			elif first_input.onground == true and first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
 				Animator.state = Neutral_Heavy
 				Animator.play("Neautral Heavy - Start -")
 
 			elif first_input.onground == false and first_input.value == "up" and second_input.type == "attack" and second_input.value == "heavy":
-					Animator.state = Neutral_Recovery
-					Animator.play("Neutral Recovery - Start -")
+				Animator.state = Neutral_Recovery
+				Animator.play("Neutral Recovery - Start -")
 
 func _proces_triple_combination():
 	for i in range(len(input_buffer) - 1):

@@ -194,5 +194,5 @@ func _on_calculate_stun_frames(Recovery: int) -> void:
 
 
 func _on_area_exited(area: Area2D) -> void:
-	if area.is_in_group("Positioner"):
+	if area.is_in_group("Goku Positioner"):
 		goku_neautral_havy = false

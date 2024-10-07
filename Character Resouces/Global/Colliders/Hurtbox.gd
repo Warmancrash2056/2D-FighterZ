@@ -58,8 +58,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
 		apply_force()
-		#print(knockback_vector)
 
+	if has_overlapping_areas():
+		monitoring = false
+		monitoring = true
 func _on_area_entered(area: Area2D) -> void:
 
 	# Variable force that is affected by the player defense.
@@ -71,7 +73,7 @@ func _on_area_entered(area: Area2D) -> void:
 		goku_neautral_havy = false
 
 	# Constant force that is fixed velocity not affected by player defense
-	elif area.is_in_group("Constant Force"):
+	if area.is_in_group("Constant Force"):
 		direction = area.direction
 		CalculateConstantForce.emit(area.Constant_Force)
 		IsHurt.emit(area.Damage)
@@ -79,59 +81,56 @@ func _on_area_entered(area: Area2D) -> void:
 		goku_neautral_havy = false
 
 	# Transition checks and relays to animator that attack connected.
-	elif area.is_in_group("Transition"):
+	if area.is_in_group("Transition"):
 		IsHurt.emit(area.Damage)
 
 	# Only applies damage and stun to player.
-	elif area.is_in_group("Damager"):
+	if area.is_in_group("Damager"):
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
 
 	# Grabs the player and follow the hitbox it is connected to
-	elif area.is_in_group("Goku Positioner"):
+	if area.is_in_group("Goku Positioner"):
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
 		goku_neautral_havy = true
 
-	elif area.is_in_group("test"):
-		print("insxide")
-
 func apply_force():
-	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 50)
-	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 50)
+	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 100)
+	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 100)
 
 func _on_is_hurt(Damage: int) -> void:
 	Animator.state = Hurt
 
 	Player_Stats.Health -= Damage
-	if Player_Stats.Health < 1000:
+	if Player_Stats.Health < 10000:
 		knockback_multiplier = 1.0
 
-	if Player_Stats.Health < 900:
+	if Player_Stats.Health < 9000:
 		knockback_multiplier = 2.0
 
-	if Player_Stats.Health < 800:
+	if Player_Stats.Health < 8000:
 		knockback_multiplier = 3.0
 
-	if Player_Stats.Health < 700:
+	if Player_Stats.Health < 7000:
 		knockback_multiplier = 4.0
 
-	if Player_Stats.Health < 600:
+	if Player_Stats.Health < 6000:
 		knockback_multiplier = 5.0
 
-	if Player_Stats.Health < 500:
+	if Player_Stats.Health < 5000:
 		knockback_multiplier = 6.0
 
-	if Player_Stats.Health < 400:
+	if Player_Stats.Health < 4000:
 		knockback_multiplier = 7.0
 
-	if Player_Stats.Health < 300:
+	if Player_Stats.Health < 3000:
 		knockback_multiplier = 8.0
 
-	if Player_Stats.Health < 200:
+	if Player_Stats.Health < 2000:
 		knockback_multiplier = 9.0
 
-	if Player_Stats.Health < 100:
+	if Player_Stats.Health < 1000:
 		knockback_multiplier = 10.0
 
 	if Player_Stats.Health < 0:

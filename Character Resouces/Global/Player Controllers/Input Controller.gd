@@ -70,8 +70,8 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if Hurtbox.goku_neautral_havy == true:
 		var Goku_Positioner: Vector2 = CharacterList.goku_neutral_heavy_grab_position
-		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 500)
-		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 500)
+		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 150)
+		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 150)
 	_get_movement()
 	move_and_slide()
 func _process(delta: float) -> void:

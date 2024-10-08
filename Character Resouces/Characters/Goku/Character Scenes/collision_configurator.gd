@@ -40,7 +40,8 @@ extends Node2D
 func _ready() -> void:
 	# Layer : 11 Mask : 12 Plauer
 	# Colliders section for Neautral Attacks #
-
+	attack_positioner.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	attack_positioner.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 	transition_attack.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	transition_attack.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 	nlight_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
@@ -57,12 +58,12 @@ func _ready() -> void:
 	nair_3.set_collision_layer_value(Player_Identifier.Attack_Mask, true)
 	nair_3.set_collision_mask_value(Player_Identifier.Attack_Layer, true)
 
-	nheavy_1.set_collision_layer_value(Player_Identifier.Attack_Mask, true)
-	nheavy_1.set_collision_mask_value(Player_Identifier.Attack_Layer, true)
-	nheavy_2.set_collision_layer_value(Player_Identifier.Attack_Mask, true)
-	nheavy_2.set_collision_mask_value(Player_Identifier.Attack_Layer, true)
-	nheavy_3.set_collision_layer_value(Player_Identifier.Attack_Mask, true)
-	nheavy_3.set_collision_mask_value(Player_Identifier.Attack_Layer, true)
+	nheavy_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	nheavy_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+	nheavy_2.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	nheavy_2.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+	nheavy_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	nheavy_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
 	nrec_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	nrec_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)

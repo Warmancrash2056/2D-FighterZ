@@ -96,8 +96,8 @@ func _on_area_entered(area: Area2D) -> void:
 		goku_neautral_havy = true
 
 func apply_force():
-	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 100)
-	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 100)
+	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 1000)
+	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 1000)
 
 func _on_is_hurt(Damage: int) -> void:
 	Animator.state = Hurt

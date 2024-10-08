@@ -8,8 +8,8 @@ var transition_attack: bool = false
 @export var Sprite: Sprite2D
 ## Send the amount of time player is stunned to hitbox.
 ## ight Attack by default are 15 - 30 frames and Heavy are 30 - 60 frames
-@export var Recovery_Frames: int
-@export var Damage: float
+@export_range(1, 300, 1) var Recovery_Frames: int
+@export_range(1, 100, 1) var Damage: float
 @export var Variable_Force: Vector2 ## Force added onto current player velocity
 @export var Constant_Force: Vector2 ## Constant Force applied to player velocity
 # Get the attacker direction in interger to change the direction of x-axis knockback force

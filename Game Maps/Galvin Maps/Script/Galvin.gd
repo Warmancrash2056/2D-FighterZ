@@ -152,7 +152,3 @@ func _on_timer_timeout() -> void:
 		var tween = get_tree().create_tween()
 		tween.tween_property(camera,'zoom', new_zoom, .25).set_ease(Tween.EASE_OUT_IN)
 		tween.tween_property(camera, "global_position", new_position, .25).set_ease(Tween.EASE_OUT_IN)
-
-
-func _on_game_start_timeout() -> void:
-	pass # Replace with function body.

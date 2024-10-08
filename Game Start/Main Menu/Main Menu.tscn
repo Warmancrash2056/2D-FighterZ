@@ -138,42 +138,32 @@ text = "Training Room"
 flat = true
 script = ExtResource("3_m8lw7")
 
-[node name="Control Layout" type="Button" parent="."]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 2
-offset_top = 328.0
-offset_right = 138.0
-offset_bottom = 351.0
-scale = Vector2(3, 3)
-theme_override_fonts/font = ExtResource("2_n77w0")
-text = "Controller Layout"
-flat = true
-script = ExtResource("3_m8lw7")
-
 [node name="Mars Studio" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-offset_top = 376.0
+offset_top = 328.0
 offset_right = 87.0
-offset_bottom = 399.0
+offset_bottom = 351.0
 scale = Vector2(3, 3)
 theme_override_fonts/font = ExtResource("2_n77w0")
 text = "Mars Studio"
 flat = true
 script = ExtResource("3_m8lw7")
 
-[node name="Button" type="Button" parent="."]
+[node name="Setting" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 anchor_top = 0.679
 anchor_right = 0.243
 anchor_bottom = 0.785
-offset_top = -15.992
-offset_right = -185.936
-offset_bottom = -61.68
+offset_left = -56.0
+offset_top = -63.992
+offset_right = -241.936
+offset_bottom = -109.68
 scale = Vector2(3, 3)
 theme_override_fonts/font = ExtResource("2_n77w0")
-text = "Setting Menu"
+text = "Setting
+"
 flat = true
 
 [node name="Character Pose" parent="." instance=ExtResource("4_u8wxl")]
@@ -188,9 +178,18 @@ offset_top = 0.0
 offset_right = 1160.0
 offset_bottom = 648.0
 
+[node name="Button2" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 992.0
+offset_right = 1152.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_n77w0")
+text = "Setting "
+flat = true
+
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]
 [connection signal="pressed" from="Training Room" to="." method="_on_training_room_pressed"]
-[connection signal="pressed" from="Control Layout" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Mars Studio" to="." method="_on_mars_studio_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Setting" to="." method="_on_button_pressed"]

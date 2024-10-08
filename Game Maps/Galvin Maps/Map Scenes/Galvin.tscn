@@ -5878,6 +5878,9 @@ drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
+[node name="Timer" parent="Local Camera/CanvasLayer" index="3"]
+wait_time = 10.0
+
 [node name="Knockout Area" type="Area2D" parent="." groups=["Knockout Area"]]
 collision_layer = 0
 collision_mask = 256
@@ -5905,3 +5908,6 @@ script = ExtResource("11_g8d6d")
 [connection signal="body_entered" from="Knockout Area" to="." method="_on_knockout_area_body_entered"]
 [connection signal="body_exited" from="Knockout Area" to="." method="_on_knockout_area_body_exited"]
 [connection signal="timeout" from="Camera Updater" to="." method="_on_timer_timeout"]
+
+[editable path="Local Camera"]
+[editable path="Local Camera/CanvasLayer"]

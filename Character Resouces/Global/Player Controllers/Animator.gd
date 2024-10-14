@@ -309,7 +309,7 @@ func idle_reset():
 		elif !Character.is_on_floor():
 			state = Air
 			play("Fall")
-
+	return
 func enable_vertical_attack_movement():
 	enable_y_movement = true
 
@@ -369,9 +369,12 @@ func _on_recovery_timer_timeout() -> void:
 
 
 func _on_stun_time_timeout() -> void:
-	idle_reset()
 	_start_player_movement()
 	IsResetting.emit()
+	idle_reset()
+
+	return
+
 
 
 func _on_refresh_block_timeout() -> void:

@@ -5878,9 +5878,6 @@ drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Timer" parent="Local Camera/CanvasLayer" index="3"]
-wait_time = 10.0
-
 [node name="Knockout Area" type="Area2D" parent="." groups=["Knockout Area"]]
 collision_layer = 0
 collision_mask = 256

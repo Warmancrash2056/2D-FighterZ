@@ -6,6 +6,8 @@ var transition_attack: bool = false
 
 @export var Animator: AnimationPlayer
 @export var Sprite: Sprite2D
+@export var Player_Stats: Node
+
 ## Send the amount of time player is stunned to hitbox.
 ## ight Attack by default are 15 - 30 frames and Heavy are 30 - 60 frames
 @export_range(1, 300, 1) var Recovery_Frames: int
@@ -17,6 +19,8 @@ var direction: int
 
 func _process(delta: float) -> void:
 	direction = Sprite.flip_h
+
+
 
 
 ## Make Sure the name of signal is the same for every hitbox to register.

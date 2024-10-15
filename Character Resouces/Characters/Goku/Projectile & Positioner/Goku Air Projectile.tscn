@@ -304,7 +304,6 @@ script = ExtResource("3_rxfed")
 Animator = NodePath("../AnimationPlayer")
 Sprite = NodePath("../Sprite2D")
 Recovery_Frames = 150
-Damage = 30.0
 Constant_Force = Vector2(250, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

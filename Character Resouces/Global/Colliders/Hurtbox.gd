@@ -3,7 +3,6 @@ signal CalculateConstantForce(Constant: Vector2)
 signal CalculateVariableForce(Variable: Vector2)
 signal CalculateStunFrames(Recovery: int)
 @onready var Stun_Timer: Timer = $'Stun Time'
-@export var Wall_detector: RayCast2D
 @export var Character:CharacterBody2D
 @export var Player_Stats: Node
 @export var Sprite: Sprite2D
@@ -60,25 +59,26 @@ func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
 		apply_force()
 
+	if has_overlapping_areas():
+		monitoring = false
+		monitoring = true
 func _on_area_entered(area: Area2D) -> void:
-	direction = area.direction
+
 	# Variable force that is affected by the player defense.
 	if area.is_in_group("Variable Force"):
+		direction = area.direction
 		CalculateVariableForce.emit(area.Variable_Force)
-		apply_force()
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
 		goku_neautral_havy = false
-
 
 	# Constant force that is fixed velocity not affected by player defense
 	if area.is_in_group("Constant Force"):
+		direction = area.direction
 		CalculateConstantForce.emit(area.Constant_Force)
-		apply_force()
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
 		goku_neautral_havy = false
-
 
 	# Transition checks and relays to animator that attack connected.
 	if area.is_in_group("Transition"):
@@ -95,51 +95,42 @@ func _on_area_entered(area: Area2D) -> void:
 		CalculateStunFrames.emit(area.Recovery_Frames)
 		goku_neautral_havy = true
 
-func apply_force() -> void:
-	if knockback_vector != Vector2.ZERO:
-		Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 100)
-		Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 100)
-
-		print("Knockback applied: ", knockback_vector)  # Debugging
-	else:
-		print("No knockback applied")
-
-	if Character.is_on_wall():
-			Character.velocity.x *= -1
-			print("bounce")
+func apply_force():
+	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 500)
+	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 500)
 
 func _on_is_hurt(Damage: int) -> void:
 	Animator.state = Hurt
 
 	Player_Stats.Health -= Damage
-	if Player_Stats.Health < 100:
+	if Player_Stats.Health < 10000:
 		knockback_multiplier = 1.0
 
-	if Player_Stats.Health < 90:
+	if Player_Stats.Health < 9000:
 		knockback_multiplier = 2.0
 
-	if Player_Stats.Health < 80:
+	if Player_Stats.Health < 8000:
 		knockback_multiplier = 3.0
 
-	if Player_Stats.Health < 70:
+	if Player_Stats.Health < 7000:
 		knockback_multiplier = 4.0
 
-	if Player_Stats.Health < 60:
+	if Player_Stats.Health < 6000:
 		knockback_multiplier = 5.0
 
-	if Player_Stats.Health < 50:
+	if Player_Stats.Health < 5000:
 		knockback_multiplier = 6.0
 
-	if Player_Stats.Health < 40:
+	if Player_Stats.Health < 4000:
 		knockback_multiplier = 7.0
 
-	if Player_Stats.Health < 30:
+	if Player_Stats.Health < 3000:
 		knockback_multiplier = 8.0
 
-	if Player_Stats.Health < 20:
+	if Player_Stats.Health < 2000:
 		knockback_multiplier = 9.0
 
-	if Player_Stats.Health < 10:
+	if Player_Stats.Health < 1000:
 		knockback_multiplier = 10.0
 
 	if Player_Stats.Health < 0:

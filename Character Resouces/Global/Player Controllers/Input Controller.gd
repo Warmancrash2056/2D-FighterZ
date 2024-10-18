@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 150)
 		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 150)
 	_get_movement()
-	move_(delta)
+	move_and_slide()
 func _process(delta: float) -> void:
 	_process_input()
 	_process_attack_input()
@@ -86,14 +86,6 @@ func _process(delta: float) -> void:
 	_input_debugger()
 	_process_dual_combinations()
 
-func move_(delta): # Activate bounce if hurt
-	if Animator.state == Hurt:
-		var collision_info = move_and_collide(velocity * delta)
-		if collision_info:
-			velocity = velocity.bounce(collision_info.get_normal())
-
-	else:
-		move_and_slide()
 
 # Disable movement at crtain frame of attack and enable at the end of attack.
 #Player can only move in the direction they are facing.
@@ -116,7 +108,7 @@ func _get_movement():
 			decelleration =  Player_Stats.Decelleration
 	else:
 		new_speed = Player_Stats.Max_Speed * air_rating
-		decelleration =  1
+		decelleration =  5
 
 
 	if can_move == true:
@@ -182,6 +174,11 @@ func _process_attack_input():
 
 		if Input.is_action_just_pressed(Player_Identifier.Controls.heavy):
 			add_to_buffer({"type": "attack", "value": "heavy", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+
+
+
+
+
 
 
 
@@ -377,7 +374,8 @@ func _on_animator_enable_move_ment() -> void:
 
 
 func _on_stun_time_timeout() -> void:
-	pass
+	velocity.x = move_toward(velocity.x, 0, 100)
+	velocity.y = move_toward(velocity.y, 0, 100)
 
 
 func _on_hurtbox_is_hurt(Damage: int) -> void:

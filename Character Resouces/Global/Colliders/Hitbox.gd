@@ -6,7 +6,7 @@ var transition_attack: bool = false
 
 @export var Animator: AnimationPlayer
 @export var Sprite: Sprite2D
-@onready var Player_Stats = $'../../Player Stats'
+@export var Player_Stats: Node
 
 ## Send the amount of time player is stunned to hitbox.
 ## ight Attack by default are 15 - 30 frames and Heavy are 30 - 60 frames
@@ -15,7 +15,7 @@ var transition_attack: bool = false
 @export var Variable_Force: Vector2 ## Force added onto current player velocity
 @export var Constant_Force: Vector2 ## Constant Force applied to player velocity
 # Get the attacker direction in interger to change the direction of x-axis knockback force
-@export var direction: int
+var direction: int
 
 func _process(delta: float) -> void:
 	direction = Sprite.flip_h

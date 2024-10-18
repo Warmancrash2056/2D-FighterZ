@@ -8,12 +8,6 @@ func _process(delta: float) -> void:
 	if Character.is_on_wall() and is_colliding():
 		Player_Stats.Jump_Count = 3
 
-		if target_position.x == 9:
-			Character.velocity.x += 100
-
-		else:
-			Character.velocity.x -= 100
-
 
 func _on_movement_controller_facing_left() -> void:
 	target_position.x = -9

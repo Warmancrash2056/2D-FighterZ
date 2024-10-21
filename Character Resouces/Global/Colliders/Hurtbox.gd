@@ -58,10 +58,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
 		apply_force()
-
-	if has_overlapping_areas():
-		monitoring = false
-		monitoring = true
 func _on_area_entered(area: Area2D) -> void:
 
 	# Variable force that is affected by the player defense.
@@ -103,34 +99,34 @@ func _on_is_hurt(Damage: int) -> void:
 	Animator.state = Hurt
 
 	Player_Stats.Health -= Damage
-	if Player_Stats.Health < 10000:
+	if Player_Stats.Health < 1000:
 		knockback_multiplier = 1.0
 
-	if Player_Stats.Health < 9000:
+	if Player_Stats.Health < 900:
 		knockback_multiplier = 2.0
 
-	if Player_Stats.Health < 8000:
+	if Player_Stats.Health < 800:
 		knockback_multiplier = 3.0
 
-	if Player_Stats.Health < 7000:
+	if Player_Stats.Health < 700:
 		knockback_multiplier = 4.0
 
-	if Player_Stats.Health < 6000:
+	if Player_Stats.Health < 600:
 		knockback_multiplier = 5.0
 
 	if Player_Stats.Health < 5000:
 		knockback_multiplier = 6.0
 
-	if Player_Stats.Health < 4000:
+	if Player_Stats.Health < 400:
 		knockback_multiplier = 7.0
 
-	if Player_Stats.Health < 3000:
+	if Player_Stats.Health < 300:
 		knockback_multiplier = 8.0
 
-	if Player_Stats.Health < 2000:
+	if Player_Stats.Health < 200:
 		knockback_multiplier = 9.0
 
-	if Player_Stats.Health < 1000:
+	if Player_Stats.Health < 100:
 		knockback_multiplier = 10.0
 
 	if Player_Stats.Health < 0:

@@ -10,12 +10,16 @@ signal CalculateStunFrames(Recovery: int)
 @export var Colider: CollisionShape2D
 
 var knockback_multiplier: float
-var knockback_vector: Vector2
+var knockback_vector = Vector2.ZERO
+var x_Knockback_result = 0
+var y_knockback_result = 0
 signal IsHurt(Damage: int)
 var stun_time: float
 var damage_taken: int
-var constant_force: Vector2
-var variable_force: Vector2
+var constant_force = Vector2.ZERO
+var variable_force = Vector2.ZERO
+var is_hurt = false
+
 var direction: bool
 
 var goku_neautral_havy
@@ -53,50 +57,68 @@ enum {
 	Respawn
 }
 
-func _ready() -> void:
-	pass
 func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
-		apply_force()
-func _on_area_entered(area: Area2D) -> void:
+		is_hurt = true
+		print(Character.velocity)
+		if knockback_vector == Vector2.ZERO:
+			print("Knockback Not Applicable")
+			Character.velocity.x = move_toward(Character.velocity.x, x_Knockback_result, 500)
+			Character.velocity.y = move_toward(Character.velocity.y, y_knockback_result, 500)
 
+		else:
+			print("Knockback Applicable")
+			Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 500)
+			Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 500)
+	else:
+		is_hurt = false
+
+func _on_area_entered(area: Area2D) -> void:
+	constant_force = area.Constant_Force
+	variable_force = area.Variable_Force
+	Animator.state = Hurt
+	if area.is_in_group("Air To Ground"):
+		if Character.is_on_floor():
+			constant_force.y *= -1
+			variable_force.y *= -1
 	# Variable force that is affected by the player defense.
 	if area.is_in_group("Variable Force"):
 		direction = area.direction
-		CalculateVariableForce.emit(area.Variable_Force)
+		CalculateVariableForce.emit(variable_force)
+		x_Knockback_result = variable_force.x
+		y_knockback_result = variable_force.y
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
 		goku_neautral_havy = false
 
 	# Constant force that is fixed velocity not affected by player defense
-	if area.is_in_group("Constant Force"):
+	elif area.is_in_group("Constant Force"):
 		direction = area.direction
-		CalculateConstantForce.emit(area.Constant_Force)
+		CalculateConstantForce.emit(constant_force)
+		x_Knockback_result = constant_force.x
+		y_knockback_result = constant_force.y
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
 		goku_neautral_havy = false
 
 	# Transition checks and relays to animator that attack connected.
-	if area.is_in_group("Transition"):
+	elif area.is_in_group("Transition"):
 		IsHurt.emit(area.Damage)
 
 	# Only applies damage and stun to player.
-	if area.is_in_group("Damager"):
+	elif area.is_in_group("Damager"):
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
 
 	# Grabs the player and follow the hitbox it is connected to
-	if area.is_in_group("Goku Positioner"):
+	elif area.is_in_group("Goku Positioner"):
 		IsHurt.emit(area.Damage)
 		CalculateStunFrames.emit(area.Recovery_Frames)
 		goku_neautral_havy = true
 
-func apply_force():
-	Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 500)
-	Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 500)
 
 func _on_is_hurt(Damage: int) -> void:
-	Animator.state = Hurt
+
 
 	Player_Stats.Health -= Damage
 	if Player_Stats.Health < 1000:
@@ -136,6 +158,8 @@ func _on_is_hurt(Damage: int) -> void:
 
 func _on_stun_time_timeout() -> void:
 	knockback_vector = Vector2.ZERO
+	x_Knockback_result = 0
+	y_knockback_result = 0
 
 
 
@@ -153,6 +177,10 @@ func _on_body_entered(body: Node2D) -> void:
 		Animator.state = Respawn
 		Player_Stats.Health = 1000
 
+	if body.is_in_group("Bouncable Floor"):
+		Character.velocity.y *= -1
+		print("bounced on floor")
+
 
 func _on_calculate_constant_force(Constant: Vector2) -> void:
 	if direction == true:
@@ -162,6 +190,8 @@ func _on_calculate_constant_force(Constant: Vector2) -> void:
 		Constant.x *= 1
 
 	knockback_vector = Constant
+	x_Knockback_result = knockback_vector.x
+	y_knockback_result = knockback_vector.y
 
 
 func _on_calculate_variable_force(Variable: Vector2) -> void:
@@ -174,6 +204,8 @@ func _on_calculate_variable_force(Variable: Vector2) -> void:
 	var knockback_x: float = Variable.x / defense_rating
 	var knockback_y: float = Variable.y / defense_rating
 	knockback_vector = Vector2(knockback_x * knockback_multiplier,knockback_y * knockback_multiplier)
+	x_Knockback_result = knockback_vector.x
+	y_knockback_result = knockback_vector.y
 
 
 

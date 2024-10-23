@@ -22458,7 +22458,7 @@ shape = SubResource("CircleShape2D_8n1ld")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Down Air - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
+[node name="Down Air - 1" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Air To Ground", "Variable Force"]]
 unique_name_in_owner = true
 z_index = 7
 collision_layer = 0
@@ -22466,9 +22466,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 199
+Recovery_Frames = 220
 Damage = 20.0
-Variable_Force = Vector2(60, 600)
+Variable_Force = Vector2(0, 600)
 
 [node name="Down Air - 1" type="CollisionShape2D" parent="Controller/Scale Player/Down Air - 1"]
 visible = false
@@ -22914,7 +22914,7 @@ one_shot = true
 
 [node name="Timer" type="Timer" parent="Controller"]
 
-[node name="Hurtbox" type="Area2D" parent="Controller" node_paths=PackedStringArray("Character", "Player_Stats", "Sprite", "Animator", "Floor_Detector")]
+[node name="Hurtbox" type="Area2D" parent="Controller" node_paths=PackedStringArray("Character", "Player_Stats", "Sprite", "Animator")]
 unique_name_in_owner = true
 z_index = 2
 collision_layer = 0
@@ -22924,7 +22924,6 @@ Character = NodePath("..")
 Player_Stats = NodePath("../Player Stats")
 Sprite = NodePath("../Sprite")
 Animator = NodePath("../Animator")
-Floor_Detector = NodePath("../Floor Detector")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Controller/Hurtbox"]
 position = Vector2(0, 1)
@@ -23119,6 +23118,7 @@ Motion_Body = NodePath("../Controller")
 [connection signal="IsHurt" from="Controller/Hurtbox" to="Controller/Hurtbox" method="_on_is_hurt"]
 [connection signal="area_entered" from="Controller/Hurtbox" to="Controller/Hurtbox" method="_on_area_entered"]
 [connection signal="area_exited" from="Controller/Hurtbox" to="Controller/Hurtbox" method="_on_area_exited"]
+[connection signal="body_entered" from="Controller/Hurtbox" to="Controller/Hurtbox" method="_on_body_entered"]
 [connection signal="timeout" from="Controller/Hurtbox/Stun Time" to="Controller" method="_on_stun_time_timeout"]
 [connection signal="timeout" from="Controller/Hurtbox/Stun Time" to="Controller/Animator" method="_on_stun_time_timeout"]
 [connection signal="timeout" from="Controller/Hurtbox/Stun Time" to="Controller/Hurtbox" method="_on_stun_time_timeout"]

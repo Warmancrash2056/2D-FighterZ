@@ -37,7 +37,7 @@ extends Node2D
 @onready var sheavy_2 = %'Side Heavy - 2'
 @onready var sheavy_3 = %'Side Heavy - 3'
 @onready var Hurtbox = %Hurtbox
-func _ready() -> void:
+func _process(delta: float) -> void:
 	# Layer : 11 Mask : 12 Plauer
 	# Colliders section for Neautral Attacks #
 	attack_positioner.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
@@ -126,4 +126,5 @@ func _ready() -> void:
 	Motion_Body.set_collision_layer_value(Player_Identifier.Motion_Layer, true)
 
 	Hurtbox.set_collision_layer_value(Player_Identifier.Body_Layer, true)
+	Hurtbox.set_collision_mask_value(1, true)
 	Hurtbox.set_collision_mask_value(Player_Identifier.Body_Mask, true)

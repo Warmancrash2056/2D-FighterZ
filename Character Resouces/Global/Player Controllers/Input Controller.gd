@@ -73,6 +73,7 @@ func _physics_process(delta: float) -> void:
 		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 150)
 		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 150)
 	_get_movement()
+
 func _process(delta: float) -> void:
 	_process_input()
 	_process_attack_input()

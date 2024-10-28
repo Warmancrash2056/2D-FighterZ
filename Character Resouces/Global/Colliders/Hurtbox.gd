@@ -59,21 +59,13 @@ enum {
 
 func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
-		is_hurt = true
 		print(Character.velocity)
+		Character.set_velocity(knockback_vector)
+		is_hurt = true
 		var bounce = Character.move_and_collide(Character.velocity * delta)
 		if bounce:
 			Character.velocity = Character.velocity.bounce(bounce.get_normal())
-			print("bounce")
-		if knockback_vector == Vector2.ZERO:
-			print("Knockback Not Applicable")
-			Character.velocity.x = move_toward(Character.velocity.x, x_Knockback_result, 100)
-			Character.velocity.y = move_toward(Character.velocity.y, y_knockback_result, 100)
 
-		else:
-			print("Knockback Applicable")
-			Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 100)
-			Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 100)
 	else:
 		is_hurt = false
 		Character.move_and_slide()
@@ -141,7 +133,7 @@ func _on_is_hurt(Damage: int) -> void:
 	if Player_Stats.Health < 600:
 		knockback_multiplier = 5.0
 
-	if Player_Stats.Health < 5000:
+	if Player_Stats.Health < 500:
 		knockback_multiplier = 6.0
 
 	if Player_Stats.Health < 400:

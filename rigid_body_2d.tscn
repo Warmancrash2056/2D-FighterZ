@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxxl50xvjrhjp"]
+
+[ext_resource type="PackedScene" uid="uid://drnfhu7ud4v3j" path="res://animator.tscn" id="1_kgpub"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vqqp"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+position = Vector2(199, 74)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-21, -8)
+shape = SubResource("CapsuleShape2D_4vqqp")
+
+[node name="Animator" parent="." instance=ExtResource("1_kgpub")]

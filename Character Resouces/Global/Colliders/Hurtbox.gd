@@ -61,17 +61,22 @@ func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
 		is_hurt = true
 		print(Character.velocity)
+		var bounce = Character.move_and_collide(Character.velocity * delta)
+		if bounce:
+			Character.velocity = Character.velocity.bounce(bounce.get_normal())
+			print("bounce")
 		if knockback_vector == Vector2.ZERO:
 			print("Knockback Not Applicable")
-			Character.velocity.x = move_toward(Character.velocity.x, x_Knockback_result, 500)
-			Character.velocity.y = move_toward(Character.velocity.y, y_knockback_result, 500)
+			Character.velocity.x = move_toward(Character.velocity.x, x_Knockback_result, 100)
+			Character.velocity.y = move_toward(Character.velocity.y, y_knockback_result, 100)
 
 		else:
 			print("Knockback Applicable")
-			Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 500)
-			Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 500)
+			Character.velocity.x = move_toward(Character.velocity.x, knockback_vector.x, 100)
+			Character.velocity.y = move_toward(Character.velocity.y, knockback_vector.y, 100)
 	else:
 		is_hurt = false
+		Character.move_and_slide()
 
 func _on_area_entered(area: Area2D) -> void:
 	constant_force = area.Constant_Force
@@ -178,8 +183,8 @@ func _on_body_entered(body: Node2D) -> void:
 		Player_Stats.Health = 1000
 
 	if body.is_in_group("Bouncable Floor"):
-		Character.velocity.y *= -1
-		print("bounced on floor")
+		pass
+
 
 
 func _on_calculate_constant_force(Constant: Vector2) -> void:

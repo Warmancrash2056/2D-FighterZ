@@ -364,6 +364,11 @@ Player2_Block={
 
 project/assembly_name="2D FighterZ"
 
+[physics]
+
+2d/default_gravity=450.0
+2d/default_linear_damp=0.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

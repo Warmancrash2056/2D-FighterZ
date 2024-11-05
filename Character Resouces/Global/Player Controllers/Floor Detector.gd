@@ -5,5 +5,4 @@ extends RayCast2D
 
 
 func _on_animator_on_ground() -> void:
-	if Character.is_on_floor() and Character.is_on_floor():
-		Player_Stats.Jump_Count = 3
+	Player_Stats.Jump_Count = 3

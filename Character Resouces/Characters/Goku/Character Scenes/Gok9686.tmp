@@ -2386,7 +2386,7 @@ tracks/87/keys = {
 tracks/88/type = "value"
 tracks/88/imported = false
 tracks/88/enabled = true
-tracks/88/path = NodePath("../Wall Detector:enabled")
+tracks/88/path = NodePath("../../Raycast Controller/Wall Detector:enabled")
 tracks/88/interp = 1
 tracks/88/loop_wrap = true
 tracks/88/keys = {
@@ -2410,7 +2410,7 @@ tracks/89/keys = {
 tracks/90/type = "value"
 tracks/90/imported = false
 tracks/90/enabled = true
-tracks/90/path = NodePath("../Floor Detector:enabled")
+tracks/90/path = NodePath("../../Raycast Controller/Floor Detector:enabled")
 tracks/90/interp = 1
 tracks/90/loop_wrap = true
 tracks/90/keys = {
@@ -12253,7 +12253,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../Floor Detector:enabled")
+tracks/26/path = NodePath("../../Raycast Controller/Floor Detector:enabled")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -12265,7 +12265,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../Wall Detector:enabled")
+tracks/27/path = NodePath("../../Raycast Controller/Wall Detector:enabled")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -13735,7 +13735,7 @@ tracks/91/keys = {
 tracks/92/type = "value"
 tracks/92/imported = false
 tracks/92/enabled = true
-tracks/92/path = NodePath("../Wall Detector:enabled")
+tracks/92/path = NodePath("../../Raycast Controller/Wall Detector:enabled")
 tracks/92/interp = 1
 tracks/92/loop_wrap = true
 tracks/92/keys = {
@@ -13747,7 +13747,7 @@ tracks/92/keys = {
 tracks/93/type = "value"
 tracks/93/imported = false
 tracks/93/enabled = true
-tracks/93/path = NodePath("../Floor Detector:enabled")
+tracks/93/path = NodePath("../../Raycast Controller/Floor Detector:enabled")
 tracks/93/interp = 1
 tracks/93/loop_wrap = true
 tracks/93/keys = {
@@ -19366,7 +19366,7 @@ tracks/236/keys = {
 tracks/237/type = "value"
 tracks/237/imported = false
 tracks/237/enabled = true
-tracks/237/path = NodePath("../Wall Detector:enabled")
+tracks/237/path = NodePath("../../Raycast Controller/Wall Detector:enabled")
 tracks/237/interp = 1
 tracks/237/loop_wrap = true
 tracks/237/keys = {
@@ -19390,7 +19390,7 @@ tracks/238/keys = {
 tracks/239/type = "value"
 tracks/239/imported = false
 tracks/239/enabled = true
-tracks/239/path = NodePath("../Floor Detector:enabled")
+tracks/239/path = NodePath("../../Raycast Controller/Floor Detector:enabled")
 tracks/239/interp = 1
 tracks/239/loop_wrap = true
 tracks/239/keys = {
@@ -22161,6 +22161,7 @@ script = ExtResource("1_4dnul")
 [node name="Controller" type="RigidBody2D" parent="."]
 collision_layer = 256
 collision_mask = 15
+mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_rf1xj")
 can_sleep = false
 lock_rotation = true
@@ -22825,8 +22826,8 @@ Refresh_Block = NodePath("../Recovery Timer/Refresh Block")
 Character = NodePath("..")
 Scaler = NodePath("../Scale Player")
 Sprite = NodePath("../Sprite")
-Wall_Detector = NodePath("../Wall Detector")
-Floor_Detector = NodePath("../Floor Detector")
+Wall_Detector = NodePath("../../Raycast Controller/Wall Detector")
+Floor_Detector = NodePath("../../Raycast Controller/Floor Detector")
 NRecovery = Vector2(0, -200)
 Slight = Vector2(1, 0)
 SAir = Vector2(20, 0)
@@ -22864,31 +22865,15 @@ bus = &"SFX"
 stream = ExtResource("25_clf1u")
 bus = &"SFX"
 
-[node name="Wall Detector" type="RayCast2D" parent="Controller" node_paths=PackedStringArray("Player_Stats", "Sprite")]
-z_index = 10
-exclude_parent = false
-target_position = Vector2(9, 0)
-collision_mask = 8
-hit_from_inside = true
-script = ExtResource("26_k5gbg")
-Player_Stats = NodePath("../Player Stats")
-Sprite = NodePath("../Sprite")
-
-[node name="Floor Detector" type="RayCast2D" parent="Controller" node_paths=PackedStringArray("Player_Stats")]
-position = Vector2(0, 16)
-target_position = Vector2(0, 3)
-script = ExtResource("27_1k2ni")
-Player_Stats = NodePath("../Player Stats")
-
 [node name="Player Stats" type="Node" parent="Controller"]
 script = ExtResource("30_h56yx")
 Speed_Rating = 6
 Weight_Scale = 3
-Max_Speed = 10
+Max_Speed = 20
 Fast_Fall = 50
 Acceleration = 30
 Decelleration = 15
-Jump_Height = 200
+Jump_Height = 300
 Gravity = 8
 Defense_Rating = 3
 Health = 1000.0
@@ -22946,13 +22931,6 @@ shape = SubResource("CapsuleShape2D_qtdme")
 disabled = true
 debug_color = Color(0, 0.643513, 0.298632, 0.42)
 
-[node name="Raycast Controller" type="Node" parent="Controller"]
-
-[node name="Player Icon" type="Node2D" parent="."]
-scale = Vector2(2, 2)
-script = ExtResource("28_ivokx")
-Icon = ExtResource("29_quw3q")
-
 [node name="Floor Effect Hitbox" type="Area2D" parent="."]
 script = ExtResource("43_tj1e8")
 
@@ -22964,6 +22942,30 @@ shape = SubResource("CapsuleShape2D_6vkij")
 disabled = true
 debug_color = Color(0.66071, 0.514299, 0, 0.42)
 
+[node name="Raycast Controller" type="Node" parent="."]
+
+[node name="Wall Detector" type="RayCast2D" parent="Raycast Controller" node_paths=PackedStringArray("Player_Stats", "Sprite")]
+z_index = 10
+position = Vector2(0, 1)
+exclude_parent = false
+target_position = Vector2(9, 0)
+collision_mask = 8
+hit_from_inside = true
+script = ExtResource("26_k5gbg")
+Player_Stats = NodePath("../../Controller/Player Stats")
+Sprite = NodePath("../../Controller/Sprite")
+
+[node name="Floor Detector" type="RayCast2D" parent="Raycast Controller" node_paths=PackedStringArray("Player_Stats")]
+position = Vector2(0, 17)
+target_position = Vector2(0, 3)
+script = ExtResource("27_1k2ni")
+Player_Stats = NodePath("../../Controller/Player Stats")
+
+[node name="Player Icon" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+script = ExtResource("28_ivokx")
+Icon = ExtResource("29_quw3q")
+
 [node name="Collision Configurator" type="Node2D" parent="." node_paths=PackedStringArray("Player_Identifier", "Motion_Body")]
 script = ExtResource("44_7uh1h")
 Player_Identifier = NodePath("..")
@@ -22972,12 +22974,12 @@ Motion_Body = NodePath("../Controller")
 [connection signal="FacingLeft" from="Controller" to="Controller/Scale Player" method="_on_movement_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Sprite" method="_on_movement_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Body" method="_on_movement_controller_facing_left"]
-[connection signal="FacingLeft" from="Controller" to="Controller/Wall Detector" method="_on_movement_controller_facing_left"]
+[connection signal="FacingLeft" from="Controller" to="Raycast Controller/Wall Detector" method="_on_movement_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Hurtbox" method="_on_controller_facing_left"]
 [connection signal="FacingRight" from="Controller" to="Controller/Scale Player" method="_on_movement_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Sprite" method="_on_movement_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Body" method="_on_movement_controller_facing_right"]
-[connection signal="FacingRight" from="Controller" to="Controller/Wall Detector" method="_on_movement_controller_facing_right"]
+[connection signal="FacingRight" from="Controller" to="Raycast Controller/Wall Detector" method="_on_movement_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Hurtbox" method="_on_controller_facing_right"]
 [connection signal="IsAttacking" from="Controller" to="Controller" method="_on_is_attacking"]
 [connection signal="IsBlocking" from="Controller" to="Controller" method="_on_is_blocking"]
@@ -23093,8 +23095,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="GroundKnockbackCloud" from="Controller/Animator" to="Controller/Scale Player/KnockBack Ground Slide" method="_on_animator_ground_knockback_cloud"]
 [connection signal="IsAttacking" from="Controller/Animator" to="Controller" method="_on_animator_is_attacking"]
 [connection signal="IsResetting" from="Controller/Animator" to="Controller" method="_on_animator_is_resetting"]
-[connection signal="OnGround" from="Controller/Animator" to="Controller/Wall Detector" method="_on_animator_on_ground"]
-[connection signal="OnGround" from="Controller/Animator" to="Controller/Floor Detector" method="_on_animator_on_ground"]
+[connection signal="OnGround" from="Controller/Animator" to="Raycast Controller/Wall Detector" method="_on_animator_on_ground"]
+[connection signal="OnGround" from="Controller/Animator" to="Raycast Controller/Floor Detector" method="_on_animator_on_ground"]
 [connection signal="OnGround" from="Controller/Animator" to="Controller/Player Stats" method="_on_animator_on_ground"]
 [connection signal="animation_finished" from="Controller/Animator" to="Controller/Animator" method="_on_animation_finished"]
 [connection signal="timeout" from="Controller/Recovery Timer" to="Controller/Animator" method="_on_recovery_timer_timeout"]

@@ -5,7 +5,7 @@ signal WallCloud
 @export var Player_Stats: Node
 @export var Sprite: Sprite2D
 func _process(delta: float) -> void:
-	if Character.is_on_wall() and is_colliding():
+	if is_colliding():
 		Player_Stats.Jump_Count = 3
 
 

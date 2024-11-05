@@ -20,7 +20,7 @@ const MAX_OFFSET_X = 1200.0
 const MIN_OFFSET_X = -1200.0
 
 const MAX_ZOOM_DISTANCE = 1.0
-var camera_zoom_level: float = 1.0
+@export var camera_zoom_level: float = 2.5
 const CAMERA_MOVE_THRESHOLD = 100
 
 enum {
@@ -122,7 +122,7 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 		min(camera_zoom_level, viewport_size.x / rect.size.x - zoom_offset),
 		min(camera_zoom_level, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 0.9), max(min_zoom, 0.9))
+	return Vector2(max(min_zoom, 1.7), max(min_zoom, 1.7))
 
 
 func _draw() -> void:

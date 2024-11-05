@@ -61,14 +61,7 @@ func _physics_process(delta: float) -> void:
 	if Animator.state == Hurt:
 		print(Character.velocity)
 		Character.set_velocity(knockback_vector)
-		is_hurt = true
-		var bounce = Character.move_and_collide(Character.velocity * delta)
-		if bounce:
-			Character.velocity = Character.velocity.bounce(bounce.get_normal())
 
-	else:
-		is_hurt = false
-		Character.move_and_slide()
 
 func _on_area_entered(area: Area2D) -> void:
 	constant_force = area.Constant_Force

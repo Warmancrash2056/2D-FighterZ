@@ -54,7 +54,7 @@ func player_1_package() -> void:
 	call_deferred("add_child", player_1_spawn)
 
 	# Now access the player's nodes and set properties
-	var player_1_position:CharacterBody2D = player_1_spawn.get_node("Controller")
+	var player_1_position:RigidBody2D = player_1_spawn.get_node("Controller")
 	var player_1_animator:AnimationPlayer = player_1_spawn.get_node("Controller/Animator")
 
 

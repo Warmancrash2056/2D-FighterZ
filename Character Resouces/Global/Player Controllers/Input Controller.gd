@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 signal Player1Box
 signal FacingLeft
@@ -14,6 +14,8 @@ var Controls: Resource
 @onready var Animator: AnimationPlayer = $Animator
 @onready var Sprite: Sprite2D = $Sprite
 @onready var Wall_Detector: RayCast2D = $'Wall Detector'
+@onready var Floor_Detector: RayCast2D = $'Floor Detector'
+
 @onready var Hurtbox:Area2D = $Hurtbox
 @onready var Player_Identifier: Node2D = $'..'
 var direction = 1
@@ -68,12 +70,12 @@ func _ready():
 	pass
 
 func _physics_process(delta: float) -> void:
+	print(linear_velocity)
 	if Hurtbox.goku_neautral_havy == true:
 		var Goku_Positioner: Vector2 = CharacterList.goku_neutral_heavy_grab_position
 		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 150)
 		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 150)
 	_get_movement()
-
 func _process(delta: float) -> void:
 	_process_input()
 	_process_attack_input()
@@ -90,17 +92,12 @@ func _process(delta: float) -> void:
 # Disable movement at crtain frame of attack and enable at the end of attack.
 #Player can only move in the direction they are facing.
 func _get_movement():
-	if Wall_Detector.is_colliding() and Animator.state == Wall:
-		velocity.y = 10
-
-	else:
-		velocity.y += Player_Stats.Gravity
 
 	var new_speed
 	var air_rating: float = Player_Stats.Speed_Rating + 1.2
 	var decelleration =  Player_Stats.Decelleration
 	var dash_rating: float = Player_Stats.Speed_Rating + 5.5
-	if is_on_floor():
+	if Floor_Detector.is_colliding():
 		if Animator.state == Dash:
 			new_speed = dash_rating * Player_Stats.Max_Speed
 		else:
@@ -116,64 +113,59 @@ func _get_movement():
 		Input.get_action_strength(Player_Identifier.Controls.left)),
 		int(0)).normalized()
 
-		if movement_dir.x == 1:
-				velocity.x = move_toward(velocity.x, new_speed, Player_Stats.Acceleration)
-
-		elif  movement_dir.x == -1:
-				velocity.x = move_toward(velocity.x, -new_speed, Player_Stats.Acceleration)
+		if movement_dir.x != 0:
+				linear_velocity.x = new_speed * movement_dir.x
 
 		else:
-			velocity.x = move_toward(velocity.x, 0, decelleration)
-		velocity.x = clamp(velocity.x, -new_speed, new_speed)
-		velocity.y = clamp(velocity.y, -Player_Stats.Jump_Height, Player_Stats.Jump_Height)
+			constant_force.x = 0
 func _process_input():
 	if can_direct == true:
 		if Input.is_action_pressed(Player_Identifier.Controls.left):
-			add_to_buffer({"type": "direction", "value": "left", "onground": is_on_floor(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "direction", "value": "left", "onground": Floor_Detector.is_colliding(), "facing": -1 ,"timestamp": Time.get_ticks_msec()})
 
 		if Input.is_action_pressed(Player_Identifier.Controls.right):
-			add_to_buffer({"type": "direction", "value": "right", "onground": is_on_floor(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "direction", "value": "right", "onground": Floor_Detector.is_colliding(), "facing": 1 ,"timestamp": Time.get_ticks_msec()})
 
 		if Input.is_action_pressed(Player_Identifier.Controls.down):
-			add_to_buffer({"type": "direction", "value": "down", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			if Animator.state == Air and !is_on_floor() and can_attack == true:
+			add_to_buffer({"type": "direction", "value": "down", "onground": Floor_Detector.is_colliding(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			if Animator.state == Air and !Floor_Detector.is_colliding() and can_attack == true:
 				if Input.is_action_just_pressed(Player_Identifier.Controls.down):
 					await get_tree().create_timer(0.2).timeout
 					if can_attack == true:
-						velocity.y += 100
+						add_constant_central_force(Vector2(0, 150))
 
 		if Input.is_action_pressed(Player_Identifier.Controls.up):
-			add_to_buffer({"type": "direction", "value": "up", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "direction", "value": "up", "onground": Floor_Detector.is_colliding(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 func _process_jump_input():
 		if can_jump == true and Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
-			add_to_buffer({"type": "move", "value": "jump", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "move", "value": "jump", "onground": Floor_Detector.is_colliding(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			Animator.state = Air
 			input_buffer.clear()
-			velocity.y = -Player_Stats.Jump_Height
+			linear_velocity.y =  -Player_Stats.Jump_Height
 			JumpCloud.emit()
 			Player_Stats.Jump_Count -= 1
 
 func _process_dash_input():
 	if can_dash == true and can_attack == true:
 		if Input.is_action_just_pressed(Player_Identifier.Controls.dash):
-			add_to_buffer({"type": "move", "value": "dash", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "move", "value": "dash", "onground": Floor_Detector.is_colliding(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 func _process_block_input():
 	if can_block == true and can_attack == true:
 		if Input.is_action_just_pressed(Player_Identifier.Controls.block):
-			add_to_buffer({"type": "move", "value": "block", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "move", "value": "block", "onground": Floor_Detector.is_colliding(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			IsBlocking.emit()
 
 func _process_attack_input():
 	if can_attack == true:
 		if Input.is_action_just_pressed(Player_Identifier.Controls.throw):
-			add_to_buffer({"type": "attack", "value": "throw", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "attack", "value": "throw", "onground": Floor_Detector.is_colliding(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 		if Input.is_action_just_pressed(Player_Identifier.Controls.light):
-			add_to_buffer({"type": "attack", "value": "light", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "attack", "value": "light","onground": Floor_Detector.is_colliding(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 		if Input.is_action_just_pressed(Player_Identifier.Controls.heavy):
-			add_to_buffer({"type": "attack", "value": "heavy", "onground": is_on_floor(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			add_to_buffer({"type": "attack", "value": "heavy", "onground": Floor_Detector.is_colliding(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
 
 
@@ -374,8 +366,7 @@ func _on_animator_enable_move_ment() -> void:
 
 
 func _on_stun_time_timeout() -> void:
-	velocity.x = move_toward(velocity.x, 0, 100)
-	velocity.y = move_toward(velocity.y, 0, 100)
+	add_constant_central_force(Vector2(0,0))
 
 
 func _on_hurtbox_is_hurt(Damage: int) -> void:

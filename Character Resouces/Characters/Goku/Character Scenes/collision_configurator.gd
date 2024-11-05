@@ -1,6 +1,6 @@
 extends Node2D
 @export var Player_Identifier: Node
-@export var Motion_Body: CharacterBody2D
+@export var Motion_Body: RigidBody2D
 @onready var attack_positioner = %'Attack Positioner'
 @onready var transition_attack = %'Transitional Check'
 @onready var nlight_1 = %'Neutral Light - 1'

@@ -1,4 +1,4 @@
-extends AnimationPlayer
+class_name Animator extends AnimationPlayer
 
 signal GroundKnockbackCloud
 signal AirKnockbackCloud
@@ -7,11 +7,11 @@ signal AirKnockbackCloud
 @export var Recovery_Timer: Timer
 @export var Movement_Timer: Timer
 @export var Refresh_Block: Timer
-@export var Character: CharacterBody2D
+@export var Character: RigidBody2D
 @export var Scaler: Node
 @export var Sprite: Sprite2D
 @export var Wall_Detector: RayCast2D
-
+@export var Floor_Detector: RayCast2D
 # Get directions of player
 var movement_dir: Vector2
 var direction: int
@@ -98,16 +98,17 @@ func _physics_process(delta):
 	_attack_movment_controller()
 	match state:
 		Idle:
-			if !Character.is_on_floor():
+			if !Floor_Detector.is_colliding():
 				state = Air
 			play("Idle")
 
-			if Character.movement_dir.x != 0 and Character.is_on_floor():
+			if Character.movement_dir.x != 0 and Floor_Detector.is_colliding():
 				state = Running
 
 
+
 		Running:
-			if !Character.is_on_floor():
+			if !Floor_Detector.is_colliding():
 				state = Air
 			play("Run")
 
@@ -118,7 +119,7 @@ func _physics_process(delta):
 
 		Dash:
 			play("Dash")
-			if !Character.is_on_floor():
+			if !Floor_Detector.is_colliding():
 				state = Air
 			if Character.movement_dir.x == 0:
 				state = Idle
@@ -139,21 +140,21 @@ func _physics_process(delta):
 				Character.can_direct = true
 
 		Air:
-			if Character.velocity.y > 0:
+			if Character.linear_velocity.y > 0:
 				play("Fall")
 
 			else:
 				play("Jump")
 
-			if Character.is_on_floor():
+			if Floor_Detector.is_colliding():
 				state = Idle
 				OnGround.emit()
 
-			if Character.is_on_wall() and Wall_Detector.is_colliding():
+			if Floor_Detector.is_colliding() and Wall_Detector.is_colliding():
 				Character.can_attack = false
 				Character.can_jump = false
 				await get_tree().create_timer(0.01).timeout
-				if Character.is_on_wall() and Wall_Detector.is_colliding():
+				if Wall_Detector.is_colliding():
 					state = Wall
 					play("Wall")
 
@@ -183,7 +184,7 @@ func _physics_process(delta):
 				Character.velocity.x = 5000
 				Character.velocity.y  = -10000
 
-			if !Character.is_on_wall() and !Wall_Detector.is_colliding():
+			if!Wall_Detector.is_colliding():
 				Character.can_attack = true
 				Character.can_jump = true
 				state = Air
@@ -192,14 +193,13 @@ func _physics_process(delta):
 
 
 		Hurt:
-			if Character.is_on_floor():
+			if Floor_Detector.is_colliding():
 				play("Ground Hurt")
 
 
 			else:
 				play("Air Hurt")
 		Respawn:
-			Character.velocity = Vector2.ZERO
 			play("Respawn")
 
 		Ground_Throw:
@@ -297,16 +297,16 @@ func idle_reset():
 	Character.movement_dir.x = 0
 	OnGround.emit()
 
-	if Character.is_on_wall() and Wall_Detector.is_colliding():
+	if Wall_Detector.is_colliding():
 		IsAttacking.emit()
-		Character.velocity.y = 0
+		Character.linear_velocity.y = 0
 		state = Wall
 
 	else:
-		if Character.is_on_floor():
+		if Floor_Detector.is_colliding():
 			state = Idle
 			play("Idle")
-		elif !Character.is_on_floor():
+		elif !Floor_Detector.is_colliding():
 			state = Air
 			play("Fall")
 	return
@@ -350,17 +350,17 @@ func _on_is_resetting(): # Reset the attack trigger to on.
 
 
 func _on_attack_friction(Friction: Variant) -> void:
-	Character.velocity.x = lerp(Character.velocity.x , 0.0, Friction)
+	Character.linear_velocity.x = lerp(Character.linear_velocity.x , 0.0, Friction)
 
 
 func _on_attack_moving_x(Vector: Variant) -> void:
 	if Sprite.flip_h == false:
-		Character.velocity.x = Vector
+		Character.linear_velocity.x = Vector
 	else:
-		Character.velocity.x = -Vector
+		Character.linear_velocity.x = -Vector
 
 func _on_attack_moving_y(Vector: Variant) -> void:
-	Character.velocity.y = Vector
+	Character.linear_velocity.y = Vector
 
 # From timer node reenable attack and dodge
 func _on_recovery_timer_timeout() -> void:

@@ -5750,31 +5750,36 @@ script = ExtResource("1_cxki7")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 36)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(2, 2)
+position = Vector2(0, 36)
 texture = ExtResource("3_qrqqu")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 36)
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-scale = Vector2(2, 2)
+position = Vector2(0, 36)
 texture = ExtResource("4_8pavo")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 36)
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-scale = Vector2(2, 2)
+position = Vector2(0, 36)
 texture = ExtResource("5_37ogg")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 36)
 
 [node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
-scale = Vector2(2, 2)
+position = Vector2(0, 36)
 texture = ExtResource("6_kexdy")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, 40)
+scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_e4l1i")
 format = 2
 layer_0/name = "Floor"
@@ -5809,6 +5814,7 @@ layer_11/tile_data = PackedInt32Array(-196601, 851971, 58, -131065, 851971, 59, 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2(0, 40)
 rotation = -1.5708
+scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_tqbgv")
 format = 2
 layer_0/tile_data = PackedInt32Array(983010, 1835008, 12, 1048546, 1835008, 13, 1114082, 1835008, 14, 1179618, 1835008, 15, 1245154, 1835008, 16, 1310690, 1835008, 17, 1376226, 1835008, 18, 1441762, 1835008, 19, 1507298, 1835008, 20, 983011, 1900544, 12, 1048547, 1900544, 13, 1114083, 1900544, 14, 1179619, 1900544, 15, 1245155, 1900544, 16, 1310691, 1900544, 17, 1376227, 1900544, 18, 1441763, 1900544, 19, 1507299, 1900544, 20, 393186, 1835008, 12, 458722, 1835008, 13, 524258, 1835008, 14, 589794, 1835008, 15, 655330, 1835008, 16, 720866, 1835008, 17, 786402, 1835008, 18, 851938, 1835008, 19, 917474, 1835008, 20, 393187, 1900544, 12, 458723, 1900544, 13, 524259, 1900544, 14, 589795, 1900544, 15, 655331, 1900544, 16, 720867, 1900544, 17, 786403, 1900544, 18, 851939, 1900544, 19, 917475, 1900544, 20, -196638, 1835008, 12, -131102, 1835008, 13, -65566, 1835008, 14, -30, 1835008, 15, 65506, 1835008, 16, 131042, 1835008, 17, 196578, 1835008, 18, 262114, 1835008, 19, 327650, 1835008, 20, -196637, 1900544, 12, -131101, 1900544, 13, -65565, 1900544, 14, -29, 1900544, 15, 65507, 1900544, 16, 131043, 1900544, 17, 196579, 1900544, 18, 262115, 1900544, 19, 327651, 1900544, 20, -1048606, 1835008, 15, -983070, 1835008, 16, -917534, 1835008, 17, -851998, 1835008, 18, -786462, 1835008, 19, -720926, 1835008, 20, -655390, 1835008, 14, -589854, 1835008, 15, -524318, 1835008, 16, -1048605, 1900544, 15, -983069, 1900544, 16, -917533, 1900544, 17, -851997, 1900544, 18, -786461, 1900544, 19, -720925, 1900544, 20, -655389, 1900544, 14, -589853, 1900544, 15, -524317, 1900544, 16, -458782, 1835008, 17, -393246, 1835008, 18, -327710, 1835008, 19, -262174, 1835008, 20, -458781, 1900544, 17, -393245, 1900544, 18, -327709, 1900544, 19, -262173, 1900544, 20, -1245214, 1835008, 12, -1179678, 1835008, 13, -1114142, 1835008, 14, -1245213, 1900544, 12, -1179677, 1900544, 13, -1114141, 1900544, 14)
@@ -5816,6 +5822,7 @@ layer_0/tile_data = PackedInt32Array(983010, 1835008, 12, 1048546, 1835008, 13, 
 [node name="TileMap4" type="TileMap" parent="."]
 position = Vector2(0, 40)
 rotation = 1.5708
+scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_tqbgv")
 format = 2
 layer_0/tile_data = PackedInt32Array(589826, 65536, 12, 655362, 65536, 13, 720898, 65536, 14, 786434, 65536, 15, 851970, 65536, 16, 917506, 65536, 17, 983042, 65536, 18, 1048578, 65536, 19, 1114114, 65536, 20, 589827, 131072, 12, 655363, 131072, 13, 720899, 131072, 14, 786435, 131072, 15, 851971, 131072, 16, 917507, 131072, 17, 983043, 131072, 18, 1048579, 131072, 19, 1114115, 131072, 20, 2, 65536, 12, 65538, 65536, 13, 131074, 65536, 14, 196610, 65536, 15, 262146, 65536, 16, 327682, 65536, 17, 393218, 65536, 18, 458754, 65536, 19, 524290, 65536, 20, 3, 131072, 12, 65539, 131072, 13, 131075, 131072, 14, 196611, 131072, 15, 262147, 131072, 16, 327683, 131072, 17, 393219, 131072, 18, 458755, 131072, 19, 524291, 131072, 20, -589822, 65536, 12, -524286, 65536, 13, -458750, 65536, 14, -393214, 65536, 15, -327678, 65536, 16, -262142, 65536, 17, -196606, 65536, 18, -131070, 65536, 19, -65534, 65536, 20, -589821, 131072, 12, -524285, 131072, 13, -458749, 131072, 14, -393213, 131072, 15, -327677, 131072, 16, -262141, 131072, 17, -196605, 131072, 18, -131069, 131072, 19, -65533, 131072, 20, -1179646, 65536, 15, -1114110, 65536, 16, -1048574, 65536, 17, -983038, 65536, 18, -917502, 65536, 19, -851966, 65536, 20, -786430, 65536, 18, -720894, 65536, 19, -655358, 65536, 20, -1179645, 131072, 15, -1114109, 131072, 16, -1048573, 131072, 17, -983037, 131072, 18, -917501, 131072, 19, -851965, 131072, 20, -786429, 131072, 18, -720893, 131072, 19, -655357, 131072, 20, -1376254, 65536, 12, -1310718, 65536, 13, -1245182, 65536, 14, -1376253, 131072, 12, -1310717, 131072, 13, -1245181, 131072, 14)
@@ -5826,8 +5833,9 @@ position = Vector2(0, 40)
 collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-40, 5)
-polygon = PackedVector2Array(424, 11, 408, 27, 408, 51, 408, 75, 376, 75, -280, 75, -280, 43, -280, 27, -296, 11, 400, 11)
+position = Vector2(0, -8)
+polygon = PackedVector2Array(184, 24, -160, 24, -168, 16, -168, 16, 192, 16)
+metadata/_edit_group_ = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 z_index = 5
@@ -5836,7 +5844,8 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(-320, 80, -320, 72, -320, 448, -288, 448, -288, 80)
+position = Vector2(144, -64)
+polygon = PackedVector2Array(-304, 80, -304, 96, -304, 112, -303, 206, -303, 256, -296, 256, -288, 256, -288, 80, -304, 80)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 z_index = 5
@@ -5845,8 +5854,8 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
-position = Vector2(0, -8)
-polygon = PackedVector2Array(368, 88, 368, 456, 336, 456, 336, 88)
+position = Vector2(-168, -72)
+polygon = PackedVector2Array(352, 88, 352, 104, 352, 264, 340, 264, 336, 88, 352, 88)
 
 [node name="Galvin Stage Body" type="StaticBody2D" parent="."]
 position = Vector2(0, 40)
@@ -5854,29 +5863,34 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Stage Body"]
-position = Vector2(0, 69)
-polygon = PackedVector2Array(-288, -24, -288, 379, 336, 379, 336, -24)
+position = Vector2(144, 48)
+polygon = PackedVector2Array(-288, -32, -288, 176, 24, 176, 24, -32)
 
 [node name="Galvin Stage Buttom" type="StaticBody2D" parent="."]
 z_index = 21
 position = Vector2(0, 40)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Stage Buttom"]
-position = Vector2(0, 72)
-polygon = PackedVector2Array(-280, 376, -320, 376, -320, 392, 368, 392, 368, 376, 336, 376, 336, 376)
+position = Vector2(160, -152)
+polygon = PackedVector2Array(-280, 376, -305, 376, -304, 344, -319, 344, -319, 384, 24, 384, 24, 344, 12, 344, 12, 356, 12, 372, 10, 376, 4, 376)
 
 [node name="Local Camera" parent="." instance=ExtResource("9_m0frr")]
+visible = false
 texture_repeat = 2
-limit_left = -703
-limit_top = -448
-limit_right = 704
-limit_bottom = 447
+zoom = Vector2(2, 2)
+limit_left = -383
+limit_top = -128
+limit_right = 384
+limit_bottom = 255
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="CanvasLayer" parent="Local Camera" index="0"]
+visible = false
 
 [node name="Knockout Area" type="Area2D" parent="." groups=["Knockout Area"]]
 collision_layer = 0
@@ -5892,12 +5906,12 @@ autostart = true
 
 [node name="Player 1 Manager" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-192, -192)
+position = Vector2(-69, -17)
 script = ExtResource("10_bp7nc")
 
 [node name="Player 2 Manager" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(192, -192)
+position = Vector2(104, -17)
 script = ExtResource("11_g8d6d")
 
 [connection signal="Player1Knockout" from="." to="Player 1 Manager" method="_on_galvin_road_player_1_knockout"]

@@ -32,7 +32,8 @@ var can_jump = true
 var can_dash = true
 var can_attack = true
 var can_block = true
-
+enum {OnGround, OnWall, InAir}
+var surface_state = InAir
 enum {
 	Idle,
 	Turning,
@@ -70,12 +71,12 @@ func _ready():
 	pass
 
 func _physics_process(delta: float) -> void:
-	print(linear_velocity)
 	if Hurtbox.goku_neautral_havy == true:
 		var Goku_Positioner: Vector2 = CharacterList.goku_neutral_heavy_grab_position
 		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 150)
 		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 150)
-	_get_movement()
+	if !state == OnWall:
+		_get_movement()
 func _process(delta: float) -> void:
 	_process_input()
 	_process_attack_input()
@@ -92,7 +93,6 @@ func _process(delta: float) -> void:
 # Disable movement at crtain frame of attack and enable at the end of attack.
 #Player can only move in the direction they are facing.
 func _get_movement():
-
 	var new_speed
 	var air_rating: float = Player_Stats.Speed_Rating + 1.2
 	var decelleration =  Player_Stats.Decelleration
@@ -393,3 +393,13 @@ func _on_is_ressetting() -> void:
 	can_attack = true
 	can_direct = true
 	can_jump = true
+
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("Floor"):
+		print("on floor")
+
+
+func _on_body_exited(body: Node) -> void:
+	if body.is_in_group("Floor"):
+		print("In Air")

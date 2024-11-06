@@ -28,3 +28,7 @@ func _on_hurtbox_area_exited(area: Area2D) -> void:
 
 func _on_block_hurtbox_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_controller_body_exited(body: Node) -> void:
+	pass # Replace with function body.

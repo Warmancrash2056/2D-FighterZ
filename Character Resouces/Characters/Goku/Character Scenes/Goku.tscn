@@ -22164,6 +22164,8 @@ collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_rf1xj")
 can_sleep = false
 lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("2_u8pn8")
 
 [node name="Scale Player" type="Node2D" parent="Controller"]
@@ -22984,6 +22986,9 @@ Motion_Body = NodePath("../Controller")
 [connection signal="IsRessetting" from="Controller" to="Controller" method="_on_is_ressetting"]
 [connection signal="JumpCloud" from="Controller" to="Controller/Jump Smoke" method="_on_movement_controller_jump_cloud"]
 [connection signal="Player1Box" from="Controller" to="Controller/Scale Player/Attack Positioner" method="_on_controller_player_1_box"]
+[connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
+[connection signal="body_exited" from="Controller" to="." method="_on_controller_body_exited"]
+[connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=19 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -5744,8 +5744,12 @@ texture = ExtResource("2_uq8es")
 [sub_resource type="TileSet" id="TileSet_tqbgv"]
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55pjc"]
+size = Vector2(20, 66)
+
 [node name="Galvin Road" type="Node2D"]
 script = ExtResource("1_cxki7")
+camera_zoom_level = 2.3
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -5834,7 +5838,7 @@ collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Floor"]
 position = Vector2(0, -8)
-polygon = PackedVector2Array(184, 24, -160, 24, -168, 16, -168, 16, 192, 16)
+polygon = PackedVector2Array(184, 24, -160, 24, -160, 16, 184, 16)
 metadata/_edit_group_ = true
 
 [node name="Galvin Left Wall" type="StaticBody2D" parent="." groups=["Wall"]]
@@ -5847,13 +5851,13 @@ collision_mask = 0
 position = Vector2(144, -64)
 polygon = PackedVector2Array(-304, 80, -304, 96, -304, 112, -303, 206, -303, 256, -296, 256, -288, 256, -288, 80, -304, 80)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="Galvin Right Wall" type="StaticBody2D" parent="." groups=["Wall"]]
 z_index = 5
 position = Vector2(0, 40)
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Right Wall"]
 position = Vector2(-168, -72)
 polygon = PackedVector2Array(352, 88, 352, 104, 352, 264, 340, 264, 336, 88, 352, 88)
 
@@ -5875,8 +5879,8 @@ position = Vector2(160, -152)
 polygon = PackedVector2Array(-280, 376, -305, 376, -304, 344, -319, 344, -319, 384, 24, 384, 24, 344, 12, 344, 12, 356, 12, 372, 10, 376, 4, 376)
 
 [node name="Local Camera" parent="." instance=ExtResource("9_m0frr")]
-visible = false
 texture_repeat = 2
+position = Vector2(0, 64)
 zoom = Vector2(2, 2)
 limit_left = -383
 limit_top = -128
@@ -5889,9 +5893,6 @@ drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="CanvasLayer" parent="Local Camera" index="0"]
-visible = false
-
 [node name="Knockout Area" type="Area2D" parent="." groups=["Knockout Area"]]
 collision_layer = 0
 collision_mask = 256
@@ -5901,7 +5902,7 @@ position = Vector2(0, 128)
 polygon = PackedVector2Array(-1272, 464, 1272, 464, 1272, -976, 768, -640, 768, -448, 768, -232, 768, -64, 768, 384, -768, 384, -776, -640, 768, -640, 1272, -976, -760, -976, -1272, -976)
 
 [node name="Camera Updater" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.1
 autostart = true
 
 [node name="Player 1 Manager" type="Node2D" parent="."]
@@ -5913,6 +5914,12 @@ script = ExtResource("10_bp7nc")
 unique_name_in_owner = true
 position = Vector2(104, -17)
 script = ExtResource("11_g8d6d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(177, -24)
+shape = SubResource("RectangleShape2D_55pjc")
 
 [connection signal="Player1Knockout" from="." to="Player 1 Manager" method="_on_galvin_road_player_1_knockout"]
 [connection signal="Player2Knockout" from="." to="Player 2 Manager" method="_on_galvin_road_player_2_knockout"]

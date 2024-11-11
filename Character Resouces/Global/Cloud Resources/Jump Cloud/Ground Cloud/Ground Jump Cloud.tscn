@@ -40,7 +40,6 @@ animations = [{
 
 [node name="Jump Smoke" type="AnimatedSprite2D"]
 z_index = 5
-scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1c4gd")
 animation = &"Smoke"
 frame_progress = 0.0508988

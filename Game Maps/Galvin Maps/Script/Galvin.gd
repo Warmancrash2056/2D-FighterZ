@@ -5,7 +5,7 @@ extends Node2D
 @onready var player_1_manager = %'Player 1 Manager'
 @onready var player_2_manager = %'Player 2 Manager'
 @onready var timer = $'Camera Updater'
-@export_range(0.9, 1.0 ,1.0) var zoom_offset : float = 1.0
+@export_range(0.0, 1.0 ,0.1) var zoom_offset : float = 1.0
 @export var debug_mode : bool = false
 @export var camera_move: bool = true
 var camera_rect := Rect2()
@@ -20,8 +20,8 @@ const MAX_OFFSET_X = 1200.0
 const MIN_OFFSET_X = -1200.0
 
 const MAX_ZOOM_DISTANCE = 1.0
-@export var camera_zoom_level: float = 2.5
-const CAMERA_MOVE_THRESHOLD = 100
+@export_range(0, 5, 0.1) var camera_zoom_level: float = 2.2
+const CAMERA_MOVE_THRESHOLD = 30
 
 enum {
 	Idle,
@@ -122,7 +122,7 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 		min(camera_zoom_level, viewport_size.x / rect.size.x - zoom_offset),
 		min(camera_zoom_level, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 1.7), max(min_zoom, 1.7))
+	return Vector2(max(min_zoom, 1.4), max(min_zoom, 1.4))
 
 
 func _draw() -> void:
@@ -150,5 +150,5 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	if camera_move == true:
 		var tween = get_tree().create_tween()
-		tween.tween_property(camera,'zoom', new_zoom, .25).set_ease(Tween.EASE_OUT_IN)
-		tween.tween_property(camera, "global_position", new_position, .25).set_ease(Tween.EASE_OUT_IN)
+		tween.tween_property(camera,'zoom', new_zoom, .14).set_ease(Tween.EASE_OUT_IN)
+		tween.tween_property(camera, "global_position", new_position, .14).set_ease(Tween.EASE_OUT_IN)

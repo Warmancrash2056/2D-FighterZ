@@ -175,15 +175,6 @@ func _physics_process(delta):
 				if Wall_Detector.target_position.x == -9:
 					Sprite.flip_h = false
 
-
-			if Input.is_action_just_pressed(Controller.Controls.left) and Wall_Detector.target_position.x == 9:
-				Character.velocity.x = -5000
-				Character.velocity.y  = -10000
-
-			elif Input.is_action_just_pressed(Controller.Controls.right) and Wall_Detector.target_position.x == -9:
-				Character.velocity.x = 5000
-				Character.velocity.y  = -10000
-
 			if!Wall_Detector.is_colliding():
 				Character.can_attack = true
 				Character.can_jump = true
@@ -269,13 +260,6 @@ func _physics_process(delta):
 			Attack_Vector = DRecovery
 			play("Down Recovery - Start -")
 
-func _ground_knockback():
-	if Character.is_on_floor():
-		if Character.velocity.x >= 150:
-			GroundKnockbackCloud.emit()
-
-		if Character.velocity.x <= -150:
-			GroundKnockbackCloud.emit()
 
 func _attack_movment_controller():
 	if enable_x_movement == true:

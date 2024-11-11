@@ -32,8 +32,8 @@ var can_jump = true
 var can_dash = true
 var can_attack = true
 var can_block = true
-enum {OnGround, OnWall, InAir}
-var surface_state = InAir
+enum {SurfaceGround, SurfaceWall, SurfaceAir}
+var surface_state = SurfaceAir
 enum {
 	Idle,
 	Turning,
@@ -68,15 +68,44 @@ enum {
 
 var state = Respawn
 func _ready():
-	pass
+	physics_material_override.bounce = 0
+	physics_material_override.friction = 1
 
 func _physics_process(delta: float) -> void:
 	if Hurtbox.goku_neautral_havy == true:
 		var Goku_Positioner: Vector2 = CharacterList.goku_neutral_heavy_grab_position
 		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 150)
 		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 150)
-	if !state == OnWall:
-		_get_movement()
+	if !Animator.state == Hurt:
+		contact_monitor = true
+		if Floor_Detector.is_colliding() and surface_state == SurfaceGround or surface_state == SurfaceAir and !surface_state == SurfaceWall:
+			_get_movement()
+			gravity_scale = 1
+
+		if Wall_Detector.is_colliding() and surface_state == SurfaceWall:
+			_on_wall()
+
+	else:
+		contact_monitor = false
+
+func _on_wall():
+	gravity_scale = 0
+	Animator.state = Wall
+	linear_velocity.y = 10
+	if Wall_Detector.target_position.x < 0:
+		linear_velocity.x = -1
+		Sprite.flip_h = false
+		if Input.is_action_pressed(Player_Identifier.Controls.right):
+			linear_velocity = Vector2(100,-100)
+			add_to_buffer({"type": "direction", "value": "left", "onground": Floor_Detector.is_colliding(),
+			"facing": -1 ,"timestamp": Time.get_ticks_msec()})
+	else:
+		linear_velocity.x = 1
+		Sprite.flip_h = true
+		if Input.is_action_pressed(Player_Identifier.Controls.left):
+			linear_velocity = Vector2(-100,-100)
+			add_to_buffer({"type": "direction", "value": "right", "onground": Floor_Detector.is_colliding(),
+			 "facing": 1 ,"timestamp": Time.get_ticks_msec()})
 func _process(delta: float) -> void:
 	_process_input()
 	_process_attack_input()
@@ -107,17 +136,18 @@ func _get_movement():
 		new_speed = Player_Stats.Max_Speed * air_rating
 		decelleration =  5
 
+	if surface_state == SurfaceGround or surface_state == SurfaceAir and !Wall_Detector.is_colliding():
+		if can_move == true:
+			movement_dir = Vector2(int(Input.get_action_strength(Player_Identifier.Controls.right) -
+			Input.get_action_strength(Player_Identifier.Controls.left)),
+			int(0)).normalized()
 
-	if can_move == true:
-		movement_dir = Vector2(int(Input.get_action_strength(Player_Identifier.Controls.right) -
-		Input.get_action_strength(Player_Identifier.Controls.left)),
-		int(0)).normalized()
+			if movement_dir.x != 0:
+					linear_velocity.x = move_toward(linear_velocity.x, new_speed * movement_dir.x, Player_Stats.Acceleration)
 
-		if movement_dir.x != 0:
-				linear_velocity.x = new_speed * movement_dir.x
 
-		else:
-			constant_force.x = 0
+			else:
+				linear_velocity.x = move_toward(linear_velocity.x, 0, decelleration)
 func _process_input():
 	if can_direct == true:
 		if Input.is_action_pressed(Player_Identifier.Controls.left):
@@ -132,7 +162,7 @@ func _process_input():
 				if Input.is_action_just_pressed(Player_Identifier.Controls.down):
 					await get_tree().create_timer(0.2).timeout
 					if can_attack == true:
-						add_constant_central_force(Vector2(0, 150))
+						linear_velocity.y = Player_Stats.Fast_Fall
 
 		if Input.is_action_pressed(Player_Identifier.Controls.up):
 			add_to_buffer({"type": "direction", "value": "up", "onground": Floor_Detector.is_colliding(), "facing": 0 ,"timestamp": Time.get_ticks_msec()})
@@ -397,9 +427,18 @@ func _on_is_ressetting() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Floor"):
-		print("on floor")
+		if Floor_Detector.is_colliding():
+			print("on floor")
+			surface_state = SurfaceGround
+
+	if body.is_in_group("Wall") and Wall_Detector.is_colliding():
+		surface_state = SurfaceWall
+		Animator.state = Wall
 
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("Floor"):
-		print("In Air")
+		surface_state = SurfaceAir
+
+	if body.is_in_group("Wall"):
+		surface_state = SurfaceAir

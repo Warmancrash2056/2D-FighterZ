@@ -10,8 +10,10 @@ func _process(delta: float) -> void:
 
 
 func _on_movement_controller_facing_left() -> void:
-	target_position.x = -9
+	target_position.x = -3
+	position.x = -8
 
 
 func _on_movement_controller_facing_right() -> void:
-	target_position.x = 9
+	target_position.x = 3
+	position.x = 8

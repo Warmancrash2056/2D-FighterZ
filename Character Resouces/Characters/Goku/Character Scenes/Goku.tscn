@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=114 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -32,7 +32,6 @@
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Characters/Goku/Icon/Goku.png" id="29_quw3q"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Stats.gd" id="30_h56yx"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Recovery Timer.gd" id="31_ikjgj"]
-[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/raycast_controller.gd" id="32_6puvc"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/air_knockback_cloud_positioner.gd" id="38_bu0px"]
 [ext_resource type="PackedScene" uid="uid://2pjd3qes2s7u" path="res://Character Resouces/Global/Cloud Resources/Knockback Cloud/Air Knockback/Air Knockback Cloud.tscn" id="39_q7fls"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/block_hurtbox.gd" id="40_0gelp"]
@@ -40,6 +39,7 @@
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/collision_configurator.gd" id="44_7uh1h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rf1xj"]
+friction = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_adp42"]
 radius = 6.5
@@ -2380,7 +2380,7 @@ tracks/87/keys = {
 tracks/88/type = "value"
 tracks/88/imported = false
 tracks/88/enabled = true
-tracks/88/path = NodePath("../Raycast Controller/Wall Detector - 1:enabled")
+tracks/88/path = NodePath("../Wall Detector:enabled")
 tracks/88/interp = 1
 tracks/88/loop_wrap = true
 tracks/88/keys = {
@@ -2404,7 +2404,7 @@ tracks/89/keys = {
 tracks/90/type = "value"
 tracks/90/imported = false
 tracks/90/enabled = true
-tracks/90/path = NodePath("../Raycast Controller/Floor Detector - 1:enabled")
+tracks/90/path = NodePath("../Floor Detector:enabled")
 tracks/90/interp = 1
 tracks/90/loop_wrap = true
 tracks/90/keys = {
@@ -11418,7 +11418,7 @@ tracks/37/keys = {
 tracks/38/type = "value"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("../Raycast Controller/Floor Detector - 1:enabled")
+tracks/38/path = NodePath("../Floor Detector:enabled")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
@@ -11430,7 +11430,7 @@ tracks/38/keys = {
 tracks/39/type = "value"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("../Raycast Controller/Wall Detector - 1:enabled")
+tracks/39/path = NodePath("../Wall Detector:enabled")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
@@ -12271,7 +12271,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../Raycast Controller/Floor Detector - 1:enabled")
+tracks/26/path = NodePath("../Floor Detector:enabled")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -12283,7 +12283,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../Raycast Controller/Wall Detector - 1:enabled")
+tracks/27/path = NodePath("../Wall Detector:enabled")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -13549,38 +13549,38 @@ tracks/74/keys = {
 tracks/75/type = "value"
 tracks/75/imported = false
 tracks/75/enabled = true
-tracks/75/path = NodePath("%Body:visible")
+tracks/75/path = NodePath("%Body:shape")
 tracks/75/interp = 1
 tracks/75/loop_wrap = true
 tracks/75/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [SubResource("CapsuleShape2D_2gol2")]
 }
 tracks/76/type = "value"
 tracks/76/imported = false
 tracks/76/enabled = true
-tracks/76/path = NodePath("%Body:rotation")
+tracks/76/path = NodePath("%Body:shape:radius")
 tracks/76/interp = 1
 tracks/76/loop_wrap = true
 tracks/76/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [8.0]
 }
 tracks/77/type = "value"
 tracks/77/imported = false
 tracks/77/enabled = true
-tracks/77/path = NodePath("%Body:position")
+tracks/77/path = NodePath("%Body:shape:height")
 tracks/77/interp = 1
 tracks/77/loop_wrap = true
 tracks/77/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 1)]
+"values": [32.0]
 }
 tracks/78/type = "value"
 tracks/78/imported = false
@@ -13597,38 +13597,38 @@ tracks/78/keys = {
 tracks/79/type = "value"
 tracks/79/imported = false
 tracks/79/enabled = true
-tracks/79/path = NodePath("%Body:shape:height")
+tracks/79/path = NodePath("%Body:position")
 tracks/79/interp = 1
 tracks/79/loop_wrap = true
 tracks/79/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [32.0]
+"values": [Vector2(0, 1)]
 }
 tracks/80/type = "value"
 tracks/80/imported = false
 tracks/80/enabled = true
-tracks/80/path = NodePath("%Body:shape:radius")
+tracks/80/path = NodePath("%Body:rotation")
 tracks/80/interp = 1
 tracks/80/loop_wrap = true
 tracks/80/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [8.0]
+"values": [0.0]
 }
 tracks/81/type = "value"
 tracks/81/imported = false
 tracks/81/enabled = true
-tracks/81/path = NodePath("%Body:shape")
+tracks/81/path = NodePath("%Body:visible")
 tracks/81/interp = 1
 tracks/81/loop_wrap = true
 tracks/81/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [SubResource("CapsuleShape2D_2gol2")]
+"values": [true]
 }
 tracks/82/type = "value"
 tracks/82/imported = false
@@ -13753,7 +13753,7 @@ tracks/91/keys = {
 tracks/92/type = "value"
 tracks/92/imported = false
 tracks/92/enabled = true
-tracks/92/path = NodePath("../Raycast Controller/Wall Detector - 1:enabled")
+tracks/92/path = NodePath("../Wall Detector:enabled")
 tracks/92/interp = 1
 tracks/92/loop_wrap = true
 tracks/92/keys = {
@@ -13765,7 +13765,7 @@ tracks/92/keys = {
 tracks/93/type = "value"
 tracks/93/imported = false
 tracks/93/enabled = true
-tracks/93/path = NodePath("../Raycast Controller/Floor Detector - 1:enabled")
+tracks/93/path = NodePath("../Floor Detector:enabled")
 tracks/93/interp = 1
 tracks/93/loop_wrap = true
 tracks/93/keys = {
@@ -14268,7 +14268,7 @@ tracks/38/keys = {
 tracks/39/type = "value"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("../Raycast Controller/Floor Detector - 1:enabled")
+tracks/39/path = NodePath("../Floor Detector:enabled")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
@@ -14280,7 +14280,7 @@ tracks/39/keys = {
 tracks/40/type = "value"
 tracks/40/imported = false
 tracks/40/enabled = true
-tracks/40/path = NodePath("../Raycast Controller/Wall Detector - 1:enabled")
+tracks/40/path = NodePath("../Wall Detector:enabled")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/keys = {
@@ -19144,7 +19144,7 @@ tracks/214/keys = {
 tracks/215/type = "value"
 tracks/215/imported = false
 tracks/215/enabled = true
-tracks/215/path = NodePath("%Hurtbox/Hurtbox:shape:radius")
+tracks/215/path = NodePath("%Body:shape:radius")
 tracks/215/interp = 1
 tracks/215/loop_wrap = true
 tracks/215/keys = {
@@ -19156,26 +19156,26 @@ tracks/215/keys = {
 tracks/216/type = "value"
 tracks/216/imported = false
 tracks/216/enabled = true
-tracks/216/path = NodePath("%Body:visible")
+tracks/216/path = NodePath("%Body:shape:height")
 tracks/216/interp = 1
 tracks/216/loop_wrap = true
 tracks/216/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [32.0]
 }
 tracks/217/type = "value"
 tracks/217/imported = false
 tracks/217/enabled = true
-tracks/217/path = NodePath("%Body:rotation")
+tracks/217/path = NodePath("%Body:disabled")
 tracks/217/interp = 1
 tracks/217/loop_wrap = true
 tracks/217/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [false]
 }
 tracks/218/type = "value"
 tracks/218/imported = false
@@ -19192,31 +19192,31 @@ tracks/218/keys = {
 tracks/219/type = "value"
 tracks/219/imported = false
 tracks/219/enabled = true
-tracks/219/path = NodePath("%Body:disabled")
+tracks/219/path = NodePath("%Body:rotation")
 tracks/219/interp = 1
 tracks/219/loop_wrap = true
 tracks/219/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
+"values": [0.0]
 }
 tracks/220/type = "value"
 tracks/220/imported = false
 tracks/220/enabled = true
-tracks/220/path = NodePath("%Body:shape:height")
+tracks/220/path = NodePath("%Body:visible")
 tracks/220/interp = 1
 tracks/220/loop_wrap = true
 tracks/220/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [32.0]
+"values": [true]
 }
 tracks/221/type = "value"
 tracks/221/imported = false
 tracks/221/enabled = true
-tracks/221/path = NodePath("%Body:shape:radius")
+tracks/221/path = NodePath("%Hurtbox/Hurtbox:shape:radius")
 tracks/221/interp = 1
 tracks/221/loop_wrap = true
 tracks/221/keys = {
@@ -19408,7 +19408,7 @@ tracks/236/keys = {
 tracks/237/type = "value"
 tracks/237/imported = false
 tracks/237/enabled = true
-tracks/237/path = NodePath("../Raycast Controller/Wall Detector - 1:enabled")
+tracks/237/path = NodePath("../Wall Detector:enabled")
 tracks/237/interp = 1
 tracks/237/loop_wrap = true
 tracks/237/keys = {
@@ -19432,7 +19432,7 @@ tracks/238/keys = {
 tracks/239/type = "value"
 tracks/239/imported = false
 tracks/239/enabled = true
-tracks/239/path = NodePath("../Raycast Controller/Floor Detector - 1:enabled")
+tracks/239/path = NodePath("../Floor Detector:enabled")
 tracks/239/interp = 1
 tracks/239/loop_wrap = true
 tracks/239/keys = {
@@ -22163,8 +22163,9 @@ collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_rf1xj")
 can_sleep = false
 lock_rotation = true
+continuous_cd = 2
 contact_monitor = true
-max_contacts_reported = 1
+max_contacts_reported = 30
 script = ExtResource("2_u8pn8")
 
 [node name="Scale Player" type="Node2D" parent="Controller"]
@@ -22825,8 +22826,8 @@ Refresh_Block = NodePath("../Recovery Timer/Refresh Block")
 Character = NodePath("..")
 Scaler = NodePath("../Scale Player")
 Sprite = NodePath("../Sprite")
-Wall_Detector = NodePath("../Raycast Controller/Wall Detector - 1")
-Floor_Detector = NodePath("../Raycast Controller/Floor Detector - 1")
+Wall_Detector = NodePath("../Wall Detector")
+Floor_Detector = NodePath("../Floor Detector")
 NRecovery = Vector2(0, -200)
 Slight = Vector2(1, 0)
 SAir = Vector2(20, 0)
@@ -22929,93 +22930,22 @@ shape = SubResource("CapsuleShape2D_qtdme")
 disabled = true
 debug_color = Color(0, 0.643513, 0.298632, 0.42)
 
-[node name="Raycast Controller" type="Node2D" parent="Controller"]
-z_index = 10
-script = ExtResource("32_6puvc")
-
-[node name="Wall Detector - 1" type="RayCast2D" parent="Controller/Raycast Controller" node_paths=PackedStringArray("Player_Stats", "Sprite")]
-z_index = 10
-position = Vector2(0, -14)
-exclude_parent = false
-target_position = Vector2(9, 0)
-collision_mask = 8
-hit_from_inside = true
-script = ExtResource("26_k5gbg")
-Player_Stats = NodePath("../../Player Stats")
-Sprite = NodePath("../../Sprite")
-
-[node name="Wall Detector - 2" type="RayCast2D" parent="Controller/Raycast Controller" node_paths=PackedStringArray("Player_Stats", "Sprite")]
-z_index = 10
-position = Vector2(0, -8)
-exclude_parent = false
-target_position = Vector2(9, 0)
-collision_mask = 8
-hit_from_inside = true
-script = ExtResource("26_k5gbg")
-Player_Stats = NodePath("../../Player Stats")
-Sprite = NodePath("../../Sprite")
-
-[node name="Wall Detector - 3" type="RayCast2D" parent="Controller/Raycast Controller" node_paths=PackedStringArray("Player_Stats", "Sprite")]
-z_index = 10
-position = Vector2(0, -2)
-exclude_parent = false
-target_position = Vector2(9, 0)
-collision_mask = 8
-hit_from_inside = true
-script = ExtResource("26_k5gbg")
-Player_Stats = NodePath("../../Player Stats")
-Sprite = NodePath("../../Sprite")
-
-[node name="Wall Detector - 4" type="RayCast2D" parent="Controller/Raycast Controller" node_paths=PackedStringArray("Player_Stats", "Sprite")]
-z_index = 10
-position = Vector2(0, 4)
-exclude_parent = false
-target_position = Vector2(9, 0)
-collision_mask = 8
-hit_from_inside = true
-script = ExtResource("26_k5gbg")
-Player_Stats = NodePath("../../Player Stats")
-Sprite = NodePath("../../Sprite")
-
-[node name="Wall Detector - 5" type="RayCast2D" parent="Controller/Raycast Controller" node_paths=PackedStringArray("Player_Stats", "Sprite")]
-z_index = 10
-position = Vector2(0, 10)
-exclude_parent = false
-target_position = Vector2(9, 0)
-collision_mask = 8
-hit_from_inside = true
-script = ExtResource("26_k5gbg")
-Player_Stats = NodePath("../../Player Stats")
-Sprite = NodePath("../../Sprite")
-
-[node name="Wall Detector - 6" type="RayCast2D" parent="Controller/Raycast Controller" node_paths=PackedStringArray("Player_Stats", "Sprite")]
-z_index = 10
-position = Vector2(0, 16)
-exclude_parent = false
-target_position = Vector2(9, 0)
-collision_mask = 8
-hit_from_inside = true
-script = ExtResource("26_k5gbg")
-Player_Stats = NodePath("../../Player Stats")
-Sprite = NodePath("../../Sprite")
-
-[node name="Floor Detector - 1" type="RayCast2D" parent="Controller/Raycast Controller" node_paths=PackedStringArray("Player_Stats")]
-position = Vector2(-3, 16)
-target_position = Vector2(0, 3)
-script = ExtResource("27_1k2ni")
-Player_Stats = NodePath("../../Player Stats")
-
-[node name="Floor Detector - 2" type="RayCast2D" parent="Controller/Raycast Controller" node_paths=PackedStringArray("Player_Stats")]
+[node name="Floor Detector" type="RayCast2D" parent="Controller" node_paths=PackedStringArray("Player_Stats")]
 position = Vector2(0, 16)
 target_position = Vector2(0, 3)
 script = ExtResource("27_1k2ni")
-Player_Stats = NodePath("../../Player Stats")
+Player_Stats = NodePath("../Player Stats")
 
-[node name="Floor Detector - 3" type="RayCast2D" parent="Controller/Raycast Controller" node_paths=PackedStringArray("Player_Stats")]
-position = Vector2(4, 16)
-target_position = Vector2(0, 3)
-script = ExtResource("27_1k2ni")
-Player_Stats = NodePath("../../Player Stats")
+[node name="Wall Detector" type="RayCast2D" parent="Controller" node_paths=PackedStringArray("Player_Stats", "Sprite")]
+z_index = 10
+position = Vector2(-8, 0)
+exclude_parent = false
+target_position = Vector2(-3, 0)
+collision_mask = 8
+hit_from_inside = true
+script = ExtResource("26_k5gbg")
+Player_Stats = NodePath("../Player Stats")
+Sprite = NodePath("../Sprite")
 
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)
@@ -23042,21 +22972,19 @@ Motion_Body = NodePath("../Controller")
 [connection signal="FacingLeft" from="Controller" to="Controller/Sprite" method="_on_movement_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Body" method="_on_movement_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Hurtbox" method="_on_controller_facing_left"]
-[connection signal="FacingLeft" from="Controller" to="Controller/Raycast Controller/Wall Detector - 1" method="_on_movement_controller_facing_left"]
+[connection signal="FacingLeft" from="Controller" to="Controller/Wall Detector" method="_on_movement_controller_facing_left"]
 [connection signal="FacingRight" from="Controller" to="Controller/Scale Player" method="_on_movement_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Sprite" method="_on_movement_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Body" method="_on_movement_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Hurtbox" method="_on_controller_facing_right"]
-[connection signal="FacingRight" from="Controller" to="Controller/Raycast Controller/Wall Detector - 1" method="_on_movement_controller_facing_right"]
+[connection signal="FacingRight" from="Controller" to="Controller/Wall Detector" method="_on_movement_controller_facing_right"]
 [connection signal="IsAttacking" from="Controller" to="Controller" method="_on_is_attacking"]
 [connection signal="IsBlocking" from="Controller" to="Controller" method="_on_is_blocking"]
 [connection signal="IsRessetting" from="Controller" to="Controller" method="_on_is_ressetting"]
 [connection signal="JumpCloud" from="Controller" to="Controller/Jump Smoke" method="_on_movement_controller_jump_cloud"]
 [connection signal="Player1Box" from="Controller" to="Controller/Scale Player/Attack Positioner" method="_on_controller_player_1_box"]
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
-[connection signal="body_entered" from="Controller" to="Controller/Raycast Controller" method="_on_controller_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
-[connection signal="body_exited" from="Controller" to="Controller/Raycast Controller" method="_on_controller_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
@@ -23167,8 +23095,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="IsAttacking" from="Controller/Animator" to="Controller" method="_on_animator_is_attacking"]
 [connection signal="IsResetting" from="Controller/Animator" to="Controller" method="_on_animator_is_resetting"]
 [connection signal="OnGround" from="Controller/Animator" to="Controller/Player Stats" method="_on_animator_on_ground"]
-[connection signal="OnGround" from="Controller/Animator" to="Controller/Raycast Controller/Wall Detector - 1" method="_on_animator_on_ground"]
-[connection signal="OnGround" from="Controller/Animator" to="Controller/Raycast Controller/Floor Detector - 1" method="_on_animator_on_ground"]
+[connection signal="OnGround" from="Controller/Animator" to="Controller/Wall Detector" method="_on_animator_on_ground"]
+[connection signal="OnGround" from="Controller/Animator" to="Controller/Floor Detector" method="_on_animator_on_ground"]
 [connection signal="animation_finished" from="Controller/Animator" to="Controller/Animator" method="_on_animation_finished"]
 [connection signal="timeout" from="Controller/Recovery Timer" to="Controller/Animator" method="_on_recovery_timer_timeout"]
 [connection signal="timeout" from="Controller/Recovery Timer" to="Controller/Recovery Timer" method="_on_timeout"]

@@ -59,6 +59,8 @@ signal AttackMovingX(Vector)
 signal AttackMovingY(Vector)
 signal AttackFriction(Friction)
 
+enum {SurfaceGround, SurfaceWall, SurfaceAir}
+
 enum {
 	Idle,
 	Turning,
@@ -98,28 +100,28 @@ func _physics_process(delta):
 	_attack_movment_controller()
 	match state:
 		Idle:
-			if !Floor_Detector.is_colliding():
+			if !Floor_Detector.is_colliding() and Character.surface_state == SurfaceAir:
 				state = Air
 			play("Idle")
 
-			if Character.movement_dir.x != 0 and Floor_Detector.is_colliding():
+			if Character.movement_dir.x != 0 and Floor_Detector.is_colliding() and Character.surface_state == SurfaceGround:
 				state = Running
 
 
 
 		Running:
-			if !Floor_Detector.is_colliding():
+			if !Floor_Detector.is_colliding() and Character.surface_state == SurfaceAir:
 				state = Air
 			play("Run")
 
-			if Character.movement_dir.x == 0:
+			if Character.movement_dir.x == 0 and Floor_Detector.is_colliding() and Character.surface_state == SurfaceGround:
 				state = Idle
 		Turning:
 			play("Turn")
 
 		Dash:
 			play("Dash")
-			if !Floor_Detector.is_colliding():
+			if !Floor_Detector.is_colliding() and Character.surface_state == SurfaceAir:
 				state = Air
 			if Character.movement_dir.x == 0:
 				state = Idle
@@ -146,11 +148,11 @@ func _physics_process(delta):
 			else:
 				play("Jump")
 
-			if Floor_Detector.is_colliding():
+			if Floor_Detector.is_colliding() and Character.surface_state == SurfaceGround:
 				state = Idle
 				OnGround.emit()
 
-			if Floor_Detector.is_colliding() and Wall_Detector.is_colliding():
+			if !Floor_Detector.is_colliding() and Wall_Detector.is_colliding() and Character.surface_state == SurfaceWall:
 				Character.can_attack = false
 				Character.can_jump = false
 				await get_tree().create_timer(0.01).timeout
@@ -175,7 +177,7 @@ func _physics_process(delta):
 				if Wall_Detector.target_position.x == -9:
 					Sprite.flip_h = false
 
-			if!Wall_Detector.is_colliding():
+			if !Wall_Detector.is_colliding() and Character.surface_state == SurfaceAir:
 				Character.can_attack = true
 				Character.can_jump = true
 				state = Air

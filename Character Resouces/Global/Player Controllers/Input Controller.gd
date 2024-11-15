@@ -136,7 +136,7 @@ func _get_movement():
 		new_speed = Player_Stats.Max_Speed * air_rating
 		decelleration =  5
 
-	if surface_state == SurfaceGround or surface_state == SurfaceAir and !Wall_Detector.is_colliding():
+	if surface_state == SurfaceGround or surface_state == SurfaceAir:
 		if can_move == true:
 			movement_dir = Vector2(int(Input.get_action_strength(Player_Identifier.Controls.right) -
 			Input.get_action_strength(Player_Identifier.Controls.left)),

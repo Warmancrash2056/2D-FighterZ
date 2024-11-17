@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=115 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Characters/Goku/Icon/Goku.png" id="29_quw3q"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Stats.gd" id="30_h56yx"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Recovery Timer.gd" id="31_ikjgj"]
+[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/node.gd" id="34_1u23v"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/air_knockback_cloud_positioner.gd" id="38_bu0px"]
 [ext_resource type="PackedScene" uid="uid://2pjd3qes2s7u" path="res://Character Resouces/Global/Cloud Resources/Knockback Cloud/Air Knockback/Air Knockback Cloud.tscn" id="39_q7fls"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/block_hurtbox.gd" id="40_0gelp"]
@@ -22163,9 +22164,8 @@ collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_rf1xj")
 can_sleep = false
 lock_rotation = true
-continuous_cd = 2
 contact_monitor = true
-max_contacts_reported = 30
+max_contacts_reported = 1
 script = ExtResource("2_u8pn8")
 
 [node name="Scale Player" type="Node2D" parent="Controller"]
@@ -22936,6 +22936,12 @@ target_position = Vector2(0, 3)
 script = ExtResource("27_1k2ni")
 Player_Stats = NodePath("../Player Stats")
 
+[node name="Floor Detector2" type="RayCast2D" parent="Controller" node_paths=PackedStringArray("Player_Stats")]
+position = Vector2(0, 16)
+target_position = Vector2(0, 3)
+script = ExtResource("27_1k2ni")
+Player_Stats = NodePath("../Player Stats")
+
 [node name="Wall Detector" type="RayCast2D" parent="Controller" node_paths=PackedStringArray("Player_Stats", "Sprite")]
 z_index = 10
 position = Vector2(-8, 0)
@@ -22946,6 +22952,29 @@ hit_from_inside = true
 script = ExtResource("26_k5gbg")
 Player_Stats = NodePath("../Player Stats")
 Sprite = NodePath("../Sprite")
+
+[node name="Node" type="Node2D" parent="Controller"]
+script = ExtResource("34_1u23v")
+
+[node name="Floor Middle" type="RayCast2D" parent="Controller/Node"]
+position = Vector2(0, 16)
+target_position = Vector2(0, 3)
+
+[node name="Floor Right" type="RayCast2D" parent="Controller/Node"]
+position = Vector2(-5, 16)
+target_position = Vector2(0, 3)
+
+[node name="Floor Left" type="RayCast2D" parent="Controller/Node"]
+position = Vector2(5, 16)
+target_position = Vector2(0, 3)
+
+[node name="RayCast2D" type="RayCast2D" parent="Controller/Node"]
+
+[node name="RayCast2D2" type="RayCast2D" parent="Controller/Node"]
+
+[node name="RayCast2D3" type="RayCast2D" parent="Controller/Node"]
+
+[node name="RayCast2D4" type="RayCast2D" parent="Controller/Node"]
 
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)
@@ -23095,8 +23124,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="IsAttacking" from="Controller/Animator" to="Controller" method="_on_animator_is_attacking"]
 [connection signal="IsResetting" from="Controller/Animator" to="Controller" method="_on_animator_is_resetting"]
 [connection signal="OnGround" from="Controller/Animator" to="Controller/Player Stats" method="_on_animator_on_ground"]
-[connection signal="OnGround" from="Controller/Animator" to="Controller/Wall Detector" method="_on_animator_on_ground"]
 [connection signal="OnGround" from="Controller/Animator" to="Controller/Floor Detector" method="_on_animator_on_ground"]
+[connection signal="OnGround" from="Controller/Animator" to="Controller/Wall Detector" method="_on_animator_on_ground"]
 [connection signal="animation_finished" from="Controller/Animator" to="Controller/Animator" method="_on_animation_finished"]
 [connection signal="timeout" from="Controller/Recovery Timer" to="Controller/Animator" method="_on_recovery_timer_timeout"]
 [connection signal="timeout" from="Controller/Recovery Timer" to="Controller/Recovery Timer" method="_on_timeout"]

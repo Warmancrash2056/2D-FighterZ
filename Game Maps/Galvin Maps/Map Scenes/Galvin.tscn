@@ -5771,7 +5771,7 @@ texture = ExtResource("4_8pavo")
 position = Vector2(0, 36)
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2(0, 36)
+position = Vector2(2, 36)
 texture = ExtResource("5_37ogg")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -5849,7 +5849,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Left Wall"]
 position = Vector2(144, -64)
-polygon = PackedVector2Array(-304, 72, -304, 96, -304, 112, -303, 206, -303, 256, -296, 256, -288, 256, -288, 75, -304, 75)
+polygon = PackedVector2Array(-304, 96, -304, 112, -303, 206, -303, 256, -296, 256, -288, 256, -288, 75, -298, 75, -298, 72, -304, 72)
 
 [node name="Galvin Right Wall" type="StaticBody2D" parent="." groups=["Wall"]]
 z_index = 5
@@ -5859,7 +5859,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Right Wall"]
 position = Vector2(-168, -72)
-polygon = PackedVector2Array(352, 85, 352, 104, 352, 264, 340, 264, 337, 83, 352, 83)
+polygon = PackedVector2Array(352, 104, 352, 264, 340, 264, 337, 83, 347, 83, 347, 80, 352, 80)
 
 [node name="Galvin Stage Body" type="StaticBody2D" parent="."]
 position = Vector2(0, 40)

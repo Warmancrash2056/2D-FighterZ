@@ -15,6 +15,8 @@ var Controls: Resource
 @onready var Sprite: Sprite2D = $Sprite
 @onready var Wall_Detector: RayCast2D = $'Wall Detector'
 @onready var Floor_Detector: RayCast2D = $'Floor Detector'
+@onready var Floor_Detector2: RayCast2D = $'Floor Detector2'
+
 
 @onready var Hurtbox:Area2D = $Hurtbox
 @onready var Player_Identifier: Node2D = $'..'
@@ -136,7 +138,7 @@ func _get_movement():
 		new_speed = Player_Stats.Max_Speed * air_rating
 		decelleration =  5
 
-	if surface_state == SurfaceGround or surface_state == SurfaceAir:
+	if !Wall_Detector.is_colliding() or  !surface_state == SurfaceWall:
 		if can_move == true:
 			movement_dir = Vector2(int(Input.get_action_strength(Player_Identifier.Controls.right) -
 			Input.get_action_strength(Player_Identifier.Controls.left)),
@@ -426,19 +428,18 @@ func _on_is_ressetting() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Floor"):
-		if Floor_Detector.is_colliding():
+	if body.is_in_group("Floor") and Floor_Detector.is_colliding():
 			print("on floor")
 			surface_state = SurfaceGround
 
 	if body.is_in_group("Wall") and Wall_Detector.is_colliding():
 		surface_state = SurfaceWall
-		Animator.state = Wall
 
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("Floor"):
 		surface_state = SurfaceAir
+
 
 	if body.is_in_group("Wall"):
 		surface_state = SurfaceAir

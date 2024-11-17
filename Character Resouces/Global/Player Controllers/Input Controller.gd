@@ -17,7 +17,7 @@ var Controls: Resource
 @onready var Floor_Detector: RayCast2D = $'Floor Detector'
 @onready var Floor_Detector2: RayCast2D = $'Floor Detector2'
 
-
+@onready var ray = $Node
 @onready var Hurtbox:Area2D = $Hurtbox
 @onready var Player_Identifier: Node2D = $'..'
 var direction = 1
@@ -74,17 +74,18 @@ func _ready():
 	physics_material_override.friction = 1
 
 func _physics_process(delta: float) -> void:
+
 	if Hurtbox.goku_neautral_havy == true:
 		var Goku_Positioner: Vector2 = CharacterList.goku_neutral_heavy_grab_position
 		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 150)
 		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 150)
 	if !Animator.state == Hurt:
 		contact_monitor = true
-		if Floor_Detector.is_colliding() and surface_state == SurfaceGround or surface_state == SurfaceAir and !surface_state == SurfaceWall:
+		if ray.onground == true or surface_state == SurfaceAir:
 			_get_movement()
 			gravity_scale = 1
 
-		if Wall_Detector.is_colliding() and surface_state == SurfaceWall:
+		if ray.onwall == true and surface_state == SurfaceWall:
 			_on_wall()
 
 	else:
@@ -138,7 +139,7 @@ func _get_movement():
 		new_speed = Player_Stats.Max_Speed * air_rating
 		decelleration =  5
 
-	if !Wall_Detector.is_colliding() or  !surface_state == SurfaceWall:
+	if ray.onwall == false:
 		if can_move == true:
 			movement_dir = Vector2(int(Input.get_action_strength(Player_Identifier.Controls.right) -
 			Input.get_action_strength(Player_Identifier.Controls.left)),

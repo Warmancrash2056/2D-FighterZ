@@ -1,8 +1,15 @@
 extends Node2D
 
-@onready var Floor_1 = $'Floor Left'
-@onready var Floor_2 = $'Floor Middle'
-@onready var Floor_3 = $'Floor Right'
+@onready var player_stats = $'../Player Stats'
+@onready var character = $'..'
+@onready var Floor_1 = $'Floor 1'
+@onready var Floor_2 = $'Floor 2'
+@onready var Floor_3 = $'Floor 3'
+@onready var Floor_4 = $'Floor 4'
+@onready var Floor_5 = $'Floor 5'
+@onready var Floor_6 = $'Floor 6'
+@onready var Floor_7 = $'Floor 7'
+
 @onready var Wall_1 = $'Wall 1'
 @onready var Wall_2 = $'Wall 2'
 @onready var Wall_3 = $'Wall 3'
@@ -14,7 +21,7 @@ extends Node2D
 var onground = false
 var onwall = false
 func _floor_detectors() -> bool:
-	var detectors = [Floor_1, Floor_2, Floor_3]
+	var detectors = [Floor_1, Floor_2, Floor_3, Floor_4, Floor_5, Floor_6, Floor_7]
 	for detect in detectors:
 		if detect.is_colliding() == true:
 			return true
@@ -39,3 +46,16 @@ func _process(delta: float) -> void:
 	onwall = _wall_detectors()
 
 	print("player is on the wall: ", onwall)
+
+
+func _on_controller_facing_left() -> void:
+	scale.x = -1
+
+func _on_controller_facing_right() -> void:
+	scale.x = 1
+
+
+func _on_animator_on_ground() -> void:
+	if character.previouslyjumped == true and onground == true:
+		player_stats.Jump_Count = 3
+		character.previouslyjumped = false

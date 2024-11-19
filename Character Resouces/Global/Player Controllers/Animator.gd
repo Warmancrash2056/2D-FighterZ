@@ -11,8 +11,7 @@ signal AirKnockbackCloud
 @export var Scaler: Node
 @export var Sprite: Sprite2D
 @export var Wall_Detector: RayCast2D
-@export var Floor_Detector: RayCast2D
-# Get directions of player
+@onready var Ray = $'../Node'
 var movement_dir: Vector2
 var direction: int
 var transition_to_finish = false
@@ -100,28 +99,28 @@ func _physics_process(delta):
 	_attack_movment_controller()
 	match state:
 		Idle:
-			if !Floor_Detector.is_colliding():
+			if Ray.onground == false:
 				state = Air
 			play("Idle")
 
-			if Character.movement_dir.x != 0 and Floor_Detector.is_colliding():
+			if Character.movement_dir.x != 0 and Ray.onground == true:
 				state = Running
 
 
 
 		Running:
-			if !Floor_Detector.is_colliding():
+			if Ray.onground == false:
 				state = Air
 			play("Run")
 
-			if Character.movement_dir.x == 0 and Floor_Detector.is_colliding():
+			if Character.movement_dir.x == 0 and Ray.onground == true:
 				state = Idle
 		Turning:
 			play("Turn")
 
 		Dash:
 			play("Dash")
-			if !Floor_Detector.is_colliding():
+			if Ray.onground == true:
 				state = Air
 			if Character.movement_dir.x == 0:
 				state = Idle
@@ -148,45 +147,18 @@ func _physics_process(delta):
 			else:
 				play("Jump")
 
-			if Floor_Detector.is_colliding():
+			if Ray.onground == true:
 				state = Idle
 				OnGround.emit()
-
-			if !Floor_Detector.is_colliding() and Wall_Detector.is_colliding():
-				Character.can_attack = false
-				Character.can_jump = false
-				await get_tree().create_timer(0.01).timeout
-				if Wall_Detector.is_colliding():
-					state = Wall
-					play("Wall")
-
-
-				else:
-					state = Air
-					Character.can_attack = true
-					Character.can_jump = true
 
 
 		Wall:
 			play("Wall")
 
-			if Wall_Detector.target_position.x == 9:
-				Sprite.flip_h = true
-
-			else:
-				if Wall_Detector.target_position.x == -9:
-					Sprite.flip_h = false
-
-			if !Wall_Detector.is_colliding():
-				Character.can_attack = true
-				Character.can_jump = true
+			if Ray.onwall == false:
 				state = Air
-				play("Fall")
-
-
-
 		Hurt:
-			if Floor_Detector.is_colliding():
+			if Ray.onground == true:
 				play("Ground Hurt")
 
 
@@ -283,19 +255,18 @@ func idle_reset():
 	Character.movement_dir.x = 0
 	OnGround.emit()
 
-	if Wall_Detector.is_colliding():
+	if Ray.onwall == true:
 		IsAttacking.emit()
 		Character.linear_velocity.y = 0
 		state = Wall
 
 	else:
-		if Floor_Detector.is_colliding():
+		if Ray.onground == true:
 			state = Idle
 			play("Idle")
-		elif !Floor_Detector.is_colliding():
+		else:
 			state = Air
 			play("Fall")
-	return
 func enable_vertical_attack_movement():
 	enable_y_movement = true
 

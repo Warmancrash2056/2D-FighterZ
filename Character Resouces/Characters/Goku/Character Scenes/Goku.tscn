@@ -22317,7 +22317,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 170
 Damage = 20.0
-Constant_Force = Vector2(300, 0)
+Constant_Force = Vector2(500, 0)
 
 [node name="Side Light - 3" type="CollisionShape2D" parent="Controller/Scale Player/Side Light - 3"]
 visible = false
@@ -22538,7 +22538,7 @@ Decelleration = 15
 Jump_Height = 200
 Speed_Rating = 10
 Defense_Rating = 2
-Attack_Rating = 2
+Attack_Rating = 9
 Stamina_Rating = 10
 
 [node name="Recovery Timer" type="Timer" parent="Controller" node_paths=PackedStringArray("Animator", "Player_Stats")]
@@ -22710,8 +22710,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]
@@ -22820,6 +22820,7 @@ Motion_Body = NodePath("../Controller")
 [connection signal="IsResetting" from="Controller/Animator" to="Controller" method="_on_animator_is_resetting"]
 [connection signal="OnGround" from="Controller/Animator" to="Controller/Player Stats" method="_on_animator_on_ground"]
 [connection signal="OnGround" from="Controller/Animator" to="Controller/Node" method="_on_animator_on_ground"]
+[connection signal="OnWall" from="Controller/Animator" to="Controller/Node" method="_on_animator_on_wall"]
 [connection signal="animation_finished" from="Controller/Animator" to="Controller/Animator" method="_on_animation_finished"]
 [connection signal="timeout" from="Controller/Recovery Timer" to="Controller/Animator" method="_on_recovery_timer_timeout"]
 [connection signal="timeout" from="Controller/Recovery Timer" to="Controller/Recovery Timer" method="_on_timeout"]

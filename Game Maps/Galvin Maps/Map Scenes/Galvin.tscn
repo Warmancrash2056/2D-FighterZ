@@ -5849,7 +5849,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Left Wall"]
 position = Vector2(144, -64)
-polygon = PackedVector2Array(-304, 96, -304, 112, -303, 206, -303, 256, -296, 256, -288, 256, -288, 80, -298, 80, -304, 80)
+polygon = PackedVector2Array(-304, 96, -304, 112, -303, 206, -303, 256, -296, 256, -288, 256, -288, 72, -297, 72, -304, 72)
 
 [node name="Galvin Right Wall" type="StaticBody2D" parent="." groups=["Wall"]]
 z_index = 5

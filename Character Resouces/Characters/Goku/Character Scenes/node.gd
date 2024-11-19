@@ -20,6 +20,8 @@ extends Node2D
 
 var onground = false
 var onwall = false
+var completely_on_the_wall = false
+var completely_on_the_floor = false
 func _floor_detectors() -> bool:
 	var detectors = [Floor_1, Floor_2, Floor_3, Floor_4, Floor_5, Floor_6, Floor_7]
 	for detect in detectors:
@@ -59,3 +61,8 @@ func _on_animator_on_ground() -> void:
 	if character.previouslyjumped == true and onground == true:
 		player_stats.Jump_Count = 3
 		character.previouslyjumped = false
+
+
+func _on_animator_on_wall() -> void:
+	if completely_on_the_wall == true:
+		player_stats.Jump_Count = 3

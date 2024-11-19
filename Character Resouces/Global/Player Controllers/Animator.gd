@@ -54,6 +54,7 @@ signal IsAttacking
 signal EnableMoveMent
 signal DisableMovement
 signal OnGround
+signal OnWall
 signal AttackMovingX(Vector)
 signal AttackMovingY(Vector)
 signal AttackFriction(Friction)

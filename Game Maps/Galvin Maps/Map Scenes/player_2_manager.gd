@@ -49,7 +49,7 @@ func player_2_package() -> void:
 
 	# Add the new player to the scene tree first
 
-	await get_tree().create_timer(0.1).timeout  # Short delay to ensure it's added
+	await get_tree().create_timer(1).timeout  # Short delay to ensure it's added
 	call_deferred("add_child", player_2_spawn)
 
 	# Now access the player's nodes and set properties
@@ -60,7 +60,7 @@ func player_2_package() -> void:
 	# Set the initial position and properties
 
 	# Wait a bit before changing the animator state
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(3).timeout
 	player_2_animator.state = Idle
 	player_2_position.can_move = true
 	player_2_position.can_direct = true

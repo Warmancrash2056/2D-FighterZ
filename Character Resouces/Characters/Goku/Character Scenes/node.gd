@@ -22,6 +22,16 @@ var onground = false
 var onwall = false
 var completely_on_the_wall = false
 var completely_on_the_floor = false
+
+func _completely_is_on_floor():
+	var detectors = [Floor_1, Floor_2, Floor_3, Floor_4, Floor_5, Floor_6, Floor_7]
+	for detect in detectors:
+		if not detect.is_colliding():
+			return false
+
+	return true
+
+
 func _floor_detectors() -> bool:
 	var detectors = [Floor_1, Floor_2, Floor_3, Floor_4, Floor_5, Floor_6, Floor_7]
 	for detect in detectors:
@@ -30,6 +40,16 @@ func _floor_detectors() -> bool:
 
 	return false
 
+func _completeley_is_on_the_wall():
+	var detectors= [Wall_1,
+	 Wall_2, Wall_3,
+	 Wall_4, Wall_5,
+	 Wall_6, Wall_7]
+	for detect in detectors:
+		if not detect.is_colliding():
+			return false
+
+	return true
 func _wall_detectors() -> bool:
 	var detectors= [Wall_1,
 	 Wall_2, Wall_3,
@@ -45,9 +65,10 @@ func _wall_detectors() -> bool:
 
 func _process(delta: float) -> void:
 	onground = _floor_detectors()
+	completely_on_the_floor = _completeley_is_on_the_wall()
 	onwall = _wall_detectors()
-
-	print("player is on the wall: ", onwall)
+	completely_on_the_wall = _completeley_is_on_the_wall()
+	print("player is on the wall: ", completely_on_the_wall)
 
 
 func _on_controller_facing_left() -> void:
@@ -64,5 +85,5 @@ func _on_animator_on_ground() -> void:
 
 
 func _on_animator_on_wall() -> void:
-	if completely_on_the_wall == true:
+	if onwall == true:
 		player_stats.Jump_Count = 3

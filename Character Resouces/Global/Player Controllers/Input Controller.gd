@@ -86,7 +86,7 @@ func _physics_process(delta: float) -> void:
 			_get_movement()
 			gravity_scale = 1
 
-		if ray.onwall == true:
+		if ray.completely_on_the_wall == true:
 			_on_wall()
 
 	else:
@@ -94,7 +94,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_wall():
 	gravity_scale = 0
-	Animator.state = Wall
 	linear_velocity.y = 10
 	if ray.scale.x < 0:
 		linear_velocity.x = -1
@@ -173,16 +172,17 @@ func _process_input():
 		if Input.is_action_pressed(Player_Identifier.Controls.up):
 			add_to_buffer({"type": "direction", "value": "up", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 func _process_jump_input():
-		if can_jump == true and Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
-			add_to_buffer({"type": "move", "value": "jump", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			Animator.state = Air
-			input_buffer.clear()
-			linear_velocity.y =  -Player_Stats.Jump_Height
-			JumpCloud.emit()
-			Player_Stats.Jump_Count -= 1
-			# Await 300ms so the jump can clear
-			await get_tree().create_timer(0.4).timeout
-			previouslyjumped = true
+	if !Animator.state == Wall:
+			if can_jump == true and Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
+				add_to_buffer({"type": "move", "value": "jump", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+				Animator.state = Air
+				input_buffer.clear()
+				linear_velocity.y =  -Player_Stats.Jump_Height
+				JumpCloud.emit()
+				Player_Stats.Jump_Count -= 1
+				# Await 400ms so the jump can clear
+				await get_tree().create_timer(0.4).timeout
+				previouslyjumped = true
 
 func _process_dash_input():
 	if can_dash == true and can_attack == true:

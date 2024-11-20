@@ -152,6 +152,9 @@ func _physics_process(delta):
 				state = Idle
 				OnGround.emit()
 
+			if Ray.completely_on_the_wall == true:
+				state = Wall
+				OnWall.emit()
 
 		Wall:
 			play("Wall")

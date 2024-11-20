@@ -21820,9 +21820,9 @@ _data = {
 radius = 7.5
 height = 19.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8f8m"]
-radius = 3.0
-height = 32.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1quol"]
+radius = 4.0
+height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vkij"]
 radius = 2.0
@@ -22501,7 +22501,7 @@ Character = NodePath("..")
 Scaler = NodePath("../Scale Player")
 Sprite = NodePath("../Sprite")
 NRecovery = Vector2(0, -200)
-Slight = Vector2(1, 0)
+Slight = Vector2(30, 0)
 SAir = Vector2(20, 0)
 
 [node name="Counter Position" type="Marker2D" parent="Controller"]
@@ -22670,8 +22670,8 @@ collision_mask = 8
 hit_from_inside = true
 
 [node name="Body" type="CollisionShape2D" parent="Controller"]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_s8f8m")
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_1quol")
 
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)
@@ -22710,8 +22710,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]

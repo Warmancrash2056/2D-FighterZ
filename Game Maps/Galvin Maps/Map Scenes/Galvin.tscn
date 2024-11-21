@@ -5838,7 +5838,7 @@ collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Floor"]
 position = Vector2(0, -8)
-polygon = PackedVector2Array(169, 24, -144, 24, -144, 24, -160, 24, -160, 16, 184, 16, 184, 24)
+polygon = PackedVector2Array(-160, 20, -168, 16, 191, 16, 184, 21)
 metadata/_edit_group_ = true
 
 [node name="Galvin Left Wall" type="StaticBody2D" parent="." groups=["Wall"]]
@@ -5849,7 +5849,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Left Wall"]
 position = Vector2(144, -64)
-polygon = PackedVector2Array(-304, 112, -303, 256, -288, 256, -288, 72, -304, 72)
+polygon = PackedVector2Array(-304, 112, -303, 256, -288, 256, -288, 76, -304, 76)
 
 [node name="Galvin Right Wall" type="StaticBody2D" parent="." groups=["Wall"]]
 z_index = 5
@@ -5859,7 +5859,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Right Wall"]
 position = Vector2(-168, -72)
-polygon = PackedVector2Array(352, 104, 352, 264, 340, 264, 337, 88, 352, 88)
+polygon = PackedVector2Array(352, 264, 340, 264, 337, 85, 352, 85)
 
 [node name="Galvin Stage Body" type="StaticBody2D" parent="."]
 position = Vector2(0, 40)

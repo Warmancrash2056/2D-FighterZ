@@ -96,14 +96,14 @@ func _on_wall():
 	gravity_scale = 0
 	linear_velocity.y = 10
 	if ray.scale.x < 0:
-		linear_velocity.x = -1
+		linear_velocity.x = -100
 		Sprite.flip_h = false
 		if Input.is_action_pressed(Player_Identifier.Controls.right):
 			linear_velocity = Vector2(100,-100)
 			add_to_buffer({"type": "direction", "value": "left", "onground": ray.onground == true,
 			"facing": -1 ,"timestamp": Time.get_ticks_msec()})
 	else:
-		linear_velocity.x = 1
+		linear_velocity.x = 100
 		Sprite.flip_h = true
 		if Input.is_action_pressed(Player_Identifier.Controls.left):
 			linear_velocity = Vector2(-100,-100)

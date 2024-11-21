@@ -121,7 +121,7 @@ func _physics_process(delta):
 
 		Dash:
 			play("Dash")
-			if Ray.onground == true:
+			if Ray.onground == false:
 				state = Air
 			if Character.movement_dir.x == 0:
 				state = Idle

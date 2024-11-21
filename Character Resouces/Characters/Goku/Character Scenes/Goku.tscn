@@ -21821,7 +21821,7 @@ radius = 7.5
 height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1quol"]
-radius = 4.0
+radius = 8.0
 height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vkij"]
@@ -22602,27 +22602,27 @@ position = Vector2(0, 16)
 target_position = Vector2(0, 3)
 
 [node name="Floor 2" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(-3, 16)
+position = Vector2(-4, 16)
 target_position = Vector2(0, 3)
 
 [node name="Floor 3" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(3, 16)
+position = Vector2(4, 16)
 target_position = Vector2(0, 3)
 
 [node name="Floor 4" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(-6, 16)
+position = Vector2(-7, 16)
 target_position = Vector2(0, 3)
 
 [node name="Floor 5" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(-9, 16)
+position = Vector2(-10, 16)
 target_position = Vector2(0, 3)
 
 [node name="Floor 6" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(6, 16)
+position = Vector2(7, 16)
 target_position = Vector2(0, 3)
 
 [node name="Floor 7" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(9, 16)
+position = Vector2(10, 16)
 target_position = Vector2(0, 3)
 
 [node name="Wall 1" type="RayCast2D" parent="Controller/Node"]
@@ -22672,6 +22672,7 @@ hit_from_inside = true
 [node name="Body" type="CollisionShape2D" parent="Controller"]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_1quol")
+one_way_collision = true
 
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)
@@ -22710,8 +22711,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]

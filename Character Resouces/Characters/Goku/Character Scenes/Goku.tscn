@@ -21821,7 +21821,7 @@ radius = 7.5
 height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1quol"]
-radius = 8.0
+radius = 6.0
 height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vkij"]
@@ -21915,7 +21915,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 126
 Damage = 12.0
-Variable_Force = Vector2(100, -100)
+Variable_Force = Vector2(70, -90)
 
 [node name="Nuetral Light - 2" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light - 2"]
 visible = false
@@ -22308,7 +22308,7 @@ shape = SubResource("CapsuleShape2D_jsj12")
 disabled = true
 debug_color = Color(1.15514e-06, 0.377315, 0.443317, 0.42)
 
-[node name="Side Light - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Constant Force"]]
+[node name="Side Light - 3" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
@@ -22317,7 +22317,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 170
 Damage = 20.0
-Constant_Force = Vector2(500, 0)
+Variable_Force = Vector2(87, 0)
 
 [node name="Side Light - 3" type="CollisionShape2D" parent="Controller/Scale Player/Side Light - 3"]
 visible = false
@@ -22455,7 +22455,7 @@ Sprite = NodePath("../../Sprite")
 Wall_Sound = NodePath("../../Character Jump Sound")
 
 [node name="Wall Detector" type="Area2D" parent="Controller/Scale Player/Wall Cloud Position"]
-position = Vector2(7, 0)
+position = Vector2(14, 0)
 collision_layer = 0
 collision_mask = 8
 
@@ -22501,7 +22501,7 @@ Character = NodePath("..")
 Scaler = NodePath("../Scale Player")
 Sprite = NodePath("../Sprite")
 NRecovery = Vector2(0, -200)
-Slight = Vector2(30, 0)
+Slight = Vector2(5, 0)
 SAir = Vector2(20, 0)
 
 [node name="Counter Position" type="Marker2D" parent="Controller"]
@@ -22538,7 +22538,7 @@ Decelleration = 15
 Jump_Height = 200
 Speed_Rating = 10
 Defense_Rating = 2
-Attack_Rating = 9
+Attack_Rating = 2
 Stamina_Rating = 10
 
 [node name="Recovery Timer" type="Timer" parent="Controller" node_paths=PackedStringArray("Animator", "Player_Stats")]
@@ -22626,45 +22626,45 @@ position = Vector2(10, 16)
 target_position = Vector2(0, 3)
 
 [node name="Wall 1" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(8, -11)
+position = Vector2(7, -11)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 2" type="RayCast2D" parent="Controller/Node"]
 z_index = 6
-position = Vector2(8, -5)
+position = Vector2(7, -5)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 3" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(8, -2)
+position = Vector2(7, -2)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 4" type="RayCast2D" parent="Controller/Node"]
 z_index = 7
-position = Vector2(8, 1)
+position = Vector2(7, 1)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 5" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(8, 4)
+position = Vector2(7, 4)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 6" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(8, 7)
+position = Vector2(7, 7)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 7" type="RayCast2D" parent="Controller/Node"]
-position = Vector2(8, 14)
+position = Vector2(6, 14)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
@@ -22672,7 +22672,6 @@ hit_from_inside = true
 [node name="Body" type="CollisionShape2D" parent="Controller"]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_1quol")
-one_way_collision = true
 
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)
@@ -22711,8 +22710,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]

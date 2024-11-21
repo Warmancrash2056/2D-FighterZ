@@ -95,15 +95,14 @@ func _physics_process(delta: float) -> void:
 func _on_wall():
 	gravity_scale = 0
 	linear_velocity.y = 10
+	linear_velocity.x = 0
 	if ray.scale.x < 0:
-		linear_velocity.x = -100
 		Sprite.flip_h = false
 		if Input.is_action_pressed(Player_Identifier.Controls.right):
 			linear_velocity = Vector2(100,-100)
 			add_to_buffer({"type": "direction", "value": "left", "onground": ray.onground == true,
 			"facing": -1 ,"timestamp": Time.get_ticks_msec()})
 	else:
-		linear_velocity.x = 100
 		Sprite.flip_h = true
 		if Input.is_action_pressed(Player_Identifier.Controls.left):
 			linear_velocity = Vector2(-100,-100)
@@ -130,7 +129,7 @@ func _get_movement():
 	var new_speed
 	var air_rating: float = Player_Stats.Speed_Rating + 1.2
 	var decelleration =  Player_Stats.Decelleration
-	var dash_rating: float = Player_Stats.Speed_Rating + 5.5
+	var dash_rating: float = Player_Stats.Speed_Rating + 2.5
 	if ray.onground == true:
 		if Animator.state == Dash:
 			new_speed = dash_rating * Player_Stats.Max_Speed

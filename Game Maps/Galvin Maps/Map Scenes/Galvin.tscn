@@ -5837,8 +5837,8 @@ position = Vector2(0, 40)
 collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Floor"]
-position = Vector2(0, -8)
-polygon = PackedVector2Array(-160, 20, -168, 16, 191, 16, 184, 21)
+position = Vector2(0, -12)
+polygon = PackedVector2Array(-160, 20, -160, 18, 184, 19, 184, 21)
 metadata/_edit_group_ = true
 
 [node name="Galvin Left Wall" type="StaticBody2D" parent="." groups=["Wall"]]
@@ -5849,7 +5849,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Left Wall"]
 position = Vector2(144, -64)
-polygon = PackedVector2Array(-304, 112, -303, 256, -288, 256, -288, 76, -304, 76)
+polygon = PackedVector2Array(-303, 256, -288, 256, -289, 85, -303, 85)
 
 [node name="Galvin Right Wall" type="StaticBody2D" parent="." groups=["Wall"]]
 z_index = 5
@@ -5859,7 +5859,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Right Wall"]
 position = Vector2(-168, -72)
-polygon = PackedVector2Array(352, 264, 340, 264, 337, 85, 352, 85)
+polygon = PackedVector2Array(352, 264, 340, 264, 339, 94, 352, 94)
 
 [node name="Galvin Stage Body" type="StaticBody2D" parent="."]
 position = Vector2(0, 40)
@@ -5876,7 +5876,7 @@ position = Vector2(0, 40)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Stage Buttom"]
 position = Vector2(160, -152)
-polygon = PackedVector2Array(-280, 376, -305, 376, -304, 344, -319, 344, -319, 384, 24, 384, 24, 344, 12, 344, 12, 356, 12, 372, 10, 376, 4, 376)
+polygon = PackedVector2Array(-280, 376, -304, 376, -305, 344, -319, 344, -319, 384, 24, 384, 24, 344, 12, 344, 12, 356, 12, 372, 10, 376, 4, 376)
 
 [node name="Local Camera" parent="." instance=ExtResource("9_m0frr")]
 texture_repeat = 2

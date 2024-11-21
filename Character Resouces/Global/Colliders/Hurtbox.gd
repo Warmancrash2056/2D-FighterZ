@@ -155,6 +155,7 @@ func _on_stun_time_timeout() -> void:
 	knockback_vector = Vector2.ZERO
 	Character.physics_material_override.bounce = 0
 	Character.physics_material_override.friction = 1.0
+	#Character.linear_velocity = Vector2.ZERO
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=18 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -5744,9 +5744,6 @@ texture = ExtResource("2_uq8es")
 [sub_resource type="TileSet" id="TileSet_tqbgv"]
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_55pjc"]
-size = Vector2(20, 66)
-
 [node name="Galvin Road" type="Node2D"]
 script = ExtResource("1_cxki7")
 camera_zoom_level = 2.3
@@ -5914,12 +5911,6 @@ script = ExtResource("10_bp7nc")
 unique_name_in_owner = true
 position = Vector2(104, -17)
 script = ExtResource("11_g8d6d")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(177, -24)
-shape = SubResource("RectangleShape2D_55pjc")
 
 [connection signal="Player1Knockout" from="." to="Player 1 Manager" method="_on_galvin_road_player_1_knockout"]
 [connection signal="Player2Knockout" from="." to="Player 2 Manager" method="_on_galvin_road_player_2_knockout"]

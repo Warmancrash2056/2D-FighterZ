@@ -249,7 +249,6 @@ height = 20.0
 
 [node name="Goku Ground Projectile" type="CharacterBody2D" node_paths=PackedStringArray("Projectile_Hitbox", "Animator", "Sprite")]
 z_index = 10
-scale = Vector2(1.5, 1.5)
 collision_layer = 0
 collision_mask = 31
 script = ExtResource("1_8f00p")

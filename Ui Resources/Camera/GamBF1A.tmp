@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://diq454tksfcxt"]
+
+[ext_resource type="Script" path="res://Ui Resources/Camera/Game UI.gd" id="1_t7vyy"]
+[ext_resource type="PackedScene" uid="uid://b3rv1kotqtmjy" path="res://Ui Resources/Camera/Player 1 Healthbar.tscn" id="1_thw4x"]
+[ext_resource type="PackedScene" uid="uid://cyanpmw7wuxhc" path="res://Ui Resources/Camera/Player 2 Healthbar.tscn" id="2_ewhbx"]
+[ext_resource type="PackedScene" uid="uid://c44n0gxwdlna2" path="res://User Setting/Setting Menu.tscn" id="3_h8gku"]
+[ext_resource type="FontFile" uid="uid://b4y6ctw587tbu" path="res://Font Style/ThaleahFat.ttf" id="5_1yaea"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_t7vyy")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="Player 1 Healthbar" parent="Control/MarginContainer" instance=ExtResource("1_thw4x")]
+position = Vector2(-43, 23)
+
+[node name="Player 2 Healthbar" parent="Control/MarginContainer" instance=ExtResource("2_ewhbx")]
+position = Vector2(69, 24)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0001
+offset_right = 103.0
+offset_bottom = 22.0
+grow_horizontal = 2
+scale = Vector2(2.1, 2.1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("5_1yaea")
+text = "500"
+fit_content = true
+scroll_active = false
+language = "en_US"
+
+[node name="MarginContainer" parent="." instance=ExtResource("3_h8gku")]
+size_flags_vertical = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 400.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

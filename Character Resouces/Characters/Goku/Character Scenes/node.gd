@@ -68,7 +68,6 @@ func _process(delta: float) -> void:
 	completely_on_the_floor = _completeley_is_on_the_wall()
 	onwall = _wall_detectors()
 	completely_on_the_wall = _completeley_is_on_the_wall()
-	print("player is on the wall: ", completely_on_the_wall)
 
 
 func _on_controller_facing_left() -> void:

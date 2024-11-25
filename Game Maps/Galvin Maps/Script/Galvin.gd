@@ -122,7 +122,7 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 		min(camera_zoom_level, viewport_size.x / rect.size.x - zoom_offset),
 		min(camera_zoom_level, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 1.7), max(min_zoom, 1.7))
+	return Vector2(max(min_zoom, 1.5), max(min_zoom, 1.5))
 
 
 func _draw() -> void:
@@ -150,5 +150,5 @@ func _on_knockout_area_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	if camera_move == true:
 		var tween = get_tree().create_tween()
-		tween.tween_property(camera,'zoom', new_zoom, .14).set_ease(Tween.EASE_OUT_IN)
-		tween.tween_property(camera, "global_position", new_position, .14).set_ease(Tween.EASE_OUT_IN)
+		tween.tween_property(camera,'zoom', new_zoom, 0.05).set_ease(Tween.EASE_OUT_IN)
+		tween.tween_property(camera, "global_position", new_position, 0.05).set_ease(Tween.EASE_OUT_IN)

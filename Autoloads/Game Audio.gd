@@ -7,8 +7,7 @@ var Character_Selection_Audio = load("res://Game Music/Ludum Dare 38 - Track 3.w
 var intro_studio = load("res://wind/Wind.ogg")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

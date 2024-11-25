@@ -120,7 +120,7 @@ func _physics_process(delta):
 			play("Turn")
 
 		Dash:
-			play("Dash")
+			play("Run")
 			if Ray.onground == false:
 				state = Air
 			if Character.movement_dir.x == 0:

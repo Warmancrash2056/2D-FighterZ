@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	print("cdon")
-	get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
-	CharacterList.get_player_1 = null
-	CharacterList.get_player_2 = null
+	pass
+	#get_tree().change_scene_to_file("res://Game Start/Local Play/Local Play.tscn")
+	#CharacterList.get_player_1 = null
+	#CharacterList.get_player_2 = null

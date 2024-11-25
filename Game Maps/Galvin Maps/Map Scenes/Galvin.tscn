@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=20 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -5744,6 +5744,12 @@ texture = ExtResource("2_uq8es")
 [sub_resource type="TileSet" id="TileSet_tqbgv"]
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oat2j"]
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lepkp"]
+friction = 0.0
+
 [node name="Galvin Road" type="Node2D"]
 script = ExtResource("1_cxki7")
 camera_zoom_level = 2.3
@@ -5832,6 +5838,7 @@ layer_0/tile_data = PackedInt32Array(589826, 65536, 12, 655362, 65536, 13, 72089
 z_index = 5
 position = Vector2(0, 40)
 collision_mask = 256
+physics_material_override = SubResource("PhysicsMaterial_oat2j")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Floor"]
 position = Vector2(0, -12)
@@ -5845,8 +5852,8 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Left Wall"]
-position = Vector2(144, -64)
-polygon = PackedVector2Array(-303, 256, -288, 256, -289, 85, -303, 85)
+position = Vector2(144, -72)
+polygon = PackedVector2Array(-303, 256, -288, 256, -288, 88, -304, 88)
 
 [node name="Galvin Right Wall" type="StaticBody2D" parent="." groups=["Wall"]]
 z_index = 5
@@ -5855,8 +5862,8 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Right Wall"]
-position = Vector2(-168, -72)
-polygon = PackedVector2Array(352, 264, 340, 264, 339, 94, 352, 94)
+position = Vector2(-168, -80)
+polygon = PackedVector2Array(352, 264, 336, 264, 336, 96, 352, 96)
 
 [node name="Galvin Stage Body" type="StaticBody2D" parent="."]
 position = Vector2(0, 40)
@@ -5879,10 +5886,10 @@ polygon = PackedVector2Array(-280, 376, -304, 376, -305, 344, -319, 344, -319, 3
 texture_repeat = 2
 position = Vector2(0, 64)
 zoom = Vector2(2, 2)
-limit_left = -383
-limit_top = -128
-limit_right = 384
-limit_bottom = 255
+limit_left = -407
+limit_top = -149
+limit_right = 401
+limit_bottom = 290
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -5896,10 +5903,10 @@ collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knockout Area"]
 position = Vector2(0, 128)
-polygon = PackedVector2Array(-1272, 464, 1272, 464, 1272, -976, 768, -640, 768, -448, 768, -232, 768, -64, 768, 384, -768, 384, -776, -640, 768, -640, 1272, -976, -760, -976, -1272, -976)
+polygon = PackedVector2Array(-1272, 464, 1272, 464, 1272, -976, 424, -296, 424, -192, 424, -8, 424, 184, -424, 184, -424, -296, 424, -296, 1272, -976, -760, -976, -1272, -976)
 
 [node name="Camera Updater" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.01
 autostart = true
 
 [node name="Player 1 Manager" type="Node2D" parent="."]
@@ -5911,6 +5918,15 @@ script = ExtResource("10_bp7nc")
 unique_name_in_owner = true
 position = Vector2(104, -17)
 script = ExtResource("11_g8d6d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_lepkp")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = 4
+polygon = PackedVector2Array(-160, 48, -160, 56, -32, 56, 184, 56, 184, 48)
 
 [connection signal="Player1Knockout" from="." to="Player 1 Manager" method="_on_galvin_road_player_1_knockout"]
 [connection signal="Player2Knockout" from="." to="Player 2 Manager" method="_on_galvin_road_player_2_knockout"]

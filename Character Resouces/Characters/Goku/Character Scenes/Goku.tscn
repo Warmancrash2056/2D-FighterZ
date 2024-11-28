@@ -15075,7 +15075,7 @@ tracks/26/path = NodePath("%Attack Positioner/Positioner:disabled")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.1),
+"times": PackedFloat32Array(0, 0.6, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -15099,10 +15099,10 @@ tracks/28/path = NodePath("%Attack Positioner/Positioner:position")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
-"times": PackedFloat32Array(0, 0.00190879, 0.55, 0.6, 0.65, 0.7, 0.74, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.00190879, 0.6999, 0.7, 0.700019, 0.7999, 0.8, 0.800099, 0.8999, 0.9, 0.9999, 1, 1.0999, 1.1, 1.10001, 1.1999, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(31.5, -24.5), Vector2(31.5, -24.5), Vector2(31.5, -24.5), Vector2(68, -58.5), Vector2(68, -58.5), Vector2(73, -62), Vector2(73, -62), Vector2(62.5, -67.5), Vector2(62.5, -67.5), Vector2(49, -72.5), Vector2(49, -72.5), Vector2(-17.5, -21), Vector2(-17.5, -21), Vector2(-60.5, 11.5)]
+"values": [Vector2(31.5, -24.5), Vector2(31.5, -24.5), Vector2(31.5, -24.5), Vector2(68, -59), Vector2(68, -59), Vector2(68, -59), Vector2(72, -62), Vector2(72, -62), Vector2(72, -62), Vector2(63, -69), Vector2(63, -69), Vector2(48, -73), Vector2(48, -73), Vector2(-19, -21), Vector2(-19, -21), Vector2(-19, -21), Vector2(-59, 9)]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
@@ -15123,7 +15123,7 @@ tracks/30/path = NodePath("%Attack Positioner/Positioner:visible")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.1),
+"times": PackedFloat32Array(0, 0.6, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -15291,7 +15291,7 @@ tracks/44/path = NodePath("%Neatral Heavy - 1/Neautral Heavy - 1:disabled")
 tracks/44/interp = 1
 tracks/44/loop_wrap = true
 tracks/44/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.2),
+"times": PackedFloat32Array(0, 1.2, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -15327,7 +15327,7 @@ tracks/47/path = NodePath("%Neatral Heavy - 1/Neautral Heavy - 1:visible")
 tracks/47/interp = 1
 tracks/47/loop_wrap = true
 tracks/47/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.2),
+"times": PackedFloat32Array(0, 1.2, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -21821,7 +21821,7 @@ radius = 7.5
 height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1quol"]
-radius = 8.0
+radius = 5.0
 height = 32.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vkij"]
@@ -21846,7 +21846,7 @@ script = ExtResource("2_u8pn8")
 z_index = 5
 script = ExtResource("3_o62ja")
 
-[node name="Attack Positioner" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Goku Positioner"]]
+[node name="Attack Positioner" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Goku Grab"]]
 unique_name_in_owner = true
 editor_description = "Attack Psoitioner tracks a c ollider and moves player along the path. For 5s.
 "
@@ -21859,10 +21859,8 @@ Sprite = NodePath("../../Sprite")
 Recovery_Frames = 300
 
 [node name="Positioner" type="CollisionShape2D" parent="Controller/Scale Player/Attack Positioner"]
-visible = false
-position = Vector2(31.5, -24.5)
+position = Vector2(-59, 9)
 shape = SubResource("CircleShape2D_adp42")
-disabled = true
 debug_color = Color(0.709804, 0.486275, 0, 0.419608)
 script = ExtResource("5_6k13g")
 
@@ -21915,7 +21913,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 126
 Damage = 12.0
-Variable_Force = Vector2(70, -90)
+Variable_Force = Vector2(78, -99)
 
 [node name="Nuetral Light - 2" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light - 2"]
 visible = false
@@ -21996,7 +21994,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 150
 Damage = 60.0
-Variable_Force = Vector2(0, -700)
+Variable_Force = Vector2(0, -100)
 
 [node name="Neautral Heavy - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neatral Heavy - 1"]
 visible = false
@@ -22476,6 +22474,7 @@ position = Vector2(0, -40)
 texture = ExtResource("14_pfapx")
 hframes = 10
 vframes = 21
+frame = 60
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]

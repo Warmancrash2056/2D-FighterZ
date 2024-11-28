@@ -94,59 +94,59 @@ func _on_is_hurt(Damage: int) -> void:
 	Player_Stats.Health -= Damage
 	print(Player_Stats.Health)
 	if Player_Stats.Health < 1000:
-		knockback_multiplier = 1.0
+		knockback_multiplier = 1.08
 		Character.physics_material_override.bounce = 0.1
 		Character.physics_material_override.friction = 0.92
 
 	if Player_Stats.Health < 900:
-		knockback_multiplier = 2.0
+		knockback_multiplier = 1.1
 		Character.physics_material_override.bounce = 0.2
 		Character.physics_material_override.friction = 0.9
 
 	if Player_Stats.Health < 800:
-		knockback_multiplier = 3.0
+		knockback_multiplier = 1.2
 		Character.physics_material_override.bounce = 0.3
 		Character.physics_material_override.friction = 0.8
 
 	if Player_Stats.Health < 700:
-		knockback_multiplier = 4.0
+		knockback_multiplier = 1.3
 		Character.physics_material_override.bounce = 0.4
 		Character.physics_material_override.friction = 0.7
 
 	if Player_Stats.Health < 600:
-		knockback_multiplier = 5.0
+		knockback_multiplier = 1.4
 		Character.physics_material_override.bounce = 0.5
 		Character.physics_material_override.friction = 0.6
 
 	if Player_Stats.Health < 500:
-		knockback_multiplier = 6.0
+		knockback_multiplier = 1.5
 		Character.physics_material_override.bounce = 0.6
 		Character.physics_material_override.friction = 0.5
 
 	if Player_Stats.Health < 400:
-		knockback_multiplier = 7.0
+		knockback_multiplier = 1.6
 		Character.physics_material_override.bounce = 0.7
 		Character.physics_material_override.friction = 0.4
 
 	if Player_Stats.Health < 300:
-		knockback_multiplier = 8.0
+		knockback_multiplier = 1.7
 		Character.physics_material_override.bounce = 0.8
 		Character.physics_material_override.friction = 0.3
 
 	if Player_Stats.Health < 200:
-		knockback_multiplier = 9.0
+		knockback_multiplier = 1.8
 		Character.physics_material_override.bounce = 0.9
 		Character.physics_material_override.friction = 0.2
 
 	if Player_Stats.Health < 100:
-		knockback_multiplier = 10.0
+		knockback_multiplier = 1.9
 		Character.physics_material_override.bounce = 1.0
 		Character.physics_material_override.friction = 0.1
 
 	if Player_Stats.Health < 0:
-		knockback_multiplier = 11.0
+		knockback_multiplier = 2.0
 		Character.physics_material_override.bounce = 1.0
-		Character.physics_material_override.friction = 0.1
+		Character.physics_material_override.friction = 0.0
 
 
 
@@ -208,6 +208,7 @@ func _on_calculate_constant_force(Constant: Vector2, Direction: bool) -> void:
 
 
 func _on_calculate_variable_force(Variable: Vector2, Direction: bool) -> void:
+	print(Variable)
 	if Direction == true:
 		Variable.x = -Variable.x
 

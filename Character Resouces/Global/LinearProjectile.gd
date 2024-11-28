@@ -18,7 +18,6 @@ func _ready():
 	else:
 		if direction == -1:
 			Sprite.flip_h = true
-		Sprite.flip_h = true
 	state = Shoot
 
 

@@ -82,22 +82,21 @@ func _on_area_entered(area: Area2D) -> void:
 		IsHurt.emit(damage_done)
 		CalculateStunFrames.emit(stun_frames)
 
-	# Grabs the player and follow the hitbox it is connected to
-	elif area.is_in_group("Goku Positioner"):
-		IsHurt.emit(damage_done)
-		CalculateStunFrames.emit(stun_frames)
+	elif area.is_in_group("Goku Grab"):
 		goku_neautral_havy = true
+		Animator.state = Hurt
+
+
+
 
 
 func _on_is_hurt(Damage: int) -> void:
-
-
 	Player_Stats.Health -= Damage
 	print(Player_Stats.Health)
 	if Player_Stats.Health < 1000:
 		knockback_multiplier = 1.0
-		Character.physics_material_override.bounce = 1
-		Character.physics_material_override.friction = 1
+		Character.physics_material_override.bounce = 0.1
+		Character.physics_material_override.friction = 0.92
 
 	if Player_Stats.Health < 900:
 		knockback_multiplier = 2.0
@@ -155,7 +154,8 @@ func _on_stun_time_timeout() -> void:
 	knockback_vector = Vector2.ZERO
 	Character.physics_material_override.bounce = 0
 	Character.physics_material_override.friction = 1.0
-	#Character.linear_velocity = Vector2.ZERO
+	Character.linear_velocity.x = move_toward(Character.linear_velocity.x, 0, 50)
+	Character.linear_velocity.y = move_toward(Character.linear_velocity.y, 0, 20)
 
 
 
@@ -192,8 +192,9 @@ func _on_calculate_stun_frames(Recovery: int) -> void:
 
 
 func _on_area_exited(area: Area2D) -> void:
-	if area.is_in_group("Goku Positioner"):
+	if area.is_in_group("Goku Grab"):
 		goku_neautral_havy = false
+		CalculateStunFrames.emit(10)
 
 
 func _on_calculate_constant_force(Constant: Vector2, Direction: bool) -> void:

@@ -26,7 +26,9 @@ var movement_dir: Vector2
 var input_buffer = []
 var max_buffer_limit = 3
 var buffer_time = 0.1
-
+const Hold_threshold = 0.15
+var input_hold_times= {}
+var input_states = {}
 
 var can_move = true
 var can_direct = true
@@ -35,6 +37,12 @@ var can_dash = true
 var can_attack = true
 var can_block = true
 var previouslyjumped = false
+
+var last_direction_press = {
+	"left": 0,
+	"right": 0
+}
+var last_direction = ""
 enum {SurfaceGround, SurfaceWall, SurfaceAir}
 var surface_state = SurfaceAir
 enum {
@@ -79,12 +87,14 @@ func _ready():
 	physics_material_override.bounce = 0
 
 func _physics_process(delta: float) -> void:
-	_update_input_held_status()
+	#print(input_buffer)
 	_process_input()
 	_process_attack_input()
+	_update_input_held_status()
 	_process_block_input()
 	_process_dash_input()
 	_process_jump_input()
+	_process_dual_direction()
 	_process_single_size_inputs()
 	_process_immediate_action()
 	_process_dual_combinations()
@@ -162,10 +172,23 @@ func _get_movement():
 			else:
 				linear_velocity.x = move_toward(linear_velocity.x, 0, decelleration)
 func _update_input_held_status():
+	var current_time = Time.get_ticks_msec()
 	for input_action in input_buffer:
 		if input_action.type == "attack" or input_action.type == "direction":
 			var action = Player_Identifier.Controls[input_action.value]
-			input_action.held = Input.is_action_pressed(action)
+			if Input.is_action_pressed(action):
+				if not input_hold_times.has(action):
+					input_hold_times[action] = current_time
+
+				var hold_duration = current_time - input_hold_times[action]
+				input_action.held = hold_duration > Hold_threshold
+				input_states[action] = input_action.held
+
+			else:
+				input_action.held = false
+				input_hold_times.erase(action)
+				input_states.erase(action)
+
 
 
 # These two process_input() and process_attack() unction will process the input from the player and add it to the buffer.
@@ -173,23 +196,14 @@ func _update_input_held_status():
 func _process_input():
 	# Get the action from which the player pressed and see if player is either still holding or pressed and released.
 	if can_direct == true:
+		var current_time = Time.get_ticks_msec() / 1000.0
 		var direction = ["left", "right", "up", "down"]
 		for dir in direction:
 			var action = Player_Identifier.Controls[dir]
-			var is_pressed = Input.is_action_pressed(action)
-			var is_just_preessed = Input.is_action_just_pressed(action)
-			var is_released = Input.is_action_just_released(action)
+			
+			if Input.is_action_pressed(action):
+				var is_held = input_states.get(action, false)
 
-			# Set is_held status based on the action pressed.
-			var is_held = is_pressed
-			if is_just_preessed:
-				is_held = true
-
-
-			# Add the input to the buffer. This will be used to determine the action the player will take. \
-			#Based on the input if pressed or release nad held.
-
-			if is_pressed or is_just_preessed:
 				add_to_buffer({
 					"type": "direction",
 					"value": dir,
@@ -198,7 +212,6 @@ func _process_input():
 					"timestamp": Time.get_ticks_msec(),
 					"held": is_held
 				})
-
 
 			
 func _process_jump_input():
@@ -278,16 +291,33 @@ func clear_inputs():
 func _input_debugger():
 	if input_buffer.size() > 1 :
 		pass
+func _process_dual_direction():
+	for dir in ["left", "right"]:
+		var action = Player_Identifier.Controls[dir]
 
+		if Input.is_action_just_pressed(action):
+			var current_time = Time.get_ticks_msec()
+			var time_since_last_input = current_time - last_direction_press[dir]
+
+			if time_since_last_input <= 300 and last_direction == dir:
+				match dir:
+					"left":
+						print("left")
+					"right":
+						print("right")
+
+			last_direction_press[dir] = current_time
+			last_direction = dir
 func _process_dual_combinations():
 	for i in range(len(input_buffer) - 1):
 		var first_input = input_buffer[i]
 		var second_input = input_buffer[i + 1]
 		if first_input.type == "direction" and second_input.type == "attack":
-			if first_input.held == true and first_input.onground == true and first_input.value == "up" and second_input.held == false and second_input.onground == true and second_input.value == "light":
+			if first_input.held == false and first_input.onground == true and first_input.value == "up" and second_input.held == false and second_input.onground == true and second_input.value == "light":
 				if Animator.state == Idle or Animator.state == Running:
 					Animator.state = Neutral_Light
 					Animator.play("Neutral Light - Start -")
+					print("Neutral Light")
 			if first_input.held == true and first_input.onground == true and first_input.value == "up" and second_input.held == false and second_input.onground == true and second_input.value == "heavy":
 				if Animator.state == Idle or Animator.state == Running:
 					Animator.state = Neutral_Heavy
@@ -322,7 +352,7 @@ func _process_dual_combinations():
 						Animator.state = Dowm_Recovery
 						Animator.play("Down Recovery - Start -")
 
-			if first_input.held == true and first_input.onground == true and  first_input.value == "right" and second_input.held == false and second_input.onground == true and second_input.value == "light":
+			if first_input.held == true and first_input.onground == true and first_input.value == "right" and second_input.held == false and second_input.onground == true and second_input.value == "light":
 					if Animator.state == Idle or Animator.state == Running:
 						Animator.state = Side_Light_Start
 						Animator.play("Side Light - Start -")
@@ -353,7 +383,7 @@ func _process_dual_combinations():
 					if Animator.state == Air:
 						Animator.state = Side_Air
 						Animator.play("Side Air - Start -")
-
+			
 func _proces_triple_combination():
 	for i in range(len(input_buffer) - 1):
 		var first_input = input_buffer[i]

@@ -63,7 +63,8 @@ enum {SurfaceGround, SurfaceWall, SurfaceAir}
 
 enum {
 	Idle,
-	Turning,
+	Turning_Left,
+	Turning_Right,
 	Running,
 	Dash,
 	Wall,
@@ -107,8 +108,6 @@ func _physics_process(delta):
 			if Character.movement_dir.x != 0 and Ray.onground == true:
 				state = Running
 
-
-
 		Running:
 			if Ray.onground == false:
 				state = Air
@@ -116,8 +115,12 @@ func _physics_process(delta):
 
 			if Character.movement_dir.x == 0 and Ray.onground == true:
 				state = Idle
-		Turning:
-			play("Turn")
+
+		Turning_Left:
+			play("Turning Left")
+
+		Turning_Right:
+			play("Turning Right")
 
 		Dash:
 			play("Run")
@@ -192,7 +195,7 @@ func _physics_process(delta):
 
 		Neutral_Light:
 			Attack_Vector = Nlight
-			play("Neutral Light - Start -")
+			play("Neutral Light - Start - Tap -")
 
 		Neutral_Heavy:
 			Attack_Vector = NHeavy
@@ -367,3 +370,4 @@ func _transition_to_Finish_block():
 
 func _on_transitional_check_area_entered(area: Area2D) -> void:
 	transition_to_finish = true
+

@@ -45,9 +45,13 @@ var last_direction_press = {
 var last_direction = ""
 enum {SurfaceGround, SurfaceWall, SurfaceAir}
 var surface_state = SurfaceAir
+
 enum {
 	Idle,
-	Turning,
+	Forward_Step,
+	Backward_Step,
+	Turning_Left,
+	Turning_Right,
 	Running,
 	Dash,
 	Wall,
@@ -414,14 +418,16 @@ func _process_immediate_action():
 
 			"direction":
 				if !Animator.state in [Hurt, Respawn, Wall]:
-					if input_action.value == "left" and input_action.held == true:
-						FacingLeft.emit()
+					if Sprite.flip_h == false:
+						if input_action.value == "left" and input_action.held == true:
+							Animator.state = Turning_Left
 						
 
 
+					if Sprite.flip_h == true:
+						if input_action.value == "right" and input_action.held == true:
+							Animator.state = Turning_Right
 
-					elif input_action.value == "right" and input_action.held == true:
-						FacingRight.emit()
 			"attack":
 				if input_action.value == "throw" and input_action.onground == true:
 					if Animator.state == Idle or Animator.state == Running:
@@ -507,3 +513,9 @@ func _on_is_ressetting() -> void:
 	can_attack = true
 	can_direct = true
 	can_jump = true
+
+func face_left():
+	FacingLeft.emit()
+
+func face_right():
+	FacingRight.emit()

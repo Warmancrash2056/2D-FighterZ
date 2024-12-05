@@ -38,6 +38,8 @@ const Block = Vector2.ZERO
 @export var DHeavy: Vector2
 @export var DAir: Vector2
 @export var DRecovery: Vector2
+@export var F_Step: Vector2
+@export var B_Step: Vector2
 @export var starting_frames: int # the amount of frames before an attack.
 var active_frames: int  # the amount of frames collision are active
 var end_frames: int # the amount of fames after attack
@@ -63,6 +65,8 @@ enum {SurfaceGround, SurfaceWall, SurfaceAir}
 
 enum {
 	Idle,
+	Forward_Step,
+	Backward_Step,
 	Turning_Left,
 	Turning_Right,
 	Running,
@@ -121,6 +125,14 @@ func _physics_process(delta):
 
 		Turning_Right:
 			play("Turning Right")
+
+		Forward_Step:
+			Attack_Vector = F_Step
+			play("Forward Step")
+
+		Backward_Step:
+			Attack_Vector = B_Step
+			play("Backward Step")
 
 		Dash:
 			play("Run")
@@ -199,19 +211,19 @@ func _physics_process(delta):
 
 		Neutral_Heavy:
 			Attack_Vector = NHeavy
-			play("Neautral Heavy - Start -")
+			play("Neautral Heavy - Start - Tap -")
 
 		Neutral_Air:
 			Attack_Vector = NAir
-			play("Neautral Air - Start -")
+			play("Neautral Air - Start - Tap -")
 
 		Neutral_Recovery:
 			Attack_Vector = NRecovery
-			play("Neutral Recovery - Start -")
+			play("Neutral Recovery - Start - Tap -")
 
 		Side_Light_Start:
 			Attack_Vector = Slight
-			play("Side Light -Start -")
+			play("Side Light -Start - Tap -")
 
 		Side_Light_Finish:
 			play("Side Light - Finish -")
@@ -219,27 +231,27 @@ func _physics_process(delta):
 		Side_Heavy:
 
 			Attack_Vector = SHeavy
-			play("Side Heavy - Start -")
+			play("Side Heavy - Start - Tap -")
 
 		Side_Air:
 			Attack_Vector = SAir
-			play("Side Air - Start -")
+			play("Side Air - Start - Tap -")
 
 		Down_Light:
 			Attack_Vector = Dlight
-			play("Down Light - Start -")
+			play("Down Light - Start - Tap -")
 
 		Down_Heavy:
 			Attack_Vector = DHeavy
-			play("Down Heavy - Start -")
+			play("Down Heavy - Start - Tap -")
 
 		Down_Air:
 			Attack_Vector = DAir
-			play("Down Air - Start -")
+			play("Down Air - Start - Tap -")
 
 		Dowm_Recovery:
 			Attack_Vector = DRecovery
-			play("Down Recovery - Start -")
+			play("Down Recovery - Start - Tap -")
 
 
 func _attack_movment_controller():

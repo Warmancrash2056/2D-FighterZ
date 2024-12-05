@@ -92,9 +92,9 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	#print(input_buffer)
+	_update_input_held_status()
 	_process_input()
 	_process_attack_input()
-	_update_input_held_status()
 	_process_block_input()
 	_process_dash_input()
 	_process_jump_input()
@@ -305,10 +305,19 @@ func _process_dual_direction():
 
 			if time_since_last_input <= 300 and last_direction == dir:
 				match dir:
-					"left":
-						print("left")
+					"left": 
+						if Sprite.flip_h == false:
+							Animator.state = Backward_Step
+
+						else:
+							Animator.state = Forward_Step
 					"right":
-						print("right")
+						if Sprite.flip_h == false:
+							Animator.state = Forward_Step
+
+						else:
+							Animator.state = Backward_Step
+						
 
 			last_direction_press[dir] = current_time
 			last_direction = dir
@@ -317,11 +326,10 @@ func _process_dual_combinations():
 		var first_input = input_buffer[i]
 		var second_input = input_buffer[i + 1]
 		if first_input.type == "direction" and second_input.type == "attack":
-			if first_input.held == false and first_input.onground == true and first_input.value == "up" and second_input.held == false and second_input.onground == true and second_input.value == "light":
+			if first_input.held == true and first_input.onground == true and first_input.value == "up" and second_input.held == false and second_input.onground == true and second_input.value == "light":
 				if Animator.state == Idle or Animator.state == Running:
 					Animator.state = Neutral_Light
-					Animator.play("Neutral Light - Start -")
-					print("Neutral Light")
+
 			if first_input.held == true and first_input.onground == true and first_input.value == "up" and second_input.held == false and second_input.onground == true and second_input.value == "heavy":
 				if Animator.state == Idle or Animator.state == Running:
 					Animator.state = Neutral_Heavy

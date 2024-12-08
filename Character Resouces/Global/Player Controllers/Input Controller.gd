@@ -38,11 +38,7 @@ var can_attack = true
 var can_block = true
 var previouslyjumped = false
 
-var last_direction_press = {
-	"left": 0,
-	"right": 0
-}
-var last_direction = ""
+
 enum {SurfaceGround, SurfaceWall, SurfaceAir}
 var surface_state = SurfaceAir
 
@@ -50,7 +46,9 @@ enum {
 	Idle,
 	Forward_Step,
 	Backward_Step,
+	Moving_Left,
 	Turning_Left,
+	Moving_Right,
 	Turning_Right,
 	Running,
 	Dash,
@@ -66,10 +64,15 @@ enum {
 	Neutral_Heavy,
 	Neutral_Air,
 	Neutral_Recovery,
-	Side_Light_Start,
-	Side_Light_Finish,
-	Side_Heavy,
-	Side_Air,
+	Side_Light_Start_Tap,
+	Side_Light_Held_Release,
+	Side_Light_Held,
+	Side_Heavy_Start_Tap,
+	Side_Heavy_Held_Release,
+	Side_Heavy_Held,
+	Side_Air_Start_Tap,
+	Side_Air_Held_Release,
+	Side_Air_Held,
 	Down_Light,
 	Down_Heavy,
 	Down_Air,
@@ -80,7 +83,12 @@ enum {
 	Recover,
 	Respawn
 }
-
+var last_direction_press = { # The last time a direction was pressed. match with new button pressed
+	"left": 0,
+	"right": 0
+}
+var hold_start_time = {}
+var last_direction = "" # The last direction pressed.
 var state = Respawn
 func _ready():
 	# Create idependent physics material for each player as they enter the match.
@@ -92,18 +100,17 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	#print(input_buffer)
-	_update_input_held_status()
+	_update_input_held_status() ## Necessary function to handle whether an input is held or not.
 	_process_input()
 	_process_attack_input()
 	_process_block_input()
 	_process_dash_input()
 	_process_jump_input()
+	clear_inputs()
 	_process_dual_direction()
+	_process_dual_combinations()
 	_process_single_size_inputs()
 	_process_immediate_action()
-	_process_dual_combinations()
-	clear_inputs()
-	_input_debugger()
 	if Hurtbox.goku_neautral_havy == true:
 		var Goku_Positioner: Vector2 = CharacterList.goku_neutral_heavy_grab_position
 		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 150)
@@ -143,11 +150,12 @@ func _on_wall():
 # Disable movement at crtain frame of attack and enable at the end of attack.
 #Player can only move in the direction they are facing.
 func _get_movement():
-	#print(linear_velocity)
+	print(linear_velocity)
 	var new_speed
 	var air_rating: float = Player_Stats.Speed_Rating + 1.2
 	var decelleration =  Player_Stats.Decelleration
 	var dash_rating: float = Player_Stats.Speed_Rating + 2.5
+	var current_time = Time.get_ticks_msec() / 1000.0
 	if ray.onground == true:
 		if Animator.state == Dash:
 			new_speed = dash_rating * Player_Stats.Max_Speed
@@ -160,21 +168,40 @@ func _get_movement():
 
 	if ray.onwall == false:
 		if can_move == true:
-			movement_dir = Vector2(int(Input.get_action_strength(Player_Identifier.Controls.right) -
-			Input.get_action_strength(Player_Identifier.Controls.left)),
-			int(0)).normalized()
+			var right_action = Player_Identifier.Controls.right
+			var left_action = Player_Identifier.Controls.left
 
-			if movement_dir.x == 1:
-					linear_velocity.x = move_toward(linear_velocity.x, new_speed * 1, Player_Stats.Acceleration)
+			if Input.is_action_just_pressed(right_action):
+				hold_start_time[right_action] = current_time
+
+			if Input.is_action_just_pressed(left_action):
+				hold_start_time[left_action] = current_time
+
+			var right_held = Input.is_action_pressed(right_action) and (current_time - hold_start_time.get(right_action, 0)) >= 0.1
+			var left_held = Input.is_action_pressed(left_action) and (current_time - hold_start_time.get(left_action,0)) >= 0.1
+			
+			if right_held:
+				movement_dir.x = 1
+
+			elif left_held:
+				movement_dir.x = -1
 
 			else:
-				linear_velocity.x = move_toward(linear_velocity.x, 0, decelleration)
+				movement_dir.x = 0
 
-			if movement_dir.x == -1:
-				linear_velocity.x = move_toward(linear_velocity.x, new_speed * -1, Player_Stats.Acceleration)
+			if Animator.state in [Running, Dash, Air]:
+				if movement_dir.x == 1 and Sprite.flip_h == false:
+					linear_velocity.x = move_toward(linear_velocity.x, new_speed, Player_Stats.Acceleration)
 
-			else:
-				linear_velocity.x = move_toward(linear_velocity.x, 0, decelleration)
+				else:
+					linear_velocity.x = move_toward(linear_velocity.x, 0, decelleration)
+
+				if movement_dir.x == -1 and Sprite.flip_h == true:
+					linear_velocity.x = move_toward(linear_velocity.x, new_speed * -1, Player_Stats.Acceleration)
+
+				else:
+					linear_velocity.x = move_toward(linear_velocity.x, 0, decelleration)
+
 func _update_input_held_status():
 	var current_time = Time.get_ticks_msec()
 	for input_action in input_buffer:
@@ -303,7 +330,7 @@ func _process_dual_direction():
 			var current_time = Time.get_ticks_msec()
 			var time_since_last_input = current_time - last_direction_press[dir]
 
-			if time_since_last_input <= 300 and last_direction == dir:
+			if time_since_last_input <= 500 and last_direction == dir:
 				match dir:
 					"left": 
 						if Sprite.flip_h == false:
@@ -317,7 +344,7 @@ func _process_dual_direction():
 
 						else:
 							Animator.state = Backward_Step
-						
+			
 
 			last_direction_press[dir] = current_time
 			last_direction = dir
@@ -415,26 +442,38 @@ func _process_immediate_action():
 					if input_action.value == "dash" and input_action.onground == true:
 						if Animator.state == Idle or Animator.state == Running:
 							Animator.state = Dash
-							#Animator.play("Dash")
+							Animator.play("Dash")
 
-				if input_action.value == "block" and input_action.onground == true:
-					Animator.state = Ground_Block_Start_Tap
+				if Animator.state in [Idle, Running]:
+					if input_action.value == "block" and input_action.onground == true:
+						Animator.state = Ground_Block_Start_Tap
 
-				if input_action.value == "block" and input_action.onground == false:
-					Animator.state = Air_Block_Start_Tap
+				else:
+					if input_action.value == "block" and input_action.onground == false:
+						Animator.state = Air_Block_Start_Tap
 
 
 			"direction":
-				if !Animator.state in [Hurt, Respawn, Wall]:
-					if Sprite.flip_h == false:
-						if input_action.value == "left" and input_action.held == true:
+				if Sprite.flip_h == false:
+					if input_action.value == "left" and input_action.held == true:
+						if Animator.state in [Idle]:
 							Animator.state = Turning_Left
+
+						if Animator.state in [Air]:
+							FacingLeft.emit()
+
+						if Animator.state in [Running]:
+							pass 
 						
 
 
-					if Sprite.flip_h == true:
-						if input_action.value == "right" and input_action.held == true:
+				if Sprite.flip_h == true:
+					if input_action.value == "right" and input_action.held == true:
+						if Animator.state in [Idle]:
 							Animator.state = Turning_Right
+
+						if Animator.state in [Air]:
+							FacingRight.emit()
 
 			"attack":
 				if input_action.value == "throw" and input_action.onground == true:

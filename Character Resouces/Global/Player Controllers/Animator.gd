@@ -67,7 +67,9 @@ enum {
 	Idle,
 	Forward_Step,
 	Backward_Step,
+	Moving_Left,
 	Turning_Left,
+	Moving_Right,
 	Turning_Right,
 	Running,
 	Dash,
@@ -117,7 +119,7 @@ func _physics_process(delta):
 				state = Air
 			play("Run")
 
-			if Character.movement_dir.x == 0 and Ray.onground == true:
+			if Character.linear_velocity.x == 0 and Ray.onground == true:
 				state = Idle
 
 		Turning_Left:
@@ -135,7 +137,7 @@ func _physics_process(delta):
 			play("Backward Step")
 
 		Dash:
-			play("Run")
+			play("Dash")
 			if Ray.onground == false:
 				state = Air
 			if Character.movement_dir.x == 0:

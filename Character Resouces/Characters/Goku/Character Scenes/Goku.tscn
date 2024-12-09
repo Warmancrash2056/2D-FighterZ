@@ -21588,8 +21588,12 @@ hit_from_inside = true
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_toi51")
 
-[node name="Goku Animation" type="Node" parent="Controller"]
+[node name="Goku Animation" type="Node" parent="Controller" node_paths=PackedStringArray("Character", "Sprite", "Animator", "Hurtbox_Collider")]
 script = ExtResource("32_jc5kt")
+Character = NodePath("..")
+Sprite = NodePath("../Sprite")
+Animator = NodePath("../Animator")
+Hurtbox_Collider = NodePath("../Hurtbox/Hurtbox")
 
 [node name="Attack Instance" type="Node" parent="Controller"]
 

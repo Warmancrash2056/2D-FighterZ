@@ -22,9 +22,13 @@ var is_hurt = false
 var goku_neautral_havy
 var goku_neautral_heavy_positioner: bool = false
 
+
 enum {
 	Idle,
-	Turning,
+	Forward_Step,
+	Backward_Step,
+	Turning_Left,
+	Turning_Right,
 	Running,
 	Dash,
 	Wall,

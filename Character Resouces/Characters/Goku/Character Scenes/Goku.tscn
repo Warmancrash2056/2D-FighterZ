@@ -20737,8 +20737,8 @@ _data = {
 radius = 7.5
 height = 19.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_toi51"]
-size = Vector2(14, 31)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ybthv"]
+radius = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vkij"]
 radius = 2.0
@@ -21586,7 +21586,7 @@ hit_from_inside = true
 
 [node name="Body" type="CollisionShape2D" parent="Controller"]
 position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_toi51")
+shape = SubResource("CapsuleShape2D_ybthv")
 
 [node name="Goku Animation" type="Node" parent="Controller" node_paths=PackedStringArray("Character", "Sprite", "Animator", "Hurtbox_Collider")]
 script = ExtResource("32_jc5kt")
@@ -21618,24 +21618,11 @@ script = ExtResource("44_7uh1h")
 Player_Identifier = NodePath("..")
 Motion_Body = NodePath("../Controller")
 
-[connection signal="FacingLeft" from="Controller" to="Controller/Scale Player" method="_on_movement_controller_facing_left"]
-[connection signal="FacingLeft" from="Controller" to="Controller/Sprite" method="_on_movement_controller_facing_left"]
-[connection signal="FacingLeft" from="Controller" to="Controller/Hurtbox" method="_on_controller_facing_left"]
-[connection signal="FacingLeft" from="Controller" to="Controller/Node" method="_on_controller_facing_left"]
-[connection signal="FacingRight" from="Controller" to="Controller/Scale Player" method="_on_movement_controller_facing_right"]
-[connection signal="FacingRight" from="Controller" to="Controller/Sprite" method="_on_movement_controller_facing_right"]
-[connection signal="FacingRight" from="Controller" to="Controller/Hurtbox" method="_on_controller_facing_right"]
-[connection signal="FacingRight" from="Controller" to="Controller/Node" method="_on_controller_facing_right"]
-[connection signal="IsAttacking" from="Controller" to="Controller" method="_on_is_attacking"]
-[connection signal="IsBlocking" from="Controller" to="Controller" method="_on_is_blocking"]
-[connection signal="IsRessetting" from="Controller" to="Controller" method="_on_is_ressetting"]
-[connection signal="JumpCloud" from="Controller" to="Controller/Jump Smoke" method="_on_movement_controller_jump_cloud"]
-[connection signal="Player1Box" from="Controller" to="Controller/Scale Player/Attack Positioner" method="_on_controller_player_1_box"]
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]

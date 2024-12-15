@@ -63,6 +63,7 @@ signal AttackFriction(Friction)
 
 enum {SurfaceGround, SurfaceWall, SurfaceAir}
 
+# State machime for the player
 enum {
 	Idle,
 	Forward_Step,
@@ -85,16 +86,33 @@ enum {
 	Neutral_Heavy,
 	Neutral_Air,
 	Neutral_Recovery,
-	Side_Light_Start,
-	Side_Light_Finish,
-	Side_Heavy,
-	Side_Air,
-	Down_Light,
-	Down_Heavy,
-	Down_Air,
-	Dowm_Recovery,
-	Ground_Throw,
-	Air_Throw,
+	Side_Light_Start_Tap,
+	Side_Light_Held_Release,
+	Side_Light_Held,
+	Side_Heavy_Start_Tap,
+	Side_Heavy_Held_Release,
+	Side_Heavy_Held,
+	Side_Air_Start_Tap,
+	Side_Air_Held_Release,
+	Side_Air_Held,
+	Down_Light_Start_Tap,
+	Down_Light_Held_Release,
+	Down_Light_Held,
+	Down_Heavy_Start_Tap,
+	Down_Heavy_Held_Release,
+	Down_Heavy_Held,
+	Down_Air_Start_Tap,
+	Down_Air_Held_Release,
+	Down_Air_Held,
+	Dowm_Recovery_Start_Tap,
+	Dowm_Recovery_Held_Release,
+	Dowm_Recovery_Held,
+	Ground_Throw_Start_Tap,
+	Ground_Throw_Held_Release,
+	Ground_Throw_Held,
+	Air_Throw_Start_Tap,
+	Air_Throw_Held_Release,
+	Air_Throw_Held,
 	Hurt,
 	Recover,
 	Respawn
@@ -137,7 +155,7 @@ func _physics_process(delta):
 			play("Backward Step")
 
 		Dash:
-			play("Dash")
+			play("Fast Run")
 			if Ray.onground == false:
 				state = Air
 			if Character.movement_dir.x == 0:
@@ -188,17 +206,31 @@ func _physics_process(delta):
 		Respawn:
 			play("Respawn")
 
-		Ground_Throw:
+		Ground_Throw_Start_Tap:
 			play("Ground Projectile")
 			Attack_Vector = Throw_Ground
 
-		Air_Throw:
+		Ground_Throw_Held_Release:
+			play("Ground Projectile - Start - Tap -")
+
+		Ground_Throw_Held:
+			pass
+
+		Air_Throw_Start_Tap:
 			play("Air Projectile")
 			Attack_Vector = Throw_Air
+		Air_Throw_Held_Release:
+			pass
+
+		Air_Throw_Held:
+			pass
 
 		Ground_Block_Start_Tap:
 			Attack_Vector = Block
 			play("Ground Block - Start -")
+
+		Ground_Block_Held:
+			pass
 
 		Ground_Block_Held:
 			play("Ground Block - Finish -")
@@ -223,37 +255,77 @@ func _physics_process(delta):
 			Attack_Vector = NRecovery
 			play("Neutral Recovery - Start - Tap -")
 
-		Side_Light_Start:
+		Side_Light_Start_Tap:
 			Attack_Vector = Slight
 			play("Side Light -Start - Tap -")
 
-		Side_Light_Finish:
-			play("Side Light - Finish -")
+		Side_Light_Held:
+			pass
 
-		Side_Heavy:
+		Side_Light_Held_Release:
+			pass
 
+		Side_Heavy_Start_Tap:
 			Attack_Vector = SHeavy
 			play("Side Heavy - Start - Tap -")
 
-		Side_Air:
+		Side_Heavy_Held:
+			pass
+
+		Side_Heavy_Held_Release:
+			pass
+
+		Side_Air_Start_Tap:
 			Attack_Vector = SAir
 			play("Side Air - Start - Tap -")
 
-		Down_Light:
+		Side_Air_Held:	
+			pass
+
+		Side_Air_Held_Release:
+			pass
+
+		Down_Light_Start_Tap:
 			Attack_Vector = Dlight
 			play("Down Light - Start - Tap -")
 
-		Down_Heavy:
+		Down_Light_Held:
+			pass
+
+		Down_Light_Held_Release:
+			pass
+
+		Down_Heavy_Start_Tap:
 			Attack_Vector = DHeavy
 			play("Down Heavy - Start - Tap -")
 
-		Down_Air:
+		Down_Heavy_Held:
+			pass
+
+		Down_Heavy_Held_Release:
+			pass
+
+		Down_Air_Start_Tap:
 			Attack_Vector = DAir
 			play("Down Air - Start - Tap -")
 
-		Dowm_Recovery:
+		Down_Air_Held:
+			pass
+
+
+		Down_Air_Held_Release:
+			pass
+
+
+		Dowm_Recovery_Start_Tap:
 			Attack_Vector = DRecovery
 			play("Down Recovery - Start - Tap -")
+
+		Dowm_Recovery_Held:
+			pass
+
+		Dowm_Recovery_Held_Release:
+			pass
 
 
 func _attack_movment_controller():
@@ -267,7 +339,7 @@ func _attack_movment_controller():
 func _side_light_transition():
 	print(transition_to_finish)
 	if transition_to_finish == true:
-		state = Side_Light_Finish
+		state = Side_Light_Start_Tap
 		transition_to_finish = false
 
 
@@ -350,8 +422,6 @@ func _on_stun_time_timeout() -> void:
 	_start_player_movement()
 	IsResetting.emit()
 	idle_reset()
-
-	return
 
 
 

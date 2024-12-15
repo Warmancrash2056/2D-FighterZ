@@ -27,7 +27,9 @@ enum {
 	Idle,
 	Forward_Step,
 	Backward_Step,
+	Moving_Left,
 	Turning_Left,
+	Moving_Right,
 	Turning_Right,
 	Running,
 	Dash,
@@ -43,16 +45,33 @@ enum {
 	Neutral_Heavy,
 	Neutral_Air,
 	Neutral_Recovery,
-	Side_Light_Start,
-	Side_Light_Finish,
-	Side_Heavy,
-	Side_Air,
-	Down_Light,
-	Down_Heavy,
-	Down_Air,
-	Dowm_Recovery,
-	Ground_Throw,
-	Air_Throw,
+	Side_Light_Start_Tap,
+	Side_Light_Held_Release,
+	Side_Light_Held,
+	Side_Heavy_Start_Tap,
+	Side_Heavy_Held_Release,
+	Side_Heavy_Held,
+	Side_Air_Start_Tap,
+	Side_Air_Held_Release,
+	Side_Air_Held,
+	Down_Light_Start_Tap,
+	Down_Light_Held_Release,
+	Down_Light_Held,
+	Down_Heavy_Start_Tap,
+	Down_Heavy_Held_Release,
+	Down_Heavy_Held,
+	Down_Air_Start_Tap,
+	Down_Air_Held_Release,
+	Down_Air_Held,
+	Dowm_Recovery_Start_Tap,
+	Dowm_Recovery_Held_Release,
+	Dowm_Recovery_Held,
+	Ground_Throw_Start_Tap,
+	Ground_Throw_Held_Release,
+	Ground_Throw_Held,
+	Air_Throw_Start_Tap,
+	Air_Throw_Held_Release,
+	Air_Throw_Held,
 	Hurt,
 	Recover,
 	Respawn
@@ -69,7 +88,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Variable Force"):
 		var variable_force = area.Variable_Force
 		CalculateVariableForce.emit(variable_force,direction)
-		print(variable_force)
+		#print(variable_force)
 
 	# Constant force that is fixed velocity not affected by player defense
 	elif area.is_in_group("Constant Force"):
@@ -96,7 +115,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _on_is_hurt(Damage: int) -> void:
 	Player_Stats.Health -= Damage
-	print(Player_Stats.Health)
+	#print(Player_Stats.Health)
 	if Player_Stats.Health < 1000:
 		knockback_multiplier = 1.08
 		Character.physics_material_override.bounce = 0.1
@@ -212,7 +231,6 @@ func _on_calculate_constant_force(Constant: Vector2, Direction: bool) -> void:
 
 
 func _on_calculate_variable_force(Variable: Vector2, Direction: bool) -> void:
-	print(Variable)
 	if Direction == true:
 		Variable.x = -Variable.x
 
@@ -223,3 +241,4 @@ func _on_calculate_variable_force(Variable: Vector2, Direction: bool) -> void:
 	var knockback_y: float = Variable.y / defense_rating
 	var _vector = Vector2(knockback_x * knockback_multiplier,knockback_y * knockback_multiplier)
 	Character.linear_velocity = _vector
+	print(_vector, 'Variable force calculated')

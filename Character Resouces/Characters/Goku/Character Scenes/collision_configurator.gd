@@ -3,9 +3,7 @@ extends Node2D
 @export var Motion_Body: RigidBody2D
 @onready var attack_positioner = %'Attack Positioner'
 @onready var transition_attack = %'Transitional Check'
-@onready var nlight_1 = %'Neutral Light - 1'
-@onready var nlight_2 = %'Neutral Light - 2'
-@onready var nlight_3 = %'Neutral Light - 3'
+@onready var neutral_light_quick_punch = %'Neutral Light Quick Punch'
 @onready var nair_1 = %'Neutral Air - 1'
 @onready var nair_2 = %'Neutral Air - 2'
 @onready var nair_3 = %'Neutral Air - 3'
@@ -37,12 +35,8 @@ func _process(delta: float) -> void:
 	attack_positioner.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 	transition_attack.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	transition_attack.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	nlight_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	nlight_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	nlight_2.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	nlight_2.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	nlight_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	nlight_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+	neutral_light_quick_punch.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	neutral_light_quick_punch.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 	nair_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 
 	nair_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)

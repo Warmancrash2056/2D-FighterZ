@@ -14,6 +14,7 @@ var transition_attack: bool = false
 @export_range(1, 100, 1) var Damage: float
 @export var Variable_Force: Vector2 ## Force added onto current player velocity
 @export var Constant_Force: Vector2 ## Constant Force applied to player velocity
+
 # Get the attacker direction in interger to change the direction of x-axis knockback force
 var direction: int
 
@@ -27,6 +28,7 @@ func _process(delta: float) -> void:
 
 
 ## Make Sure the name of signal is the same for every hitbox to register.
+## Signal is connected to timer 
 func _on_attack_connected() -> void:
 	print("hit")
 

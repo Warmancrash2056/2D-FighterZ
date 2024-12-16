@@ -73,12 +73,24 @@ enum {
 	Side_Air_Start_Tap,
 	Side_Air_Held_Release,
 	Side_Air_Held,
-	Down_Light,
-	Down_Heavy,
-	Down_Air,
-	Dowm_Recovery,
-	Ground_Throw,
-	Air_Throw,
+	Down_Light_Start_Tap,
+	Down_Light_Held_Release,
+	Down_Light_Held,
+	Down_Heavy_Start_Tap,
+	Down_Heavy_Held_Release,
+	Down_Heavy_Held,
+	Down_Air_Start_Tap,
+	Down_Air_Held_Release,
+	Down_Air_Held,
+	Dowm_Recovery_Start_Tap,
+	Dowm_Recovery_Held_Release,
+	Dowm_Recovery_Held,
+	Ground_Throw_Start_Tap,
+	Ground_Throw_Held_Release,
+	Ground_Throw_Held,
+	Air_Throw_Start_Tap,
+	Air_Throw_Held_Release,
+	Air_Throw_Held,
 	Hurt,
 	Recover,
 	Respawn
@@ -150,7 +162,7 @@ func _on_wall():
 # Disable movement at crtain frame of attack and enable at the end of attack.
 #Player can only move in the direction they are facing.
 func _get_movement():
-	print(linear_velocity)
+	#print(linear_velocity)
 	var new_speed
 	var air_rating: float = Player_Stats.Speed_Rating + 1.2
 	var decelleration =  Player_Stats.Decelleration
@@ -360,68 +372,56 @@ func _process_dual_combinations():
 			if first_input.held == true and first_input.onground == true and first_input.value == "up" and second_input.held == false and second_input.onground == true and second_input.value == "heavy":
 				if Animator.state == Idle or Animator.state == Running:
 					Animator.state = Neutral_Heavy
-					Animator.play("Neutral Heavy - Start -")
 
 			if first_input.held == true and first_input.onground == false and first_input.value == "up" and second_input.held == false and second_input.onground == false and second_input.value == "light":
 				if Animator.state == Air:
 					Animator.state = Neutral_Air
-					Animator.play("Neutral Air - Start -")
 
 			if first_input.held == true and first_input.onground == false and first_input.value == "up" and second_input.held == false and second_input.onground == false and second_input.value == "heavy":
 				if Animator.state == Air:
 					Animator.state = Neutral_Recovery
-					Animator.play("Neutral Recovery - Start -")
+
 			if first_input.held == true and first_input.onground == true and first_input.value == "down" and second_input.held == false and second_input.onground == true and second_input.value == "light":
 					if Animator.state == Idle or Animator.state == Running:
-						Animator.state = Down_Light
-						Animator.play("Down Light - Start -")
+						Animator.state = Down_Light_Start_Tap
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "down" and second_input.held == false and second_input.onground == true and  second_input.value == "heavy":
 					if Animator.state == Idle or Animator.state == Running:
-						Animator.state = Down_Heavy
-						Animator.play("Down Heavy - Start -")
+						Animator.state = Down_Heavy_Start_Tap
 
 			if first_input.held == true and first_input.onground == false and first_input.value == "down" and second_input.held == false and second_input.onground == false and second_input.value == "light":
 					if Animator.state == Air:
-						Animator.state = Down_Air
-						Animator.play("Down Air - Start -")
+						Animator.state = Down_Air_Start_Tap
 
 			if first_input.held == true and first_input.onground == false and first_input.value == "down" and second_input.held == false and second_input.onground == false and second_input.value == "heavy":
 					if Animator.state == Air:
-						Animator.state = Dowm_Recovery
-						Animator.play("Down Recovery - Start -")
+						Animator.state = Dowm_Recovery_Start_Tap
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "right" and second_input.held == false and second_input.onground == true and second_input.value == "light":
 					if Animator.state == Idle or Animator.state == Running:
-						Animator.state = Side_Light_Start
-						Animator.play("Side Light - Start -")
+						Animator.state = Side_Light_Start_Tap
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "right" and second_input.held == false and second_input.onground == true and second_input.value == "heavy":
 					if Animator.state == Idle or Animator.state == Running:
-						Animator.state = Side_Heavy
-						Animator.play("Side Heavy - Start -")
+						Animator.state = Side_Heavy_Start_Tap
 
 			if first_input.held == true and first_input.onground == false and first_input.value == "right" and second_input.held == false and second_input.onground == false and second_input.value == "light":
 					if Animator.state == Air:
-						Animator.state = Side_Air
-						Animator.play("Side Air - Start -")
+						Animator.state = Side_Air_Start_Tap
 
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "left" and second_input.held == false and second_input.onground == true and second_input.value == "light":
 					if Animator.state == Idle or Animator.state == Running:
-						Animator.state = Side_Light_Start
-						Animator.play("Side Light - Start -")
+						Animator.state = Side_Light_Start_Tap
 
 			
 			if first_input.held == true and first_input.onground == true and first_input.value == "left" and second_input.held == false and second_input.value == "heavy" and second_input.onground == true:
 					if Animator.state == Idle or Animator.state == Running:
-						Animator.state = Side_Heavy
-						Animator.play("Side Heavy - Start -")
+						Animator.state = Side_Heavy_Start_Tap
 
 			if first_input.held == true and first_input.value == "left" and second_input.held == false and second_input.value == "light" and second_input.onground == false:
 					if Animator.state == Air:
-						Animator.state = Side_Air
-						Animator.play("Side Air - Start -")
+						Animator.state = Side_Air_Start_Tap
 			
 func _proces_triple_combination():
 	for i in range(len(input_buffer) - 1):
@@ -478,12 +478,12 @@ func _process_immediate_action():
 			"attack":
 				if input_action.value == "throw" and input_action.onground == true:
 					if Animator.state == Idle or Animator.state == Running:
-						Animator.state = Ground_Throw
+						Animator.state = Ground_Throw_Start_Tap
 						Animator.play("Ground Projectile")
 
 				elif input_action.value == "throw" and input_action.onground == false:
 					if Animator.state == Air:
-						Animator.state = Air_Throw
+						Animator.state = Air_Throw_Start_Tap
 
 # Process actions that require a size of 1 input buffer
 func _process_single_size_inputs() -> void:

@@ -15,24 +15,17 @@ extends Node2D
 @onready var nrec_1 = %'Neautral Recovery - 1'
 @onready var nrec_2 = %'Neautral Recovery - 2'
 @onready var nrec_3 = %'Neautral Recovery - 3'
-@onready var dlight_1 = %'Down Light - 1'
-@onready var dlight_2 = %'Down Light - 2'
-@onready var dlight_3 = %'Down Light - 3'
-@onready var dair_1 = %'Down Air - 1'
-@onready var dair_2 = %'Down Air - 2'
-@onready var dair_3 = %'Down Air - 3'
-@onready var dheavy_1 = %'Down Heavy - 1'
-@onready var dheavy_2 = %'Down Heavy - 2'
-@onready var dheavy_3 = %'Down Heavy - 3'
+@onready var down_light_upward_kick = %'Down Light Upward kick'
+@onready var down_air_axe_kick = %'Down Air Axe Kick'
+@onready var down_heavy_pillar = %'Down Heavy Pillar'
 @onready var drec_1 = %'Down Recovery - 1'
 @onready var drec_2 = %'Down Recovery - 2'
 @onready var drec_3 = %'Down Recovery - 3'
 @onready var slight_1 = %'Side Light - 1'
 @onready var slight_2 = %'Side Light -  2'
 @onready var slight_3 = %'Side Light - 3'
-@onready var sair_1 = %'Side Air - 1'
-@onready var sair_2 = %'Side Air - 2'
-@onready var sair_3 = %'Side Air - 3'
+@onready var side_air_force_kick = %'Side Air Force Kick'
+@onready var side_air_stop_movement_on_contact = %'Side Air Stop Movement'
 @onready var sheavy_1 = %'Side Heavy - 1'
 @onready var sheavy_2 = %'Side Heavy - 2'
 @onready var sheavy_3 = %'Side Heavy - 3'
@@ -73,26 +66,16 @@ func _process(delta: float) -> void:
 	nrec_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
 	# Section for Down Attacks #
-	dlight_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	dlight_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	dlight_2.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	dlight_2.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	dlight_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	dlight_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+	down_light_upward_kick.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	down_light_upward_kick.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
-	dair_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	dair_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	dair_2.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	dair_2.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	dair_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	dair_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+	down_air_axe_kick.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	down_air_axe_kick.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
-	dheavy_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	dheavy_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	dheavy_2.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	dheavy_2.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	dheavy_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	dheavy_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+
+	down_heavy_pillar.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	down_heavy_pillar.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+
 
 	drec_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	drec_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
@@ -109,12 +92,10 @@ func _process(delta: float) -> void:
 	slight_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	slight_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
-	sair_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	sair_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	sair_2.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	sair_2.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	sair_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	sair_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+	side_air_force_kick.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	side_air_force_kick.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+	side_air_stop_movement_on_contact.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	side_air_stop_movement_on_contact.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
 	sheavy_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	sheavy_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)

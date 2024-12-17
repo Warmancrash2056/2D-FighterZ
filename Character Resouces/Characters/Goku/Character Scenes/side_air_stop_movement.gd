@@ -14,3 +14,7 @@ func _process(delta):
 
 func _on_area_entered(area:Area2D):
 	Character.linear_velocity.x = 0
+
+
+func _on_body_entered(body:Node2D):
+	pass # Replace with function body.

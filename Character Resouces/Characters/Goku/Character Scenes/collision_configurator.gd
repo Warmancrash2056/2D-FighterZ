@@ -3,7 +3,7 @@ extends Node2D
 @export var Motion_Body: RigidBody2D
 @onready var attack_positioner = %'Attack Positioner'
 @onready var transition_attack = %'Transitional Check'
-@onready var neutral_light_quick_punch = %'Neutral Light Quick Punch'
+@onready var neutral_light_quick_punch = %"Neutral Light Quick Punch"
 @onready var nair_1 = %'Neutral Air - 1'
 @onready var nair_2 = %'Neutral Air - 2'
 @onready var nair_3 = %'Neutral Air - 3'
@@ -23,7 +23,7 @@ extends Node2D
 @onready var slight_2 = %'Side Light -  2'
 @onready var slight_3 = %'Side Light - 3'
 @onready var side_air_force_kick = %'Side Air Force Kick'
-@onready var side_air_stop_movement_on_contact = %'Side Air Stop Movement'
+@onready var side_air_stop_movement_on_contact = %"Side Air Stop Movement"
 @onready var sheavy_1 = %'Side Heavy - 1'
 @onready var sheavy_2 = %'Side Heavy - 2'
 @onready var sheavy_3 = %'Side Heavy - 3'

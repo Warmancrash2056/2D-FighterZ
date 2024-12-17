@@ -461,6 +461,7 @@ func _process_immediate_action():
 
 						if Animator.state in [Air]:
 							FacingLeft.emit()
+							print("Facing Left")
 
 						if Animator.state in [Running]:
 							pass 

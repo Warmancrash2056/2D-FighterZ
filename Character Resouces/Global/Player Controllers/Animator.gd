@@ -11,7 +11,8 @@ signal AirKnockbackCloud
 @export var Scaler: Node
 @export var Sprite: Sprite2D
 @export var Wall_Detector: RayCast2D
-@onready var Ray = $'../Node'
+@export var Ray: Node2D
+
 var movement_dir: Vector2
 var direction: int
 var transition_to_finish = false

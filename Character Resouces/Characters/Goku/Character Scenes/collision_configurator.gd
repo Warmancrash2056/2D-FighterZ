@@ -24,9 +24,7 @@ extends Node2D
 @onready var slight_3 = %'Side Light - 3'
 @onready var side_air_force_kick = %'Side Air Force Kick'
 @onready var side_air_stop_movement_on_contact = %"Side Air Stop Movement"
-@onready var sheavy_1 = %'Side Heavy - 1'
-@onready var sheavy_2 = %'Side Heavy - 2'
-@onready var sheavy_3 = %'Side Heavy - 3'
+@onready var side_heavy_pillar = %'Side Heavy Pillar'
 @onready var Hurtbox = %Hurtbox
 func _process(delta: float) -> void:
 	# Layer : 11 Mask : 12 Plauer
@@ -91,12 +89,8 @@ func _process(delta: float) -> void:
 	side_air_stop_movement_on_contact.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	side_air_stop_movement_on_contact.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
-	sheavy_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	sheavy_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	sheavy_2.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	sheavy_2.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	sheavy_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	sheavy_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+	side_heavy_pillar.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	side_heavy_pillar.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
 	Motion_Body.set_collision_layer_value(Player_Identifier.Motion_Layer, true)
 

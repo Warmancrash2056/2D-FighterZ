@@ -17237,9 +17237,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 90
+Recovery_Frames = 130
 Damage = 12.0
-Constant_Force = Vector2(20, -20)
+Constant_Force = Vector2(50, -250)
 
 [node name="Nuetral Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light Quick Punch"]
 visible = false
@@ -17641,7 +17641,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("15_ljr8u")
 script = ExtResource("16_t1xat")
 
-[node name="Animator" type="AnimationPlayer" parent="Controller" node_paths=PackedStringArray("Player_Identifier", "Controller", "Recovery_Timer", "Movement_Timer", "Refresh_Block", "Character", "Scaler", "Sprite")]
+[node name="Animator" type="AnimationPlayer" parent="Controller" node_paths=PackedStringArray("Player_Identifier", "Controller", "Recovery_Timer", "Movement_Timer", "Refresh_Block", "Character", "Scaler", "Sprite", "Ray")]
 reset_on_save = false
 root_node = NodePath("../Sprite")
 libraries = {
@@ -17656,6 +17656,7 @@ Refresh_Block = NodePath("../Recovery Timer/Refresh Block")
 Character = NodePath("..")
 Scaler = NodePath("../Scale Player")
 Sprite = NodePath("../Sprite")
+Ray = NodePath("../Raycast Controller")
 NRecovery = Vector2(0, -200)
 Slight = Vector2(5, 0)
 SAir = Vector2(20, 0)

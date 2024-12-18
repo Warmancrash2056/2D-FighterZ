@@ -455,4 +455,3 @@ func _transition_to_Finish_block():
 
 func _on_transitional_check_area_entered(area: Area2D) -> void:
 	transition_to_finish = true
-

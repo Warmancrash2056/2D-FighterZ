@@ -147,6 +147,11 @@ func _physics_process(delta):
 		Turning_Right:
 			play("Turning Right")
 
+		Moving_Left:
+			play("Moving Left")
+
+		Moving_Right:
+			play("Moving Right")
 		Forward_Step:
 			Attack_Vector = F_Step
 			play("Forward Step")

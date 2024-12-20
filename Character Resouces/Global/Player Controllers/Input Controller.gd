@@ -464,7 +464,7 @@ func _process_immediate_action():
 							print("Facing Left")
 
 						if Animator.state in [Running]:
-							pass 
+							Animator.state = Moving_Left 
 						
 
 
@@ -475,6 +475,9 @@ func _process_immediate_action():
 
 						if Animator.state in [Air]:
 							FacingRight.emit()
+
+						if Animator.state in [Running]:
+							Animator.state = Moving_Right
 
 			"attack":
 				if input_action.value == "throw" and input_action.onground == true:

@@ -4,9 +4,7 @@ extends Node2D
 @onready var attack_positioner = %'Attack Positioner'
 @onready var transition_attack = %'Transitional Check'
 @onready var neutral_light_quick_punch = %"Neutral Light Quick Punch"
-@onready var nair_1 = %'Neutral Air - 1'
-@onready var nair_2 = %'Neutral Air - 2'
-@onready var nair_3 = %'Neutral Air - 3'
+@onready var neutral_air_upward_sweep = %'Neutral Air Upward Sweep'
 @onready var nheavy_3 = %'Neatral Heavy - 1'
 @onready var nheavy_1 = %'Neutral Heavy - 2'
 @onready var nheavy_2 = %'Neutral Heavy - 3'
@@ -35,13 +33,8 @@ func _process(delta: float) -> void:
 	transition_attack.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 	neutral_light_quick_punch.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	neutral_light_quick_punch.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	nair_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-
-	nair_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	nair_2.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	nair_2.set_collision_mask_value(Player_Identifier.Attack_Layer, true)
-	nair_3.set_collision_layer_value(Player_Identifier.Attack_Mask, true)
-	nair_3.set_collision_mask_value(Player_Identifier.Attack_Layer, true)
+	neutral_air_upward_sweep.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	neutral_air_upward_sweep.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
 	nheavy_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	nheavy_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)

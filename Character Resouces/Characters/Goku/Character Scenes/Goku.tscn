@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=120 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -78,9 +78,6 @@ height = 19.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lvoev"]
 b = Vector2(1.5, 0)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_scl3d"]
-radius = 14.0357
 
 [sub_resource type="Animation" id="Animation_watpr"]
 resource_name = "Air Block - Held -"
@@ -4009,7 +4006,7 @@ tracks/4/path = NodePath("../Animator")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -4023,14 +4020,11 @@ tracks/5/path = NodePath("../Animator")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"enable_vertical_attack_movement"
-}, {
-"args": [],
-"method": &"disable_vertical_attack_movement"
+"method": &"_stop_player_movement"
 }]
 }
 tracks/6/type = "method"
@@ -4040,14 +4034,11 @@ tracks/6/path = NodePath("../Animator")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"start_attack_movment"
-}, {
-"args": [],
-"method": &"stop_attack_movment"
+"method": &"_on_is_attacking"
 }]
 }
 tracks/7/type = "method"
@@ -4057,62 +4048,17 @@ tracks/7/path = NodePath("../Animator")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"_start_attack_friction"
-}, {
-"args": [],
-"method": &"_stop_attack_friction"
-}]
-}
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../Animator")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_stop_player_movement"
-}]
-}
-tracks/9/type = "method"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../Animator")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_on_is_attacking"
-}]
-}
-tracks/10/type = "method"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("../Animator")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
 "values": []
 }
-tracks/11/type = "method"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("../Recovery Timer/Movement Cooldown")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Recovery Timer/Movement Cooldown")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(1.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -4120,409 +4066,409 @@ tracks/11/keys = {
 "method": &"start"
 }]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Hurtbox/Hurtbox:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Hurtbox/Hurtbox:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Hurtbox/Hurtbox:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
+}
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Hurtbox/Hurtbox:visible")
+tracks/12/path = NodePath("../Hurtbox/Hurtbox:debug_color")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [Color(0.67451, 0.505882, 0, 0.419608)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Hurtbox/Hurtbox:rotation")
+tracks/13/path = NodePath("../Hurtbox/Hurtbox:disabled")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [false]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Hurtbox/Hurtbox:position")
+tracks/14/path = NodePath("../Hurtbox/Hurtbox:shape:height")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 1)]
+"values": [32.0]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../Hurtbox/Hurtbox:debug_color")
+tracks/15/path = NodePath("../Hurtbox/Hurtbox:shape:radius")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.67451, 0.505882, 0, 0.419608)]
+"values": [8.0]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../Hurtbox/Hurtbox:disabled")
+tracks/16/path = NodePath("../Hurtbox/Hurtbox:shape")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
+"values": [SubResource("CapsuleShape2D_qamvs")]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../Hurtbox/Hurtbox:shape:height")
+tracks/17/path = NodePath("../Animator:speed_scale")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [32.0]
+"values": [1.0]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../Hurtbox/Hurtbox:shape:radius")
+tracks/18/path = NodePath("%Attack Positioner/Positioner:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [8.0]
+"values": [false]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../Hurtbox/Hurtbox:shape")
+tracks/19/path = NodePath("%Attack Positioner/Positioner:disabled")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [SubResource("CapsuleShape2D_qamvs")]
+"values": [true]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../Animator:speed_scale")
+tracks/20/path = NodePath("%Transitional Check/Transitional Check:disabled")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
+"update": 1,
+"values": [true]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("%Attack Positioner/Positioner:visible")
+tracks/21/path = NodePath("%Transitional Check/Transitional Check:visible")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [false]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("%Attack Positioner/Positioner:disabled")
+tracks/22/path = NodePath("../Scale Player/Neutral Light Quick Punch/Nuetral Light - 1:disabled")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [true]
 }
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("%Transitional Check/Transitional Check:disabled")
+tracks/23/path = NodePath("../Scale Player/Neutral Light Quick Punch/Nuetral Light - 1:visible")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("%Transitional Check/Transitional Check:visible")
+tracks/24/path = NodePath("../Scale Player/Neutral Air Upward Sweep/Neutral Air - 1:disabled")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../Scale Player/Neutral Light Quick Punch/Nuetral Light - 1:disabled")
+tracks/25/path = NodePath("../Scale Player/Neutral Air Upward Sweep/Neutral Air - 1:visible")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../Scale Player/Neutral Light Quick Punch/Nuetral Light - 1:visible")
+tracks/26/path = NodePath("%Neatral Heavy - 1/Neautral Heavy - 1:disabled")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../Scale Player/Neutral Air Upward Sweep/Neutral Air - 1:disabled")
+tracks/27/path = NodePath("%Neatral Heavy - 1/Neautral Heavy - 1:visible")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../Scale Player/Neutral Air Upward Sweep/Neutral Air - 1:visible")
+tracks/28/path = NodePath("%Neutral Heavy - 2/Neutral Heavy - 2:disabled")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("%Neatral Heavy - 1/Neautral Heavy - 1:disabled")
+tracks/29/path = NodePath("%Neutral Heavy - 2/Neutral Heavy - 2:visible")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("%Neatral Heavy - 1/Neautral Heavy - 1:visible")
+tracks/30/path = NodePath("%Neutral Heavy - 3/Neutral Heavy - 3:disabled")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("%Neutral Heavy - 2/Neutral Heavy - 2:disabled")
+tracks/31/path = NodePath("%Neutral Heavy - 3/Neutral Heavy - 3:visible")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("%Neutral Heavy - 2/Neutral Heavy - 2:visible")
+tracks/32/path = NodePath("%Neautral Recovery - 2/Neautral Recovery - 2:disabled")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("%Neutral Heavy - 3/Neutral Heavy - 3:disabled")
+tracks/33/path = NodePath("%Neautral Recovery - 2/Neautral Recovery - 2:visible")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("%Neutral Heavy - 3/Neutral Heavy - 3:visible")
+tracks/34/path = NodePath("%Neautral Recovery - 3/Neautral Recovery - 3:disabled")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/35/type = "value"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("%Neautral Recovery - 2/Neautral Recovery - 2:disabled")
+tracks/35/path = NodePath("%Neautral Recovery - 3/Neautral Recovery - 3:visible")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/36/type = "value"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("%Neautral Recovery - 2/Neautral Recovery - 2:visible")
+tracks/36/path = NodePath("../Scale Player/Down Light Upward kick/Down Light - 1:disabled")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("%Neautral Recovery - 3/Neautral Recovery - 3:disabled")
+tracks/37/path = NodePath("../Scale Player/Down Light Upward kick/Down Light - 1:visible")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/38/type = "value"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("%Neautral Recovery - 3/Neautral Recovery - 3:visible")
+tracks/38/path = NodePath("../Scale Player/Down Air Axe Kick/Down Air - 1:disabled")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/39/type = "value"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("../Scale Player/Down Light Upward kick/Down Light - 1:disabled")
+tracks/39/path = NodePath("../Scale Player/Down Air Axe Kick/Down Air - 1:visible")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/40/type = "value"
 tracks/40/imported = false
 tracks/40/enabled = true
-tracks/40/path = NodePath("../Scale Player/Down Light Upward kick/Down Light - 1:visible")
+tracks/40/path = NodePath("%Neautral Recovery - 1/Neautral Recovery - 1:disabled")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/41/type = "value"
 tracks/41/imported = false
 tracks/41/enabled = true
-tracks/41/path = NodePath("../Scale Player/Down Air Axe Kick/Down Air - 1:disabled")
+tracks/41/path = NodePath("%Neautral Recovery - 1/Neautral Recovery - 1:visible")
 tracks/41/interp = 1
 tracks/41/loop_wrap = true
 tracks/41/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/42/type = "value"
 tracks/42/imported = false
 tracks/42/enabled = true
-tracks/42/path = NodePath("../Scale Player/Down Air Axe Kick/Down Air - 1:visible")
+tracks/42/path = NodePath(".:offset")
 tracks/42/interp = 1
 tracks/42/loop_wrap = true
 tracks/42/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/43/type = "value"
-tracks/43/imported = false
-tracks/43/enabled = true
-tracks/43/path = NodePath("%Neautral Recovery - 1/Neautral Recovery - 1:disabled")
-tracks/43/interp = 1
-tracks/43/loop_wrap = true
-tracks/43/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/44/type = "value"
-tracks/44/imported = false
-tracks/44/enabled = true
-tracks/44/path = NodePath("%Neautral Recovery - 1/Neautral Recovery - 1:visible")
-tracks/44/interp = 1
-tracks/44/loop_wrap = true
-tracks/44/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/45/type = "value"
-tracks/45/imported = false
-tracks/45/enabled = true
-tracks/45/path = NodePath(".:offset")
-tracks/45/interp = 1
-tracks/45/loop_wrap = true
-tracks/45/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -5887,6 +5833,9 @@ tracks/1/keys = {
 "update": 1,
 "values": [206]
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_scl3d"]
+radius = 14.0357
 
 [sub_resource type="Animation" id="Animation_p10ac"]
 resource_name = "Down Recovery - Held Release -"
@@ -9587,38 +9536,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [235, 236, 237]
-}
-
-[sub_resource type="Animation" id="Animation_0d0u3"]
-resource_name = "Moving Left Right"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [224, 225, 226]
-}
-
-[sub_resource type="Animation" id="Animation_ey68j"]
-resource_name = "Moving Left Turn"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [224, 225, 226]
 }
 
 [sub_resource type="Animation" id="Animation_ovjpf"]
@@ -16314,8 +16231,6 @@ _data = {
 "Jump": SubResource("Animation_f73an"),
 "Landing": SubResource("Animation_7mqja"),
 "Moving Left": SubResource("Animation_saycc"),
-"Moving Left Right": SubResource("Animation_0d0u3"),
-"Moving Left Turn": SubResource("Animation_ey68j"),
 "Moving Right": SubResource("Animation_ovjpf"),
 "Neautral Air - Held -": SubResource("Animation_jqjf2"),
 "Neautral Air - Held Release -": SubResource("Animation_3sclg"),
@@ -16771,19 +16686,17 @@ Damage = 100.0
 Variable_Force = Vector2(0, 70)
 
 [node name="Down Recovery Boulder Held Collider" type="CollisionShape2D" parent="Controller/Scale Player/Down Recovery Boulder Held"]
+visible = false
 z_index = 10
-position = Vector2(0, 42)
-shape = SubResource("CircleShape2D_scl3d")
 disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="Controller"]
 z_index = 5
 position = Vector2(0, -40)
 texture = ExtResource("14_46ycp")
-offset = Vector2(0, 4)
 hframes = 10
 vframes = 25
-frame = 41
+frame = 96
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -17017,15 +16930,17 @@ Motion_Body = NodePath("../Controller")
 [connection signal="FacingLeft" from="Controller" to="Controller/Scale Player" method="_on_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Sprite" method="_on_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Hurtbox" method="_on_controller_facing_left"]
+[connection signal="FacingLeft" from="Controller" to="Controller/Raycast Controller" method="_on_controller_facing_left"]
 [connection signal="FacingRight" from="Controller" to="Controller/Scale Player" method="_on_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Sprite" method="_on_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Hurtbox" method="_on_controller_facing_right"]
+[connection signal="FacingRight" from="Controller" to="Controller/Raycast Controller" method="_on_controller_facing_right"]
 [connection signal="JumpCloud" from="Controller" to="Controller/Jump Smoke" method="_on_controller_jump_cloud"]
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]

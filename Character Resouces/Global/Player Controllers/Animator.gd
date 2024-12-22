@@ -126,11 +126,11 @@ func _physics_process(delta):
 	_attack_movment_controller()
 	match state:
 		Idle:
+			play("Idle")
 			if Ray.onground == false:
 				state = Air
-			play("Idle")
-
-			if Character.movement_dir.x != 0 and Ray.onground == true:
+					
+			if Character.movement_dir.x != 0 and Character.linear_velocity.x != 0:
 				state = Running
 
 		Running:

@@ -189,8 +189,10 @@ func _get_movement():
 			if Input.is_action_just_pressed(left_action):
 				hold_start_time[left_action] = current_time
 
-			var right_held = Input.is_action_pressed(right_action) and (current_time - hold_start_time.get(right_action, 0)) >= 0.1
-			var left_held = Input.is_action_pressed(left_action) and (current_time - hold_start_time.get(left_action,0)) >= 0.1
+			# Check if the right or left key is held for more than 0.5 seconds. THE LONGER THE KEY IS HELD tHE LONGER ITTAKE TO START MOVING.
+			# DEFALUT SPEED IS 0.1
+			var right_held = Input.is_action_pressed(right_action) and (current_time - hold_start_time.get(right_action, 0)) >= 0.15
+			var left_held = Input.is_action_pressed(left_action) and (current_time - hold_start_time.get(left_action,0)) >= 0.15
 			
 			if right_held:
 				movement_dir.x = 1
@@ -342,20 +344,21 @@ func _process_dual_direction():
 			var current_time = Time.get_ticks_msec()
 			var time_since_last_input = current_time - last_direction_press[dir]
 
-			if time_since_last_input <= 500 and last_direction == dir:
-				match dir:
-					"left": 
-						if Sprite.flip_h == false:
-							Animator.state = Backward_Step
+			if Animator.state in [Idle, Running, Dash]:
+				if time_since_last_input <= 500 and last_direction == dir:
+					match dir:
+						"left": 
+							if Sprite.flip_h == false and ray.completely_on_the_floor == true:
+								Animator.state = Backward_Step
 
-						else:
-							Animator.state = Forward_Step
-					"right":
-						if Sprite.flip_h == false:
-							Animator.state = Forward_Step
+							else:
+								Animator.state = Forward_Step
+						"right":
+							if Sprite.flip_h == false:
+								Animator.state = Forward_Step
 
-						else:
-							Animator.state = Backward_Step
+							else:
+								Animator.state = Backward_Step
 			
 
 			last_direction_press[dir] = current_time

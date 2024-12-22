@@ -204,13 +204,13 @@ func _get_movement():
 				movement_dir.x = 0
 
 			if Animator.state in [Running, Dash, Air]:
-				if movement_dir.x == 1 and Sprite.flip_h == false:
+				if movement_dir.x == 1:
 					linear_velocity.x = move_toward(linear_velocity.x, new_speed, Player_Stats.Acceleration)
 
 				else:
 					linear_velocity.x = move_toward(linear_velocity.x, 0, decelleration)
 
-				if movement_dir.x == -1 and Sprite.flip_h == true:
+				if movement_dir.x == -1:
 					linear_velocity.x = move_toward(linear_velocity.x, new_speed * -1, Player_Stats.Acceleration)
 
 				else:

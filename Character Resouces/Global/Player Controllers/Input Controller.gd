@@ -24,7 +24,7 @@ var direction = 1
 
 var movement_dir: Vector2
 var input_buffer = []
-var max_buffer_limit = 3
+var max_buffer_limit = 2
 var buffer_time = 0.1
 const Hold_threshold = 0.15
 var input_hold_times= {}
@@ -191,8 +191,8 @@ func _get_movement():
 
 			# Check if the right or left key is held for more than 0.5 seconds. THE LONGER THE KEY IS HELD tHE LONGER ITTAKE TO START MOVING.
 			# DEFALUT SPEED IS 0.1
-			var right_held = Input.is_action_pressed(right_action) and (current_time - hold_start_time.get(right_action, 0)) >= 0.15
-			var left_held = Input.is_action_pressed(left_action) and (current_time - hold_start_time.get(left_action,0)) >= 0.15
+			var right_held = Input.is_action_pressed(right_action) and (current_time - hold_start_time.get(right_action, 0)) >= 0.05
+			var left_held = Input.is_action_pressed(left_action) and (current_time - hold_start_time.get(left_action,0)) >= 0.05
 			
 			if right_held:
 				movement_dir.x = 1

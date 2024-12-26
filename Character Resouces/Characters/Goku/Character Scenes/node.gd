@@ -65,7 +65,7 @@ func _wall_detectors() -> bool:
 
 func _process(delta: float) -> void:
 	onground = _floor_detectors()
-	completely_on_the_floor = _completeley_is_on_the_wall()
+	completely_on_the_floor = _completely_is_on_floor()
 	onwall = _wall_detectors()
 	completely_on_the_wall = _completeley_is_on_the_wall()
 

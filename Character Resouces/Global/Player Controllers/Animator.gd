@@ -129,7 +129,7 @@ func _physics_process(delta):
 			play("Idle")
 			if Ray.onground == false:
 				state = Air
-					
+
 			if Character.movement_dir.x != 0 and Character.linear_velocity.x != 0:
 				state = Running
 
@@ -269,7 +269,7 @@ func _physics_process(delta):
 			pass
 
 		Side_Light_Held_Release:
-			pass
+			play("Side Light - Held Release -")
 
 		Side_Heavy_Start_Tap:
 			Attack_Vector = SHeavy
@@ -285,7 +285,7 @@ func _physics_process(delta):
 			Attack_Vector = SAir
 			play("Side Air - Start - Tap -")
 
-		Side_Air_Held:	
+		Side_Air_Held:
 			pass
 
 		Side_Air_Held_Release:
@@ -343,9 +343,10 @@ func _attack_movment_controller():
 		AttackFriction.emit(Attack_Friction)
 
 func _side_light_transition():
-	print(transition_to_finish)
+	print("can transition ", transition_to_finish)
 	if transition_to_finish == true:
-		state = Side_Light_Start_Tap
+		print("Transitioning")
+		state = Side_Light_Held_Release
 		transition_to_finish = false
 
 

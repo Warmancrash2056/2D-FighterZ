@@ -211,7 +211,7 @@ func _on_calculate_stun_frames(Recovery: int) -> void:
 
 	Stun_Timer.set_wait_time(stuned_time)
 	Stun_Timer.start()
-	print(stuned_time)
+	print(stun_frames, 'Stun frames calculated')
 
 
 func _on_area_exited(area: Area2D) -> void:

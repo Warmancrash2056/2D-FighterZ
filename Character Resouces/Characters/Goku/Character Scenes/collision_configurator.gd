@@ -17,9 +17,8 @@ extends Node2D
 @onready var drec_1 = %'Down Recovery - 1'
 @onready var drec_2 = %'Down Recovery - 2'
 @onready var drec_3 = %'Down Recovery - 3'
-@onready var slight_1 = %'Side Light - 1'
-@onready var slight_2 = %'Side Light -  2'
-@onready var slight_3 = %'Side Light - 3'
+@onready var side_light_transition_opener = %'Side Light Transition Opener'
+@onready var side_light_transition_ender = %'Side Light Transition Ender'
 @onready var side_air_force_kick = %'Side Air Force Kick'
 @onready var side_air_stop_movement_on_contact = %"Side Air Stop Movement"
 @onready var side_heavy_pillar = %'Side Heavy Pillar'
@@ -70,12 +69,10 @@ func _process(delta: float) -> void:
 	drec_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
 	# Section for Side Attacks
-	slight_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	slight_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	slight_2.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	slight_2.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	slight_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	slight_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+	side_light_transition_opener.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	side_light_transition_opener.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
+	side_light_transition_ender.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	side_light_transition_ender.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 
 	side_air_force_kick.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	side_air_force_kick.set_collision_mask_value(Player_Identifier.Attack_Mask, true)

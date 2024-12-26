@@ -1,12 +1,11 @@
 extends RigidBody2D
 
-signal Player1Box
 signal FacingLeft
 signal FacingRight
 signal JumpCloud
-signal IsAttacking
 signal IsBlocking
-signal IsRessetting
+signal IsAttacking
+signal IsResetting
 # Test to see if i can add the resource during instancing. #
 var Controls: Resource
 @onready var Player_Stats: Node = $'Player Stats'
@@ -24,7 +23,7 @@ var direction = 1
 
 var movement_dir: Vector2
 var input_buffer = []
-var max_buffer_limit = 2
+var max_buffer_limit = 4
 var buffer_time = 0.1
 const Hold_threshold = 0.15
 var input_hold_times= {}
@@ -96,24 +95,27 @@ enum {
 	Respawn
 }
 var last_direction_press = { # The last time a direction was pressed. match with new button pressed
+	"up": 0,
+	"down": 0,
 	"left": 0,
 	"right": 0
-}
-var hold_start_time = {}
+} 
+var hold_start_time = {} 
 var last_direction = "" # The last direction pressed.
 var state = Respawn
 func _ready():
 	# Create idependent physics material for each player as they enter the match.
-	# This will allow for the player to have their own physics material. 
+	# This will allow for the player to have their own physics material.
 	# and prevent global changes.
 	physics_material_override = PhysicsMaterial.new()
 	physics_material_override.friction = 1
 	physics_material_override.bounce = 0
 
 func _physics_process(delta: float) -> void:
+	print(hold_start_time)
 	#print(input_buffer)
 	_update_input_held_status() ## Necessary function to handle whether an input is held or not.
-	_process_input()
+	_process_direction()
 	_process_attack_input()
 	_process_block_input()
 	_process_dash_input()
@@ -128,16 +130,17 @@ func _physics_process(delta: float) -> void:
 		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 150)
 		global_position.y = move_toward(global_position.y, Goku_Positioner.y, 150)
 	if !Animator.state == Hurt:
-		contact_monitor = true
-		if ray.onground == true or surface_state == SurfaceAir:
-			_get_movement()
-			gravity_scale = 1
-
 		if ray.completely_on_the_wall == true:
 			_on_wall()
 
+		else:
+			_get_movement()
+
+	if Animator.state in [Respawn]:
+		gravity_scale = 0
+
 	else:
-		contact_monitor = false
+		gravity_scale = 1
 
 func _on_wall():
 	gravity_scale = 0
@@ -162,7 +165,6 @@ func _on_wall():
 # Disable movement at crtain frame of attack and enable at the end of attack.
 #Player can only move in the direction they are facing.
 func _get_movement():
-	#print(linear_velocity)
 	var new_speed
 	var air_rating: float = Player_Stats.Speed_Rating + 1.2
 	var decelleration =  Player_Stats.Decelleration
@@ -189,11 +191,9 @@ func _get_movement():
 			if Input.is_action_just_pressed(left_action):
 				hold_start_time[left_action] = current_time
 
-			# Check if the right or left key is held for more than 0.5 seconds. THE LONGER THE KEY IS HELD tHE LONGER ITTAKE TO START MOVING.
-			# DEFALUT SPEED IS 0.1
-			var right_held = Input.is_action_pressed(right_action) and (current_time - hold_start_time.get(right_action, 0)) >= 0.05
-			var left_held = Input.is_action_pressed(left_action) and (current_time - hold_start_time.get(left_action,0)) >= 0.05
-			
+			var right_held = Input.is_action_pressed(right_action) and (current_time - hold_start_time.get(right_action, 0)) >= 0.1
+			var left_held = Input.is_action_pressed(left_action) and (current_time - hold_start_time.get(left_action,0)) >= 0.1
+
 			if right_held:
 				movement_dir.x = 1
 
@@ -203,14 +203,14 @@ func _get_movement():
 			else:
 				movement_dir.x = 0
 
-			if Animator.state in [Running, Dash, Air]:
-				if movement_dir.x == 1:
+			if Animator.state in [Idle, Running, Dash, Air]:
+				if movement_dir.x == 1 and Sprite.flip_h == false:
 					linear_velocity.x = move_toward(linear_velocity.x, new_speed, Player_Stats.Acceleration)
 
 				else:
 					linear_velocity.x = move_toward(linear_velocity.x, 0, decelleration)
 
-				if movement_dir.x == -1:
+				if movement_dir.x == -1 and Sprite.flip_h == true:
 					linear_velocity.x = move_toward(linear_velocity.x, new_speed * -1, Player_Stats.Acceleration)
 
 				else:
@@ -226,7 +226,7 @@ func _update_input_held_status():
 					input_hold_times[action] = current_time
 
 				var hold_duration = current_time - input_hold_times[action]
-				input_action.held = hold_duration > Hold_threshold
+				input_action.held = hold_duration > Hold_threshold # DEFALUT VALUE IS 0.15 or 9 frames
 				input_states[action] = input_action.held
 
 			else:
@@ -238,14 +238,14 @@ func _update_input_held_status():
 
 # These two process_input() and process_attack() unction will process the input from the player and add it to the buffer.
 # Check wheter on of the direction keys are pressed or held. and add it to the buffer.
-func _process_input():
+func _process_direction():
 	# Get the action from which the player pressed and see if player is either still holding or pressed and released.
 	if can_direct == true:
 		var current_time = Time.get_ticks_msec() / 1000.0
 		var direction = ["left", "right", "up", "down"]
 		for dir in direction:
 			var action = Player_Identifier.Controls[dir]
-			
+
 			if Input.is_action_pressed(action):
 				var is_held = input_states.get(action, false)
 
@@ -257,8 +257,12 @@ func _process_input():
 					"timestamp": Time.get_ticks_msec(),
 					"held": is_held
 				})
+func enable_direction():
+	can_direct = true
 
-			
+func disable_direction():
+	can_direct = false
+
 func _process_jump_input():
 	if !Animator.state == Wall:
 			if can_jump == true and Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
@@ -270,18 +274,37 @@ func _process_jump_input():
 				# await get_tree().create_timer(0.4).timeout
 				previouslyjumped = true
 
-		
+func enable_jump():
+	can_jump = true
+
+func disable_jump():
+	can_jump = false
+
 
 func _process_dash_input():
 	if can_dash == true and can_attack == true:
 		if Input.is_action_just_pressed(Player_Identifier.Controls.dash):
 			add_to_buffer({"type": "move", "value": "dash", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 
+
+func enable_dash():
+	can_dash = true
+
+func disable_dash():
+	can_dash = false
+
+
 func _process_block_input():
 	if can_block == true and can_attack == true:
 		if Input.is_action_just_pressed(Player_Identifier.Controls.block):
 			add_to_buffer({"type": "move", "value": "block", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 			IsBlocking.emit()
+
+func enable_block():
+	can_block = true
+
+func disable_block():
+	can_block = false
 
 func _process_attack_input():
 		if can_attack == true:
@@ -291,7 +314,7 @@ func _process_attack_input():
 				var is_pressed = Input.is_action_pressed(action)
 				var is_just_preessed = Input.is_action_just_pressed(action)
 				var is_released = Input.is_action_just_released(action)
-				
+
 				# Set is_held status based on the action pressed.
 				var is_held = is_pressed
 				if 	is_just_preessed:
@@ -310,6 +333,12 @@ func _process_attack_input():
 						"timestamp": Time.get_ticks_msec(),
 						"held": false
 					})
+
+func enable_attack():
+	can_attack = true
+
+func disable_attack():
+	can_attack = false
 
 
 
@@ -332,6 +361,7 @@ func clear_inputs():
 			new_input_buffer.append(input)
 
 	input_buffer = new_input_buffer
+	hold_start_time.clear()
 
 func _input_debugger():
 	if input_buffer.size() > 1 :
@@ -343,23 +373,22 @@ func _process_dual_direction():
 		if Input.is_action_just_pressed(action):
 			var current_time = Time.get_ticks_msec()
 			var time_since_last_input = current_time - last_direction_press[dir]
-
 			if Animator.state in [Idle, Running, Dash]:
 				if time_since_last_input <= 500 and last_direction == dir:
 					match dir:
-						"left": 
+						"left":
 							if Sprite.flip_h == false and ray.completely_on_the_floor == true:
 								Animator.state = Backward_Step
 
 							else:
 								Animator.state = Forward_Step
 						"right":
-							if Sprite.flip_h == false:
+							if Sprite.flip_h == false and ray.completely_on_the_floor == true:
 								Animator.state = Forward_Step
 
 							else:
 								Animator.state = Backward_Step
-			
+
 
 			last_direction_press[dir] = current_time
 			last_direction = dir
@@ -417,7 +446,7 @@ func _process_dual_combinations():
 					if Animator.state == Idle or Animator.state == Running:
 						Animator.state = Side_Light_Start_Tap
 
-			
+
 			if first_input.held == true and first_input.onground == true and first_input.value == "left" and second_input.held == false and second_input.value == "heavy" and second_input.onground == true:
 					if Animator.state == Idle or Animator.state == Running:
 						Animator.state = Side_Heavy_Start_Tap
@@ -425,7 +454,7 @@ func _process_dual_combinations():
 			if first_input.held == true and first_input.value == "left" and second_input.held == false and second_input.value == "light" and second_input.onground == false:
 					if Animator.state == Air:
 						Animator.state = Side_Air_Start_Tap
-			
+
 func _proces_triple_combination():
 	for i in range(len(input_buffer) - 1):
 		var first_input = input_buffer[i]
@@ -467,8 +496,8 @@ func _process_immediate_action():
 							print("Facing Left")
 
 						if Animator.state in [Running]:
-							Animator.state = Moving_Left 
-						
+							Animator.state = Moving_Left
+
 
 
 				if Sprite.flip_h == true:
@@ -496,7 +525,7 @@ func _process_immediate_action():
 func _process_single_size_inputs() -> void:
 	for input_action in input_buffer:
 		if input_action.type == "attack":
-			if input_buffer.size() <= 1:	
+			if input_buffer.size() <= 1:
 				var onground = input_action.onground
 				var is_direction_held = input_action.get("held", false)
 				if input_action.value == "light":
@@ -573,3 +602,15 @@ func face_left():
 
 func face_right():
 	FacingRight.emit()
+
+# Enable the player actions after a certain time.
+func _on_recovery_timer_timeout() -> void:
+	can_attack = true
+	can_direct = true
+	can_jump = true
+	can_dash = true
+	
+
+
+func _on_body_entered(body):
+	pass # Replace with function body.

@@ -20,3 +20,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	CharacterList.player_1_health = Player_Stats.Health
 	MatchGameManager.player_1_global_position = Controller.global_position
+
+
+func _on_side_air_force_kick_area_entered(area:Area2D) -> void:
+	pass # Replace with function body.

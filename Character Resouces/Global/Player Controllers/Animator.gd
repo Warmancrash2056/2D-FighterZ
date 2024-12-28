@@ -213,7 +213,7 @@ func _physics_process(delta):
 			play("Respawn")
 
 		Ground_Throw_Start_Tap:
-			play("Ground Projectile")
+			play("Ground Projectile - Start - Tap -")
 			Attack_Vector = Throw_Ground
 
 		Ground_Throw_Held_Release:
@@ -223,7 +223,7 @@ func _physics_process(delta):
 			pass
 
 		Air_Throw_Start_Tap:
-			play("Air Projectile")
+			play("Air Projectile - Start - Tap -")
 			Attack_Vector = Throw_Air
 		Air_Throw_Held_Release:
 			pass

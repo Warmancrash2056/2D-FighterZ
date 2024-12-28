@@ -88,13 +88,14 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Variable Force"):
 		var variable_force = area.Variable_Force
 		CalculateVariableForce.emit(variable_force,direction)
-		#print(variable_force)
+		goku_neautral_havy = false
 
 	# Constant force that is fixed velocity not affected by player defense
 	elif area.is_in_group("Constant Force"):
 		var constant_force = area.Constant_Force
 		CalculateConstantForce.emit(constant_force,direction)
 		print(constant_force)
+		goku_neautral_havy = false
 
 	# Transition checks and relays to animator that attack connected.
 	elif area.is_in_group("Transition"):
@@ -217,7 +218,7 @@ func _on_calculate_stun_frames(Recovery: int) -> void:
 func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Goku Grab"):
 		goku_neautral_havy = false
-		CalculateStunFrames.emit(10)
+		#CalculateStunFrames.emit(10)
 
 
 func _on_calculate_constant_force(Constant: Vector2, Direction: bool) -> void:

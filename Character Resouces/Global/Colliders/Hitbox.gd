@@ -10,8 +10,8 @@ var transition_attack: bool = false
 
 ## Send the amount of time player is stunned to hitbox.
 ## Attack by default are 15 - 30 frames and Heavy are 30 - 60 frames
-@export_range(1, 300, 1) var Recovery_Frames: int
-@export_range(1, 100, 1) var Damage: float
+@export_range(1, 1000, 1) var Recovery_Frames: int
+@export_range(1, 1000, 1) var Damage: float
 @export var Variable_Force: Vector2 ## Force added onto current player velocity
 @export var Constant_Force: Vector2 ## Constant Force applied to player velocity
 
@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 
 
 ## Make Sure the name of signal is the same for every hitbox to register.
-## Signal is connected to timer 
+## Signal is connected to timer
 func _on_attack_connected() -> void:
 	print("hit")
 

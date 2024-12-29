@@ -99,7 +99,7 @@ var last_direction_press = { # The last time a direction was pressed. match with
 	"down": 0,
 	"left": 0,
 	"right": 0
-} 
+}
 var hold_start_time = {} # Captures the time he left or right button was pressed.
 # Matches
 var last_direction = "" # The last direction pressed.
@@ -543,10 +543,10 @@ func _process_single_size_inputs() -> void:
 						if onground == true:
 							if Animator.state == Idle or Animator.state == Running:
 								Animator.state = Neutral_Heavy
-								
+
 						if onground == false:
 								Animator.state = Neutral_Recovery
-								
+
 
 func _on_animator_is_attacking() -> void:
 	can_attack = false
@@ -609,7 +609,7 @@ func _on_recovery_timer_timeout() -> void:
 	can_direct = true
 	can_jump = true
 	can_dash = true
-	
+
 
 
 func _on_body_entered(body):

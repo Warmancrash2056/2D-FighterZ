@@ -100,7 +100,8 @@ var last_direction_press = { # The last time a direction was pressed. match with
 	"left": 0,
 	"right": 0
 } 
-var hold_start_time = {} 
+var hold_start_time = {} # Captures the time he left or right button was pressed.
+# Matches
 var last_direction = "" # The last direction pressed.
 var state = Respawn
 func _ready():
@@ -112,7 +113,7 @@ func _ready():
 	physics_material_override.bounce = 0
 
 func _physics_process(delta: float) -> void:
-	print(hold_start_time)
+	#print(hold_start_time)
 	#print(input_buffer)
 	_update_input_held_status() ## Necessary function to handle whether an input is held or not.
 	_process_direction()
@@ -149,15 +150,17 @@ func _on_wall():
 	if ray.scale.x < 0:
 		Sprite.flip_h = false
 		if Input.is_action_pressed(Player_Identifier.Controls.right):
-			linear_velocity = Vector2(100,-100)
+			linear_velocity = Vector2(200,-100)
 			add_to_buffer({"type": "direction", "value": "left", "onground": ray.onground == true,
 			"facing": -1 ,"timestamp": Time.get_ticks_msec()})
+			FacingRight.emit()
 	else:
 		Sprite.flip_h = true
 		if Input.is_action_pressed(Player_Identifier.Controls.left):
-			linear_velocity = Vector2(-100,-100)
+			linear_velocity = Vector2(-200,-100)
 			add_to_buffer({"type": "direction", "value": "right", "onground": ray.onground == true,
 			 "facing": 1 ,"timestamp": Time.get_ticks_msec()})
+			FacingLeft.emit()
 
 
 
@@ -533,20 +536,17 @@ func _process_single_size_inputs() -> void:
 						if onground == true:
 							if Animator.state == Idle or Animator.state == Running:
 								Animator.state = Neutral_Light
-								Animator.play("Neutral Light - Start -")
 						if onground == false:
 								Animator.state = Neutral_Air
-								Animator.play("Neutral Air - Start -")
-
 				if input_action.value == "heavy":
 					if is_direction_held == false:
 						if onground == true:
 							if Animator.state == Idle or Animator.state == Running:
 								Animator.state = Neutral_Heavy
-								Animator.play("Neutral Heavy - Start -")
+								
 						if onground == false:
 								Animator.state = Neutral_Recovery
-								Animator.play("Neutral Recovery - Start -")
+								
 
 func _on_animator_is_attacking() -> void:
 	can_attack = false

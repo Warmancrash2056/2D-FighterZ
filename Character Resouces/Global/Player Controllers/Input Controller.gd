@@ -148,19 +148,21 @@ func _on_wall():
 	linear_velocity.y = 10
 	linear_velocity.x = 0
 	if ray.scale.x < 0:
-		Sprite.flip_h = false
-		if Input.is_action_pressed(Player_Identifier.Controls.right):
-			linear_velocity = Vector2(200,-100)
-			add_to_buffer({"type": "direction", "value": "left", "onground": ray.onground == true,
-			"facing": -1 ,"timestamp": Time.get_ticks_msec()})
-			FacingRight.emit()
+		if Animator.state in [Wall]:
+			Sprite.flip_h = false
+			if Input.is_action_pressed(Player_Identifier.Controls.right):
+				linear_velocity = Vector2(200,-100)
+				add_to_buffer({"type": "direction", "value": "left", "onground": ray.onground == true,
+				"facing": -1 ,"timestamp": Time.get_ticks_msec()})
+				FacingRight.emit()
 	else:
-		Sprite.flip_h = true
-		if Input.is_action_pressed(Player_Identifier.Controls.left):
-			linear_velocity = Vector2(-200,-100)
-			add_to_buffer({"type": "direction", "value": "right", "onground": ray.onground == true,
-			 "facing": 1 ,"timestamp": Time.get_ticks_msec()})
-			FacingLeft.emit()
+		if Animator.state in [Wall]:
+			Sprite.flip_h = true
+			if Input.is_action_pressed(Player_Identifier.Controls.left):
+				linear_velocity = Vector2(-200,-100)
+				add_to_buffer({"type": "direction", "value": "right", "onground": ray.onground == true,
+				"facing": 1 ,"timestamp": Time.get_ticks_msec()})
+				FacingLeft.emit()
 
 
 
@@ -267,10 +269,10 @@ func disable_direction():
 	can_direct = false
 
 func _process_jump_input():
-	if !Animator.state == Wall:
+	if !Animator.state in [Wall, Hurt, Forward_Step, Backward_Step, Moving_Left, Turning_Left, Moving_Right, Turning_Right, Dash]:
 			if can_jump == true and Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
 				add_to_buffer({"type": "move", "value": "jump", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-				linear_velocity.y =  -Player_Stats.Jump_Height
+				linear_velocity.y = -Player_Stats.Jump_Height
 				JumpCloud.emit()
 				Player_Stats.Jump_Count -= 1
 				# Await 400ms so the jump can clear

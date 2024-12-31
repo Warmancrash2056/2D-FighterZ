@@ -16,11 +16,12 @@ var transition_attack: bool = false
 @export var Constant_Force: Vector2 ## Constant Force applied to player velocity
 
 # Get the attacker direction in interger to change the direction of x-axis knockback force
-var direction: int
+var direction: bool
 
 func _ready() -> void:
 	Variable_Force.x *= Player_Stats.Attack_Rating
 	Variable_Force.y *= Player_Stats.Attack_Rating
+
 func _process(delta: float) -> void:
 	direction = Sprite.flip_h
 

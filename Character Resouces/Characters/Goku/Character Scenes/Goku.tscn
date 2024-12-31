@@ -1,11 +1,10 @@
-[gd_scene load_steps=123 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=122 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Scale Player.gd" id="3_o62ja"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Colliders/Hitbox.gd" id="4_1ntk6"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Projectile & Positioner/Goku Attack Positioner.gd" id="5_6k13g"]
-[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/side_air_force_kick.gd" id="6_2q4m2"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/side_air_stop_movement.gd" id="6_jlokn"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Wall Cloud Position.gd" id="6_k6vmu"]
 [ext_resource type="PackedScene" uid="uid://dbl8tfhqj4rfw" path="res://Character Resouces/Global/Wall Cloud.tscn" id="7_ndq5m"]
@@ -14623,7 +14622,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [3.0]
+"values": [1.5]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -14696,7 +14695,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [3.0]
+"values": [1.5]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -14934,9 +14933,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 150
+Recovery_Frames = 200
 Damage = 60.0
-Variable_Force = Vector2(60, 200)
+Variable_Force = Vector2(-90, 90)
 
 [node name="Neautral Heavy - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neatral Heavy Heavy Smash"]
 visible = false
@@ -15107,20 +15106,28 @@ Variable_Force = Vector2(140, 0)
 visible = false
 disabled = true
 
-[node name="Side Air Force Kick" type="Area2D" parent="Controller/Scale Player" groups=["Constant Force"]]
+[node name="Side Air Force Kick" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("6_2q4m2")
+script = ExtResource("4_1ntk6")
+Animator = NodePath("../../Animator")
+Sprite = NodePath("../../Sprite")
+Recovery_Frames = 260
+Damage = 25.0
+Variable_Force = Vector2(120, 0)
 
 [node name="Side Air - 1" type="CollisionShape2D" parent="Controller/Scale Player/Side Air Force Kick"]
 visible = false
 disabled = true
 
-[node name="Side Air Stop Movement" type="Area2D" parent="Controller/Scale Player"]
+[node name="Side Air Stop Movement" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite", "Character")]
 unique_name_in_owner = true
 editor_description = "Stops the player from moving if they collidewith a wall or orcharacter."
 script = ExtResource("6_jlokn")
+Animator = NodePath("../../Animator")
+Sprite = NodePath("../../Sprite")
+Character = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Controller/Scale Player/Side Air Stop Movement"]
 visible = false
@@ -15200,7 +15207,7 @@ texture = ExtResource("14_46ycp")
 offset = Vector2(0, 5)
 hframes = 10
 vframes = 25
-frame = 48
+frame = 207
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -15258,7 +15265,7 @@ bus = &"SFX"
 
 [node name="Player Stats" type="Node" parent="Controller"]
 script = ExtResource("30_h56yx")
-Max_Speed = 10
+Max_Speed = 20
 Fast_Fall = 50
 Acceleration = 30
 Health = 1000.0
@@ -15493,6 +15500,7 @@ Motion_Body = NodePath("../Controller")
 [connection signal="AttackConnected" from="Controller/Scale Player/Side Light Transition Ender" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Side Air Force Kick" to="." method="_on_side_air_force_kick_area_entered"]
 [connection signal="area_entered" from="Controller/Scale Player/Side Air Force Kick" to="Controller/Scale Player/Side Air Force Kick" method="_on_area_entered"]
+[connection signal="area_entered" from="Controller/Scale Player/Side Air Stop Movement" to="Controller/Scale Player/Side Air Stop Movement" method="_on_area_entered"]
 [connection signal="body_entered" from="Controller/Scale Player/Side Air Stop Movement" to="Controller/Scale Player/Side Air Stop Movement" method="_on_body_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Side Heavy Pillar" to="Controller/Scale Player/Side Heavy Pillar" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Side Heavy Pillar" to="Controller/Recovery Timer" method="_on_attack_connected"]

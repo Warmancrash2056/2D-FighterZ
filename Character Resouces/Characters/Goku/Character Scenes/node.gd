@@ -124,6 +124,8 @@ func _process(delta: float) -> void:
 	onwall = _wall_detectors()
 	completely_on_the_wall = _completeley_is_on_the_wall()
 
+	# Disable the wall detector to prevent player from clinging
+	# While stuned.
 	if Animator.state in [Hurt]:
 		Wall_1.enabled = false
 		Wall_2.enabled = false

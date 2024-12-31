@@ -14512,12 +14512,14 @@ shape = SubResource("CapsuleShape2D_qtdme")
 disabled = true
 debug_color = Color(0, 0.643513, 0.298632, 0.42)
 
-[node name="Raycast Controller" type="Node2D" parent="Controller"]
+[node name="Raycast Controller" type="Node2D" parent="Controller" node_paths=PackedStringArray("Animator")]
 z_index = 6
 script = ExtResource("34_1u23v")
+Animator = NodePath("../Animator")
 
 [node name="Floor 1" type="RayCast2D" parent="Controller/Raycast Controller"]
 position = Vector2(0, 16)
+enabled = false
 target_position = Vector2(0, 3)
 
 [node name="Floor 2" type="RayCast2D" parent="Controller/Raycast Controller"]

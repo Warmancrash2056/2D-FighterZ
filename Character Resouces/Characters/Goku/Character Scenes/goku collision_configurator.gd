@@ -6,7 +6,7 @@ extends Node2D
 @onready var neutral_light_quick_punch = %"Neutral Light Quick Punch"
 @onready var neutral_air_upward_sweep = %'Neutral Air Upward Sweep'
 @onready var neutral_heavy_smash = %'Neatral Heavy Heavy Smash'
-@onready var neutral_recovery_upper_cut = %'NNeutral Recovery Upper Cut'
+@onready var neutral_recovery_upper_cut = %'Neutral Recovery Upper Cut'
 @onready var down_light_upward_kick = %'Down Light Upward kick'
 @onready var down_air_axe_kick = %'Down Air Axe Kick'
 @onready var down_heavy_pillar = %'Down Heavy Pillar'

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=21 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -5745,15 +5745,6 @@ texture = ExtResource("2_uq8es")
 [sub_resource type="TileSet" id="TileSet_tqbgv"]
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oat2j"]
-friction = 0.8
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a214r"]
-friction = 0.5
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7koog"]
-friction = 0.5
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qhqn"]
 size = Vector2(29, 24)
 
@@ -5848,7 +5839,6 @@ layer_0/tile_data = PackedInt32Array(589826, 65536, 12, 655362, 65536, 13, 72089
 z_index = 5
 position = Vector2(0, 40)
 collision_mask = 256
-physics_material_override = SubResource("PhysicsMaterial_oat2j")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Floor"]
 position = Vector2(0, -12)
@@ -5860,7 +5850,6 @@ z_index = 5
 position = Vector2(0, 40)
 collision_layer = 8
 collision_mask = 0
-physics_material_override = SubResource("PhysicsMaterial_a214r")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Left Wall"]
 position = Vector2(144, -72)
@@ -5871,7 +5860,6 @@ z_index = 5
 position = Vector2(0, 40)
 collision_layer = 8
 collision_mask = 0
-physics_material_override = SubResource("PhysicsMaterial_7koog")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Right Wall"]
 position = Vector2(-168, -80)

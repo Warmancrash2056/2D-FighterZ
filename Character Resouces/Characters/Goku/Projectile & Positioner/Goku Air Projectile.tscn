@@ -278,7 +278,7 @@ collision_layer = 0
 collision_mask = 31
 script = ExtResource("1_2xba1")
 Projectile_Hitbox = NodePath("Hitbox")
-Max_Speed = 500
+Max_Speed = 120
 Acceleration = 100.0
 Animator = NodePath("AnimationPlayer")
 Sprite = NodePath("Sprite2D")
@@ -305,7 +305,7 @@ Animator = NodePath("../AnimationPlayer")
 Sprite = NodePath("../Sprite2D")
 Recovery_Frames = 120
 Damage = 17.0
-Constant_Force = Vector2(178, 0)
+Constant_Force = Vector2(120, -20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(5, 0)

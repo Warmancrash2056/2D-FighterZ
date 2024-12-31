@@ -6,9 +6,7 @@ extends Node2D
 @onready var neutral_light_quick_punch = %"Neutral Light Quick Punch"
 @onready var neutral_air_upward_sweep = %'Neutral Air Upward Sweep'
 @onready var neutral_heavy_smash = %'Neatral Heavy Heavy Smash'
-@onready var nrec_1 = %'Neautral Recovery - 1'
-@onready var nrec_2 = %'Neautral Recovery - 2'
-@onready var nrec_3 = %'Neautral Recovery - 3'
+@onready var neutral_recovery_upper_cut = %'NNeutral Recovery Upper Cut'
 @onready var down_light_upward_kick = %'Down Light Upward kick'
 @onready var down_air_axe_kick = %'Down Air Axe Kick'
 @onready var down_heavy_pillar = %'Down Heavy Pillar'
@@ -35,13 +33,8 @@ func _process(delta: float) -> void:
 
 	neutral_heavy_smash.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	neutral_heavy_smash.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	nrec_1.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	nrec_1.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	nrec_2.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	nrec_2.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-	nrec_3.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
-	nrec_3.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
-
+	neutral_recovery_upper_cut.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
+	neutral_recovery_upper_cut.set_collision_mask_value(Player_Identifier.Attack_Mask, true)
 	# Section for Down Attacks #
 	down_light_upward_kick.set_collision_layer_value(Player_Identifier.Attack_Layer, true)
 	down_light_upward_kick.set_collision_mask_value(Player_Identifier.Attack_Mask, true)

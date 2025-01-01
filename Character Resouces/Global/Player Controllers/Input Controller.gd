@@ -196,8 +196,8 @@ func _get_movement():
 			if Input.is_action_just_pressed(left_action):
 				hold_start_time[left_action] = current_time
 
-			var right_held = Input.is_action_pressed(right_action) and (current_time - hold_start_time.get(right_action, 0)) >= 0.1
-			var left_held = Input.is_action_pressed(left_action) and (current_time - hold_start_time.get(left_action,0)) >= 0.1
+			var right_held = Input.is_action_pressed(right_action) and (current_time - hold_start_time.get(right_action, 0)) >= 0.01
+			var left_held = Input.is_action_pressed(left_action) and (current_time - hold_start_time.get(left_action,0)) >= 0.01
 
 			if right_held:
 				movement_dir.x = 1
@@ -493,27 +493,27 @@ func _process_immediate_action():
 			"direction":
 				if Sprite.flip_h == false:
 					if input_action.value == "left" and input_action.held == true:
-						if Animator.state in [Idle]:
-							Animator.state = Turning_Left
+						#if Animator.state in [Idle]:
+							#Animator.state = Turning_Left
 
 						if Animator.state in [Air]:
 							FacingLeft.emit()
 							print("Facing Left")
 
-						if Animator.state in [Running]:
+						if Animator.state in [Idle, Running]:
 							Animator.state = Moving_Left
 
 
 
 				if Sprite.flip_h == true:
 					if input_action.value == "right" and input_action.held == true:
-						if Animator.state in [Idle]:
-							Animator.state = Turning_Right
+						#if Animator.state in [Idle]:
+							#Animator.state = Turning_Right
 
 						if Animator.state in [Air]:
 							FacingRight.emit()
 
-						if Animator.state in [Running]:
+						if Animator.state in [Idle, Running]:
 							Animator.state = Moving_Right
 
 			"attack":

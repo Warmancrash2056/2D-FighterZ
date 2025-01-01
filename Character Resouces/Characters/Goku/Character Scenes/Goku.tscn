@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=121 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -37,7 +37,6 @@
 [ext_resource type="PackedScene" uid="uid://2pjd3qes2s7u" path="res://Character Resouces/Global/Cloud Resources/Knockback Cloud/Air Knockback/Air Knockback Cloud.tscn" id="39_q7fls"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/block_hurtbox.gd" id="40_0gelp"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/floor_effect_hitbox.gd" id="43_tj1e8"]
-[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/collision_configurator.gd" id="44_7uh1h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rf1xj"]
 
@@ -15434,10 +15433,7 @@ shape = SubResource("CapsuleShape2D_6vkij")
 disabled = true
 debug_color = Color(0.66071, 0.514299, 0, 0.42)
 
-[node name="Goku Collision Configurator" type="Node2D" parent="." node_paths=PackedStringArray("Player_Identifier", "Motion_Body")]
-script = ExtResource("44_7uh1h")
-Player_Identifier = NodePath("..")
-Motion_Body = NodePath("../Controller")
+[node name="Goku Collision Configurator" type="Node2D" parent="."]
 
 [connection signal="FacingLeft" from="Controller" to="Controller/Scale Player" method="_on_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Sprite" method="_on_controller_facing_left"]

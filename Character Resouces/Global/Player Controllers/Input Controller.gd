@@ -138,10 +138,11 @@ func _physics_process(delta: float) -> void:
 			_get_movement()
 
 	if Animator.state in [Respawn]:
-		gravity_scale = 0
+		gravity_scale = 0.0
 
 	else:
-		gravity_scale = 1
+		gravity_scale = 1.0
+
 
 func _on_wall():
 	gravity_scale = 0

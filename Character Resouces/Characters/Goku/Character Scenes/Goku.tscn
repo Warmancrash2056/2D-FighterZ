@@ -41,8 +41,13 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rf1xj"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tetah"]
+radius = 8.06226
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_drh4y"]
 radius = 4.27
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0ojs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84yx1"]
 radius = 4.272
@@ -8527,11 +8532,6 @@ step = 0.1
 resource_name = "Neautral Heavy - Held Release -"
 step = 0.1
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0ojs"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_tetah"]
-radius = 8.06226
-
 [sub_resource type="Animation" id="Animation_nfd27"]
 resource_name = "Neautral Heavy - Start - Tap -"
 length = 1.6
@@ -14061,8 +14061,9 @@ Sprite = NodePath("../../Sprite")
 Recovery_Frames = 300
 
 [node name="Positioner" type="CollisionShape2D" parent="Controller/Scale Player/Attack Positioner"]
-visible = false
-disabled = true
+position = Vector2(32, -25)
+shape = SubResource("CircleShape2D_tetah")
+debug_color = Color(0, 0, 0, 0.419608)
 script = ExtResource("5_6k13g")
 
 [node name="Transitional Check" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Transition"]]
@@ -14128,8 +14129,10 @@ Damage = 60.0
 Variable_Force = Vector2(-90, 90)
 
 [node name="Neautral Heavy - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neatral Heavy Heavy Smash"]
-visible = false
-disabled = true
+position = Vector2(-57, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_q0ojs")
+debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Neutral Recovery Upper Cut" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
 unique_name_in_owner = true
@@ -14364,7 +14367,7 @@ texture = ExtResource("14_46ycp")
 offset = Vector2(0, 5)
 hframes = 10
 vframes = 25
-frame = 235
+frame = 54
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -14380,7 +14383,6 @@ root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_467i5")
 }
-speed_scale = 0.8
 script = ExtResource("17_xa6s0")
 Player_Identifier = NodePath("../..")
 Controller = NodePath("../..")
@@ -14423,12 +14425,12 @@ bus = &"SFX"
 
 [node name="Player Stats" type="Node" parent="Controller"]
 script = ExtResource("30_h56yx")
-Max_Speed = 20
+Max_Speed = 10
 Fast_Fall = 50
 Acceleration = 30
 Health = 1000.0
 Decelleration = 1
-Jump_Height = 200
+Jump_Height = 150
 Speed_Rating = 7
 Defense_Rating = 3
 Attack_Rating = 5
@@ -14612,8 +14614,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]

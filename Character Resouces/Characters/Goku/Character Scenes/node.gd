@@ -18,6 +18,16 @@ extends Node2D
 @onready var Wall_5 = $'Wall 5'
 @onready var Wall_6 = $'Wall 6'
 @onready var Wall_7 = $'Wall 7'
+@onready var Wall_8 = $'Wall 8'
+@onready var Wall_9 = $'Wall 9'
+@onready var Wall_10 = $'Wall 10'
+@onready var Wall_11 = $'Wall 11'
+@onready var Wall_12 = $'Wall 12'
+@onready var Wall_13 = $'Wall 13'
+@onready var Wall_14 = $'Wall 14'
+@onready var Wall_15 = $'Wall 15'
+@onready var Wall_16 = $'Wall 16'
+
 
 enum {
 	Idle,
@@ -99,7 +109,10 @@ func _completeley_is_on_the_wall():
 	var detectors= [Wall_1,
 	 Wall_2, Wall_3,
 	 Wall_4, Wall_5,
-	 Wall_6, Wall_7]
+	 Wall_6, Wall_7,
+	Wall_8,Wall_9,
+	Wall_10,Wall_11
+	,Wall_12,Wall_13,Wall_14,Wall_15,Wall_16]
 	for detect in detectors:
 		if not detect.is_colliding():
 			return false
@@ -109,7 +122,10 @@ func _wall_detectors() -> bool:
 	var detectors= [Wall_1,
 	 Wall_2, Wall_3,
 	 Wall_4, Wall_5,
-	 Wall_6, Wall_7]
+	 Wall_6, Wall_7,
+	Wall_8,Wall_9,
+	Wall_10,Wall_11
+	,Wall_12,Wall_13,Wall_14,Wall_15,Wall_16]
 	for detect in detectors:
 		if detect.is_colliding() == true:
 			return true

@@ -122,7 +122,7 @@ func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 		min(camera_zoom_level, viewport_size.x / rect.size.x - zoom_offset),
 		min(camera_zoom_level, viewport_size.y / rect.size.y - zoom_offset)
 	)
-	return Vector2(max(min_zoom, 1.9), max(min_zoom, 1.9))
+	return Vector2(max(min_zoom, 2.2), max(min_zoom, 2.2))
 
 
 func _draw() -> void:

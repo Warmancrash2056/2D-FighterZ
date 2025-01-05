@@ -162,26 +162,6 @@ func _physics_process(delta):
 
 		Dash:
 			play("Fast Run")
-			if Ray.onground == false:
-				state = Air
-			if Character.movement_dir.x == 0:
-				state = Idle
-				Character.can_attack = true
-				Character.can_jump = true
-				Character.can_direct = true
-
-			if Sprite.flip_h == false and Character.movement_dir.x == -1:
-				state = Wall
-				Character.can_attack = true
-				Character.can_jump = true
-				Character.can_direct = true
-
-			if Sprite.flip_h == true and Character.movement_dir.x == 1:
-				state = Wall
-				Character.can_attack = true
-				Character.can_jump = true
-				Character.can_direct = true
-
 		Air:
 			if Character.linear_velocity.y > 0:
 				play("Fall")

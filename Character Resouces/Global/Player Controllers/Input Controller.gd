@@ -118,7 +118,7 @@ func _physics_process(delta: float) -> void:
 	_update_input_held_status() ## Necessary function to handle whether an input is held or not.
 	_process_direction()
 	_process_attack_input()
-	_process_block_input()
+	#_process_block_input()
 	_process_dash_input()
 	_process_jump_input()
 	clear_inputs()
@@ -280,13 +280,6 @@ func _process_jump_input():
 				# await get_tree().create_timer(0.4).timeout
 				previouslyjumped = true
 
-func enable_jump():
-	can_jump = true
-
-func disable_jump():
-	can_jump = false
-
-
 func _process_dash_input():
 	if can_dash == true and can_attack == true:
 		if Input.is_action_just_pressed(Player_Identifier.Controls.dash):
@@ -308,7 +301,7 @@ func _process_block_input():
 	var block = ["block"]
 	for def in block:
 		var action = Player_Identifier.Controls[block]
-		var is
+
 
 func enable_block():
 	can_block = true

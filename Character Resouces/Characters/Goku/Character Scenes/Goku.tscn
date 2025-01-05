@@ -1412,6 +1412,35 @@ tracks/50/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/51/type = "method"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("%Hurtbox")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_knockback"
+}, {
+"args": [],
+"method": &"_knockback"
+}, {
+"args": [],
+"method": &"_knockback"
+}, {
+"args": [],
+"method": &"_knockback"
+}, {
+"args": [],
+"method": &"_knockback"
+}, {
+"args": [],
+"method": &"_knockback"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_1w688"]
 resource_name = "Air Projectile - Start - Tap -"
@@ -6890,6 +6919,35 @@ tracks/22/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/23/type = "method"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("%Hurtbox")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_knockback"
+}, {
+"args": [],
+"method": &"_knockback"
+}, {
+"args": [],
+"method": &"_knockback"
+}, {
+"args": [],
+"method": &"_knockback"
+}, {
+"args": [],
+"method": &"_knockback"
+}, {
+"args": [],
+"method": &"_knockback"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_a7wr2"]
@@ -14024,8 +14082,10 @@ Sprite = NodePath("../../Sprite")
 Recovery_Frames = 300
 
 [node name="Positioner" type="CollisionShape2D" parent="Controller/Scale Player/Attack Positioner"]
+visible = false
 position = Vector2(32, -25)
 shape = SubResource("CircleShape2D_tetah")
+disabled = true
 debug_color = Color(0, 0, 0, 0.419608)
 script = ExtResource("5_6k13g")
 
@@ -14058,7 +14118,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 450
 Damage = 12.0
-Constant_Force = Vector2(80, -200)
+Constant_Force = Vector2(10, -80)
 
 [node name="Nuetral Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light Quick Punch"]
 visible = false
@@ -14092,9 +14152,11 @@ Damage = 60.0
 Variable_Force = Vector2(-90, 90)
 
 [node name="Neautral Heavy - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neatral Heavy Heavy Smash"]
+visible = false
 position = Vector2(-57, 8)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_q0ojs")
+disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Neutral Recovery Upper Cut" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
@@ -14108,8 +14170,10 @@ Recovery_Frames = 130
 Variable_Force = Vector2(0, -350)
 
 [node name="Neautral Recovery - 3" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Recovery Upper Cut"]
+visible = false
 position = Vector2(7, -23)
 shape = SubResource("CircleShape2D_84yx1")
+disabled = true
 
 [node name="Down Light Upward kick" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
 unique_name_in_owner = true
@@ -14118,9 +14182,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 300
+Recovery_Frames = 360
 Damage = 27.0
-Variable_Force = Vector2(0, -110)
+Variable_Force = Vector2(0, -50)
 
 [node name="Down Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Down Light Upward kick"]
 visible = false
@@ -14300,6 +14364,7 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Controller/Scale Player/Wall Cloud Position/Wall Detector"]
 z_index = 20
 shape = SubResource("SegmentShape2D_lvoev")
+disabled = true
 debug_color = Color(0.960784, 0, 0.517647, 0.419608)
 
 [node name="KnockBack Ground Slide" type="Marker2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite")]
@@ -14327,7 +14392,7 @@ position = Vector2(0, -40)
 texture = ExtResource("14_46ycp")
 hframes = 10
 vframes = 25
-frame = 111
+frame = 172
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -14618,8 +14683,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]

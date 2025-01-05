@@ -301,10 +301,14 @@ func disable_dash():
 
 
 func _process_block_input():
-	if can_block == true and can_attack == true:
-		if Input.is_action_just_pressed(Player_Identifier.Controls.block):
-			add_to_buffer({"type": "move", "value": "block", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			IsBlocking.emit()
+	#if can_block == true and can_attack == true:
+		#if Input.is_action_just_pressed(Player_Identifier.Controls.block):
+			#add_to_buffer({"type": "move", "value": "block", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			#IsBlocking.emit()
+	var block = ["block"]
+	for def in block:
+		var action = Player_Identifier.Controls[block]
+		var is
 
 func enable_block():
 	can_block = true

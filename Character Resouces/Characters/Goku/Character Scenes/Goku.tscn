@@ -14134,7 +14134,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 120
 Damage = 20.0
-Variable_Force = Vector2(0, -127)
+Variable_Force = Vector2(0, -20)
 
 [node name="Neutral Air - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Air Upward Sweep"]
 visible = false

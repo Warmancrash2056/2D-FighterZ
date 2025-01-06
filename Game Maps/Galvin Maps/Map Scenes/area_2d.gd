@@ -7,7 +7,6 @@ func  _physics_process(delta: float) -> void:
 		Collider.debug_color = Color.RED
 		Collider.debug_color = Color.YELLOW
 		Collider.debug_color = Color.GREEN
-		print("Collision")
 
 	else:
 		Collider.debug_color = Color.BLUE

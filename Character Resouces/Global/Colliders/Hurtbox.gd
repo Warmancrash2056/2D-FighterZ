@@ -87,8 +87,7 @@ func _on_area_entered(area: Area2D) -> void:
 	var direction:bool = area.direction
 	var stun_frames:int = area.Recovery_Frames
 	IsHurt.emit(damage_done)
-	if Stun_Timer.is_stopped() == true:
-		CalculateStunFrames.emit(stun_frames)
+	CalculateStunFrames.emit(stun_frames)
 	if area.is_in_group("Variable Force"):
 		var variable_force = area.Variable_Force
 		CalculateVariableForce.emit(variable_force,direction)
@@ -232,8 +231,8 @@ func _on_calculate_constant_force(Constant: Vector2, Direction: bool) -> void:
 	else:
 		Constant.x
 
-	x_knockback = Constant.x
-	y_knockback = Constant.y
+	Character.linear_velocity.x = Constant.x
+	Character.linear_velocity.y = Constant.y
 
 
 func _on_calculate_variable_force(Variable: Vector2, Direction: bool) -> void:
@@ -246,10 +245,6 @@ func _on_calculate_variable_force(Variable: Vector2, Direction: bool) -> void:
 	var knockback_x: float = Variable.x / defense_rating
 	var knockback_y: float = Variable.y / defense_rating
 	var _vector = Vector2(knockback_x * knockback_multiplier,knockback_y * knockback_multiplier)
-	x_knockback = _vector.x
-	y_knockback = _vector.y
+	Character.linear_velocity.x= _vector.x
+	Character.linear_velocity.y = _vector.y
 	print(_vector, 'Variable force calculated')
-
-func _knockback():
-	Character.linear_velocity.x = x_knockback
-	Character.linear_velocity.y = y_knockback

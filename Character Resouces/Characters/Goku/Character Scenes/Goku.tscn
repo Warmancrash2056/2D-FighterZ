@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=122 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -1411,35 +1411,6 @@ tracks/50/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/51/type = "method"
-tracks/51/imported = false
-tracks/51/enabled = true
-tracks/51/path = NodePath("%Hurtbox")
-tracks/51/interp = 1
-tracks/51/loop_wrap = true
-tracks/51/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"_knockback"
-}, {
-"args": [],
-"method": &"_knockback"
-}, {
-"args": [],
-"method": &"_knockback"
-}, {
-"args": [],
-"method": &"_knockback"
-}, {
-"args": [],
-"method": &"_knockback"
-}, {
-"args": [],
-"method": &"_knockback"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_1w688"]
@@ -6920,35 +6891,6 @@ tracks/22/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/23/type = "method"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("%Hurtbox")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"_knockback"
-}, {
-"args": [],
-"method": &"_knockback"
-}, {
-"args": [],
-"method": &"_knockback"
-}, {
-"args": [],
-"method": &"_knockback"
-}, {
-"args": [],
-"method": &"_knockback"
-}, {
-"args": [],
-"method": &"_knockback"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_a7wr2"]
 resource_name = "Ground Projectile - Held Release -"
@@ -7776,6 +7718,14 @@ tracks/46/keys = {
 "update": 1,
 "values": [false]
 }
+
+[sub_resource type="Animation" id="Animation_4lqq8"]
+resource_name = "Initial Air Jump"
+step = 0.1
+
+[sub_resource type="Animation" id="Animation_a17lm"]
+resource_name = "Initial Ground Jump"
+step = 0.1
 
 [sub_resource type="Animation" id="Animation_f73an"]
 resource_name = "Jump"
@@ -13790,6 +13740,10 @@ resource_name = "Side Recovery - Finish -"
 [sub_resource type="Animation" id="Animation_whr6d"]
 resource_name = "Side Recovery - Start -"
 
+[sub_resource type="Animation" id="Animation_dlcs8"]
+resource_name = "Spike Stun"
+step = 0.1
+
 [sub_resource type="Animation" id="Animation_8y8ej"]
 resource_name = "Turning Left"
 step = 0.1
@@ -14007,6 +13961,8 @@ _data = {
 "Ground Projectile - Held Release -": SubResource("Animation_a7wr2"),
 "Ground Projectile - Start - Tap -": SubResource("Animation_yv4d3"),
 "Idle": SubResource("Animation_c7e8a"),
+"Initial Air Jump": SubResource("Animation_4lqq8"),
+"Initial Ground Jump": SubResource("Animation_a17lm"),
 "Jump": SubResource("Animation_f73an"),
 "Landing": SubResource("Animation_7mqja"),
 "Moving Left": SubResource("Animation_saycc"),
@@ -14034,6 +13990,7 @@ _data = {
 "Side Light -Start - Tap -": SubResource("Animation_t2w0d"),
 "Side Recovery - Finish -": SubResource("Animation_5ok2h"),
 "Side Recovery - Start -": SubResource("Animation_whr6d"),
+"Spike Stun": SubResource("Animation_dlcs8"),
 "Turning Left": SubResource("Animation_8y8ej"),
 "Turning Right": SubResource("Animation_0ipgu"),
 "Wall": SubResource("Animation_kgf6n")
@@ -14118,7 +14075,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 450
 Damage = 12.0
-Constant_Force = Vector2(10, -80)
+Constant_Force = Vector2(22, -193)
 
 [node name="Nuetral Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light Quick Punch"]
 visible = false
@@ -14132,9 +14089,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 120
+Recovery_Frames = 200
 Damage = 20.0
-Variable_Force = Vector2(0, -20)
+Variable_Force = Vector2(0, -40)
 
 [node name="Neutral Air - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Air Upward Sweep"]
 visible = false
@@ -14392,7 +14349,7 @@ position = Vector2(0, -40)
 texture = ExtResource("14_46ycp")
 hframes = 10
 vframes = 25
-frame = 172
+frame = 175
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -14683,8 +14640,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]

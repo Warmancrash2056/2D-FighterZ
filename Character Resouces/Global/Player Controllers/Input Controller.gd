@@ -188,7 +188,6 @@ func _get_movement():
 		decelleration =  5
 
 	if ray.onwall == false:
-		if can_move == true:
 			var right_action = Player_Identifier.Controls.right
 			var left_action = Player_Identifier.Controls.left
 

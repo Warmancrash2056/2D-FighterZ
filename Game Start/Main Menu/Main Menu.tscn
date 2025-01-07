@@ -178,16 +178,6 @@ offset_top = 0.0
 offset_right = 1160.0
 offset_bottom = 648.0
 
-[node name="Button2" type="Button" parent="."]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 992.0
-offset_right = 1152.0
-offset_bottom = 64.0
-theme_override_fonts/font = ExtResource("2_n77w0")
-text = "Setting "
-flat = true
-
 [connection signal="pressed" from="Local Play" to="." method="_on_local_play_pressed"]
 [connection signal="pressed" from="About Characters" to="." method="_on_about_characters_pressed"]
 [connection signal="pressed" from="Training Room" to="." method="_on_training_room_pressed"]

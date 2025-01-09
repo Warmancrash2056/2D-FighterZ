@@ -118,14 +118,15 @@ func _physics_process(delta: float) -> void:
 	_update_input_held_status() ## Necessary function to handle whether an input is held or not.
 	_process_direction()
 	_process_attack_input()
-	_process_block_input()
+	#_process_block_input()
 	_process_dash_input()
 	_process_jump_input()
 	clear_inputs()
-	_process_dual_direction()
-	_process_dual_combinations()
-	_process_single_size_inputs()
-	_process_immediate_action()
+	if Animator.state in [Idle, Running, Moving_Left, Moving_Right, Air]:
+		_process_dual_direction()
+		_process_dual_combinations()
+		_process_single_size_inputs()
+		_process_immediate_action()
 	if Hurtbox.goku_neautral_havy == true:
 		var Goku_Positioner: Vector2 = CharacterList.goku_neutral_heavy_grab_position
 		global_position.x= move_toward(global_position.x, Goku_Positioner.x, 150)
@@ -187,7 +188,6 @@ func _get_movement():
 		decelleration =  5
 
 	if ray.onwall == false:
-		if can_move == true:
 			var right_action = Player_Identifier.Controls.right
 			var left_action = Player_Identifier.Controls.left
 
@@ -246,22 +246,21 @@ func _update_input_held_status():
 # Check wheter on of the direction keys are pressed or held. and add it to the buffer.
 func _process_direction():
 	# Get the action from which the player pressed and see if player is either still holding or pressed and released.
-	if can_direct == true:
-		var current_time = Time.get_ticks_msec() / 1000.0
-		var direction = ["left", "right", "up", "down"]
-		for dir in direction:
-			var action = Player_Identifier.Controls[dir]
+	var current_time = Time.get_ticks_msec() / 1000.0
+	var direction = ["left", "right", "up", "down"]
+	for dir in direction:
+		var action = Player_Identifier.Controls[dir]
 
-			if Input.is_action_pressed(action):
-				var is_held = input_states.get(action, false)
+		if Input.is_action_pressed(action):
+			var is_held = input_states.get(action, false)
 
-				add_to_buffer({
-					"type": "direction",
-					"value": dir,
-					"onground": ray.onground == true,
-					"facing": movement_dir.x,
-					"timestamp": Time.get_ticks_msec(),
-					"held": is_held
+			add_to_buffer({
+				"type": "direction",
+				"value": dir,
+				"onground": ray.onground == true,
+				"facing": movement_dir.x,
+				"timestamp": Time.get_ticks_msec(),
+				"held": is_held
 				})
 func enable_direction():
 	can_direct = true
@@ -271,7 +270,7 @@ func disable_direction():
 
 func _process_jump_input():
 	if !Animator.state in [Wall, Hurt, Forward_Step, Backward_Step, Moving_Left, Turning_Left, Moving_Right, Turning_Right, Dash]:
-			if can_jump == true and Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
+			if Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
 				add_to_buffer({"type": "move", "value": "jump", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 				linear_velocity.y = -Player_Stats.Jump_Height
 				JumpCloud.emit()
@@ -279,13 +278,6 @@ func _process_jump_input():
 				# Await 400ms so the jump can clear
 				# await get_tree().create_timer(0.4).timeout
 				previouslyjumped = true
-
-func enable_jump():
-	can_jump = true
-
-func disable_jump():
-	can_jump = false
-
 
 func _process_dash_input():
 	if can_dash == true and can_attack == true:
@@ -301,10 +293,14 @@ func disable_dash():
 
 
 func _process_block_input():
-	if can_block == true and can_attack == true:
-		if Input.is_action_just_pressed(Player_Identifier.Controls.block):
-			add_to_buffer({"type": "move", "value": "block", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
-			IsBlocking.emit()
+	#if can_block == true and can_attack == true:
+		#if Input.is_action_just_pressed(Player_Identifier.Controls.block):
+			#add_to_buffer({"type": "move", "value": "block", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+			#IsBlocking.emit()
+	var block = ["block"]
+	for def in block:
+		var action = Player_Identifier.Controls[block]
+
 
 func enable_block():
 	can_block = true
@@ -313,31 +309,30 @@ func disable_block():
 	can_block = false
 
 func _process_attack_input():
-		if can_attack == true:
-			var attack = ["light", "heavy", "throw"]
-			for atk in attack:
-				var action = Player_Identifier.Controls[atk]
-				var is_pressed = Input.is_action_pressed(action)
-				var is_just_preessed = Input.is_action_just_pressed(action)
-				var is_released = Input.is_action_just_released(action)
+	var attack = ["light", "heavy", "throw"]
+	for atk in attack:
+		var action = Player_Identifier.Controls[atk]
+		var is_pressed = Input.is_action_pressed(action)
+		var is_just_preessed = Input.is_action_just_pressed(action)
+		var is_released = Input.is_action_just_released(action)
 
-				# Set is_held status based on the action pressed.
-				var is_held = is_pressed
-				if 	is_just_preessed:
-					is_held = true
+			# Set is_held status based on the action pressed.
+		var is_held = is_pressed
+		if is_just_preessed:
+			is_held = true
 
 
 				# Add the input to the buffer. This will be used to determine the action the player will take. \
 				#Based on the input if pressed or release nad held.
 
-				if is_just_preessed:
-					add_to_buffer({
-						"type": "attack",
-						"value": atk,
-						"onground": ray.onground == true,
-						"facing": movement_dir.x,
-						"timestamp": Time.get_ticks_msec(),
-						"held": false
+		if is_just_preessed:
+			add_to_buffer({
+				"type": "attack",
+				"value": atk,
+				"onground": ray.onground == true,
+				"facing": movement_dir.x,
+				"timestamp": Time.get_ticks_msec(),
+				"held": false
 					})
 
 func enable_attack():

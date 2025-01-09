@@ -5753,7 +5753,8 @@ size = Vector2(66, 34)
 
 [node name="Galvin Road" type="Node2D"]
 script = ExtResource("1_cxki7")
-camera_zoom_level = 2.3
+debug_mode = true
+camera_zoom_level = 3.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -5885,11 +5886,11 @@ polygon = PackedVector2Array(-280, 376, -304, 376, -305, 344, -319, 344, -319, 3
 [node name="Local Camera" parent="." instance=ExtResource("9_m0frr")]
 texture_repeat = 2
 position = Vector2(-8, -152)
-zoom = Vector2(2.2, 2.2)
+zoom = Vector2(2, 2)
 limit_left = -424
 limit_top = -168
 limit_right = 424
-limit_bottom = 312
+limit_bottom = 201
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true

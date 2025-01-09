@@ -18,6 +18,8 @@ var stun_time: float
 var damage_taken: int
 var is_hurt = false
 
+var x_knockback: int
+var y_knockback: int
 
 var goku_neautral_havy
 var goku_neautral_heavy_positioner: bool = false
@@ -77,7 +79,8 @@ enum {
 	Respawn
 }
 func _physics_process(delta: float) -> void:
-	pass
+	print(Stun_Timer.is_stopped())
+
 func _on_area_entered(area: Area2D) -> void:
 	Animator.state = Hurt
 	var damage_done:int = area.Damage
@@ -178,8 +181,8 @@ func _on_stun_time_timeout() -> void:
 	knockback_vector = Vector2.ZERO
 	Character.physics_material_override.bounce = 0
 	Character.physics_material_override.friction = 1.0
-	Character.linear_velocity.x = move_toward(Character.linear_velocity.x, 0, 50)
-	Character.linear_velocity.y = move_toward(Character.linear_velocity.y, 0, 20)
+	x_knockback = 0
+	y_knockback = 0
 
 
 
@@ -228,7 +231,8 @@ func _on_calculate_constant_force(Constant: Vector2, Direction: bool) -> void:
 	else:
 		Constant.x
 
-	Character.linear_velocity = Constant
+	Character.linear_velocity.x = Constant.x
+	Character.linear_velocity.y = Constant.y
 
 
 func _on_calculate_variable_force(Variable: Vector2, Direction: bool) -> void:
@@ -241,5 +245,6 @@ func _on_calculate_variable_force(Variable: Vector2, Direction: bool) -> void:
 	var knockback_x: float = Variable.x / defense_rating
 	var knockback_y: float = Variable.y / defense_rating
 	var _vector = Vector2(knockback_x * knockback_multiplier,knockback_y * knockback_multiplier)
-	Character.linear_velocity = _vector
+	Character.linear_velocity.x= _vector.x
+	Character.linear_velocity.y = _vector.y
 	print(_vector, 'Variable force calculated')

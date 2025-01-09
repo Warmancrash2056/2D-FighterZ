@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=122 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -38,8 +38,6 @@
 [ext_resource type="PackedScene" uid="uid://2pjd3qes2s7u" path="res://Character Resouces/Global/Cloud Resources/Knockback Cloud/Air Knockback/Air Knockback Cloud.tscn" id="39_q7fls"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/block_hurtbox.gd" id="40_0gelp"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/floor_effect_hitbox.gd" id="43_tj1e8"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rf1xj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tetah"]
 radius = 8.06226
@@ -7721,6 +7719,14 @@ tracks/46/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_4lqq8"]
+resource_name = "Initial Air Jump"
+step = 0.1
+
+[sub_resource type="Animation" id="Animation_a17lm"]
+resource_name = "Initial Ground Jump"
+step = 0.1
+
 [sub_resource type="Animation" id="Animation_f73an"]
 resource_name = "Jump"
 length = 0.300003
@@ -12490,36 +12496,19 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"enable_vertical_attack_movement"
-}, {
-"args": [],
-"method": &"disable_vertical_attack_movement"
-}]
-}
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../Animator")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 1.3),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
 "method": &"start_attack_movment"
 }, {
 "args": [],
 "method": &"stop_attack_movment"
 }]
 }
-tracks/9/type = "method"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../Recovery Timer/Movement Cooldown")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Recovery Timer/Movement Cooldown")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(1.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -12527,101 +12516,115 @@ tracks/9/keys = {
 "method": &"start"
 }]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Hurtbox/Hurtbox:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../Hurtbox/Hurtbox:visible")
+tracks/10/path = NodePath("../Hurtbox/Hurtbox:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [0.0]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Hurtbox/Hurtbox:rotation")
+tracks/11/path = NodePath("../Hurtbox/Hurtbox:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(0, 1)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Hurtbox/Hurtbox:position")
+tracks/12/path = NodePath("../Hurtbox/Hurtbox:debug_color")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 1)]
+"values": [Color(0.67451, 0.505882, 0, 0.419608)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Hurtbox/Hurtbox:debug_color")
+tracks/13/path = NodePath("../Hurtbox/Hurtbox:disabled")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.67451, 0.505882, 0, 0.419608)]
+"values": [false]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Hurtbox/Hurtbox:disabled")
+tracks/14/path = NodePath("../Hurtbox/Hurtbox:shape:height")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
+"values": [32.0]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../Hurtbox/Hurtbox:shape:height")
+tracks/15/path = NodePath("../Hurtbox/Hurtbox:shape:radius")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [32.0]
+"values": [8.0]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../Hurtbox/Hurtbox:shape:radius")
+tracks/16/path = NodePath("../Hurtbox/Hurtbox:shape")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [8.0]
+"values": [SubResource("CapsuleShape2D_qamvs")]
 }
-tracks/17/type = "value"
+tracks/17/type = "method"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../Hurtbox/Hurtbox:shape")
+tracks/17/path = NodePath("../Recovery Timer")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [SubResource("CapsuleShape2D_qamvs")]
+"values": [{
+"args": [0.0],
+"method": &"calculate_recovery"
+}]
 }
 tracks/18/type = "method"
 tracks/18/imported = false
@@ -12630,20 +12633,6 @@ tracks/18/path = NodePath("../Recovery Timer")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [0.0],
-"method": &"calculate_recovery"
-}]
-}
-tracks/19/type = "method"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("../Recovery Timer")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
 "times": PackedFloat32Array(1.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -12651,39 +12640,39 @@ tracks/19/keys = {
 "method": &"start"
 }]
 }
-tracks/20/type = "method"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("../Animator")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
-"times": PackedFloat32Array(0),
+tracks/19/type = "method"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../Animator")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"_stop_player_movement"
 }]
 }
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("../Animator:speed_scale")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../Animator:speed_scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
 }
-tracks/22/type = "method"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("../Animator")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/keys = {
+tracks/21/type = "method"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../Animator")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -12691,121 +12680,121 @@ tracks/22/keys = {
 "method": &"_on_is_attacking"
 }]
 }
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath(".:offset")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath(".:offset")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/24/type = "value"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:shape")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/keys = {
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:shape")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
 "times": PackedFloat32Array(0, 0.7, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [null, SubResource("CapsuleShape2D_i4cnc"), null]
 }
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:shape:radius")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8.02094]
+}
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:shape:radius")
+tracks/25/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:shape:height")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8.02094]
+"values": [44.4066]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:shape:height")
+tracks/26/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:disabled")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(0.7),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [44.4066]
+"values": [true, false, true]
 }
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:disabled")
+tracks/27/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:debug_color")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
 "times": PackedFloat32Array(0, 0.7, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false, true]
+"values": [Color(0, 0.6, 0.7, 0.42), Color(1, 0, 0, 0.419608), Color(0, 0.6, 0.7, 0.42)]
 }
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:debug_color")
+tracks/28/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:visible")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
 "times": PackedFloat32Array(0, 0.7, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Color(0, 0.6, 0.7, 0.42), Color(1, 0, 0, 0.419608), Color(0, 0.6, 0.7, 0.42)]
+"values": [false, true, false]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:visible")
+tracks/29/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:position")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
 "times": PackedFloat32Array(0, 0.7, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [Vector2(0, 0), Vector2(42, -1), Vector2(0, 0)]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:position")
+tracks/30/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:rotation")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
 "times": PackedFloat32Array(0, 0.7, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(42, -1), Vector2(0, 0)]
+"values": [0.0, 0.620428, 0.0]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:rotation")
+tracks/31/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:one_way_collision")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
-"times": PackedFloat32Array(0, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0.0, 0.620428, 0.0]
-}
-tracks/32/type = "value"
-tracks/32/imported = false
-tracks/32/enabled = true
-tracks/32/path = NodePath("%Side Heavy Pillar/Side Heavy - 1:one_way_collision")
-tracks/32/interp = 1
-tracks/32/loop_wrap = true
-tracks/32/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -13612,10 +13601,10 @@ tracks/22/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"enable_vertical_attack_movement"
+"method": &"start_attack_movment"
 }, {
 "args": [],
-"method": &"disable_vertical_attack_movement"
+"method": &"stop_attack_movment"
 }]
 }
 tracks/23/type = "method"
@@ -13625,14 +13614,11 @@ tracks/23/path = NodePath("../Animator")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"start_attack_movment"
-}, {
-"args": [],
-"method": &"stop_attack_movment"
+"method": &"_stop_player_movement"
 }]
 }
 tracks/24/type = "method"
@@ -13646,7 +13632,7 @@ tracks/24/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"_stop_player_movement"
+"method": &"_on_is_attacking"
 }]
 }
 tracks/25/type = "method"
@@ -13656,20 +13642,6 @@ tracks/25/path = NodePath("../Animator")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_on_is_attacking"
-}]
-}
-tracks/26/type = "method"
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/path = NodePath("../Animator")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -13677,85 +13649,85 @@ tracks/26/keys = {
 "method": &"_side_light_transition"
 }]
 }
-tracks/27/type = "value"
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/path = NodePath("%Transitional Check/Transitional Check:shape")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/keys = {
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("%Transitional Check/Transitional Check:shape")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [SubResource("CircleShape2D_drh4y")]
 }
-tracks/28/type = "value"
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/path = NodePath("%Transitional Check/Transitional Check:shape:radius")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/keys = {
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("%Transitional Check/Transitional Check:shape:radius")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [4.27]
 }
-tracks/29/type = "value"
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/path = NodePath("%Transitional Check/Transitional Check:disabled")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/keys = {
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("%Transitional Check/Transitional Check:disabled")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
 }
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("%Transitional Check/Transitional Check:debug_color")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.533333, 0.141176, 0.419608)]
+}
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("%Transitional Check/Transitional Check:debug_color")
+tracks/30/path = NodePath("%Transitional Check/Transitional Check:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0.533333, 0.141176, 0.419608)]
+"values": [Vector2(23.5, -6)]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("%Transitional Check/Transitional Check:position")
+tracks/31/path = NodePath("%Transitional Check/Transitional Check:rotation")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(23.5, -6)]
+"values": [1.5708]
 }
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("%Transitional Check/Transitional Check:rotation")
+tracks/32/path = NodePath("%Transitional Check/Transitional Check:visible")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5708]
-}
-tracks/33/type = "value"
-tracks/33/imported = false
-tracks/33/enabled = true
-tracks/33/path = NodePath("%Transitional Check/Transitional Check:visible")
-tracks/33/interp = 1
-tracks/33/loop_wrap = true
-tracks/33/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
@@ -13767,6 +13739,10 @@ resource_name = "Side Recovery - Finish -"
 
 [sub_resource type="Animation" id="Animation_whr6d"]
 resource_name = "Side Recovery - Start -"
+
+[sub_resource type="Animation" id="Animation_dlcs8"]
+resource_name = "Spike Stun"
+step = 0.1
 
 [sub_resource type="Animation" id="Animation_8y8ej"]
 resource_name = "Turning Left"
@@ -13985,6 +13961,8 @@ _data = {
 "Ground Projectile - Held Release -": SubResource("Animation_a7wr2"),
 "Ground Projectile - Start - Tap -": SubResource("Animation_yv4d3"),
 "Idle": SubResource("Animation_c7e8a"),
+"Initial Air Jump": SubResource("Animation_4lqq8"),
+"Initial Ground Jump": SubResource("Animation_a17lm"),
 "Jump": SubResource("Animation_f73an"),
 "Landing": SubResource("Animation_7mqja"),
 "Moving Left": SubResource("Animation_saycc"),
@@ -14012,6 +13990,7 @@ _data = {
 "Side Light -Start - Tap -": SubResource("Animation_t2w0d"),
 "Side Recovery - Finish -": SubResource("Animation_5ok2h"),
 "Side Recovery - Start -": SubResource("Animation_whr6d"),
+"Spike Stun": SubResource("Animation_dlcs8"),
 "Turning Left": SubResource("Animation_8y8ej"),
 "Turning Right": SubResource("Animation_0ipgu"),
 "Wall": SubResource("Animation_kgf6n")
@@ -14036,7 +14015,6 @@ metadata/_edit_vertical_guides_ = [-145.0]
 [node name="Controller" type="RigidBody2D" parent="."]
 collision_layer = 256
 collision_mask = 15
-physics_material_override = SubResource("PhysicsMaterial_rf1xj")
 can_sleep = false
 lock_rotation = true
 contact_monitor = true
@@ -14061,8 +14039,10 @@ Sprite = NodePath("../../Sprite")
 Recovery_Frames = 300
 
 [node name="Positioner" type="CollisionShape2D" parent="Controller/Scale Player/Attack Positioner"]
+visible = false
 position = Vector2(32, -25)
 shape = SubResource("CircleShape2D_tetah")
+disabled = true
 debug_color = Color(0, 0, 0, 0.419608)
 script = ExtResource("5_6k13g")
 
@@ -14095,7 +14075,7 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 Recovery_Frames = 450
 Damage = 12.0
-Constant_Force = Vector2(80, -200)
+Constant_Force = Vector2(22, -193)
 
 [node name="Nuetral Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light Quick Punch"]
 visible = false
@@ -14109,9 +14089,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 120
+Recovery_Frames = 200
 Damage = 20.0
-Variable_Force = Vector2(0, -127)
+Variable_Force = Vector2(0, -40)
 
 [node name="Neutral Air - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Air Upward Sweep"]
 visible = false
@@ -14129,9 +14109,11 @@ Damage = 60.0
 Variable_Force = Vector2(-90, 90)
 
 [node name="Neautral Heavy - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neatral Heavy Heavy Smash"]
+visible = false
 position = Vector2(-57, 8)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_q0ojs")
+disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Neutral Recovery Upper Cut" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
@@ -14157,9 +14139,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 300
+Recovery_Frames = 360
 Damage = 27.0
-Variable_Force = Vector2(0, -110)
+Variable_Force = Vector2(0, -50)
 
 [node name="Down Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Down Light Upward kick"]
 visible = false
@@ -14339,6 +14321,7 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Controller/Scale Player/Wall Cloud Position/Wall Detector"]
 z_index = 20
 shape = SubResource("SegmentShape2D_lvoev")
+disabled = true
 debug_color = Color(0.960784, 0, 0.517647, 0.419608)
 
 [node name="KnockBack Ground Slide" type="Marker2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Sprite")]
@@ -14364,10 +14347,9 @@ disabled = true
 z_index = 5
 position = Vector2(0, -40)
 texture = ExtResource("14_46ycp")
-offset = Vector2(0, 5)
 hframes = 10
 vframes = 25
-frame = 54
+frame = 175
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -14393,8 +14375,7 @@ Character = NodePath("..")
 Scaler = NodePath("../Scale Player")
 Sprite = NodePath("../Sprite")
 Ray = NodePath("../Raycast Controller")
-NRecovery = Vector2(0, -60)
-Slight = Vector2(5, 0)
+NRecovery = Vector2(0, -100)
 SAir = Vector2(20, 0)
 F_Step = Vector2(80, 0)
 B_Step = Vector2(-100, 0)
@@ -14425,12 +14406,12 @@ bus = &"SFX"
 
 [node name="Player Stats" type="Node" parent="Controller"]
 script = ExtResource("30_h56yx")
-Max_Speed = 10
+Max_Speed = 13
 Fast_Fall = 50
 Acceleration = 30
 Health = 1000.0
 Decelleration = 1
-Jump_Height = 150
+Jump_Height = 200
 Speed_Rating = 7
 Defense_Rating = 3
 Attack_Rating = 5
@@ -14522,48 +14503,93 @@ position = Vector2(10, 16)
 target_position = Vector2(0, 3)
 
 [node name="Wall 1" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(6, -11)
+position = Vector2(6, -14)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 2" type="RayCast2D" parent="Controller/Raycast Controller"]
 z_index = 6
-position = Vector2(6, -5)
+position = Vector2(6, -12)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 3" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(6, -2)
+position = Vector2(6, -10)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 4" type="RayCast2D" parent="Controller/Raycast Controller"]
 z_index = 7
-position = Vector2(6, 1)
+position = Vector2(6, -8)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 5" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(6, 4)
+position = Vector2(6, -6)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 6" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(6, 12)
+position = Vector2(6, -4)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 7" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(6, 15)
+position = Vector2(6, -2)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
+
+[node name="Wall 8" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(6, 0)
+target_position = Vector2(3, 0)
+collision_mask = 8
+
+[node name="Wall 9" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(6, 2)
+target_position = Vector2(3, 0)
+collision_mask = 8
+
+[node name="Wall 10" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(6, 4)
+target_position = Vector2(3, 0)
+collision_mask = 8
+
+[node name="Wall 11" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(6, 6)
+target_position = Vector2(3, 0)
+collision_mask = 8
+
+[node name="Wall 12" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(6, 8)
+target_position = Vector2(3, 0)
+collision_mask = 8
+
+[node name="Wall 13" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(6, 10)
+target_position = Vector2(3, 0)
+collision_mask = 8
+
+[node name="Wall 14" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(6, 12)
+target_position = Vector2(3, 0)
+collision_mask = 8
+
+[node name="Wall 15" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(6, 14)
+target_position = Vector2(3, 0)
+collision_mask = 8
+
+[node name="Wall 16" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(6, 16)
+target_position = Vector2(3, 0)
+collision_mask = 8
 
 [node name="Goku Animation" type="Node" parent="Controller" node_paths=PackedStringArray("Character", "Sprite", "Animator", "Hurtbox_Collider")]
 script = ExtResource("32_jc5kt")

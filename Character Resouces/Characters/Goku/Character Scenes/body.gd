@@ -13,7 +13,7 @@ func _process(delta):
 
 
 func _on_controller_facing_right():
-	position.x = 4
+	position.x = 2
 
 func _on_controller_facing_left():
-	position.x = -4
+	position.x = -2

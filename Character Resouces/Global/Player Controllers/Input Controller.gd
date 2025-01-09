@@ -140,7 +140,8 @@ func _physics_process(delta: float) -> void:
 
 	if Animator.state in [Respawn]:
 		gravity_scale = 0.0
-
+	elif Animator.state in [Hurt]:
+		gravity_scale = 0.5
 	else:
 		gravity_scale = 1.0
 
@@ -225,7 +226,7 @@ func _get_movement():
 func _update_input_held_status():
 	var current_time = Time.get_ticks_msec()
 	for input_action in input_buffer:
-		if input_action.type == "attack" or input_action.type == "direction":
+		if input_action.type in ["direction", "attack", "move"]:
 			var action = Player_Identifier.Controls[input_action.value]
 			if Input.is_action_pressed(action):
 				if not input_hold_times.has(action):
@@ -269,7 +270,7 @@ func disable_direction():
 	can_direct = false
 
 func _process_jump_input():
-	if !Animator.state in [Wall, Hurt, Forward_Step, Backward_Step, Moving_Left, Turning_Left, Moving_Right, Turning_Right, Dash]:
+	if Animator.state in [Idle, Running, Air]:
 			if Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
 				add_to_buffer({"type": "move", "value": "jump", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 				linear_velocity.y = -Player_Stats.Jump_Height
@@ -280,17 +281,26 @@ func _process_jump_input():
 				previouslyjumped = true
 
 func _process_dash_input():
-	if can_dash == true and can_attack == true:
-		if Input.is_action_just_pressed(Player_Identifier.Controls.dash):
-			add_to_buffer({"type": "move", "value": "dash", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
+	var dash_run = ["dash"]
+	for dash in dash_run:
+		var action = Player_Identifier.Controls[dash]
+		var is_pressed = Input.is_action_pressed(action)
+		var is_just_pressed = Input.is_action_just_pressed(action)
+		var is_released = Input.is_action_just_released(action)
 
+		var is_held = is_pressed
+		if is_just_pressed:
+			is_held = true
 
-func enable_dash():
-	can_dash = true
-
-func disable_dash():
-	can_dash = false
-
+		if is_just_pressed:
+			add_to_buffer({
+				"type": "move",
+				"value": dash,
+				"onground": ray.onground == true,
+				"facing": movement_dir.x,
+				"timestamp": Time.get_ticks_msec(),
+				"held": false
+			})
 
 func _process_block_input():
 	#if can_block == true and can_attack == true:

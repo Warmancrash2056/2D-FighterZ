@@ -140,8 +140,9 @@ func _physics_process(delta: float) -> void:
 
 	if Animator.state in [Respawn]:
 		gravity_scale = 0.0
-	elif Animator.state in [Hurt]:
-		gravity_scale = 0.5
+	elif Animator.state in [Hurt, Wall]:
+
+		gravity_scale = 0
 	else:
 		gravity_scale = 1.0
 
@@ -210,7 +211,7 @@ func _get_movement():
 			else:
 				movement_dir.x = 0
 
-			if Animator.state in [Idle, Running, Dash, Air]:
+			if Animator.state in [Idle, Running, Dash, Air] and can_move == true:
 				if movement_dir.x == 1 and Sprite.flip_h == false:
 					linear_velocity.x = move_toward(linear_velocity.x, new_speed, Player_Stats.Acceleration)
 
@@ -246,23 +247,24 @@ func _update_input_held_status():
 # These two process_input() and process_attack() unction will process the input from the player and add it to the buffer.
 # Check wheter on of the direction keys are pressed or held. and add it to the buffer.
 func _process_direction():
-	# Get the action from which the player pressed and see if player is either still holding or pressed and released.
-	var current_time = Time.get_ticks_msec() / 1000.0
-	var direction = ["left", "right", "up", "down"]
-	for dir in direction:
-		var action = Player_Identifier.Controls[dir]
+	if can_direct == true:
+		# Get the action from which the player pressed and see if player is either still holding or pressed and released.
+		var current_time = Time.get_ticks_msec() / 1000.0
+		var direction = ["left", "right", "up", "down"]
+		for dir in direction:
+			var action = Player_Identifier.Controls[dir]
 
-		if Input.is_action_pressed(action):
-			var is_held = input_states.get(action, false)
+			if Input.is_action_pressed(action):
+				var is_held = input_states.get(action, false)
 
-			add_to_buffer({
-				"type": "direction",
-				"value": dir,
-				"onground": ray.onground == true,
-				"facing": movement_dir.x,
-				"timestamp": Time.get_ticks_msec(),
-				"held": is_held
-				})
+				add_to_buffer({
+					"type": "direction",
+					"value": dir,
+					"onground": ray.onground == true,
+					"facing": movement_dir.x,
+					"timestamp": Time.get_ticks_msec(),
+					"held": is_held
+					})
 func enable_direction():
 	can_direct = true
 
@@ -270,7 +272,7 @@ func disable_direction():
 	can_direct = false
 
 func _process_jump_input():
-	if Animator.state in [Idle, Running, Air]:
+	if Animator.state in [Idle, Running, Air] and can_jump:
 			if Input.is_action_just_pressed(Player_Identifier.Controls.jump) and Player_Stats.Jump_Count > 0:
 				add_to_buffer({"type": "move", "value": "jump", "onground": ray.onground == true, "facing": 0 ,"timestamp": Time.get_ticks_msec()})
 				linear_velocity.y = -Player_Stats.Jump_Height
@@ -319,31 +321,32 @@ func disable_block():
 	can_block = false
 
 func _process_attack_input():
-	var attack = ["light", "heavy", "throw"]
-	for atk in attack:
-		var action = Player_Identifier.Controls[atk]
-		var is_pressed = Input.is_action_pressed(action)
-		var is_just_preessed = Input.is_action_just_pressed(action)
-		var is_released = Input.is_action_just_released(action)
+	if can_attack == true:
+		var attack = ["light", "heavy", "throw"]
+		for atk in attack:
+			var action = Player_Identifier.Controls[atk]
+			var is_pressed = Input.is_action_pressed(action)
+			var is_just_preessed = Input.is_action_just_pressed(action)
+			var is_released = Input.is_action_just_released(action)
 
-			# Set is_held status based on the action pressed.
-		var is_held = is_pressed
-		if is_just_preessed:
-			is_held = true
+				# Set is_held status based on the action pressed.
+			var is_held = is_pressed
+			if is_just_preessed:
+				is_held = true
 
 
-				# Add the input to the buffer. This will be used to determine the action the player will take. \
-				#Based on the input if pressed or release nad held.
+					# Add the input to the buffer. This will be used to determine the action the player will take. \
+					#Based on the input if pressed or release nad held.
 
-		if is_just_preessed:
-			add_to_buffer({
-				"type": "attack",
-				"value": atk,
-				"onground": ray.onground == true,
-				"facing": movement_dir.x,
-				"timestamp": Time.get_ticks_msec(),
-				"held": false
-					})
+			if is_just_preessed:
+				add_to_buffer({
+					"type": "attack",
+					"value": atk,
+					"onground": ray.onground == true,
+					"facing": movement_dir.x,
+					"timestamp": Time.get_ticks_msec(),
+					"held": false
+						})
 
 func enable_attack():
 	can_attack = true

@@ -14099,7 +14099,7 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 365
+Recovery_Frames = 120
 Damage = 12.0
 Constant_Force = Vector2(50, -150)
 
@@ -14165,9 +14165,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 400
+Recovery_Frames = 155
 Damage = 27.0
-Variable_Force = Vector2(0, -100)
+Variable_Force = Vector2(0, -50)
 
 [node name="Down Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Down Light Upward kick"]
 visible = false
@@ -14191,8 +14191,6 @@ Variable_Force = Vector2(30, 250)
 
 [node name="Down Air - 1" type="CollisionShape2D" parent="Controller/Scale Player/Down Air Axe Kick"]
 visible = false
-position = Vector2(17, -10)
-rotation = 1.5708
 disabled = true
 
 [node name="Down Heavy Pillar" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite") groups=["Variable Force"]]
@@ -14220,6 +14218,8 @@ Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
 
 [node name="Down Recovery - 1" type="CollisionShape2D" parent="Controller/Scale Player/Down Recovery - 1"]
+visible = false
+disabled = true
 
 [node name="Down Recovery - 2" type="Area2D" parent="Controller/Scale Player" node_paths=PackedStringArray("Animator", "Sprite")]
 unique_name_in_owner = true
@@ -14373,7 +14373,7 @@ position = Vector2(0, -40)
 texture = ExtResource("14_46ycp")
 hframes = 10
 vframes = 25
-frame = 188
+frame = 179
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -14439,7 +14439,8 @@ Jump_Height = 200
 Speed_Rating = 7
 Defense_Rating = 3
 Attack_Rating = 5
-Stamina_Rating = 10
+Stamina_Rating = 5
+Dexterit_Rating = 10
 
 [node name="Recovery Timer" type="Timer" parent="Controller" node_paths=PackedStringArray("Animator", "Player_Stats")]
 one_shot = true
@@ -14493,10 +14494,13 @@ shape = SubResource("CapsuleShape2D_qtdme")
 disabled = true
 debug_color = Color(0, 0.643513, 0.298632, 0.42)
 
-[node name="Raycast Controller" type="Node2D" parent="Controller" node_paths=PackedStringArray("Animator")]
+[node name="Raycast Controller" type="Node2D" parent="Controller" node_paths=PackedStringArray("Player_Stats", "Character", "Animator", "Sprite")]
 z_index = 6
 script = ExtResource("34_1u23v")
+Player_Stats = NodePath("../Player Stats")
+Character = NodePath("..")
 Animator = NodePath("../Animator")
+Sprite = NodePath("../Sprite")
 
 [node name="Floor 1" type="RayCast2D" parent="Controller/Raycast Controller"]
 position = Vector2(0, 16)
@@ -14527,93 +14531,102 @@ position = Vector2(10, 16)
 target_position = Vector2(0, 3)
 
 [node name="Wall 1" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, -14)
+position = Vector2(8, -14)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 2" type="RayCast2D" parent="Controller/Raycast Controller"]
 z_index = 6
-position = Vector2(10, -12)
+position = Vector2(8, -12)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 3" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, -10)
+position = Vector2(8, -10)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 4" type="RayCast2D" parent="Controller/Raycast Controller"]
 z_index = 7
-position = Vector2(10, -8)
+position = Vector2(8, -8)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 5" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, -6)
+position = Vector2(8, -6)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 6" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, -4)
+position = Vector2(8, -4)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 7" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, -2)
+position = Vector2(8, -2)
 target_position = Vector2(3, 0)
 collision_mask = 8
 hit_from_inside = true
 
 [node name="Wall 8" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, 0)
+position = Vector2(8, 0)
 target_position = Vector2(3, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="Wall 9" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, 2)
+position = Vector2(8, 2)
 target_position = Vector2(3, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="Wall 10" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, 4)
+position = Vector2(8, 4)
 target_position = Vector2(3, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="Wall 11" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, 6)
+position = Vector2(8, 6)
 target_position = Vector2(3, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="Wall 12" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, 8)
+position = Vector2(8, 8)
 target_position = Vector2(3, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="Wall 13" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, 10)
+position = Vector2(8, 10)
 target_position = Vector2(3, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="Wall 14" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, 12)
+position = Vector2(8, 12)
 target_position = Vector2(3, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="Wall 15" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, 14)
+position = Vector2(8, 14)
 target_position = Vector2(3, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="Wall 16" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, 16)
+position = Vector2(8, 16)
 target_position = Vector2(3, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="Goku Animation" type="Node" parent="Controller" node_paths=PackedStringArray("Character", "Sprite", "Animator", "Hurtbox_Collider")]
 script = ExtResource("32_jc5kt")
@@ -14625,7 +14638,7 @@ Hurtbox_Collider = NodePath("../Hurtbox/Hurtbox")
 [node name="Attack Instance" type="Node" parent="Controller"]
 
 [node name="body" type="CollisionShape2D" parent="Controller"]
-position = Vector2(2, 1)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_pqodo")
 script = ExtResource("34_qyabc")
 
@@ -14654,12 +14667,10 @@ Motion_Body = NodePath("../Controller")
 [connection signal="FacingLeft" from="Controller" to="Controller/Sprite" method="_on_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Hurtbox" method="_on_controller_facing_left"]
 [connection signal="FacingLeft" from="Controller" to="Controller/Raycast Controller" method="_on_controller_facing_left"]
-[connection signal="FacingLeft" from="Controller" to="Controller/body" method="_on_controller_facing_left"]
 [connection signal="FacingRight" from="Controller" to="Controller/Scale Player" method="_on_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Sprite" method="_on_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Hurtbox" method="_on_controller_facing_right"]
 [connection signal="FacingRight" from="Controller" to="Controller/Raycast Controller" method="_on_controller_facing_right"]
-[connection signal="FacingRight" from="Controller" to="Controller/body" method="_on_controller_facing_right"]
 [connection signal="JumpCloud" from="Controller" to="Controller/Jump Smoke" method="_on_controller_jump_cloud"]
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]

@@ -1,8 +1,9 @@
 extends Node2D
 
-@onready var player_stats = $'../Player Stats'
-@onready var character = $'..'
+@export var Player_Stats: Node
+@export var Character: RigidBody2D
 @export var Animator: AnimationPlayer
+@export var Sprite: Sprite2D
 @onready var Floor_1 = $'Floor 1'
 @onready var Floor_2 = $'Floor 2'
 @onready var Floor_3 = $'Floor 3'
@@ -150,21 +151,52 @@ func _process(delta: float) -> void:
 		Wall_5.enabled = false
 		Wall_6.enabled = false
 		Wall_7.enabled = false
+		Wall_8.enabled = false
+		Wall_9.enabled = false
+		Wall_10.enabled = false
+		Wall_11.enabled = false
+		Wall_12.enabled = false
+		Wall_13.enabled = false
+		Wall_14.enabled = false
+		Wall_15.enabled = false
+		Wall_16.enabled = false
 
+	else:
+		Wall_1.enabled = true
+		Wall_2.enabled = true
+		Wall_3.enabled = true
+		Wall_4.enabled = true
+		Wall_5.enabled = true
+		Wall_6.enabled = true
+		Wall_7.enabled = true
+		Wall_8.enabled = true
+		Wall_9.enabled = true
+		Wall_10.enabled = true
+		Wall_11.enabled = true
+		Wall_12.enabled = true
+		Wall_13.enabled = true
+		Wall_14.enabled = true
+		Wall_15.enabled = true
+		Wall_16.enabled = true
 
+	# Prevent player from clinging to the edge of the floor when coming back up to stage. Possible Solution
+	# Use the position of the player to move up a little bit to uncling from the edge of the floor.
+	if Animator.state in [Air]:
+		if Wall_16.is_colliding():
+			Character.position.y -= 3
 func _on_controller_facing_left() -> void:
 	scale.x = -1
 
 func _on_controller_facing_right() -> void:
 	scale.x = 1
 
-
+# Check if player has previously jumped and is on the ground
 func _on_animator_on_ground() -> void:
-	if character.previouslyjumped == true and onground == true:
-		player_stats.Jump_Count = 3
-		character.previouslyjumped = false
+	if Character.previouslyjumped == true and onground == true:
+		Player_Stats.Jump_Count = 3
+		Character.previouslyjumped = false
 
 
 func _on_animator_on_wall() -> void:
 	if onwall == true:
-		player_stats.Jump_Count = 3
+		Player_Stats.Jump_Count = 3

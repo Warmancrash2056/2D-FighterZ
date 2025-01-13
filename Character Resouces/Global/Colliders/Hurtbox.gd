@@ -78,8 +78,6 @@ enum {
 	Recover,
 	Respawn
 }
-func _physics_process(delta: float) -> void:
-	print(Stun_Timer.is_stopped())
 
 func _on_area_entered(area: Area2D) -> void:
 	Animator.state = Hurt

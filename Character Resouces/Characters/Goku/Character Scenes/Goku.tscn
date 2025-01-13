@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=121 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -30,9 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Characters/Goku/Icon/Goku.png" id="29_quw3q"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Stats.gd" id="30_h56yx"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Recovery Timer.gd" id="31_ikjgj"]
+[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/Raycast Controller.gd" id="32_8v3so"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/goku_animation.gd" id="32_jc5kt"]
-[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/node.gd" id="34_1u23v"]
-[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/body.gd" id="34_qyabc"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/air_knockback_cloud_positioner.gd" id="38_bu0px"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/goku collision_configurator.gd" id="38_m2x8l"]
 [ext_resource type="PackedScene" uid="uid://2pjd3qes2s7u" path="res://Character Resouces/Global/Cloud Resources/Knockback Cloud/Air Knockback/Air Knockback Cloud.tscn" id="39_q7fls"]
@@ -14099,9 +14098,9 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 120
+Recovery_Frames = 160
 Damage = 12.0
-Constant_Force = Vector2(50, -150)
+Constant_Force = Vector2(90, -96)
 
 [node name="Nuetral Light - 1" type="CollisionShape2D" parent="Controller/Scale Player/Neutral Light Quick Punch"]
 visible = false
@@ -14115,7 +14114,7 @@ collision_mask = 0
 script = ExtResource("4_1ntk6")
 Animator = NodePath("../../Animator")
 Sprite = NodePath("../../Sprite")
-Recovery_Frames = 290
+Recovery_Frames = 30
 Damage = 20.0
 Variable_Force = Vector2(0, -80)
 
@@ -14418,6 +14417,7 @@ Jump_Sound = NodePath("../Character Jump Sound")
 
 [node name="Character Jump Sound" parent="Controller" instance=ExtResource("23_7xqv3")]
 visible = false
+stream = null
 bus = &"SFX"
 
 [node name="Side Light First Punch" type="AudioStreamPlayer2D" parent="Controller"]
@@ -14439,7 +14439,7 @@ Jump_Height = 200
 Speed_Rating = 7
 Defense_Rating = 3
 Attack_Rating = 5
-Stamina_Rating = 5
+Stamina_Rating = 2
 Dexterit_Rating = 10
 
 [node name="Recovery Timer" type="Timer" parent="Controller" node_paths=PackedStringArray("Animator", "Player_Stats")]
@@ -14496,7 +14496,7 @@ debug_color = Color(0, 0.643513, 0.298632, 0.42)
 
 [node name="Raycast Controller" type="Node2D" parent="Controller" node_paths=PackedStringArray("Player_Stats", "Character", "Animator", "Sprite")]
 z_index = 6
-script = ExtResource("34_1u23v")
+script = ExtResource("32_8v3so")
 Player_Stats = NodePath("../Player Stats")
 Character = NodePath("..")
 Animator = NodePath("../Animator")
@@ -14640,7 +14640,6 @@ Hurtbox_Collider = NodePath("../Hurtbox/Hurtbox")
 [node name="body" type="CollisionShape2D" parent="Controller"]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_pqodo")
-script = ExtResource("34_qyabc")
 
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)

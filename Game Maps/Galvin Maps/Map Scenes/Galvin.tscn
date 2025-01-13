@@ -5745,11 +5745,11 @@ texture = ExtResource("2_uq8es")
 [sub_resource type="TileSet" id="TileSet_tqbgv"]
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qhqn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue1i3"]
 size = Vector2(29, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3aagx"]
-size = Vector2(66, 34)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qhqn"]
+size = Vector2(29, 24)
 
 [node name="Galvin Road" type="Node2D"]
 script = ExtResource("1_cxki7")
@@ -5920,32 +5920,59 @@ unique_name_in_owner = true
 position = Vector2(104, -17)
 script = ExtResource("11_g8d6d")
 
-[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("Collider")]
-position = Vector2(144, -32)
+[node name="Respawn Area - 1" type="Area2D" parent="." node_paths=PackedStringArray("Collider", "Reset_Timer")]
+position = Vector2(112, -40)
 collision_layer = 0
 collision_mask = 256
 script = ExtResource("12_1usis")
 Collider = NodePath("CollisionShape2D")
+Reset_Timer = NodePath("Timer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Respawn Area - 1"]
+shape = SubResource("RectangleShape2D_ue1i3")
+
+[node name="Timer" type="Timer" parent="Respawn Area - 1"]
+one_shot = true
+
+[node name="Respawn Area - 2" type="Area2D" parent="." node_paths=PackedStringArray("Collider", "Reset_Timer")]
+position = Vector2(-111, -40)
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("12_1usis")
+Collider = NodePath("CollisionShape2D")
+Reset_Timer = NodePath("Timer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Respawn Area - 2"]
 shape = SubResource("RectangleShape2D_5qhqn")
 
-[node name="Area2D2" type="Area2D" parent="." node_paths=PackedStringArray("Collider")]
+[node name="Timer" type="Timer" parent="Respawn Area - 2"]
+one_shot = true
+
+[node name="Respawn Area - 3" type="Area2D" parent="." node_paths=PackedStringArray("Collider", "Reset_Timer")]
+position = Vector2(0, -40)
 collision_layer = 0
 collision_mask = 256
 script = ExtResource("12_1usis")
 Collider = NodePath("CollisionShape2D")
+Reset_Timer = NodePath("Timer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-88, 25)
-shape = SubResource("RectangleShape2D_3aagx")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Respawn Area - 3"]
+shape = SubResource("RectangleShape2D_5qhqn")
+
+[node name="Timer" type="Timer" parent="Respawn Area - 3"]
+one_shot = true
 
 [connection signal="Player1Knockout" from="." to="Player 1 Manager" method="_on_galvin_road_player_1_knockout"]
 [connection signal="Player2Knockout" from="." to="Player 2 Manager" method="_on_galvin_road_player_2_knockout"]
 [connection signal="body_entered" from="Knockout Area" to="." method="_on_knockout_area_body_entered"]
 [connection signal="body_exited" from="Knockout Area" to="." method="_on_knockout_area_body_exited"]
 [connection signal="timeout" from="Camera Updater" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Respawn Area - 1" to="Respawn Area - 1" method="_on_body_entered"]
+[connection signal="timeout" from="Respawn Area - 1/Timer" to="Respawn Area - 1" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Respawn Area - 2" to="Respawn Area - 2" method="_on_body_entered"]
+[connection signal="timeout" from="Respawn Area - 2/Timer" to="Respawn Area - 2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Respawn Area - 3" to="Respawn Area - 3" method="_on_body_entered"]
+[connection signal="timeout" from="Respawn Area - 3/Timer" to="Respawn Area - 3" method="_on_timer_timeout"]
 
 [editable path="Local Camera"]
 [editable path="Local Camera/CanvasLayer"]

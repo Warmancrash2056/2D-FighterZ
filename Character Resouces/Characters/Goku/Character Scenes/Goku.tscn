@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://c40ypkrmks8qe"]
+[gd_scene load_steps=121 format=3 uid="uid://c40ypkrmks8qe"]
 
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Player 1 Identifier.gd" id="1_4dnul"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Controllers/Input Controller.gd" id="2_u8pn8"]
@@ -30,9 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://cmmfha48flbf" path="res://Character Resouces/Characters/Goku/Icon/Goku.png" id="29_quw3q"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Player Stats.gd" id="30_h56yx"]
 [ext_resource type="Script" path="res://Character Resouces/Global/Recovery Timer.gd" id="31_ikjgj"]
+[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/Raycast Controller.gd" id="32_4jiba"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/goku_animation.gd" id="32_jc5kt"]
-[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/node.gd" id="34_1u23v"]
-[ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/body.gd" id="34_qyabc"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/air_knockback_cloud_positioner.gd" id="38_bu0px"]
 [ext_resource type="Script" path="res://Character Resouces/Characters/Goku/Character Scenes/goku collision_configurator.gd" id="38_m2x8l"]
 [ext_resource type="PackedScene" uid="uid://2pjd3qes2s7u" path="res://Character Resouces/Global/Cloud Resources/Knockback Cloud/Air Knockback/Air Knockback Cloud.tscn" id="39_q7fls"]
@@ -14038,7 +14037,7 @@ z_index = 30
 script = ExtResource("1_4dnul")
 metadata/_edit_vertical_guides_ = [-145.0]
 
-[node name="Controller" type="RigidBody2D" parent="."]
+[node name="Controller" type="RigidBody2D" parent="." node_paths=PackedStringArray("ray")]
 collision_layer = 256
 collision_mask = 15
 can_sleep = false
@@ -14047,6 +14046,7 @@ contact_monitor = true
 max_contacts_reported = 10
 linear_damp_mode = 1
 script = ExtResource("2_u8pn8")
+ray = NodePath("Raycast Controller")
 
 [node name="Scale Player" type="Node2D" parent="Controller"]
 z_index = 5
@@ -14440,7 +14440,7 @@ Speed_Rating = 7
 Defense_Rating = 3
 Attack_Rating = 5
 Stamina_Rating = 5
-Dexterit_Rating = 10
+Dexterity_Rating = 1
 
 [node name="Recovery Timer" type="Timer" parent="Controller" node_paths=PackedStringArray("Animator", "Player_Stats")]
 one_shot = true
@@ -14496,7 +14496,7 @@ debug_color = Color(0, 0.643513, 0.298632, 0.42)
 
 [node name="Raycast Controller" type="Node2D" parent="Controller" node_paths=PackedStringArray("Player_Stats", "Character", "Animator", "Sprite")]
 z_index = 6
-script = ExtResource("34_1u23v")
+script = ExtResource("32_4jiba")
 Player_Stats = NodePath("../Player Stats")
 Character = NodePath("..")
 Animator = NodePath("../Animator")
@@ -14640,7 +14640,6 @@ Hurtbox_Collider = NodePath("../Hurtbox/Hurtbox")
 [node name="body" type="CollisionShape2D" parent="Controller"]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_pqodo")
-script = ExtResource("34_qyabc")
 
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)

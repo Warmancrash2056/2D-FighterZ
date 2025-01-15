@@ -11,4 +11,4 @@ extends Node
 @export_range(1, 10, 1)var Defense_Rating: int ## Reduces the amount of variable Knockback but not constant
 @export_range(1, 10, 1) var Attack_Rating: int ## Increses the amount of knockack from attack.
 @export_range(1, 10, 1) var Stamina_Rating: int ## Affects the stun time of the player when hurt.
-@export_range(1, 10, 1) var Dexterit_Rating: int ## Affects the recovery time of attacks back to idle state.
+@export_range(1, 10, 1) var Dexterity_Rating: int ## Affects the recovery time of attacks back to idle state.

@@ -16,7 +16,7 @@ var Controls: Resource
 @onready var Floor_Detector: RayCast2D = $'Floor Detector'
 @onready var Floor_Detector2: RayCast2D = $'Floor Detector2'
 
-@onready var ray = $"Raycast Controller"
+@export var ray: Node2D
 @onready var Hurtbox:Area2D = $Hurtbox
 @onready var Player_Identifier: Node2D = $'..'
 var direction = 1

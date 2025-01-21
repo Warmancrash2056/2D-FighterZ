@@ -35,11 +35,16 @@ var can_jump = true
 var can_dash = true
 var can_attack = true
 var can_block = true
-var previouslyjumped = false
+var previouslyjumped = false # Check if player has jumped before.
 
+# Input buffer to store the input from the player. checks to see isbeing held for a certain amount of time.
+# This will be used to determine the action the player will take. in attack, block, jump, and movement.
+var is_attack_held = false
+var is_direction_held = false
+var is_jump_held = false
+var is_dash_held = false
+var is_block_held = false
 
-enum {SurfaceGround, SurfaceWall, SurfaceAir}
-var surface_state = SurfaceAir
 
 enum {
 	Idle,
@@ -257,6 +262,7 @@ func _process_direction():
 			if Input.is_action_pressed(action):
 				var is_held = input_states.get(action, false)
 
+
 				add_to_buffer({
 					"type": "direction",
 					"value": dir,
@@ -412,11 +418,11 @@ func _process_dual_combinations():
 		var second_input = input_buffer[i + 1]
 		if first_input.type == "direction" and second_input.type == "attack":
 			if first_input.held == true and first_input.onground == true and first_input.value == "up" and second_input.held == false and second_input.onground == true and second_input.value == "light":
-				if Animator.state == Idle or Animator.state == Running:
+				if Animator.state in [Idle, Running, Moving_Left, Moving_Right]:
 					Animator.state = Neutral_Light
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "up" and second_input.held == false and second_input.onground == true and second_input.value == "heavy":
-				if Animator.state == Idle or Animator.state == Running:
+				if Animator.state in [Idle, Running, Moving_Left, Moving_Right]:
 					Animator.state = Neutral_Heavy
 
 			if first_input.held == true and first_input.onground == false and first_input.value == "up" and second_input.held == false and second_input.onground == false and second_input.value == "light":
@@ -428,11 +434,11 @@ func _process_dual_combinations():
 					Animator.state = Neutral_Recovery
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "down" and second_input.held == false and second_input.onground == true and second_input.value == "light":
-					if Animator.state == Idle or Animator.state == Running:
+					if Animator.state in [Idle, Running, Moving_Left, Moving_Right]:
 						Animator.state = Down_Light_Start_Tap
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "down" and second_input.held == false and second_input.onground == true and  second_input.value == "heavy":
-					if Animator.state == Idle or Animator.state == Running:
+					if Animator.state in [Idle, Running, Moving_Left, Moving_Right]:
 						Animator.state = Down_Heavy_Start_Tap
 
 			if first_input.held == true and first_input.onground == false and first_input.value == "down" and second_input.held == false and second_input.onground == false and second_input.value == "light":
@@ -444,11 +450,11 @@ func _process_dual_combinations():
 						Animator.state = Dowm_Recovery_Start_Tap
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "right" and second_input.held == false and second_input.onground == true and second_input.value == "light":
-					if Animator.state == Idle or Animator.state == Running:
+					if Animator.state in [Idle, Running, Moving_Left, Moving_Right]:
 						Animator.state = Side_Light_Start_Tap
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "right" and second_input.held == false and second_input.onground == true and second_input.value == "heavy":
-					if Animator.state == Idle or Animator.state == Running:
+					if Animator.state in [Idle, Running, Moving_Left, Moving_Right]:
 						Animator.state = Side_Heavy_Start_Tap
 
 			if first_input.held == true and first_input.onground == false and first_input.value == "right" and second_input.held == false and second_input.onground == false and second_input.value == "light":
@@ -457,12 +463,12 @@ func _process_dual_combinations():
 
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "left" and second_input.held == false and second_input.onground == true and second_input.value == "light":
-					if Animator.state == Idle or Animator.state == Running:
+					if Animator.state in [Idle, Running, Moving_Left, Moving_Right]:
 						Animator.state = Side_Light_Start_Tap
 
 
 			if first_input.held == true and first_input.onground == true and first_input.value == "left" and second_input.held == false and second_input.value == "heavy" and second_input.onground == true:
-					if Animator.state == Idle or Animator.state == Running:
+					if Animator.state in [Idle, Running, Moving_Left, Moving_Right]:
 						Animator.state = Side_Heavy_Start_Tap
 
 			if first_input.held == true and first_input.value == "left" and second_input.held == false and second_input.value == "light" and second_input.onground == false:
@@ -545,14 +551,14 @@ func _process_single_size_inputs() -> void:
 				if input_action.value == "light":
 					if is_direction_held == false:
 						if onground == true:
-							if Animator.state == Idle or Animator.state == Running:
+							if Animator.state in [Idle, Running, Moving_Left, Moving_Right]:
 								Animator.state = Neutral_Light
 						if onground == false:
 								Animator.state = Neutral_Air
 				if input_action.value == "heavy":
 					if is_direction_held == false:
 						if onground == true:
-							if Animator.state == Idle or Animator.state == Running:
+							if Animator.state in [Idle, Running, Moving_Left, Moving_Right]:
 								Animator.state = Neutral_Heavy
 
 						if onground == false:
@@ -624,4 +630,5 @@ func _on_recovery_timer_timeout() -> void:
 
 
 func _on_body_entered(body):
-	pass # Replace with function body.
+	if body.is_in_group("Floor") and Animator.state in [Air]:
+		position.x += 2

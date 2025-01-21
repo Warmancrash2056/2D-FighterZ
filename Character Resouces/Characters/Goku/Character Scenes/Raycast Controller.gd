@@ -29,6 +29,7 @@ extends Node2D
 @onready var Wall_15 = $'Wall 15'
 @onready var Wall_16 = $'Wall 16'
 
+enum {SurfaceGround, SurfaceWall, SurfaceAir}
 
 enum {
 	Idle,
@@ -184,6 +185,7 @@ func _process(delta: float) -> void:
 	if Animator.state in [Air]:
 		if Wall_16.is_colliding():
 			Character.position.y -= 3
+
 func _on_controller_facing_left() -> void:
 	scale.x = -1
 

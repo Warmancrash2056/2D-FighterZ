@@ -14025,9 +14025,8 @@ _data = {
 radius = 7.5
 height = 19.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pqodo"]
-radius = 8.0
-height = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14wow"]
+size = Vector2(16, 26)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vkij"]
 radius = 2.0
@@ -14042,6 +14041,7 @@ collision_layer = 256
 collision_mask = 15
 can_sleep = false
 lock_rotation = true
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 10
 linear_damp_mode = 1
@@ -14373,7 +14373,7 @@ position = Vector2(0, -40)
 texture = ExtResource("14_46ycp")
 hframes = 10
 vframes = 25
-frame = 179
+frame = 235
 script = ExtResource("14_3k6ql")
 
 [node name="Player Indicator" type="Sprite2D" parent="Controller"]
@@ -14503,32 +14503,39 @@ Animator = NodePath("../Animator")
 Sprite = NodePath("../Sprite")
 
 [node name="Floor 1" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(0, 16)
+position = Vector2(0, 15)
 target_position = Vector2(0, 3)
+hit_from_inside = true
 
 [node name="Floor 2" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(-4, 16)
+position = Vector2(-4, 15)
 target_position = Vector2(0, 3)
+hit_from_inside = true
 
 [node name="Floor 3" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(4, 16)
+position = Vector2(4, 15)
 target_position = Vector2(0, 3)
+hit_from_inside = true
 
 [node name="Floor 4" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(-7, 16)
+position = Vector2(-7, 15)
 target_position = Vector2(0, 3)
+hit_from_inside = true
 
 [node name="Floor 5" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(-10, 16)
+position = Vector2(-10, 15)
 target_position = Vector2(0, 3)
+hit_from_inside = true
 
 [node name="Floor 6" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(7, 16)
+position = Vector2(7, 15)
 target_position = Vector2(0, 3)
+hit_from_inside = true
 
 [node name="Floor 7" type="RayCast2D" parent="Controller/Raycast Controller"]
-position = Vector2(10, 16)
+position = Vector2(10, 15)
 target_position = Vector2(0, 3)
+hit_from_inside = true
 
 [node name="Wall 1" type="RayCast2D" parent="Controller/Raycast Controller"]
 position = Vector2(8, -14)
@@ -14638,8 +14645,8 @@ Hurtbox_Collider = NodePath("../Hurtbox/Hurtbox")
 [node name="Attack Instance" type="Node" parent="Controller"]
 
 [node name="body" type="CollisionShape2D" parent="Controller"]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_pqodo")
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_14wow")
 
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)

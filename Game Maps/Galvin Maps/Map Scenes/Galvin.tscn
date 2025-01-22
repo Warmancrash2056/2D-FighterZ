@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dqeqj7mxki7ar"]
+[gd_scene load_steps=21 format=3 uid="uid://dqeqj7mxki7ar"]
 
 [ext_resource type="Script" path="res://Game Maps/Galvin Maps/Script/Galvin.gd" id="1_cxki7"]
 [ext_resource type="Texture2D" uid="uid://cy1x6qx0fet3i" path="res://Game Maps/Galvin Maps/Galvin Assets/mainlevbuildA.png" id="2_uq8es"]
@@ -5745,10 +5745,6 @@ texture = ExtResource("2_uq8es")
 [sub_resource type="TileSet" id="TileSet_tqbgv"]
 sources/0 = SubResource("TileSetAtlasSource_q2a6p")
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ux7r8"]
-a = Vector2(-7.62939e-06, -189)
-b = Vector2(7.62939e-06, 165)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ue1i3"]
 size = Vector2(29, 24)
 
@@ -5845,10 +5841,8 @@ z_index = 5
 position = Vector2(0, 40)
 collision_mask = 256
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Galvin Floor"]
-position = Vector2(0, 7)
-rotation = 1.5708
-shape = SubResource("SegmentShape2D_ux7r8")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Floor"]
+polygon = PackedVector2Array(-160, 7, -160, 7, 184, 7, 184, 7)
 
 [node name="Galvin Left Wall" type="StaticBody2D" parent="." groups=["Wall"]]
 z_index = 5
@@ -5856,11 +5850,17 @@ position = Vector2(0, 40)
 collision_layer = 8
 collision_mask = 0
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Left Wall"]
+polygon = PackedVector2Array(-160, 8, -145, 8, -144, 192, -160, 192)
+
 [node name="Galvin Right Wall" type="StaticBody2D" parent="." groups=["Wall"]]
 z_index = 5
 position = Vector2(0, 40)
 collision_layer = 8
 collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Galvin Right Wall"]
+polygon = PackedVector2Array(168, 8, 184, 8, 184, 192, 168, 192)
 
 [node name="Galvin Stage Body" type="StaticBody2D" parent="."]
 position = Vector2(0, 40)

@@ -14025,8 +14025,8 @@ _data = {
 radius = 7.5
 height = 19.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_14wow"]
-size = Vector2(16, 26)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jq5l"]
+size = Vector2(16, 24.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vkij"]
 radius = 2.0
@@ -14645,8 +14645,8 @@ Hurtbox_Collider = NodePath("../Hurtbox/Hurtbox")
 [node name="Attack Instance" type="Node" parent="Controller"]
 
 [node name="body" type="CollisionShape2D" parent="Controller"]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_14wow")
+position = Vector2(0, 4.75)
+shape = SubResource("RectangleShape2D_4jq5l")
 
 [node name="Player Icon" type="Node2D" parent="."]
 scale = Vector2(2, 2)

@@ -14626,13 +14626,25 @@ hit_from_inside = true
 [node name="Wall 15" type="RayCast2D" parent="Controller/Raycast Controller"]
 position = Vector2(8, 14)
 target_position = Vector2(3, 0)
-collision_mask = 8
+collision_mask = 32776
 hit_from_inside = true
 
 [node name="Wall 16" type="RayCast2D" parent="Controller/Raycast Controller"]
 position = Vector2(8, 16)
 target_position = Vector2(3, 0)
-collision_mask = 8
+collision_mask = 32776
+hit_from_inside = true
+
+[node name="Ledge Detector - 1" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(8, 14)
+target_position = Vector2(3, 0)
+collision_mask = 32776
+hit_from_inside = true
+
+[node name="Ledge Detector - 2" type="RayCast2D" parent="Controller/Raycast Controller"]
+position = Vector2(8, 16)
+target_position = Vector2(3, 0)
+collision_mask = 32776
 hit_from_inside = true
 
 [node name="Goku Animation" type="Node" parent="Controller" node_paths=PackedStringArray("Character", "Sprite", "Animator", "Hurtbox_Collider")]
@@ -14681,8 +14693,8 @@ Motion_Body = NodePath("../Controller")
 [connection signal="body_entered" from="Controller" to="Controller" method="_on_body_entered"]
 [connection signal="body_exited" from="Controller" to="Controller" method="_on_body_exited"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_attack_connected"]
-[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_connected"]
+[connection signal="AttackConnected" from="Controller/Scale Player/Attack Positioner" to="Controller/Recovery Timer" method="_on_attack_positioner_attack_connected"]
 [connection signal="area_entered" from="Controller/Scale Player/Attack Positioner" to="Controller/Scale Player/Attack Positioner" method="_on_area_entered"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Scale Player/Transitional Check" method="_on_attack_connected"]
 [connection signal="AttackConnected" from="Controller/Scale Player/Transitional Check" to="Controller/Recovery Timer" method="_on_attack_connected"]
